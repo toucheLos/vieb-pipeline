@@ -1,0 +1,152 @@
+{
+  "digest": "198eb14ff258c7f6",
+  "dirs": {
+    "exbias_segments": {
+      "listing_sha256": "061d056840c6ed78d6b24759e1ea4b2eb00f2c6250ff8c25255f2de09d382e18",
+      "n_files": 3846,
+      "note": "listing_sha256 covers (basename, size) for every file; sampled_sha256 is a real content hash of a seeded sample. Neither is a full content hash -- see spine.__doc__",
+      "path": "segments_v2",
+      "repo": "exbias",
+      "sample_seed": 0,
+      "sampled_sha256": {
+        "20241114_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9002.npz": "697c7115b7e087f381a579f728bda449ccab4850ddb4527f7f1c0f1cfb8f8ea3",
+        "20241120_Box_1_CFD_Day_5_(Context_A)_9013.npz": "f12c953518d77160c51cd582437893083f5eb4102f3390fae3375cccae2bceca",
+        "20241218_Box_1_CFD_Day_4_(Context_B)_9023.npz": "29ce6a2ad74fbdb9fe854dc457b3f4060d8bf92ab61fadfde0c51042e65abc8e",
+        "20250328_Box_1_CFD_Day_7_(Context_B)_771H.npz": "988c1e440ce7f4d9f5cc0e1eb7830ab220b6d563662468a1bcc9a1f63d70ce4f",
+        "20250404_Box_1_CFD_Day_7_(Context_B)_572.npz": "85d4c49df08c61e232ae16ec2b90df26fccf9c363e615b3c660fa7c7229d2aff",
+        "20250715_Box_1_CFD_Day_3_(Context_A)_9056.npz": "6417690ea19478e7abb806b66a93cf76b13cee7b34afb45653fafdb19dcdc807",
+        "20251107_Box_1_CFD_Day_7_(Context_A)_960.npz": "cf3fe5d885fedf5a6be8a5f38e2c610bf458e8804050bbb3efaccd2447139ab0",
+        "20260415_Box_1_CFD_Day_5_(Context_B)_772H.npz": "c990e5c28ff689ddc1362824262a77ee7c978934823165235ae7313b6702aa0a"
+      },
+      "total_bytes": 101800680
+    },
+    "recur_swap": {
+      "listing_sha256": "dfb8620d33d77e81aa3d39d154a22e1d4e58416a14c4cf9794a58046fedb14a7",
+      "n_files": 3846,
+      "note": "listing_sha256 covers (basename, size) for every file; sampled_sha256 is a real content hash of a seeded sample. Neither is a full content hash -- see spine.__doc__",
+      "path": "work/swap",
+      "repo": "recur",
+      "sample_seed": 0,
+      "sampled_sha256": {
+        "20241114_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9002.npz": "3f2e411f76de79ff82b4b1312c5417956a8963b93fdba5174d9ebcc76772491d",
+        "20241120_Box_1_CFD_Day_5_(Context_A)_9013.npz": "1ac7daf41ca46a327228c5130c27a157ed18a4f3ca6b2ad265c6fe4fc2f89bf8",
+        "20241218_Box_1_CFD_Day_4_(Context_B)_9023.npz": "95f096806ecff184c87e6de5c41a215d8442daabdeaffdc0bb9ed51aa94fdf37",
+        "20250328_Box_1_CFD_Day_7_(Context_B)_771H.npz": "3c65fe49bc2982ef0f9a65e72cff57716ff97de2a7b24ff01e27b78923b99fab",
+        "20250404_Box_1_CFD_Day_7_(Context_B)_572.npz": "ce27ad5baf292b8eb7f7df10c424f32f7093027cd29d14ba0b8c06bcd52f2692",
+        "20250715_Box_1_CFD_Day_3_(Context_A)_9056.npz": "13ed7268e2475efa79a3ae5743ff9d3718ba746c6c352561fb2003ddf462b8df",
+        "20251107_Box_1_CFD_Day_7_(Context_A)_960.npz": "b626d1d64a11c760a946e677a6de8d8d5be3b689e5f5b189c9a7133eb87f223c",
+        "20260415_Box_1_CFD_Day_5_(Context_B)_772H.npz": "334aee7f5f1e9e9a6db339a0118cc927b5e75715fc269bd37c0bbf252964b513"
+      },
+      "total_bytes": 143402220
+    },
+    "sf_clean": {
+      "listing_sha256": "1bbd89b230cd65d49668ac93540fc616de9240f3666686648342d8735b72b68b",
+      "n_files": 3846,
+      "note": "listing_sha256 covers (basename, size) for every file; sampled_sha256 is a real content hash of a seeded sample. Neither is a full content hash -- see spine.__doc__",
+      "path": "work/clean",
+      "repo": "shapeflow",
+      "sample_seed": 0,
+      "sampled_sha256": {
+        "20241114_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9002.npz": "7cf78162b4c0593aec7f5cbd7376d449a90d8ec35b9cd88871b72deaff1fdb33",
+        "20241120_Box_1_CFD_Day_5_(Context_A)_9013.npz": "14bf66de1441e7340f61b837dc5e1498e3d9955b466816d87707d33d1e8bf82b",
+        "20241218_Box_1_CFD_Day_4_(Context_B)_9023.npz": "c07dee69d27d7629f368e2e31e374dc36351f1fd2245e1cad198a2a25088c992",
+        "20250328_Box_1_CFD_Day_7_(Context_B)_771H.npz": "7417442a1f65c6af4968872a25a29fc3392eb879fe6ac74dffd878738d594ccb",
+        "20250404_Box_1_CFD_Day_7_(Context_B)_572.npz": "2edd06355dcde62f37067a77601313c03bca255a54de6544f3ed9a18518559bf",
+        "20250715_Box_1_CFD_Day_3_(Context_A)_9056.npz": "f240728854b6d262117333afd2385ef502655d0061844374c205d45da083d3f1",
+        "20251107_Box_1_CFD_Day_7_(Context_A)_960.npz": "844ca15c3f56032d028a4e60c8c9dd55271756fd5ebdfaef81582274e91a8114",
+        "20260415_Box_1_CFD_Day_5_(Context_B)_772H.npz": "32b45e7635b581ab1d57593285cfb39e8e179772ea81096228684d96ec63fca2"
+      },
+      "total_bytes": 3606977266
+    },
+    "sf_repr": {
+      "listing_sha256": "28f9bffe049dab5bed5e0b8d094d56cb03d667280d6e1672411cfdff68d1347d",
+      "n_files": 3846,
+      "note": "listing_sha256 covers (basename, size) for every file; sampled_sha256 is a real content hash of a seeded sample. Neither is a full content hash -- see spine.__doc__",
+      "path": "work/repr",
+      "repo": "shapeflow",
+      "sample_seed": 0,
+      "sampled_sha256": {
+        "20241114_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9002.npz": "2b7436d1065ce175b89d39fa5bed36c569b9d32eb52cade8c148a4da15a7aca1",
+        "20241120_Box_1_CFD_Day_5_(Context_A)_9013.npz": "e4fbbd8e1b8a85ca117581c6e933e0e1bd0cc4ca7a5ca6148fba00de9fb42bf3",
+        "20241218_Box_1_CFD_Day_4_(Context_B)_9023.npz": "95bf1d5e2b89be7a5b7cdaee427117d3f9e5d3106f48d45d4f5a3ff1fe171553",
+        "20250328_Box_1_CFD_Day_7_(Context_B)_771H.npz": "0d3ffb2078bc456585040777eaaa620693907b1e677f4a99e0572d12f315c8f1",
+        "20250404_Box_1_CFD_Day_7_(Context_B)_572.npz": "58b43bc270dc93d3e75c69de7ecf8a06ebb68c460a9c92e90955c93123b0d866",
+        "20250715_Box_1_CFD_Day_3_(Context_A)_9056.npz": "b9dd05dac386da528908934decae6e9f029642a0f5485b5bd757b25ebb38368f",
+        "20251107_Box_1_CFD_Day_7_(Context_A)_960.npz": "7a1105345734e0ac72741088786a86859f9ef43e755cee41b30306e863d41b9c",
+        "20260415_Box_1_CFD_Day_5_(Context_B)_772H.npz": "2bb294a92a903cd9d5f691f3c9075cddfa5a64b4c88bf175c9f55b30b71ffd26"
+      },
+      "total_bytes": 3125493583
+    }
+  },
+  "git_sha": {
+    "exbias": "unknown",
+    "recur": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "shapeflow": "5cf492ea17e71d1eecd1141c047d9186f228919c"
+  },
+  "json": {
+    "recur_bilateral_unreliable": {
+      "bytes": 889,
+      "path": "results/bilateral_unreliable.json",
+      "repo": "recur",
+      "sha256": "5430c929633f70d1ccab8662ffc667e620df3ff264b45fb1c4f1677a9b54d34e"
+    },
+    "recur_inherited": {
+      "bytes": 4507,
+      "path": "recur/results/inherited.json",
+      "repo": "recur",
+      "sha256": "1333d5b888788ea6ffd5b6f7d81841706a75fa390917346de4f1b349100307da"
+    },
+    "recur_swap": {
+      "bytes": 7585,
+      "path": "results/swap.json",
+      "repo": "recur",
+      "sha256": "dbdc90303538a30e8b3e1bd15ef6ca9a5f4ca84723cdd8a87c33bd0273225d22"
+    },
+    "sf_calibration": {
+      "bytes": 31621,
+      "path": "results/calibration.json",
+      "repo": "shapeflow",
+      "sha256": "d6d390ceb807582005dd05f7c81640616f3c1443a8c7fcef76e04f524db01956"
+    },
+    "sf_clean": {
+      "bytes": 12463,
+      "path": "results/clean.json",
+      "repo": "shapeflow",
+      "sha256": "23b135fc426ec7b00d1e1ab012c4f58a8ae8433aecdc8f129b0016eead9ead17"
+    },
+    "sf_clean_thresholds": {
+      "bytes": 55031,
+      "path": "results/clean_thresholds.json",
+      "repo": "shapeflow",
+      "sha256": "ac7d2b5d834a3c5c9de4d44fcced1aff277959702ec31e7f4e0db7406a9b533b"
+    },
+    "sf_gauge": {
+      "bytes": 7616,
+      "path": "results/gauge.json",
+      "repo": "shapeflow",
+      "sha256": "159db9b1f703e21e398537f1d49b964c8ba728ba9f983004a1b0e4d10d2710b6"
+    },
+    "sf_ingest": {
+      "bytes": 1931,
+      "path": "results/ingest.json",
+      "repo": "shapeflow",
+      "sha256": "cfd0effc9f625dde6d6db95cf9f46a3f453c196796a31464f542cb10ad7b1e94"
+    },
+    "sf_splits": {
+      "bytes": 5046,
+      "path": "results/splits.json",
+      "repo": "shapeflow",
+      "sha256": "22c507225be782da59153fae14196d77afeff95ee4a497a80ffec3899356f862"
+    }
+  },
+  "raw_pose": {
+    "bytes": 1878722984,
+    "path": "work/raw_pose.npz",
+    "repo": "shapeflow"
+  },
+  "roots": {
+    "exbias": "/home/tul26194/exbias",
+    "recur": "/home/tul26194/recur",
+    "shapeflow": "/home/tul26194/shapeflow"
+  }
+}

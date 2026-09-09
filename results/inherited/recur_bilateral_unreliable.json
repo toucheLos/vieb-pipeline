@@ -1,0 +1,21 @@
+{
+  "note": "Recordings inverted end to end against the corpus left/right convention. Not corrected: a whole-session mislabelling is a tracking artifact, and flipping it would be a guess where the median |sin| is low. Their sustained-inverted frames are barred from seeding motifs in Stage 4.",
+  "recordings": {
+    "20250324_Box_1_CFD_Day_3_(Context_B)_902": {
+      "ear_frac_sustained": 0.0,
+      "ear_inverted": 0,
+      "ear_median_abs_sine": 0.9917203296071737,
+      "hip_frac_sustained": 0.7131725417439703,
+      "hip_inverted": 1,
+      "hip_median_abs_sine": 0.9775329372522218
+    },
+    "20250407_Box_2_CFD_Day_3_(Context_A)_845": {
+      "ear_frac_sustained": 0.0,
+      "ear_inverted": 0,
+      "ear_median_abs_sine": 0.8780119099836059,
+      "hip_frac_sustained": 0.5444303395747382,
+      "hip_inverted": 1,
+      "hip_median_abs_sine": 0.30035090615017784
+    }
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [
+      "fps",
+      "n_frames",
+      "n_recordings"
+    ],
+    "observed": {
+      "fps": 30.0,
+      "n_frames": 22355989,
+      "n_recordings": 3846
+    }
+  },
+  "bilateral_unreliable": [
+    "20250324_Box_1_CFD_Day_3_(Context_B)_902",
+    "20250407_Box_2_CFD_Day_3_(Context_A)_845"
+  ],
+  "by_split": {
+    "fit": {
+      "max": 0.1971439169139466,
+      "mean": 0.004278874234125988,
+      "median": 0.0011107584893684545,
+      "min": 0.0,
+      "n": 1927,
+      "p1": 0.0,
+      "p10": 0.0,
+      "p25": 0.0,
+      "p75": 0.0044423290496588925,
+      "p90": 0.011964576438933148,
+      "p99": 0.037223572147666716,
+      "sd": 0.00916094736911255
+    },
+    "report": {
+      "max": 0.12963649851632048,
+      "mean": 0.004285991173802675,
+      "median": 0.0011107584893684545,
+      "min": 0.0,
+      "n": 1149,
+      "p1": 0.0,
+      "p10": 0.0,
+      "p25": 0.0,
+      "p75": 0.003709886848451122,
+      "p90": 0.010739156892176069,
+      "p99": 0.05019728726908842,
+      "sd": 0.010036050124926081
+    },
+    "tune": {
+      "max": 0.09161721068249258,
+      "mean": 0.005022102464418151,
+      "median": 0.0009520031793356476,
+      "min": 0.0,
+      "n": 770,
+      "p1": 0.0,
+      "p10": 0.0,
+      "p25": 0.0,
+      "p75": 0.004760204711271521,
+      "p90": 0.01320474777448072,
+      "p99": 0.05808954071986096,
+      "sd": 0.011039798268367327
+    }
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "540d8021972e1b52b0781328f766874a8cdad081-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": null,
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "fe62fec33da4485a",
+  "n_shards": 30,
+  "per_pair": {
+    "ear": {
+      "frac_ambiguous": {
+        "max": 0.5422848664688428,
+        "mean": 0.0030553900393913494,
+        "median": 0.0001854943424225561,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.001854943424225561,
+        "p90": 0.007974777448071216,
+        "p99": 0.03851962647987443,
+        "sd": 0.012866360748262112
+      },
+      "frac_sustained": {
+        "max": 0.30298535138142035,
+        "mean": 0.00376326217064355,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.0,
+        "p90": 0.007419773696902244,
+        "p99": 0.06950543420632663,
+        "sd": 0.015617849448178522
+      },
+      "frac_swapped": {
+        "max": 0.1151706231454006,
+        "mean": 0.00238721612738705,
+        "median": 0.00015870496746548166,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.001669449081803005,
+        "p90": 0.006306222812281377,
+        "p99": 0.031059681866725943,
+        "sd": 0.006488319134044626
+      },
+      "median_abs_sine": {
+        "max": 0.9998952680178264,
+        "mean": 0.9752128361411683,
+        "median": 0.9801045879153031,
+        "min": 0.11773227122030797,
+        "n": 3846,
+        "p1": 0.8849767802237191,
+        "p10": 0.9568480475840662,
+        "p25": 0.9712506372293239,
+        "p75": 0.9870720663402653,
+        "p90": 0.9922237285765534,
+        "p99": 0.9982844043029327,
+        "sd": 0.027418955800531702
+      },
+      "n_inverted_recordings": 0,
+      "n_sustained_runs": 3467,
+      "n_swap_runs": 19602
+    },
+    "hip": {
+      "frac_ambiguous": {
+        "max": 0.3663513262845483,
+        "mean": 0.005953132279126278,
+        "median": 0.0009274717121127806,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.004637358560563903,
+        "p90": 0.014649976945606488,
+        "p99": 0.07626894195843509,
+        "sd": 0.016490676430503552
+      },
+      "frac_sustained": {
+        "max": 0.7131725417439703,
+        "mean": 0.006745498027634948,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.002781899109792285,
+        "p90": 0.01353983133225119,
+        "p99": 0.11111895478886397,
+        "sd": 0.030185933808196626
+      },
+      "frac_swapped": {
+        "max": 0.10367210682492582,
+        "mean": 0.0021771249618965506,
+        "median": 0.0003709886848451122,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.0022278954630725423,
+        "p90": 0.006306222812281377,
+        "p99": 0.02052767223609652,
+        "sd": 0.004714249123867772
+      },
+      "median_abs_sine": {
+        "max": 0.9999674869383546,
+        "mean": 0.9868682402004711,
+        "median": 0.9931532384788297,
+        "min": 0.2781990285704735,
+        "n": 3846,
+        "p1": 0.8867962018485231,
+        "p10": 0.9752084150695794,
+        "p25": 0.9877141527319804,
+        "p75": 0.9958837567365738,
+        "p90": 0.9978524865693726,
+        "p99": 0.9995457222540727,
+        "sd": 0.02926905239217584
+      },
+      "n_inverted_recordings": 2,
+      "n_sustained_runs": 4263,
+      "n_swap_runs": 14806
+    }
+  },
+  "read": {
+    "degenerate": 0,
+    "detail": {
+      "frac_recordings_inverted": 0.0005200208008320333,
+      "frac_sustained_pooled": 0.008924289734237558,
+      "frac_swapped_max": 0.1971439169139466,
+      "frac_swapped_p50": 0.0011105822624147231,
+      "frac_swapped_p95": 0.021509363990357872,
+      "frac_swapped_pooled": 0.004429800677447224,
+      "inverted_recordings": [
+        "20250407_Box_2_CFD_Day_3_(Context_A)_845",
+        "20250324_Box_1_CFD_Day_3_(Context_B)_902"
+      ],
+      "limit_frac_recordings_inverted": 0.01,
+      "limit_frac_swapped_p95": 0.05,
+      "n_recordings": 3846,
+      "n_whole_recording_inverted": 2
+    },
+    "n_effective": 298,
+    "reason": "swaps affect 0.443% of frames (median recording 0.111%, p95 2.151%, max 19.71%), all short enough to relabel; a further 0.892% are sustained sign inversions left uncorrected because posture and sustained mistracking are not separable there. 2 recording(s) (0.05%) are inverted end to end and are NOT corrected -- they are named in `bilateral_unreliable` and their inverted frames are barred from seeding motifs, because a whole-session mislabelling is a tracking artifact and tracking artifacts are cross-animal by construction.",
+    "saturation": null,
+    "scored_object": {
+      "arm": "bilateral_swap",
+      "dataset": "luna",
+      "n_recordings": 3846,
+      "pairs": [
+        "ear",
+        "hip"
+      ],
+      "split": "all"
+    },
+    "verdict": "PASS"
+  },
+  "stage": "swap",
+  "thresholds": {
+    "chosen_on": "tune",
+    "max_run_s": 0.25,
+    "min_sine": 0.2,
+    "reference_sign": 1
+  },
+  "vs_bone_gate": {
+    "frac_any_swapped": 0.004298356024419229,
+    "frac_bone_flagged": 0.045559827391219415,
+    "frac_swap_and_bone": 0.0007026305121191467,
+    "frac_swap_not_bone": 0.003595725512300084,
+    "share_of_swaps_the_bone_gate_missed": 0.8365350594209838
+  }
+}

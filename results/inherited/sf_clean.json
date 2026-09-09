@@ -1,0 +1,454 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [
+      "fps",
+      "n_frames",
+      "n_kept_keypoints",
+      "n_recordings"
+    ],
+    "observed": {
+      "fps": 30.0,
+      "n_frames": 22355989,
+      "n_kept_keypoints": 7,
+      "n_recordings": 3846
+    }
+  },
+  "bands": [
+    {
+      "coherent_power": 2.130535904777317,
+      "fraction_of_total": 0.06698358664124755,
+      "hi_hz": 2.0,
+      "incoherent_power": 0.1914780254389958,
+      "lo_hz": 1.0,
+      "snr": 11.126790658576631
+    },
+    {
+      "coherent_power": 0.9179518103343418,
+      "fraction_of_total": 0.02886020577364881,
+      "hi_hz": 4.832960531486109,
+      "incoherent_power": 0.3396383915260456,
+      "lo_hz": 2.0,
+      "snr": 2.702732768842322
+    },
+    {
+      "coherent_power": 0.1003791904271344,
+      "fraction_of_total": 0.0031558999704616613,
+      "hi_hz": 7.0,
+      "incoherent_power": 0.11893694310289987,
+      "lo_hz": 4.832960531486109,
+      "snr": 0.8439698197076582
+    },
+    {
+      "coherent_power": 0.08647140295668823,
+      "fraction_of_total": 0.002718642149588627,
+      "hi_hz": 10.0,
+      "incoherent_power": 0.14769237144345004,
+      "lo_hz": 7.0,
+      "snr": 0.5854832047963783
+    },
+    {
+      "coherent_power": 0.10398580041262506,
+      "fraction_of_total": 0.0032692910059765276,
+      "hi_hz": 14.761904761904761,
+      "incoherent_power": 0.22027108292782727,
+      "lo_hz": 10.0,
+      "snr": 0.47208103319987965
+    }
+  ],
+  "calibration": {
+    "f_c_hz": 4.832960531486109,
+    "peaks_present": null,
+    "sigma_hat": null,
+    "sigma_hat_post": null
+  },
+  "coherent_power_above_f_c": {
+    "coherent_power_above_f_c": 0.3367811472870389,
+    "f_c_hz": 4.832960531486109,
+    "fraction_above_f_c": 0.01058832620837618,
+    "nyquist_hz": 14.761904761904761,
+    "total_coherent_power": 31.806835250374053
+  },
+  "confidence_gate_inactive_keypoints": [
+    "left_ear",
+    "right_ear",
+    "nose",
+    "center",
+    "left_hip",
+    "right_hip",
+    "tail_base"
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/shapeflow/venv/bin/python3",
+    "git_sha": "a29048b6ef44d976ab70b0707d62ce827003073d-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "fast_behavior": {
+    "degenerate": 0,
+    "detail": {
+      "bands": [
+        {
+          "coherent_power": 2.130535904777317,
+          "fraction_of_total": 0.06698358664124755,
+          "hi_hz": 2.0,
+          "incoherent_power": 0.1914780254389958,
+          "lo_hz": 1.0,
+          "snr": 11.126790658576631
+        },
+        {
+          "coherent_power": 0.9179518103343418,
+          "fraction_of_total": 0.02886020577364881,
+          "hi_hz": 4.832960531486109,
+          "incoherent_power": 0.3396383915260456,
+          "lo_hz": 2.0,
+          "snr": 2.702732768842322
+        },
+        {
+          "coherent_power": 0.1003791904271344,
+          "fraction_of_total": 0.0031558999704616613,
+          "hi_hz": 7.0,
+          "incoherent_power": 0.11893694310289987,
+          "lo_hz": 4.832960531486109,
+          "snr": 0.8439698197076582
+        },
+        {
+          "coherent_power": 0.08647140295668823,
+          "fraction_of_total": 0.002718642149588627,
+          "hi_hz": 10.0,
+          "incoherent_power": 0.14769237144345004,
+          "lo_hz": 7.0,
+          "snr": 0.5854832047963783
+        },
+        {
+          "coherent_power": 0.10398580041262506,
+          "fraction_of_total": 0.0032692910059765276,
+          "hi_hz": 14.761904761904761,
+          "incoherent_power": 0.22027108292782727,
+          "lo_hz": 10.0,
+          "snr": 0.47208103319987965
+        }
+      ],
+      "coherent_power_above_f_c": 0.3367811472870389,
+      "f_c_hz": 4.832960531486109,
+      "fraction_above_f_c": 0.01058832620837618,
+      "nyquist_hz": 14.761904761904761,
+      "total_coherent_power": 31.806835250374053
+    },
+    "reason": "1.059% of coherent movement power sits above f_c = 4.83 Hz, and no band up there clears its own noise, so coherent movement is confined to below the crossover and a hard cut there would delete little. Measured rather than assumed -- and note this says nothing about WHERE the cut should be: shrinkage is still preferred because it needs no cutoff at all, and the cutoff has already been wrong once by 26% (3.572 Hz against the correct 4.83), which would have deleted a band at SNR 1.33",
+    "scored_object": {
+      "arm": "coherent_power_above_f_c",
+      "dataset": "luna",
+      "f_c_hz": 4.832960531486109,
+      "fraction_above_f_c": 0.01058832620837618,
+      "n_recordings": 3846,
+      "split": "all"
+    },
+    "verdict": "FAIL"
+  },
+  "filter": {
+    "butterworth_arm_built": 1,
+    "butterworth_order": 4,
+    "comparison_arm": "butterworth",
+    "default": "wiener",
+    "f_c_hz": 4.832960531486109,
+    "no_cutoff": null,
+    "why": "Wiener shrinkage weights every frequency by the coherent/incoherent power ratio Stage 0 measured. It deletes nothing, is exactly zero-phase because the gain is real and non-negative, and needs no chosen cutoff -- so it transfers to the 250 fps rat corpus unedited. A hard low-pass at f_c would preserve the band where tracking error is LARGEST (the residual is correlated over 267 ms, putting its power at 1-4 Hz) and discard the band where it is smallest."
+  },
+  "gap_policy": {
+    "gap_length_frames": {
+      "max": 2528.0,
+      "mean": 4.015703482916598,
+      "median": 2.0,
+      "min": 1.0,
+      "n": 1775466,
+      "p1": 1.0,
+      "p10": 1.0,
+      "p25": 1.0,
+      "p75": 3.0,
+      "p90": 7.0,
+      "p99": 36.0,
+      "sd": 18.3226598019242
+    },
+    "max_gap_frames": 3,
+    "max_gap_s": 0.1,
+    "n_gaps": 1775466
+  },
+  "likelihood_threshold": {
+    "center": null,
+    "left_ear": null,
+    "left_hip": null,
+    "nose": null,
+    "right_ear": null,
+    "right_hip": null,
+    "tail_base": null
+  },
+  "masked_fraction": {
+    "bone_flagged": 0.047251709059640816,
+    "interpolated": 0.01340290055704229,
+    "low_confidence": 0.0,
+    "missing": 0.033848808502598526
+  },
+  "n_recordings": 3846,
+  "n_shards": 30,
+  "per_keypoint_low_confidence": {
+    "center": 0.0,
+    "left_ear": 0.0,
+    "left_hip": 0.0,
+    "nose": 0.0,
+    "right_ear": 0.0,
+    "right_hip": 0.0,
+    "tail_base": 0.0
+  },
+  "post_filter": {
+    "bands": [
+      {
+        "coherent_power": 1.6818190599816332,
+        "fraction_of_total": 0.06167248704051083,
+        "hi_hz": 2.0,
+        "incoherent_power": 0.10873737172481907,
+        "lo_hz": 1.0,
+        "snr": 15.466798887118602
+      },
+      {
+        "coherent_power": 0.42140899504396756,
+        "fraction_of_total": 0.015453113479334459,
+        "hi_hz": 4.832960531486109,
+        "incoherent_power": 0.09802357016318061,
+        "lo_hz": 2.0,
+        "snr": 4.299057811732879
+      },
+      {
+        "coherent_power": 0.011592545365393019,
+        "fraction_of_total": 0.0004250998938147024,
+        "hi_hz": 7.0,
+        "incoherent_power": 0.012099114470677923,
+        "lo_hz": 4.832960531486109,
+        "snr": 0.9581317205889266
+      },
+      {
+        "coherent_power": 0.00540080505538181,
+        "fraction_of_total": 0.0001980481061916361,
+        "hi_hz": 10.0,
+        "incoherent_power": 0.009030735464367268,
+        "lo_hz": 7.0,
+        "snr": 0.5980470889322206
+      },
+      {
+        "coherent_power": 0.0042493976995885,
+        "fraction_of_total": 0.000155825873777831,
+        "hi_hz": 14.761904761904761,
+        "incoherent_power": 0.009600541392501973,
+        "lo_hz": 10.0,
+        "snr": 0.44262063209344443
+      }
+    ],
+    "coherent_power_above_f_c": {
+      "coherent_power_above_f_c": 0.02418173583362125,
+      "f_c_hz": 4.832960531486109,
+      "fraction_above_f_c": 0.0008867468714692469,
+      "nyquist_hz": 14.761904761904761,
+      "total_coherent_power": 27.27016763369533
+    },
+    "f_c_hz": 5.715268151645061,
+    "frequency_hz": [
+      0.0,
+      0.47619047619047616,
+      0.9523809523809523,
+      1.4285714285714284,
+      1.9047619047619047,
+      2.380952380952381,
+      2.8571428571428568,
+      3.333333333333333,
+      3.8095238095238093,
+      4.285714285714286,
+      4.761904761904762,
+      5.238095238095238,
+      5.7142857142857135,
+      6.19047619047619,
+      6.666666666666666,
+      7.142857142857142,
+      7.619047619047619,
+      8.095238095238095,
+      8.571428571428571,
+      9.047619047619047,
+      9.523809523809524,
+      10.0,
+      10.476190476190476,
+      10.952380952380953,
+      11.428571428571427,
+      11.904761904761903,
+      12.38095238095238,
+      12.857142857142856,
+      13.333333333333332,
+      13.809523809523808,
+      14.285714285714285,
+      14.761904761904761
+    ],
+    "n_recordings": 3846,
+    "note": "Measured on the Wiener-filtered pose by the same cross-keypoint coherence method Stage 0 used, so pre and post are the same object measured twice. All downstream floors use sigma_hat_post.",
+    "psd_movement_pooled": [
+      32.719434626576856,
+      46.150711394592655,
+      25.84922597049677,
+      5.478602443737126,
+      1.5850376081857331,
+      0.6540480614732631,
+      0.30457540691405177,
+      0.14156478673906886,
+      0.06755143776495767,
+      0.03441244817235038,
+      0.01966155853054368,
+      0.013069932398785313,
+      0.009211133651638758,
+      0.006334313065051542,
+      0.004527864702484798,
+      0.0035295588406838198,
+      0.0026734631988721614,
+      0.0023162523556018457,
+      0.0021233139847416033,
+      0.001769002876608389,
+      0.0013897575602717807,
+      0.0013031792992929294,
+      0.001316616084383037,
+      0.0011642140183469422,
+      0.0009431278568496672,
+      0.0008913803894045459,
+      0.0008919647958068906,
+      0.0008777980882710431,
+      0.000920977936199237,
+      0.0008724982161350152,
+      0.0007871362681860205,
+      0.0008062517247639416
+    ],
+    "psd_noise_pooled": [
+      0.9750862850551842,
+      1.340286736444652,
+      0.7897580042542813,
+      0.29797776414778926,
+      0.1587191970964507,
+      0.09767246072523283,
+      0.062493200388088525,
+      0.04073142166981788,
+      0.027666991929813128,
+      0.018995502456182724,
+      0.014252301072321286,
+      0.012025311885302125,
+      0.009208509554332351,
+      0.007230859795432172,
+      0.005912230192016146,
+      0.005054975344548049,
+      0.0043274354947520025,
+      0.003997411591589687,
+      0.003743789074113567,
+      0.003144509074620348,
+      0.00244782313564326,
+      0.0024048801364712673,
+      0.0025578870288650523,
+      0.0022631775773685426,
+      0.001945971451434991,
+      0.002024785408935349,
+      0.002212032759186665,
+      0.0022649785596737674,
+      0.002273073444089585,
+      0.0023166867868776274,
+      0.002200207679173867,
+      0.0022223187814979306
+    ],
+    "sigma_hat_post_px": {
+      "center": 0.6015796700989405,
+      "left_ear": 1.198603117316457,
+      "left_hip": 1.108993864288017,
+      "nose": 2.106897396171256,
+      "right_ear": 1.268556547991434,
+      "right_hip": 1.1805595287854689,
+      "tail_base": 0.9585544580918598
+    }
+  },
+  "rigid_pairs": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "stage": "clean",
+  "tracking_quality": {
+    "degenerate": 0,
+    "detail": {
+      "n_recordings": 3846
+    },
+    "reason": "0.00% of keypoint-frames fall below their confidence threshold, 4.73% of frames are flagged by the bone-length gate, 1.34% are interpolated across gaps of at most 100 ms, and 3.38% are left missing rather than filled",
+    "scored_object": {
+      "arm": "tracking_quality",
+      "dataset": "luna",
+      "n_recordings": 3846
+    },
+    "verdict": "PASS"
+  }
+}

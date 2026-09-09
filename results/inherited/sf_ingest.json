@@ -1,0 +1,83 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "corpus": "luna",
+  "discovery": {
+    "all_keypoints_in_file": [
+      "left_ear",
+      "right_ear",
+      "nose",
+      "center",
+      "left_hip",
+      "right_hip",
+      "tail_base",
+      "tail_tip"
+    ],
+    "ambiguous_ids": [],
+    "dropped_keypoints": [
+      "tail_tip"
+    ],
+    "kept_keypoints": [
+      "left_ear",
+      "right_ear",
+      "nose",
+      "center",
+      "left_hip",
+      "right_hip",
+      "tail_base"
+    ],
+    "keypoint_mismatch_ids": [],
+    "max_recording_frames": 6321,
+    "median_recording_frames": 5402.0,
+    "min_recording_frames": 5381,
+    "n_ambiguous_ids": 0,
+    "n_duplicates_dropped": 1079,
+    "n_files_scanned": 4925,
+    "n_frames": 22355989,
+    "n_recordings": 3846,
+    "n_recordings_keypoint_mismatch": 0,
+    "n_recordings_loaded": 3846,
+    "root": "/home/tul26194/dlc-training/raw_videos"
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/shapeflow/venv/bin/python3",
+    "git_sha": "HEAD-dirty",
+    "node": "c11",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "51697"
+  },
+  "format_duplicates": {
+    "agree": 1,
+    "max_abs_conf_difference": 0.0,
+    "max_abs_pose_difference": 0.0,
+    "mismatched_ids": [],
+    "n_files_scanned": 4925,
+    "n_format_duplicate_pairs": 1079,
+    "n_pairs_checked": 20,
+    "n_recordings": 3846,
+    "n_shape_or_bodypart_mismatches": 0
+  },
+  "peak_rss_gb": 4.058528900146484,
+  "stage": "ingest"
+}

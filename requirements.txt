@@ -1,0 +1,26 @@
+# Pinned to the interpreter the cluster module provides: python/3.11.4.
+#
+# Identical to recur's and shapeflow's pins, deliberately: this repo consumes
+# float32 arrays those two produced, and a numeric library that differs between
+# the producer and the consumer of an array is a difference nobody would think
+# to look for.
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.5
+tables==3.11.1
+h5py==3.15.1
+scikit-learn==1.9.0
+torch==2.13.0
+pytest==9.1.1
+matplotlib==3.11.1
+opencv-python-headless==5.0.0.93  # frame READING only; it cannot write H.264 here
+cairosvg==2.9.0
+
+# `mypy --strict` over vieb/tok and vieb/qc (see mypy.ini for why the surface is
+# narrow). scipy-stubs is not optional -- without it the partial-correlation code
+# is an untyped import and strict mode refuses.
+mypy==1.19.0
+scipy-stubs==1.17.1.5
+
+# Phase B, the cleaning bakeoff. Called as a library, never vendored.
+# movement==0.14.0
