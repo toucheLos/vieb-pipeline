@@ -1,0 +1,37 @@
+{
+  "alignment": {
+    "degenerate": 0,
+    "detail": {
+      "mismatched": [],
+      "n_checked": 120,
+      "n_mismatched": 0
+    },
+    "n_effective": 3846,
+    "reason": "video frame count equals pose length on all 120 recordings checked, so a label index IS a video frame index and t = frame / fps is exact",
+    "saturation": null,
+    "scored_object": {
+      "arm": "compare",
+      "dataset": "luna",
+      "split": "all"
+    },
+    "verdict": "PASS"
+  },
+  "availability": {
+    "degenerate": 0,
+    "detail": {
+      "missing": [],
+      "n_total": 3846,
+      "n_with_video": 3846,
+      "n_without_video": 0
+    },
+    "n_effective": 3846,
+    "reason": "all 3,846 recordings have an mp4, so selection draws from the whole corpus and no animal is excluded by renderability",
+    "saturation": null,
+    "scored_object": {
+      "arm": "compare",
+      "dataset": "luna",
+      "split": "all"
+    },
+    "verdict": "PASS"
+  }
+}

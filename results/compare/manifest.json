@@ -1,0 +1,737 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a curated clip set, not a corpus statistic"
+  },
+  "clips": [
+    {
+      "a": 78,
+      "animal": "149",
+      "b": 113,
+      "bytes": 31911,
+      "duration_s": 1.17,
+      "file": "clips/worst_149_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.05714285714285714
+    },
+    {
+      "a": 193,
+      "animal": "149",
+      "b": 238,
+      "bytes": 46425,
+      "duration_s": 1.5,
+      "file": "clips/worst_149_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.2222222222222222
+    },
+    {
+      "a": 551,
+      "animal": "149",
+      "b": 731,
+      "bytes": 148833,
+      "duration_s": 6.0,
+      "file": "clips/worst_149_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.3388888888888889
+    },
+    {
+      "a": 77,
+      "animal": "577",
+      "b": 257,
+      "bytes": 184904,
+      "duration_s": 6.0,
+      "file": "clips/worst_577_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5555555555555556
+    },
+    {
+      "a": 716,
+      "animal": "577",
+      "b": 896,
+      "bytes": 163550,
+      "duration_s": 6.0,
+      "file": "clips/worst_577_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5611111111111111
+    },
+    {
+      "a": 1671,
+      "animal": "577",
+      "b": 1851,
+      "bytes": 124464,
+      "duration_s": 6.0,
+      "file": "clips/worst_577_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.6222222222222222
+    },
+    {
+      "a": 420,
+      "animal": "777",
+      "b": 600,
+      "bytes": 139542,
+      "duration_s": 6.0,
+      "file": "clips/worst_777_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.8222222222222222
+    },
+    {
+      "a": 1070,
+      "animal": "777",
+      "b": 1101,
+      "bytes": 23558,
+      "duration_s": 1.03,
+      "file": "clips/worst_777_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 1137,
+      "animal": "777",
+      "b": 1189,
+      "bytes": 21019,
+      "duration_s": 1.73,
+      "file": "clips/worst_777_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.40384615384615385
+    },
+    {
+      "a": 250,
+      "animal": "234",
+      "b": 430,
+      "bytes": 170207,
+      "duration_s": 6.0,
+      "file": "clips/worst_234_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.39444444444444443
+    },
+    {
+      "a": 971,
+      "animal": "234",
+      "b": 1151,
+      "bytes": 163459,
+      "duration_s": 6.0,
+      "file": "clips/worst_234_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.45555555555555555
+    },
+    {
+      "a": 1831,
+      "animal": "234",
+      "b": 2011,
+      "bytes": 121521,
+      "duration_s": 6.0,
+      "file": "clips/worst_234_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.75
+    },
+    {
+      "a": 1099,
+      "animal": "578",
+      "b": 1279,
+      "bytes": 136470,
+      "duration_s": 6.0,
+      "file": "clips/worst_578_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": 0.3163946587537092,
+      "violations_in_clip": 0.2111111111111111
+    },
+    {
+      "a": 2503,
+      "animal": "578",
+      "b": 2683,
+      "bytes": 152986,
+      "duration_s": 6.0,
+      "file": "clips/worst_578_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": 0.3163946587537092,
+      "violations_in_clip": 0.5111111111111111
+    },
+    {
+      "a": 2941,
+      "animal": "578",
+      "b": 3121,
+      "bytes": 148230,
+      "duration_s": 6.0,
+      "file": "clips/worst_578_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": 0.3163946587537092,
+      "violations_in_clip": 0.18888888888888888
+    },
+    {
+      "a": 74,
+      "animal": "9037",
+      "b": 108,
+      "bytes": 42330,
+      "duration_s": 1.13,
+      "file": "clips/worst_9037_00.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 171,
+      "animal": "9037",
+      "b": 216,
+      "bytes": 57928,
+      "duration_s": 1.5,
+      "file": "clips/worst_9037_01.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.28888888888888886
+    },
+    {
+      "a": 272,
+      "animal": "9037",
+      "b": 306,
+      "bytes": 35268,
+      "duration_s": 1.13,
+      "file": "clips/worst_9037_02.mp4",
+      "kind": "worst",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 1274,
+      "animal": "772",
+      "b": 1305,
+      "bytes": 29269,
+      "duration_s": 1.03,
+      "file": "clips/random_772_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250326_Box_2_CFD_Day_5_(Context_B)_772",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 78,
+      "animal": "9015",
+      "b": 206,
+      "bytes": 144545,
+      "duration_s": 4.27,
+      "file": "clips/random_9015_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20241113_Box_1_CFC_Day_0_(Context_A)_9015",
+      "violation_rate": null,
+      "violations_in_clip": 0.1953125
+    },
+    {
+      "a": 5421,
+      "animal": "899",
+      "b": 5478,
+      "bytes": 80221,
+      "duration_s": 1.9,
+      "file": "clips/random_899_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251029_Box_3_CFD_Day_5_(Context_A)_899",
+      "violation_rate": null,
+      "violations_in_clip": 0.03508771929824561
+    },
+    {
+      "a": 375,
+      "animal": "577",
+      "b": 416,
+      "bytes": 43069,
+      "duration_s": 1.37,
+      "file": "clips/random_577_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250326_Box_3_CFC_Day_0_(Context_A)_577",
+      "violation_rate": null,
+      "violations_in_clip": 0.24390243902439024
+    },
+    {
+      "a": 70,
+      "animal": "232",
+      "b": 123,
+      "bytes": 27162,
+      "duration_s": 1.77,
+      "file": "clips/random_232_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251231_Box_1_CFD_Day_5_(Context_B)_232",
+      "violation_rate": null,
+      "violations_in_clip": 0.39622641509433965
+    },
+    {
+      "a": 672,
+      "animal": "9063",
+      "b": 852,
+      "bytes": 96169,
+      "duration_s": 6.0,
+      "file": "clips/random_9063_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250711_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9063",
+      "violation_rate": null,
+      "violations_in_clip": 0.2777777777777778
+    },
+    {
+      "a": 23,
+      "animal": "9061",
+      "b": 173,
+      "bytes": 124888,
+      "duration_s": 5.0,
+      "file": "clips/random_9061_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250717_Box_1_CFD_Day_5_(Context_B)_9061",
+      "violation_rate": null,
+      "violations_in_clip": 0.14
+    },
+    {
+      "a": 205,
+      "animal": "610",
+      "b": 241,
+      "bytes": 39154,
+      "duration_s": 1.2,
+      "file": "clips/random_610_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_610",
+      "violation_rate": null,
+      "violations_in_clip": 0.1388888888888889
+    },
+    {
+      "a": 5396,
+      "animal": "308",
+      "b": 5436,
+      "bytes": 56624,
+      "duration_s": 1.33,
+      "file": "clips/random_308_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20241023_Box_1_CFD_Day_5_(Context_A)_308",
+      "violation_rate": null,
+      "violations_in_clip": 0.2
+    },
+    {
+      "a": 586,
+      "animal": "148",
+      "b": 643,
+      "bytes": 52027,
+      "duration_s": 1.9,
+      "file": "clips/random_148_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20251215_Box_2_CFD_Day_4_(Context_A)_148",
+      "violation_rate": null,
+      "violations_in_clip": 0.3508771929824561
+    },
+    {
+      "a": 1235,
+      "animal": "607",
+      "b": 1270,
+      "bytes": 20146,
+      "duration_s": 1.17,
+      "file": "clips/random_607_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20250313_Box_2_CFC_Day_1_(Context_A,_No_Shock)_607",
+      "violation_rate": null,
+      "violations_in_clip": 0.14285714285714285
+    },
+    {
+      "a": 128,
+      "animal": "799H",
+      "b": 166,
+      "bytes": 55576,
+      "duration_s": 1.27,
+      "file": "clips/random_799H_00.mp4",
+      "kind": "random",
+      "panes": [
+        "raw",
+        "wiener"
+      ],
+      "recording_id": "20260416_Box_3_CFD_Day_6_(Context_B)_799H",
+      "violation_rate": null,
+      "violations_in_clip": 0.07894736842105263
+    },
+    {
+      "a": 78,
+      "animal": "149",
+      "b": 113,
+      "bytes": 44818,
+      "duration_s": 1.17,
+      "file": "clips/bakeoff_149_00.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.05714285714285714
+    },
+    {
+      "a": 193,
+      "animal": "149",
+      "b": 238,
+      "bytes": 63983,
+      "duration_s": 1.5,
+      "file": "clips/bakeoff_149_01.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.2222222222222222
+    },
+    {
+      "a": 551,
+      "animal": "149",
+      "b": 731,
+      "bytes": 213093,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_149_02.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.3388888888888889
+    },
+    {
+      "a": 77,
+      "animal": "577",
+      "b": 257,
+      "bytes": 266568,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_577_00.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5555555555555556
+    },
+    {
+      "a": 716,
+      "animal": "577",
+      "b": 896,
+      "bytes": 231232,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_577_01.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5611111111111111
+    },
+    {
+      "a": 1671,
+      "animal": "577",
+      "b": 1851,
+      "bytes": 174084,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_577_02.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.6222222222222222
+    },
+    {
+      "a": 420,
+      "animal": "777",
+      "b": 600,
+      "bytes": 181400,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_777_00.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.8222222222222222
+    },
+    {
+      "a": 1070,
+      "animal": "777",
+      "b": 1101,
+      "bytes": 33029,
+      "duration_s": 1.03,
+      "file": "clips/bakeoff_777_01.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 1137,
+      "animal": "777",
+      "b": 1189,
+      "bytes": 28043,
+      "duration_s": 1.73,
+      "file": "clips/bakeoff_777_02.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.40384615384615385
+    },
+    {
+      "a": 250,
+      "animal": "234",
+      "b": 430,
+      "bytes": 250671,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_234_00.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.39444444444444443
+    },
+    {
+      "a": 971,
+      "animal": "234",
+      "b": 1151,
+      "bytes": 238367,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_234_01.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.45555555555555555
+    },
+    {
+      "a": 1831,
+      "animal": "234",
+      "b": 2011,
+      "bytes": 174934,
+      "duration_s": 6.0,
+      "file": "clips/bakeoff_234_02.mp4",
+      "kind": "bakeoff",
+      "panes": [
+        "raw",
+        "wiener",
+        "median 0.50s"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.75
+    }
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_clips": 42,
+  "note": "Left pane is the pose after the gap policy and before the filter; right pane is the filtered array every downstream stage consumes. Same frames, same crop box, same red outline on violating frames -- the only difference between panes is the skeleton.",
+  "seed": 0,
+  "sets": {
+    "bakeoff": 4,
+    "random": 12,
+    "worst": 6
+  },
+  "stage": "compare",
+  "total_bytes": 4581677
+}

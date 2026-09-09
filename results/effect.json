@@ -1,0 +1,833 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [
+      "fps",
+      "n_frames",
+      "n_recordings"
+    ],
+    "observed": {
+      "fps": 30.0,
+      "n_frames": 22355989,
+      "n_recordings": 3846
+    }
+  },
+  "baseline": "raw_pose.npz -- NOT pose_unfiltered, which is the gap policy's output and already carries its interpolants on ~1.34% of keypoint-frames",
+  "by_split": {
+    "fit": {
+      "max": 8.196783831829226,
+      "mean": 0.8267235088590349,
+      "median": 0.6350598567317219,
+      "min": 0.01722595724875578,
+      "n": 1927,
+      "p1": 0.07688428685361115,
+      "p10": 0.18970687515743975,
+      "p25": 0.33630804933390357,
+      "p75": 1.1926291351925702,
+      "p90": 1.7326221527621843,
+      "p99": 2.7721257695488575,
+      "sd": 0.6546694168973054
+    },
+    "report": {
+      "max": 6.364887428672597,
+      "mean": 0.8289131138469535,
+      "median": 0.6247213906815461,
+      "min": 0.019671869705553985,
+      "n": 1149,
+      "p1": 0.07865620478687338,
+      "p10": 0.19842676819270866,
+      "p25": 0.349815635800023,
+      "p75": 1.1354654817416359,
+      "p90": 1.7284653116810693,
+      "p99": 2.9503355390288344,
+      "sd": 0.6752428778074138
+    },
+    "tune": {
+      "max": 4.3575385046074135,
+      "mean": 0.8705636417656953,
+      "median": 0.6217012410208289,
+      "min": 0.025637460840726548,
+      "n": 770,
+      "p1": 0.06972058618150712,
+      "p10": 0.15864799437927157,
+      "p25": 0.3173919808497989,
+      "p75": 1.2022484255036867,
+      "p90": 1.9242565059289842,
+      "p99": 3.5466541242401983,
+      "sd": 0.7574448521552098
+    }
+  },
+  "corpus": "luna",
+  "ell_a": {
+    "max": 171.69591159865857,
+    "mean": 114.88546669465578,
+    "median": 113.72879429904388,
+    "min": 89.49188591592005,
+    "n": 3846,
+    "p1": 92.61165808274014,
+    "p10": 102.68138878897503,
+    "p25": 107.54186460165761,
+    "p75": 120.7674798021074,
+    "p90": 127.59030043351027,
+    "p99": 148.5972782583765,
+    "sd": 11.305231133118513
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "flag_mass": {
+    "bone_flagged": 0.047251709059640816,
+    "eps_violation": 0.04103516034399324,
+    "interpolated": 0.01340290055704229,
+    "missing": 0.033848808502598526
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "layers": {
+    "butterworth": {
+      "by_flag": {
+        "bone_flagged": {
+          "concentration": 6.816452202873657,
+          "concentration_on": "median",
+          "mean_inside": 11.658443284298198,
+          "mean_outside": 1.0463293347180243,
+          "median_inside": 2.9189525054336616,
+          "median_outside": 0.42822166407960716
+        },
+        "eps_violation": {
+          "concentration": 5.293311317328758,
+          "concentration_on": "median",
+          "mean_inside": 9.327896893483754,
+          "mean_outside": 1.3833393749181733,
+          "median_inside": 2.324869231475753,
+          "median_outside": 0.43920886040932616
+        },
+        "interpolated": {
+          "concentration": 1.2790420472265203,
+          "concentration_on": "median",
+          "mean_inside": 1.2180479406025138,
+          "mean_outside": 1.7497289063991155,
+          "median_inside": 0.5933845273066005,
+          "median_outside": 0.4639288666023903
+        },
+        "missing": {
+          "concentration": 17.80756612402039,
+          "concentration_on": "median",
+          "mean_inside": 20.613749346545745,
+          "mean_outside": 1.0355095134090575,
+          "median_inside": 7.546155195687913,
+          "median_outside": 0.42376117786860296
+        }
+      },
+      "by_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_px": 0.34589181901187654
+        },
+        {
+          "keypoint": "right_ear",
+          "median_px": 0.3757972068847275
+        },
+        {
+          "keypoint": "nose",
+          "median_px": 0.5919293551363871
+        },
+        {
+          "keypoint": "center",
+          "median_px": 0.32264263421356637
+        },
+        {
+          "keypoint": "left_hip",
+          "median_px": 0.42508506672289853
+        },
+        {
+          "keypoint": "right_hip",
+          "median_px": 0.4198852603966181
+        },
+        {
+          "keypoint": "tail_base",
+          "median_px": 0.24391341858756188
+        }
+      ],
+      "frac_moved_over": {
+        "0.01": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.9677547054721807,
+          "lo": 0.9587586751715582,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.9633078954496584
+        },
+        "0.1": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.7753449941756582,
+          "lo": 0.7446898942432788,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.7599826158440138
+        },
+        "0.5": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.43029265971302133,
+          "lo": 0.4006332578198977,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.41508546099213056
+        },
+        "1.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.2516378825480008,
+          "lo": 0.23023084950561998,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.24059529896632428
+        },
+        "20.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.014883080260163824,
+          "lo": 0.01189285072992031,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.013310591115938936
+        },
+        "5.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.04760547736730977,
+          "lo": 0.040182482213187695,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.043658087069452144
+        }
+      },
+      "kinematics": {
+        "speed": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.6020794186985292,
+            0.7093969029014955,
+            0.6824321471485906,
+            0.6847250175736523
+          ]
+        },
+        "turn": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.9222089895125691,
+            0.9111034490315117,
+            0.772871690126349,
+            0.712280066640003
+          ]
+        }
+      },
+      "max_px": {
+        "max": 677.5664354811627,
+        "mean": 175.65544693414301,
+        "median": 140.89884715398202,
+        "min": 1.5394474512686298,
+        "n": 3846,
+        "p1": 21.133194850519835,
+        "p10": 49.392282876618026,
+        "p25": 86.4624050346753,
+        "p75": 238.41918384975162,
+        "p90": 367.0137334484913,
+        "p99": 481.6342126319449,
+        "sd": 118.68293454809326
+      },
+      "median_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.004172061806471375,
+        "lo": 0.003769196039372994,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.003969953703409633
+      },
+      "median_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.4823561865057932,
+        "lo": 0.4327274263037028,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.4564378940414345
+      },
+      "p90_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 3.3283321135334236,
+        "lo": 2.7004959945317255,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 2.999606461360986
+      }
+    },
+    "gap_policy": {
+      "by_flag": {
+        "bone_flagged": {
+          "concentration": null,
+          "concentration_on": "mean",
+          "mean_inside": 6.806682520977607,
+          "mean_outside": 0.0,
+          "median_inside": 0.7962135102925022,
+          "median_outside": 0.0,
+          "n_inside": 1795,
+          "touches_only_flagged": 1
+        },
+        "eps_violation": {
+          "concentration": 4.275155960253574,
+          "concentration_on": "mean",
+          "mean_inside": 0.8528342985855265,
+          "mean_outside": 0.19948612553890127,
+          "median_inside": 0.007740485114386046,
+          "median_outside": 0.0,
+          "n_inside": 1574,
+          "touches_only_flagged": 0
+        },
+        "interpolated": {
+          "concentration": null,
+          "concentration_on": "mean",
+          "mean_inside": 14.201709731574173,
+          "mean_outside": 0.0,
+          "median_inside": 2.882288057572443,
+          "median_outside": 0.0,
+          "n_inside": 517,
+          "touches_only_flagged": 1
+        },
+        "missing": {
+          "concentration": 0.0,
+          "concentration_on": "mean",
+          "mean_inside": 0.0,
+          "mean_outside": 0.23534223461330528,
+          "median_inside": 0.0,
+          "median_outside": 0.0,
+          "n_inside": 1278,
+          "touches_only_flagged": 0
+        }
+      },
+      "by_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "right_ear",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "nose",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "center",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "left_hip",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "right_hip",
+          "median_px": 0.0
+        },
+        {
+          "keypoint": "tail_base",
+          "median_px": 0.0
+        }
+      ],
+      "frac_moved_over": {
+        "0.01": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.014020042137858534,
+          "lo": 0.01212722750330922,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.013013559811645998
+        },
+        "0.1": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.01379041076218698,
+          "lo": 0.011903397121164816,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.01279303724831856
+        },
+        "0.5": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.012100131267705417,
+          "lo": 0.01033346649631414,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.011163553789290454
+        },
+        "1.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.01010219478655559,
+          "lo": 0.00853482634420041,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.009259685562174349
+        },
+        "20.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.002653554064533357,
+          "lo": 0.002087304057993828,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.0023534569256970536
+        },
+        "5.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.004268777413642291,
+          "lo": 0.0034546884993682447,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.0038369520195620575
+        }
+      },
+      "kinematics": {
+        "speed": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.9956210555030229,
+            0.9663615722424239,
+            0.9089441673675674,
+            0.9447208547184979
+          ]
+        },
+        "turn": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.9994324508079911,
+            0.9943703003587897,
+            0.9671089138751685,
+            0.9677771367713541
+          ]
+        }
+      },
+      "max_px": {
+        "max": 655.0748230702462,
+        "mean": 182.7384057130886,
+        "median": 148.45059403403485,
+        "min": 0.0,
+        "n": 3846,
+        "p1": 0.0,
+        "p10": 60.271343974404004,
+        "p25": 106.30558663097769,
+        "p75": 247.86551999432487,
+        "p90": 373.1946068269148,
+        "p99": 477.97887175539495,
+        "sd": 117.36833821440568
+      },
+      "median_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.0
+      },
+      "median_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.0
+      },
+      "p90_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.022194452668116538,
+        "lo": 0.002941232239855394,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.010846732801993999
+      }
+    },
+    "wiener": {
+      "by_flag": {
+        "bone_flagged": {
+          "concentration": 4.992834153076076,
+          "concentration_on": "median",
+          "mean_inside": 12.63270779358207,
+          "mean_outside": 1.589457898991179,
+          "median_inside": 3.9192152345733984,
+          "median_outside": 0.7849680390763185
+        },
+        "eps_violation": {
+          "concentration": 3.9468987018292156,
+          "concentration_on": "median",
+          "mean_inside": 10.138406330524086,
+          "mean_outside": 1.927038915337118,
+          "median_inside": 3.1750592562488436,
+          "median_outside": 0.8044440701701673
+        },
+        "interpolated": {
+          "concentration": 1.7976324119349218,
+          "concentration_on": "median",
+          "mean_inside": 2.6443454481019497,
+          "mean_outside": 2.2835623344598233,
+          "median_inside": 1.5000355991975916,
+          "median_outside": 0.834450685934726
+        },
+        "missing": {
+          "concentration": 10.774877877050795,
+          "concentration_on": "median",
+          "mean_inside": 21.20342703433898,
+          "mean_outside": 1.5886364400536799,
+          "median_inside": 8.462146333524364,
+          "median_outside": 0.7853589089438988
+        }
+      },
+      "by_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_px": 0.5967925006552
+        },
+        {
+          "keypoint": "right_ear",
+          "median_px": 0.6756881565605856
+        },
+        {
+          "keypoint": "nose",
+          "median_px": 2.5775381452792114
+        },
+        {
+          "keypoint": "center",
+          "median_px": 0.15256441038388507
+        },
+        {
+          "keypoint": "left_hip",
+          "median_px": 0.5987757353526313
+        },
+        {
+          "keypoint": "right_hip",
+          "median_px": 0.6712821083934173
+        },
+        {
+          "keypoint": "tail_base",
+          "median_px": 0.7078854687476597
+        }
+      ],
+      "frac_moved_over": {
+        "0.01": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.9944116769267127,
+          "lo": 0.9925852701113653,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.9935137610904047
+        },
+        "0.1": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.87774124126322,
+          "lo": 0.8588926630253372,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.8684266535596218
+        },
+        "0.5": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.5789431308344734,
+          "lo": 0.5490985257418025,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.563423838813713
+        },
+        "1.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.4030943116831545,
+          "lo": 0.3759311353191164,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.38850692632871536
+        },
+        "20.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.014565041590036527,
+          "lo": 0.011680069268309185,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.013062667777428998
+        },
+        "5.0": {
+          "aggregator": "wmean",
+          "alpha": 0.05,
+          "hi": 0.08368395352742594,
+          "lo": 0.07401879253589148,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 298,
+          "n_boot": 2000,
+          "n_units": 3846,
+          "point": 0.07850031978966736
+        }
+      },
+      "kinematics": {
+        "speed": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.5900837553291933,
+            0.6680557637681914,
+            0.6442867277941637,
+            0.6337237015155459
+          ]
+        },
+        "turn": {
+          "quantiles": [
+            0.5,
+            0.9,
+            0.99,
+            0.999
+          ],
+          "ratio_q": [
+            0.7599724960577885,
+            0.8019535218779819,
+            0.6637156664241967,
+            0.6064889329924952
+          ]
+        }
+      },
+      "max_px": {
+        "max": 621.211810699227,
+        "mean": 169.5478606757956,
+        "median": 135.00767590332129,
+        "min": 1.261682321624902,
+        "n": 3846,
+        "p1": 20.234629128224302,
+        "p10": 48.433817729274,
+        "p25": 82.8372298780216,
+        "p75": 225.53250284142413,
+        "p90": 362.78251278016455,
+        "p99": 476.47423613187004,
+        "sd": 116.18384537857094
+      },
+      "median_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.007562708245038532,
+        "lo": 0.006887947959049779,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.007208338933794199
+      },
+      "median_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.8775703601219604,
+        "lo": 0.7911053193031324,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 0.8314975541215406
+      },
+      "p90_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 4.942072732520907,
+        "lo": 4.279165753402433,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 298,
+        "n_boot": 2000,
+        "n_units": 3846,
+        "point": 4.593818732786001
+      }
+    }
+  },
+  "n_animals": 298,
+  "peak_rss_gb": 0.7903366088867188,
+  "reads": {
+    "concentration_butterworth": {
+      "degenerate": 0,
+      "detail": {
+        "concentration": 6.816452202873657,
+        "concentration_on": "median",
+        "layer": "butterworth",
+        "mean_inside": 11.658443284298198,
+        "mean_outside": 1.0463293347180243,
+        "median_inside": 2.9189525054336616,
+        "median_outside": 0.42822166407960716,
+        "min_concentration": 2.0
+      },
+      "n_effective": 298,
+      "reason": "butterworth moves flagged frames 6.8x further than clean ones (median 2.919 px against 0.428 px), so it is targeting the frames it is nominally repairing rather than transforming the corpus",
+      "saturation": null,
+      "scored_object": {
+        "arm": "effect_butterworth",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "all"
+      },
+      "verdict": "PASS"
+    },
+    "concentration_gap_policy": {
+      "degenerate": 0,
+      "detail": {
+        "concentration": null,
+        "concentration_on": "mean",
+        "layer": "gap_policy",
+        "mean_inside": 6.806682520977607,
+        "mean_outside": 0.0,
+        "median_inside": 0.7962135102925022,
+        "median_outside": 0.0,
+        "min_concentration": 2.0,
+        "n_inside": 1795,
+        "touches_only_flagged": 1
+      },
+      "n_effective": 298,
+      "reason": "gap_policy moves nothing outside the flags at all (mean 6.807 px inside against exactly 0 outside), so it touches only the frames it marked. Perfectly targeted -- by construction rather than by tuning, which is why it is worth stating: the layer's entire effect is confined to the 1,795 keypoint-frames its flags selected",
+      "saturation": null,
+      "scored_object": {
+        "arm": "effect_gap_policy",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "all"
+      },
+      "verdict": "PASS"
+    },
+    "concentration_wiener": {
+      "degenerate": 0,
+      "detail": {
+        "concentration": 4.992834153076076,
+        "concentration_on": "median",
+        "layer": "wiener",
+        "mean_inside": 12.63270779358207,
+        "mean_outside": 1.589457898991179,
+        "median_inside": 3.9192152345733984,
+        "median_outside": 0.7849680390763185,
+        "min_concentration": 2.0
+      },
+      "n_effective": 298,
+      "reason": "wiener moves flagged frames 5.0x further than clean ones (median 3.919 px against 0.785 px), so it is targeting the frames it is nominally repairing rather than transforming the corpus",
+      "saturation": null,
+      "scored_object": {
+        "arm": "effect_wiener",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "all"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "stage": "effect"
+}
