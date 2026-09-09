@@ -1,66 +1,34 @@
-"""`results/CLEANING.md` from `results/cleaning_<split>.json`. Reads, never recomputes."""
-from __future__ import annotations
+# Phase B — the cleaning bakeoff
 
-import argparse
-import os
-import sys
-
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
-
-from recur.util import log, read_json                             # noqa: E402
-from vieb.clean import viterbi as V                               # noqa: E402
-from vieb.tok import config                                       # noqa: E402
-
-
-def eff(x):
-    """`raw` reduces nothing, so its ratio is undefined -- and `write_json` nulls
-    every non-finite float, so it arrives here as None rather than as nan."""
-    return "—" if x is None else f"{x * 100:.1f}"
-
-
-def ci(x, spec="{:.4f}"):
-    return f"{spec.format(x['point'])} [{spec.format(x['lo'])}, {spec.format(x['hi'])}]"
-
-
-def main(argv=None) -> int:
-    p = argparse.ArgumentParser()
-    p.add_argument("--split", default="report")
-    p.add_argument("--json", default=None)
-    p.add_argument("--out", default=config.PATHS.result("CLEANING.md"))
-    a = p.parse_args(argv)
-    d = read_json(a.json or config.PATHS.result(f"cleaning_{a.split}.json"))
-    arms, ranked = d["arms"], d["ranked"]
-    rd = d["reads"]["bakeoff"]
-
-    rows = "\n".join(
-        f"| `{r['arm']}` | {arms[r['arm']]['violation_rate']['point']:.3%} | "
-        f"{r['violation_reduction']:+.1%} | "
-        f"{arms[r['arm']]['distortion_px']['point']:.3f} | "
-        f"{arms[r['arm']]['distortion_mean_px']['point']:.3f} | "
-        f"{arms[r['arm']]['distortion_body_lengths']['point']:.5f} | "
-        f"{arms[r['arm']]['hf_retained']['point']:.3f} | "
-        f"{eff(r['reduction_per_px'])} |"
-        for r in ranked if r["arm"] in arms)
-
-    md = f"""# Phase B — the cleaning bakeoff
-
-**Corpus** `{d['corpus']}` | **split** `{d['split']}` | **animals**
-{max(m['n_animals'] for m in arms.values())} | **ε** {d['eps']} |
-**inherited digest** `{d['inherited_digest']}`
+**Corpus** `luna` | **split** `report` | **animals**
+89 | **ε** 0.1 |
+**inherited digest** `198eb14ff258c7f6`
 
 shapeflow's Wiener shrinkage was chosen on a good argument and never benchmarked.
 This is the benchmark.
 
-## Read — `{rd['verdict']}`
+## Read — `PASS`
 
-> {rd['reason']}
+> median_0.25 beats the incumbent wiener on all three axes at once: violations 1.632% against 1.673%, displacement 1.112 px mean against 1.555, and it keeps 32.0% of the power above f_c against the incumbent's 22.0%. 1 arm(s) dominate; a change of cleaning method is licensed by this comparison
 
 ## The three axes, and why no single number
 
 | arm | violations | vs raw | distortion median px | mean px | body lengths | HF retained | %/px |
 |---|---:|---:|---:|---:|---:|---:|---:|
-{rows}
+| `median_0.50` | 1.592% | +11.0% | 0.512 | 1.573 | 0.00445 | 0.270 | 7.0 |
+| `median_0.25` | 1.632% | +8.7% | 0.345 | 1.112 | 0.00300 | 0.320 | 7.8 |
+| `savgol_0.50` | 1.663% | +7.0% | 0.708 | 1.612 | 0.00615 | 0.136 | 4.3 |
+| `wiener` | 1.673% | +6.4% | 0.768 | 1.555 | 0.00665 | 0.220 | 4.1 |
+| `savgol_0.33` | 1.701% | +4.8% | 0.551 | 1.308 | 0.00479 | 0.145 | 3.7 |
+| `median_0.10` | 1.721% | +3.7% | 0.055 | 0.434 | 0.00048 | 0.547 | 8.6 |
+| `viterbi` | 1.731% | +3.2% | 0.000 | 0.189 | 0.00000 | 0.586 | 16.9 |
+| `butterworth` | 1.742% | +2.5% | 0.406 | 0.993 | 0.00353 | 0.144 | 2.6 |
+| `outlier_iqr3` | 1.765% | +1.3% | 0.000 | 0.456 | 0.00000 | 0.412 | 2.8 |
+| `outlier_mad3` | 1.772% | +0.9% | 0.000 | 0.661 | 0.00000 | 0.418 | 1.3 |
+| `outlier_mad5` | 1.775% | +0.7% | 0.000 | 0.537 | 0.00000 | 0.419 | 1.3 |
+| `outlier_p99` | 1.779% | +0.5% | 0.000 | 0.208 | 0.00000 | 0.522 | 2.3 |
+| `raw` | 1.788% | +0.0% | 0.000 | 0.000 | 0.00000 | 1.000 | — |
+| `savgol_0.17` | 1.790% | -0.2% | 0.267 | 0.710 | 0.00233 | 0.435 | -0.2 |
 
 Sorted by violation reduction, never reduced to a score. Combining the axes into
 one number would hide the case this exists to find: an arm that wins on
@@ -109,7 +77,7 @@ It is a **de-glitcher, not a low-pass**, and the measured signatures are opposit
 | Viterbi | **0.31%** | 46.65 px |
 | Wiener | **86%** (>0.01 px) | 1.42 px |
 
-Anipose {V.VERSION} is a pinned dependency. Only its import chain is bypassed:
+Anipose 1.1.24 is a pinned dependency. Only its import chain is bypassed:
 `filter_pose` imports `.common` → `aniposelib` → `numba`, which is calibration
 code the filter never touches, and installing it in full would drag
 `opencv-contrib-python` on top of recur's pinned `opencv-python-headless` in a
@@ -119,7 +87,12 @@ version-recorded.
 
 ## What could not run, and why that is a result
 
-""" + "\n".join(f"**`{k}`** — {v}\n" for k, v in d["unavailable"].items()) + f"""
+**`anipose_viterbi`** — CORRECTION: this was recorded as unavailable on the grounds that all 3,080 _full.pickle files carry one detection per bodypart-frame. The count is right, the conclusion was wrong -- viterbi_path builds its candidate set from the previous n_back frames as well as the current one, so it runs on single-detection input. It is now a scored arm, not an excluded one
+
+**`confidence_filter`** — inert -- shapeflow's threshold estimator refuses for all 7 keypoints; its gate masks 0.000% of keypoint-frames
+
+**`movement_package`** — not installed -- resolves to ~70 transitive packages into a venv shared with recur. The savgol and median semantics are matched to it in vieb/clean/arms.py instead
+
 
 ## The axis this does not settle
 
@@ -138,12 +111,3 @@ this is one uncalibrated overhead camera with seven surface landmarks. Both sit
 on the re-tracking branch that Step 1's 2–15% verdict said to cost out.
 
 All intervals are animal bootstraps, never pooled frames.
-"""
-    with open(a.out, "w") as fh:
-        fh.write(md)
-    log(f"wrote {a.out}")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

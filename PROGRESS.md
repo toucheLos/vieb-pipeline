@@ -11,13 +11,14 @@ programme and the cleaning work under it.
 | 0 | Repo split from `~/recur`, provenance frozen | **done** | `PASS` (digest `198eb14ff258c7f6`) | `results/inherited.json`, `vieb/io/spine.py` |
 | 1 | Bone-length violations + ExBias R² join | **done** | `GRID_LIMITED` (2.13%, correct branch) · join `PASS` | `results/bones.json`, `BONES.md` |
 | 2 | Egocentric SE(2) transform + A4 parity | **done** | A4 `PASS` (exact 1.000000) · leak `PASS` | `results/ego_{bodylen,raw}.json`, `EGO.md` |
-| A | What the cleaning actually changes | **next** | — | — |
-| B | Cleaning bakeoff | planned | — | — |
-| C | Before/after video → VIEB Atlas | planned | — | — |
+| A | What the cleaning actually changes | **done** | gap policy `PASS` (touches only flagged) · wiener `PASS` (4.99x) | `results/effect.json`, `EFFECT.md` |
+| B | Cleaning bakeoff, 14 arms | **done** | `PASS` — `median_0.25` dominates the incumbent | `results/cleaning_report.json`, `CLEANING.md` |
+| C | Before/after video | **rendered** | 42 clips, 4.6 MB, all h264 | `results/compare/` |
+| C2 | Publish to the VIEB Atlas | next | — | — |
 | 3 | Coarse alphabet + RLE | planned | — | — |
 | 4 | Rungs 0–2, hazard + MDL | planned | — | — |
 
-**Tests:** 122 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 184 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok` and `vieb/qc`.
 
 ---
@@ -129,10 +130,38 @@ one-frame shift because it lives on the interval between frames.
 
 ---
 
+## Phases A–C
+
+**The bone check creates almost no variance.** The gap policy moves nothing
+outside the frames it flagged, touches 1.34% of keypoint-frames, and leaves the
+speed distribution within 10% at every quantile. That was the question, and the
+answer is that it is the smallest of the three layers.
+
+**The filter is where the data moves, and it had never been measured.** Wiener
+shifts 99.4% of keypoint-frames, 56.3% by more than half a pixel, median 0.83 px,
+concentrated 4.99x on flagged frames and varying 17x across landmarks (nose 2.578
+px, centre 0.153). It removes **41% of median instantaneous speed and 24% of
+median turning**; Butterworth preserves turning far better (0.922 against 0.760)
+for a similar cut to speed, and turning is what the egocentric `omega` channel
+carries. `results/EFFECT.md`.
+
+**The bakeoff licenses a change of cleaning method.** On 89 report animals
+`median_0.25` beats the incumbent on all three axes at once — violations 1.632%
+against 1.673%, mean displacement 1.112 px against 1.555, above-f_c retention
+32.0% against 22.0%.
+
+**Anipose's Viterbi arm is the efficiency outlier.** It buys **16.9%** of
+violation reduction per pixel of displacement against the incumbent's 4.1%, moves
+0.31% of keypoint-frames, and retains 58.6% of the power above f_c against 22.0%.
+It reduces violations least in absolute terms and disturbs the data least by a
+wide margin — the trade-off a corpus where fast rare movement is the signal
+should care about. Recorded as *unavailable* in an earlier version of this repo;
+that was wrong and is corrected in `vieb/clean/viterbi.py`.
+
+**None of this is settled until MDL.** The three axes disagree about which arm
+wins, and the decision-relevant axis — does the behaviour model built on it
+predict better — costs a full tokenizer run per arm and waits for Step 4.
+
 ## Open
 
-Phase A is the next thing and it is the one nobody has done: **what does the
-cleaning actually change?** The bone check only flags; the gap policy and the
-Wiener filter are what move the data, and a spot measurement puts the filter at a
-median 1.77 px / p90 6.25 px / max 278.8 px with 86.2% of keypoint-frames
-displaced by more than 0.5 px. Neither upstream repo records that anywhere.
+Publish the comparison clips to the VIEB Atlas, then Steps 3–4.

@@ -110,6 +110,14 @@ def rank(arms: Mapping[str, Mapping[str, float]], *,
                 m.get("distortion_body_lengths", float("nan"))),
             "hf_retained": float(m.get("hf_retained", float("nan"))),
         })
+    # Violation reduction bought per pixel of mean displacement. Not an axis --
+    # it is a ratio of two of them -- but it is the quantity that separates a
+    # de-glitcher from a smoother, and reading the two columns side by side does
+    # not make it obvious.
+    for r in rows:
+        dm = r["distortion_mean_px"]
+        r["reduction_per_px"] = (r["violation_reduction"] / dm
+                                 if np.isfinite(dm) and dm > 1e-9 else float("nan"))
     rows.sort(key=lambda r: (-r["violation_reduction"]
                              if np.isfinite(r["violation_reduction"]) else 0.0))
     return rows

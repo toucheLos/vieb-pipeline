@@ -210,9 +210,10 @@ def combine(args) -> int:
     log(rd.line())
     for r in ranked:
         log(f"  {r['arm']:14s} viol {r['violation_rate']:.4%} "
-            f"(-{r['violation_reduction']:+.1%})  "
+            f"({r['violation_reduction']:+.1%})  "
             f"disp {r['distortion_px']:.3f}/{r['distortion_mean_px']:.3f} px  "
-            f"hf {r['hf_retained']:.3f}")
+            f"hf {r['hf_retained']:.3f}  "
+            f"eff {r['reduction_per_px'] * 100:.1f}%/px")
     log(f"wrote {args.out}")
     return 0
 

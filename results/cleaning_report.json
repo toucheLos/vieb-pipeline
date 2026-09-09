@@ -1,0 +1,1359 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "scored on one split at a time; the anchor counts the whole corpus"
+  },
+  "arms": {
+    "butterworth": {
+      "concentration": {
+        "max": 4.771543819166491,
+        "mean": 0.7790033806538286,
+        "median": 0.5461161934882968,
+        "min": 0.1713791495194142,
+        "n": 89,
+        "p1": 0.2445419366872188,
+        "p10": 0.3242244812897709,
+        "p25": 0.40306898151317305,
+        "p75": 0.8835547747749697,
+        "p90": 1.3503265134791276,
+        "p99": 3.2797547441671786,
+        "sd": 0.695773494807452
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.003880930834720633,
+        "lo": 0.0031962514259059175,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.003531592366352174
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.124026035613766,
+        "lo": 0.8784798630809573,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.9927267247361684
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.44725515086036816,
+        "lo": 0.3689467187902822,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.40638405566398583
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.15761691757783758,
+        "lo": 0.12976001369906348,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.1441444855876468
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.019191637068037688,
+        "lo": 0.015679411367207866,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017422506411630897
+      }
+    },
+    "median_0.10": {
+      "concentration": {
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.0,
+        "p90": 0.0,
+        "p99": 0.0,
+        "sd": 0.0
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0005542481234363355,
+        "lo": 0.00041065146938632706,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.00047963991730516734
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.49358471644106827,
+        "lo": 0.3825678034943305,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.4338897723773833
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.06312134121805302,
+        "lo": 0.047233171738235415,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.054662204383685534
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5595609582171576,
+        "lo": 0.5345104802258291,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5474630658077818
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018863751539584,
+        "lo": 0.015614671635957457,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01721272839001882
+      }
+    },
+    "median_0.25": {
+      "concentration": {
+        "max": 0.6095568289899285,
+        "mean": 0.08527526108974323,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.10784651808734656,
+        "p90": 0.31270827826224457,
+        "p99": 0.5921833025876166,
+        "sd": 0.15873359288213942
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0032827642021421807,
+        "lo": 0.002727934389989986,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0030030817773399315
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.2551280845090722,
+        "lo": 0.9865552960967351,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.111925736904798
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.37776037031377496,
+        "lo": 0.3138071542288118,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.3448559213056302
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.3370784262412903,
+        "lo": 0.3023005847581358,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.32025921445321526
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.017987081590756047,
+        "lo": 0.014671231409112872,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0163227065766982
+      }
+    },
+    "median_0.50": {
+      "concentration": {
+        "max": 4.512285358596222,
+        "mean": 0.7899523371948546,
+        "median": 0.6495310816977805,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.1003128831570524,
+        "p25": 0.397000883302408,
+        "p75": 0.973285922110609,
+        "p90": 1.4681679688292173,
+        "p99": 3.3284056960302006,
+        "sd": 0.7370137161455937
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.004913694030038594,
+        "lo": 0.003998274501665664,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0044489097448870436
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.7698884178771284,
+        "lo": 1.3983104894572986,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.572619660986308
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5668795677917237,
+        "lo": 0.46199288970236835,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5117401847755255
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2869381455081654,
+        "lo": 0.2513418186634613,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.26968536291037515
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.017624459487093954,
+        "lo": 0.014270214579441954,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01591752504459093
+      }
+    },
+    "outlier_iqr3": {
+      "concentration": {
+        "max": 9.734683337734452,
+        "mean": 2.939817156269236,
+        "median": 2.4757036678956537,
+        "min": 0.7809848939280344,
+        "n": 89,
+        "p1": 0.8365093572301223,
+        "p10": 1.31666560170441,
+        "p25": 1.7097311782720714,
+        "p75": 3.1388587292402943,
+        "p90": 5.294990318438103,
+        "p99": 9.554978641695616,
+        "sd": 1.9519934640416727
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5317533310794978,
+        "lo": 0.3893535837127535,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.4558730909127583
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.43338240668577854,
+        "lo": 0.39015623908796676,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.4116989239952412
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01934897576923573,
+        "lo": 0.016056940478183488,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017651749917047092
+      }
+    },
+    "outlier_mad3": {
+      "concentration": {
+        "max": 4.707588429525393,
+        "mean": 1.9003019842575732,
+        "median": 1.7432421662451822,
+        "min": 0.21421455869260284,
+        "n": 89,
+        "p1": 0.3707502999610376,
+        "p10": 1.0613290331501586,
+        "p25": 1.3844631310587479,
+        "p75": 2.410805366146322,
+        "p90": 2.787484835281407,
+        "p99": 4.559253681275507,
+        "sd": 0.873310812490536
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.7586929345210326,
+        "lo": 0.5767159646302678,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.6611519259554289
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.4449828902710756,
+        "lo": 0.392265434399284,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.4182602369726846
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.019445469924415475,
+        "lo": 0.01610439590629077,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017718381765453498
+      }
+    },
+    "outlier_mad5": {
+      "concentration": {
+        "max": 7.86060194904632,
+        "mean": 2.3113729361709794,
+        "median": 2.0790510171026795,
+        "min": 0.3924257160584997,
+        "n": 89,
+        "p1": 0.7769623894861863,
+        "p10": 1.2129373672148605,
+        "p25": 1.5246890241980697,
+        "p75": 2.617985508331495,
+        "p90": 3.445366406687311,
+        "p99": 6.841784738779672,
+        "sd": 1.2671816810972683
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.621031055247267,
+        "lo": 0.4627835737427093,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.536911531668311
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.4432876322115162,
+        "lo": 0.39413352362235315,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.41899753662173456
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01946496862399775,
+        "lo": 0.016126897627364977,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017751922291392903
+      }
+    },
+    "outlier_p99": {
+      "concentration": {
+        "max": 22.79299053983194,
+        "mean": 3.3964256922974103,
+        "median": 2.2210591110968814,
+        "min": 0.20192986240641145,
+        "n": 89,
+        "p1": 0.23788819933879105,
+        "p10": 0.6237609147075699,
+        "p25": 1.2503273447894816,
+        "p75": 4.066661195722556,
+        "p90": 7.305546071419729,
+        "p99": 15.248738890898196,
+        "sd": 3.592550029456923
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2287937209700046,
+        "lo": 0.1894157945056727,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.2083238206246002
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5331528228418916,
+        "lo": 0.5095220713352617,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.521632893296576
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.019435243641172537,
+        "lo": 0.016251321697602846,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01779250033839995
+      }
+    },
+    "raw": {
+      "concentration": {
+        "n": 0
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.0,
+        "lo": 1.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.0
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.019518387782965073,
+        "lo": 0.016313167519278676,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017876800856720863
+      }
+    },
+    "savgol_0.17": {
+      "concentration": {
+        "max": 2.318112206003047,
+        "mean": 0.19674794681282512,
+        "median": 0.0968262708469774,
+        "min": 9.112196168599888e-13,
+        "n": 89,
+        "p1": 1.0012609557927734e-12,
+        "p10": 2.6268742948357375e-12,
+        "p25": 5.179599061417419e-12,
+        "p75": 0.2305355027246432,
+        "p90": 0.42243237901881286,
+        "p99": 2.277607143295859,
+        "sd": 0.3755709774851392
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0025437276405566997,
+        "lo": 0.0021120142032946066,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0023276140175373114
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.8073779744499247,
+        "lo": 0.6272625805330235,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.7104621690321903
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2919604677448078,
+        "lo": 0.243800203192387,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.26741605374320593
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.44534924277846116,
+        "lo": 0.4239353935385329,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.43504355748975515
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01968524517541622,
+        "lo": 0.016183381746579215,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017903902799555827
+      }
+    },
+    "savgol_0.33": {
+      "concentration": {
+        "max": 4.53541942360534,
+        "mean": 0.8044365651196819,
+        "median": 0.5801413806426704,
+        "min": 0.13063361696917627,
+        "n": 89,
+        "p1": 0.1748368584929449,
+        "p10": 0.32951094436968537,
+        "p25": 0.43862006693207184,
+        "p75": 0.9488263660160254,
+        "p90": 1.410029954501994,
+        "p99": 3.3751429908733113,
+        "sd": 0.6922335269483569
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0052582700194680546,
+        "lo": 0.004338338873407501,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004785131303955467
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.4739746577057302,
+        "lo": 1.1619977177736611,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.3081327363291455
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.6061307120370333,
+        "lo": 0.49990797260390896,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5507113580318983
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.1584399327982441,
+        "lo": 0.1312684110297526,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.14529721100845364
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018825697623245343,
+        "lo": 0.015236546981823534,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0170126831103088
+      }
+    },
+    "savgol_0.50": {
+      "concentration": {
+        "max": 6.8064950004029106,
+        "mean": 1.1801754453311097,
+        "median": 0.8567877592682839,
+        "min": 0.25523882897506484,
+        "n": 89,
+        "p1": 0.353099895960098,
+        "p10": 0.48863218546236065,
+        "p25": 0.6228746276628876,
+        "p75": 1.3455656927961772,
+        "p90": 2.131109563768201,
+        "p99": 5.613108672198574,
+        "sd": 1.049969924180119
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.006788586604894677,
+        "lo": 0.005551464332831371,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.006145604015616493
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.8112765724880762,
+        "lo": 1.4381693584816588,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.6116695802700767
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.7815506958025435,
+        "lo": 0.638951079039213,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.7079525091669459
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.14889091457356537,
+        "lo": 0.12153537378717118,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.13565444184828332
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018480995667940158,
+        "lo": 0.014845230633817734,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.016634004583073295
+      }
+    },
+    "viterbi": {
+      "concentration": {
+        "max": 6.020791587215948,
+        "mean": 0.665617059943762,
+        "median": 0.4793698046250453,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.1173518186395637,
+        "p25": 0.21373134154517762,
+        "p75": 0.7432193318380611,
+        "p90": 1.3171326636451162,
+        "p99": 3.299361801675019,
+        "sd": 0.8088019577420512
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.24926675829140152,
+        "lo": 0.13831861811142399,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.18926625669778196
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.6116342137216982,
+        "lo": 0.5588043871137086,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5861324953064453
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018912261979626168,
+        "lo": 0.01576139218877254,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.017305563774315386
+      }
+    },
+    "wiener": {
+      "concentration": {
+        "max": 8.510214116788065,
+        "mean": 1.8333062469034727,
+        "median": 1.5454713956242954,
+        "min": 0.662368796473307,
+        "n": 89,
+        "p1": 0.8150599285883953,
+        "p10": 0.9943563485847635,
+        "p25": 1.1504817001798966,
+        "p75": 2.167272373079687,
+        "p90": 2.979523390138383,
+        "p99": 4.8573856703235005,
+        "sd": 1.0509847735953308
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.007180455420809281,
+        "lo": 0.0061337251947346,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.006652179922828935
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.6943836794721734,
+        "lo": 1.4305357104765812,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.5545852829470634
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.8345310804371788,
+        "lo": 0.7054312848096345,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.7680839098367908
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.23213879707572074,
+        "lo": 0.20794193982361833,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.22016441327791728
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01866607046827488,
+        "lo": 0.014898871174288713,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01672654049838826
+      }
+    }
+  },
+  "common_input": "shapeflow's hold-for-filtering array, which is what its Wiener filter consumed. Every arm gets the same one; wiener and butterworth are read off disk rather than recomputed",
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_animals": 298,
+  "peak_rss_gb": 0.624114990234375,
+  "ranked": [
+    {
+      "arm": "median_0.50",
+      "distortion_body_lengths": 0.0044489097448870436,
+      "distortion_mean_px": 1.572619660986308,
+      "distortion_px": 0.5117401847755255,
+      "hf_retained": 0.26968536291037515,
+      "reduction_per_px": 0.06969186293912648,
+      "violation_rate": 0.01591752504459093,
+      "violation_reduction": 0.10959879386883331
+    },
+    {
+      "arm": "median_0.25",
+      "distortion_body_lengths": 0.0030030817773399315,
+      "distortion_mean_px": 1.111925736904798,
+      "distortion_px": 0.3448559213056302,
+      "hf_retained": 0.32025921445321526,
+      "reduction_per_px": 0.07818290029756038,
+      "violation_rate": 0.0163227065766982,
+      "violation_reduction": 0.08693357902671917
+    },
+    {
+      "arm": "savgol_0.50",
+      "distortion_body_lengths": 0.006145604015616493,
+      "distortion_mean_px": 1.6116695802700767,
+      "distortion_px": 0.7079525091669459,
+      "hf_retained": 0.13565444184828332,
+      "reduction_per_px": 0.04313542996506049,
+      "violation_rate": 0.016634004583073295,
+      "violation_reduction": 0.06952006030655833
+    },
+    {
+      "arm": "wiener",
+      "distortion_body_lengths": 0.006652179922828935,
+      "distortion_mean_px": 1.5545852829470634,
+      "distortion_px": 0.7680839098367908,
+      "hf_retained": 0.22016441327791728,
+      "reduction_per_px": 0.04138965426235726,
+      "violation_rate": 0.01672654049838826,
+      "violation_reduction": 0.0643437473825278
+    },
+    {
+      "arm": "savgol_0.33",
+      "distortion_body_lengths": 0.004785131303955467,
+      "distortion_mean_px": 1.3081327363291455,
+      "distortion_px": 0.5507113580318983,
+      "hf_retained": 0.14529721100845364,
+      "reduction_per_px": 0.036951434933049795,
+      "violation_rate": 0.0170126831103088,
+      "violation_reduction": 0.04833738169025881
+    },
+    {
+      "arm": "median_0.10",
+      "distortion_body_lengths": 0.00047963991730516734,
+      "distortion_mean_px": 0.4338897723773833,
+      "distortion_px": 0.054662204383685534,
+      "hf_retained": 0.5474630658077818,
+      "reduction_per_px": 0.0856142898935576,
+      "violation_rate": 0.01721272839001882,
+      "violation_reduction": 0.03714716475416702
+    },
+    {
+      "arm": "viterbi",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.18926625669778196,
+      "distortion_px": 0.0,
+      "hf_retained": 0.5861324953064453,
+      "reduction_per_px": 0.16883146824951348,
+      "violation_rate": 0.017305563774315386,
+      "violation_reduction": 0.03195410000837584
+    },
+    {
+      "arm": "butterworth",
+      "distortion_body_lengths": 0.003531592366352174,
+      "distortion_mean_px": 0.9927267247361684,
+      "distortion_px": 0.40638405566398583,
+      "hf_retained": 0.1441444855876468,
+      "reduction_per_px": 0.025598700002368642,
+      "violation_rate": 0.017422506411630897,
+      "violation_reduction": 0.02541251361085517
+    },
+    {
+      "arm": "outlier_iqr3",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.4558730909127583,
+      "distortion_px": 0.0,
+      "hf_retained": 0.4116989239952412,
+      "reduction_per_px": 0.027615128648846944,
+      "violation_rate": 0.017651749917047092,
+      "violation_reduction": 0.01258899405310332
+    },
+    {
+      "arm": "outlier_mad3",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.6611519259554289,
+      "distortion_px": 0.0,
+      "hf_retained": 0.4182602369726846,
+      "reduction_per_px": 0.013403445355710166,
+      "violation_rate": 0.017718381765453498,
+      "violation_reduction": 0.008861713711366126
+    },
+    {
+      "arm": "outlier_mad5",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.536911531668311,
+      "distortion_px": 0.0,
+      "hf_retained": 0.41899753662173456,
+      "reduction_per_px": 0.013010541331588398,
+      "violation_rate": 0.017751922291392903,
+      "violation_reduction": 0.006985509674176993
+    },
+    {
+      "arm": "outlier_p99",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.2083238206246002,
+      "distortion_px": 0.0,
+      "hf_retained": 0.521632893296576,
+      "reduction_per_px": 0.022636095149728686,
+      "violation_rate": 0.01779250033839995,
+      "violation_reduction": 0.004715637825613461
+    },
+    {
+      "arm": "raw",
+      "distortion_body_lengths": 0.0,
+      "distortion_mean_px": 0.0,
+      "distortion_px": 0.0,
+      "hf_retained": 1.0,
+      "reduction_per_px": null,
+      "violation_rate": 0.017876800856720863,
+      "violation_reduction": 0.0
+    },
+    {
+      "arm": "savgol_0.17",
+      "distortion_body_lengths": 0.0023276140175373114,
+      "distortion_mean_px": 0.7104621690321903,
+      "distortion_px": 0.26741605374320593,
+      "hf_retained": 0.43504355748975515,
+      "reduction_per_px": -0.0021338783898949493,
+      "violation_rate": 0.017903902799555827,
+      "violation_reduction": -0.0015160398693356836
+    }
+  ],
+  "reads": {
+    "bakeoff": {
+      "degenerate": 0,
+      "detail": {
+        "dominating": [
+          "median_0.25"
+        ],
+        "incumbent": "wiener",
+        "max_hf_deleted": 0.9,
+        "rows": [
+          {
+            "arm": "median_0.50",
+            "distortion_body_lengths": 0.0044489097448870436,
+            "distortion_mean_px": 1.572619660986308,
+            "distortion_px": 0.5117401847755255,
+            "hf_retained": 0.26968536291037515,
+            "reduction_per_px": 0.06969186293912648,
+            "violation_rate": 0.01591752504459093,
+            "violation_reduction": 0.10959879386883331
+          },
+          {
+            "arm": "median_0.25",
+            "distortion_body_lengths": 0.0030030817773399315,
+            "distortion_mean_px": 1.111925736904798,
+            "distortion_px": 0.3448559213056302,
+            "hf_retained": 0.32025921445321526,
+            "reduction_per_px": 0.07818290029756038,
+            "violation_rate": 0.0163227065766982,
+            "violation_reduction": 0.08693357902671917
+          },
+          {
+            "arm": "savgol_0.50",
+            "distortion_body_lengths": 0.006145604015616493,
+            "distortion_mean_px": 1.6116695802700767,
+            "distortion_px": 0.7079525091669459,
+            "hf_retained": 0.13565444184828332,
+            "reduction_per_px": 0.04313542996506049,
+            "violation_rate": 0.016634004583073295,
+            "violation_reduction": 0.06952006030655833
+          },
+          {
+            "arm": "wiener",
+            "distortion_body_lengths": 0.006652179922828935,
+            "distortion_mean_px": 1.5545852829470634,
+            "distortion_px": 0.7680839098367908,
+            "hf_retained": 0.22016441327791728,
+            "reduction_per_px": 0.04138965426235726,
+            "violation_rate": 0.01672654049838826,
+            "violation_reduction": 0.0643437473825278
+          },
+          {
+            "arm": "savgol_0.33",
+            "distortion_body_lengths": 0.004785131303955467,
+            "distortion_mean_px": 1.3081327363291455,
+            "distortion_px": 0.5507113580318983,
+            "hf_retained": 0.14529721100845364,
+            "reduction_per_px": 0.036951434933049795,
+            "violation_rate": 0.0170126831103088,
+            "violation_reduction": 0.04833738169025881
+          },
+          {
+            "arm": "median_0.10",
+            "distortion_body_lengths": 0.00047963991730516734,
+            "distortion_mean_px": 0.4338897723773833,
+            "distortion_px": 0.054662204383685534,
+            "hf_retained": 0.5474630658077818,
+            "reduction_per_px": 0.0856142898935576,
+            "violation_rate": 0.01721272839001882,
+            "violation_reduction": 0.03714716475416702
+          },
+          {
+            "arm": "viterbi",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.18926625669778196,
+            "distortion_px": 0.0,
+            "hf_retained": 0.5861324953064453,
+            "reduction_per_px": 0.16883146824951348,
+            "violation_rate": 0.017305563774315386,
+            "violation_reduction": 0.03195410000837584
+          },
+          {
+            "arm": "butterworth",
+            "distortion_body_lengths": 0.003531592366352174,
+            "distortion_mean_px": 0.9927267247361684,
+            "distortion_px": 0.40638405566398583,
+            "hf_retained": 0.1441444855876468,
+            "reduction_per_px": 0.025598700002368642,
+            "violation_rate": 0.017422506411630897,
+            "violation_reduction": 0.02541251361085517
+          },
+          {
+            "arm": "outlier_iqr3",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.4558730909127583,
+            "distortion_px": 0.0,
+            "hf_retained": 0.4116989239952412,
+            "reduction_per_px": 0.027615128648846944,
+            "violation_rate": 0.017651749917047092,
+            "violation_reduction": 0.01258899405310332
+          },
+          {
+            "arm": "outlier_mad3",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.6611519259554289,
+            "distortion_px": 0.0,
+            "hf_retained": 0.4182602369726846,
+            "reduction_per_px": 0.013403445355710166,
+            "violation_rate": 0.017718381765453498,
+            "violation_reduction": 0.008861713711366126
+          },
+          {
+            "arm": "outlier_mad5",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.536911531668311,
+            "distortion_px": 0.0,
+            "hf_retained": 0.41899753662173456,
+            "reduction_per_px": 0.013010541331588398,
+            "violation_rate": 0.017751922291392903,
+            "violation_reduction": 0.006985509674176993
+          },
+          {
+            "arm": "outlier_p99",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.2083238206246002,
+            "distortion_px": 0.0,
+            "hf_retained": 0.521632893296576,
+            "reduction_per_px": 0.022636095149728686,
+            "violation_rate": 0.01779250033839995,
+            "violation_reduction": 0.004715637825613461
+          },
+          {
+            "arm": "raw",
+            "distortion_body_lengths": 0.0,
+            "distortion_mean_px": 0.0,
+            "distortion_px": 0.0,
+            "hf_retained": 1.0,
+            "reduction_per_px": null,
+            "violation_rate": 0.017876800856720863,
+            "violation_reduction": 0.0
+          },
+          {
+            "arm": "savgol_0.17",
+            "distortion_body_lengths": 0.0023276140175373114,
+            "distortion_mean_px": 0.7104621690321903,
+            "distortion_px": 0.26741605374320593,
+            "hf_retained": 0.43504355748975515,
+            "reduction_per_px": -0.0021338783898949493,
+            "violation_rate": 0.017903902799555827,
+            "violation_reduction": -0.0015160398693356836
+          }
+        ]
+      },
+      "n_effective": 89,
+      "reason": "median_0.25 beats the incumbent wiener on all three axes at once: violations 1.632% against 1.673%, displacement 1.112 px mean against 1.555, and it keeps 32.0% of the power above f_c against the incumbent's 22.0%. 1 arm(s) dominate; a change of cleaning method is licensed by this comparison",
+      "saturation": null,
+      "scored_object": {
+        "arm": "cleaning",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "report"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "split": "report",
+  "stage": "cleaning",
+  "unavailable": {
+    "anipose_viterbi": "CORRECTION: this was recorded as unavailable on the grounds that all 3,080 _full.pickle files carry one detection per bodypart-frame. The count is right, the conclusion was wrong -- viterbi_path builds its candidate set from the previous n_back frames as well as the current one, so it runs on single-detection input. It is now a scored arm, not an excluded one",
+    "confidence_filter": "inert -- shapeflow's threshold estimator refuses for all 7 keypoints; its gate masks 0.000% of keypoint-frames",
+    "movement_package": "not installed -- resolves to ~70 transitive packages into a venv shared with recur. The savgol and median semantics are matched to it in vieb/clean/arms.py instead"
+  },
+  "viterbi": {
+    "note": "Anipose's implementation, loaded from the installed package's own source; its import chain (aniposelib, numba) is calibration code the filter does not use"
+  }
+}
