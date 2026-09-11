@@ -1,0 +1,250 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "scored on one split; the anchor counts all"
+  },
+  "atom": {
+    "frac_landing_on_the_constraint_surface": 0.13159926361422888,
+    "n_corrected": 33678,
+    "n_landing_on_the_constraint_surface": 4432,
+    "why": "a frame whose target was infeasible is projected, and lands exactly on a codimension-1 surface. The first run put 100% of corrections there; this is the count that says whether the interior target fixed it"
+  },
+  "constrained_group_do_not_cite": {
+    "skull_after": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.014445715194247607,
+      "lo": 0.012088074745623175,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.013235031641892596
+    },
+    "skull_before": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.019518387782965073,
+      "lo": 0.016313167519278676,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.017876800856720863
+    },
+    "why": "a corrector that enforces skull constraints scoring well on skull violations is measuring its own premise; recorded so the circularity is visible, never as evidence"
+  },
+  "corpus": "luna",
+  "domain": {
+    "abstain_runs_per_recording": {
+      "max": 93.0,
+      "mean": 7.441253263707572,
+      "median": 4.0,
+      "min": 0.0,
+      "n": 1149,
+      "p1": 0.0,
+      "p10": 0.0,
+      "p25": 1.0,
+      "p75": 10.0,
+      "p90": 20.200000000000045,
+      "p99": 45.51999999999998,
+      "sd": 9.988202300091032
+    },
+    "frac_abstained": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.014425292591409547,
+      "lo": 0.012023940884075018,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.013208977840493238
+    },
+    "frac_correctable": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.006083076602695546,
+      "lo": 0.004772767436091928,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.005385200961654794
+    },
+    "frac_corrected": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.0057484437769313715,
+      "lo": 0.004424702518400388,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.005042758181193109
+    },
+    "frames_abstained_for_non_convergence": 2181,
+    "frames_abstained_for_want_of_a_donor": 0,
+    "frames_abstained_for_want_of_scale": 0,
+    "median_move_px": {
+      "max": 355.5499030604435,
+      "mean": 37.1349288209406,
+      "median": 22.149154479213973,
+      "min": 0.0,
+      "n": 1149,
+      "p1": 0.0,
+      "p10": 3.634238640285035,
+      "p25": 11.11464617275076,
+      "p75": 42.54522493028645,
+      "p90": 92.22616688304308,
+      "p99": 230.6352612874471,
+      "sd": 44.949883539482
+    }
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "envelope": {
+    "max_correct_frames": 3,
+    "merge_gap_frames": 5,
+    "min_scale_pairs": 4
+  },
+  "eps": 0.1,
+  "held_out_group": {
+    "constrained_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "leak": "none: the corrector constrains the SKULL pairs and nothing else, so no TRUNK bone appears in its constraint set. Amendment 1 records the first run, where it did",
+    "per_animal": {
+      "aggregator": "wmean",
+      "alpha": 0.05,
+      "hi": 0.02562445401982288,
+      "lo": 0.021090076059773238,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 1149,
+      "point": 0.023219028019515794
+    },
+    "trunk_after": 0.023219028019515794,
+    "trunk_before": 0.024041968780957605
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_animals": 298,
+  "peak_rss_gb": 0.7671546936035156,
+  "preregistration": "results/DISPOSITION_PREREGISTRATION.md",
+  "q1_rescored": 0,
+  "reads": {
+    "leave_one_bone_out": {
+      "degenerate": 0,
+      "detail": {
+        "absolute_fall": 0.0008229407614418101,
+        "constrained": "skull",
+        "evaluated": "trunk",
+        "min_relative_fall": 0.0,
+        "rate_after": 0.023219028019515794,
+        "rate_before": 0.024041968780957605,
+        "relative_fall": 0.03422934157096231
+      },
+      "n_effective": 89,
+      "reason": "constraining skull lowered violations on trunk -- bones the corrector never saw -- from 2.4042% to 2.3219%, a relative fall of 3.42%. The correction reaches geometry it was not fitted to, which is the only evidence here that it moves keypoints towards the animal rather than towards its own constraint surface",
+      "saturation": null,
+      "scored_object": {
+        "arm": "disposition",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "report"
+      },
+      "verdict": "PASS"
+    },
+    "separable": {
+      "degenerate": 0,
+      "detail": {
+        "auc": 0.7107455127500487,
+        "balanced_accuracy": 0.6799725456171029,
+        "converged": 1,
+        "limit": 0.6,
+        "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+        "n_corrected": 33669,
+        "n_groups": 34091,
+        "n_test": 22572,
+        "n_train": 44766
+      },
+      "n_effective": 89,
+      "reason": "corrected frames are separable from clean ones at 0.680 balanced accuracy (AUC 0.711), above the 0.6 limit. The correction has left a detectable signature; k-means will find it downstream and it will look like a behavioural state. This project has manufactured one state signature already, and a corrector depositing mass on a constraint surface is the same failure one step earlier",
+      "saturation": null,
+      "scored_object": {
+        "arm": "disposition",
+        "dataset": "luna",
+        "eps": 0.1,
+        "probe": "block",
+        "split": "report"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "reliability": {
+    "aggregator": "wmean",
+    "alpha": 0.05,
+    "hi": 0.7079438094558729,
+    "lo": 0.6884772988577902,
+    "method": "animal bootstrap (resamples animals with replacement)",
+    "n_animals": 89,
+    "n_boot": 2000,
+    "n_units": 1149,
+    "point": 0.6983844450468497
+  },
+  "separable_before_correction": {
+    "auc": 0.8704469622935109,
+    "balanced_accuracy": 0.8096042361743964,
+    "converged": 1,
+    "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+    "n_corrected": 33669,
+    "n_groups": 34091,
+    "n_test": 22572,
+    "n_train": 44766,
+    "why": "the same rows, labels and groups on the array the corrector was HANDED. Corrected frames are selected for violating, so they are unusual geometry before anything touches them; only the rise from this number to the probe's is the corrector's own signature"
+  },
+  "split": "report",
+  "stage": "disposition"
+}

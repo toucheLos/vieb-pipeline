@@ -84,7 +84,7 @@ def _version() -> str:
         return "unknown"
 
 
-def _load() -> dict:
+def _load() -> dict[str, Any]:
     """Extract `NEEDED` from anipose's source and exec them in a clean namespace.
 
     By AST rather than by regex, so a function that moves or is reformatted
@@ -98,22 +98,25 @@ def _load() -> dict:
 
     src = open(_source_path()).read()
     tree = ast.parse(src)
-    picked = [n for n in tree.body
-              if isinstance(n, ast.FunctionDef) and n.name in NEEDED]
-    missing = set(NEEDED) - {n.name for n in picked}
+    picked: list[ast.stmt] = [n for n in tree.body
+                              if isinstance(n, ast.FunctionDef)
+                              and n.name in NEEDED]
+    missing = set(NEEDED) - {n.name for n in picked
+                             if isinstance(n, ast.FunctionDef)}
     if missing:
         raise SystemExit(
             f"anipose {_version()} does not define {sorted(missing)} in "
             f"{_source_path()}. The upstream file has changed shape; re-read it "
             f"rather than guessing which function replaced them.")
-    ns: dict = {"np": np, "arr": np.array, "stats": stats, "cdist": cdist,
-                "cKDTree": cKDTree, "logsumexp": logsumexp}
+    ns: dict[str, Any] = {"np": np, "arr": np.array, "stats": stats,
+                          "cdist": cdist, "cKDTree": cKDTree,
+                          "logsumexp": logsumexp}
     exec(compile(ast.Module(body=picked, type_ignores=[]), _source_path(),
                  "exec"), ns)
     return ns
 
 
-_NS = _load()
+_NS: dict[str, Any] = _load()
 viterbi_path = _NS["viterbi_path"]
 SOURCE = _source_path()
 VERSION = _version()

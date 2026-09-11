@@ -178,6 +178,45 @@ that was wrong and is corrected in `vieb/clean/viterbi.py`.
 wins, and the decision-relevant axis — does the behaviour model built on it
 predict better — costs a full tokenizer run per arm and waits for Step 4.
 
+## Phase D — suspect-keypoint disposition
+
+`results/DISPOSITION.md`, `results/disposition.json`. Pre-registered in its own
+commit before any code touched data, and **amended** after the first run.
+**Q1 was not re-scored.**
+
+**The gate passes.** Constraining the skull lowers violations on the **trunk —
+bones the corrector never sees — from 2.4042% to 2.3219%**, a 3.42% relative fall
+on 89 report animals. That is the only check in this phase that could have failed
+on its own terms: distortion, retention and MDL all measure magnitude, not
+direction, and a corrector that is confidently wrong scores well on every one.
+
+**The atom check fails, twice.** A probe held out by three-second block separates
+corrected frames from clean ones at **0.680** balanced accuracy against a
+pre-registered limit of 0.60. The same probe on the array the corrector was
+*handed* scores **0.810**, so the correction moves those frames towards the clean
+distribution without making them ordinary. Whether the residue is the selection,
+the 13.2% still landing on the constraint surface, or a reason to prefer
+down-weighting is not settled here — it is settled at Step 3 on the MDL axis,
+where the disposition is one cleaning arm among several.
+
+**The first run did not implement what was pre-registered, and the pre-registered
+prediction is what caught it.** 100.0% of corrections landed exactly on a
+codimension-1 surface where the table fixed the target as the interior; the
+constraint set was all 21 pairs rather than the SKULL, so a nose correction
+constrained trunk bone (2,3) directly on 61.6% of corrections; and 0.5% exited
+still violating and were reported as corrected. Fixed, re-run, and both runs
+reported. The gate's verdict survived the leak — the direct path covered 0.0059%
+of frames against a 2.40% trunk rate, under a tenth of the observed fall — and
+with the trunk genuinely unconstrained the fall gets *larger*, 3.10% → 3.42%.
+
+**The mass is small and the magnitude is not.** 0.5043% of frames corrected,
+1.3209% abstained — but the median correction moves the suspect **0.194 body
+lengths** and the p90 moves it **0.807**. Inside a ≤3-frame envelope the predictor
+is not nudging a noisy keypoint; it is saying the keypoint was most of a body away.
+
+`reliability` is emitted per keypoint-frame (mean 0.6984) and enters Step 4 as a
+**covariate, never a likelihood weight**.
+
 ## Open
 
 Publish the comparison clips to the VIEB Atlas, then Steps 3–4.

@@ -96,7 +96,7 @@ def rank(arms: Mapping[str, Mapping[str, float]], *,
     """
     base = arms.get(baseline, {})
     v0 = float(base.get("violation_rate", float("nan")))
-    rows = []
+    rows: list[Detail] = []
     for name, m in arms.items():
         v = float(m.get("violation_rate", float("nan")))
         rows.append({
@@ -115,11 +115,13 @@ def rank(arms: Mapping[str, Mapping[str, float]], *,
     # de-glitcher from a smoother, and reading the two columns side by side does
     # not make it obvious.
     for r in rows:
-        dm = r["distortion_mean_px"]
-        r["reduction_per_px"] = (r["violation_reduction"] / dm
-                                 if np.isfinite(dm) and dm > 1e-9 else float("nan"))
-    rows.sort(key=lambda r: (-r["violation_reduction"]
-                             if np.isfinite(r["violation_reduction"]) else 0.0))
+        dm = float(r["distortion_mean_px"])
+        vr = float(r["violation_reduction"])
+        r["reduction_per_px"] = (vr / dm if np.isfinite(dm) and dm > 1e-9
+                                 else float("nan"))
+    rows.sort(key=lambda r: (-float(r["violation_reduction"])
+                             if np.isfinite(float(r["violation_reduction"]))
+                             else 0.0))
     return rows
 
 
