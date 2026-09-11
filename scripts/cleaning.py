@@ -47,7 +47,8 @@ def shard(args, tag: str) -> int:
     f_c = float(spine.json_("sf_calibration").get("f_c_hz", score.DEFAULT_F_C_HZ))
     mine = animals_of(spine.recording_ids())[tag]
     pairs = bones.pair_indices(anchors.LUNA.n_kept_keypoints)
-    names = sorted(clean_arms.ARMS) + sorted(clean_arms.STORED_ARMS)
+    names = (sorted(clean_arms.ARMS) + sorted(clean_arms.STORED_ARMS)
+             + sorted(clean_arms.COMPOSED))
 
     # ell_a, and the cleaned arrays, held in memory one animal at a time.
     raw_poses, cleaned = [], {n: [] for n in names}
@@ -65,6 +66,12 @@ def shard(args, tag: str) -> int:
             cleaned[n].append(clean_arms.apply(n, held, d["conf"], fps))
         for n, key in clean_arms.STORED_ARMS.items():
             cleaned[n].append(d[key].astype(np.float64))
+        # Composed arms read the base arm's ALREADY-COMPUTED output rather than
+        # re-running it. Viterbi is 12.6 s per recording; three compositions over
+        # it would be 50 s of which 38 s is the same computation three times.
+        for n, (base, then) in clean_arms.COMPOSED.items():
+            cleaned[n].append(clean_arms.apply(then, cleaned[base][-1],
+                                               d["conf"], fps))
     ell = ego.ell_a(raw_poses)
     del raw_poses
 
@@ -164,8 +171,9 @@ def combine(args) -> int:
                 and "point" in v} for n, m in per_arm.items()}
     ranked = score.rank(flat)
     rd = score.bakeoff_read(
-        ranked, scored_object={"dataset": "luna", "arm": "cleaning",
-                               "split": args.split, "eps": EPS},
+        ranked, per_arm,
+        scored_object={"dataset": "luna", "arm": "cleaning",
+                       "split": args.split, "eps": EPS},
         n_effective=max((m["n_animals"] for m in per_arm.values()), default=1))
 
     doc = {

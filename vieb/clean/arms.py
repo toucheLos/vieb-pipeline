@@ -265,6 +265,29 @@ ARMS: dict[str, tuple[Callable[..., F64], Detail]] = {
 #: Arms read from shapeflow's stored arrays rather than recomputed.
 STORED_ARMS: dict[str, str] = {"wiener": "pose", "butterworth": "pose_butterworth"}
 
+#: `name -> (base arm, arm applied to its output)`. Composition exists because
+#: **no single arm does both jobs**, and the measurements say so plainly:
+#:
+#:   viterbi      moves 0.31% of keypoint-frames, 0.189 px mean, keeps 58.6% of
+#:                the power above f_c -- but only takes 3.2% off the violations
+#:   median_0.50  takes 11.0% off the violations -- but moves everything, 1.573 px
+#:                mean, and keeps 27.0%
+#:
+#: A teleport is a discontinuity and a median is the wrong instrument for it: the
+#: filter has to move every frame to pull one outlier back. Path selection
+#: declines the outlier outright and leaves its neighbours untouched. Run the
+#: de-glitcher first and the smoother sees a series with no teleports left in it,
+#: which is the order Anipose's own pipeline uses.
+#:
+#: The base arm is computed ONCE per recording and reused, so a composition costs
+#: the smoother and not a second Viterbi pass -- which matters, because Viterbi is
+#: 12.6 s per recording against ~0.05 s for everything else.
+COMPOSED: dict[str, tuple[str, str]] = {
+    "viterbi+median_0.25": ("viterbi", "median_0.25"),
+    "viterbi+median_0.50": ("viterbi", "median_0.50"),
+    "viterbi+savgol_0.33": ("viterbi", "savgol_0.33"),
+}
+
 
 def apply(name: str, pose: npt.ArrayLike, conf: npt.ArrayLike | None,
           fps: float) -> F64:

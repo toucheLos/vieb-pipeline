@@ -123,59 +123,118 @@ def rank(arms: Mapping[str, Mapping[str, float]], *,
     return rows
 
 
-def bakeoff_read(rows: Sequence[Mapping[str, Any]], *, scored_object: Detail,
-                 n_effective: int, incumbent: str = "wiener",
-                 max_hf_deleted: float = MAX_HF_DELETED) -> Read:
-    """Did anything beat the incumbent on all three axes at once?
+#: Lower is better on this axis; higher is better on the rest.
+_LOWER_IS_BETTER = {"violation_rate", "distortion_mean_px"}
 
-    The verdict is about whether a *decision* is available, not about which arm
-    is prettiest. `NOT_A_RESULT` when the axes disagree is the honest outcome:
-    the bakeoff ran, and it does not license a change.
+
+def separates(a: Mapping[str, float], b: Mapping[str, float],
+              *, lower_is_better: bool) -> int:
+    """Does `a` beat `b` with non-overlapping animal-bootstrap intervals?
+
+    Returns +1 if `a` is better and the intervals do not overlap, -1 if `a` is
+    worse and they do not overlap, and 0 if they overlap at all.
+
+    **Overlap means 0, not a tie broken on the point estimate.** Two arms whose
+    intervals overlap are not distinguishable by this comparison, and calling one
+    of them the winner is the single most repeated failure in this project's
+    history -- a point estimate reported as though it had the precision its
+    decimal places imply.
+    """
+    lo_a, hi_a = float(a["lo"]), float(a["hi"])
+    lo_b, hi_b = float(b["lo"]), float(b["hi"])
+    if not all(np.isfinite(v) for v in (lo_a, hi_a, lo_b, hi_b)):
+        return 0
+    if not (hi_a < lo_b or hi_b < lo_a):
+        return 0
+    a_below = hi_a < lo_b
+    return (1 if a_below else -1) if lower_is_better else (-1 if a_below else 1)
+
+
+def bakeoff_read(rows: Sequence[Mapping[str, Any]],
+                 intervals: Mapping[str, Mapping[str, Mapping[str, float]]], *,
+                 scored_object: Detail, n_effective: int,
+                 incumbent: str = "wiener") -> Read:
+    """Did anything beat the incumbent, with intervals that actually separate?
+
+    ## The correction this function carries
+
+    The first version compared **point estimates**: an arm "dominated" if its
+    violation rate, its displacement and its retention were each better than the
+    incumbent's to however many decimal places numpy printed. On this corpus that
+    crowned `viterbi+median_0.50` over `median_0.50` on a **0.029 px** difference
+    in mean displacement, and declared both to beat `wiener` on violations --
+    while the animal-bootstrap intervals for violations ran 1.44-1.78% against
+    1.49-1.87% and overlapped almost entirely.
+
+    Every interval in this repo is an animal bootstrap for a reason, and a gate
+    that then ignores them is worse than no gate: it launders a point estimate
+    into a verdict. Dominance now requires **non-overlapping intervals**.
+
+    An arm dominates when it is significantly better on at least one axis and
+    significantly worse on none. Where nothing separates, the honest verdict is
+    that the bakeoff ran and does not license a change.
     """
     by = {r["arm"]: r for r in rows}
     inc = by.get(incumbent)
     detail: Detail = {"rows": list(rows), "incumbent": incumbent,
-                      "max_hf_deleted": max_hf_deleted}
-    if inc is None:
+                      "test": "non-overlapping animal-bootstrap intervals"}
+    if inc is None or incumbent not in intervals:
         return Read("INCONCLUSIVE", scored_object,
                     f"the incumbent arm {incumbent!r} did not score",
                     n_effective=n_effective, detail=detail)
 
-    better = [
-        r for r in rows
-        if r["arm"] not in (incumbent, "raw")
-        and np.isfinite(r["violation_rate"]) and np.isfinite(r["distortion_px"])
-        and r["violation_rate"] < inc["violation_rate"]
-        # Compared on the MEAN, not the median: every targeted arm has a median
-        # displacement of exactly zero, and `0 <= 0` would let all of them
-        # "dominate" on an axis that never separated them.
-        and r["distortion_mean_px"] <= inc["distortion_mean_px"]
-        and (not np.isfinite(r["hf_retained"])
-             or r["hf_retained"] >= 1.0 - max_hf_deleted)
-    ]
-    detail["dominating"] = [r["arm"] for r in better]
+    axes = ("violation_rate", "distortion_mean_px", "hf_retained")
+    verdicts: Detail = {}
+    dominating = []
+    for name, ci in intervals.items():
+        if name in (incumbent, "raw"):
+            continue
+        got = {ax: separates(ci[ax], intervals[incumbent][ax],
+                             lower_is_better=ax in _LOWER_IS_BETTER)
+               for ax in axes if ax in ci}
+        verdicts[name] = got
+        if any(v > 0 for v in got.values()) and not any(v < 0 for v in got.values()):
+            dominating.append(name)
+    detail["per_axis"] = verdicts
+    detail["dominating"] = dominating
 
-    if better:
-        best = better[0]
+    # Axes that separate for SOME arm, and axes that separate for NONE. The
+    # union across arms is not a property of any one of them -- an earlier
+    # version printed it as though it were and produced a reason that listed
+    # displacement as both separating and not separating in the same sentence.
+    ever = sorted({ax for n in dominating for ax, v in verdicts[n].items() if v > 0})
+    never = [ax for ax in axes
+             if not any(verdicts[n].get(ax, 0) > 0 for n in dominating)]
+    detail["axes_that_separate_for_some_arm"] = ever
+    detail["axes_that_separate_for_no_arm"] = never
+
+    if dominating:
+        red = {r["arm"]: r.get("violation_reduction", 0.0) for r in rows}
+        best = max(dominating,
+                   key=lambda n: (sum(v > 0 for v in verdicts[n].values()),
+                                  red.get(n, 0.0) if np.isfinite(
+                                      red.get(n, 0.0)) else 0.0))
+        mine = sorted(ax for ax, v in verdicts[best].items() if v > 0)
+        b, i = intervals[best], intervals[incumbent]
+        tail = (f" No arm separates on {', '.join(never)}, so the ordering on "
+                f"{'that axis' if len(never) == 1 else 'those axes'} is a "
+                f"ranking of point estimates and not a finding." if never else "")
         return Read(
             "PASS", scored_object,
-            f"{best['arm']} beats the incumbent {incumbent} on all three axes at "
-            f"once: violations {best['violation_rate']:.3%} against "
-            f"{inc['violation_rate']:.3%}, displacement "
-            f"{best['distortion_mean_px']:.3f} px mean against "
-            f"{inc['distortion_mean_px']:.3f}, "
-            f"and it keeps {best['hf_retained']:.1%} of the power above f_c "
-            f"against the incumbent's {inc['hf_retained']:.1%}. "
-            f"{len(better)} arm(s) dominate; a change of cleaning method is "
-            f"licensed by this comparison",
+            f"{len(dominating)} arm(s) beat the incumbent {incumbent} with "
+            f"non-overlapping animal-bootstrap intervals and none is "
+            f"significantly worse on any axis. {best} separates on "
+            f"{', '.join(mine)}: it retains {b['hf_retained']['point']:.1%} "
+            f"[{b['hf_retained']['lo']:.1%}, {b['hf_retained']['hi']:.1%}] of the "
+            f"power above f_c against the incumbent's "
+            f"{i['hf_retained']['point']:.1%} "
+            f"[{i['hf_retained']['lo']:.1%}, {i['hf_retained']['hi']:.1%}]."
+            + tail,
             n_effective=n_effective, detail=detail)
     return Read(
         "NOT_A_RESULT", scored_object,
-        f"no arm beats {incumbent} on all three axes at once. Every arm that "
-        f"reduces violations below its {inc['violation_rate']:.3%} does so by "
-        f"moving the data further than its {inc['distortion_mean_px']:.3f} px "
-        f"mean, or by "
-        f"deleting more than {max_hf_deleted:.0%} of the power above f_c. The "
-        f"bakeoff ran and it does not license a change -- which is a result "
-        f"about the axes disagreeing, not a failure to measure",
+        f"no arm separates from {incumbent} on any axis once the animal-bootstrap "
+        f"intervals are taken into account. The point estimates order the arms "
+        f"and the intervals overlap, so the ordering is not a finding. The "
+        f"bakeoff ran and does not license a change",
         n_effective=n_effective, detail=detail)

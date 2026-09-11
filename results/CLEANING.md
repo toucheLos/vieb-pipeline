@@ -9,14 +9,17 @@ This is the benchmark.
 
 ## Read — `PASS`
 
-> median_0.25 beats the incumbent wiener on all three axes at once: violations 1.632% against 1.673%, displacement 1.112 px mean against 1.555, and it keeps 32.0% of the power above f_c against the incumbent's 22.0%. 1 arm(s) dominate; a change of cleaning method is licensed by this comparison
+> 11 arm(s) beat the incumbent wiener with non-overlapping animal-bootstrap intervals and none is significantly worse on any axis. median_0.25 separates on distortion_mean_px, hf_retained: it retains 32.0% [30.2%, 33.7%] of the power above f_c against the incumbent's 22.0% [20.8%, 23.2%]. No arm separates on violation_rate, so the ordering on that axis is a ranking of point estimates and not a finding.
 
 ## The three axes, and why no single number
 
 | arm | violations | vs raw | distortion median px | mean px | body lengths | HF retained | %/px |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `median_0.50` | 1.592% | +11.0% | 0.512 | 1.573 | 0.00445 | 0.270 | 7.0 |
+| `viterbi+median_0.50` | 1.606% | +10.1% | 0.504 | 1.544 | 0.00438 | 0.271 | 6.6 |
 | `median_0.25` | 1.632% | +8.7% | 0.345 | 1.112 | 0.00300 | 0.320 | 7.8 |
+| `viterbi+median_0.25` | 1.640% | +8.3% | 0.340 | 1.085 | 0.00296 | 0.317 | 7.6 |
+| `viterbi+savgol_0.33` | 1.661% | +7.1% | 0.542 | 1.264 | 0.00471 | 0.137 | 5.6 |
 | `savgol_0.50` | 1.663% | +7.0% | 0.708 | 1.612 | 0.00615 | 0.136 | 4.3 |
 | `wiener` | 1.673% | +6.4% | 0.768 | 1.555 | 0.00665 | 0.220 | 4.1 |
 | `savgol_0.33` | 1.701% | +4.8% | 0.551 | 1.308 | 0.00479 | 0.145 | 3.7 |
@@ -33,6 +36,44 @@ This is the benchmark.
 Sorted by violation reduction, never reduced to a score. Combining the axes into
 one number would hide the case this exists to find: an arm that wins on
 violations by moving everything.
+
+**Read the ordering as an ordering, not as a result.** Dominance is decided by
+**non-overlapping animal-bootstrap intervals**, and on this corpus
+`violation_rate` separates for no arm at all -- the intervals run ~1.43-1.79%
+against the incumbent's ~1.49-1.87% and overlap almost entirely. An earlier
+version of this read compared point estimates and announced that an arm "beats
+the incumbent on all three axes"; it does not. What separates is retention, and
+displacement for the targeted arms.
+
+## Composing a de-glitcher with a smoother buys nothing
+
+`viterbi+median_0.50` against `median_0.50` alone: 1.606% against 1.592%
+violations, 1.544 px against 1.573 mean displacement, 27.1% against 27.0%
+retention. **All three intervals overlap.** The hypothesis was that Viterbi would
+remove the teleports so the median would not have to, giving lower violations at
+lower distortion. It does not, and the residual measurement below says why.
+
+## What the best arm still gets wrong, and why nothing temporal will fix it
+
+Violating runs on the eight worst recordings, before and after `median_0.50`:
+
+| | runs | median run | share of violating frames in runs > 0.5 s | > 3 frames |
+|---|---:|---:|---:|---:|
+| raw | 207 | 2 frames | 32.3% | 70.4% |
+| after `median_0.50` | 66 | **9 frames** | **53.1%** | **96.1%** |
+
+The median removes the short violations -- which is what a median is for -- and
+the median *length* of what survives triples. **What a temporal filter leaves
+behind is temporally smooth.** A keypoint parked off the body and held there
+satisfies a median (most of the window is wrong) and satisfies Viterbi's motion
+prior too (a stationary point is not a glitch). That is why composing them is
+redundant rather than complementary, and it is visible in the residual clips: one
+landmark off the animal, identical in all three panes.
+
+The information needed to fix it is not on the time axis. It is either anatomical
+-- the bone length used as a **corrector** rather than a flag, which is the cheap
+2-D shadow of what an anatomically constrained model does properly in 3-D -- or it
+is in better detections, which is the expensive branch.
 
 **Distortion is judged on the mean, not the median.** Every targeted arm — the
 outlier gates and Viterbi — moves under half its frames, so its median

@@ -695,6 +695,176 @@
       "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
       "violation_rate": 0.32177299703264095,
       "violations_in_clip": 0.75
+    },
+    {
+      "a": 577,
+      "animal": "149",
+      "b": 628,
+      "bytes": 65716,
+      "duration_s": 1.7,
+      "file": "clips/residual_149_00.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": null,
+      "violations_in_clip": 0.4117647058823529
+    },
+    {
+      "a": 1649,
+      "animal": "149",
+      "b": 1683,
+      "bytes": 52504,
+      "duration_s": 1.13,
+      "file": "clips/residual_149_01.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": null,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 0,
+      "animal": "577",
+      "b": 32,
+      "bytes": 53784,
+      "duration_s": 1.07,
+      "file": "clips/residual_577_00.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": null,
+      "violations_in_clip": 0.21875
+    },
+    {
+      "a": 108,
+      "animal": "577",
+      "b": 176,
+      "bytes": 116443,
+      "duration_s": 2.27,
+      "file": "clips/residual_577_01.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": null,
+      "violations_in_clip": 0.36764705882352944
+    },
+    {
+      "a": 1791,
+      "animal": "777",
+      "b": 1837,
+      "bytes": 30766,
+      "duration_s": 1.53,
+      "file": "clips/residual_777_00.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": null,
+      "violations_in_clip": 0.34782608695652173
+    },
+    {
+      "a": 4265,
+      "animal": "777",
+      "b": 4329,
+      "bytes": 123721,
+      "duration_s": 2.13,
+      "file": "clips/residual_777_01.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": null,
+      "violations_in_clip": 0.53125
+    },
+    {
+      "a": 334,
+      "animal": "234",
+      "b": 365,
+      "bytes": 48004,
+      "duration_s": 1.03,
+      "file": "clips/residual_234_00.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 603,
+      "animal": "234",
+      "b": 680,
+      "bytes": 104873,
+      "duration_s": 2.57,
+      "file": "clips/residual_234_01.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": null,
+      "violations_in_clip": 0.06493506493506493
+    },
+    {
+      "a": 634,
+      "animal": "578",
+      "b": 724,
+      "bytes": 94294,
+      "duration_s": 3.0,
+      "file": "clips/residual_578_00.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.26666666666666666
+    },
+    {
+      "a": 798,
+      "animal": "578",
+      "b": 842,
+      "bytes": 51472,
+      "duration_s": 1.47,
+      "file": "clips/residual_578_01.mp4",
+      "kind": "residual",
+      "panes": [
+        "raw",
+        "median 0.50s",
+        "viterbi + median"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.3181818181818182
     }
   ],
   "corpus": "luna",
@@ -724,14 +894,15 @@
   },
   "eps": 0.1,
   "inherited_digest": "198eb14ff258c7f6",
-  "n_clips": 42,
+  "n_clips": 52,
   "note": "Left pane is the pose after the gap policy and before the filter; right pane is the filtered array every downstream stage consumes. Same frames, same crop box, same red outline on violating frames -- the only difference between panes is the skeleton.",
   "seed": 0,
   "sets": {
     "bakeoff": 4,
     "random": 12,
+    "residual": 10,
     "worst": 6
   },
   "stage": "compare",
-  "total_bytes": 4581677
+  "total_bytes": 5323254
 }

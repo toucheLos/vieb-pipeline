@@ -937,6 +937,222 @@
         "point": 0.017305563774315386
       }
     },
+    "viterbi+median_0.25": {
+      "concentration": {
+        "max": 0.5976784706741662,
+        "mean": 0.07804215448839459,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p75": 0.10184719561774662,
+        "p90": 0.261685259891223,
+        "p99": 0.5600949234780326,
+        "sd": 0.14735212795125016
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.003228048449335394,
+        "lo": 0.002694436438129198,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.002960194140794351
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.2180536621932825,
+        "lo": 0.9661107457093625,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.0846313069799836
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.3713309383245922,
+        "lo": 0.30972893640873667,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.3397196608462702
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.33446416831710857,
+        "lo": 0.2983863461753016,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.3168997805223092
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018065938537410706,
+        "lo": 0.01479002765570221,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01639862196353426
+      }
+    },
+    "viterbi+median_0.50": {
+      "concentration": {
+        "max": 4.319044532334282,
+        "mean": 0.7547746925036286,
+        "median": 0.6101362594606003,
+        "min": 0.0,
+        "n": 89,
+        "p1": 0.0,
+        "p10": 0.09682348171377812,
+        "p25": 0.374376233607393,
+        "p75": 0.9759915678336537,
+        "p90": 1.5363889676835714,
+        "p99": 3.076927573413384,
+        "sd": 0.6889385074133278
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0048300724092912445,
+        "lo": 0.003942809394214028,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.00438183260830396
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.732371619101157,
+        "lo": 1.3764281291804454,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.5440433873873511
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5563831207049662,
+        "lo": 0.455990594363993,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5036955303243774
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.28885725367055315,
+        "lo": 0.2529545900287353,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.2714842002312676
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01778990552527111,
+        "lo": 0.014392201124813105,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.016062767500667815
+      }
+    },
+    "viterbi+savgol_0.33": {
+      "concentration": {
+        "max": 4.5355792526561745,
+        "mean": 0.8025251029706062,
+        "median": 0.582005982755517,
+        "min": 0.13651724222091047,
+        "n": 89,
+        "p1": 0.17744084182803174,
+        "p10": 0.33117479634405905,
+        "p25": 0.4382700965339181,
+        "p75": 0.9140876848738756,
+        "p90": 1.4212400795379034,
+        "p99": 3.376965237032417,
+        "sd": 0.6912663014796003
+      },
+      "distortion_body_lengths": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0051606339451652624,
+        "lo": 0.004284472365091139,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004713261500586176
+      },
+      "distortion_mean_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.4171066977728903,
+        "lo": 1.127948367752091,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.2635758799493215
+      },
+      "distortion_px": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.5948493510838909,
+        "lo": 0.49403406890272733,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5421712004117201
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.15044863512051318,
+        "lo": 0.1223071126045641,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.1369285164876745
+      },
+      "n_animals": 89,
+      "violation_rate": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.018387468542915408,
+        "lo": 0.014901282473195531,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.016609448126581945
+      }
+    },
     "wiener": {
       "concentration": {
         "max": 8.510214116788065,
@@ -1039,7 +1255,7 @@
   "eps": 0.1,
   "inherited_digest": "198eb14ff258c7f6",
   "n_animals": 298,
-  "peak_rss_gb": 0.624114990234375,
+  "peak_rss_gb": 0.6256065368652344,
   "ranked": [
     {
       "arm": "median_0.50",
@@ -1052,6 +1268,16 @@
       "violation_reduction": 0.10959879386883331
     },
     {
+      "arm": "viterbi+median_0.50",
+      "distortion_body_lengths": 0.00438183260830396,
+      "distortion_mean_px": 1.5440433873873511,
+      "distortion_px": 0.5036955303243774,
+      "hf_retained": 0.2714842002312676,
+      "reduction_per_px": 0.06571975965431706,
+      "violation_rate": 0.016062767500667815,
+      "violation_reduction": 0.10147416031493428
+    },
+    {
       "arm": "median_0.25",
       "distortion_body_lengths": 0.0030030817773399315,
       "distortion_mean_px": 1.111925736904798,
@@ -1060,6 +1286,26 @@
       "reduction_per_px": 0.07818290029756038,
       "violation_rate": 0.0163227065766982,
       "violation_reduction": 0.08693357902671917
+    },
+    {
+      "arm": "viterbi+median_0.25",
+      "distortion_body_lengths": 0.002960194140794351,
+      "distortion_mean_px": 1.0846313069799836,
+      "distortion_px": 0.3397196608462702,
+      "hf_retained": 0.3168997805223092,
+      "reduction_per_px": 0.07623511480655502,
+      "violation_rate": 0.01639862196353426,
+      "violation_reduction": 0.08268699221040288
+    },
+    {
+      "arm": "viterbi+savgol_0.33",
+      "distortion_body_lengths": 0.004713261500586176,
+      "distortion_mean_px": 1.2635758799493215,
+      "distortion_px": 0.5421712004117201,
+      "hf_retained": 0.1369285164876745,
+      "reduction_per_px": 0.056105621210316425,
+      "violation_rate": 0.016609448126581945,
+      "violation_reduction": 0.0708937096909289
     },
     {
       "arm": "savgol_0.50",
@@ -1186,11 +1432,104 @@
     "bakeoff": {
       "degenerate": 0,
       "detail": {
+        "axes_that_separate_for_no_arm": [
+          "violation_rate"
+        ],
+        "axes_that_separate_for_some_arm": [
+          "distortion_mean_px",
+          "hf_retained"
+        ],
         "dominating": [
-          "median_0.25"
+          "median_0.10",
+          "median_0.25",
+          "median_0.50",
+          "outlier_iqr3",
+          "outlier_mad3",
+          "outlier_mad5",
+          "outlier_p99",
+          "savgol_0.17",
+          "viterbi",
+          "viterbi+median_0.25",
+          "viterbi+median_0.50"
         ],
         "incumbent": "wiener",
-        "max_hf_deleted": 0.9,
+        "per_axis": {
+          "butterworth": {
+            "distortion_mean_px": 1,
+            "hf_retained": -1,
+            "violation_rate": 0
+          },
+          "median_0.10": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "median_0.25": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "median_0.50": {
+            "distortion_mean_px": 0,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "outlier_iqr3": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "outlier_mad3": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "outlier_mad5": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "outlier_p99": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "savgol_0.17": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "savgol_0.33": {
+            "distortion_mean_px": 0,
+            "hf_retained": -1,
+            "violation_rate": 0
+          },
+          "savgol_0.50": {
+            "distortion_mean_px": 0,
+            "hf_retained": -1,
+            "violation_rate": 0
+          },
+          "viterbi": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "viterbi+median_0.25": {
+            "distortion_mean_px": 1,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "viterbi+median_0.50": {
+            "distortion_mean_px": 0,
+            "hf_retained": 1,
+            "violation_rate": 0
+          },
+          "viterbi+savgol_0.33": {
+            "distortion_mean_px": 1,
+            "hf_retained": -1,
+            "violation_rate": 0
+          }
+        },
         "rows": [
           {
             "arm": "median_0.50",
@@ -1203,6 +1542,16 @@
             "violation_reduction": 0.10959879386883331
           },
           {
+            "arm": "viterbi+median_0.50",
+            "distortion_body_lengths": 0.00438183260830396,
+            "distortion_mean_px": 1.5440433873873511,
+            "distortion_px": 0.5036955303243774,
+            "hf_retained": 0.2714842002312676,
+            "reduction_per_px": 0.06571975965431706,
+            "violation_rate": 0.016062767500667815,
+            "violation_reduction": 0.10147416031493428
+          },
+          {
             "arm": "median_0.25",
             "distortion_body_lengths": 0.0030030817773399315,
             "distortion_mean_px": 1.111925736904798,
@@ -1211,6 +1560,26 @@
             "reduction_per_px": 0.07818290029756038,
             "violation_rate": 0.0163227065766982,
             "violation_reduction": 0.08693357902671917
+          },
+          {
+            "arm": "viterbi+median_0.25",
+            "distortion_body_lengths": 0.002960194140794351,
+            "distortion_mean_px": 1.0846313069799836,
+            "distortion_px": 0.3397196608462702,
+            "hf_retained": 0.3168997805223092,
+            "reduction_per_px": 0.07623511480655502,
+            "violation_rate": 0.01639862196353426,
+            "violation_reduction": 0.08268699221040288
+          },
+          {
+            "arm": "viterbi+savgol_0.33",
+            "distortion_body_lengths": 0.004713261500586176,
+            "distortion_mean_px": 1.2635758799493215,
+            "distortion_px": 0.5421712004117201,
+            "hf_retained": 0.1369285164876745,
+            "reduction_per_px": 0.056105621210316425,
+            "violation_rate": 0.016609448126581945,
+            "violation_reduction": 0.0708937096909289
           },
           {
             "arm": "savgol_0.50",
@@ -1332,10 +1701,11 @@
             "violation_rate": 0.017903902799555827,
             "violation_reduction": -0.0015160398693356836
           }
-        ]
+        ],
+        "test": "non-overlapping animal-bootstrap intervals"
       },
       "n_effective": 89,
-      "reason": "median_0.25 beats the incumbent wiener on all three axes at once: violations 1.632% against 1.673%, displacement 1.112 px mean against 1.555, and it keeps 32.0% of the power above f_c against the incumbent's 22.0%. 1 arm(s) dominate; a change of cleaning method is licensed by this comparison",
+      "reason": "11 arm(s) beat the incumbent wiener with non-overlapping animal-bootstrap intervals and none is significantly worse on any axis. median_0.25 separates on distortion_mean_px, hf_retained: it retains 32.0% [30.2%, 33.7%] of the power above f_c against the incumbent's 22.0% [20.8%, 23.2%]. No arm separates on violation_rate, so the ordering on that axis is a ranking of point estimates and not a finding.",
       "saturation": null,
       "scored_object": {
         "arm": "cleaning",

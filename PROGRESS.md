@@ -18,7 +18,7 @@ programme and the cleaning work under it.
 | 3 | Coarse alphabet + RLE | planned | — | — |
 | 4 | Rungs 0–2, hazard + MDL | planned | — | — |
 
-**Tests:** 184 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 196 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok` and `vieb/qc`.
 
 ---
@@ -145,10 +145,26 @@ median turning**; Butterworth preserves turning far better (0.922 against 0.760)
 for a similar cut to speed, and turning is what the egocentric `omega` channel
 carries. `results/EFFECT.md`.
 
-**The bakeoff licenses a change of cleaning method.** On 89 report animals
-`median_0.25` beats the incumbent on all three axes at once — violations 1.632%
-against 1.673%, mean displacement 1.112 px against 1.555, above-f_c retention
-32.0% against 22.0%.
+**The bakeoff licenses a change, but not on the axis it first appeared to.**
+Dominance is decided by **non-overlapping animal-bootstrap intervals**, and
+`violation_rate` separates for **no arm at all** — the intervals run ~1.43–1.79%
+against the incumbent's ~1.49–1.87%. An earlier version of this read compared
+point estimates and announced that an arm beat the incumbent on all three axes;
+it does not. Eleven arms do separate on **retention** (and the targeted ones on
+displacement): `median_0.25` keeps 32.0% [30.2, 33.7] of the power above f_c
+against Wiener's 22.0% [20.8, 23.2]. The case for a change rests on preserving
+fast movement at the same violation rate and the same distortion.
+
+**Composing a de-glitcher with a smoother buys nothing.** `viterbi+median_0.50`
+against `median_0.50` alone: all three intervals overlap.
+
+**And nothing temporal will close the gap.** On the eight worst recordings the
+median filter cuts violating runs from 207 to 66 while the median run LENGTH
+triples, 2 frames to 9; 96% of what survives lasts longer than 3 frames. What a
+temporal filter leaves behind is temporally smooth — a landmark parked off the
+body and held there satisfies a median and satisfies Viterbi's motion prior. The
+remaining gain needs an anatomical prior or better detections, not another
+filter.
 
 **Anipose's Viterbi arm is the efficiency outlier.** It buys **16.9%** of
 violation reduction per pixel of displacement against the incumbent's 4.1%, moves

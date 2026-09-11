@@ -30,7 +30,8 @@ sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 from recur import anchors, labels as lab                           # noqa: E402
 from recur.render import video as vid                              # noqa: E402
 from recur.util import log, read_json, write_json                  # noqa: E402
-from vieb.clean import arms as clean_arms                          # noqa: E402
+from vieb.clean import arms as clean_arms
+from vieb.qc import bones                          # noqa: E402
 from vieb.io import spine                                          # noqa: E402
 from vieb.render import compare                                    # noqa: E402
 from vieb.tok import config                                        # noqa: E402
@@ -174,15 +175,94 @@ def render(args) -> int:
     return 0
 
 
+def residual(args) -> int:
+    """What the best arm still gets wrong, and whether composing fixes it.
+
+    The bakeoff ranks arms; it does not show what is LEFT after the best one. So
+    this finds frames still violating the skull bound after `median_0.50` and
+    renders them three ways -- raw, the smoother alone, and the de-glitcher
+    composed ahead of it. If composition helps, this is where it would show.
+
+    The reference length is refitted per arm, the same as the bakeoff, so a
+    violation here means the same thing it means there.
+    """
+    out_dir = os.path.join(config.PATHS.results_dir, "compare", "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = spine.fps()
+    pairs = bones.pair_indices(anchors.LUNA.n_kept_keypoints)
+    picks = [w["recording_id"] for w in
+             read_json(config.PATHS.result("bones.json"))["worst_recordings"]][:args.n]
+
+    manifest: list = []
+    for rid in picks:
+        d = spine.clean(rid)
+        unfiltered = d["pose_unfiltered"].astype(np.float64)
+        held = clean_arms.held_array(unfiltered, d["missing"].astype(bool))
+        best = clean_arms.apply("median_0.50", held, d["conf"], fps)
+        composed = clean_arms.apply(
+            "median_0.50", clean_arms.apply("viterbi", held, d["conf"], fps),
+            d["conf"], fps)
+
+        keep = bones.rigid_pairs(bones.log_lengths(best, pairs), pairs)
+        lengths = bones.metric_lengths(best, bones.SKULL, "raw",
+                                       pairs=pairs, keep=keep)
+        l_hat = np.array([bones.reference_length(lengths[:, m], EPS)["l_hat"]
+                          for m in range(len(bones.SKULL))])
+        mask = bones.frame_mask(bones.violations(lengths, l_hat, EPS))
+        wins = compare.windows(mask, fps=fps)[:args.per_recording]
+        if not wins:
+            log(f"  {rid}: no residual violation at eps={EPS}")
+            continue
+        for w, (a, b) in enumerate(wins):
+            name = f"residual_{lab.animal_tag(rid)}_{w:02d}.mp4"
+            path = os.path.join(out_dir, name)
+            ok, why = compare.compare(
+                vid.video_path(rid), a, b, path, fps=fps,
+                panes=[("raw", unfiltered), ("median 0.50s", best),
+                       ("viterbi + median", composed)],
+                crop_from=unfiltered, flags=mask)
+            if not ok:
+                log(f"  SKIP {name}: {why}")
+                continue
+            manifest.append({
+                "kind": "residual", "file": os.path.join("clips", name),
+                "recording_id": rid, "animal": lab.animal_tag(rid),
+                "a": int(a), "b": int(b),
+                "duration_s": round((b - a) / fps, 2),
+                "panes": ["raw", "median 0.50s", "viterbi + median"],
+                "violation_rate": None,
+                "violations_in_clip": float(mask[a:b].mean()),
+                "bytes": os.path.getsize(path),
+            })
+            log(f"  {name}  {(b - a) / fps:.1f}s  "
+                f"{mask[a:b].mean():.1%} of frames still violating")
+
+    path = os.path.join(config.PATHS.results_dir, "compare", "manifest.json")
+    doc = read_json(path)
+    doc["clips"] = [c for c in doc["clips"] if c["kind"] != "residual"] + manifest
+    doc["sets"]["residual"] = len(manifest)
+    doc["n_clips"] = len(doc["clips"])
+    doc["total_bytes"] = sum(c["bytes"] for c in doc["clips"])
+    write_json(doc, path)
+    log(f"{len(manifest)} residual clips; manifest now {doc['n_clips']} total")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true")
     p.add_argument("--render", action="store_true")
+    p.add_argument("--residual", action="store_true",
+                   help="frames the best arm STILL gets wrong, three ways")
+    p.add_argument("--n", type=int, default=5)
+    p.add_argument("--per-recording", type=int, default=2)
     a = p.parse_args(argv)
     if a.check:
         return gates(a)
     if a.render:
         return render(a)
+    if a.residual:
+        return residual(a)
     raise SystemExit("pass --check or --render")
 
 
