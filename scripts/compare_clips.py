@@ -3,13 +3,18 @@
     python3 scripts/compare_clips.py --check     # the gates, first
     python3 scripts/compare_clips.py --render
 
-Three sets, and the middle one is what keeps the reel honest:
+Five sets, and the second is what keeps the reel honest:
 
-  worst     the highest violation-rate recordings
-  random    a seeded stratified sample across the violation distribution --
-            a reel of only worst cases overstates how bad the corpus is
-  bakeoff   the same segments under several cleaning arms, so the methods are
-            compared against each other and not each against raw
+  worst        the highest violation-rate recordings
+  random       a seeded stratified sample across the violation distribution --
+               a reel of only worst cases overstates how bad the corpus is
+  bakeoff      the same segments under several cleaning arms, so the methods are
+               compared against each other and not each against raw
+  residual     what the best arm STILL gets wrong, three ways
+  disposition  Phase D: the frames the corrector moved, before and after, with
+               the abstained frames beside them. A correction is 0.50% of frames
+               and moves the suspect a median 0.19 body lengths, so this is the
+               only place the move is visible rather than tabulated
 
 The violation masks are read from `work/bones/<animal>.npz`, bit-packed at Step 1
 over that animal's concatenated frames. Recomputing them here would risk a second
@@ -18,6 +23,7 @@ implementation disagreeing with the published rate.
 from __future__ import annotations
 
 import argparse
+import glob
 import json
 import os
 import sys
@@ -248,12 +254,96 @@ def residual(args) -> int:
     return 0
 
 
+def disposition(args) -> int:
+    """Phase D before/after: what the corrector moved, and what it refused to.
+
+    Windows centre on **corrected** frames rather than on violations, because the
+    correction is the subject. The abstained frames are drawn in the same clip
+    and are the contrast: a sustained run the corrector deliberately would not
+    touch, next to a short one it did.
+    """
+    out_dir = os.path.join(config.PATHS.results_dir, "compare", "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = spine.fps()
+    dis_dir = os.path.join(os.path.dirname(config.PATHS.bones_dir), "disposition")
+
+    # Pick by corrected mass: the recordings where there is something to see.
+    rows: list = []
+    for f in sorted(glob.glob(os.path.join(dis_dir, "*.npz"))):
+        with np.load(f, allow_pickle=False) as z:
+            for r in json.loads(str(z["rows_json"])):
+                rows.append(r)
+    rows.sort(key=lambda r: -r["frac_corrected"])
+    picks = [r["recording_id"] for r in rows[:args.n]]
+
+    manifest: list = []
+    for rid in picks:
+        tag = lab.animal_tag(rid)
+        with np.load(os.path.join(dis_dir, f"{tag}.npz"), allow_pickle=False) as z:
+            ids = [str(v) for v in z["recording_ids"]]
+            k = ids.index(str(rid))
+            lo, hi = int(z["bounds"][k]), int(z["bounds"][k + 1])
+            after = z["pose"][lo:hi].astype(np.float64)
+            corrected = z["corrected"][lo:hi].astype(bool)
+            abstain = z["abstain"][lo:hi].astype(bool)
+        d = spine.clean(rid)
+        before = clean_arms.held_array(d["pose_unfiltered"].astype(np.float64),
+                                       d["missing"].astype(bool))
+        if before.shape[0] != after.shape[0]:
+            log(f"  SKIP {rid}: {before.shape[0]} != {after.shape[0]} frames")
+            continue
+        wins = compare.windows(corrected, fps=fps)[:args.per_recording]
+        if not wins:
+            log(f"  {rid}: nothing corrected")
+            continue
+        for w, (a, b) in enumerate(wins):
+            name = f"disposition_{tag}_{w:02d}.mp4"
+            path = os.path.join(out_dir, name)
+            ok, why = compare.compare(
+                vid.video_path(rid), a, b, path, fps=fps,
+                panes=[("before", before), ("corrected", after)],
+                crop_from=before, flags=corrected | abstain)
+            if not ok:
+                log(f"  SKIP {name}: {why}")
+                continue
+            moved = float(np.linalg.norm(after[a:b] - before[a:b],
+                                         axis=-1).max()) if b > a else 0.0
+            manifest.append({
+                "kind": "disposition", "file": os.path.join("clips", name),
+                "recording_id": rid, "animal": tag,
+                "a": int(a), "b": int(b),
+                "duration_s": round((b - a) / fps, 2),
+                "panes": ["before", "corrected"],
+                "violation_rate": None,
+                "violations_in_clip": float(corrected[a:b].mean()),
+                "abstained_in_clip": float(abstain[a:b].mean()),
+                "max_move_px": round(moved, 2),
+                "bytes": os.path.getsize(path),
+            })
+            log(f"  {name}  {(b - a) / fps:.1f}s  "
+                f"{corrected[a:b].mean():.1%} corrected, "
+                f"{abstain[a:b].mean():.1%} abstained, max move {moved:.1f} px")
+
+    path = os.path.join(config.PATHS.results_dir, "compare", "manifest.json")
+    doc = read_json(path)
+    doc["clips"] = [c for c in doc["clips"]
+                    if c["kind"] != "disposition"] + manifest
+    doc["sets"]["disposition"] = len(manifest)
+    doc["n_clips"] = len(doc["clips"])
+    doc["total_bytes"] = sum(c["bytes"] for c in doc["clips"])
+    write_json(doc, path)
+    log(f"{len(manifest)} disposition clips; manifest now {doc['n_clips']} total")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true")
     p.add_argument("--render", action="store_true")
     p.add_argument("--residual", action="store_true",
                    help="frames the best arm STILL gets wrong, three ways")
+    p.add_argument("--disposition", action="store_true",
+                   help="Phase D: what the corrector moved, before and after")
     p.add_argument("--n", type=int, default=5)
     p.add_argument("--per-recording", type=int, default=2)
     a = p.parse_args(argv)
@@ -263,7 +353,9 @@ def main(argv=None) -> int:
         return render(a)
     if a.residual:
         return residual(a)
-    raise SystemExit("pass --check or --render")
+    if a.disposition:
+        return disposition(a)
+    raise SystemExit("pass --check, --render, --residual or --disposition")
 
 
 if __name__ == "__main__":
