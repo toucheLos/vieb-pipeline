@@ -217,6 +217,42 @@ is not nudging a noisy keypoint; it is saying the keypoint was most of a body aw
 `reliability` is emitted per keypoint-frame (mean 0.6984) and enters Step 4 as a
 **covariate, never a likelihood weight**.
 
+## Phase E1 — continuity, and the Anipose arm made visible
+
+`results/CONTINUITY.md`, `results/continuity.json`. Pre-registered in its own
+commit before the corpus run. The bakeoff verdict is **not** restated and Q1 is
+not re-scored.
+
+**The bone check is the wrong net for most of what a viewer sees.** A continuity
+residual — fit the similarity carrying the six other keypoints from a
+neighbouring frame onto this one, take what is left, in body lengths — flags
+**3.798%** of report frames against the bone check's **1.122%**, and **only 8.2%
+of spiking frames are bone-flagged**. Jaccard 0.068. A length test is
+structurally blind to a keypoint sliding *along* a bone, and 232,792 frames carry
+a discontinuity no ε could have found.
+
+**Anipose Viterbi is the efficiency outlier by a wider margin than the bakeoff
+showed.** It removes 67.0% of spiking frames at 0.189 px mean displacement —
+**354% per pixel against the next best arm's 83%** — while retaining 58.6% of the
+power above f_c against the two smoothers' 22% and 27%.
+
+**Four instruments name the nose.** Worst continuity residual of the seven
+(0.0067 against the centre's 0.0034); most-reassigned landmark for Viterbi
+(0.5315% against the centre's 0.0224%); heavily smoothed by Wiener (gain 0.2903
+against the centre's 0.5832); and Phase D's suspect on 61.6% of corrections.
+Reassignment and continuity rank-correlate at ρ = +0.775 (p = 0.041); the other
+two pairs do not reach significance at n = 7 keypoints and are reported as such.
+
+**Two predictions did not hold.** Prediction 2 said no arm would lower `step`;
+two did, and the honest reading is that **the falsifier was badly constructed** —
+a 15-frame median smooths *across* a 9-frame park, shrinking the step while the
+landmark stays off the animal. The `CLEANING.md` claim it was meant to test is
+not withdrawn, and the run-length measurement that does test it is unchanged.
+Prediction 3 said the disposition would lower spike on the held-out side; it
+falls 4.4% and **the intervals overlap raw's**. Against 10.9% on the donor side —
+so better than half of Phase D's apparent continuity gain is the corrector
+agreeing with its own predictor, which nothing inside Phase D could have shown.
+
 ## Open
 
-Publish the comparison clips to the VIEB Atlas, then Steps 3–4.
+Steps 3–4.

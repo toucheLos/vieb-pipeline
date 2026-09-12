@@ -86,6 +86,7 @@ def shard(args, tag: str) -> int:
     del stacked
 
     rows, poses, abst_all, corr_all, rel_all, lens = [], [], [], [], [], []
+    donor_all: list = []
     for rid in mine:
         held = held_by_rec[rid]
         conf = conf_by_rec[rid]
@@ -99,6 +100,10 @@ def shard(args, tag: str) -> int:
         raw_logs = np.log(np.where(bones.bone_lengths(held, PAIRS) > 0,
                                    bones.bone_lengths(held, PAIRS), np.nan))
         out = held.copy()
+        # Which neighbour each correction was carried from, -1 where none was
+        # taken. Stored so a later stage can score the OTHER side rather than
+        # recomputing this rule and risking a second implementation of it.
+        donors = np.full(T, -1, dtype=np.int64)
         n_moved, moved_px, n_no_scale = 0, [], 0
         n_no_donor = n_boundary = n_unconverged = 0
         corrected = np.zeros(T, dtype=bool)
@@ -137,6 +142,7 @@ def shard(args, tag: str) -> int:
                 n_unconverged += 1
                 continue
             out[t] = frame
+            donors[t] = donor
             if info["landed_on_boundary"]:
                 n_boundary += 1
             if info["moved"]:
@@ -174,6 +180,7 @@ def shard(args, tag: str) -> int:
         poses.append(out.astype(np.float32))
         abst_all.append(abstain)
         corr_all.append(corrected)
+        donor_all.append(donors)
         rel_all.append(rel.astype(np.float32))
         lens.append(T)
         log(f"[{tag}] {rid[-28:]}  corrected {corrected.mean():.4%}  "
@@ -185,6 +192,7 @@ def shard(args, tag: str) -> int:
         bounds=np.concatenate([[0], np.cumsum(lens)]).astype(np.int64),
         pose=np.concatenate(poses), abstain=np.concatenate(abst_all),
         corrected=np.concatenate(corr_all),
+        donor=np.concatenate(donor_all),
         reliability=np.concatenate(rel_all),
         rows_json=np.array(json.dumps(rows)),
         inherited_digest=np.array(spine.digest()))

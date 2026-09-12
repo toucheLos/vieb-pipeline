@@ -1,0 +1,603 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "scored on one split; the anchor counts all"
+  },
+  "arms": [
+    {
+      "arm": "raw",
+      "frac_spiking": 0.012714843805221423,
+      "frac_spiking_two_sided": 0.012714843805221423,
+      "frac_stepping": 0.02875044394305113,
+      "hf_retained": 1.0,
+      "n_animals": 89,
+      "overlap_2x2": {
+        "bone_only": 54062,
+        "jaccard": 0.06783566059747376,
+        "n_frames": 6678488,
+        "neither": 6370759,
+        "spike_and_bone": 20875,
+        "spike_only": 232792
+      },
+      "per_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_spike": 0.004202391488471825,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_ear",
+          "median_spike": 0.004406247596313255,
+          "n": 6676190
+        },
+        {
+          "keypoint": "nose",
+          "median_spike": 0.0066822112959874095,
+          "n": 6676190
+        },
+        {
+          "keypoint": "center",
+          "median_spike": 0.0034395222864877606,
+          "n": 6676190
+        },
+        {
+          "keypoint": "left_hip",
+          "median_spike": 0.004680853877002326,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_hip",
+          "median_spike": 0.0047166457473421936,
+          "n": 6676190
+        },
+        {
+          "keypoint": "tail_base",
+          "median_spike": 0.005203856849085879,
+          "n": 6676190
+        }
+      ],
+      "spike": 0.0046304645734180205,
+      "spike_p99": 0.11188895767691172,
+      "spike_two_sided": 0.0046304645734180205,
+      "step": 0.004337954901772578,
+      "step_p99": 0.2130983835551031
+    },
+    {
+      "arm": "wiener",
+      "frac_spiking": 0.0038108989226091454,
+      "frac_spiking_two_sided": 0.0038108989226091454,
+      "frac_stepping": 0.006257418317530349,
+      "hf_retained": 0.22016441327791728,
+      "n_animals": 89,
+      "overlap_2x2": {
+        "bone_only": 59059,
+        "jaccard": 0.08826603219781197,
+        "n_frames": 6678488,
+        "neither": 6498600,
+        "spike_and_bone": 15878,
+        "spike_only": 104951
+      },
+      "per_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_spike": 0.002783064877375915,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_ear",
+          "median_spike": 0.002907543083238558,
+          "n": 6676190
+        },
+        {
+          "keypoint": "nose",
+          "median_spike": 0.004210500135626427,
+          "n": 6676190
+        },
+        {
+          "keypoint": "center",
+          "median_spike": 0.002525381497910301,
+          "n": 6676190
+        },
+        {
+          "keypoint": "left_hip",
+          "median_spike": 0.0027632883616554825,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_hip",
+          "median_spike": 0.002704331246971945,
+          "n": 6676190
+        },
+        {
+          "keypoint": "tail_base",
+          "median_spike": 0.0030285643918300936,
+          "n": 6676190
+        }
+      ],
+      "spike": 0.0029239828751497577,
+      "spike_p99": 0.05591587487755179,
+      "spike_two_sided": 0.0029239828751497577,
+      "step": 0.002082885987218336,
+      "step_p99": 0.06754829791777281
+    },
+    {
+      "arm": "median_0.50",
+      "frac_spiking": 0.0010129815156209813,
+      "frac_spiking_two_sided": 0.0010129815156209813,
+      "frac_stepping": 0.006264158728134371,
+      "hf_retained": 0.26968536291037515,
+      "n_animals": 89,
+      "overlap_2x2": {
+        "bone_only": 71520,
+        "jaccard": 0.03345342758121047,
+        "n_frames": 6678488,
+        "neither": 6576346,
+        "spike_and_bone": 3417,
+        "spike_only": 27205
+      },
+      "per_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_spike": 0.0012606813865702331,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_ear",
+          "median_spike": 0.0012859046306461818,
+          "n": 6676190
+        },
+        {
+          "keypoint": "nose",
+          "median_spike": 0.0018410445340218363,
+          "n": 6676190
+        },
+        {
+          "keypoint": "center",
+          "median_spike": 0.0009735147013347413,
+          "n": 6676190
+        },
+        {
+          "keypoint": "left_hip",
+          "median_spike": 0.0012071052643937963,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_hip",
+          "median_spike": 0.0012089631228873686,
+          "n": 6676190
+        },
+        {
+          "keypoint": "tail_base",
+          "median_spike": 0.0013943356401545167,
+          "n": 6676190
+        }
+      ],
+      "spike": 0.0012816789025336828,
+      "spike_p99": 0.04094482644002663,
+      "spike_two_sided": 0.0012816789025336828,
+      "step": 0.0013575624064276445,
+      "step_p99": 0.07371673155125807
+    },
+    {
+      "arm": "viterbi",
+      "frac_spiking": 0.004186519498032766,
+      "frac_spiking_two_sided": 0.004186519498032766,
+      "frac_stepping": 0.018728774302761556,
+      "hf_retained": 0.5861324953064453,
+      "n_animals": 89,
+      "overlap_2x2": {
+        "bone_only": 64702,
+        "jaccard": 0.052635097607635815,
+        "n_frames": 6678488,
+        "neither": 6484036,
+        "spike_and_bone": 10235,
+        "spike_only": 119515
+      },
+      "per_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_spike": 0.004080275092927731,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_ear",
+          "median_spike": 0.004276551009178385,
+          "n": 6676190
+        },
+        {
+          "keypoint": "nose",
+          "median_spike": 0.006468481021236981,
+          "n": 6676190
+        },
+        {
+          "keypoint": "center",
+          "median_spike": 0.003344141038885898,
+          "n": 6676190
+        },
+        {
+          "keypoint": "left_hip",
+          "median_spike": 0.004533363409755862,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_hip",
+          "median_spike": 0.004566092965271227,
+          "n": 6676190
+        },
+        {
+          "keypoint": "tail_base",
+          "median_spike": 0.005038393056308998,
+          "n": 6676190
+        }
+      ],
+      "spike": 0.004486924078259588,
+      "spike_p99": 0.06622890905298046,
+      "spike_two_sided": 0.004486924078259588,
+      "step": 0.004176926009569235,
+      "step_p99": 0.1485508053622296
+    },
+    {
+      "arm": "disposition",
+      "frac_spiking": 0.012147111962368179,
+      "frac_spiking_two_sided": 0.011330243153532447,
+      "frac_stepping": 0.027079644985400872,
+      "hf_retained": 0.8942138472591241,
+      "n_animals": 89,
+      "overlap_2x2": {
+        "bone_only": 53836,
+        "jaccard": 0.06964715978479717,
+        "n_frames": 6678488,
+        "neither": 6375518,
+        "spike_and_bone": 21101,
+        "spike_only": 228033
+      },
+      "per_keypoint": [
+        {
+          "keypoint": "left_ear",
+          "median_spike": 0.00418766095267512,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_ear",
+          "median_spike": 0.00438556518877144,
+          "n": 6676190
+        },
+        {
+          "keypoint": "nose",
+          "median_spike": 0.006632385298250778,
+          "n": 6676190
+        },
+        {
+          "keypoint": "center",
+          "median_spike": 0.003436382170694908,
+          "n": 6676190
+        },
+        {
+          "keypoint": "left_hip",
+          "median_spike": 0.0046767947764304076,
+          "n": 6676190
+        },
+        {
+          "keypoint": "right_hip",
+          "median_spike": 0.004711419182031134,
+          "n": 6676190
+        },
+        {
+          "keypoint": "tail_base",
+          "median_spike": 0.00519759127447674,
+          "n": 6676190
+        }
+      ],
+      "spike": 0.004617398881613579,
+      "spike_p99": 0.10724387168340024,
+      "spike_two_sided": 0.0045989596687789226,
+      "step": 0.004325568789580319,
+      "step_p99": 0.19745218962359748
+    }
+  ],
+  "bakeoff_not_restated": "results/cleaning.json chose on three axes and is unchanged. This is a fourth view reported beside it, not folded into it",
+  "corpus": "luna",
+  "disposition_scored_on": "the held-out neighbour -- the one donor_frame did not pick. The corrector moves the suspect TO the donor-side prediction, so its residual there is near zero by construction",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "inherited_digest": "198eb14ff258c7f6",
+  "intervals": {
+    "disposition": {
+      "frac_spiking": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.015426346458068087,
+        "lo": 0.009339793094199427,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.012147111962368179
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.9078708609839239,
+        "lo": 0.8801866021676946,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.8942138472591241
+      },
+      "spike": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0052504796153133105,
+        "lo": 0.0040175268582361,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004617398881613579
+      },
+      "step": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0048500277601595514,
+        "lo": 0.0038428113245549808,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004325568789580319
+      }
+    },
+    "median_0.50": {
+      "frac_spiking": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.001236763297150317,
+        "lo": 0.0008226828284334305,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0010129815156209813
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2869381455081654,
+        "lo": 0.2513418186634613,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.26968536291037515
+      },
+      "spike": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0015238526487719427,
+        "lo": 0.0010637485352021825,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0012816789025336828
+      },
+      "step": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.001584561845161114,
+        "lo": 0.0011556397819361848,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0013575624064276445
+      }
+    },
+    "raw": {
+      "frac_spiking": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.01615589531300202,
+        "lo": 0.009773629393785267,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.012714843805221423
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.0,
+        "lo": 1.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.0
+      },
+      "spike": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.005267446111847249,
+        "lo": 0.004028198874832213,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0046304645734180205
+      },
+      "step": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0048690161068368105,
+        "lo": 0.0038505017864958013,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004337954901772578
+      }
+    },
+    "viterbi": {
+      "frac_spiking": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.005196468146989542,
+        "lo": 0.0033124404755209866,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004186519498032766
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.6116342137216982,
+        "lo": 0.5588043871137086,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.5861324953064453
+      },
+      "spike": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.005072663731429244,
+        "lo": 0.00392119907937556,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004486924078259588
+      },
+      "step": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.004648298857809108,
+        "lo": 0.003734152626598343,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.004176926009569235
+      }
+    },
+    "wiener": {
+      "frac_spiking": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.005210149315426034,
+        "lo": 0.0026372216101226277,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0038108989226091454
+      },
+      "hf_retained": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.23213879707572074,
+        "lo": 0.20794193982361833,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.22016441327791728
+      },
+      "spike": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0033648232446112144,
+        "lo": 0.00252009677183765,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0029239828751497577
+      },
+      "step": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0023683030964357227,
+        "lo": 0.001825334321371556,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.002082885987218336
+      }
+    }
+  },
+  "n_animals": 298,
+  "peak_rss_gb": 0.6147193908691406,
+  "preregistration": "results/CONTINUITY_PREREGISTRATION.md",
+  "reads": {
+    "continuity": {
+      "degenerate": 0,
+      "detail": {
+        "arms": [
+          "raw",
+          "wiener",
+          "median_0.50",
+          "viterbi",
+          "disposition"
+        ],
+        "incumbent": "wiener",
+        "separates_and_keeps_power": [
+          "median_0.50"
+        ],
+        "separates_by_flattening": []
+      },
+      "n_effective": 89,
+      "reason": "median_0.50 lower the spike residual below wiener's animal-bootstrap interval without losing high-frequency power against it. Continuity is a fourth view and not a verdict: the banked bakeoff in cleaning.json chose on three axes and is not restated here",
+      "saturation": null,
+      "scored_object": {
+        "arm": "continuity",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "report",
+        "threshold_bl": 0.1
+      },
+      "verdict": "PASS"
+    }
+  },
+  "split": "report",
+  "stage": "continuity",
+  "threshold_body_lengths": 0.1
+}

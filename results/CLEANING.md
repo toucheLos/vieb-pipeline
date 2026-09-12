@@ -118,6 +118,48 @@ It is a **de-glitcher, not a low-pass**, and the measured signatures are opposit
 | Viterbi | **0.31%** | 46.65 px |
 | Wiener | **86%** (>0.01 px) | 1.42 px |
 
+### Which landmarks it reassigns
+
+80 seeded report recordings, 464,153 frames, Anipose 1.1.24. These numbers exist
+in `viterbi.reassignment` and had never been reported. The Wiener column is
+`SNR/(1+SNR)` at Nyquist from shapeflow's calibration spectrum — **low means the
+filter removes that landmark's fast content entirely**.
+
+| keypoint | Viterbi reassigns | Wiener gain at Nyquist | continuity residual |
+|---|---:|---:|---:|
+| nose | **0.5315%** | 0.2903 | **0.0067** |
+| left_hip | 0.4212% | 0.0161 | 0.0047 |
+| right_hip | 0.3872% | 0.0000 | 0.0047 |
+| right_ear | 0.2555% | 0.5773 | 0.0044 |
+| tail_base | 0.1881% | 0.0000 | 0.0052 |
+| left_ear | 0.1385% | 0.5007 | 0.0042 |
+| center | **0.0224%** | **0.5832** | **0.0034** |
+| **all** | **0.2778%** | — | 0.0046 |
+
+Median move 43.79 px, p90 85.05 px, max 340.01 px.
+
+**The nose is reassigned 24× more often than the centre**, and the centre is the
+landmark every instrument trusts: Viterbi touches it least, Wiener smooths it
+least, and it has the lowest continuity residual of the seven.
+
+The three orderings agree, but only one pair does so significantly at n = 7
+keypoints: reassignment against continuity residual **ρ = +0.775, p = 0.041**;
+Wiener gain against continuity **ρ = −0.718, p = 0.069**; Wiener gain against
+reassignment **ρ = −0.468, p = 0.289**. Seven points is not enough to separate
+these, and the last is reported as not significant rather than as agreement.
+
+Where they part company is the hips and tail. **Wiener's gain there is 0.016,
+0.000 and 0.000** — it deletes the entire above-Nyquist band on three of seven
+landmarks — while Viterbi reassigns 0.42%, 0.39% and 0.19% of their frames and
+leaves the rest. A smoother cannot tell a hip that jumped from a hip that moved,
+so it removes both; a path-selection filter decides that a specific jump was
+wrong and keeps everything else. That is the mechanism behind the efficiency
+difference, and it is why this arm is a better fit for a corpus where fast rare
+movement is the signal.
+
+`results/CONTINUITY.md` measures the third column and Phase D names the nose from
+a fourth direction, as the suspect on 61.6% of corrections.
+
 Anipose 1.1.24 is a pinned dependency. Only its import chain is bypassed:
 `filter_pose` imports `.common` → `aniposelib` → `numba`, which is calibration
 code the filter never touches, and installing it in full would drag

@@ -15,6 +15,9 @@ Five sets, and the second is what keeps the reel honest:
                the abstained frames beside them. A correction is 0.50% of frames
                and moves the suspect a median 0.19 body lengths, so this is the
                only place the move is visible rather than tabulated
+  anipose      Anipose's Viterbi filter against the incumbent, on the frames it
+               actually reassigned. It touches 0.31% of keypoint-frames, so a
+               window centred anywhere else shows three identical skeletons
 
 The violation masks are read from `work/bones/<animal>.npz`, bit-packed at Step 1
 over that animal's concatenated frames. Recomputing them here would risk a second
@@ -36,7 +39,7 @@ sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 from recur import anchors, labels as lab                           # noqa: E402
 from recur.render import video as vid                              # noqa: E402
 from recur.util import log, read_json, write_json                  # noqa: E402
-from vieb.clean import arms as clean_arms
+from vieb.clean import arms as clean_arms, viterbi as vit
 from vieb.qc import bones                          # noqa: E402
 from vieb.io import spine                                          # noqa: E402
 from vieb.render import compare                                    # noqa: E402
@@ -336,6 +339,91 @@ def disposition(args) -> int:
     return 0
 
 
+def anipose(args) -> int:
+    """Anipose's Viterbi de-glitcher, seen rather than tabulated.
+
+    `CLEANING.md` calls this the efficiency outlier -- 16.9% of violation
+    reduction per pixel of displacement against the incumbent's 4.1%, retaining
+    0.586 of the power above f_c against 0.220 -- and no clip on the Atlas has
+    ever shown it on its own. `compare/bakeoff` shows raw/wiener/median and
+    `compare/residual` shows it only composed with a median.
+
+    **Cut on the frames it reassigned.** It moves 0.31% of keypoint-frames. A
+    window chosen any other way is three identical skeletons and shows nothing.
+    """
+    out_dir = os.path.join(config.PATHS.results_dir, "compare", "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = spine.fps()
+
+    # Rank by reassigned mass, over a seeded sample -- running Viterbi on all
+    # 3,846 recordings to pick six of them is not a reasonable way to pick six.
+    rng = np.random.default_rng(SEED)
+    pool = list(spine.recording_ids())
+    rng.shuffle(pool)
+    scored: list = []
+    for rid in pool[:args.scan]:
+        d = spine.clean(rid)
+        held = clean_arms.held_array(d["pose_unfiltered"].astype(np.float64),
+                                     d["missing"].astype(bool))
+        after = clean_arms.apply("viterbi", held, d["conf"], fps)
+        moved = np.linalg.norm(after - held, axis=-1) > 1e-9
+        scored.append((float(moved.mean()), rid))
+    scored.sort(reverse=True)
+    log(f"scanned {len(scored)} recordings; top reassigned mass "
+        f"{scored[0][0]:.4%}, median {np.median([s for s, _ in scored]):.4%}")
+
+    manifest: list = []
+    for rate, rid in scored[:args.n]:
+        d = spine.clean(rid)
+        held = clean_arms.held_array(d["pose_unfiltered"].astype(np.float64),
+                                     d["missing"].astype(bool))
+        wiener = d["pose"].astype(np.float64)
+        after = clean_arms.apply("viterbi", held, d["conf"], fps)
+        info = vit.reassignment(held, after)
+        moved = np.linalg.norm(after - held, axis=-1) > 1e-9
+        frame_moved = moved.any(axis=1)
+        wins = compare.windows(frame_moved, fps=fps)[:args.per_recording]
+        if not wins:
+            log(f"  {rid}: Viterbi reassigned nothing")
+            continue
+        for w, (a, b) in enumerate(wins):
+            name = f"anipose_{lab.animal_tag(rid)}_{w:02d}.mp4"
+            path = os.path.join(out_dir, name)
+            ok, why = compare.compare(
+                vid.video_path(rid), a, b, path, fps=fps,
+                panes=[("raw", held), ("anipose viterbi", after),
+                       ("wiener", wiener)],
+                crop_from=held, flags=frame_moved)
+            if not ok:
+                log(f"  SKIP {name}: {why}")
+                continue
+            manifest.append({
+                "kind": "anipose", "file": os.path.join("clips", name),
+                "recording_id": rid, "animal": lab.animal_tag(rid),
+                "a": int(a), "b": int(b),
+                "duration_s": round((b - a) / fps, 2),
+                "panes": ["raw", "anipose viterbi", "wiener"],
+                "violation_rate": None,
+                "violations_in_clip": float(frame_moved[a:b].mean()),
+                "reassigned_in_recording": float(info["reassigned"]),
+                "max_move_px": round(float(info["max_move_px"]), 2),
+                "bytes": os.path.getsize(path),
+            })
+            log(f"  {name}  {(b - a) / fps:.1f}s  "
+                f"{frame_moved[a:b].mean():.1%} of frames reassigned, "
+                f"max move {info['max_move_px']:.1f} px")
+
+    path = os.path.join(config.PATHS.results_dir, "compare", "manifest.json")
+    doc = read_json(path)
+    doc["clips"] = [c for c in doc["clips"] if c["kind"] != "anipose"] + manifest
+    doc["sets"]["anipose"] = len(manifest)
+    doc["n_clips"] = len(doc["clips"])
+    doc["total_bytes"] = sum(c["bytes"] for c in doc["clips"])
+    write_json(doc, path)
+    log(f"{len(manifest)} anipose clips; manifest now {doc['n_clips']} total")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true")
@@ -344,6 +432,10 @@ def main(argv=None) -> int:
                    help="frames the best arm STILL gets wrong, three ways")
     p.add_argument("--disposition", action="store_true",
                    help="Phase D: what the corrector moved, before and after")
+    p.add_argument("--anipose", action="store_true",
+                   help="Anipose Viterbi, on the frames it actually reassigned")
+    p.add_argument("--scan", type=int, default=60,
+                   help="recordings to scan when ranking by reassigned mass")
     p.add_argument("--n", type=int, default=5)
     p.add_argument("--per-recording", type=int, default=2)
     a = p.parse_args(argv)
@@ -355,7 +447,10 @@ def main(argv=None) -> int:
         return residual(a)
     if a.disposition:
         return disposition(a)
-    raise SystemExit("pass --check, --render, --residual or --disposition")
+    if a.anipose:
+        return anipose(a)
+    raise SystemExit("pass --check, --render, --residual, --disposition "
+                     "or --anipose")
 
 
 if __name__ == "__main__":

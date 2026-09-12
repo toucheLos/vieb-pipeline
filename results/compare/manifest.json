@@ -1081,6 +1081,234 @@
       "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_571",
       "violation_rate": null,
       "violations_in_clip": 0.13095238095238096
+    },
+    {
+      "a": 64,
+      "animal": "578",
+      "b": 244,
+      "bytes": 221725,
+      "duration_s": 6.0,
+      "file": "clips/anipose_578_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 302.49,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.022532529355760077,
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.1111111111111111
+    },
+    {
+      "a": 338,
+      "animal": "578",
+      "b": 491,
+      "bytes": 183668,
+      "duration_s": 5.1,
+      "file": "clips/anipose_578_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 302.49,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.022532529355760077,
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.06535947712418301
+    },
+    {
+      "a": 320,
+      "animal": "9058",
+      "b": 500,
+      "bytes": 231213,
+      "duration_s": 6.0,
+      "file": "clips/anipose_9058_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 191.74,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.02214716416557102,
+      "recording_id": "20250719_Box_3_CFD_Day_7_(Context_A)_9058",
+      "violation_rate": null,
+      "violations_in_clip": 0.18333333333333332
+    },
+    {
+      "a": 1441,
+      "animal": "9058",
+      "b": 1621,
+      "bytes": 224931,
+      "duration_s": 6.0,
+      "file": "clips/anipose_9058_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 191.74,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.02214716416557102,
+      "recording_id": "20250719_Box_3_CFD_Day_7_(Context_A)_9058",
+      "violation_rate": null,
+      "violations_in_clip": 0.24444444444444444
+    },
+    {
+      "a": 332,
+      "animal": "706",
+      "b": 512,
+      "bytes": 182513,
+      "duration_s": 6.0,
+      "file": "clips/anipose_706_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 201.83,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.021486858838490885,
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_706",
+      "violation_rate": null,
+      "violations_in_clip": 0.12222222222222222
+    },
+    {
+      "a": 983,
+      "animal": "706",
+      "b": 1163,
+      "bytes": 221789,
+      "duration_s": 6.0,
+      "file": "clips/anipose_706_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 201.83,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.021486858838490885,
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_706",
+      "violation_rate": null,
+      "violations_in_clip": 0.18333333333333332
+    },
+    {
+      "a": 19,
+      "animal": "9017",
+      "b": 151,
+      "bytes": 114354,
+      "duration_s": 4.4,
+      "file": "clips/anipose_9017_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 82.4,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.010837282064071462,
+      "recording_id": "20241218_Box_1_CFD_Day_4_(Context_A)_9017",
+      "violation_rate": null,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 618,
+      "animal": "9017",
+      "b": 798,
+      "bytes": 159202,
+      "duration_s": 6.0,
+      "file": "clips/anipose_9017_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 82.4,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.010837282064071462,
+      "recording_id": "20241218_Box_1_CFD_Day_4_(Context_A)_9017",
+      "violation_rate": null,
+      "violations_in_clip": 0.08888888888888889
+    },
+    {
+      "a": 0,
+      "animal": "9063",
+      "b": 114,
+      "bytes": 88502,
+      "duration_s": 3.8,
+      "file": "clips/anipose_9063_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 97.81,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.009724803917123815,
+      "recording_id": "20250718_Box_3_CFD_Day_6_(Context_A)_9063",
+      "violation_rate": null,
+      "violations_in_clip": 0.12280701754385964
+    },
+    {
+      "a": 478,
+      "animal": "9063",
+      "b": 658,
+      "bytes": 127647,
+      "duration_s": 6.0,
+      "file": "clips/anipose_9063_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 97.81,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.009724803917123815,
+      "recording_id": "20250718_Box_3_CFD_Day_6_(Context_A)_9063",
+      "violation_rate": null,
+      "violations_in_clip": 0.07222222222222222
+    },
+    {
+      "a": 176,
+      "animal": "573",
+      "b": 356,
+      "bytes": 183070,
+      "duration_s": 6.0,
+      "file": "clips/anipose_573_00.mp4",
+      "kind": "anipose",
+      "max_move_px": 371.17,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.008928571428571428,
+      "recording_id": "20250404_Box_2_CFD_Day_7_(Context_B)_573",
+      "violation_rate": null,
+      "violations_in_clip": 0.05
+    },
+    {
+      "a": 571,
+      "animal": "573",
+      "b": 602,
+      "bytes": 46172,
+      "duration_s": 1.03,
+      "file": "clips/anipose_573_01.mp4",
+      "kind": "anipose",
+      "max_move_px": 371.17,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "wiener"
+      ],
+      "reassigned_in_recording": 0.008928571428571428,
+      "recording_id": "20250404_Box_2_CFD_Day_7_(Context_B)_573",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
     }
   ],
   "corpus": "luna",
@@ -1110,10 +1338,11 @@
   },
   "eps": 0.1,
   "inherited_digest": "198eb14ff258c7f6",
-  "n_clips": 64,
+  "n_clips": 76,
   "note": "Left pane is the pose after the gap policy and before the filter; right pane is the filtered array every downstream stage consumes. Same frames, same crop box, same red outline on violating frames -- the only difference between panes is the skeleton.",
   "seed": 0,
   "sets": {
+    "anipose": 12,
     "bakeoff": 4,
     "disposition": 12,
     "random": 12,
@@ -1121,5 +1350,5 @@
     "worst": 6
   },
   "stage": "compare",
-  "total_bytes": 6426222
+  "total_bytes": 8411008
 }
