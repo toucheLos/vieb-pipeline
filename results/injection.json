@@ -1,0 +1,477 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a pseudo-ground truth pool, not human labels"
+  },
+  "arms": [
+    {
+      "arm": "raw",
+      "by_kind": {
+        "park": {
+          "error_bl": 0.35905242248057323,
+          "fraction_removed": -5.18367575086387e-07,
+          "injected_bl": 0.35905223635953615,
+          "n": 23408
+        },
+        "swap": {
+          "error_bl": 0.39515721097650874,
+          "fraction_removed": -4.907449284718979e-07,
+          "injected_bl": 0.39515701705520667,
+          "n": 16400
+        },
+        "teleport": {
+          "error_bl": 0.3558048594680454,
+          "fraction_removed": 0.0,
+          "injected_bl": 0.3558048594680454,
+          "n": 47349
+        }
+      },
+      "damage": 0.0,
+      "n_animals": 88,
+      "n_unscoreable": 244594,
+      "net": 0.0,
+      "net_by_speed_bin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repair": 0.3634725021325326
+    },
+    {
+      "arm": "median_0.50",
+      "by_kind": {
+        "park": {
+          "error_bl": 0.32124360304836547,
+          "fraction_removed": 0.10530120545833643,
+          "injected_bl": 0.35905223635953615,
+          "n": 23408
+        },
+        "swap": {
+          "error_bl": 0.09713193264188737,
+          "fraction_removed": 0.7541940837448997,
+          "injected_bl": 0.39515701705520667,
+          "n": 16400
+        },
+        "teleport": {
+          "error_bl": 0.016342850375839234,
+          "fraction_removed": 0.9540679393747657,
+          "injected_bl": 0.3558048594680454,
+          "n": 47349
+        }
+      },
+      "damage": 0.0031078154916930234,
+      "n_animals": 88,
+      "n_unscoreable": 244594,
+      "net": -0.0026308053561205727,
+      "net_by_speed_bin": [
+        -0.011847804410561685,
+        -0.003707286884523209,
+        -0.0031869651203920353,
+        -0.002996282194734507,
+        -0.0026239682539466107,
+        -0.002381401422296322
+      ],
+      "repair": 0.1122097468961657
+    },
+    {
+      "arm": "viterbi",
+      "by_kind": {
+        "park": {
+          "error_bl": 0.35905242248057323,
+          "fraction_removed": -5.18367575086387e-07,
+          "injected_bl": 0.35905223635953615,
+          "n": 23408
+        },
+        "swap": {
+          "error_bl": 0.3659241136966232,
+          "fraction_removed": 0.07397794318935103,
+          "injected_bl": 0.39515701705520667,
+          "n": 16400
+        },
+        "teleport": {
+          "error_bl": 0.230296840544679,
+          "fraction_removed": 0.35274397070070984,
+          "injected_bl": 0.3558048594680454,
+          "n": 47349
+        }
+      },
+      "damage": 1.253468653415012e-05,
+      "n_animals": 88,
+      "n_unscoreable": 244594,
+      "net": -0.0016539488024358948,
+      "net_by_speed_bin": [
+        0.0,
+        -0.0016163313411613233,
+        -0.0017439092012231882,
+        -0.0017933878824904599,
+        -0.0018937388693009629,
+        -0.002214563190351118
+      ],
+      "repair": 0.28939782511140194
+    },
+    {
+      "arm": "disposition",
+      "by_kind": {
+        "park": {
+          "error_bl": 0.35902925004863034,
+          "fraction_removed": 6.40194060307353e-05,
+          "injected_bl": 0.35905223635953615,
+          "n": 23408
+        },
+        "swap": {
+          "error_bl": 0.39515721097650874,
+          "fraction_removed": -4.907449284718979e-07,
+          "injected_bl": 0.39515701705520667,
+          "n": 16400
+        },
+        "teleport": {
+          "error_bl": 0.2459186212024427,
+          "fraction_removed": 0.30883849768069715,
+          "injected_bl": 0.3558048594680454,
+          "n": 47349
+        }
+      },
+      "damage": 3.719019493450885e-05,
+      "n_animals": 88,
+      "n_unscoreable": 244594,
+      "net": -0.0013136892395544377,
+      "net_by_speed_bin": [
+        -0.0014094222120206827,
+        -0.0012819825000224409,
+        -0.001364255649188936,
+        -0.0015715050686187979,
+        -0.0014544129320225893,
+        -0.0016194099607853654
+      ],
+      "repair": 0.3035452239080148
+    }
+  ],
+  "arms_not_benchmarked": {
+    "butterworth": "read off disk from shapeflow, never reimplemented here",
+    "wiener": "read off disk from shapeflow, never reimplemented here, so it cannot be applied to a freshly corrupted array"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "inherited_digest": "198eb14ff258c7f6",
+  "intervals": {
+    "disposition": {
+      "damage": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 4.1661482550768996e-05,
+        "lo": 3.251615960111746e-05,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 3.719019493450885e-05
+      },
+      "net": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": -0.0012512502918931208,
+        "lo": -0.001383946241945959,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": -0.0013136892395544377
+      },
+      "repair": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.31375806049240657,
+        "lo": 0.2944231323086638,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.3035452239080148
+      }
+    },
+    "median_0.50": {
+      "damage": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.00330428329245609,
+        "lo": 0.0029101750609251673,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.0031078154916930234
+      },
+      "net": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": -0.0024050785820374856,
+        "lo": -0.002854260402154536,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": -0.0026308053561205727
+      },
+      "repair": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.12083915073203669,
+        "lo": 0.10452997419762816,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.1122097468961657
+      }
+    },
+    "raw": {
+      "damage": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.0
+      },
+      "net": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.0
+      },
+      "repair": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.37399429058051137,
+        "lo": 0.35418995045268264,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.3634725021325326
+      }
+    },
+    "viterbi": {
+      "damage": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.6453386589496187e-05,
+        "lo": 8.956343359249389e-06,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 1.253468653415012e-05
+      },
+      "net": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": -0.001587958351358004,
+        "lo": -0.001722323653617283,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": -0.0016539488024358948
+      },
+      "repair": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2990778151268821,
+        "lo": 0.28093101179346613,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 88,
+        "n_boot": 2000,
+        "n_units": 88,
+        "point": 0.28939782511140194
+      }
+    }
+  },
+  "n_animals": 298,
+  "peak_rss_gb": 0.6079139709472656,
+  "pool": {
+    "frac_all": {
+      "max": 0.38686131386861317,
+      "mean": 0.06411549797938709,
+      "median": 0.0445061801030404,
+      "min": 0.0,
+      "n": 298,
+      "p1": 0.00015870496746548166,
+      "p10": 0.004126787635119646,
+      "p25": 0.021698585647784856,
+      "p75": 0.09105338646734679,
+      "p90": 0.1537753880731511,
+      "p99": 0.30612980006347174,
+      "sd": 0.06332292112393442
+    },
+    "frac_bone_ok": {
+      "max": 0.9990480723465016,
+      "mean": 0.9870063409088343,
+      "median": 0.989369297830752,
+      "min": 0.9541342644024758,
+      "n": 298,
+      "p1": 0.9620519138926908,
+      "p10": 0.9752114853238701,
+      "p25": 0.9830299915714048,
+      "p75": 0.9931764985594413,
+      "p90": 0.9957151698629189,
+      "p99": 0.9984179625515709,
+      "sd": 0.008488480227468826
+    },
+    "frac_confident": {
+      "max": 0.6980323706759759,
+      "mean": 0.14767988713928282,
+      "median": 0.10553880336454531,
+      "min": 0.00047596382674916705,
+      "n": 298,
+      "p1": 0.0018949297565568548,
+      "p10": 0.01856759726068477,
+      "p25": 0.05862982637163858,
+      "p75": 0.18281758418648358,
+      "p90": 0.3575622589666733,
+      "p99": 0.556448182828122,
+      "sd": 0.13239970855923158
+    },
+    "frac_continuity_ok": {
+      "max": 0.7738813075214218,
+      "mean": 0.3712572535994039,
+      "median": 0.3732942898466363,
+      "min": 0.032529355760076165,
+      "n": 298,
+      "p1": 0.09568481193461356,
+      "p10": 0.21584441947047542,
+      "p25": 0.2890405137207034,
+      "p75": 0.45144398603617897,
+      "p90": 0.521617785589499,
+      "p99": 0.6942204578043937,
+      "sd": 0.12617580843074708
+    },
+    "frac_present": {
+      "max": 1.0,
+      "mean": 0.9741950117541432,
+      "median": 0.9824644987665486,
+      "min": 0.8198984449381149,
+      "n": 298,
+      "p1": 0.8694733319127187,
+      "p10": 0.9476114902396445,
+      "p25": 0.9630378929822314,
+      "p75": 0.9920660107902253,
+      "p90": 0.9968260517503102,
+      "p99": 1.0,
+      "sd": 0.026383232454040995
+    }
+  },
+  "preregistration": "results/INJECTION_PREREGISTRATION.md",
+  "rates": {
+    "dropout": 0.034,
+    "park": 0.004,
+    "swap": 0.003,
+    "teleport": 0.012
+  },
+  "reads": {
+    "recovery": {
+      "degenerate": 0,
+      "detail": {
+        "baseline": "raw",
+        "harmed": [],
+        "helped": [
+          "disposition",
+          "median_0.50",
+          "viterbi"
+        ],
+        "mixed_by_speed": [],
+        "strata": {
+          "disposition": [
+            -0.0014094222120206827,
+            -0.0012819825000224409,
+            -0.001364255649188936,
+            -0.0015715050686187979,
+            -0.0014544129320225893,
+            -0.0016194099607853654
+          ],
+          "median_0.50": [
+            -0.011847804410561685,
+            -0.003707286884523209,
+            -0.0031869651203920353,
+            -0.002996282194734507,
+            -0.0026239682539466107,
+            -0.002381401422296322
+          ],
+          "raw": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "viterbi": [
+            0.0,
+            -0.0016163313411613233,
+            -0.0017439092012231882,
+            -0.0017933878824904599,
+            -0.0018937388693009629,
+            -0.002214563190351118
+          ]
+        }
+      },
+      "n_effective": 89,
+      "reason": "disposition, median_0.50, viterbi leave the data closer to the truth than they found it, in every speed stratum, with the animal-bootstrap interval on net error entirely below zero",
+      "saturation": null,
+      "scored_object": {
+        "arm": "injection",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "report"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "seed": 0,
+  "selection_bias": "the pool is selected for cleanliness and is therefore biased towards slow behaviour, so damage UNDERSTATES what a smoother does to fast movement. That runs against this phase's expected conclusion, and it is why every net is stratified by segment speed",
+  "split": "report",
+  "stage": "injection"
+}

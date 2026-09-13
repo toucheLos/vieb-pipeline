@@ -51,6 +51,11 @@ Detail = dict[str, Any]
 #: Pre-registered. An arm below this on damage is "leaves correct data alone".
 NEGLIGIBLE_DAMAGE_BL = 0.01
 
+#: Below this a stratum's net counts as neither help nor harm. An arm that is
+#: simply inert somewhere -- Viterbi reassigns nothing in the slowest stratum --
+#: must not be reported as harming it.
+STRATUM_TOL = 1e-9
+
 
 def errors(truth: npt.ArrayLike, cleaned: npt.ArrayLike, ell: float) -> F64:
     """``(T, K)`` distance from truth, in body lengths. NaN where truth is NaN."""
@@ -64,17 +69,27 @@ def errors(truth: npt.ArrayLike, cleaned: npt.ArrayLike, ell: float) -> F64:
 
 def score(truth: npt.ArrayLike, cleaned: npt.ArrayLike,
           corrupted_mask: npt.ArrayLike, in_pool: npt.ArrayLike,
-          ell: float) -> Detail:
+          ell: float, *, scoreable: npt.ArrayLike | None = None) -> Detail:
     """`repair`, `damage` and the totals `net` is built from, for one recording.
 
     `in_pool` is the ``(T,)`` frame mask of clean segments. Everything is scored
     inside it and nowhere else: outside it there is no truth to compare against.
+
+    `scoreable` is the ``(T, K)`` intersection of keypoint-frames every arm in
+    the comparison produced a finite estimate for. Without it, an arm that
+    interpolates an injected dropout is charged for its interpolation error while
+    one that leaves NaN is dropped from the mean and pays nothing -- so the
+    denominators differ per arm and declining to answer scores better than
+    answering imperfectly.
     """
     err = errors(truth, cleaned, ell)
     corrupt = np.asarray(corrupted_mask, dtype=bool)
     pool = np.asarray(in_pool, dtype=bool)[:, None] & np.ones_like(corrupt)
-    hit = pool & corrupt & np.isfinite(err)
-    miss = pool & ~corrupt & np.isfinite(err)
+    ok = np.isfinite(err)
+    if scoreable is not None:
+        ok = ok & np.asarray(scoreable, dtype=bool)
+    hit = pool & corrupt & ok
+    miss = pool & ~corrupt & ok
     return {
         "repair": float(err[hit].mean()) if hit.any() else float("nan"),
         "damage": float(err[miss].mean()) if miss.any() else float("nan"),
@@ -85,13 +100,14 @@ def score(truth: npt.ArrayLike, cleaned: npt.ArrayLike,
         # An arm that returns NaN -- declining to fill an injected dropout --
         # would otherwise vanish from both means and pay nothing for it. The
         # count is reported so declining is visible rather than free.
-        "n_unscoreable": int((pool & ~np.isfinite(err)).sum()),
+        "n_unscoreable": int((pool & ~ok).sum()),
         "n_pool_keypoint_frames": int(pool.sum()),
     }
 
 
 def by_kind(truth: npt.ArrayLike, cleaned: npt.ArrayLike,
-            events: Sequence[Mapping[str, Any]], ell: float) -> Detail:
+            events: Sequence[Mapping[str, Any]], ell: float, *,
+            scoreable: npt.ArrayLike | None = None) -> Detail:
     """Mean post-arm error per corruption kind.
 
     The kind split is the point of the exercise, not a decoration: a teleport and
@@ -99,6 +115,8 @@ def by_kind(truth: npt.ArrayLike, cleaned: npt.ArrayLike,
     correctly described only by two numbers.
     """
     err = errors(truth, cleaned, ell)
+    if scoreable is not None:
+        err = np.where(np.asarray(scoreable, dtype=bool), err, np.nan)
     out: Detail = {}
     for ev in events:
         vals = [err[t, k] for k in ev["keypoints"]
@@ -141,7 +159,8 @@ def recovery_read(rows: Sequence[Mapping[str, Any]],
       behaviour, so a pooled `net` that is negative overall but positive in the
       fastest stratum is an arm that helps still frames and harms moving ones.
       On a fear-conditioning corpus that is a failure being reported as a
-      success, and it is refused rather than averaged away.
+      success, and it is refused rather than averaged away. A stratum where the
+      arm is simply **inert** counts as neither.
     """
     by_arm = {str(r["arm"]): r for r in rows}
     if baseline not in by_arm:
@@ -173,8 +192,15 @@ def recovery_read(rows: Sequence[Mapping[str, Any]],
         if float(iv["hi"]) >= 0.0:
             harmed.append(arm)
             continue
-        signs = {float(v) < 0.0 for v in strata.get(arm, []) if np.isfinite(v)}
-        (helped if len(signs) <= 1 else mixed).append(arm)
+        vals = [float(v) for v in strata.get(arm, []) if np.isfinite(v)]
+        # "Did not help here" is not "harmed here". An arm can be inert in a
+        # stratum -- viterbi reassigns nothing in the slowest one and scores
+        # exactly 0.0 -- and calling that mixed produced a reason string saying
+        # it harmed moving frames when its benefit rises monotonically with
+        # speed. Only a genuinely positive stratum is a harm.
+        harms = any(v > STRATUM_TOL for v in vals)
+        helps = any(v < -STRATUM_TOL for v in vals)
+        (mixed if (harms and helps) else helped).append(arm)
 
     detail: Detail = {"baseline": baseline, "helped": sorted(helped),
                       "harmed": sorted(harmed), "mixed_by_speed": sorted(mixed),

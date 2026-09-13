@@ -300,6 +300,19 @@ class TestTheRead:
         assert rd.detail["mixed_by_speed"] == ["median_0.50"]
         assert "report a failure as a success" in rd.reason
 
+    def test_an_inert_stratum_is_not_a_harmful_one(self):
+        """Viterbi reassigns nothing in the slowest stratum and scores exactly
+        0.0 there. Calling that "mixed" produced a reason string saying it
+        harmed moving frames, when its benefit rises monotonically with speed."""
+        rd = recover.recovery_read(
+            self.rows(), self.iv((-0.5, -0.2), (0.1, 0.4)),
+            {"viterbi": [0.0, -0.0016, -0.0017, -0.0018, -0.0022],
+             "median_0.50": [0.2, 0.3, 0.1, 0.4, 0.5]},
+            scored_object=self.OBJ, n_effective=89)
+        assert rd.verdict == "PASS"
+        assert rd.detail["mixed_by_speed"] == []
+        assert "viterbi" in rd.detail["helped"]
+
     def test_an_interval_touching_zero_does_not_count_as_helping(self):
         rd = recover.recovery_read(
             self.rows(), self.iv((-0.5, 0.0), (0.1, 0.4)),
@@ -313,3 +326,34 @@ class TestTheRead:
             self.iv((-0.5, -0.2), (0.1, 0.4)), {},
             scored_object=self.OBJ, n_effective=89)
         assert rd.verdict == "NOT_A_RESULT" and rd.degenerate
+
+
+class TestTheCommonDenominator:
+    """Arms must be scored on the same keypoint-frames or the comparison is
+    between different questions. An arm that declines to fill an injected
+    dropout is otherwise dropped from the mean and pays nothing for it, while
+    one that fills it imperfectly is charged -- so declining scores better than
+    answering. Found by noticing `n` differed by 1,883 frames between arms on
+    the first animal benchmarked."""
+
+    def test_scoreable_makes_the_denominator_identical(self):
+        p, segs, ell = clean_fixture()
+        out, d = inject.corrupt(p, segs, np.random.default_rng(0), ell=ell)
+        pool = np.ones(p.shape[0], dtype=bool)
+        # One arm fills the dropouts, one leaves them.
+        filled = np.where(np.isfinite(out), out, p)
+        common = np.isfinite(recover.errors(p, out, ell)) & \
+            np.isfinite(recover.errors(p, filled, ell))
+        a = recover.score(p, out, d["mask"], pool, ell, scoreable=common)
+        b = recover.score(p, filled, d["mask"], pool, ell, scoreable=common)
+        assert a["n_corrupted"] == b["n_corrupted"]
+        assert a["n_clean"] == b["n_clean"]
+
+    def test_without_it_the_denominators_diverge(self):
+        p, segs, ell = clean_fixture()
+        out, d = inject.corrupt(p, segs, np.random.default_rng(0), ell=ell)
+        pool = np.ones(p.shape[0], dtype=bool)
+        filled = np.where(np.isfinite(out), out, p)
+        a = recover.score(p, out, d["mask"], pool, ell)
+        b = recover.score(p, filled, d["mask"], pool, ell)
+        assert a["n_corrupted"] < b["n_corrupted"], "the bug this guards against"

@@ -18,6 +18,9 @@ Five sets, and the second is what keeps the reel honest:
   anipose      Anipose's Viterbi filter against the incumbent, on the frames it
                actually reassigned. It touches 0.31% of keypoint-frames, so a
                window centred anywhere else shows three identical skeletons
+  candidates   raw / viterbi / median_0.50, cut where the two candidate arms
+               DISAGREE. Most windows in the other sets show every arm agreeing,
+               which is what makes them hard to judge
 
 The violation masks are read from `work/bones/<animal>.npz`, bit-packed at Step 1
 over that animal's concatenated frames. Recomputing them here would risk a second
@@ -43,7 +46,7 @@ from vieb.clean import arms as clean_arms, viterbi as vit
 from vieb.qc import bones                          # noqa: E402
 from vieb.io import spine                                          # noqa: E402
 from vieb.render import compare                                    # noqa: E402
-from vieb.tok import config                                        # noqa: E402
+from vieb.tok import config, ego                                   # noqa: E402
 
 EPS = 0.10
 CELL = f"viol|unfiltered|raw|{EPS}|skull"
@@ -424,6 +427,87 @@ def anipose(args) -> int:
     return 0
 
 
+def candidates(args) -> int:
+    """The two candidate arms against the floor, on frames where they differ.
+
+    Every other set is cut on something one arm flagged, so most windows show
+    all the arms agreeing and the reel is hard to judge. This one is cut on
+    `max_k ||viterbi_k - median_k|| / ell`, so every clip is a frame where the
+    two candidates decided differently -- the only kind of window that can
+    inform a choice between them.
+
+    These remain illustration. The verdict is `results/INJECTION.md`, which
+    scores both against known truth; an eye comparing skeletons prefers whichever
+    is smoothest, and `median_0.50` is smoothest because it has deleted 86-90%
+    of the animal's median movement.
+    """
+    out_dir = os.path.join(config.PATHS.results_dir, "compare", "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = spine.fps()
+
+    # Stratified across the violation distribution, not another worst-case reel.
+    d = read_json(config.PATHS.result("bones.json"))
+    by_rate = {w["recording_id"]: w["rate"] for w in d["worst_recordings"]}
+    rng = np.random.default_rng(SEED)
+    ids = list(spine.recording_ids())
+    rng.shuffle(ids)
+    picks = ([r for r in ids if r in by_rate][:args.n // 3]
+             + [r for r in ids if r not in by_rate][:args.n - args.n // 3])
+
+    manifest: list = []
+    for rid in picks:
+        rec = spine.clean(rid)
+        held = clean_arms.held_array(rec["pose_unfiltered"].astype(np.float64),
+                                     rec["missing"].astype(bool))
+        conf = rec["conf"]
+        vit_arr = clean_arms.apply("viterbi", held, conf, fps)
+        med = clean_arms.apply("median_0.50", held, conf, fps)
+        ell = ego.ell_a([held])
+        if not np.isfinite(ell) or ell <= 0:
+            continue
+        disagree = np.linalg.norm(vit_arr - med, axis=-1).max(axis=1) / ell
+        thresh = float(np.percentile(disagree[np.isfinite(disagree)], 99.5))
+        wins = compare.windows(disagree > thresh, fps=fps)[:args.per_recording]
+        if not wins:
+            log(f"  {rid}: the arms never disagree by much")
+            continue
+        for w, (a, b) in enumerate(wins):
+            name = f"candidates_{lab.animal_tag(rid)}_{w:02d}.mp4"
+            path = os.path.join(out_dir, name)
+            ok, why = compare.compare(
+                vid.video_path(rid), a, b, path, fps=fps,
+                panes=[("raw", held), ("anipose viterbi", vit_arr),
+                       ("median 0.50s", med)],
+                crop_from=held, flags=disagree > thresh)
+            if not ok:
+                log(f"  SKIP {name}: {why}")
+                continue
+            manifest.append({
+                "kind": "candidates", "file": os.path.join("clips", name),
+                "recording_id": rid, "animal": lab.animal_tag(rid),
+                "a": int(a), "b": int(b),
+                "duration_s": round((b - a) / fps, 2),
+                "panes": ["raw", "anipose viterbi", "median 0.50s"],
+                "violation_rate": by_rate.get(rid),
+                "violations_in_clip": float((disagree[a:b] > thresh).mean()),
+                "max_disagreement_bl": round(float(disagree[a:b].max()), 4),
+                "bytes": os.path.getsize(path),
+            })
+            log(f"  {name}  {(b - a) / fps:.1f}s  max disagreement "
+                f"{disagree[a:b].max():.3f} body lengths")
+
+    path = os.path.join(config.PATHS.results_dir, "compare", "manifest.json")
+    doc = read_json(path)
+    doc["clips"] = [c for c in doc["clips"]
+                    if c["kind"] != "candidates"] + manifest
+    doc["sets"]["candidates"] = len(manifest)
+    doc["n_clips"] = len(doc["clips"])
+    doc["total_bytes"] = sum(c["bytes"] for c in doc["clips"])
+    write_json(doc, path)
+    log(f"{len(manifest)} candidate clips; manifest now {doc['n_clips']} total")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true")
@@ -432,6 +516,8 @@ def main(argv=None) -> int:
                    help="frames the best arm STILL gets wrong, three ways")
     p.add_argument("--disposition", action="store_true",
                    help="Phase D: what the corrector moved, before and after")
+    p.add_argument("--candidates", action="store_true",
+                   help="raw / viterbi / median_0.50 where the arms disagree")
     p.add_argument("--anipose", action="store_true",
                    help="Anipose Viterbi, on the frames it actually reassigned")
     p.add_argument("--scan", type=int, default=60,
@@ -449,6 +535,8 @@ def main(argv=None) -> int:
         return disposition(a)
     if a.anipose:
         return anipose(a)
+    if a.candidates:
+        return candidates(a)
     raise SystemExit("pass --check, --render, --residual, --disposition "
                      "or --anipose")
 

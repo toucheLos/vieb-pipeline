@@ -253,6 +253,50 @@ falls 4.4% and **the intervals overlap raw's**. Against 10.9% on the donor side 
 so better than half of Phase D's apparent continuity gain is the corrector
 agreeing with its own predictor, which nothing inside Phase D could have shown.
 
+## Phase F — the injection benchmark
+
+`results/INJECTION.md`, `results/injection.json`. Pre-registered before the run.
+Corruption with known truth, injected into frames every instrument here calls
+clean, with every parameter taken from an earlier measurement rather than chosen.
+
+**A pre-registered falsifier fired and reversed a decision.** Prediction 3 said
+`median_0.50` would leave the data further from the truth than it found it. Its
+net is **−0.0026** [−0.0029, −0.0024], the best of any arm, negative in every
+speed stratum. The registration named the consequence in advance, so
+**`median_0.50` goes back on the Step 4 MDL branch**: the arms carried through
+are `raw`, `viterbi`, `median_0.50`, `disposition`.
+
+| arm | repair | damage | net |
+|---|---:|---:|---:|
+| `raw` | 0.3635 | 0.0000 | +0.0000 |
+| `median_0.50` | **0.1122** | 0.0031 | **−0.0026** |
+| `viterbi` | 0.2894 | 0.0000 | −0.0017 |
+| `disposition` | 0.3035 | 0.0000 | −0.0013 |
+
+The movement-retention evidence is unchanged and still true — `median_0.50`
+deletes 86–90% of median movement — but on this pool the movement it deletes is
+more wrong than right: 95.4% of teleport error removed against Viterbi's 35.3%.
+
+**No arm repairs a sustained park.** 10.5% / −0.0% / 0.0%. This is Phase E's
+failed prediction 2 rebuilt on an instrument that can falsify it — a park here
+has a known true position, so a median smoothing *across* it earns nothing —
+and it gives `CLEANING.md`'s standing claim direct support for the first time.
+
+**The pool is 4.45% of frames, not the 23.4% the feasibility check suggested**,
+bound by DLC confidence (10.55% of frames have every keypoint above 0.60). It is
+also slow: mean speed 0.50× the corpus, and only 1.81% of pool frames exceed the
+corpus p90 where 10% would be unbiased. `median_0.50`'s benefit falls 5× from the
+slowest stratum to the fastest while `viterbi`'s rises from zero — opposite
+trends — so this phase is decisive about slow frames and silent about fast ones.
+
+**`wiener` could not be benchmarked.** It is read off disk from shapeflow and was
+never reimplemented here, so it cannot be applied to a freshly corrupted array.
+The pre-registration listed it; it was dropped and that is recorded.
+
 ## Open
 
-Steps 3–4.
+Steps 3–4, with **four** arms and the MDL entropy normalisation: a flattened
+corpus has fewer, longer runs and a shorter code, so an absolute code-length
+comparison across cleaning arms measures how much signal each deleted. Report in
+bits relative to each arm's own rung-0 marginal entropy, as the plan already
+requires for the labeller bakeoff.

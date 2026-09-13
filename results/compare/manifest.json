@@ -1309,6 +1309,654 @@
       "recording_id": "20250404_Box_2_CFD_Day_7_(Context_B)_573",
       "violation_rate": null,
       "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 544,
+      "animal": "149",
+      "b": 608,
+      "bytes": 74423,
+      "duration_s": 2.13,
+      "file": "clips/candidates_149_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.5755,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.046875
+    },
+    {
+      "a": 2295,
+      "animal": "149",
+      "b": 2327,
+      "bytes": 30157,
+      "duration_s": 1.07,
+      "file": "clips/candidates_149_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.7447,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.0625
+    },
+    {
+      "a": 2551,
+      "animal": "149",
+      "b": 2599,
+      "bytes": 64147,
+      "duration_s": 1.6,
+      "file": "clips/candidates_149_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.6838,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.10416666666666667
+    },
+    {
+      "a": 273,
+      "animal": "9037",
+      "b": 306,
+      "bytes": 47170,
+      "duration_s": 1.1,
+      "file": "clips/candidates_9037_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.4085,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 2292,
+      "animal": "9037",
+      "b": 2326,
+      "bytes": 37189,
+      "duration_s": 1.13,
+      "file": "clips/candidates_9037_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.7025,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 2836,
+      "animal": "9037",
+      "b": 2921,
+      "bytes": 111853,
+      "duration_s": 2.83,
+      "file": "clips/candidates_9037_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.7065,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "violation_rate": 0.2800445103857567,
+      "violations_in_clip": 0.07058823529411765
+    },
+    {
+      "a": 211,
+      "animal": "777",
+      "b": 248,
+      "bytes": 56953,
+      "duration_s": 1.23,
+      "file": "clips/candidates_777_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.2374,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.10810810810810811
+    },
+    {
+      "a": 691,
+      "animal": "777",
+      "b": 724,
+      "bytes": 40856,
+      "duration_s": 1.1,
+      "file": "clips/candidates_777_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.1582,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 870,
+      "animal": "777",
+      "b": 915,
+      "bytes": 42483,
+      "duration_s": 1.5,
+      "file": "clips/candidates_777_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.5564,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.08888888888888889
+    },
+    {
+      "a": 746,
+      "animal": "788",
+      "b": 816,
+      "bytes": 84928,
+      "duration_s": 2.33,
+      "file": "clips/candidates_788_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.881,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_1_CFC_Day_2_(Context_C)_788",
+      "violation_rate": 0.22584832189875764,
+      "violations_in_clip": 0.12857142857142856
+    },
+    {
+      "a": 876,
+      "animal": "788",
+      "b": 909,
+      "bytes": 41790,
+      "duration_s": 1.1,
+      "file": "clips/candidates_788_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.6,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_1_CFC_Day_2_(Context_C)_788",
+      "violation_rate": 0.22584832189875764,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 1307,
+      "animal": "788",
+      "b": 1396,
+      "bytes": 116060,
+      "duration_s": 2.97,
+      "file": "clips/candidates_788_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.9018,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260417_Box_1_CFC_Day_2_(Context_C)_788",
+      "violation_rate": 0.22584832189875764,
+      "violations_in_clip": 0.10112359550561797
+    },
+    {
+      "a": 1164,
+      "animal": "706",
+      "b": 1205,
+      "bytes": 55486,
+      "duration_s": 1.37,
+      "file": "clips/candidates_706_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.3596,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_706",
+      "violation_rate": null,
+      "violations_in_clip": 0.14634146341463414
+    },
+    {
+      "a": 1619,
+      "animal": "706",
+      "b": 1664,
+      "bytes": 60773,
+      "duration_s": 1.5,
+      "file": "clips/candidates_706_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.0383,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_706",
+      "violation_rate": null,
+      "violations_in_clip": 0.044444444444444446
+    },
+    {
+      "a": 1845,
+      "animal": "706",
+      "b": 1879,
+      "bytes": 44580,
+      "duration_s": 1.13,
+      "file": "clips/candidates_706_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.0219,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_706",
+      "violation_rate": null,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 1747,
+      "animal": "111",
+      "b": 1778,
+      "bytes": 20529,
+      "duration_s": 1.03,
+      "file": "clips/candidates_111_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.2459,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251106_Box_1_CFD_Day_6_(Context_A)_111",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 1852,
+      "animal": "111",
+      "b": 1891,
+      "bytes": 76190,
+      "duration_s": 1.3,
+      "file": "clips/candidates_111_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.5056,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251106_Box_1_CFD_Day_6_(Context_A)_111",
+      "violation_rate": null,
+      "violations_in_clip": 0.23076923076923078
+    },
+    {
+      "a": 5390,
+      "animal": "111",
+      "b": 5481,
+      "bytes": 171021,
+      "duration_s": 3.03,
+      "file": "clips/candidates_111_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3827,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251106_Box_1_CFD_Day_6_(Context_A)_111",
+      "violation_rate": null,
+      "violations_in_clip": 0.24175824175824176
+    },
+    {
+      "a": 609,
+      "animal": "9062",
+      "b": 697,
+      "bytes": 88211,
+      "duration_s": 2.93,
+      "file": "clips/candidates_9062_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.4913,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250719_Box_2_CFD_Day_7_(Context_B)_9062",
+      "violation_rate": null,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 747,
+      "animal": "9062",
+      "b": 779,
+      "bytes": 53914,
+      "duration_s": 1.07,
+      "file": "clips/candidates_9062_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3251,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250719_Box_2_CFD_Day_7_(Context_B)_9062",
+      "violation_rate": null,
+      "violations_in_clip": 0.0625
+    },
+    {
+      "a": 2093,
+      "animal": "9062",
+      "b": 2126,
+      "bytes": 33376,
+      "duration_s": 1.1,
+      "file": "clips/candidates_9062_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3331,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250719_Box_2_CFD_Day_7_(Context_B)_9062",
+      "violation_rate": null,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 1865,
+      "animal": "578",
+      "b": 1935,
+      "bytes": 60545,
+      "duration_s": 2.33,
+      "file": "clips/candidates_578_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.9982,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.17142857142857143
+    },
+    {
+      "a": 2872,
+      "animal": "578",
+      "b": 2906,
+      "bytes": 43086,
+      "duration_s": 1.13,
+      "file": "clips/candidates_578_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.9544,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 3272,
+      "animal": "578",
+      "b": 3331,
+      "bytes": 56954,
+      "duration_s": 1.97,
+      "file": "clips/candidates_578_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.9623,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_578",
+      "violation_rate": null,
+      "violations_in_clip": 0.05084745762711865
+    },
+    {
+      "a": 514,
+      "animal": "124",
+      "b": 548,
+      "bytes": 45065,
+      "duration_s": 1.13,
+      "file": "clips/candidates_124_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 1.2685,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_B)_124",
+      "violation_rate": null,
+      "violations_in_clip": 0.11764705882352941
+    },
+    {
+      "a": 818,
+      "animal": "124",
+      "b": 849,
+      "bytes": 43876,
+      "duration_s": 1.03,
+      "file": "clips/candidates_124_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.6283,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_B)_124",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 986,
+      "animal": "124",
+      "b": 1058,
+      "bytes": 78683,
+      "duration_s": 2.4,
+      "file": "clips/candidates_124_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.7844,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_B)_124",
+      "violation_rate": null,
+      "violations_in_clip": 0.05555555555555555
+    },
+    {
+      "a": 288,
+      "animal": "232",
+      "b": 325,
+      "bytes": 40032,
+      "duration_s": 1.23,
+      "file": "clips/candidates_232_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.7571,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251225_Box_1_CFC_Day_1_(Context_A,_No_Shock)_232",
+      "violation_rate": null,
+      "violations_in_clip": 0.1891891891891892
+    },
+    {
+      "a": 836,
+      "animal": "232",
+      "b": 873,
+      "bytes": 35581,
+      "duration_s": 1.23,
+      "file": "clips/candidates_232_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3439,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251225_Box_1_CFC_Day_1_(Context_A,_No_Shock)_232",
+      "violation_rate": null,
+      "violations_in_clip": 0.1891891891891892
+    },
+    {
+      "a": 1025,
+      "animal": "232",
+      "b": 1058,
+      "bytes": 32541,
+      "duration_s": 1.1,
+      "file": "clips/candidates_232_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.393,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251225_Box_1_CFC_Day_1_(Context_A,_No_Shock)_232",
+      "violation_rate": null,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 959,
+      "animal": "155",
+      "b": 995,
+      "bytes": 47235,
+      "duration_s": 1.2,
+      "file": "clips/candidates_155_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.4701,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251210_Box_1_CFD_Day_5_(Context_A)_155",
+      "violation_rate": null,
+      "violations_in_clip": 0.16666666666666666
+    },
+    {
+      "a": 1136,
+      "animal": "155",
+      "b": 1200,
+      "bytes": 75569,
+      "duration_s": 2.13,
+      "file": "clips/candidates_155_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.4838,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251210_Box_1_CFD_Day_5_(Context_A)_155",
+      "violation_rate": null,
+      "violations_in_clip": 0.125
+    },
+    {
+      "a": 1496,
+      "animal": "155",
+      "b": 1528,
+      "bytes": 37228,
+      "duration_s": 1.07,
+      "file": "clips/candidates_155_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3228,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20251210_Box_1_CFD_Day_5_(Context_A)_155",
+      "violation_rate": null,
+      "violations_in_clip": 0.0625
+    },
+    {
+      "a": 1205,
+      "animal": "903",
+      "b": 1238,
+      "bytes": 52947,
+      "duration_s": 1.1,
+      "file": "clips/candidates_903_00.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3158,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250321_Box_2_CFC_Day_2_(Context_C)_903",
+      "violation_rate": null,
+      "violations_in_clip": 0.09090909090909091
+    },
+    {
+      "a": 1289,
+      "animal": "903",
+      "b": 1321,
+      "bytes": 38899,
+      "duration_s": 1.07,
+      "file": "clips/candidates_903_01.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.3696,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250321_Box_2_CFC_Day_2_(Context_C)_903",
+      "violation_rate": null,
+      "violations_in_clip": 0.0625
+    },
+    {
+      "a": 1686,
+      "animal": "903",
+      "b": 1717,
+      "bytes": 39306,
+      "duration_s": 1.03,
+      "file": "clips/candidates_903_02.mp4",
+      "kind": "candidates",
+      "max_disagreement_bl": 0.2946,
+      "panes": [
+        "raw",
+        "anipose viterbi",
+        "median 0.50s"
+      ],
+      "recording_id": "20250321_Box_2_CFC_Day_2_(Context_C)_903",
+      "violation_rate": null,
+      "violations_in_clip": 0.03225806451612903
     }
   ],
   "corpus": "luna",
@@ -1338,17 +1986,18 @@
   },
   "eps": 0.1,
   "inherited_digest": "198eb14ff258c7f6",
-  "n_clips": 76,
+  "n_clips": 112,
   "note": "Left pane is the pose after the gap policy and before the filter; right pane is the filtered array every downstream stage consumes. Same frames, same crop box, same red outline on violating frames -- the only difference between panes is the skeleton.",
   "seed": 0,
   "sets": {
     "anipose": 12,
     "bakeoff": 4,
+    "candidates": 36,
     "disposition": 12,
     "random": 12,
     "residual": 10,
     "worst": 6
   },
   "stage": "compare",
-  "total_bytes": 8411008
+  "total_bytes": 10490644
 }
