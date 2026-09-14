@@ -142,15 +142,19 @@ Worth stating because the opposite is the natural assumption. Substituting
 separate differencing of position and angle for the SE(2) logarithm — the error
 the brief singles out — barely moves A4 until the animal is turning hard:
 
-| turn rate | speed R² with the naive twist |
-|---|---:|
-| 0.9 rad/s | 0.9973 |
-| 3.0 rad/s | 0.9853 |
-| 4.5 rad/s | 0.9646 |
-| 12 rad/s | 0.6492 |
+> **UNSOURCED.** The four R² values that stood here (0.9973, 0.9853, 0.9646,
+> 0.6492 at 0.9, 3.0, 4.5 and 12 rad/s) are hardcoded in this generator and trace
+> to no artifact. Reconstructing the obvious procedure -- synthetic mouse at each
+> turn rate, exact SE(2) twist for the labels, `ego.transform(..., naive=True)`
+> scored by `parity.exact_scores` -- returns 1.0000 at every rate, so whatever
+> produced them did something else and the code does not record what. See
+> `results/PROVENANCE_AUDIT.md`.
 
-against a threshold of {parity.R2_SPEED_MIN}. A pipeline carrying the naive
-velocity would **pass this gate** at every ordinary turn rate in the corpus. The
+The claim itself is **not** in doubt -- `tests/test_se2.py` compares `se2_log`
+against `scipy.linalg.expm` and fails the naive version at every turn rate
+including zero, and it passes. What is withdrawn is the four numbers and the
+"passes this gate at every ordinary turn rate" framing built on them, against a
+threshold of {parity.R2_SPEED_MIN}. The
 guard is `tests/test_se2.py`, which compares `se2_log` against
 `scipy.linalg.expm` on the 3×3 matrix representation and fails the naive version
 at every turn rate including zero.

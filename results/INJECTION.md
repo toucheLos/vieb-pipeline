@@ -138,7 +138,12 @@ flags 3.80%, the bone check 1.12%, and only 8.2% of those overlap — and the on
 error class none of these arms can touch is the sustained park, which is what a
 detector locking onto the wrong body part produces.
 
-**No filter beats better detections.** Retraining DLC and re-inferring 3,846
-videos remains the expensive branch and remains costed out, but it is the honest
-answer to "keep the data as well as possible", and the 10.5% park repair ceiling
-measured here is the price of not doing it.
+**No temporal or geometric filter beats better detections**, and that is the form
+the claim should take. Retraining DLC and re-inferring 3,846 videos remains the
+expensive branch and remains costed out.
+
+What this does *not* establish is that retraining is the only route. A
+pose-conditional model — one that asks whether a position is consistent with a
+pose the animal could hold — is neither temporal nor geometric, and nothing
+measured here bounds it. `METHODS_CLEANING.md` records why one such model is
+deliberately not used.

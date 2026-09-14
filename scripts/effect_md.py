@@ -143,7 +143,9 @@ distribution, and a behaviour model would never know.
 speed and {1 - L['wiener']['kinematics']['turn']['ratio_q'][0]:.0%} of the median turning.** Much of frame-to-frame
 displacement at 30 fps genuinely is tracking noise — σ runs 0.79–3.10 px per
 keypoint — so removing it may well be correct. The point is that the magnitude
-was never recorded, and "1.059% of coherent power sits above the crossover" does
+was never recorded, and "1.059% of coherent power sits above the crossover" --
+a figure hardcoded here that traces to no artifact, see
+`results/PROVENANCE_AUDIT.md` -- does
 not prepare a reader for a 41% cut to median speed.
 
 The comparison that carries information is between the two filters.

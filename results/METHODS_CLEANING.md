@@ -64,12 +64,14 @@ Everything else measured about this arm follows from the cliff:
   cliff.
 * **It repairs 10.5% of park error.** Parks are 4–30 frames. Only those ≤ 7 are
   reachable.
-* **Violating runs go from a median of 2 frames to 9 after filtering.** This was
-  previously described as "what survives is temporally smooth". The real
-  mechanism is sharper: the filter deletes every run of 7 frames or fewer and
-  leaves the rest **untouched**, so the surviving distribution is simply the
-  original one truncated below 8. The median rises because the short runs are
-  gone, not because anything got longer.
+* **Violating runs go from a median of 1 frame to 3 after filtering**, and the
+  filter preserves a factor of **1.11** of the violating mass in runs longer than
+  7 frames. That confirms the mechanism directly: it deletes every run at or
+  below the cliff and leaves the rest **untouched**, so the surviving
+  distribution is the original one truncated from below. **Nothing lengthened.**
+  It removes 73% of the *runs* and only 40% of the violating *frames*
+  (`results/runlen.json`, 89 animals, 24,882 runs). An earlier figure of 2 → 9
+  frames came from eight recordings and is withdrawn; 9 is the corpus-wide p75.
 * **It deletes 86–90% of the animal's median movement.** A 15-frame median of a
   mostly-slow signal returns long constant stretches. Median centre speed falls
   from 0.1071 to 0.0129 body lengths per second.
@@ -249,7 +251,77 @@ MDL, at Step 4, with all four arms.
 
 Nothing here fixes the data. Every arm is post-hoc repair of a detector that is
 wrong on about 4% of frames, and the error class that matters most — a landmark
-parked on the wrong body part — survives all of them. **Retraining the detector is
-the only thing that would actually raise the ceiling.** It requires re-inferring
-3,846 videos and has been costed out twice; that cost is the reason this page
-exists instead.
+parked on the wrong body part — survives all of them. **No temporal or geometric
+filter raises that ceiling**, which is the claim the measurements here support.
+
+The stronger claim — that *only* retraining the detector raises it — is no longer
+one this page can make, because there is a candidate counterexample. A
+pose-conditional model such as keypoint-MoSeq asks whether a position is
+consistent with a pose the animal could hold, which is neither a temporal nor a
+geometric test and is not ruled out by anything measured here. See the discussion
+below for why it is not used regardless.
+
+---
+
+## keypoint-MoSeq — the method that asks the right question, deliberately not used
+
+Every arm above decides using **time** or **geometry** alone. A parked landmark is
+temporally smooth *and* can be geometrically legal, which is why the median's
+7-frame cliff misses it and Viterbi's motion prior accepts it, and why the park
+repair ceiling is 10.5%.
+
+[keypoint-MoSeq](https://www.nature.com/articles/s41592-024-02318-2) asks a
+different question — *is this position consistent with a pose the animal could
+hold?* — and that is the question the 10.5% ceiling is made of.
+
+**The mechanism.** A switching linear dynamical system, three levels: a discrete
+syllable sequence; a low-dimensional latent pose trajectory `x` under an
+autoregressive model conditioned on the current syllable; and the observed
+keypoints, generated from `x` plus centroid `v` and heading `h`. The cleaning
+lives in two variance terms fit jointly with everything else — a per-keypoint
+noise level `σ²ₖ`, and a **per-frame, per-keypoint noise scale `sₜₖ`**. When a
+keypoint jumps implausibly the model either believes it and bends the trajectory,
+or inflates `sₜₖ` and keeps the trajectory smooth. Gibbs sampling, 500 iterations,
+`jax-moseq`. It outputs corrected coordinates.
+
+### Three reasons it is not used here
+
+**1. It is a contestant in the model comparison.** MoSeq is one of the arms being
+scored, and it led on effect size at 0.361. If MoSeq-cleaned coordinates became
+the input, every arm in the bakeoff would be scored on data pre-shaped by one
+contestant, and the contestant whose generative assumptions match the cleaning
+wins by construction. **The MDL axis stops being a common axis.** This is the
+decisive reason and it is stronger than the tokenizer circularity below.
+
+**2. `sₜₖ` is a persistence prior, one level deeper than the last one.** Whether
+to inflate `sₜₖ` is decided by what is more probable under the AR dynamics
+*conditioned on the current syllable*. This project retracted a result because a
+persistence mechanism in a labeller produced 298/298 animals departing from the
+geometric null. Here the same class of mechanism would operate on the
+**coordinates** rather than on the labels — a deeper insertion point, not a safer
+one.
+
+**3. Any park repair would need ablating against a filter already in our table.**
+keypoint-MoSeq ships a conventional upper-tail outlier detector plus
+interpolation as a *preprocessing* step — which is `position_outlier`, scored
+above. Without an ablation separating that pre-step from `sₜₖ`, the pose model
+would be credited for work done by a filter we have already measured.
+
+### What is worth doing, and what it can and cannot show
+
+`sₜₖ` is a **detector we have already computed**. The fitted checkpoint at
+`~/moseq/luna_demo/recur_fit_seed0/checkpoint.h5` carries
+`model_snapshots/550/states/s` at shape (100, 6334, 7) — per frame, per keypoint —
+with recording names attached. So the empirical content of the claim on this page
+is testable by a **join**, with no fitting and with MoSeq nowhere near the
+cleaning path: does `sₜₖ` rise on the frames the corrector abstains from, and on
+the frames the bone and continuity instruments flag?
+
+It **cannot** be scored against the injection benchmark's ground truth. MoSeq was
+fitted on real data and never saw the injected parks; testing against those would
+require refitting on corrupted data, which is a new fit and is out of scope.
+
+And if `sₜₖ` does fire on sustained errors, the conclusion is **not** "use MoSeq
+to clean". It is that the detector should be a **pose-consistency term** — the
+subspace structure — without the behavioural conditioning that creates the
+circularity.

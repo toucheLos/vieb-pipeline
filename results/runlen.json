@@ -1,0 +1,234 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "scored on one split; the anchor counts all"
+  },
+  "buckets": [
+    1,
+    3,
+    7
+  ],
+  "corpus": "luna",
+  "distributions": {
+    "median_0.50": {
+      "frac_mass_gt_7": 0.7390936044049131,
+      "frac_mass_le_1": 0.046412091219153344,
+      "frac_mass_le_3": 0.1300742325954658,
+      "frac_mass_le_7": 0.2609063955950868,
+      "frac_runs_le_1": 0.30478700043917434,
+      "frac_runs_le_3": 0.5350607524520568,
+      "frac_runs_le_7": 0.700190308885961,
+      "max_run": 123,
+      "mean_run": 6.566974088713219,
+      "median_run": 3.0,
+      "n_runs": 6831,
+      "n_violating_frames": 44859,
+      "p75_run": 9.0,
+      "p90_run": 16.0
+    },
+    "raw": {
+      "frac_mass_gt_7": 0.3966291985012734,
+      "frac_mass_le_1": 0.1690067602704108,
+      "frac_mass_le_3": 0.38360201074709654,
+      "frac_mass_le_7": 0.6033708014987266,
+      "frac_runs_le_1": 0.5094043887147336,
+      "frac_runs_le_3": 0.7862310103689414,
+      "frac_runs_le_7": 0.91825415963347,
+      "max_run": 123,
+      "mean_run": 3.0141065830721003,
+      "median_run": 1.0,
+      "n_runs": 24882,
+      "n_violating_frames": 74997,
+      "p75_run": 3.0,
+      "p90_run": 6.0
+    },
+    "viterbi": {
+      "frac_mass_gt_7": 0.4949690906721874,
+      "frac_mass_le_1": 0.095855109811359,
+      "frac_mass_le_3": 0.26874466144513776,
+      "frac_mass_le_7": 0.5050309093278126,
+      "frac_runs_le_1": 0.38617672790901136,
+      "frac_runs_le_3": 0.6775153105861768,
+      "frac_runs_le_7": 0.8658501020705746,
+      "max_run": 123,
+      "mean_run": 4.028754738990959,
+      "median_run": 2.0,
+      "n_runs": 17145,
+      "n_violating_frames": 69073,
+      "p75_run": 4.0,
+      "p90_run": 9.0
+    }
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "eps": 0.1,
+  "inherited_digest": "198eb14ff258c7f6",
+  "input": "held_array(pose_unfiltered, missing) -- the array scripts/disposition.py hands the corrector, before any smoother",
+  "intervals": {
+    "median_0.50": {
+      "frac_mass_le_3": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.15352764602827954,
+        "lo": 0.13040198016045182,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.1413502993614934
+      },
+      "median_run": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 3.56755617977528,
+        "lo": 3.044803370786517,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 3.292134831460674
+      },
+      "n_animals": 89
+    },
+    "raw": {
+      "frac_mass_le_3": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.39229384234122094,
+        "lo": 0.3550176331996205,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.37324065597466993
+      },
+      "median_run": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 1.5730337078651686,
+        "lo": 1.3595505617977528,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.4662921348314606
+      },
+      "n_animals": 89
+    },
+    "viterbi": {
+      "frac_mass_le_3": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 0.2897247622561671,
+        "lo": 0.26333905648160155,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.27613630793447647
+      },
+      "median_run": {
+        "aggregator": "wmean",
+        "alpha": 0.05,
+        "hi": 2.157303370786517,
+        "lo": 2.0168539325842696,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 2.0842696629213484
+      },
+      "n_animals": 89
+    }
+  },
+  "n_animals": 298,
+  "peak_rss_gb": 0.62646484375,
+  "reads": {
+    "envelope": {
+      "degenerate": 0,
+      "detail": {
+        "frac_mass_gt_7": 0.3966291985012734,
+        "frac_mass_le_1": 0.1690067602704108,
+        "frac_mass_le_3": 0.38360201074709654,
+        "frac_mass_le_7": 0.6033708014987266,
+        "frac_runs_le_1": 0.5094043887147336,
+        "frac_runs_le_3": 0.7862310103689414,
+        "frac_runs_le_7": 0.91825415963347,
+        "max_correct_frames": 3,
+        "max_run": 123,
+        "mean_run": 3.0141065830721003,
+        "median_run": 1.0,
+        "n_runs": 24882,
+        "n_violating_frames": 74997,
+        "p75_run": 3.0,
+        "p90_run": 6.0
+      },
+      "n_effective": 89,
+      "reason": "violating runs are short by count and long by mass: median 1 frames and p75 3, so a 3-frame envelope reaches most runs, but those runs carry only 38.4% of violating keypoint-frames. Correction and abstention are both needed, which is the envelope Phase D built, and this is the first measurement that supports it",
+      "saturation": null,
+      "scored_object": {
+        "arm": "runlen",
+        "dataset": "luna",
+        "eps": 0.1,
+        "input": "raw",
+        "split": "report"
+      },
+      "verdict": "PASS"
+    },
+    "truncation": {
+      "degenerate": 0,
+      "detail": {
+        "cliff_frames": 7,
+        "filtered_mass_above_cliff": 33155.0,
+        "filtered_median_run": 3.0,
+        "ratio": 1.1146036441874538,
+        "raw_mass_above_cliff": 29746.0,
+        "raw_median_run": 1.0
+      },
+      "n_effective": 89,
+      "reason": "the filter preserved 1.11 of the violating mass in runs longer than 7 frames while the median run length went from 1 to 3. The rise in median length is the arithmetic of deleting every run at or below the cliff, not a property of the errors: nothing lengthened",
+      "saturation": null,
+      "scored_object": {
+        "arm": "runlen",
+        "compare": "median_0.50",
+        "dataset": "luna",
+        "eps": 0.1,
+        "split": "report"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "split": "report",
+  "stage": "runlen",
+  "supersedes": "the hardcoded table in scripts/cleaning_md.py, which reported 2 and 9 frames on the eight worst recordings and was backed by no artifact"
+}

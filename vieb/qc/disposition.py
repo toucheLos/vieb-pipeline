@@ -11,14 +11,16 @@ Not a corrector. **Three dispositions and one gate that can actually fail.**
   confidence *gate* refused on this corpus for want of a bimodal mode, and the
   project concluded confidence was useless. "No threshold exists" is not "no
   signal exists" -- and a tie-break needs monotonicity, not calibration.
-* Violating runs are **short by count and long by mass**: median run 1-2 frames,
-  but runs <= 3 frames carry only 43.7% of violating frame-mass (31.3% on the
-  worst recordings).
+* Violating runs are **short by count and long by mass**. Measured corpus-wide on
+  this array in `results/runlen.json`: median run **1 frame**, p75 **3**, and runs
+  of 3 frames or fewer carry only **38.4%** of violating keypoint-frames. So a
+  3-frame envelope reaches most runs and under two-fifths of the error.
 
 ## Why the run length decides the disposition
 
-A run of 9 frames is 300 ms. That is not a detection glitch; it is the tracker
-sitting on a wrong mode -- a keypoint on a different body part, or a swap that
+The 61.6% of violating mass outside a 3-frame envelope is the reason abstention
+is needed at all. A run past that envelope is not a detection glitch; it is the
+tracker sitting on a wrong mode -- a keypoint on a different body part, or a swap that
 persists until something breaks it. **Minimal projection is the wrong operator
 for that.** The point is not perturbed from its true position, it is on another
 object, and pulling it to the nearest feasible location yields something

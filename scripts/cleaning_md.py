@@ -86,10 +86,13 @@ lower distortion. It does not, and the residual measurement below says why.
 
 Violating runs on the eight worst recordings, before and after `median_0.50`:
 
-| | runs | median run | share of violating frames in runs > 0.5 s | > 3 frames |
-|---|---:|---:|---:|---:|
-| raw | 207 | 2 frames | 32.3% | 70.4% |
-| after `median_0.50` | 66 | **9 frames** | **53.1%** | **96.1%** |
+> **RETRACTED, and superseded.** The table that stood here reported 207 runs of
+> median 2 frames on raw and 66 of median 9 after `median_0.50`, measured on the
+> eight worst recordings. Those numbers were **hardcoded in this generator and
+> backed by no artifact** -- nothing in this pipeline ever computed a violating
+> run-length distribution. They are superseded by `results/runlen.json`, which
+> measures it corpus-wide on the array the corrector actually receives, by count
+> and by mass. See `results/PROVENANCE_AUDIT.md`.
 
 The median removes the short violations -- which is what a median is for -- and
 the median *length* of what survives triples. **What a temporal filter leaves
@@ -140,11 +143,14 @@ it makes is whether to accept this frame's jump or carry an older position
 forward. Anipose's own `wrap_points()` carries the comment `# n_possible = 1` for
 exactly this input.
 
-It is a **de-glitcher, not a low-pass**, and the measured signatures are opposite:
+It is a **de-glitcher, not a low-pass**, and the measured signatures are opposite
+(Viterbi's median move is from the 80-recording scan in the per-keypoint table
+below; an earlier figure of 46.65 px was never written to an artifact and is
+withdrawn):
 
 | | fraction of keypoint-frames moved | median move when it moves |
 |---|---:|---:|
-| Viterbi | **0.31%** | 46.65 px |
+| Viterbi | **0.31%** | 43.79 px |
 | Wiener | **86%** (>0.01 px) | 1.42 px |
 
 Anipose {V.VERSION} is a pinned dependency. Only its import chain is bypassed:
