@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import hashlib
 import json
 import os
 import sys
@@ -111,8 +112,31 @@ def disposition_arm(pose: np.ndarray, conf: np.ndarray) -> np.ndarray:
     return out
 
 
+def _seed_for(tag: str, rid: str) -> int:
+    """A per-recording seed that is the same in every process.
+
+    `hash()` on a str is salted per interpreter unless PYTHONHASHSEED is set, so
+    `abs(hash((SEED, tag, rid)))` -- what this used through Phase F -- drew a
+    different corruption layout on every run despite `SEED = 0`. The benchmark
+    was not reproducible and its pre-registration said it was. blake2b is stable
+    across processes, machines and versions.
+    """
+    h = hashlib.blake2b(f"{SEED}|{tag}|{rid}".encode(), digest_size=8)
+    return int.from_bytes(h.digest(), "big") % (2 ** 32)
+
+
+def _dir_for(spike_bl: float) -> str:
+    """Sweep outputs must not collide. The banked threshold keeps the original
+    directory so `results/injection.json` stays reproducible from it."""
+    base = os.path.join(os.path.dirname(config.PATHS.bones_dir), "injection")
+    if abs(float(spike_bl) - truth.CLEAN_SPIKE_BL) < 1e-12:
+        return base
+    tag = "off" if float(spike_bl) >= 1e3 else f"{float(spike_bl):g}".replace(".", "")
+    return f"{base}_{tag}"
+
+
 def shard(args, tag: str) -> int:
-    out_dir = os.path.join(os.path.dirname(config.PATHS.bones_dir), "injection")
+    out_dir = _dir_for(args.spike_bl)
     os.makedirs(out_dir, exist_ok=True)
     fps = spine.fps()
     mine = animals_of(spine.recording_ids())[tag]
@@ -132,7 +156,8 @@ def shard(args, tag: str) -> int:
         d = spine.clean(rid)
         mask, why = truth.clean_mask(held_by[rid], conf_by[rid],
                                      d["missing"].astype(bool), ell,
-                                     pairs=PAIRS, eps=EPS)
+                                     pairs=PAIRS, eps=EPS,
+                                     spike_bl=float(args.spike_bl))
         why_any = why_any or why
         segs = truth.segments(mask)
         segs_by[rid] = segs
@@ -143,6 +168,38 @@ def shard(args, tag: str) -> int:
         for seg in segs:
             speeds.append(truth.segment_speed(held_by[rid], seg, ell, fps))
     edges = truth.speed_bins(speeds)
+
+    # Two pool diagnostics, both pre-registered.
+    #
+    # Contamination: the TRUNK violation rate INSIDE the pool. The pool gates on
+    # the SKULL bones, so a skull rate would be zero by construction; the trunk
+    # is the same instrument on geometry the pool never selected against.
+    #
+    # Bias: the share of pool frames faster than that animal's own all-frames p90
+    # centre speed. Unbiased would be 10%. Self-referential on purpose -- a
+    # hardcoded corpus p90 is the class of number this repo just audited.
+    trunk_bad = trunk_tot = 0
+    fast_in_pool = pool_tot = 0
+    for rid in mine:
+        held, pool = held_by[rid], pools[rid]
+        keep = bones.rigid_pairs(bones.log_lengths(held, PAIRS), PAIRS)
+        tl = bones.metric_lengths(held, bones.TRUNK, "raw", pairs=PAIRS, keep=keep)
+        t_hat = np.array([bones.reference_length(tl[:, m], EPS)["l_hat"]
+                          for m in range(len(bones.TRUNK))])
+        tmask = bones.frame_mask(bones.violations(tl, t_hat, EPS))
+        trunk_bad += int(tmask[pool].sum())
+        trunk_tot += int(pool.sum())
+        v = np.linalg.norm(np.diff(held[:, 3], axis=0), axis=-1) * fps / ell
+        ok = np.isfinite(v)
+        if ok.any():
+            p90 = float(np.percentile(v[ok], 90))
+            inpool = pool[:-1] & ok
+            fast_in_pool += int((v[inpool] > p90).sum())
+            pool_tot += int(inpool.sum())
+    pool_contam = float(trunk_bad / trunk_tot) if trunk_tot else float("nan")
+    fast_share = float(fast_in_pool / pool_tot) if pool_tot else float("nan")
+    log(f"[{tag}] pool trunk-violation {pool_contam:.4%}  "
+        f"fast share {fast_share:.4%} (10% would be unbiased)")
 
     # Recording-outer, arm-inner, because every arm must be scored on the SAME
     # keypoint-frames. An arm that interpolates an injected dropout produces a
@@ -158,7 +215,7 @@ def shard(args, tag: str) -> int:
         segs = segs_by[rid]
         if segs.size == 0:
             continue
-        rng = np.random.default_rng(abs(hash((SEED, tag, rid))) % (2 ** 32))
+        rng = np.random.default_rng(_seed_for(tag, rid))
         corrupted, det = inject.corrupt(held_by[rid], segs, rng, ell=ell)
         if not det["events"]:
             continue
@@ -222,12 +279,17 @@ def shard(args, tag: str) -> int:
                             "n": v["n"]} for k, v in kinds[arm].items()},
             "by_speed_bin": {str(k): v["sum"] / max(1, v["n"])
                              for k, v in sorted(strata[arm].items())},
+            "n_by_speed_bin": {str(k): int(v["n"])
+                               for k, v in sorted(strata[arm].items())},
         })
         log(f"[{tag}] {arm:12s} repair {rows[-1]['repair']:.4f}  "
             f"damage {rows[-1]['damage']:.4f}  "
             f"total {rows[-1]['total_mean']:.4f}  n={n_scored}")
 
     write_json({"animal": tag, "eps": EPS, "seed": SEED, "arms": list(ARMS),
+                "spike_bl": float(args.spike_bl),
+                "pool_bone_violation_rate": pool_contam,
+                "frac_pool_above_corpus_p90": float(fast_share),
                 "speed_edges": [float(x) for x in edges],
                 "pool": why_any or {}, "rates": inject.RATES,
                 "inherited_digest": spine.digest(), "rows": rows},
@@ -244,7 +306,7 @@ def _num(x) -> float:
 
 
 def combine(args) -> int:
-    out_dir = os.path.join(os.path.dirname(config.PATHS.bones_dir), "injection")
+    out_dir = _dir_for(args.spike_bl)
     shards = sorted(glob.glob(os.path.join(out_dir, "*.json")))
     if not shards:
         raise SystemExit(f"no shards in {out_dir}")
@@ -322,7 +384,7 @@ def combine(args) -> int:
         "preregistration": "results/INJECTION_PREREGISTRATION.md",
         "reads": {"recovery": rd.to_dict()},
         "split": args.split, "eps": EPS, "seed": SEED,
-        "rates": inject.RATES,
+        "rates": inject.RATES, "spike_bl": float(args.spike_bl),
         "arms": out_rows, "intervals": intervals,
         "arms_not_benchmarked": UNBENCHMARKABLE,
         "pool": {k: describe([p[k] for p in pools if k in p])
@@ -366,6 +428,9 @@ def main(argv=None) -> int:
     p.add_argument("--combine", action="store_true")
     p.add_argument("--force", action="store_true")
     p.add_argument("--out", default=None)
+    p.add_argument("--spike-bl", type=float, default=truth.CLEAN_SPIKE_BL,
+                   help="pool's continuity criterion; the swept parameter. "
+                        "Pass a large value to disable it.")
     a = p.parse_args(argv)
     if a.write_grid:
         return write_grid(a)
@@ -379,7 +444,7 @@ def main(argv=None) -> int:
             tags = [ln.strip() for ln in fh if ln.strip()][a.task::a.n_tasks]
     else:
         raise SystemExit("pass --animal, --task, --write-grid or --combine")
-    out_dir = os.path.join(os.path.dirname(config.PATHS.bones_dir), "injection")
+    out_dir = _dir_for(a.spike_bl)
     for tag in tags:
         if not a.force and os.path.exists(os.path.join(out_dir, f"{tag}.json")):
             log(f"[{tag}] shard exists, skipping")

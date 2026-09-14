@@ -40,10 +40,14 @@ construction. It admits 37.3% of frames overall.
 arms, same scoring, same common-denominator rule.
 
 Relaxing it admits genuinely-wrong frames into a pool that is supposed to be
-ground truth. That trade is the point and it is measured, not assumed:
-**bone-violation rate inside the pool** is reported at every threshold as a
-contamination proxy, since the bone check is independent of the continuity
-criterion being relaxed.
+ground truth. That trade is the point and it is measured, not assumed.
+
+**Correction, made before the sweep ran.** This section first named the
+bone-violation rate inside the pool as the contamination proxy. That is
+unusable: the pool **gates on** the bone check, so its in-pool rate is zero by
+construction. The pool gates on the **SKULL** bones only, so the proxy is the
+**TRUNK** violation rate inside the pool — the same instrument on geometry the
+pool never selected against. Reported per threshold and per stratum.
 
 ## Fixed in advance
 
@@ -53,17 +57,19 @@ criterion being relaxed.
 | unchanged | corruption kinds, rates, seed 0, arms, `MIN_SEGMENT_FRAMES = 30`, confidence floor 0.60, bone check, common-denominator scoring |
 | strata | 5 speed quantiles of segment median centre speed, as now |
 | **minimum stratum n** | **20,000 scored keypoint-frames**; below it the stratum is **refused**, not reported thin |
-| contamination proxy | bone-violation rate within the admitted pool, per threshold, per stratum |
+| contamination proxy | **TRUNK** violation rate within the admitted pool (the pool gates on SKULL only), per threshold, per stratum |
 | bootstrap | animals, 2000 replicates |
 | dominance | non-overlapping animal-bootstrap intervals |
 
 ## Predictions
 
 1. **Pool size rises and fast frames rise faster.** At `off`, the share of pool
-   frames above the corpus p90 speed goes above **5%**, from 1.81%.
-2. **Contamination rises with it.** Bone-violation rate inside the pool at `off`
-   exceeds **2×** its value at 0.02. If it does not, the continuity criterion was
-   not protecting purity and the whole pool design should be reconsidered.
+   frames above that animal's own all-frames p90 centre speed goes above **5%**.
+   Unbiased would be 10%; Phase F's pool sits at 1.81% corpus-wide.
+2. **Contamination rises with it.** The TRUNK violation rate inside the pool at
+   `off` exceeds **2×** its value at 0.02. If it does not, the continuity
+   criterion was not protecting purity and the whole pool design should be
+   reconsidered.
 3. **The trends continue.** `median_0.50`'s net advantage keeps falling with
    speed and `viterbi`'s keeps rising, at every threshold.
 4. **They cross.** In the fastest stratum with n above the registered minimum,

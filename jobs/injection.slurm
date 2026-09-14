@@ -31,4 +31,5 @@ python3 scripts/freeze.py
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
 echo "node=$(hostname) task=${SLURM_ARRAY_TASK_ID:-0}/${SLURM_ARRAY_TASK_COUNT:-30}"
 python3 scripts/injection.py --task "${SLURM_ARRAY_TASK_ID:-0}" \
-    --n-tasks "${SLURM_ARRAY_TASK_COUNT:-30}" "$@"
+    --n-tasks "${SLURM_ARRAY_TASK_COUNT:-30}" \
+    ${SPIKE_BL:+--spike-bl "$SPIKE_BL"} "$@"

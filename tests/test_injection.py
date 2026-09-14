@@ -357,3 +357,39 @@ class TestTheCommonDenominator:
         a = recover.score(p, out, d["mask"], pool, ell)
         b = recover.score(p, filled, d["mask"], pool, ell)
         assert a["n_corrupted"] < b["n_corrupted"], "the bug this guards against"
+
+
+class TestTheSeedIsActuallyStable:
+    """Phase F ran with `abs(hash((SEED, tag, rid)))`, and `hash()` on a str is
+    salted per interpreter unless PYTHONHASHSEED is set. So every run drew a
+    different corruption layout while the pre-registration said `seed 0`. The
+    conclusions did not move but the numbers were not reproducible, and the
+    document claimed they were."""
+
+    @staticmethod
+    def _seed_for(tag, rid):
+        import importlib.util as u
+        sp = u.spec_from_file_location("inj", "scripts/injection.py")
+        m = u.module_from_spec(sp)
+        sp.loader.exec_module(m)
+        return m._seed_for(tag, rid)
+
+    def test_the_same_inputs_give_the_same_seed(self):
+        assert self._seed_for("109", "rec_a") == self._seed_for("109", "rec_a")
+
+    def test_it_does_not_use_python_hash(self):
+        """The regression guard: a salted hash would differ across processes."""
+        import subprocess, sys
+        code = ("import sys; sys.path.insert(0,'.'); "
+                "sys.path.insert(1,'/home/tul26194/recur'); "
+                "import importlib.util as u; "
+                "sp=u.spec_from_file_location('inj','scripts/injection.py'); "
+                "m=u.module_from_spec(sp); sp.loader.exec_module(m); "
+                "print(m._seed_for('109','rec_a'))")
+        got = {subprocess.run([sys.executable, "-c", code], capture_output=True,
+                              text=True).stdout.strip() for _ in range(3)}
+        assert len(got) == 1, f"seed differs across processes: {got}"
+
+    def test_different_recordings_get_different_seeds(self):
+        assert self._seed_for("109", "rec_a") != self._seed_for("109", "rec_b")
+        assert self._seed_for("109", "rec_a") != self._seed_for("110", "rec_a")

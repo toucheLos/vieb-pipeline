@@ -229,23 +229,30 @@ away.
 Corruption with measured shapes injected into clean frames, each arm asked to put
 it back. `net` is the change in total error against truth; negative is better.
 
-| arm | teleport repaired | park repaired | damage | **net** |
-|---|---:|---:|---:|---:|
-| `raw` | 0.0% | 0.0% | 0.0000 | +0.0000 |
-| `median_0.50` | **95.4%** | 10.5% | 0.0031 | **−0.0026** |
-| `viterbi` | 35.3% | −0.0% | **0.0000** | −0.0017 |
-| `disposition` | 30.9% | 0.0% | 0.0000 | −0.0013 |
+| arm | teleport repaired | park repaired | damage | net (slow pool) | **net (fast admitted)** |
+|---|---:|---:|---:|---:|---:|
+| `raw` | 0.0% | 0.0% | 0.0000 | +0.0000 | +0.0000 |
+| `median_0.50` | **95.4%** | 10.5% | 0.0031 → 0.0055 | −0.0026 | **−0.0000** |
+| `viterbi` | 35.3% | −0.0% | **0.0000** | −0.0016 | **−0.0016** |
+| `disposition` | 30.9% | 0.0% | 0.0000 | −0.0013 | −0.0012 |
+
+**The last column is the one to read.** The fourth is measured on a pool that
+under-represents fast frames 5.5×. Admit more of them and `median_0.50`'s
+benefit vanishes — and in the two fastest strata it goes **positive**, meaning it
+leaves the data further from the truth than it found it. `viterbi` is unchanged
+across every pool. `STRATIFIED.md`.
 
 **No arm repairs a parked landmark.** That is the error a detector produces when
 it locks onto the wrong body part, and it is the one class nothing temporal or
 geometric reaches. 10.5% is the ceiling, from the arm that gets there by
 accident — the parks it fixes are the ones under its 7-frame cliff.
 
-**The test pool under-represents fast movement 5.5×**, so these numbers settle the
-slow regime and are silent about the fast one. `median_0.50`'s advantage falls 5×
-from the slowest speed stratum to the fastest; `viterbi`'s rises from zero. Where
-they end up in the regime that matters is not known and is decided by held-out
-MDL, at Step 4, with all four arms.
+**Where they end up in the regime that matters is now measured.** They cross:
+with the pool's continuity criterion relaxed, `median_0.50`'s net by stratum runs
+−0.0331, −0.0023, −0.0014, −0.0005, **+0.0011**, **+0.0054** from slowest to
+fastest, while `viterbi`'s runs 0.0000 to **−0.0026** in the other direction. On
+a corpus where the fast rare events are the signal, that settles the default in
+favour of de-glitching. `STRATIFIED.md`.
 
 ## The honest summary
 

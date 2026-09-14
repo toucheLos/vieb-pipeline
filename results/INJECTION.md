@@ -1,5 +1,14 @@
 # Phase F — the injection benchmark
 
+> **SUPERSEDED IN ITS CONCLUSION by `STRATIFIED.md`.** The result below is
+> measured on a pool where fast frames are under-represented 5.5×. Correcting
+> that bias takes `median_0.50`'s net from −0.0026 to **−0.0000** and makes it
+> **positive in the two fastest strata**, while `viterbi` is invariant at −0.0016
+> throughout. The recommendation to carry `median_0.50` to the MDL branch is
+> withdrawn. The numbers here are also **re-run under a corrected seed** — Phase
+> F used `hash()`, which Python salts per process, so the original run was not
+> reproducible; the conclusions were unaffected and the figures moved ~1%.
+
 89 report animals, 298 shards, ε = 0.10, seed 0. Configuration fixed in
 `INJECTION_PREREGISTRATION.md`, committed before the corpus run. **The bakeoff
 verdict is not restated and Q1 is not re-scored.**

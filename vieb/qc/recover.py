@@ -56,6 +56,12 @@ NEGLIGIBLE_DAMAGE_BL = 0.01
 #: must not be reported as harming it.
 STRATUM_TOL = 1e-9
 
+#: Pre-registered. A speed stratum with fewer scored keypoint-frames than this is
+#: refused rather than reported thin. The whole point of stratifying is that the
+#: fast strata are small; reporting one on a handful of frames would put the
+#: least-powered number in the most load-bearing position.
+MIN_STRATUM_FRAMES = 20_000
+
 
 def errors(truth: npt.ArrayLike, cleaned: npt.ArrayLike, ell: float) -> F64:
     """``(T, K)`` distance from truth, in body lengths. NaN where truth is NaN."""
