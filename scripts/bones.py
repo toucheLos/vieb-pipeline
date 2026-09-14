@@ -34,6 +34,7 @@ sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 from recur import anchors, boot, labels as lab, splits            # noqa: E402
 from vieb.io import spine                                        # noqa: E402
 from recur.qc import swap
+from vieb import seeds
 from vieb.qc import bones                                  # noqa: E402
 from vieb.tok import config                                      # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json     # noqa: E402
@@ -140,7 +141,11 @@ def shard(args) -> int:
     del pooled
 
     # ---- pass 2: per recording -------------------------------------------
-    rng = np.random.default_rng([config.CEILING_SEED, abs(hash(args.animal)) % (2 ** 31)])
+    # `abs(hash(args.animal))` here was salted per interpreter, so WHICH
+    # recordings entered the shuffled-keypoint ceiling changed on every run.
+    # See SEED_AUDIT.md for the blast radius.
+    rng = np.random.default_rng(
+        [config.CEILING_SEED, seeds.stable_seed(args.animal, modulus=2 ** 31)])
     ceiling_for = set(rng.choice(len(mine), size=min(config.CEILING_PER_ANIMAL,
                                                      len(mine)),
                                  replace=False).tolist())

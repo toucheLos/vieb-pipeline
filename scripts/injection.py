@@ -28,6 +28,7 @@ sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits             # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json      # noqa: E402
+from vieb import seeds
 from vieb.clean import arms as clean_arms                          # noqa: E402
 from vieb.io import spine                                          # noqa: E402
 from vieb.qc import bones, disposition as dp, inject, recover, truth  # noqa: E402
@@ -121,8 +122,7 @@ def _seed_for(tag: str, rid: str) -> int:
     was not reproducible and its pre-registration said it was. blake2b is stable
     across processes, machines and versions.
     """
-    h = hashlib.blake2b(f"{SEED}|{tag}|{rid}".encode(), digest_size=8)
-    return int.from_bytes(h.digest(), "big") % (2 ** 32)
+    return seeds.stable_seed(SEED, tag, rid)
 
 
 def _dir_for(spike_bl: float) -> str:
@@ -325,6 +325,9 @@ def combine(args) -> int:
     base = {r["animal"]: _num(r["total_mean"])
             for r in sel if r["arm"] == "raw"}
     out_rows, intervals, strata = [], {}, {}
+    stratum_n: dict = {}
+    stratum_refused: dict = {}
+    unplaceable: dict = {}
     for arm in ARMS:
         mine = [r for r in sel if r["arm"] == arm
                 and np.isfinite(_num(r["total_mean"]))]
@@ -335,17 +338,40 @@ def combine(args) -> int:
         nets = [_num(r["total_mean"]) - base.get(r["animal"], float("nan"))
                 for r in mine]
         ci = lambda v: boot.animal_interval(v, an, weights=w, how="wmean")
-        bins = sorted({int(k) for r in mine for k in r["by_speed_bin"]})
-        per_bin = []
+        # Bin -1 is `truth.assign_bin`'s REFUSAL code for a segment whose speed
+        # could not be placed -- not a stratum. It was being sorted first and
+        # printed as "the slowest stratum", on 235 keypoint-frames, which is how
+        # a 0.0 for viterbi and a -0.0331 for the median got reported as
+        # findings. It is excluded here and reported as `unplaceable`.
+        raw_by_animal = {q["animal"]: q for q in sel if q["arm"] == "raw"}
+        bins = sorted({int(k) for r in mine for k in r["by_speed_bin"]
+                       if int(k) >= 0})
+        per_bin, per_bin_n, refused = [], [], []
         for b in bins:
-            vals = [(_num(r["by_speed_bin"].get(str(b)))
-                     - _num(next((q["by_speed_bin"].get(str(b)) for q in sel
-                                  if q["arm"] == "raw"
-                                  and q["animal"] == r["animal"]), None)))
-                    for r in mine]
-            vals = [v for v in vals if np.isfinite(v)]
-            per_bin.append(float(np.mean(vals)) if vals else float("nan"))
+            num = den = 0.0
+            for r in mine:
+                n = float(r.get("n_by_speed_bin", {}).get(str(b), 0))
+                if n <= 0:
+                    continue
+                a_v = _num(r["by_speed_bin"].get(str(b)))
+                q = raw_by_animal.get(r["animal"])
+                q_v = _num(q["by_speed_bin"].get(str(b))) if q else float("nan")
+                if not (np.isfinite(a_v) and np.isfinite(q_v)):
+                    continue
+                num += n * (a_v - q_v)
+                den += n
+            per_bin_n.append(int(den))
+            if den < recover.MIN_STRATUM_FRAMES:
+                # Refused, not reported thin. Registered minimum.
+                per_bin.append(float("nan"))
+                refused.append(int(b))
+            else:
+                per_bin.append(float(num / den))
         strata[arm] = per_bin
+        stratum_n[arm] = per_bin_n
+        stratum_refused[arm] = refused
+        unplaceable[arm] = int(sum(
+            r.get("n_by_speed_bin", {}).get("-1", 0) for r in mine))
         kinds: dict = {}
         for r in mine:
             for k, cell in r["by_kind"].items():
@@ -369,6 +395,9 @@ def combine(args) -> int:
                     if v["i"] > 0 else float("nan"),
                     "n": v["n"]} for k, v in kinds.items()},
             "net_by_speed_bin": per_bin,
+            "n_by_speed_bin": per_bin_n,
+            "strata_refused_below_minimum": refused,
+            "n_unplaceable_frames": unplaceable[arm],
         })
         intervals[arm] = {"repair": ci([_num(r["repair"]) for r in mine]),
                           "damage": ci([_num(r["damage"]) for r in mine]),
@@ -390,6 +419,12 @@ def combine(args) -> int:
         "pool": {k: describe([p[k] for p in pools if k in p])
                  for k in ("frac_all", "frac_bone_ok", "frac_continuity_ok",
                            "frac_present", "frac_confident")},
+        "min_stratum_frames": recover.MIN_STRATUM_FRAMES,
+        "stratum_note": (
+            "bin -1 is truth.assign_bin's refusal code for an unplaceable "
+            "segment, not a stratum; it is excluded and counted in "
+            "n_unplaceable_frames. A stratum below min_stratum_frames is "
+            "refused (NaN), never reported thin"),
         "selection_bias": (
             "the pool is selected for cleanliness and is therefore biased "
             "towards slow behaviour, so damage UNDERSTATES what a smoother does "

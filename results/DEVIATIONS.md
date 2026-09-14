@@ -1,0 +1,86 @@
+# Declared deviations from registered configurations
+
+Every place a run differed from what its registration fixed, with the cause.
+Recorded rather than corrected silently.
+
+## D1 — six columns where five strata were registered
+
+**Registration:** `STRATIFIED_PREREGISTRATION.md` fixes "5 speed quantiles of
+segment median centre speed".
+
+**What ran:** six columns.
+
+**Cause.** `truth.assign_bin` returns **−1** when a segment's speed cannot be
+placed — a NaN speed, or fewer than two frames. That is a **refusal code, not a
+stratum**. `scripts/injection.py` built its per-stratum table with
+`sorted(strata.items())`, and −1 sorts before 0, so the refusal bucket was
+printed first and read as *the slowest stratum*.
+
+**What it corrupted.** The bucket carries **235 keypoint-frames** at `off`
+(445 at 0.02) against 4.5M in the real strata — far below the registered
+`MIN_STRATUM_FRAMES = 20,000`, so it should have been refused outright. Two
+published claims came from it and **both are withdrawn**:
+
+| claim | came from | actual |
+|---|---|---|
+| "`viterbi` reassigns nothing in the slowest stratum, net exactly 0.0000" | bin −1, no data | **−0.0014** |
+| "`median_0.50`'s net runs −0.0331 in the slowest stratum" | bin −1, 235 frames | **−0.0021** |
+
+Both appear in `STRATIFIED.md` as published; corrected there.
+
+**Fix.** `combine` now excludes bins below 0, reports their frame count as
+`n_unplaceable_frames`, and refuses any stratum under `MIN_STRATUM_FRAMES`
+(emitting NaN, never a thin number). Pinned by `tests/test_strata.py`.
+
+**Does the finding survive?** Yes, and more cleanly. The corrected five-stratum
+profile at `off` is −0.0021, −0.0008, +0.0001, +0.0020, +0.0068 for
+`median_0.50` against −0.0014, −0.0016, −0.0016, −0.0018, −0.0025 for `viterbi`.
+The crossing is intact and monotonic in both directions.
+
+## D2 — pooled and per-stratum figures were compared on different footings
+
+**Not a deviation from a registration**, but a reporting error worth the same
+treatment, since it is what made the arithmetic look broken.
+
+`net` is a **frame-weighted** mean across animals of each animal's difference in
+mean error per keypoint-frame. `net_by_speed_bin` was an **unweighted** mean
+across animals of the within-bin difference. Reading a pooled −0.0000 against
+per-stratum values whose unweighted mean is **+0.0012** suggested the figures
+could not both be right.
+
+They can. **The pooled figure is exactly the frame-weighted sum over strata**,
+verified to 6 decimal places on the measured data:
+
+```
+frame-weighted sum over strata : -0.000033
+pooled net as reported         : -0.000033
+```
+
+The strata differ in size by 4× (1.90M down to 0.47M keypoint-frames), and the
+positive strata are the small ones, so weighting flips the sign relative to an
+unweighted average. `combine` now computes the per-stratum figure
+frame-weighted, matching the pooled path, and `tests/test_strata.py` pins the
+identity.
+
+## D3 — `wiener` registered as an arm, never benchmarked
+
+**Registration:** `INJECTION_PREREGISTRATION.md` lists `wiener` among the arms.
+
+**What ran:** four arms, without it. `clean_arms.STORED_ARMS` reads the Wiener
+and Butterworth arrays off shapeflow's disk; this repo never reimplemented the
+filter, so there is no callable to apply to a freshly corrupted array.
+
+Recorded in `INJECTION.md` at the time rather than edited out. The incumbent
+remains the one arm whose recovery performance is unknown.
+
+## D4 — Phase F's seed did not control the run
+
+**Registration:** `INJECTION_PREREGISTRATION.md` fixes "seed | 0" and says
+"Seeded; the seed and the realised rates go in the result."
+
+**What ran:** `abs(hash((SEED, tag, rid))) % 2**32`, and Python salts `hash()`
+on `str` per interpreter. Every run drew a different corruption layout.
+
+Found in F2, fixed with blake2b, audited as a class in `SEED_AUDIT.md`, pinned by
+`tests/test_seeds.py`. Phase F's figures move ~1% relative under the stable seed;
+**no verdict, sign or ordering changed**.
