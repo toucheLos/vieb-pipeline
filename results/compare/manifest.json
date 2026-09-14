@@ -1957,6 +1957,246 @@
       "recording_id": "20250321_Box_2_CFC_Day_2_(Context_C)_903",
       "violation_rate": null,
       "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 224,
+      "animal": "711",
+      "b": 267,
+      "bytes": 34617,
+      "duration_s": 1.43,
+      "file": "clips/flagged_711_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260515_Box_2_CFC_Day_2_(Context_C)_711",
+      "violation_rate": 0.06917655786350148,
+      "violations_in_clip": 0.23255813953488372
+    },
+    {
+      "a": 383,
+      "animal": "711",
+      "b": 552,
+      "bytes": 111490,
+      "duration_s": 5.63,
+      "file": "clips/flagged_711_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260515_Box_2_CFC_Day_2_(Context_C)_711",
+      "violation_rate": 0.06917655786350148,
+      "violations_in_clip": 0.04142011834319527
+    },
+    {
+      "a": 250,
+      "animal": "234",
+      "b": 430,
+      "bytes": 129020,
+      "duration_s": 6.0,
+      "file": "clips/flagged_234_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.39444444444444443
+    },
+    {
+      "a": 971,
+      "animal": "234",
+      "b": 1151,
+      "bytes": 125210,
+      "duration_s": 6.0,
+      "file": "clips/flagged_234_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "violation_rate": 0.32177299703264095,
+      "violations_in_clip": 0.45555555555555555
+    },
+    {
+      "a": 3,
+      "animal": "608",
+      "b": 53,
+      "bytes": 44462,
+      "duration_s": 1.67,
+      "file": "clips/flagged_608_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250320_Box_3_CFD_Day_6_(Context_B)_608",
+      "violation_rate": 0.10387683175663143,
+      "violations_in_clip": 0.14
+    },
+    {
+      "a": 147,
+      "animal": "608",
+      "b": 188,
+      "bytes": 22559,
+      "duration_s": 1.37,
+      "file": "clips/flagged_608_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250320_Box_3_CFD_Day_6_(Context_B)_608",
+      "violation_rate": 0.10387683175663143,
+      "violations_in_clip": 0.17073170731707318
+    },
+    {
+      "a": 165,
+      "animal": "576",
+      "b": 268,
+      "bytes": 88707,
+      "duration_s": 3.43,
+      "file": "clips/flagged_576_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250402_Box_2_CFD_Day_5_(Context_B)_576",
+      "violation_rate": 0.14746800222593212,
+      "violations_in_clip": 0.24271844660194175
+    },
+    {
+      "a": 317,
+      "animal": "576",
+      "b": 352,
+      "bytes": 28517,
+      "duration_s": 1.17,
+      "file": "clips/flagged_576_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250402_Box_2_CFD_Day_5_(Context_B)_576",
+      "violation_rate": 0.14746800222593212,
+      "violations_in_clip": 0.14285714285714285
+    },
+    {
+      "a": 78,
+      "animal": "149",
+      "b": 113,
+      "bytes": 25790,
+      "duration_s": 1.17,
+      "file": "clips/flagged_149_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.05714285714285714
+    },
+    {
+      "a": 193,
+      "animal": "149",
+      "b": 238,
+      "bytes": 35967,
+      "duration_s": 1.5,
+      "file": "clips/flagged_149_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_149",
+      "violation_rate": 0.5272626112759644,
+      "violations_in_clip": 0.2222222222222222
+    },
+    {
+      "a": 77,
+      "animal": "577",
+      "b": 257,
+      "bytes": 130088,
+      "duration_s": 6.0,
+      "file": "clips/flagged_577_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5555555555555556
+    },
+    {
+      "a": 716,
+      "animal": "577",
+      "b": 896,
+      "bytes": 111709,
+      "duration_s": 6.0,
+      "file": "clips/flagged_577_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "violation_rate": 0.3908365794843257,
+      "violations_in_clip": 0.5611111111111111
+    },
+    {
+      "a": 420,
+      "animal": "777",
+      "b": 600,
+      "bytes": 75098,
+      "duration_s": 6.0,
+      "file": "clips/flagged_777_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.8222222222222222
+    },
+    {
+      "a": 1070,
+      "animal": "777",
+      "b": 1101,
+      "bytes": 16806,
+      "duration_s": 1.03,
+      "file": "clips/flagged_777_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_777",
+      "violation_rate": 0.3685089020771513,
+      "violations_in_clip": 0.03225806451612903
+    },
+    {
+      "a": 1099,
+      "animal": "578",
+      "b": 1279,
+      "bytes": 98457,
+      "duration_s": 6.0,
+      "file": "clips/flagged_578_00.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": 0.3163946587537092,
+      "violations_in_clip": 0.2111111111111111
+    },
+    {
+      "a": 2503,
+      "animal": "578",
+      "b": 2683,
+      "bytes": 96876,
+      "duration_s": 6.0,
+      "file": "clips/flagged_578_01.mp4",
+      "kind": "flagged",
+      "panes": [
+        "raw detection, flagged frames outlined"
+      ],
+      "recording_id": "20250328_Box_1_CFC_Day_2_(Context_C)_578",
+      "violation_rate": 0.3163946587537092,
+      "violations_in_clip": 0.5111111111111111
     }
   ],
   "corpus": "luna",
@@ -1986,7 +2226,7 @@
   },
   "eps": 0.1,
   "inherited_digest": "198eb14ff258c7f6",
-  "n_clips": 112,
+  "n_clips": 128,
   "note": "Left pane is the pose after the gap policy and before the filter; right pane is the filtered array every downstream stage consumes. Same frames, same crop box, same red outline on violating frames -- the only difference between panes is the skeleton.",
   "seed": 0,
   "sets": {
@@ -1994,10 +2234,11 @@
     "bakeoff": 4,
     "candidates": 36,
     "disposition": 12,
+    "flagged": 16,
     "random": 12,
     "residual": 10,
     "worst": 6
   },
   "stage": "compare",
-  "total_bytes": 10490644
+  "total_bytes": 11666017
 }

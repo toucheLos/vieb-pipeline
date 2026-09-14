@@ -1,0 +1,1024 @@
+{
+  "blind": "draw_skeleton called with flagged=False for every frame; filenames are a shuffled index; this key is not read until scores are supplied",
+  "cell": "viol|unfiltered|raw|0.1|skull",
+  "eps": 0.1,
+  "key": [
+    {
+      "animal": "9003",
+      "file": "f000.png",
+      "flagged": 1,
+      "frame": 5424,
+      "index": 0,
+      "recording_id": "20241121_Box_1_CFD_Day_6_(Context_A)_9003",
+      "recording_rate": 0.0011107584893684545,
+      "stratum": "passing"
+    },
+    {
+      "animal": "109",
+      "file": "f001.png",
+      "flagged": 1,
+      "frame": 533,
+      "index": 1,
+      "recording_id": "20251105_Box_3_CFD_Day_5_(Context_A)_109",
+      "recording_rate": 0.004282994923857868,
+      "stratum": "passing"
+    },
+    {
+      "animal": "40",
+      "file": "f002.png",
+      "flagged": 1,
+      "frame": 1753,
+      "index": 2,
+      "recording_id": "20251031_Box_1_CFC_Day_2_(Context_C)_40",
+      "recording_rate": 0.08362692379009827,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "577",
+      "file": "f003.png",
+      "flagged": 0,
+      "frame": 5341,
+      "index": 3,
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_577",
+      "recording_rate": 0.3908365794843257,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "786",
+      "file": "f004.png",
+      "flagged": 1,
+      "frame": 3281,
+      "index": 4,
+      "recording_id": "20260416_Box_2_CFC_Day_1_(Context_A,_No_Shock)_786",
+      "recording_rate": 0.009627846695056471,
+      "stratum": "passing"
+    },
+    {
+      "animal": "158",
+      "file": "f005.png",
+      "flagged": 0,
+      "frame": 1698,
+      "index": 5,
+      "recording_id": "20251209_Box_1_CFC_Day_0_(Context_A)_158",
+      "recording_rate": 0.059019514516896715,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9026",
+      "file": "f006.png",
+      "flagged": 0,
+      "frame": 374,
+      "index": 6,
+      "recording_id": "20250226_Box_3_CFD_Day_5_(Context_B)_9026",
+      "recording_rate": 0.0076052680393248005,
+      "stratum": "passing"
+    },
+    {
+      "animal": "590",
+      "file": "f007.png",
+      "flagged": 1,
+      "frame": 4384,
+      "index": 7,
+      "recording_id": "20250603_Box_2_CFD_Day_4_(Context_B)_590",
+      "recording_rate": 0.21906881840103876,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9061",
+      "file": "f008.png",
+      "flagged": 1,
+      "frame": 5112,
+      "index": 8,
+      "recording_id": "20250711_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9061",
+      "recording_rate": 0.003887449092928545,
+      "stratum": "passing"
+    },
+    {
+      "animal": "2937",
+      "file": "f009.png",
+      "flagged": 1,
+      "frame": 373,
+      "index": 9,
+      "recording_id": "20251119_Box_3_CFD_Day_5_(Context_A)_2937",
+      "recording_rate": 0.0007932730445819451,
+      "stratum": "passing"
+    },
+    {
+      "animal": "HM16",
+      "file": "f010.png",
+      "flagged": 1,
+      "frame": 5676,
+      "index": 10,
+      "recording_id": "20251117_Box_1_CFD_Day_3_(Context_A)_HM16",
+      "recording_rate": 0.08378292605522057,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "796H",
+      "file": "f011.png",
+      "flagged": 0,
+      "frame": 3530,
+      "index": 11,
+      "recording_id": "20260413_Box_2_CFD_Day_3_(Context_B)_796H",
+      "recording_rate": 0.06546735905044511,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "613",
+      "file": "f012.png",
+      "flagged": 1,
+      "frame": 1578,
+      "index": 12,
+      "recording_id": "20250319_Box_2_CFD_Day_5_(Context_B)_613",
+      "recording_rate": 0.08883531157270029,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "HM16",
+      "file": "f013.png",
+      "flagged": 0,
+      "frame": 990,
+      "index": 13,
+      "recording_id": "20251117_Box_1_CFD_Day_3_(Context_B)_HM16",
+      "recording_rate": 0.06251159339640142,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "233",
+      "file": "f014.png",
+      "flagged": 1,
+      "frame": 4704,
+      "index": 14,
+      "recording_id": "20251231_Box_2_CFD_Day_5_(Context_B)_233",
+      "recording_rate": 0.13798219584569732,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "42",
+      "file": "f015.png",
+      "flagged": 0,
+      "frame": 1411,
+      "index": 15,
+      "recording_id": "20251031_Box_2_CFC_Day_2_(Context_C)_42",
+      "recording_rate": 0.07660916342051567,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9004",
+      "file": "f016.png",
+      "flagged": 0,
+      "frame": 1747,
+      "index": 16,
+      "recording_id": "20241120_Box_2_CFD_Day_5_(Context_B)_9004",
+      "recording_rate": 0.10385756676557864,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9053",
+      "file": "f017.png",
+      "flagged": 0,
+      "frame": 2353,
+      "index": 17,
+      "recording_id": "20250526_Box_3_CFD_Day_3_(Context_B)_9053",
+      "recording_rate": 0.0022259321090706734,
+      "stratum": "passing"
+    },
+    {
+      "animal": "40",
+      "file": "f018.png",
+      "flagged": 0,
+      "frame": 4683,
+      "index": 18,
+      "recording_id": "20251031_Box_1_CFC_Day_2_(Context_C)_40",
+      "recording_rate": 0.08362692379009827,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9054",
+      "file": "f019.png",
+      "flagged": 1,
+      "frame": 4508,
+      "index": 19,
+      "recording_id": "20250521_Box_1_CFC_Day_0_(Context_A)_9054",
+      "recording_rate": 0.0007933989209774674,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9026",
+      "file": "f020.png",
+      "flagged": 0,
+      "frame": 229,
+      "index": 20,
+      "recording_id": "20250227_Box_3_CFD_Day_6_(Context_B)_9026",
+      "recording_rate": 0.0025954764553207266,
+      "stratum": "passing"
+    },
+    {
+      "animal": "HM04",
+      "file": "f021.png",
+      "flagged": 0,
+      "frame": 73,
+      "index": 21,
+      "recording_id": "20250429_Box_1_CFD_Day_4_(Context_B)_HM04",
+      "recording_rate": 0.003524392506028566,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9069",
+      "file": "f022.png",
+      "flagged": 1,
+      "frame": 5460,
+      "index": 22,
+      "recording_id": "20250717_Box_1_CFD_Day_5_(Context_A)_9069",
+      "recording_rate": 0.0031725888324873096,
+      "stratum": "passing"
+    },
+    {
+      "animal": "608",
+      "file": "f023.png",
+      "flagged": 1,
+      "frame": 1822,
+      "index": 23,
+      "recording_id": "20250321_Box_3_CFD_Day_7_(Context_B)_608",
+      "recording_rate": 0.007048785012057132,
+      "stratum": "passing"
+    },
+    {
+      "animal": "641",
+      "file": "f024.png",
+      "flagged": 0,
+      "frame": 311,
+      "index": 24,
+      "recording_id": "20260521_Box_1_CFD_Day_6_(Context_A)_641",
+      "recording_rate": 0.0020628371945414156,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9058",
+      "file": "f025.png",
+      "flagged": 1,
+      "frame": 2004,
+      "index": 25,
+      "recording_id": "20250718_Box_3_CFD_Day_6_(Context_B)_9058",
+      "recording_rate": 0.18987576488040053,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "590",
+      "file": "f026.png",
+      "flagged": 0,
+      "frame": 4751,
+      "index": 26,
+      "recording_id": "20250530_Box_2_CFC_Day_2_(Context_C)_590",
+      "recording_rate": 0.059237319511292116,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "124",
+      "file": "f027.png",
+      "flagged": 1,
+      "frame": 79,
+      "index": 27,
+      "recording_id": "20251210_Box_3_CFC_Day_1_(Context_A,_No_Shock)_124",
+      "recording_rate": 0.0037016472330186935,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9053",
+      "file": "f028.png",
+      "flagged": 0,
+      "frame": 4176,
+      "index": 28,
+      "recording_id": "20250527_Box_3_CFD_Day_4_(Context_B)_9053",
+      "recording_rate": 0.000185459940652819,
+      "stratum": "passing"
+    },
+    {
+      "animal": "711",
+      "file": "f029.png",
+      "flagged": 1,
+      "frame": 3473,
+      "index": 29,
+      "recording_id": "20260515_Box_2_CFC_Day_2_(Context_C)_711",
+      "recording_rate": 0.06917655786350148,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "571",
+      "file": "f030.png",
+      "flagged": 1,
+      "frame": 1714,
+      "index": 30,
+      "recording_id": "20250328_Box_3_CFC_Day_2_(Context_C)_571",
+      "recording_rate": 0.14171767761083287,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9064",
+      "file": "f031.png",
+      "flagged": 1,
+      "frame": 4844,
+      "index": 31,
+      "recording_id": "20250716_Box_2_CFD_Day_4_(Context_A)_9064",
+      "recording_rate": 0.007771609833465504,
+      "stratum": "passing"
+    },
+    {
+      "animal": "48",
+      "file": "f032.png",
+      "flagged": 0,
+      "frame": 2500,
+      "index": 32,
+      "recording_id": "20251027_Box_3_CFD_Day_3_(Context_B)_48",
+      "recording_rate": 0.10014836795252226,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9031",
+      "file": "f033.png",
+      "flagged": 1,
+      "frame": 4074,
+      "index": 33,
+      "recording_id": "20250226_Box_2_CFD_Day_5_(Context_B)_9031",
+      "recording_rate": 0.06305637982195846,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "922",
+      "file": "f034.png",
+      "flagged": 0,
+      "frame": 3042,
+      "index": 34,
+      "recording_id": "20251104_Box_2_CFD_Day_4_(Context_B)_922",
+      "recording_rate": 0.0,
+      "stratum": "passing"
+    },
+    {
+      "animal": "830",
+      "file": "f035.png",
+      "flagged": 1,
+      "frame": 5413,
+      "index": 35,
+      "recording_id": "20250430_Box_2_CFD_Day_5_(Context_A)_830",
+      "recording_rate": 0.0009522298047928901,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9050",
+      "file": "f036.png",
+      "flagged": 1,
+      "frame": 5449,
+      "index": 36,
+      "recording_id": "20250415_Box_1_CFD_Day_4_(Context_A)_9050",
+      "recording_rate": 0.00015867978419549348,
+      "stratum": "passing"
+    },
+    {
+      "animal": "HM16",
+      "file": "f037.png",
+      "flagged": 0,
+      "frame": 1448,
+      "index": 37,
+      "recording_id": "20251113_Box_1_CFC_Day_1_(Context_A,_No_Shock)_HM16",
+      "recording_rate": 0.002036659877800407,
+      "stratum": "passing"
+    },
+    {
+      "animal": "608",
+      "file": "f038.png",
+      "flagged": 0,
+      "frame": 3155,
+      "index": 38,
+      "recording_id": "20250320_Box_3_CFD_Day_6_(Context_B)_608",
+      "recording_rate": 0.10387683175663143,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9009",
+      "file": "f039.png",
+      "flagged": 1,
+      "frame": 4651,
+      "index": 39,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_B)_9009",
+      "recording_rate": 0.074383231311445,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "HM10",
+      "file": "f040.png",
+      "flagged": 0,
+      "frame": 1440,
+      "index": 40,
+      "recording_id": "20250509_Box_3_CFC_Day_2_(Context_C)_HM10",
+      "recording_rate": 0.14169139465875372,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "803",
+      "file": "f041.png",
+      "flagged": 1,
+      "frame": 5453,
+      "index": 41,
+      "recording_id": "20250408_Box_1_CFD_Day_4_(Context_A)_803",
+      "recording_rate": 0.001428344707189335,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9026",
+      "file": "f042.png",
+      "flagged": 0,
+      "frame": 1048,
+      "index": 42,
+      "recording_id": "20250228_Box_3_CFD_Day_7_(Context_B)_9026",
+      "recording_rate": 0.00741839762611276,
+      "stratum": "passing"
+    },
+    {
+      "animal": "576",
+      "file": "f043.png",
+      "flagged": 0,
+      "frame": 3479,
+      "index": 43,
+      "recording_id": "20250331_Box_2_CFD_Day_3_(Context_B)_576",
+      "recording_rate": 0.07197180485995178,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "157",
+      "file": "f044.png",
+      "flagged": 0,
+      "frame": 2931,
+      "index": 44,
+      "recording_id": "20251208_Box_3_CFD_Day_3_(Context_A)_157",
+      "recording_rate": 0.00047611490239644503,
+      "stratum": "passing"
+    },
+    {
+      "animal": "711",
+      "file": "f045.png",
+      "flagged": 0,
+      "frame": 3250,
+      "index": 45,
+      "recording_id": "20260522_Box_2_CFD_Day_7_(Context_A)_711",
+      "recording_rate": 0.0007935248373274084,
+      "stratum": "passing"
+    },
+    {
+      "animal": "42",
+      "file": "f046.png",
+      "flagged": 0,
+      "frame": 3793,
+      "index": 46,
+      "recording_id": "20251106_Box_2_CFD_Day_6_(Context_A)_42",
+      "recording_rate": 0.0009519276534983341,
+      "stratum": "passing"
+    },
+    {
+      "animal": "48",
+      "file": "f047.png",
+      "flagged": 1,
+      "frame": 4321,
+      "index": 47,
+      "recording_id": "20251027_Box_3_CFD_Day_3_(Context_B)_48",
+      "recording_rate": 0.10014836795252226,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9058",
+      "file": "f048.png",
+      "flagged": 1,
+      "frame": 2612,
+      "index": 48,
+      "recording_id": "20250715_Box_3_CFD_Day_3_(Context_B)_9058",
+      "recording_rate": 0.06695103857566766,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "38",
+      "file": "f049.png",
+      "flagged": 1,
+      "frame": 221,
+      "index": 49,
+      "recording_id": "20251028_Box_3_CFD_Day_4_(Context_B)_38",
+      "recording_rate": 0.009645705805972918,
+      "stratum": "passing"
+    },
+    {
+      "animal": "952",
+      "file": "f050.png",
+      "flagged": 0,
+      "frame": 1684,
+      "index": 50,
+      "recording_id": "20250502_Box_1_CFD_Day_7_(Context_A)_952",
+      "recording_rate": 0.0044423290496588925,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9065",
+      "file": "f051.png",
+      "flagged": 1,
+      "frame": 4025,
+      "index": 51,
+      "recording_id": "20250710_Box_3_CFC_Day_0_(Context_A)_9065",
+      "recording_rate": 0.07234650166587339,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "156",
+      "file": "f052.png",
+      "flagged": 1,
+      "frame": 3902,
+      "index": 52,
+      "recording_id": "20251205_Box_2_CFC_Day_2_(Context_C)_156",
+      "recording_rate": 0.0591726952327954,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "793H",
+      "file": "f053.png",
+      "flagged": 0,
+      "frame": 343,
+      "index": 53,
+      "recording_id": "20260415_Box_3_CFD_Day_5_(Context_B)_793H",
+      "recording_rate": 0.06918938972361342,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "109",
+      "file": "f054.png",
+      "flagged": 1,
+      "frame": 307,
+      "index": 54,
+      "recording_id": "20251107_Box_3_CFD_Day_7_(Context_A)_109",
+      "recording_rate": 0.0006347191367819739,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9052",
+      "file": "f055.png",
+      "flagged": 0,
+      "frame": 51,
+      "index": 55,
+      "recording_id": "20250523_Box_2_CFC_Day_2_(Context_C)_9052",
+      "recording_rate": 0.1335559265442404,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "234",
+      "file": "f056.png",
+      "flagged": 1,
+      "frame": 523,
+      "index": 56,
+      "recording_id": "20260102_Box_3_CFD_Day_7_(Context_B)_234",
+      "recording_rate": 0.32177299703264095,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9009",
+      "file": "f057.png",
+      "flagged": 1,
+      "frame": 5414,
+      "index": 57,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_A)_9009",
+      "recording_rate": 0.0004760393525864805,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9053",
+      "file": "f058.png",
+      "flagged": 0,
+      "frame": 4676,
+      "index": 58,
+      "recording_id": "20250527_Box_3_CFD_Day_4_(Context_A)_9053",
+      "recording_rate": 0.0012692368713311123,
+      "stratum": "passing"
+    },
+    {
+      "animal": "233",
+      "file": "f059.png",
+      "flagged": 1,
+      "frame": 5446,
+      "index": 59,
+      "recording_id": "20260101_Box_2_CFD_Day_6_(Context_A)_233",
+      "recording_rate": 0.0038089192191715603,
+      "stratum": "passing"
+    },
+    {
+      "animal": "796H",
+      "file": "f060.png",
+      "flagged": 1,
+      "frame": 3566,
+      "index": 60,
+      "recording_id": "20260413_Box_2_CFD_Day_3_(Context_B)_796H",
+      "recording_rate": 0.06546735905044511,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "810",
+      "file": "f061.png",
+      "flagged": 1,
+      "frame": 159,
+      "index": 61,
+      "recording_id": "20250411_Box_3_CFD_Day_7_(Context_A)_810",
+      "recording_rate": 0.002221516978736909,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9004",
+      "file": "f062.png",
+      "flagged": 0,
+      "frame": 4792,
+      "index": 62,
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_B)_9004",
+      "recording_rate": 0.06491097922848665,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "960",
+      "file": "f063.png",
+      "flagged": 0,
+      "frame": 4114,
+      "index": 63,
+      "recording_id": "20251104_Box_1_CFD_Day_4_(Context_B)_960",
+      "recording_rate": 0.07160081617510666,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "785",
+      "file": "f064.png",
+      "flagged": 1,
+      "frame": 5463,
+      "index": 64,
+      "recording_id": "20260422_Box_1_CFD_Day_5_(Context_A)_785",
+      "recording_rate": 0.00015870496746548166,
+      "stratum": "passing"
+    },
+    {
+      "animal": "943",
+      "file": "f065.png",
+      "flagged": 1,
+      "frame": 414,
+      "index": 65,
+      "recording_id": "20251119_Box_2_CFD_Day_5_(Context_B)_943",
+      "recording_rate": 0.003152818991097923,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9058",
+      "file": "f066.png",
+      "flagged": 1,
+      "frame": 5784,
+      "index": 66,
+      "recording_id": "20250718_Box_3_CFD_Day_6_(Context_A)_9058",
+      "recording_rate": 0.004919073310060298,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9050",
+      "file": "f067.png",
+      "flagged": 1,
+      "frame": 5436,
+      "index": 67,
+      "recording_id": "20250417_Box_1_CFD_Day_6_(Context_A)_9050",
+      "recording_rate": 0.005236432878451286,
+      "stratum": "passing"
+    },
+    {
+      "animal": "786",
+      "file": "f068.png",
+      "flagged": 0,
+      "frame": 1651,
+      "index": 68,
+      "recording_id": "20260417_Box_2_CFC_Day_2_(Context_C)_786",
+      "recording_rate": 0.0862228815130725,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "608",
+      "file": "f069.png",
+      "flagged": 1,
+      "frame": 3550,
+      "index": 69,
+      "recording_id": "20250320_Box_3_CFD_Day_6_(Context_B)_608",
+      "recording_rate": 0.10387683175663143,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "797H",
+      "file": "f070.png",
+      "flagged": 0,
+      "frame": 5348,
+      "index": 70,
+      "recording_id": "20260416_Box_1_CFD_Day_6_(Context_A)_797H",
+      "recording_rate": 0.001428344707189335,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9053",
+      "file": "f071.png",
+      "flagged": 1,
+      "frame": 3924,
+      "index": 71,
+      "recording_id": "20250523_Box_3_CFC_Day_2_(Context_C)_9053",
+      "recording_rate": 0.12425816023738873,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9031",
+      "file": "f072.png",
+      "flagged": 1,
+      "frame": 2606,
+      "index": 72,
+      "recording_id": "20250228_Box_2_CFD_Day_7_(Context_B)_9031",
+      "recording_rate": 0.09961046188091263,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "HM04",
+      "file": "f073.png",
+      "flagged": 1,
+      "frame": 5406,
+      "index": 73,
+      "recording_id": "20250501_Box_1_CFD_Day_6_(Context_A)_HM04",
+      "recording_rate": 0.0003174099349309633,
+      "stratum": "passing"
+    },
+    {
+      "animal": "40",
+      "file": "f074.png",
+      "flagged": 0,
+      "frame": 6003,
+      "index": 74,
+      "recording_id": "20251104_Box_1_CFD_Day_4_(Context_A)_40",
+      "recording_rate": 0.005395112662646779,
+      "stratum": "passing"
+    },
+    {
+      "animal": "711",
+      "file": "f075.png",
+      "flagged": 1,
+      "frame": 8,
+      "index": 75,
+      "recording_id": "20260521_Box_2_CFD_Day_6_(Context_B)_711",
+      "recording_rate": 0.00185459940652819,
+      "stratum": "passing"
+    },
+    {
+      "animal": "577",
+      "file": "f076.png",
+      "flagged": 0,
+      "frame": 1680,
+      "index": 76,
+      "recording_id": "20250401_Box_3_CFD_Day_4_(Context_A)_577",
+      "recording_rate": 0.003490955252300857,
+      "stratum": "passing"
+    },
+    {
+      "animal": "613",
+      "file": "f077.png",
+      "flagged": 1,
+      "frame": 3392,
+      "index": 77,
+      "recording_id": "20250314_Box_2_CFC_Day_2_(Context_C)_613",
+      "recording_rate": 0.07790762381747357,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "576",
+      "file": "f078.png",
+      "flagged": 1,
+      "frame": 3363,
+      "index": 78,
+      "recording_id": "20250402_Box_2_CFD_Day_5_(Context_B)_576",
+      "recording_rate": 0.14746800222593212,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "160",
+      "file": "f079.png",
+      "flagged": 0,
+      "frame": 1795,
+      "index": 79,
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_A)_160",
+      "recording_rate": 0.007616629641383688,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9065",
+      "file": "f080.png",
+      "flagged": 0,
+      "frame": 3127,
+      "index": 80,
+      "recording_id": "20250718_Box_3_CFD_Day_6_(Context_A)_9065",
+      "recording_rate": 0.0,
+      "stratum": "passing"
+    },
+    {
+      "animal": "810",
+      "file": "f081.png",
+      "flagged": 0,
+      "frame": 3589,
+      "index": 81,
+      "recording_id": "20250402_Box_3_CFC_Day_0_(Context_A)_810",
+      "recording_rate": 0.06586256149817489,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9009",
+      "file": "f082.png",
+      "flagged": 0,
+      "frame": 5214,
+      "index": 82,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_A)_9009",
+      "recording_rate": 0.0004760393525864805,
+      "stratum": "passing"
+    },
+    {
+      "animal": "527",
+      "file": "f083.png",
+      "flagged": 0,
+      "frame": 3275,
+      "index": 83,
+      "recording_id": "20250210_Box_2_CFD_Day_3_(Context_B)_527",
+      "recording_rate": 0.006121313299944352,
+      "stratum": "passing"
+    },
+    {
+      "animal": "9064",
+      "file": "f084.png",
+      "flagged": 1,
+      "frame": 466,
+      "index": 84,
+      "recording_id": "20250712_Box_2_CFC_Day_2_(Context_C)_9064",
+      "recording_rate": 0.07978526471677157,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "797H",
+      "file": "f085.png",
+      "flagged": 1,
+      "frame": 876,
+      "index": 85,
+      "recording_id": "20260410_Box_1_CFC_Day_2_(Context_C)_797H",
+      "recording_rate": 0.17510665924689298,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "HM16",
+      "file": "f086.png",
+      "flagged": 0,
+      "frame": 1833,
+      "index": 86,
+      "recording_id": "20251119_Box_1_CFD_Day_5_(Context_A)_HM16",
+      "recording_rate": 0.0011109347722583717,
+      "stratum": "passing"
+    },
+    {
+      "animal": "898",
+      "file": "f087.png",
+      "flagged": 0,
+      "frame": 1423,
+      "index": 87,
+      "recording_id": "20251027_Box_1_CFD_Day_3_(Context_B)_898",
+      "recording_rate": 0.15284733815618623,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "797H",
+      "file": "f088.png",
+      "flagged": 0,
+      "frame": 2044,
+      "index": 88,
+      "recording_id": "20260414_Box_1_CFD_Day_4_(Context_A)_797H",
+      "recording_rate": 0.0031740993493096334,
+      "stratum": "passing"
+    },
+    {
+      "animal": "265",
+      "file": "f089.png",
+      "flagged": 1,
+      "frame": 3150,
+      "index": 89,
+      "recording_id": "20251226_Box_3_CFC_Day_2_(Context_C)_265",
+      "recording_rate": 0.06769287833827893,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "9054",
+      "file": "f090.png",
+      "flagged": 0,
+      "frame": 3984,
+      "index": 90,
+      "recording_id": "20250523_Box_1_CFC_Day_2_(Context_C)_9054",
+      "recording_rate": 0.0816175106659247,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "158",
+      "file": "f091.png",
+      "flagged": 0,
+      "frame": 4454,
+      "index": 91,
+      "recording_id": "20251211_Box_1_CFC_Day_2_(Context_C)_158",
+      "recording_rate": 0.0790205898720089,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "109",
+      "file": "f092.png",
+      "flagged": 0,
+      "frame": 3107,
+      "index": 92,
+      "recording_id": "20251029_Box_3_CFC_Day_0_(Context_A)_109",
+      "recording_rate": 0.06774551800729811,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "783",
+      "file": "f093.png",
+      "flagged": 0,
+      "frame": 5309,
+      "index": 93,
+      "recording_id": "20260420_Box_2_CFD_Day_3_(Context_B)_783",
+      "recording_rate": 0.1201780415430267,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "541",
+      "file": "f094.png",
+      "flagged": 1,
+      "frame": 5470,
+      "index": 94,
+      "recording_id": "20250214_Box_1_CFD_Day_7_(Context_A)_541",
+      "recording_rate": 0.00031735956839098697,
+      "stratum": "passing"
+    },
+    {
+      "animal": "236",
+      "file": "f095.png",
+      "flagged": 0,
+      "frame": 4073,
+      "index": 95,
+      "recording_id": "20251231_Box_2_CFD_Day_5_(Context_A)_236",
+      "recording_rate": 0.0022218695445167433,
+      "stratum": "passing"
+    },
+    {
+      "animal": "571",
+      "file": "f096.png",
+      "flagged": 0,
+      "frame": 4602,
+      "index": 96,
+      "recording_id": "20250404_Box_3_CFD_Day_7_(Context_A)_571",
+      "recording_rate": 0.0033317467872441696,
+      "stratum": "passing"
+    },
+    {
+      "animal": "717",
+      "file": "f097.png",
+      "flagged": 0,
+      "frame": 1407,
+      "index": 97,
+      "recording_id": "20260515_Box_1_CFC_Day_2_(Context_C)_717",
+      "recording_rate": 0.10775222551928783,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "796H",
+      "file": "f098.png",
+      "flagged": 0,
+      "frame": 992,
+      "index": 98,
+      "recording_id": "20260414_Box_2_CFD_Day_4_(Context_A)_796H",
+      "recording_rate": 0.0683909869882577,
+      "stratum": "worst_decile"
+    },
+    {
+      "animal": "HM04",
+      "file": "f099.png",
+      "flagged": 1,
+      "frame": 5303,
+      "index": 99,
+      "recording_id": "20250501_Box_1_CFD_Day_6_(Context_B)_HM04",
+      "recording_rate": 0.06806379821958457,
+      "stratum": "worst_decile"
+    }
+  ],
+  "n_rendered": 100,
+  "passing_cut": 0.009645705805972918,
+  "per_cell": 25,
+  "scores_allowed": [
+    "occluded",
+    "visible_but_wrong",
+    "fine",
+    "unsure"
+  ],
+  "seed": 0,
+  "sheets": [
+    "sheet_0.png",
+    "sheet_1.png",
+    "sheet_2.png",
+    "sheet_3.png"
+  ],
+  "worst_decile_cut": 0.057346874008251364
+}

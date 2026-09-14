@@ -21,6 +21,8 @@ Five sets, and the second is what keeps the reel honest:
   candidates   raw / viterbi / median_0.50, cut where the two candidate arms
                DISAGREE. Most windows in the other sets show every arm agreeing,
                which is what makes them hard to judge
+  flagged      what the bone check flags, on the worst recordings, raw only --
+               no cleaning, no comparison. The frames H3 scored by eye, as video
 
 The violation masks are read from `work/bones/<animal>.npz`, bit-packed at Step 1
 over that animal's concatenated frames. Recomputing them here would risk a second
@@ -508,6 +510,86 @@ def candidates(args) -> int:
     return 0
 
 
+def flagged(args) -> int:
+    """What the mask flags, as video, with no cleaning applied.
+
+    Every other set compares arms. This one shows the raw detection and the flag
+    and nothing else, because the question it serves is whether the flag is on
+    the right frames -- which a comparison would obscure rather than help.
+
+    Cut on flagged runs in the worst-decile recordings, including by name the
+    six frames where H3 found a keypoint locked onto a bright object above the
+    arena. Those are the clearest instance of a failure that is not occlusion.
+    """
+    out_dir = os.path.join(config.PATHS.results_dir, "compare", "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = spine.fps()
+
+    named = ["_Box_2_CFC_Day_2_(Context_C)_711", "_Box_3_CFD_Day_7_(Context_B)_234",
+             "_Box_3_CFD_Day_6_(Context_B)_608", "_Box_2_CFD_Day_5_(Context_B)_576"]
+    d = read_json(config.PATHS.result("bones.json"))
+    worst = [w["recording_id"] for w in d["worst_recordings"]]
+    ids = list(spine.recording_ids())
+    picks: list = []
+    for frag in named:
+        hit = [r for r in ids if r.endswith(frag)]
+        if hit:
+            picks.append(hit[0])
+    picks += [r for r in worst if r not in picks][:args.n - len(picks)]
+
+    manifest: list = []
+    for rid in picks[:args.n]:
+        rec = spine.clean(rid)
+        held = clean_arms.held_array(rec["pose_unfiltered"].astype(np.float64),
+                                     rec["missing"].astype(bool))
+        mask = violation_mask(rid)
+        if held.shape[0] != mask.shape[0]:
+            log(f"  SKIP {rid}: length mismatch")
+            continue
+        wins = compare.windows(mask, fps=fps)[:args.per_recording]
+        if not wins:
+            log(f"  {rid}: nothing flagged")
+            continue
+        for w, (a, b) in enumerate(wins):
+            name = f"flagged_{lab.animal_tag(rid)}_{w:02d}.mp4"
+            path = os.path.join(out_dir, name)
+            # ONE pane, so `compare.compare` cannot be used -- it requires two
+            # by design. `vid.cut` draws a single pose with its flags, which is
+            # exactly what this set wants: the detection and the flag, nothing
+            # to compare it against.
+            try:
+                vid.cut(vid.video_path(rid), a, b, path, fps=fps, pose=held,
+                        flags=mask, crop=vid.crop_box(held, a, b))
+            except Exception as exc:
+                log(f"  SKIP {name}: {exc}")
+                continue
+            if not os.path.exists(path):
+                log(f"  SKIP {name}: nothing written")
+                continue
+            manifest.append({
+                "kind": "flagged", "file": os.path.join("clips", name),
+                "recording_id": rid, "animal": lab.animal_tag(rid),
+                "a": int(a), "b": int(b),
+                "duration_s": round((b - a) / fps, 2),
+                "panes": ["raw detection, flagged frames outlined"],
+                "violation_rate": float(mask.mean()),
+                "violations_in_clip": float(mask[a:b].mean()),
+                "bytes": os.path.getsize(path),
+            })
+            log(f"  {name}  {(b - a) / fps:.1f}s  "
+                f"{mask[a:b].mean():.1%} of frames flagged")
+
+    path = os.path.join(config.PATHS.results_dir, "compare", "manifest.json")
+    doc = read_json(path)
+    doc["clips"] = [c for c in doc["clips"] if c["kind"] != "flagged"] + manifest
+    doc["sets"]["flagged"] = len(manifest)
+    doc["n_clips"] = len(doc["clips"])
+    doc["total_bytes"] = sum(c["bytes"] for c in doc["clips"])
+    write_json(doc, path)
+    log(f"{len(manifest)} flagged clips; manifest now {doc['n_clips']} total")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true")
@@ -516,6 +598,8 @@ def main(argv=None) -> int:
                    help="frames the best arm STILL gets wrong, three ways")
     p.add_argument("--disposition", action="store_true",
                    help="Phase D: what the corrector moved, before and after")
+    p.add_argument("--flagged", action="store_true",
+                   help="what the bone check flags, raw, no comparison")
     p.add_argument("--candidates", action="store_true",
                    help="raw / viterbi / median_0.50 where the arms disagree")
     p.add_argument("--anipose", action="store_true",
@@ -537,6 +621,8 @@ def main(argv=None) -> int:
         return anipose(a)
     if a.candidates:
         return candidates(a)
+    if a.flagged:
+        return flagged(a)
     raise SystemExit("pass --check, --render, --residual, --disposition "
                      "or --anipose")
 
