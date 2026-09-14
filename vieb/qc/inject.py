@@ -78,7 +78,22 @@ RATES: dict[str, float] = {
 }
 
 TELEPORT_FRAMES = (1, 3)
+
+#: LEGACY, kept so the Phase F / F2 arms remain runnable and comparable. Drawn
+#: from `CLEANING.md`'s runs SURVIVING `median_0.50` -- a post-filter
+#: distribution used to model a pre-filter error, which is circular: the median
+#: deletes every run of 7 frames or fewer, so its survivors are by construction
+#: the runs it cannot fix. See PARK_REREGISTRATION.md.
 PARK_FRAMES = (4, 30)
+
+#: Measured pre-filter on 40 seeded report recordings: violating runs whose
+#: continuity `step` exceeds their `spike`, i.e. persistent shifts rather than
+#: one-frame excursions. 532 runs. 87.6% are 7 frames or fewer, against 14.8%
+#: under the legacy uniform draw.
+PARK_QUANTILES: tuple[tuple[float, float], ...] = (
+    (0.00, 1.0), (0.50, 2.0), (0.75, 4.0), (0.90, 9.0),
+    (0.99, 30.0), (1.00, 54.0),
+)
 SWAP_FRAMES = (1, 8)
 #: The two pairs `recur/qc/swap.py` finds: ears and hips. A swap is bilateral and
 #: inventing a nose/tail swap would be inventing an error mode.
@@ -99,6 +114,19 @@ def sample_displacement(rng: np.random.Generator, n: int) -> F64:
     u = rng.random(int(n))
     out = np.interp(u, q, v, left=v[0] * 0.1)
     return np.asarray(out, dtype=np.float64)
+
+
+def sample_park_length(rng: np.random.Generator, n: int) -> I64:
+    """`n` park lengths in frames, from the measured pre-filter distribution.
+
+    Inverse-CDF interpolation over the recorded quantiles, the same construction
+    `sample_displacement` uses -- right median, right tail, no parametric
+    assumption. Rounded to whole frames and floored at 1.
+    """
+    q = np.array([p for p, _ in PARK_QUANTILES], dtype=np.float64)
+    v = np.array([x for _, x in PARK_QUANTILES], dtype=np.float64)
+    out = np.interp(rng.random(int(n)), q, v)
+    return np.asarray(np.maximum(1, np.rint(out)).astype(np.int64), dtype=np.int64)
 
 
 def sample_keypoint(rng: np.random.Generator, n: int,
@@ -144,7 +172,8 @@ def _place(rng: np.random.Generator, seg: Sequence[int], length: int,
 
 def corrupt(pose: npt.ArrayLike, segs: npt.ArrayLike,
             rng: np.random.Generator, *, ell: float,
-            rates: dict[str, float] | None = None) -> tuple[F64, Detail]:
+            rates: dict[str, float] | None = None,
+            measured_parks: bool = False) -> tuple[F64, Detail]:
     """``(corrupted, detail)`` for ONE recording. `pose` is not modified.
 
     `detail["events"]` lists every corruption with its kind, frames, keypoint and
@@ -189,7 +218,10 @@ def corrupt(pose: npt.ArrayLike, segs: npt.ArrayLike,
         while got[kind] < target[kind] and attempts < cap:
             attempts += 1
             seg = segs_a[rng.integers(0, segs_a.shape[0])]
-            length = int(rng.integers(span[0], span[1] + 1))
+            if kind == "park" and measured_parks:
+                length = int(sample_park_length(rng, 1)[0])
+            else:
+                length = int(rng.integers(span[0], span[1] + 1))
             win = _place(rng, seg, length, taken)
             if win is None:
                 continue
@@ -240,4 +272,5 @@ def corrupt(pose: npt.ArrayLike, segs: npt.ArrayLike,
                      / max(1, pool_frames * k_n))
             for k in KINDS},
         "requested_rate": r,
+        "park_distribution": "measured" if measured_parks else "legacy_uniform_4_30",
     }

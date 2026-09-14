@@ -125,10 +125,12 @@ def _seed_for(tag: str, rid: str) -> int:
     return seeds.stable_seed(SEED, tag, rid)
 
 
-def _dir_for(spike_bl: float) -> str:
+def _dir_for(spike_bl: float, measured_parks: bool = False) -> str:
     """Sweep outputs must not collide. The banked threshold keeps the original
     directory so `results/injection.json` stays reproducible from it."""
     base = os.path.join(os.path.dirname(config.PATHS.bones_dir), "injection")
+    if measured_parks:
+        base += "_mp"
     if abs(float(spike_bl) - truth.CLEAN_SPIKE_BL) < 1e-12:
         return base
     tag = "off" if float(spike_bl) >= 1e3 else f"{float(spike_bl):g}".replace(".", "")
@@ -136,7 +138,7 @@ def _dir_for(spike_bl: float) -> str:
 
 
 def shard(args, tag: str) -> int:
-    out_dir = _dir_for(args.spike_bl)
+    out_dir = _dir_for(args.spike_bl, bool(args.measured_parks))
     os.makedirs(out_dir, exist_ok=True)
     fps = spine.fps()
     mine = animals_of(spine.recording_ids())[tag]
@@ -216,7 +218,8 @@ def shard(args, tag: str) -> int:
         if segs.size == 0:
             continue
         rng = np.random.default_rng(_seed_for(tag, rid))
-        corrupted, det = inject.corrupt(held_by[rid], segs, rng, ell=ell)
+        corrupted, det = inject.corrupt(held_by[rid], segs, rng, ell=ell,
+                                        measured_parks=bool(args.measured_parks))
         if not det["events"]:
             continue
         conf = conf_by[rid]
@@ -306,7 +309,7 @@ def _num(x) -> float:
 
 
 def combine(args) -> int:
-    out_dir = _dir_for(args.spike_bl)
+    out_dir = _dir_for(args.spike_bl, bool(args.measured_parks))
     shards = sorted(glob.glob(os.path.join(out_dir, "*.json")))
     if not shards:
         raise SystemExit(f"no shards in {out_dir}")
@@ -414,6 +417,8 @@ def combine(args) -> int:
         "reads": {"recovery": rd.to_dict()},
         "split": args.split, "eps": EPS, "seed": SEED,
         "rates": inject.RATES, "spike_bl": float(args.spike_bl),
+        "park_distribution": ("measured" if args.measured_parks
+                              else "legacy_uniform_4_30"),
         "arms": out_rows, "intervals": intervals,
         "arms_not_benchmarked": UNBENCHMARKABLE,
         "pool": {k: describe([p[k] for p in pools if k in p])
@@ -463,6 +468,10 @@ def main(argv=None) -> int:
     p.add_argument("--combine", action="store_true")
     p.add_argument("--force", action="store_true")
     p.add_argument("--out", default=None)
+    p.add_argument("--measured-parks", action="store_true",
+                   help="draw park lengths from the measured pre-filter "
+                        "distribution rather than uniform(4, 30). "
+                        "PARK_REREGISTRATION.md")
     p.add_argument("--spike-bl", type=float, default=truth.CLEAN_SPIKE_BL,
                    help="pool's continuity criterion; the swept parameter. "
                         "Pass a large value to disable it.")
@@ -479,7 +488,7 @@ def main(argv=None) -> int:
             tags = [ln.strip() for ln in fh if ln.strip()][a.task::a.n_tasks]
     else:
         raise SystemExit("pass --animal, --task, --write-grid or --combine")
-    out_dir = _dir_for(a.spike_bl)
+    out_dir = _dir_for(a.spike_bl, bool(a.measured_parks))
     for tag in tags:
         if not a.force and os.path.exists(os.path.join(out_dir, f"{tag}.json")):
             log(f"[{tag}] shard exists, skipping")
