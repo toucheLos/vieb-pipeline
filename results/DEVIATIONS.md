@@ -84,3 +84,40 @@ on `str` per interpreter. Every run drew a different corruption layout.
 Found in F2, fixed with blake2b, audited as a class in `SEED_AUDIT.md`, pinned by
 `tests/test_seeds.py`. Phase F's figures move ~1% relative under the stable seed;
 **no verdict, sign or ordering changed**.
+
+## D5 — the ladder's identity probe is a reduced one
+
+**Registration:** `TOK_PREREGISTRATION.md` §6 — *"the next-state distribution
+goes through `recur.audit.leak.leak_read`, held out by window within recording."*
+
+**What ran:** the per-window **mean and SD of the model's own per-run code
+length**, through the same `leak_read` at the same holdout.
+
+**Why:** the next-state distribution is an `N`-vector per run. At N = 2,048 and
+~4.3M scored runs that is tens of gigabytes per cell, times sixteen cells, for a
+gate rather than a headline.
+
+**What it costs.** The reduced probe asks whether *how expensive and how variable
+the model finds a window* identifies the animal. That is a property of the
+predictions rather than of the labels, so it is the right kind of question — but
+it carries far less information than the full distribution, so it is **strictly
+weaker**. A `PASS` from it does not establish the absence of style leakage, and
+`LADDER.md` says so where it reports the probe rather than only here.
+
+In the event ten of the sixteen probes returned `NOT_A_RESULT [DEGENERATE]` on
+the inherited `max_iter = 400` convergence guard, so the gate is largely
+**refused** rather than passed, and nothing downstream leans on it.
+
+## D6 — the duration bin width was off by one, and it was a real bug
+
+**Registration:** `TOK_PREREGISTRATION.md` §3 — duration charged at one-frame
+resolution, `delta = 1/30` s, identically in every arm.
+
+**What happened:** `ladder.duration_pmf` spread each bin's mass uniformly over
+`e[b+1] - e[b] + 1` whole durations where the correct count is
+`e[b+1] - e[b]`. The resulting `f(d)` summed to **1.115** rather than 1, so every
+duration charge was wrong by a constant of roughly 0.11 nats.
+
+Caught by `tests/test_mdl.py::test_the_duration_pmf_normalises_over_frames`
+**before any ladder job was submitted**, and fixed. The pmf now sums to 1 to
+within 1e-9. No published number was computed under the broken version.

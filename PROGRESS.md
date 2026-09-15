@@ -17,9 +17,9 @@ programme and the cleaning work under it.
 | C | Before/after video | **rendered** | 42 clips, 4.6 MB, all h264 | `results/compare/` |
 | C2 | Publish to the VIEB Atlas | next | — | — |
 | 3 | Coarse alphabet + RLE, 8 cells | **done — STOPPED** | all 8 retired: median run **1.0 frame** · occupancy `PASS` in all 8 | `results/alphabet.json`, `ALPHABET.md`, `work/tok/` |
-| 4 | Rungs 0–2, hazard + MDL | **blocked** | not built — the symbol stream it would consume is retired | — |
+| 4 | Rungs 0–2, hazard + MDL | **done — STOPPED** | rung 1 `PASS` at N≤512 · **rung 2 `FAIL` in all 16** · k\* = 0 | `results/ladder.json`, `LADDER.md`, `TOK_PREREGISTRATION.md` |
 
-**Tests:** 398 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 443 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
 
 ## Where Step 3 stopped, and why Step 4 is not built
@@ -50,7 +50,35 @@ in runs longer than 3 frames). Both would be choosing a parameter against an
 outcome after seeing it. `results/TOK_PREREGISTRATION.md` is deliberately not
 written: registering a prediction about a blocked experiment is ceremonial.
 
-**k\* is not reported and no value of it is implied.**
+**The ladder then ran anyway**, by the project owner's decision, on the argument
+that the run-length floor is a heuristic pre-filter while MDL is the principled
+selector and charges duration explicitly. That override is recorded in
+`TOK_PREREGISTRATION.md` §1, committed before any ladder job was submitted, and
+every ladder shard carries `retired_by_runlength: true`.
+
+## What the ladder found
+
+**Rung 2 does not beat rung 1 in any of the sixteen cell × abstain-arm
+combinations**, so the registered stopping rule fired. It loses on the **data
+term alone** (44.295 against 43.365 nats/s at `plain`/N=256), before any codebook
+charge — conditioning on elapsed time makes held-out prediction worse, not merely
+more expensive.
+
+* **Rung 1 beats rung 0** at N = 256 and 512 on both arms, by +8.9 to +36.0
+  nats/s, better on **89 of 89 animals**. The transition table carries real
+  information. At N ≥ 1024 the N² table costs more than it earns.
+* **k\* = 0.** No completed `(u, d)` pair pays for itself. At N = 256, k = 1
+  needs 136M parameters and k = 2 needs 929M, against 3.1M fit runs.
+* **The hazard falls 148×** with elapsed time (0.489 → 0.0033) — dwell is not
+  memoryless — **but it falls the same way in every state**, spread 1.09–1.44×.
+  The duration structure is large and *shared*, which is exactly why rung 2's
+  761,088 parameters buy nothing. The symbols differ in what they are, not in
+  how long they last. A falling hazard is also what unmodelled heterogeneity
+  produces, and `LADDER.md` refuses to read it as per-bout memory.
+* **MDL and the run-length condition agree.** MDL prefers `plain` over `speed` at
+  every N and prefers N = 256, the coarsest point, where it is still pushing
+  downward. The selection is `GRID_LIMITED` toward coarser alphabets. The grid
+  was not extended to chase it; that needs its own registration.
 
 ---
 
