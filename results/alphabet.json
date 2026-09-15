@@ -1,0 +1,1215 @@
+{
+  "abstain_note": "abstain is carried, never dropped: a flagged frame becomes -1 and stays in the stream so the run-length encoder can see where the gaps are",
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [
+      "fps",
+      "n_frames",
+      "n_recordings"
+    ],
+    "observed": {
+      "fps": 30.0,
+      "n_frames": 22355989,
+      "n_recordings": 3846
+    }
+  },
+  "arms": [
+    "plain",
+    "speed"
+  ],
+  "cells": [
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "plain",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.005912073271483039,
+        "n_states": 256,
+        "worst_frame_share": 0.003455095427350158,
+        "worst_run_share": 0.009367168698833197,
+        "worst_symbol": 166
+      },
+      "n_animals": 298,
+      "n_states": 256,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.38393562783190305,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 256,
+        "top10_share": 0.09689255042471899,
+        "top_share": 0.012325590671487733
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.38393562783190305,
+          "n_labelled": 20783507,
+          "n_states": 256,
+          "top10_share": 0.09689255042471899,
+          "top_share": 0.012325590671487733
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 1.23% of labelled frames, the top ten hold 9.69%, 0.00% of the 256 symbols are unused, Gini 0.384, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.04465497393237562,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.15828950330663635,
+            "share_runs": 0.5681036543078891
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.3283332788831067,
+            "share_runs": 0.8304750379218023
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.47917822531106036,
+            "share_runs": 0.939339449173733
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 5402.0,
+          "mean": 3.589016595796413,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 5790864,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 3.0,
+          "p90": 5.0,
+          "p99": 34.0,
+          "sd": 24.252072499339167
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 5790864,
+        "seconds": {
+          "max": 180.06666666666666,
+          "mean": 0.1196338865265471,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 5790864,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.1,
+          "p90": 0.16666666666666666,
+          "p99": 1.1333333333333333,
+          "sd": 0.8084024166446389
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.04465497393237562,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 5790864,
+          "p75_frames": 3.0,
+          "p99_frames": 34.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 3.0, over 5,790,864 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "plain",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.003345651320216094,
+        "n_states": 512,
+        "worst_frame_share": 0.0015019601841017496,
+        "worst_run_share": 0.0048476115043178435,
+        "worst_symbol": 278
+      },
+      "n_animals": 298,
+      "n_states": 512,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3611958205722632,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 512,
+        "top10_share": 0.054399769971449005,
+        "top_share": 0.0065524552713841794
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3611958205722632,
+          "n_labelled": 20783507,
+          "n_states": 512,
+          "top10_share": 0.054399769971449005,
+          "top_share": 0.0065524552713841794
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.66% of labelled frames, the top ten hold 5.44%, 0.00% of the 512 symbols are unused, Gini 0.361, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.04039454666605978,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.18529875636484255,
+            "share_runs": 0.5989194387650605
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.3666317238952983,
+            "share_runs": 0.8518936570486317
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.5151950053472689,
+            "share_runs": 0.9489734108407902
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 5403.0,
+          "mean": 3.232182722186341,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 6430177,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 5.0,
+          "p99": 29.0,
+          "sd": 22.04668944590838
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 6430177,
+        "seconds": {
+          "max": 180.1,
+          "mean": 0.10773942407287804,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 6430177,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.16666666666666666,
+          "p99": 0.9666666666666667,
+          "sd": 0.734889648196946
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.04039454666605978,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 6430177,
+          "p75_frames": 2.0,
+          "p99_frames": 29.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 6,430,177 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "plain",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.0019740111160219623,
+        "n_states": 1024,
+        "worst_frame_share": 0.00100651925586957,
+        "worst_run_share": 0.0029805303718915322,
+        "worst_symbol": 716
+      },
+      "n_animals": 298,
+      "n_states": 1024,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3799894885081685,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 1024,
+        "top10_share": 0.032469832930505906,
+        "top_share": 0.0037441226834335514
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3799894885081685,
+          "n_labelled": 20783507,
+          "n_states": 1024,
+          "top10_share": 0.032469832930505906,
+          "top_share": 0.0037441226834335514
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.37% of labelled frames, the top ten hold 3.25%, 0.00% of the 1024 symbols are unused, Gini 0.380, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.03721619997351894,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.21236839384229042,
+            "share_runs": 0.6303169821398097
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.3995061564922609,
+            "share_runs": 0.8711090197780917
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.5414176250427803,
+            "share_runs": 0.9565667420451
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 5403.0,
+          "mean": 2.9680357360893233,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 7002445,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 4.0,
+          "p99": 25.0,
+          "sd": 20.935080841988775
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 7002445,
+        "seconds": {
+          "max": 180.1,
+          "mean": 0.09893452453631077,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 7002445,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.13333333333333333,
+          "p99": 0.8333333333333334,
+          "sd": 0.6978360280662925
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.03721619997351894,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 7002445,
+          "p75_frames": 2.0,
+          "p99_frames": 25.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 7,002,445 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "plain",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.0009497724441790546,
+        "n_states": 2048,
+        "worst_frame_share": 0.000547693899783131,
+        "worst_run_share": 0.0014974663439621856,
+        "worst_symbol": 1838
+      },
+      "n_animals": 298,
+      "n_states": 2048,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3567445423839035,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 2048,
+        "top10_share": 0.01638987106458982,
+        "top_share": 0.0018915479471294234
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3567445423839035,
+          "n_labelled": 20783507,
+          "n_states": 2048,
+          "top10_share": 0.01638987106458982,
+          "top_share": 0.0018915479471294234
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.19% of labelled frames, the top ten hold 1.64%, 0.00% of the 2048 symbols are unused, Gini 0.357, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.034492364169065315,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.24036275494794984,
+            "share_runs": 0.6593261427848545
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.43126537787871894,
+            "share_runs": 0.8872655704956104
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.5659947572851877,
+            "share_runs": 0.9624809847114837
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 5402.0,
+          "mean": 2.7430462050063893,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 7576798,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 4.0,
+          "p99": 23.0,
+          "sd": 18.887987878902166
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 7576798,
+        "seconds": {
+          "max": 180.06666666666666,
+          "mean": 0.09143487350021297,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 7576798,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.13333333333333333,
+          "p99": 0.7666666666666667,
+          "sd": 0.6295995959634055
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.034492364169065315,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 7576798,
+          "p75_frames": 2.0,
+          "p99_frames": 23.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 7,576,798 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "speed",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.002398416037754834,
+        "n_states": 256,
+        "worst_frame_share": 0.005474966279752498,
+        "worst_run_share": 0.0030765502419976636,
+        "worst_symbol": 8
+      },
+      "n_animals": 298,
+      "n_states": 256,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3284137109370546,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 256,
+        "top10_share": 0.08921275894390682,
+        "top_share": 0.01061938199361638
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3284137109370546,
+          "n_labelled": 20783507,
+          "n_states": 256,
+          "top10_share": 0.08921275894390682,
+          "top_share": 0.01061938199361638
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 1.06% of labelled frames, the top ten hold 8.92%, 0.00% of the 256 symbols are unused, Gini 0.328, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.019689308447574428,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.46083622941979907,
+            "share_runs": 0.7106883742210586
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.8113794750808898,
+            "share_runs": 0.9506553604075988
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.9435238720779895,
+            "share_runs": 0.9940705433930338
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 239.0,
+          "mean": 1.5421712288459346,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 13476783,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 3.0,
+          "p99": 6.0,
+          "sd": 1.663120466322042
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 13476783,
+        "seconds": {
+          "max": 7.966666666666667,
+          "mean": 0.051405707628197815,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 13476783,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.1,
+          "p99": 0.2,
+          "sd": 0.055437348877401406
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.019689308447574428,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 13476783,
+          "p75_frames": 2.0,
+          "p99_frames": 6.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 13,476,783 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "speed",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.001645548048963805,
+        "n_states": 512,
+        "worst_frame_share": 0.0030748419888905177,
+        "worst_run_share": 0.0014292939399267127,
+        "worst_symbol": 59
+      },
+      "n_animals": 298,
+      "n_states": 512,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3473263267156079,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 512,
+        "top10_share": 0.04754457464757993,
+        "top_share": 0.005183052119163527
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3473263267156079,
+          "n_labelled": 20783507,
+          "n_states": 512,
+          "top10_share": 0.04754457464757993,
+          "top_share": 0.005183052119163527
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.52% of labelled frames, the top ten hold 4.75%, 0.00% of the 512 symbols are unused, Gini 0.347, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.019192417818648038,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.48347114854100415,
+            "share_runs": 0.7264108304493467
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.8270251502790169,
+            "share_runs": 0.956261769210127
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.9465449214129261,
+            "share_runs": 0.9946880956897509
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 239.0,
+          "mean": 1.5024905470398269,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 13832704,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 3.0,
+          "p99": 6.0,
+          "sd": 1.6140683094105872
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 13832704,
+        "seconds": {
+          "max": 7.966666666666667,
+          "mean": 0.050083018234660895,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 13832704,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.1,
+          "p99": 0.2,
+          "sd": 0.053802276980352906
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.019192417818648038,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 13832704,
+          "p75_frames": 2.0,
+          "p99_frames": 6.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 13,832,704 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "speed",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.0011782221465845193,
+        "n_states": 1024,
+        "worst_frame_share": 0.002080110926418722,
+        "worst_run_share": 0.0009018887798342027,
+        "worst_symbol": 85
+      },
+      "n_animals": 298,
+      "n_states": 1024,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.36439736247540244,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 1024,
+        "top10_share": 0.02680716974281578,
+        "top_share": 0.0028114119527565774
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.36439736247540244,
+          "n_labelled": 20783507,
+          "n_states": 1024,
+          "top10_share": 0.02680716974281578,
+          "top_share": 0.0028114119527565774
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.28% of labelled frames, the top ten hold 2.68%, 0.00% of the 1024 symbols are unused, Gini 0.364, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.018792853636205906,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.5039032632943035,
+            "share_runs": 0.7410458386069109
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.837959060518516,
+            "share_runs": 0.960302246662548
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.9481982516232703,
+            "share_runs": 0.9950392579180436
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 239.0,
+          "mean": 1.470611310913668,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 14132563,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "p90": 2.0,
+          "p99": 6.0,
+          "sd": 1.5781728067108922
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 14132563,
+        "seconds": {
+          "max": 7.966666666666667,
+          "mean": 0.0490203770304556,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 14132563,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.06666666666666667,
+          "p90": 0.06666666666666667,
+          "p99": 0.2,
+          "sd": 0.0526057602236964
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.018792853636205906,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 14132563,
+          "p75_frames": 2.0,
+          "p99_frames": 6.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 2.0, over 14,132,563 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "abstain_by_split": {
+        "fit": {
+          "abstain": 755739,
+          "frames": 11202133
+        },
+        "report": {
+          "abstain": 479772,
+          "frames": 6678488
+        },
+        "tune": {
+          "abstain": 336971,
+          "frames": 4475368
+        }
+      },
+      "arm": "speed",
+      "frame_versus_run_mass": {
+        "max_abs_gap": 0.0007151800487981532,
+        "n_states": 2048,
+        "worst_frame_share": 0.0011667905710042103,
+        "worst_run_share": 0.00045161052220605706,
+        "worst_symbol": 47
+      },
+      "n_animals": 298,
+      "n_states": 2048,
+      "occupancy": {
+        "abstain_frac": 0.07033828832175575,
+        "dead_frac": 0.0,
+        "gini": 0.3621894842929496,
+        "n_frames": 22355989,
+        "n_labelled": 20783507,
+        "n_states": 2048,
+        "top10_share": 0.01490350016481819,
+        "top_share": 0.001793152618564326
+      },
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frac": 0.07033828832175575,
+          "dead_frac": 0.0,
+          "gini": 0.3621894842929496,
+          "n_labelled": 20783507,
+          "n_states": 2048,
+          "top10_share": 0.01490350016481819,
+          "top_share": 0.001793152618564326
+        },
+        "n_effective": 60,
+        "reason": "the alphabet is non-degenerate: top symbol holds 0.18% of labelled frames, the top ten hold 1.49%, 0.00% of the 2048 symbols are unused, Gini 0.362, and 7.03% of frames abstain. No symbol reaches the 40% dominance threshold and under 10% of it is unused",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired": 1,
+      "runlength": {
+        "abstain_frame_share": 0.07033828832175575,
+        "abstain_run_share": 0.018431331479473238,
+        "buckets": [
+          {
+            "at_most": 1,
+            "share_frames": 0.5238645720378182,
+            "share_runs": 0.7553025041283168
+          },
+          {
+            "at_most": 3,
+            "share_frames": 0.8469194347229272,
+            "share_runs": 0.9637279054234609
+          },
+          {
+            "at_most": 7,
+            "share_frames": 0.9490163522450759,
+            "share_runs": 0.9952622518257969
+          }
+        ],
+        "fps": 30.0,
+        "frames": {
+          "max": 239.0,
+          "mean": 1.4417896235857515,
+          "median": 1.0,
+          "min": 1.0,
+          "n": 14415076,
+          "p1": 1.0,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "p90": 2.0,
+          "p99": 6.0,
+          "sd": 1.5513609828712385
+        },
+        "median_frames": 1.0,
+        "median_seconds": 0.03333333333333333,
+        "n_abstain_runs": 270678,
+        "n_runs": 14415076,
+        "seconds": {
+          "max": 7.966666666666667,
+          "mean": 0.04805965411952505,
+          "median": 0.03333333333333333,
+          "min": 0.03333333333333333,
+          "n": 14415076,
+          "p1": 0.03333333333333333,
+          "p10": 0.03333333333333333,
+          "p25": 0.03333333333333333,
+          "p75": 0.03333333333333333,
+          "p90": 0.06666666666666667,
+          "p99": 0.2,
+          "sd": 0.05171203276237462
+        },
+        "self_transitions": 0
+      },
+      "runlength_read": {
+        "degenerate": 0,
+        "detail": {
+          "abstain_frame_share": 0.07033828832175575,
+          "abstain_run_share": 0.018431331479473238,
+          "median_frames": 1.0,
+          "median_seconds": 0.03333333333333333,
+          "n_abstain_runs": 270678,
+          "n_runs": 14415076,
+          "p75_frames": 1.0,
+          "p99_frames": 6.0,
+          "self_transitions": 0
+        },
+        "n_effective": 60,
+        "reason": "this alphabet is cutting the trajectory faster than the animal changes what it is doing -- median run is 1.0 frames (0.033 s), p75 1.0, over 14,415,076 runs, with 7.03% of frames in abstain runs, at or below the 3-frame floor. The runs are quantization noise rather than behaviour. This retires THIS alphabet and not the sweep: a coarser N on the same grid may not trip it, and only every N tripping it would be a finding about the representation",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "scale_arm": "bodylen",
+          "split": "all"
+        },
+        "verdict": "FAIL"
+      }
+    }
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "75052"
+  },
+  "fitted_on": "tune",
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_cells": 8,
+  "peak_rss_gb": 1.1832847595214844,
+  "pose_arm": "raw",
+  "preprocessing_freeze": "F3",
+  "retired_cells": [
+    "plain_N256",
+    "plain_N512",
+    "plain_N1024",
+    "plain_N2048",
+    "speed_N256",
+    "speed_N512",
+    "speed_N1024",
+    "speed_N2048"
+  ],
+  "scale_arm": "bodylen",
+  "stage": "tok_alphabet",
+  "state_grid": [
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "stop_condition": "a median run at or below 3 frames retires THAT alphabet and not the sweep; only every N tripping it would be a finding about the representation"
+}

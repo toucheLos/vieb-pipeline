@@ -64,20 +64,55 @@ omitted: every number this programme has produced would become pre-ensemble.
 * Violation rates are **350× more dispersed** across recordings than independent
   frames would give. Half the corpus's failure sits in a tenth of its recordings.
 * The rate rises **monotonically 3.7×** from the middle of the arena to the edge,
-  across ten deciles of 2.2M frames each — the occlusion signature.
+  across ten deciles of 2.2M frames each. This was read as the occlusion
+  signature. **That reading is withdrawn** — see below.
 * **Box has no effect** (2.14% / 2.14% / 2.20% across three apparatus units), so
   it is not the rig.
 * One session type carries 7.34% against 1.13% elsewhere — though **context and
   day are completely confounded** there and it is one factor, not two.
 
-An ensemble averages away errors its members make *independently*. An animal
-pressed against a wall is occluded for every member equally. **Errors with this
-shape are the ones an ensemble has least purchase on.**
+The argument made here was: an ensemble averages away errors its members make
+*independently*; an animal pressed against a wall is occluded for every member
+equally; so errors with this shape are the ones an ensemble has least purchase
+on.
 
-This bounds the expected return; it does not decide it. Hard footage and a
-network that fails on hard footage look identical from outside, and only
-across-network variance separates them — which is the ensemble's whole argument
-and is not answered by anything above.
+**The premise was tested and is false.** `ADJUDICATION.md` scored 100 frames
+blind — 25 from each cell of {worst decile, passing} × {flagged, not flagged},
+`draw_skeleton` called with `flagged=False` on every frame, filenames a shuffled
+index, key sealed until the scores were in.
+
+| | occluded | visible but wrong | fine | unsure |
+|---|---:|---:|---:|---:|
+| **total** | **0** | **23** | 70 | 7 |
+
+**Zero occluded frames in a hundred.** Not one showed an animal genuinely hidden.
+Twenty-three showed a landmark plainly visible and the network putting it
+somewhere else. Flagged frames scored visible-but-wrong 16/50 against unflagged
+7/50, so the mask detects a real signal and is not measuring the wrong thing.
+
+A named failure mode came out of it: six frames show **a keypoint locked onto a
+bright object above the arena**, across three boxes, four days and two contexts.
+Not occlusion, not one rig, and not an error a human labeller would make — the
+kind of error members trained on different splits would plausibly disagree about,
+which is the case *for* an ensemble.
+
+The 3.7× edge gradient is real and still needs an explanation. The likeliest one,
+visible in the contact sheets, is that the arena wall is a field of high-contrast
+vertical bars and an animal in front of them sits against a strong distractor
+texture. That is a contrast-and-distractor problem rather than a visibility one,
+and unlike occlusion it is something better detections could fix.
+
+**Two limits on this, stated plainly.** The blinding leaks with a known
+direction — a bone violation *looks like* a stretched skeleton, so the scorer can
+partly infer the flag despite the marker being off, which inflates the
+32%-versus-14% contrast. That contrast should not be quoted as a measurement.
+Zero-occluded and the bright-object mode do not depend on the leak. And the
+scorer is a language model reading 320-pixel grayscale crops whose one previous
+attempt at this task in this programme was wrong.
+
+Hard footage and a network that fails on hard footage still look identical in the
+aggregate, and only across-network variance separates them. What has changed is
+that the aggregate is no longer the only evidence.
 
 ## Design requirements, adopted as given
 
@@ -108,11 +143,25 @@ GRID_LIMITED, "inside the 2%–15% band"). Read strictly, that is 0.134 points
 above the threshold at which the ensemble would be a waste — inside the band, at
 its bottom edge.
 
-So the honest summary is: **the ensemble is indicated but marginal on the
-violation rate, and H1 suggests its return would be further limited by the shape
-of the errors.** It is not ruled out, and if the labelling happens for another
-reason it should be built. What it should not be is costed as an afternoon.
+The earlier conclusion — *"indicated but marginal, and H1 suggests its return
+would be further limited by the shape of the errors"* — **is withdrawn**. The
+shape argument rested on the errors being occlusions every network would share.
+They are not occlusions.
 
-**The cheaper lever H1 points at is the footage** — arena position and one
-session type — which cannot be fixed retrospectively for data already collected,
-but can be fixed for data not yet collected.
+The honest summary now: **the ensemble is indicated, marginal on the violation
+rate alone, and no longer limited by the shape of the errors.** Every cost line
+above stands unchanged — the labelling project at the front and the full
+downstream re-run at the back are still the expensive parts, and the inference is
+still under a day of wall time. What moved is the expected return, upward.
+
+**The footage lever survives in modified form.** The edge gradient is still the
+largest single structure in the failure, but it now points at arena contrast —
+the high-contrast wall the animal is silhouetted against — rather than at
+occlusion. That is fixable for data not yet collected, and cheaply, by changing
+what the wall looks like. It remains unfixable retrospectively.
+
+**What would settle it** is unchanged and is the third design requirement above:
+run the bone diagnostic on the ensemble median. If the violation rate drops
+materially the ensemble is doing the work; if it does not, the errors are
+systematic across networks and the ceiling is elsewhere. Nothing short of an
+ensemble answers that, which is the whole reason the question is still open.

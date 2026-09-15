@@ -1,8 +1,16 @@
-"""`results/EGO.md` from `results/ego_{bodylen,raw}.json`. Reads, never recomputes.
+"""`results/EGO.md` from the ego result JSONs. Reads, never recomputes.
 
-Both arms in one document, because the interesting quantity is the difference
-between them: whether dividing by the animal's body length buys anything on the
-identity leak the brief asks it to fix.
+Two things in one document, and they are answers to different questions.
+
+**Step 1R, at the top**, is the re-run on the F3-carried `raw` pose arm. It is
+the arm everything downstream consumes and it is post-freeze.
+
+**The scale-arm comparison below it** — `bodylen` against `unitlen`, on the
+Wiener array — is pre-freeze and is NOT re-run. Its question is whether dividing
+by the animal's body length buys anything on the identity leak, and that is a
+question about `ell_a`, not about which coordinates `ell_a` is applied to. Re-
+running it on `raw` would cost two more sweeps to re-answer a settled question.
+Saying so here is cheaper than a reader assuming the whole document moved.
 """
 from __future__ import annotations
 
@@ -39,6 +47,7 @@ def main(argv=None) -> int:
     a = p.parse_args(argv)
     arms = {k: read_json(config.PATHS.result(f"ego_{k}.json"))
             for k in ("bodylen", "raw")}
+    carried = read_json(config.PATHS.result("ego_raw_bodylen.json"))
     b = arms["bodylen"]
     ex = b["a4_scores"]["exact"]
     rd = b["reads"]["a4"]
@@ -105,7 +114,58 @@ about locomotion that transfers between animals, which is the sharpest form of t
 reason the locomotor channels cannot be dropped.
 """
 
+    cex = carried["a4_scores"]["exact"]
+    crv = carried["reversal_audit"]
     md = f"""# Stage 1 — Egocentric transform
+
+## Step 1R — re-run on the carried pose arm (post-freeze)
+
+The original run consumed `clean["pose"]`, which `shapeflow/results/clean.json`
+records as `filter.default = wiener`. `F3_PREPROCESSING_FREEZE.md` SS1 carries
+`raw`, `viterbi` and `disposition` onto the MDL branch and lists Wiener as *not
+benchmarkable, therefore not carried*. The stage this feeds measures memory
+depth, and a low-pass filter manufactures exactly that — so it was re-run.
+
+| | value |
+|---|---|
+| pose arm | `raw` = `held_array(pose_unfiltered, missing)` |
+| scale arm | `bodylen` |
+| A4, closed form | speed **{cex['speed']:.6f}**, angular **{cex['angular']:.6f}** on {cex['n_frames']:,} frames |
+| reversal audit | **{crv['verdict']}**, {crv['n_checks']} checks ({crv['n_checks_inherited']} inherited + 3 twist), {crv['n_failed']} failed |
+| rank | {carried['rank']['observed']['median']:.0f} of {ego.N_POSE} on every animal |
+| identity leak | animal **{carried['reads']['identity_leak_animal']['verdict']}**, session **{carried['reads']['identity_leak_session']['verdict']}** |
+| inherited digest | `{carried['inherited_digest']}`, `preprocessing_freeze: {carried.get('preprocessing_freeze')}` |
+| result | `results/ego_raw_bodylen.json` |
+
+Two predictions made in advance were **wrong** and are corrected here rather than
+quietly dropped. `frac_valid` was expected to fall: it does not move at all
+(0.95957 on both arms for animal 103), because validity comes from shapeflow's
+`usable` mask, which is arm-independent. And `held_array` was expected to leave
+NaN where the filter had interpolated: it does not — it interpolates, which is
+what the gap policy fed the filter in the first place. `ell_a` did move, 110.20
+to 111.73 px on that animal.
+
+What did change is concentrated where it matters: the median absolute difference
+between the two arms' channels is **0.0037** in the pose block and **0.0179** in
+the twist block — the filter's effect is five times larger in the velocity
+channels, which is where temporal structure would be manufactured.
+
+One regression was found and fixed on the way: `scripts/ego.py` imported
+`recur.geom.reversal` rather than `vieb.tok.reversal`, so the audit had been
+running the inherited **seven** checks with none of the three SE(2) twist checks
+— and still reporting PASS, because seven passing checks do pass. The script now
+refuses to proceed unless the composed audit ran.
+
+---
+
+## The scale-arm comparison below is pre-freeze
+
+Everything from here down is the `bodylen`-against-`unitlen` comparison on the
+**Wiener** array, kept because its question is about `ell_a` and is settled. It
+is not a description of the coordinates Step 2 consumes.
+
+---
+
 
 **Corpus** `{b['corpus']}` | **recordings** {b['anchor']['n_recordings']:,} |
 **frames** {b['anchor']['n_frames']:,} | **animals** {b['n_animals']} |
@@ -299,12 +359,21 @@ frames, so reversing it negates **and shifts by one**; dropping the shift is the
 same class of structural error as forgetting to flip the lag order inside a
 delay-embedded row.
 
-## What this licenses
+## What this licenses, and what happened next
 
-Proceed to Step 3, the quantizer sweep, on the **`{b['arm']}`** arm.
 The representation retains the kinematics exactly, carries no more animal
 identity than the labels already did, and loses nothing that `inverse` cannot
-put back.
+put back. On that basis the quantizer sweep ran, on the `raw`/`bodylen` arm
+above.
+
+**It stopped.** All eight alphabets — two arms by four sizes — returned a median
+run of one frame and were retired by the pre-registered run-length condition.
+Occupancy was healthy in every one of them; the failure is on the time axis, not
+in the alphabet. `results/ALPHABET.md` has the sweep, the diagnosis, and the
+measurement that Wiener doubles the median run.
+
+Nothing in this document is withdrawn by that. A4 is a bijection test and holds
+at 1.000000; the tokenization built on top of it is the part that did not.
 """
     with open(a.out, "w") as fh:
         fh.write(md)

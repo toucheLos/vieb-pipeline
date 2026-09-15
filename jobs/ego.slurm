@@ -2,17 +2,22 @@
 # Stage 1: the egocentric SE(2) transform. The only mandatory preprocessing.
 #
 #     python3 scripts/ego.py --write-grid
-#     sbatch --array=0-29%12 jobs/ego.slurm --arm bodylen
-#     sbatch --array=0-29%12 jobs/ego.slurm --arm raw
-#     python3 scripts/ego.py --combine --arm bodylen --regressor
+#     sbatch --array=0-9%10 jobs/ego.slurm --pose-arm raw --scale-arm bodylen
+#     python3 scripts/ego.py --combine --pose-arm raw --scale-arm bodylen --regressor
 #
 # Sharded by ANIMAL because ell_a is the animal's own median body length pooled
 # over all of its recordings -- not per recording, which is what disarmed a
 # control on this project once already.
 #
-# Two arms are submitted separately rather than in one task: they write separate
-# shards and are compared only at combine time, so a failure in one leaves the
-# other readable.
+# TWO ARM AXES, and they are different questions. --scale-arm is about ell_a
+# (bodylen / unitlen); --pose-arm is about which coordinates the transform
+# consumes (raw / wiener). Arms are submitted separately rather than in one
+# task: they write separate shards and are compared only at combine time, so a
+# failure in one leaves the other readable.
+#
+# 10 tasks, not 30 and not 298. MEASURED: one animal is 0.7 s wall and 0.08 GB
+# peak, so the whole corpus is ~3.5 minutes of arithmetic and any larger array
+# is scheduler overhead. The earlier 30-task shape predates that measurement.
 #
 # CPU. The transform is trigonometry and one 2x2 solve per frame; there is
 # nothing here a GPU would help with.

@@ -1,5 +1,54 @@
 # Stage 1 — Egocentric transform
 
+## Step 1R — re-run on the carried pose arm (post-freeze)
+
+The original run consumed `clean["pose"]`, which `shapeflow/results/clean.json`
+records as `filter.default = wiener`. `F3_PREPROCESSING_FREEZE.md` SS1 carries
+`raw`, `viterbi` and `disposition` onto the MDL branch and lists Wiener as *not
+benchmarkable, therefore not carried*. The stage this feeds measures memory
+depth, and a low-pass filter manufactures exactly that — so it was re-run.
+
+| | value |
+|---|---|
+| pose arm | `raw` = `held_array(pose_unfiltered, missing)` |
+| scale arm | `bodylen` |
+| A4, closed form | speed **1.000000**, angular **1.000000** on 6,403,616 frames |
+| reversal audit | **PASS**, 10 checks (7 inherited + 3 twist), 0 failed |
+| rank | 11 of 14 on every animal |
+| identity leak | animal **PASS**, session **PASS** |
+| inherited digest | `198eb14ff258c7f6`, `preprocessing_freeze: F3` |
+| result | `results/ego_raw_bodylen.json` |
+
+Two predictions made in advance were **wrong** and are corrected here rather than
+quietly dropped. `frac_valid` was expected to fall: it does not move at all
+(0.95957 on both arms for animal 103), because validity comes from shapeflow's
+`usable` mask, which is arm-independent. And `held_array` was expected to leave
+NaN where the filter had interpolated: it does not — it interpolates, which is
+what the gap policy fed the filter in the first place. `ell_a` did move, 110.20
+to 111.73 px on that animal.
+
+What did change is concentrated where it matters: the median absolute difference
+between the two arms' channels is **0.0037** in the pose block and **0.0179** in
+the twist block — the filter's effect is five times larger in the velocity
+channels, which is where temporal structure would be manufactured.
+
+One regression was found and fixed on the way: `scripts/ego.py` imported
+`recur.geom.reversal` rather than `vieb.tok.reversal`, so the audit had been
+running the inherited **seven** checks with none of the three SE(2) twist checks
+— and still reporting PASS, because seven passing checks do pass. The script now
+refuses to proceed unless the composed audit ran.
+
+---
+
+## The scale-arm comparison below is pre-freeze
+
+Everything from here down is the `bodylen`-against-`unitlen` comparison on the
+**Wiener** array, kept because its question is about `ell_a` and is settled. It
+is not a description of the coordinates Step 2 consumes.
+
+---
+
+
 **Corpus** `luna` | **recordings** 3,846 |
 **frames** 22,355,989 | **animals** 298 |
 **inherited digest** `fe62fec33da4485a`
@@ -59,15 +108,19 @@ Worth stating because the opposite is the natural assumption. Substituting
 separate differencing of position and angle for the SE(2) logarithm — the error
 the brief singles out — barely moves A4 until the animal is turning hard:
 
-| turn rate | speed R² with the naive twist |
-|---|---:|
-| 0.9 rad/s | 0.9973 |
-| 3.0 rad/s | 0.9853 |
-| 4.5 rad/s | 0.9646 |
-| 12 rad/s | 0.6492 |
+> **UNSOURCED.** The four R² values that stood here (0.9973, 0.9853, 0.9646,
+> 0.6492 at 0.9, 3.0, 4.5 and 12 rad/s) are hardcoded in this generator and trace
+> to no artifact. Reconstructing the obvious procedure -- synthetic mouse at each
+> turn rate, exact SE(2) twist for the labels, `ego.transform(..., naive=True)`
+> scored by `parity.exact_scores` -- returns 1.0000 at every rate, so whatever
+> produced them did something else and the code does not record what. See
+> `results/PROVENANCE_AUDIT.md`.
 
-against a threshold of 0.98. A pipeline carrying the naive
-velocity would **pass this gate** at every ordinary turn rate in the corpus. The
+The claim itself is **not** in doubt -- `tests/test_se2.py` compares `se2_log`
+against `scipy.linalg.expm` and fails the naive version at every turn rate
+including zero, and it passes. What is withdrawn is the four numbers and the
+"passes this gate at every ordinary turn rate" framing built on them, against a
+threshold of 0.98. The
 guard is `tests/test_se2.py`, which compares `se2_log` against
 `scipy.linalg.expm` on the 3×3 matrix representation and fails the naive version
 at every turn rate including zero.
@@ -214,9 +267,18 @@ frames, so reversing it negates **and shifts by one**; dropping the shift is the
 same class of structural error as forgetting to flip the lag order inside a
 delay-embedded row.
 
-## What this licenses
+## What this licenses, and what happened next
 
-Proceed to Step 3, the quantizer sweep, on the **`bodylen`** arm.
 The representation retains the kinematics exactly, carries no more animal
 identity than the labels already did, and loses nothing that `inverse` cannot
-put back.
+put back. On that basis the quantizer sweep ran, on the `raw`/`bodylen` arm
+above.
+
+**It stopped.** All eight alphabets — two arms by four sizes — returned a median
+run of one frame and were retired by the pre-registered run-length condition.
+Occupancy was healthy in every one of them; the failure is on the time axis, not
+in the alphabet. `results/ALPHABET.md` has the sweep, the diagnosis, and the
+measurement that Wiener doubles the median run.
+
+Nothing in this document is withdrawn by that. A4 is a bijection test and holds
+at 1.000000; the tokenization built on top of it is the part that did not.

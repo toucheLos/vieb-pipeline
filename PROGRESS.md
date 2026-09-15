@@ -11,15 +11,46 @@ programme and the cleaning work under it.
 | 0 | Repo split from `~/recur`, provenance frozen | **done** | `PASS` (digest `198eb14ff258c7f6`) | `results/inherited.json`, `vieb/io/spine.py` |
 | 1 | Bone-length violations + ExBias R² join | **done** | `GRID_LIMITED` (2.13%, correct branch) · join `PASS` | `results/bones.json`, `BONES.md` |
 | 2 | Egocentric SE(2) transform + A4 parity | **done** | A4 `PASS` (exact 1.000000) · leak `PASS` | `results/ego_{bodylen,raw}.json`, `EGO.md` |
+| 2R | Step 1R: re-run on the F3-carried `raw` pose arm | **done** | A4 `PASS` (1.000000) · reversal `PASS` 10/10 · leak `PASS` | `results/ego_raw_bodylen.json`, `EGO.md` §Step 1R |
 | A | What the cleaning actually changes | **done** | gap policy `PASS` (touches only flagged) · wiener `PASS` (4.99x) | `results/effect.json`, `EFFECT.md` |
 | B | Cleaning bakeoff, 14 arms | **done** | `PASS` — `median_0.25` dominates the incumbent | `results/cleaning_report.json`, `CLEANING.md` |
 | C | Before/after video | **rendered** | 42 clips, 4.6 MB, all h264 | `results/compare/` |
 | C2 | Publish to the VIEB Atlas | next | — | — |
-| 3 | Coarse alphabet + RLE | planned | — | — |
-| 4 | Rungs 0–2, hazard + MDL | planned | — | — |
+| 3 | Coarse alphabet + RLE, 8 cells | **done — STOPPED** | all 8 retired: median run **1.0 frame** · occupancy `PASS` in all 8 | `results/alphabet.json`, `ALPHABET.md`, `work/tok/` |
+| 4 | Rungs 0–2, hazard + MDL | **blocked** | not built — the symbol stream it would consume is retired | — |
 
-**Tests:** 196 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
-`vieb/tok` and `vieb/qc`.
+**Tests:** 398 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
+
+## Where Step 3 stopped, and why Step 4 is not built
+
+Two arms (`plain`, speed-stratified) by four alphabet sizes (256–2048), fitted on
+**tune**, assigned over 22,355,989 frames. **Every cell returned a median run of
+1.0 frame** against a pre-registered floor of 3, and all eight are retired.
+
+Occupancy was never the problem: the worst symbol in any alphabet holds 1.23% of
+frames, **no symbol at any N is unused**, and `self_transitions` is 0 everywhere.
+The failure is on the time axis.
+
+Three things came out of the diagnosis (`work/tok/flicker.json`, tune only):
+
+* **It is not the velocity channels.** Dropping the three twist columns leaves
+  the median at 1 frame.
+* **Wiener doubles the median run** (1 → 2 frames, mean 3.84 → 5.18). Any dwell
+  measured on the standard pipeline is partly the filter's own autocorrelation —
+  the third appearance of that failure mode here, now quantified.
+* **The speed-stratified arm is worse than plain**, 46–52% of frames in one-frame
+  runs against 16–24%. A hard stratum cut on a noisy scalar flips a frame's whole
+  symbol block on a speed wobble.
+
+The grid was **not** widened below N = 256 and the stop condition was **not**
+moved to a frame-weighted statistic, though `ALPHABET.md` records that the
+frame-weighted picture differs for the `plain` arm (two thirds of frame mass sits
+in runs longer than 3 frames). Both would be choosing a parameter against an
+outcome after seeing it. `results/TOK_PREREGISTRATION.md` is deliberately not
+written: registering a prediction about a blocked experiment is ceremonial.
+
+**k\* is not reported and no value of it is implied.**
 
 ---
 
