@@ -23,8 +23,10 @@ programme and the cleaning work under it.
 | 7 | **Surrogate falsifier** | **done — FAILED** | both surrogates BEAT the corpus on `rung1−rung0`; the transition-table claim is withdrawn | `results/FALSIFIER.md`, `FALSIFIER_PREREGISTRATION.md` |
 | 8 | Coarse sweep N ∈ {8…128} | **not run** | blocked by 7, as registered | — |
 | 9 | **Dwell-matched surrogate** | **done** | corpus **beats** both arms at both N; the per-second statistic tracks run rate | `results/DWELL.md`, `DWELL_PREREGISTRATION.md` |
+| 10 | Segmentation Step 1: the boundary statistic | **done** | a statistic, not a finding — 0.26–0.64 boundaries/s across 18 cells | `results/BREAKS.md`, `breaks.json` |
+| 11 | Segmentation Step 2: are the boundaries real? | next — **the gate** | — | — |
 
-**Tests:** 601 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 633 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
 
 ## The dwell-matched arms reverse the sign, and show why
