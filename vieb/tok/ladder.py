@@ -113,9 +113,13 @@ def prepare(runs: Mapping[str, Any], n_states: int, *,
         nxt = np.where((nxt == ABSTAIN) | (nxt == int(n_states)), CENSORED, nxt)
     censored = nxt == CENSORED
 
+    # `keep` is returned, not just its count, because every caller that carries
+    # a parallel per-run array -- animal tags, recording ids, a covariate --
+    # has to filter it the same way, and re-deriving the mask at each call site
+    # is how two of them come to disagree.
     return {"code": code[keep], "duration": dur[keep], "recording": rec[keep],
             "next_state": nxt[keep], "censored": censored[keep],
-            "alphabet": alphabet, "abstain": abstain,
+            "alphabet": alphabet, "abstain": abstain, "keep": keep,
             "n_runs": int(keep.sum()), "n_dropped": int((~keep).sum())}
 
 

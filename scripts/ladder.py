@@ -142,9 +142,9 @@ def cell(args) -> int:
         r = ld.prepare(rep_runs, n, abstain=mode)
         # `prepare` drops abstain runs in the conditioned arm, so the animal and
         # recording labels have to be filtered the same way or every per-animal
-        # number would be computed against a misaligned key.
-        keep = (rep_runs["code"] != rle.ABSTAIN) if mode == "conditioned" \
-            else np.ones(rep_runs["code"].shape[0], dtype=bool)
+        # number would be computed against a misaligned key. The mask comes back
+        # from `prepare` rather than being re-derived here.
+        keep = r["keep"]
         r_animal = rep_runs["animal"][keep]
         r_rec = rep_runs["recording"][keep]
 

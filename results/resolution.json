@@ -1,0 +1,2473 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "report split only"
+  },
+  "corpus": "luna",
+  "distortion": [
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "plain",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c01",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "2",
+        "slurm_job": "75085"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 1024,
+      "peak_rss_gb": 1.1271324157714844,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.9999899328859059,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 1.9816726788320194,
+              "n_channels": 14,
+              "rms_standardised": 0.37622871831905835
+            },
+            "twist": {
+              "d": 0.4429904021786113,
+              "n_channels": 3,
+              "rms_standardised": 0.3842700448810321
+            }
+          },
+          "d_total": 2.4246630810106304,
+          "per_symbol": {
+            "d_max": 318.55879594943235,
+            "d_median": 2.471913262632394,
+            "d_p90": 11.07605447340079,
+            "n_live": 1024,
+            "worst_decile_share_of_error": 0.19122321590664476
+          },
+          "rms_standardised": 1.5571329683140842
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 2.4247 in standardised units over 20,783,507 frames, split 1.9817 shape and 0.4430 twist; the worst decile of symbols carries 19.1% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9990% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 1.9816726788320194,
+            "n_channels": 14,
+            "rms_standardised": 0.37622871831905835
+          },
+          "twist": {
+            "d": 0.4429904021786113,
+            "n_channels": 3,
+            "rms_standardised": 0.3842700448810321
+          }
+        },
+        "d_total": 2.4246630810106304,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.1846681922037917,
+            "rms_native": 0.03229889555348994
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.1870292645345744,
+            "rms_native": 0.027195748645826936
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.1894456750017496,
+            "rms_native": 0.03191763271590477
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.19046462725116642,
+            "rms_native": 0.03104318054669574
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.19721704055494269,
+            "rms_native": 0.04780015173032103
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.0923569147185702,
+            "rms_native": 0.03875074285887671
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.16549502142478537,
+            "rms_native": 0.048922220490038845
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.17817783011059965,
+            "rms_native": 0.03738798447970424
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.16675520061247454,
+            "rms_native": 0.05033324263375276
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.1777081953493581,
+            "rms_native": 0.03953768745090433
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.159997802351437,
+            "rms_native": 0.05078106124168527
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.0923569147185696,
+            "rms_native": 0.03875074285887659
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.1369474797897482,
+            "rms_native": 0.3778215766733291
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.20356963521306137,
+            "rms_native": 0.22884670910967558
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.10247328717580173,
+            "rms_native": 1.331537928967202
+          }
+        ],
+        "per_symbol": {
+          "d_max": 318.55879594943235,
+          "d_median": 2.471913262632394,
+          "d_p90": 11.07605447340079,
+          "n_live": 1024,
+          "worst_decile_share_of_error": 0.19122321590664476
+        },
+        "rms_standardised": 1.5571329683140842
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "plain",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c01",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "3",
+        "slurm_job": "75086"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 2048,
+      "peak_rss_gb": 1.1678848266601562,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.9999815436241611,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 1.7619639272316507,
+              "n_channels": 14,
+              "rms_standardised": 0.35475987122394803
+            },
+            "twist": {
+              "d": 0.40100799231829554,
+              "n_channels": 3,
+              "rms_standardised": 0.3656081656264876
+            }
+          },
+          "d_total": 2.1629719195499457,
+          "per_symbol": {
+            "d_max": 554.1148375678969,
+            "d_median": 2.0120406590335014,
+            "d_p90": 8.091086579373913,
+            "n_live": 2048,
+            "worst_decile_share_of_error": 0.24021702146285523
+          },
+          "rms_standardised": 1.4707045656929014
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 2.1630 in standardised units over 20,783,507 frames, split 1.7620 shape and 0.4010 twist; the worst decile of symbols carries 24.0% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9982% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 1.7619639272316507,
+            "n_channels": 14,
+            "rms_standardised": 0.35475987122394803
+          },
+          "twist": {
+            "d": 0.40100799231829554,
+            "n_channels": 3,
+            "rms_standardised": 0.3656081656264876
+          }
+        },
+        "d_total": 2.1629719195499457,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.164074339918622,
+            "rms_native": 0.03044471802907394
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.16748742774529116,
+            "rms_native": 0.025735780389085482
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.1675020367315631,
+            "rms_native": 0.030012237291365283
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.16776891978306369,
+            "rms_native": 0.029134985032674934
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.17331732630186367,
+            "rms_native": 0.04481032015372921
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.08237432377892451,
+            "rms_native": 0.03659664349977117
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.14592376139618093,
+            "rms_native": 0.045938488513460995
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.15910275697285262,
+            "rms_native": 0.03533003547616661
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.14914257675811315,
+            "rms_native": 0.04760099572815265
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.15958428869249008,
+            "rms_native": 0.03746731760170825
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.14331184537376165,
+            "rms_native": 0.04806022593232401
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.08237432377892402,
+            "rms_native": 0.036596643499771056
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.12543908724662944,
+            "rms_native": 0.3615981304602595
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.18053391084015782,
+            "rms_native": 0.21551006972651568
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.09503499423150828,
+            "rms_native": 1.282301009788311
+          }
+        ],
+        "per_symbol": {
+          "d_max": 554.1148375678969,
+          "d_median": 2.0120406590335014,
+          "d_p90": 8.091086579373913,
+          "n_live": 2048,
+          "worst_decile_share_of_error": 0.24021702146285523
+        },
+        "rms_standardised": 1.4707045656929014
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "plain",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c01",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "0",
+        "slurm_job": "75083"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 256,
+      "peak_rss_gb": 1.0472335815429688,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.9999832214765101,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 2.5873120043017903,
+              "n_channels": 14,
+              "rms_standardised": 0.4298930103028784
+            },
+            "twist": {
+              "d": 0.5763485598662677,
+              "n_channels": 3,
+              "rms_standardised": 0.4383106051900743
+            }
+          },
+          "d_total": 3.163660564168058,
+          "per_symbol": {
+            "d_max": 233.2990540319521,
+            "d_median": 3.334815026875855,
+            "d_p90": 18.749774686003246,
+            "n_live": 256,
+            "worst_decile_share_of_error": 0.15810011541816726
+          },
+          "rms_standardised": 1.7786681995718197
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 3.1637 in standardised units over 20,783,507 frames, split 2.5873 shape and 0.5763 twist; the worst decile of symbols carries 15.8% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9983% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 2.5873120043017903,
+            "n_channels": 14,
+            "rms_standardised": 0.4298930103028784
+          },
+          "twist": {
+            "d": 0.5763485598662677,
+            "n_channels": 3,
+            "rms_standardised": 0.4383106051900743
+          }
+        },
+        "d_total": 3.163660564168058,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.2476610918543203,
+            "rms_native": 0.03740421243183665
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.23968171308408945,
+            "rms_native": 0.03078673869522853
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.24937522470181922,
+            "rms_native": 0.036619716485979
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.24573890878392485,
+            "rms_native": 0.03526111230514979
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.26031203337171854,
+            "rms_native": 0.054916667954711
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.1259472076370768,
+            "rms_native": 0.04525218936587487
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.2099082052056856,
+            "rms_native": 0.05509705698002819
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.22843633364336818,
+            "rms_native": 0.04233385437132385
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.2152975756036725,
+            "rms_native": 0.05719193442287707
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.2245150163197202,
+            "rms_native": 0.04444063259791685
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.2144914864593181,
+            "rms_native": 0.05879627241894334
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.12594720763707673,
+            "rms_native": 0.045252189365874856
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.1775714901053975,
+            "rms_native": 0.4302257034522638
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.2623510404651762,
+            "rms_native": 0.25979426981303966
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.13642602929569397,
+            "rms_native": 1.5363735700475694
+          }
+        ],
+        "per_symbol": {
+          "d_max": 233.2990540319521,
+          "d_median": 3.334815026875855,
+          "d_p90": 18.749774686003246,
+          "n_live": 256,
+          "worst_decile_share_of_error": 0.15810011541816726
+        },
+        "rms_standardised": 1.7786681995718197
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "plain",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c01",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "1",
+        "slurm_job": "75084"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 512,
+      "peak_rss_gb": 1.087615966796875,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.999979865771812,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 2.264764244740347,
+              "n_channels": 14,
+              "rms_standardised": 0.40220501566279665
+            },
+            "twist": {
+              "d": 0.5011338643552918,
+              "n_channels": 3,
+              "rms_standardised": 0.40871092651379404
+            }
+          },
+          "d_total": 2.7658981090956387,
+          "per_symbol": {
+            "d_max": 191.98647805933027,
+            "d_median": 2.739719248350494,
+            "d_p90": 13.302651509524292,
+            "n_live": 512,
+            "worst_decile_share_of_error": 0.18541145425495392
+          },
+          "rms_standardised": 1.6630989474759579
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 2.7659 in standardised units over 20,783,507 frames, split 2.2648 shape and 0.5011 twist; the worst decile of symbols carries 18.5% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9980% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "plain",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 2.264764244740347,
+            "n_channels": 14,
+            "rms_standardised": 0.40220501566279665
+          },
+          "twist": {
+            "d": 0.5011338643552918,
+            "n_channels": 3,
+            "rms_standardised": 0.40871092651379404
+          }
+        },
+        "d_total": 2.7658981090956387,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.21649918244214103,
+            "rms_native": 0.03497194233087224
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.21531772776527458,
+            "rms_native": 0.029180056576763865
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.21968659876400587,
+            "rms_native": 0.0343708369805186
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.21624132118468312,
+            "rms_native": 0.03307717327111831
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.22750671357482252,
+            "rms_native": 0.051339799102782066
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.10768172240451986,
+            "rms_native": 0.0418423743869191
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.18373979898217835,
+            "rms_native": 0.051548414541774994
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.19973075558466866,
+            "rms_native": 0.03958473057594569
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.18930132033574867,
+            "rms_native": 0.053628053989692524
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.20067312211810792,
+            "rms_native": 0.042014784415209075
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.18070425917967703,
+            "rms_native": 0.053967084738358005
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.10768172240451925,
+            "rms_native": 0.04184237438691899
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.15601517268743892,
+            "rms_native": 0.403267434043642
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.22872558479702934,
+            "rms_native": 0.24257472384471856
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.11639310687082362,
+            "rms_native": 1.4190962041464057
+          }
+        ],
+        "per_symbol": {
+          "d_max": 191.98647805933027,
+          "d_median": 2.739719248350494,
+          "d_p90": 13.302651509524292,
+          "n_live": 512,
+          "worst_decile_share_of_error": 0.18541145425495392
+        },
+        "rms_standardised": 1.6630989474759579
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "speed",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c02",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "6",
+        "slurm_job": "75089"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 1024,
+      "peak_rss_gb": 1.6314163208007812,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.9999949664429532,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 2.6623714516250603,
+              "n_channels": 14,
+              "rms_standardised": 0.43608415403656897
+            },
+            "twist": {
+              "d": 0.442503082665057,
+              "n_channels": 3,
+              "rms_standardised": 0.3840586251537895
+            }
+          },
+          "d_total": 3.1048745342901167,
+          "per_symbol": {
+            "d_max": 462.3194568536212,
+            "d_median": 2.8059667453787425,
+            "d_p90": 13.911000068767807,
+            "n_live": 1024,
+            "worst_decile_share_of_error": 0.23637654380181478
+          },
+          "rms_standardised": 1.7620654171426544
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 3.1049 in standardised units over 20,783,507 frames, split 2.6624 shape and 0.4425 twist; the worst decile of symbols carries 23.6% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9995% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 1024,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 2.6623714516250603,
+            "n_channels": 14,
+            "rms_standardised": 0.43608415403656897
+          },
+          "twist": {
+            "d": 0.442503082665057,
+            "n_channels": 3,
+            "rms_standardised": 0.3840586251537895
+          }
+        },
+        "d_total": 3.1048745342901167,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.25549171247247005,
+            "rms_native": 0.037990939345561005
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.24701559430044828,
+            "rms_native": 0.03125420247383175
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.25688919505004665,
+            "rms_native": 0.03716731979138542
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.2537444957628212,
+            "rms_native": 0.03583087058232201
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.27099127260808353,
+            "rms_native": 0.056031817344499246
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.12824581317717126,
+            "rms_native": 0.04566326089980149
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.2174608499388261,
+            "rms_native": 0.05607951312370888
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.23905103029043848,
+            "rms_native": 0.043306245225077526
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.2181214791770783,
+            "rms_native": 0.05756578528434741
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.2296108286478043,
+            "rms_native": 0.04494213693047453
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.2175033670227012,
+            "rms_native": 0.059207640759141096
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.12824581317717043,
+            "rms_native": 0.04566326089980134
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.12564311449157392,
+            "rms_native": 0.36189208148114427
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.18514671121284892,
+            "rms_native": 0.2182459399943053
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.13171325696063418,
+            "rms_native": 1.5096037027948546
+          }
+        ],
+        "per_symbol": {
+          "d_max": 462.3194568536212,
+          "d_median": 2.8059667453787425,
+          "d_p90": 13.911000068767807,
+          "n_live": 1024,
+          "worst_decile_share_of_error": 0.23637654380181478
+        },
+        "rms_standardised": 1.7620654171426544
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "speed",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c02",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "7",
+        "slurm_job": "75081"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 2048,
+      "peak_rss_gb": 1.6552810668945312,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.9999882550335569,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 2.305012275997208,
+              "n_channels": 14,
+              "rms_standardised": 0.4057631501255388
+            },
+            "twist": {
+              "d": 0.38459490828405385,
+              "n_channels": 3,
+              "rms_standardised": 0.35804790567932565
+            }
+          },
+          "d_total": 2.689607184281262,
+          "per_symbol": {
+            "d_max": 575.1309860476196,
+            "d_median": 2.387463550343951,
+            "d_p90": 11.999404091261567,
+            "n_live": 2048,
+            "worst_decile_share_of_error": 0.24061639604343413
+          },
+          "rms_standardised": 1.6400021903281903
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 2.6896 in standardised units over 20,783,507 frames, split 2.3050 shape and 0.3846 twist; the worst decile of symbols carries 24.1% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9988% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 2048,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 2.305012275997208,
+            "n_channels": 14,
+            "rms_standardised": 0.4057631501255388
+          },
+          "twist": {
+            "d": 0.38459490828405385,
+            "n_channels": 3,
+            "rms_standardised": 0.35804790567932565
+          }
+        },
+        "d_total": 2.689607184281262,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.21935487781072605,
+            "rms_native": 0.03520183243924919
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.21718997658524414,
+            "rms_native": 0.029306646430044412
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.2224915155491606,
+            "rms_native": 0.03458956119817176
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.2212690646028056,
+            "rms_native": 0.03345949601947487
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.23321880064125766,
+            "rms_native": 0.05198030641244283
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.10982852508720845,
+            "rms_native": 0.04225741240731785
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.1877668112461741,
+            "rms_native": 0.052110244320487255
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.20627019930764062,
+            "rms_native": 0.04022753904126015
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.19042905601375998,
+            "rms_native": 0.05378755753766184
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.2026076218448701,
+            "rms_native": 0.04221681109054625
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.18475730222115272,
+            "rms_native": 0.05456894657542902
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.1098285250872077,
+            "rms_native": 0.04225741240731771
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.10907447854866706,
+            "rms_native": 0.337187375897929
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.15884407788944563,
+            "rms_native": 0.2021499723380547
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.11667635184594119,
+            "rms_native": 1.4208218545626115
+          }
+        ],
+        "per_symbol": {
+          "d_max": 575.1309860476196,
+          "d_median": 2.387463550343951,
+          "d_p90": 11.999404091261567,
+          "n_live": 2048,
+          "worst_decile_share_of_error": 0.24061639604343413
+        },
+        "rms_standardised": 1.6400021903281903
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "speed",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c02",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "4",
+        "slurm_job": "75087"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 256,
+      "peak_rss_gb": 1.5862579345703125,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.999993288590604,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 3.5766824472302146,
+              "n_channels": 14,
+              "rms_standardised": 0.5054476408682714
+            },
+            "twist": {
+              "d": 0.6245307231402162,
+              "n_channels": 3,
+              "rms_standardised": 0.4562640767290423
+            }
+          },
+          "d_total": 4.20121317037043,
+          "per_symbol": {
+            "d_max": 181.19790668536643,
+            "d_median": 3.5858647447469867,
+            "d_p90": 17.809286347260503,
+            "n_live": 256,
+            "worst_decile_share_of_error": 0.23637046523517607
+          },
+          "rms_standardised": 2.0496861150845587
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 4.2012 in standardised units over 20,783,507 frames, split 3.5767 shape and 0.6245 twist; the worst decile of symbols carries 23.6% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9993% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 256,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 3.5766824472302146,
+            "n_channels": 14,
+            "rms_standardised": 0.5054476408682714
+          },
+          "twist": {
+            "d": 0.6245307231402162,
+            "n_channels": 3,
+            "rms_standardised": 0.4562640767290423
+          }
+        },
+        "d_total": 4.20121317037043,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.35810166463334825,
+            "rms_native": 0.04497744624028046
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.32536480457911704,
+            "rms_native": 0.035870011989854525
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.358564006537626,
+            "rms_native": 0.043910832550953856
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.3414772448644229,
+            "rms_native": 0.04156616235203733
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.37434054054498705,
+            "rms_native": 0.06585526292630134
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.17767726703425243,
+            "rms_native": 0.05374786986034879
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.29511035478140774,
+            "rms_native": 0.06532898609885461
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.3032283840870308,
+            "rms_native": 0.04877419908935817
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.29152774504530965,
+            "rms_native": 0.06655108849340244
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.28470905976937594,
+            "rms_native": 0.05004471026298037
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.2889041083190846,
+            "rms_native": 0.06823726675158029
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.17767726703425213,
+            "rms_native": 0.05374786986034875
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.17617618855047865,
+            "rms_native": 0.42853207999785065
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.2580357058537017,
+            "rms_native": 0.2576487710387172
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.19031882873603573,
+            "rms_native": 1.81463417659987
+          }
+        ],
+        "per_symbol": {
+          "d_max": 181.19790668536643,
+          "d_median": 3.5858647447469867,
+          "d_p90": 17.809286347260503,
+          "n_live": 256,
+          "worst_decile_share_of_error": 0.23637046523517607
+        },
+        "rms_standardised": 2.0496861150845587
+      }
+    },
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "scored on non-abstained frames; the anchor counts all"
+      },
+      "arm": "speed",
+      "corpus": "luna",
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c02",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": "5",
+        "slurm_job": "75088"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_states": 512,
+      "peak_rss_gb": 1.6088600158691406,
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "assignment_check": {
+            "frac_agree": 0.999991610738255,
+            "n_checked": 596000
+          },
+          "by_group": {
+            "shape": {
+              "d": 3.068145281132429,
+              "n_channels": 14,
+              "rms_standardised": 0.468138050543429
+            },
+            "twist": {
+              "d": 0.5472758796085276,
+              "n_channels": 3,
+              "rms_standardised": 0.4271127406234126
+            }
+          },
+          "d_total": 3.615421160740956,
+          "per_symbol": {
+            "d_max": 330.7449265197098,
+            "d_median": 3.3204948103098713,
+            "d_p90": 16.563203196382563,
+            "n_live": 512,
+            "worst_decile_share_of_error": 0.23325532752169906
+          },
+          "rms_standardised": 1.9014260860577663
+        },
+        "n_effective": 89,
+        "reason": "D(N) = 3.6154 in standardised units over 20,783,507 frames, split 3.0681 shape and 0.5473 twist; the worst decile of symbols carries 23.3% of it. Distortion falls monotonically with N and never reaches zero, so this is a coordinate and not a verdict -- the PASS is that the labels are the nearest centroid (99.9992% over 596,000 sampled frames)",
+        "saturation": null,
+        "scored_object": {
+          "arm": "speed",
+          "dataset": "luna",
+          "n_states": 512,
+          "pose_arm": "raw",
+          "retired": 1,
+          "split": "all"
+        },
+        "verdict": "PASS"
+      },
+      "retired_by_runlength": 1,
+      "stage": "tok_distortion",
+      "summary": {
+        "by_group": {
+          "shape": {
+            "d": 3.068145281132429,
+            "n_channels": 14,
+            "rms_standardised": 0.468138050543429
+          },
+          "twist": {
+            "d": 0.5472758796085276,
+            "n_channels": 3,
+            "rms_standardised": 0.4271127406234126
+          }
+        },
+        "d_total": 3.615421160740956,
+        "n_frames": 20783507,
+        "per_channel": [
+          {
+            "channel": "s_left_ear_x",
+            "mse_standardised": 0.30412459015656046,
+            "rms_native": 0.041449318230947184
+          },
+          {
+            "channel": "s_left_ear_y",
+            "mse_standardised": 0.27849691644967034,
+            "rms_native": 0.03318611631685495
+          },
+          {
+            "channel": "s_right_ear_x",
+            "mse_standardised": 0.30536347819245624,
+            "rms_native": 0.0405225598446827
+          },
+          {
+            "channel": "s_right_ear_y",
+            "mse_standardised": 0.2935711958226758,
+            "rms_native": 0.03854035992179901
+          },
+          {
+            "channel": "s_nose_x",
+            "mse_standardised": 0.3185131625506681,
+            "rms_native": 0.06074642839849693
+          },
+          {
+            "channel": "s_nose_y",
+            "mse_standardised": 0.15458757365377987,
+            "rms_native": 0.05013402977001617
+          },
+          {
+            "channel": "s_center_x",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_center_y",
+            "mse_standardised": 0.0,
+            "rms_native": 0.0
+          },
+          {
+            "channel": "s_left_hip_x",
+            "mse_standardised": 0.24576806881438207,
+            "rms_native": 0.059617865424847406
+          },
+          {
+            "channel": "s_left_hip_y",
+            "mse_standardised": 0.2650603909796575,
+            "rms_native": 0.045601343503866444
+          },
+          {
+            "channel": "s_right_hip_x",
+            "mse_standardised": 0.24648582001200395,
+            "rms_native": 0.06119433030995721
+          },
+          {
+            "channel": "s_right_hip_y",
+            "mse_standardised": 0.2526819406196745,
+            "rms_native": 0.04714597672776563
+          },
+          {
+            "channel": "s_tail_base_x",
+            "mse_standardised": 0.24890457022712031,
+            "rms_native": 0.0633375411442332
+          },
+          {
+            "channel": "s_tail_base_y",
+            "mse_standardised": 0.15458757365377968,
+            "rms_native": 0.050134029770016145
+          },
+          {
+            "channel": "v_x",
+            "mse_standardised": 0.1536367025731157,
+            "rms_native": 0.4001816979492997
+          },
+          {
+            "channel": "v_y",
+            "mse_standardised": 0.21195828345637663,
+            "rms_native": 0.23351423979735184
+          },
+          {
+            "channel": "omega",
+            "mse_standardised": 0.1816808935790353,
+            "rms_native": 1.7729759173707265
+          }
+        ],
+        "per_symbol": {
+          "d_max": 330.7449265197098,
+          "d_median": 3.3204948103098713,
+          "d_p90": 16.563203196382563,
+          "n_live": 512,
+          "worst_decile_share_of_error": 0.23325532752169906
+        },
+        "rms_standardised": 1.9014260860577663
+      }
+    }
+  ],
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "frailty": [
+    {
+      "anchor": {
+        "fps": 30.0,
+        "n_animals": 0,
+        "n_frames": 22355989,
+        "n_kept_keypoints": 7,
+        "n_recordings": 3846
+      },
+      "anchor_check": {
+        "corpus": "luna",
+        "fields": [],
+        "why_not_checked": "report split only; the anchor counts all"
+      },
+      "arm": "plain",
+      "corpus": "luna",
+      "duration_grid": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        8,
+        13,
+        21,
+        34,
+        57,
+        94,
+        156,
+        259
+      ],
+      "env": {
+        "cuda": {
+          "available": 0,
+          "built": "13.0",
+          "device": null
+        },
+        "executable": "/home/tul26194/recur/venv/bin/python3",
+        "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+        "node": "c01",
+        "packages": {
+          "cv2": "5.0.0",
+          "h5py": "3.15.1",
+          "numpy": "2.4.6",
+          "pandas": "3.0.5",
+          "scipy": "1.17.1",
+          "sklearn": "1.9.0",
+          "tables": "3.11.1",
+          "torch": "2.13.0+cu130"
+        },
+        "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+        "python": "3.11.4",
+        "slurm_array_task": null,
+        "slurm_job": "75091"
+      },
+      "inherited_digest": "198eb14ff258c7f6",
+      "n_report_runs": 1747514,
+      "n_states": 256,
+      "peak_rss_gb": 1.6260337829589844,
+      "pooled": {
+        "at_risk_by_bin": [
+          1696031.0,
+          748342.0,
+          444783.0,
+          510386.0,
+          398278.0,
+          348666.0,
+          300200.0,
+          284973.0,
+          298871.0,
+          265942.0,
+          236994.0,
+          195195.0,
+          389696.0
+        ],
+        "exits_by_bin": [
+          935236.0,
+          297859.0,
+          144897.0,
+          131256.0,
+          70530.0,
+          40324.0,
+          20084.0,
+          10686.0,
+          6773.0,
+          4459.0,
+          2489.0,
+          1339.0,
+          1223.0
+        ],
+        "fall": 175.70613299600606,
+        "first_bin": 0,
+        "first_hazard": 0.5514262416194043,
+        "hazard_by_bin": [
+          0.5514262416194043,
+          0.39802523445162774,
+          0.3257700946304153,
+          0.2571700634421791,
+          0.17708736108949025,
+          0.11565222878055216,
+          0.0669020652898068,
+          0.037498289311619,
+          0.02266195114280074,
+          0.016766813816546464,
+          0.010502375587567617,
+          0.00685980685980686,
+          0.003138343734603383
+        ],
+        "last_bin": 12,
+        "last_hazard": 0.003138343734603383,
+        "log_fall": 5.1688129006510435,
+        "n_live_bins": 13
+      },
+      "pose_arm": "raw",
+      "preprocessing_freeze": "F3",
+      "reads": {
+        "speed_quintile": {
+          "degenerate": 0,
+          "detail": {
+            "animal_interval": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.7691165908965519,
+              "lo": 0.741865334426702,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 89,
+              "n_boot": 2000,
+              "n_units": 89,
+              "point": 0.7556249211077287
+            },
+            "frame_interval": {
+              "hi": 0.7691165908965519,
+              "lo": 0.741865334426702,
+              "method": "FRAME bootstrap -- anticonservative, for comparison only",
+              "n_boot": 2000,
+              "n_frames": 89,
+              "point": 0.7556249211077287
+            },
+            "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+            "mean_span_bins": 6.442533096281469,
+            "min_exits_per_cell": 50,
+            "n_animals_refused": 0,
+            "n_animals_usable": 89,
+            "n_reportable_slices": 5,
+            "n_slices": 5,
+            "pooled_fall": 175.70613299600606,
+            "pooled_fall_full_range": 175.70613299600606,
+            "pooled_fall_on_same_spans": 32.72636617821433,
+            "pooled_first_bin": 0,
+            "pooled_last_bin": 12,
+            "retained_floor": 0.5,
+            "slice": "speed_quintile",
+            "span_note": "every fall is taken over the elapsed-bin window reportable in BOTH the slice and the pool; an unrestricted comparison would read a slice whose runs do not last as flat",
+            "within_fall": 16.205808696061016
+          },
+          "n_effective": 89,
+          "reason": "THE FALL SURVIVES CONDITIONING: conditioning on speed_quintile leaves 0.756 [0.742, 0.769] of the log fall, animal-level over 89 animals; over the same elapsed spans the fall is 16.2x within slices against 32.7x pooled, with the interval entirely above the 0.50 floor. Duration dependence is not explained by this mixture. It remains a shared property across states and is still not evidence about any single bout, since an unobserved mixture would look the same",
+          "saturation": null,
+          "scored_object": {
+            "arm": "plain",
+            "dataset": "luna",
+            "n_states": 256,
+            "pose_arm": "raw",
+            "retired": 1,
+            "split": "report"
+          },
+          "verdict": "PASS"
+        },
+        "state_x_animal_top10": {
+          "degenerate": 0,
+          "detail": {
+            "animal_interval": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.6095763291450513,
+              "lo": 0.4646787255199299,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 51,
+              "n_boot": 2000,
+              "n_units": 51,
+              "point": 0.537927194817919
+            },
+            "frame_interval": {
+              "hi": 0.6095763291450513,
+              "lo": 0.4646787255199299,
+              "method": "FRAME bootstrap -- anticonservative, for comparison only",
+              "n_boot": 2000,
+              "n_frames": 51,
+              "point": 0.537927194817919
+            },
+            "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+            "mean_span_bins": 1.2438885476226216,
+            "min_exits_per_cell": 50,
+            "n_animals_refused": 38,
+            "n_animals_usable": 51,
+            "n_reportable_slices": 116,
+            "n_slices": 890,
+            "pooled_fall": 175.70613299600606,
+            "pooled_fall_full_range": 175.70613299600606,
+            "pooled_fall_on_same_spans": 1.4475739500787077,
+            "pooled_first_bin": 0,
+            "pooled_last_bin": 12,
+            "retained_floor": 0.5,
+            "slice": "state_x_animal_top10",
+            "span_note": "every fall is taken over the elapsed-bin window reportable in BOTH the slice and the pool; an unrestricted comparison would read a slice whose runs do not last as flat",
+            "within_fall": 1.215921257796271
+          },
+          "n_effective": 51,
+          "reason": "conditioning on state_x_animal_top10 leaves 0.538 [0.465, 0.610] of the log fall, animal-level over 51 animals; over the same elapsed spans the fall is 1.2x within slices against 1.4x pooled, and the interval straddles the 0.50 floor. The slice explains some of the fall and the data cannot say whether it explains most of it",
+          "saturation": null,
+          "scored_object": {
+            "arm": "plain",
+            "dataset": "luna",
+            "n_states": 256,
+            "pose_arm": "raw",
+            "retired": 1,
+            "split": "report"
+          },
+          "verdict": "INCONCLUSIVE"
+        }
+      },
+      "retired_by_runlength": 1,
+      "slices": {
+        "speed_quintile": {
+          "n_animals_refused": 0,
+          "n_animals_usable": 89,
+          "per_slice": [
+            {
+              "at_risk_by_bin": [
+                376223.0,
+                206982.0,
+                141541.0,
+                185555.0,
+                176008.0,
+                196812.0,
+                211367.0,
+                232352.0,
+                264684.0,
+                245780.0,
+                224601.0,
+                188248.0,
+                383109.0
+              ],
+              "exits": 370727.0,
+              "exits_by_bin": [
+                167464.0,
+                64419.0,
+                36777.0,
+                36590.0,
+                20336.0,
+                14568.0,
+                9676.0,
+                6869.0,
+                5367.0,
+                3920.0,
+                2292.0,
+                1262.0,
+                1187.0
+              ],
+              "fall": 143.66393372591108,
+              "first_bin": 0,
+              "hazard_by_bin": [
+                0.4451189852826648,
+                0.31122996202568337,
+                0.2598328399545008,
+                0.1971922071622969,
+                0.11554020271805827,
+                0.07401987683677824,
+                0.04577819621795266,
+                0.029562904558600743,
+                0.020277009566124132,
+                0.01594922288225242,
+                0.01020476311325417,
+                0.006703922485232247,
+                0.0030983349386206013
+              ],
+              "last_bin": 12,
+              "pooled_fall_same_span": 175.70613299600606,
+              "slice": 0,
+              "span": [
+                0,
+                12
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                349131.0,
+                185134.0,
+                119779.0,
+                147893.0,
+                119890.0,
+                97511.0,
+                67137.0,
+                44896.0,
+                31161.0,
+                18861.0,
+                12010.0,
+                6814.0,
+                6587.0
+              ],
+              "exits": 343071.0,
+              "exits_by_bin": [
+                161680.0,
+                64183.0,
+                34351.0,
+                35132.0,
+                22057.0,
+                13819.0,
+                6852.0,
+                2966.0,
+                1241.0,
+                494.0,
+                185.0,
+                75.0,
+                36.0
+              ],
+              "fall": 42.07351089801058,
+              "first_bin": 0,
+              "hazard_by_bin": [
+                0.46309265003680566,
+                0.3466840234640855,
+                0.2867864984680119,
+                0.2375501206953676,
+                0.18397697889732254,
+                0.1417173447098276,
+                0.10205996693328567,
+                0.06606379187455452,
+                0.03982542280414621,
+                0.026191612321722072,
+                0.015403830141548709,
+                0.011006750807161726,
+                null
+              ],
+              "last_bin": 11,
+              "pooled_fall_same_span": 80.38509726131414,
+              "slice": 1,
+              "span": [
+                0,
+                11
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                340279.0,
+                165907.0,
+                99479.0,
+                110058.0,
+                73752.0,
+                43844.0,
+                18960.0,
+                7099.0,
+                2811.0,
+                1220.0,
+                360.0,
+                133.0,
+                0.0
+              ],
+              "exits": 333068.0,
+              "exits_by_bin": [
+                171495.0,
+                65017.0,
+                33652.0,
+                31720.0,
+                18192.0,
+                9011.0,
+                2992.0,
+                784.0,
+                151.0,
+                41.0,
+                11.0,
+                2.0,
+                0.0
+              ],
+              "fall": 9.38210335737548,
+              "first_bin": 0,
+              "hazard_by_bin": [
+                0.5039834958960148,
+                0.3918882265365536,
+                0.3382824515726937,
+                0.2882116702102528,
+                0.24666449723397332,
+                0.20552413100994435,
+                0.15780590717299578,
+                0.11043808987181293,
+                0.05371753824261829,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": 8,
+              "pooled_fall_same_span": 24.332690426551455,
+              "slice": 2,
+              "span": [
+                0,
+                8
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                327835.0,
+                119185.0,
+                57856.0,
+                50453.0,
+                24294.0,
+                9701.0,
+                2628.0,
+                605.0,
+                215.0,
+                81.0,
+                23.0,
+                0.0,
+                0.0
+              ],
+              "exits": 321578.0,
+              "exits_by_bin": [
+                205642.0,
+                59984.0,
+                25516.0,
+                19312.0,
+                7880.0,
+                2618.0,
+                543.0,
+                64.0,
+                14.0,
+                4.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              "fall": 5.929688810682203,
+              "first_bin": 0,
+              "hazard_by_bin": [
+                0.6272728659234066,
+                0.5032848093300332,
+                0.44102599557522126,
+                0.38277208491070897,
+                0.3243599242611344,
+                0.26986908566127205,
+                0.20662100456621005,
+                0.10578512396694215,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": 7,
+              "pooled_fall_same_span": 14.705370611361268,
+              "slice": 3,
+              "span": [
+                0,
+                7
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                302563.0,
+                71134.0,
+                26128.0,
+                16427.0,
+                4334.0,
+                798.0,
+                108.0,
+                21.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 298711.0,
+              "exits_by_bin": [
+                228955.0,
+                44256.0,
+                14601.0,
+                8502.0,
+                2065.0,
+                308.0,
+                21.0,
+                3.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": 1.9605886737938576,
+              "first_bin": 0,
+              "hazard_by_bin": [
+                0.7567184354993836,
+                0.6221497455506508,
+                0.5588257807715861,
+                0.5175625494612528,
+                0.47646515920627597,
+                0.38596491228070173,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": 5,
+              "pooled_fall_same_span": 4.767969000110883,
+              "slice": 4,
+              "span": [
+                0,
+                5
+              ]
+            }
+          ],
+          "within": {
+            "fall": 16.205808696061016,
+            "n_reportable_slices": 5,
+            "n_slices": 5,
+            "pooled_fall_on_same_spans": 32.72636617821433
+          }
+        },
+        "state_x_animal_top10": {
+          "n_animals_refused": 38,
+          "n_animals_usable": 51,
+          "per_slice": [
+            {
+              "at_risk_by_bin": [
+                136.0,
+                39.0,
+                25.0,
+                17.0,
+                5.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 135.0,
+              "exits_by_bin": [
+                96.0,
+                14.0,
+                14.0,
+                7.0,
+                4.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": null,
+              "first_bin": -1,
+              "hazard_by_bin": [
+                0.7058823529411765,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": -1,
+              "pooled_fall_same_span": null,
+              "slice": 0,
+              "span": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                137.0,
+                57.0,
+                28.0,
+                20.0,
+                3.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 137.0,
+              "exits_by_bin": [
+                80.0,
+                29.0,
+                16.0,
+                9.0,
+                3.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": null,
+              "first_bin": -1,
+              "hazard_by_bin": [
+                0.583941605839416,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": -1,
+              "pooled_fall_same_span": null,
+              "slice": 1,
+              "span": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                45.0,
+                11.0,
+                2.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 45.0,
+              "exits_by_bin": [
+                34.0,
+                9.0,
+                2.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": null,
+              "first_bin": -1,
+              "hazard_by_bin": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": -1,
+              "pooled_fall_same_span": null,
+              "slice": 2,
+              "span": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                128.0,
+                50.0,
+                18.0,
+                9.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 128.0,
+              "exits_by_bin": [
+                78.0,
+                32.0,
+                12.0,
+                5.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": null,
+              "first_bin": -1,
+              "hazard_by_bin": [
+                0.609375,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": -1,
+              "pooled_fall_same_span": null,
+              "slice": 3,
+              "span": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "at_risk_by_bin": [
+                115.0,
+                44.0,
+                20.0,
+                9.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exits": 113.0,
+              "exits_by_bin": [
+                69.0,
+                24.0,
+                13.0,
+                7.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "fall": null,
+              "first_bin": -1,
+              "hazard_by_bin": [
+                0.6,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "last_bin": -1,
+              "pooled_fall_same_span": null,
+              "slice": 4,
+              "span": [
+                -1,
+                -1
+              ]
+            }
+          ],
+          "within": {
+            "fall": 1.215921257796271,
+            "n_reportable_slices": 116,
+            "n_slices": 890,
+            "pooled_fall_on_same_spans": 1.4475739500787077
+          }
+        }
+      },
+      "speed_quintile_edges": [
+        0.15133440030130474,
+        0.3092567474686662,
+        0.5371690361149429,
+        0.9721162588140624
+      ],
+      "stage": "tok_frailty"
+    }
+  ],
+  "inherited_digest": "198eb14ff258c7f6",
+  "peak_rss_gb": 0.62420654296875,
+  "pose_arm": "raw",
+  "preprocessing_freeze": "F3",
+  "stage": "tok_resolution"
+}
