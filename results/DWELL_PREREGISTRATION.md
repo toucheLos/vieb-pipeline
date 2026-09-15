@@ -108,3 +108,45 @@ which is what makes them tight on dwell and weak on everything else.
 **A loss does not withdraw anything further.** `LADDER.md`'s P1 reading is
 already withdrawn; rung 2's failure, `k* = 0`, the hazard shape, `FRAILTY.md` and
 `RESOLUTION.md` were not the claim at risk here and are not at risk from this.
+
+---
+
+## 7. Amendment — construction validity, checked before the ladder ran
+
+Added **after the partition was fitted and before any ladder number existed.**
+
+A null that claims to be dwell-matched has to actually be dwell-matched, and the
+fitted partition raised a doubt worth settling: at `N_MICROSTATES = 500` the
+median microstate visit is **1.0 frame**. Stitching one-frame visits is frame
+shuffling, not dwell preservation.
+
+So the property was measured directly, on **three tune animals only**, by
+generating a `microstate0` surrogate at several partition sizes and scoring the
+run rate of both corpus and surrogate through the corpus's own `plain`/N=256
+tokenizer as a common yardstick:
+
+| null granularity `N` | median visit (frames) | surrogate runs/s | **ratio to corpus** |
+|---:|---:|---:|---:|
+| 20 | 2.0 | 4.797 | 1.253 |
+| 50 | 2.0 | 4.715 | **1.232** |
+| 100 | 2.0 | 5.005 | 1.307 |
+| 200 | 1.0 | 5.195 | 1.357 |
+| **500** (registered) | 1.0 | 5.191 | **1.356** |
+
+Corpus: 3.829 runs/s, mean run 7.52 frames.
+
+**`N = 500` is kept.** It was chosen before this measurement, matching recur's
+`microstate_N500k1` arm, and the sweep shows the choice cannot turn a verdict:
+the run-rate ratio moves only between **1.23 and 1.36** across a 25-fold range of
+granularity, against the **2.1** that made the phase and VAR comparison a dwell
+confound. Picking `N = 50` for a 0.13 improvement would buy little and would look
+like — and partly be — selecting a null parameter after measuring it.
+
+**What this does license, and what it does not.** The arm is entitled to be
+called far better dwell-matched than phase or VAR, and it is **not** entitled to
+be called dwell-matched exactly: the residual is ~1.36 and is reported with every
+number this arm produces. The yardstick above is the corpus's own tokenizer,
+used only as a common ruler for this check; the ladder itself fits the
+surrogate's own partition, as §4 requires.
+
+**No ladder number was computed, inspected, or available when this was written.**
