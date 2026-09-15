@@ -54,6 +54,8 @@ import numpy.typing as npt
 from recur.qc.swap import runs_of
 from recur.read import Read
 
+from vieb.checks import assert_share, assert_unit
+
 F64 = npt.NDArray[np.float64]
 BOOL = npt.NDArray[np.bool_]
 I64 = npt.NDArray[np.int64]
@@ -110,6 +112,16 @@ def distribution(lengths: npt.ArrayLike, *,
     top = int(buckets[-1])
     out[f"frac_mass_gt_{top}"] = (float(v[v > top].sum() / total)
                                   if total else float("nan"))
+    if total:
+        # The mass at or below the widest bucket and the mass above it are a
+        # partition of the violating frames, so they must come to exactly 1.
+        # Nothing checked this before, and the same class of arithmetic slip
+        # put 1.115 into the MDL duration charge.
+        assert_unit(np.array([out[f"frac_mass_le_{top}"]
+                              + out[f"frac_mass_gt_{top}"]]),
+                    name="runlen mass at-or-below plus above the widest bucket")
+        assert_share([out[f"frac_runs_le_{b}"] for b in buckets],
+                     name="runlen frac_runs_le")
     return out
 
 

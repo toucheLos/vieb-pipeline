@@ -134,17 +134,22 @@ dropout.
 5.46 for everything else. The model is not winning by nailing a handful of
 edges, because there is almost no mass on them to win.
 
-**Identity probe: mostly REFUSED, and that is the correct outcome.** Ten of the
-sixteen probes return `NOT_A_RESULT [DEGENERATE]` - the solver stopped on
-`max_iter = 400` over 89 classes, the same convergence guard that fired in
-`EGO.md`. Six pass, all on the `speed` arm. **No claim of "no identity leak" is
-made from this.**
+**Identity probe: the gate is UNRUN.** Ten of the sixteen probes returned
+`NOT_A_RESULT [DEGENERATE]` — the solver stopped on `max_iter = 400` over 89
+classes, the same convergence guard that fired in `EGO.md`. The six that returned
+a number are all on the `speed` arm, which MDL rejects at every N.
 
-**The probe is a reduced one and is weaker than the registered version.** The
-pre-registration says to feed the next-state distribution to `leak_read`; at
-2,048 symbols that is a 2,048-vector per run and tens of gigabytes per cell. What
-goes in instead is the per-window mean and SD of the model's own code length.
-Recorded in `DEVIATIONS.md`.
+> That is an **absence of evidence, not evidence of absence**. No claim that the
+> model avoided learning animal style is made or may be made from this, and
+> nothing in this document leans on it.
+
+The probe was also a **reduced** one — the pre-registration says to feed the
+next-state distribution to `leak_read`, and at 2,048 symbols that is tens of
+gigabytes per cell, so what went in was the per-window mean and SD of the model's
+own code length. Both facts are in `DEVIATIONS.md` D5. Running the gate properly
+needs either a larger iteration budget, which would break comparability with
+`audit_moseq.json`'s 0.283 nats, or a probe whose feature count does not scale
+with `N`. Neither is done.
 
 ## MDL and the run-length condition agree
 

@@ -54,6 +54,7 @@ from recur.label.nonparametric import ABSTAIN
 from recur.read import Read
 from recur.seq import motif
 from recur.util import describe
+from vieb.checks import assert_pmf, assert_share
 from vieb.qc.runlen import BUCKETS
 
 I64 = npt.NDArray[np.int64]
@@ -148,6 +149,13 @@ def distribution(runs: Mapping[str, Any], fps: float, *,
          "share_frames": (float(d[d <= b].sum() / total_f)
                           if total_f > 0 else float("nan"))}
         for b in BUCKETS]
+    if d.size and total_f > 0:
+        # Cumulative, so they are shares rather than a partition: there is no
+        # sum to check and the bound is the only thing that can be.
+        assert_share([x["share_runs"] for x in out["buckets"]],
+                     name="bucket share_runs")
+        assert_share([x["share_frames"] for x in out["buckets"]],
+                     name="bucket share_frames")
     return out
 
 
@@ -165,8 +173,15 @@ def frame_versus_run_mass(runs: Mapping[str, Any], n_states: int) -> Detail:
     frames = np.bincount(c, weights=d.astype(np.float64),
                          minlength=int(n_states))
     counts = np.bincount(c, minlength=int(n_states)).astype(np.float64)
-    fs = frames / frames.sum() if frames.sum() else frames
-    rs = counts / counts.sum() if counts.sum() else counts
+    # The empty branch returns zeros rather than a fabricated uniform, so it is
+    # not a pmf and is not asserted as one -- a symbol stream with no runs has a
+    # MISSING mass distribution, not a flat one.
+    if frames.sum() and counts.sum():
+        fs = assert_pmf(frames / frames.sum(), name="frame mass per symbol")
+        rs = assert_pmf(counts / counts.sum(), name="run mass per symbol")
+    else:
+        fs = frames.astype(np.float64)
+        rs = counts.astype(np.float64)
     gap = fs - rs
     worst = int(np.argmax(np.abs(gap))) if gap.size else -1
     return {

@@ -49,6 +49,8 @@ import numpy as np
 import numpy.typing as npt
 from recur.read import Read
 
+from vieb.checks import TOL, assert_share
+
 F64 = npt.NDArray[np.float64]
 BOOL = npt.NDArray[np.bool_]
 Detail = dict[str, Any]
@@ -80,7 +82,7 @@ def dispersion(counts: npt.ArrayLike, sizes: npt.ArrayLike) -> Detail:
         return {"dispersion": float("nan"), "n_recordings": int(k.size),
                 "why": "fewer than two recordings"}
     p = float(k.sum() / n.sum())
-    rates = k / n
+    rates = assert_share(k / n, name="per-recording violation rate")
     observed = float(np.var(rates, ddof=1))
     expected = float(np.mean(p * (1.0 - p) / n))
     return {
@@ -114,6 +116,13 @@ def lorenz(counts: npt.ArrayLike, *,
             "share_of_violations": float(k[:take].sum() / total),
             "uniform_baseline": float(take / n),
         }
+    # Cumulative shares of a sorted non-negative vector: each is a fraction and
+    # they must increase with the fraction of recordings taken. Neither was
+    # checked, and a Lorenz curve that decreases is a sorting bug.
+    cum = [out[f"worst_{int(s * 100)}pct"]["share_of_violations"] for s in shares]
+    assert_share(cum, name="Lorenz cumulative share")
+    if any(b < a - TOL for a, b in zip(cum, cum[1:])):
+        raise AssertionError(f"Lorenz shares are not monotone: {cum}")
     # Gini over the recording-level counts.
     asc = np.sort(k)
     idx = np.arange(1, n + 1, dtype=np.float64)

@@ -85,39 +85,79 @@ Found in F2, fixed with blake2b, audited as a class in `SEED_AUDIT.md`, pinned b
 `tests/test_seeds.py`. Phase F's figures move ~1% relative under the stable seed;
 **no verdict, sign or ordering changed**.
 
-## D5 — the ladder's identity probe is a reduced one
+## D5 — the ladder's identity-leak gate is UNRUN, not merely reduced
 
 **Registration:** `TOK_PREREGISTRATION.md` §6 — *"the next-state distribution
 goes through `recur.audit.leak.leak_read`, held out by window within recording."*
 
-**What ran:** the per-window **mean and SD of the model's own per-run code
-length**, through the same `leak_read` at the same holdout.
+**What ran:** the per-window mean and SD of the model's own per-run code length,
+through the same `leak_read` at the same holdout. The next-state distribution is
+an `N`-vector per run; at N = 2,048 and ~4.3M scored runs that is tens of
+gigabytes per cell, times sixteen cells, for a gate rather than a headline.
 
-**Why:** the next-state distribution is an `N`-vector per run. At N = 2,048 and
-~4.3M scored runs that is tens of gigabytes per cell, times sixteen cells, for a
-gate rather than a headline.
+**What came back: ten of the sixteen probes returned `NOT_A_RESULT
+[DEGENERATE]`** on the inherited `max_iter = 400` convergence guard. The six that
+passed are all on the `speed` arm, which MDL rejects at every N.
 
-**What it costs.** The reduced probe asks whether *how expensive and how variable
-the model finds a window* identifies the animal. That is a property of the
-predictions rather than of the labels, so it is the right kind of question — but
-it carries far less information than the full distribution, so it is **strictly
-weaker**. A `PASS` from it does not establish the absence of style leakage, and
-`LADDER.md` says so where it reports the probe rather than only here.
+> **So the style-leak gate is UNRUN.** It is not "reduced but passing", and it is
+> not weak evidence of no leakage — it is an absence of evidence. Nothing
+> downstream leans on it, and nothing downstream may.
 
-In the event ten of the sixteen probes returned `NOT_A_RESULT [DEGENERATE]` on
-the inherited `max_iter = 400` convergence guard, so the gate is largely
-**refused** rather than passed, and nothing downstream leans on it.
+Stated this way because the earlier wording of this entry ("a reduced probe…
+strictly weaker") invited exactly the misreading it was trying to prevent: a
+future reader finding a D5 that says "reduced" and a `LADDER.md` paragraph that
+says "six pass" could take the gate as cleared. It was not cleared. It did not
+run.
 
-## D6 — the duration bin width was off by one, and it was a real bug
+**What running it would take:** either a larger `max_iter` — which would make the
+figure incomparable to `audit_moseq.json`'s 0.283 nats, the reason the budget is
+inherited in the first place — or a probe whose feature count does not scale with
+`N`. Both are open, and neither is in the current plan.
+
+## D6 — the duration bin width was off by one, and the rule it produced
 
 **Registration:** `TOK_PREREGISTRATION.md` §3 — duration charged at one-frame
 resolution, `delta = 1/30` s, identically in every arm.
 
-**What happened:** `ladder.duration_pmf` spread each bin's mass uniformly over
-`e[b+1] - e[b] + 1` whole durations where the correct count is
-`e[b+1] - e[b]`. The resulting `f(d)` summed to **1.115** rather than 1, so every
-duration charge was wrong by a constant of roughly 0.11 nats.
+**The mechanism, in full.** Elapsed-time bin `b` covers `[e[b], e[b+1])`, so it
+holds exactly `e[b+1] - e[b]` whole durations. `ladder.duration_pmf` divided each
+bin's mass by `e[b+1] - e[b] + 1` instead — the `+1` already being present in the
+lower endpoint, since `d = elapsed + 1`. So `f(d) = p_bin / width` summed to
+**1.115** rather than 1 and **every duration charge was too small by roughly 0.11
+nats**.
 
-Caught by `tests/test_mdl.py::test_the_duration_pmf_normalises_over_frames`
-**before any ladder job was submitted**, and fixed. The pmf now sums to 1 to
-within 1e-9. No published number was computed under the broken version.
+**Why nothing looked wrong.** A constant offset applied to every arm cancels in
+every comparison this project reports, and survives only in the absolute
+nats-per-second figures — which nothing else is calibrated against. Rung 1 would
+still have beaten rung 0 by the same margin. The bug was invisible in exactly the
+numbers a reader would check.
+
+**How it was found:** by `tests/test_mdl.py::test_the_duration_pmf_normalises_
+over_frames`, written to pin the registered charge, **not by review**. It was
+caught before any ladder job was submitted, so no published number was computed
+under it.
+
+### The rule
+
+> **A pmf that is never asserted to sum to 1 is not a pmf.**
+
+`vieb/checks.py` now holds `assert_pmf`, `assert_log_pmf`, `assert_unit` and
+`assert_share`, and they are called at the point each distribution is built —
+not in a test below it, where a new branch can route around them. Applied at
+every site in the `vieb` package that constructs a probability vector or a
+share:
+
+| module | what is now asserted |
+|---|---|
+| `tok/ladder.py` | `f(d)` **at frame resolution** (the bin masses always summed to 1 — checking those would not have caught this); rung 0's marginal; rung 1's rows, per row, over the `a-1` allowed causes |
+| `tok/hazard.py` | every `(context, elapsed bin)` cell is a simplex over stay + exits + prior, **including the unobserved cells** `_log_exit` backs off into |
+| `tok/quantize.py` | occupancy frame share |
+| `tok/rle.py` | frame mass and run mass per symbol; bucket shares bounded |
+| `qc/runlen.py` | mass at-or-below the widest bucket plus mass above it is exactly 1 |
+| `qc/bones.py` | per-keypoint blame share, with the no-violations case now flagged `share_defined: false` instead of returning zeros that sum to nothing |
+| `qc/concentration.py` | per-recording rates bounded; Lorenz cumulative shares bounded **and monotone** |
+
+`assert_unit` exists separately from `assert_pmf` for memory: a table of per-cell
+simplexes would need a stacked extra axis to check with `assert_pmf(axis=-1)`,
+which at the `k = 2` history depth is 7.5M contexts × 13 bins × 3 outcomes, about
+2.3 GB of temporary, for an identity that holds cellwise.

@@ -68,6 +68,8 @@ import numpy.typing as npt
 
 from recur.read import Read
 
+from vieb.checks import assert_pmf, assert_share
+
 F64 = npt.NDArray[np.float64]
 I64 = npt.NDArray[np.int64]
 BOOL = npt.NDArray[np.bool_]
@@ -327,9 +329,18 @@ def attribution(viol: npt.ArrayLike, bones: Sequence[Bone],
         counts[i] += int(v[:, m].sum())
         counts[j] += int(v[:, m].sum())
     total = int(counts.sum())
+    # With no violations there is nothing to apportion. The zeros are recorded
+    # as such rather than replaced by a uniform 1/n, because a fabricated
+    # uniform would read as "blame is spread evenly" when the truth is "there
+    # is no blame". `share_defined` says which of the two a reader is looking
+    # at, and the assertion only applies to the defined case.
+    share = (assert_pmf(counts / total, name="per-keypoint blame share").tolist()
+             if total else [0.0] * n_keypoints)
     return {
-        "frame_rate": (per_frame.mean(axis=0)).astype(np.float64).tolist(),
-        "share": (counts / total).tolist() if total else [0.0] * n_keypoints,
+        "frame_rate": assert_share(per_frame.mean(axis=0),
+                                   name="per-keypoint frame rate").tolist(),
+        "share": share,
+        "share_defined": bool(total),
         "n_violating_bone_frames": int(v.sum()),
     }
 

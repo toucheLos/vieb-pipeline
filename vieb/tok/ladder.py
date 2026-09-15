@@ -50,6 +50,7 @@ import numpy as np
 import numpy.typing as npt
 from recur.label.nonparametric import ABSTAIN
 
+from vieb.checks import assert_log_pmf, assert_pmf
 from vieb.tok import hazard as hz
 
 F64 = npt.NDArray[np.float64]
@@ -213,7 +214,16 @@ def duration_pmf(duration: npt.ArrayLike, edges: npt.ArrayLike, *,
     # endpoint, and including it made the pmf sum to 1.12 rather than 1.
     top = float(max(int(d.max()) if d.size else 1, int(e[-2]) + 1))
     widths[-1] = max(top - float(e[-2]), 1.0)
-    return {"log_p_bin": np.log(p), "log_width": np.log(widths),
+    log_p, log_w = np.log(p), np.log(widths)
+    # The assertion is at FRAME resolution, not bin resolution, because the bin
+    # masses sum to 1 by construction and the bug they hid did not: the widths
+    # were off by one, so `f(d) = p_bin / width` summed to 1.115 over whole
+    # durations while `p` itself looked perfect. Checking `p` would not have
+    # caught it. See vieb/checks.py.
+    whole = np.arange(1, int(top) + 1, dtype=np.int64)
+    assert_pmf(np.exp(log_p[hz.bin_of(whole - 1, e)] - log_w[hz.bin_of(whole - 1, e)]),
+               name="duration_pmf f(d) over whole frames", tol=1e-6)
+    return {"log_p_bin": log_p, "log_width": log_w,
             "n_bins": n_bins, "edges": e, "counts": counts.tolist()}
 
 
@@ -240,7 +250,9 @@ def fit_rung(rung: int, data: Mapping[str, Any], *, edges: npt.ArrayLike,
     if rung == 0:
         counts = np.bincount(nxt[done], minlength=a).astype(np.float64) \
             if done.any() else np.zeros(a)
-        logp = np.log(counts + alpha) - np.log(counts.sum() + alpha * a)
+        logp = assert_log_pmf(
+            np.log(counts + alpha) - np.log(counts.sum() + alpha * a),
+            name="rung 0 marginal next-symbol")
         return {"rung": 0, "k": 0, "alphabet": a, "pmf": pmf, "log_p": logp,
                 "n_params": (a - 1) + (pmf["n_bins"] - 1),
                 "n_runs_fit": int(code.shape[0])}
@@ -256,6 +268,11 @@ def fit_rung(rung: int, data: Mapping[str, Any], *, edges: npt.ArrayLike,
         row = counts.sum(axis=1, keepdims=True)
         logp = np.log(counts + alpha) - np.log(row + alpha * allowed)
         np.fill_diagonal(logp, -np.inf)
+        # Per row, over the a-1 allowed causes. The -inf diagonal is a
+        # forbidden outcome rather than a missing one, and exp maps it to the
+        # zero it means. `allowed` matching the zeroed diagonal is exactly what
+        # this catches if either ever moves without the other.
+        assert_log_pmf(logp, name="rung 1 transition rows", axis=1)
         return {"rung": 1, "k": 0, "alphabet": a, "pmf": pmf, "log_p": logp,
                 "n_params": int(a * (a - 2)) + (pmf["n_bins"] - 1),
                 "n_runs_fit": int(code.shape[0])}

@@ -1185,12 +1185,12 @@
     "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
     "python": "3.11.4",
     "slurm_array_task": null,
-    "slurm_job": "75052"
+    "slurm_job": "75064"
   },
   "fitted_on": "tune",
   "inherited_digest": "198eb14ff258c7f6",
   "n_cells": 8,
-  "peak_rss_gb": 1.1832847595214844,
+  "peak_rss_gb": 1.1800651550292969,
   "pose_arm": "raw",
   "preprocessing_freeze": "F3",
   "retired_cells": [

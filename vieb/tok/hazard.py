@@ -62,6 +62,8 @@ from typing import Any, Mapping
 import numpy as np
 import numpy.typing as npt
 
+from vieb.checks import assert_unit
+
 F64 = npt.NDArray[np.float64]
 I64 = npt.NDArray[np.int64]
 BOOL = npt.NDArray[np.bool_]
@@ -158,6 +160,14 @@ def fit(context: npt.ArrayLike, duration: npt.ArrayLike,
     denom = at_risk + alpha * float(n_states)
     log_stay = np.log(np.maximum(at_risk - exits_per_cell, 0.0) + alpha) \
         - np.log(denom)
+    # Every cell is a multinomial over {stay} + the a-1 exit causes, and the
+    # three terms below are its whole mass: the stay probability, the observed
+    # exits, and the Laplace prior sitting on causes this cell never saw.
+    # Checked on EVERY cell including the unobserved ones, because `_log_exit`
+    # backs off into those and they are the cells a deep history lands in.
+    assert_unit(np.exp(log_stay)
+                + (exits_per_cell + alpha * (float(n_states) - 1.0)) / denom,
+                name="hazard per-cell simplex (stay + exits + prior)")
     return {
         "edges": e, "n_bins": n_bins, "n_context": int(n_context),
         "n_states": int(n_states), "alpha": float(alpha),

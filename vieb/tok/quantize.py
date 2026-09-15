@@ -67,6 +67,8 @@ from recur.label.nonparametric import ABSTAIN
 from recur.null import microstate
 from recur.read import Read
 
+from vieb.checks import assert_pmf, assert_share
+
 F64 = npt.NDArray[np.float64]
 F32 = npt.NDArray[np.float32]
 I32 = npt.NDArray[np.int32]
@@ -316,7 +318,7 @@ def occupancy(labels: npt.ArrayLike, n_states: int) -> Detail:
         # possible description of having labelled nothing.
         return {**base, "top_share": float("nan"), "top10_share": float("nan"),
                 "dead_frac": 1.0, "gini": float("nan")}
-    share = counts / total
+    share = assert_pmf(counts / total, name="occupancy frame share")
     order = np.sort(share)[::-1]
     cum = np.cumsum(order)
     return {**base,
