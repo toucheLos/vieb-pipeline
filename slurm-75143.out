@@ -1,0 +1,27 @@
+===================================================
+Begin TASK Prologue Tue Sep 15 06:22:19 PM EDT 2026
+===================================================
+Job ID:           75143
+Username:         tul26194
+Group:            icms
+Job Name:         wrap
+Resources List:   nodes=1:ppn=1:ntasks=
+Queue:            normal
+Account:          default
+Nodes:      c03
+===================================================
+End TASK Prologue Tue Sep 15 06:22:19 PM EDT 2026
+===================================================
+===================================================
+Begin TASK Epilogue Tue Sep 15 06:22:19 PM EDT 2026
+===================================================
+Job ID:           75143
+Username:         tul26194
+Job Name:         wrap
+Resources List:   nodes=1:ppn=1:ntasks=
+Queue:            normal
+Account:          default
+Nodes:      c03
+===================================================
+End TASK Epilogue Tue Sep 15 06:22:19 PM EDT 2026
+===================================================

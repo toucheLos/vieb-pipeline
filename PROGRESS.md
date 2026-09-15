@@ -22,9 +22,41 @@ programme and the cleaning work under it.
 | 6 | Distortion + symbol homogeneity | **done** | all 8 alphabets **under-resolved**; N=256 is a compression preference | `results/RESOLUTION.md`, `resolution.json` |
 | 7 | **Surrogate falsifier** | **done — FAILED** | both surrogates BEAT the corpus on `rung1−rung0`; the transition-table claim is withdrawn | `results/FALSIFIER.md`, `FALSIFIER_PREREGISTRATION.md` |
 | 8 | Coarse sweep N ∈ {8…128} | **not run** | blocked by 7, as registered | — |
+| 9 | **Dwell-matched surrogate** | **done** | corpus **beats** both arms at both N; the per-second statistic tracks run rate | `results/DWELL.md`, `DWELL_PREREGISTRATION.md` |
 
-**Tests:** 567 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 601 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
+
+## The dwell-matched arms reverse the sign, and show why
+
+`microstate` and `microstate0` stitch the corpus's **own real visits**, so they
+preserve its dwell distribution. The corpus **beats both**, at both N, on the
+same registered per-second statistic — `+1.317 [+0.899, +1.728]` against
+`microstate` and `+10.045 [+9.370, +10.710]` against `microstate0` at N = 256.
+
+With four arms the run-rate confound is no longer a caveat but a measurement:
+
+| arm | runs/s vs corpus | gap n/s |
+|---|---:|---:|
+| `var5` | 2.102 | −11.65 |
+| `phase` | 2.078 | −11.21 |
+| `microstate` | 1.739 | +1.32 |
+| `microstate0` | 1.459 | +10.05 |
+
+**Monotone, and it changes sign inside the range.** Under a per-second statistic
+the verdict tracks how fast the surrogate's symbol stream turns over. Per run —
+which needs no correction — **the corpus beats all four**.
+
+`FALSIFIER.md`'s verdict and `LADDER.md`'s P1 withdrawal both **stand as
+registered**: per-run was registered as non-retroactive and that is kept. What is
+new is evidence about the statistic, and that decision has its own registration
+waiting.
+
+The two arms also separate usefully: destroying visit order costs the surrogate
+almost everything (+1.26 against the corpus's +11.32), and restoring one-step
+dynamics recovers most of it (+10.01). So once dwell is held fixed, **sequence
+matters and most of what it carries is first order** — consistent with k\* = 0
+and with rung 2 buying nothing.
 
 ## The falsifier fired, and what it leaves standing
 

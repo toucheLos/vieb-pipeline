@@ -79,6 +79,64 @@
       "animal_interval": {
         "aggregator": "mean",
         "alpha": 0.05,
+        "hi": 1.727607966377298,
+        "lo": 0.8986110022611312,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.3169139732039188
+      },
+      "corpus_advantage": 11.299875669743177,
+      "frame_interval": {
+        "hi": 1.727607966377298,
+        "lo": 0.8986110022611312,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": 1.3169139732039188
+      },
+      "gap": 1.3169139732039188,
+      "kind": "microstate",
+      "n_animals": 89,
+      "n_better": 68,
+      "n_states": 256,
+      "surrogate_advantage": 9.982961696539256,
+      "verdict": "PASS"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 10.709991503103957,
+        "lo": 9.370105420213585,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 10.044536907819495
+      },
+      "corpus_advantage": 11.299875669743177,
+      "frame_interval": {
+        "hi": 10.709991503103957,
+        "lo": 9.370105420213585,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": 10.044536907819495
+      },
+      "gap": 10.044536907819495,
+      "kind": "microstate0",
+      "n_animals": 89,
+      "n_better": 89,
+      "n_states": 256,
+      "surrogate_advantage": 1.2553387619236804,
+      "verdict": "PASS"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
         "hi": -13.069607685469114,
         "lo": -14.388513467049556,
         "method": "animal bootstrap (resamples animals with replacement)",
@@ -132,6 +190,64 @@
       "n_states": 512,
       "surrogate_advantage": 22.872671691875873,
       "verdict": "FAIL"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 4.482836846255796,
+        "lo": 3.2997032270371833,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 3.88840120240152
+      },
+      "corpus_advantage": 8.916812395005419,
+      "frame_interval": {
+        "hi": 4.482836846255796,
+        "lo": 3.2997032270371833,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": 3.88840120240152
+      },
+      "gap": 3.88840120240152,
+      "kind": "microstate",
+      "n_animals": 89,
+      "n_better": 81,
+      "n_states": 512,
+      "surrogate_advantage": 5.028411192603899,
+      "verdict": "PASS"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 13.876061961312995,
+        "lo": 12.162842481055586,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 13.030511623635041
+      },
+      "corpus_advantage": 8.916812395005419,
+      "frame_interval": {
+        "hi": 13.876061961312995,
+        "lo": 12.162842481055586,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": 13.030511623635041
+      },
+      "gap": 13.030511623635041,
+      "kind": "microstate0",
+      "n_animals": 89,
+      "n_better": 89,
+      "n_states": 512,
+      "surrogate_advantage": -4.113699228629622,
+      "verdict": "PASS"
     }
   ],
   "corpus": "luna",
@@ -162,12 +278,196 @@
   "inherited_digest": "198eb14ff258c7f6",
   "kinds": [
     "phase",
-    "var5"
+    "var5",
+    "white",
+    "ou",
+    "microstate",
+    "microstate0"
   ],
-  "peak_rss_gb": 0.6044769287109375,
+  "peak_rss_gb": 0.6236991882324219,
   "pose_arm": "raw",
   "preprocessing_freeze": "F3",
   "reads": {
+    "microstate0_N256": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 10.709991503103957,
+          "lo": 9.370105420213585,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 10.044536907819495
+        },
+        "circular": 0,
+        "corpus_advantage": 11.299875669743177,
+        "frame_interval": {
+          "hi": 10.709991503103957,
+          "lo": 9.370105420213585,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": 10.044536907819495
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": 10.044536907819495,
+        "kind": "microstate0",
+        "n_animals": 89,
+        "surrogate_advantage": 1.2553387619236804,
+        "what_is_matched": "a signal built from the corpus's own frames, preserving its dwell distribution with the visit order destroyed"
+      },
+      "n_effective": 89,
+      "reason": "the corpus beats its microstate0 surrogate: corpus +11.300 against microstate0 +1.255 nats/s, a gap of +10.045 [+9.370, +10.710] animal-level over 89 animals, interval excluding zero. Rung 1's advantage over rung 0 is not explained by quantizing a signal built from the corpus's own frames, preserving its dwell distribution with the visit order destroyed. This does NOT license 'the model learned behaviour' -- one alternative is not all of them.",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 256,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "microstate0"
+      },
+      "verdict": "PASS"
+    },
+    "microstate0_N512": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 13.876061961312995,
+          "lo": 12.162842481055586,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 13.030511623635041
+        },
+        "circular": 0,
+        "corpus_advantage": 8.916812395005419,
+        "frame_interval": {
+          "hi": 13.876061961312995,
+          "lo": 12.162842481055586,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": 13.030511623635041
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": 13.030511623635041,
+        "kind": "microstate0",
+        "n_animals": 89,
+        "surrogate_advantage": -4.113699228629622,
+        "what_is_matched": "a signal built from the corpus's own frames, preserving its dwell distribution with the visit order destroyed"
+      },
+      "n_effective": 89,
+      "reason": "the corpus beats its microstate0 surrogate: corpus +8.917 against microstate0 -4.114 nats/s, a gap of +13.031 [+12.163, +13.876] animal-level over 89 animals, interval excluding zero. Rung 1's advantage over rung 0 is not explained by quantizing a signal built from the corpus's own frames, preserving its dwell distribution with the visit order destroyed. This does NOT license 'the model learned behaviour' -- one alternative is not all of them.",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 512,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "microstate0"
+      },
+      "verdict": "PASS"
+    },
+    "microstate_N256": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 1.727607966377298,
+          "lo": 0.8986110022611312,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 1.3169139732039188
+        },
+        "circular": 1,
+        "corpus_advantage": 11.299875669743177,
+        "frame_interval": {
+          "hi": 1.727607966377298,
+          "lo": 0.8986110022611312,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": 1.3169139732039188
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": 1.3169139732039188,
+        "kind": "microstate",
+        "n_animals": 89,
+        "surrogate_advantage": 9.982961696539256,
+        "what_is_matched": "a signal built from the corpus's own frames, preserving both its dwell distribution and its one-step visit dynamics"
+      },
+      "n_effective": 89,
+      "reason": "the corpus beats its microstate surrogate: corpus +11.300 against microstate +9.983 nats/s, a gap of +1.317 [+0.899, +1.728] animal-level over 89 animals, interval excluding zero. Rung 1's advantage over rung 0 is not explained by quantizing a signal built from the corpus's own frames, preserving both its dwell distribution and its one-step visit dynamics. This does NOT license 'the model learned behaviour' -- one alternative is not all of them. READ THIS ONE WEAKLY: the arm preserves one-step visit dynamics and rung 1 IS a one-step model, so the two overlap by construction and the gap is a lower bound rather than a measurement",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 256,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "microstate"
+      },
+      "verdict": "PASS"
+    },
+    "microstate_N512": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 4.482836846255796,
+          "lo": 3.2997032270371833,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 3.88840120240152
+        },
+        "circular": 1,
+        "corpus_advantage": 8.916812395005419,
+        "frame_interval": {
+          "hi": 4.482836846255796,
+          "lo": 3.2997032270371833,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": 3.88840120240152
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": 3.88840120240152,
+        "kind": "microstate",
+        "n_animals": 89,
+        "surrogate_advantage": 5.028411192603899,
+        "what_is_matched": "a signal built from the corpus's own frames, preserving both its dwell distribution and its one-step visit dynamics"
+      },
+      "n_effective": 89,
+      "reason": "the corpus beats its microstate surrogate: corpus +8.917 against microstate +5.028 nats/s, a gap of +3.888 [+3.300, +4.483] animal-level over 89 animals, interval excluding zero. Rung 1's advantage over rung 0 is not explained by quantizing a signal built from the corpus's own frames, preserving both its dwell distribution and its one-step visit dynamics. This does NOT license 'the model learned behaviour' -- one alternative is not all of them. READ THIS ONE WEAKLY: the arm preserves one-step visit dynamics and rung 1 IS a one-step model, so the two overlap by construction and the gap is a lower bound rather than a measurement",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 512,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "microstate"
+      },
+      "verdict": "PASS"
+    },
     "phase_N256": {
       "degenerate": 0,
       "detail": {
@@ -182,6 +482,7 @@
           "n_units": 89,
           "point": -11.208093140351851
         },
+        "circular": 0,
         "corpus_advantage": 11.299875669743177,
         "frame_interval": {
           "hi": -10.66554219815539,
@@ -195,7 +496,8 @@
         "gap": -11.208093140351851,
         "kind": "phase",
         "n_animals": 89,
-        "surrogate_advantage": 22.50796881009503
+        "surrogate_advantage": 22.50796881009503,
+        "what_is_matched": "a smooth signal with the corpus's exact power spectrum and cross-spectrum"
       },
       "n_effective": 89,
       "reason": "the phase surrogate BEATS the corpus: corpus +11.300 against phase +22.508 nats/s, a gap of -11.208 [-11.753, -10.666] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
@@ -225,6 +527,7 @@
           "n_units": 89,
           "point": -13.756038879111703
         },
+        "circular": 0,
         "corpus_advantage": 8.916812395005419,
         "frame_interval": {
           "hi": -13.069607685469114,
@@ -238,7 +541,8 @@
         "gap": -13.756038879111703,
         "kind": "phase",
         "n_animals": 89,
-        "surrogate_advantage": 22.67285127411712
+        "surrogate_advantage": 22.67285127411712,
+        "what_is_matched": "a smooth signal with the corpus's exact power spectrum and cross-spectrum"
       },
       "n_effective": 89,
       "reason": "the phase surrogate BEATS the corpus: corpus +8.917 against phase +22.673 nats/s, a gap of -13.756 [-14.389, -13.070] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
@@ -268,6 +572,7 @@
           "n_units": 89,
           "point": -11.652531399657072
         },
+        "circular": 0,
         "corpus_advantage": 11.299875669743177,
         "frame_interval": {
           "hi": -11.143146694822843,
@@ -281,7 +586,8 @@
         "gap": -11.652531399657072,
         "kind": "var5",
         "n_animals": 89,
-        "surrogate_advantage": 22.952407069400248
+        "surrogate_advantage": 22.952407069400248,
+        "what_is_matched": "a VAR(5) fitted to each recording's own channels"
       },
       "n_effective": 89,
       "reason": "the var5 surrogate BEATS the corpus: corpus +11.300 against var5 +22.952 nats/s, a gap of -11.653 [-12.167, -11.143] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
@@ -311,6 +617,7 @@
           "n_units": 89,
           "point": -13.955859296870456
         },
+        "circular": 0,
         "corpus_advantage": 8.916812395005419,
         "frame_interval": {
           "hi": -13.275605574116245,
@@ -324,7 +631,8 @@
         "gap": -13.955859296870456,
         "kind": "var5",
         "n_animals": 89,
-        "surrogate_advantage": 22.872671691875873
+        "surrogate_advantage": 22.872671691875873,
+        "what_is_matched": "a VAR(5) fitted to each recording's own channels"
       },
       "n_effective": 89,
       "reason": "the var5 surrogate BEATS the corpus: corpus +8.917 against var5 +22.873 nats/s, a gap of -13.956 [-14.568, -13.276] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",

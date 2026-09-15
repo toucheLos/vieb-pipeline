@@ -1,9 +1,18 @@
 #!/bin/bash
 # The falsifier. One job per surrogate arm, running the WHOLE chain serially.
 #
-#     sbatch jobs/surrogate.slurm --kind phase
+#     sbatch jobs/surrogate.slurm --fit-microstate     # once, before the two
+#     sbatch jobs/surrogate.slurm --kind phase          #   visit-stitching arms
 #     sbatch jobs/surrogate.slurm --kind var5
+#     sbatch jobs/surrogate.slurm --kind microstate
+#     sbatch jobs/surrogate.slurm --kind microstate0
 #     python3 scripts/surrogate.py --combine
+#
+# --fit-microstate fits the null's own partition and pooled chain on the
+# CORPUS's tune split and writes work/surrogate/microstate_fit.npz. It is a
+# prerequisite for `microstate` and `microstate0` only. Two partitions exist in
+# this arm: that one is the null's internal granularity, and the tokenizer fits
+# its own on the surrogate afterwards.
 #
 # READ results/FALSIFIER_PREREGISTRATION.md FIRST. It was committed before any
 # surrogate was generated and it fixes the stopping rule: if the animal-level
@@ -36,14 +45,21 @@ source "$REPO/env.sh"
 python3 scripts/freeze.py
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 
-KIND=""
+KIND=""; FIT=0
 while [ $# -gt 0 ]; do
     case "$1" in
         --kind) KIND="$2"; shift 2 ;;
+        --fit-microstate) FIT=1; shift ;;
         *) shift ;;
     esac
 done
-[ -n "$KIND" ] || { echo "pass --kind phase|var5" >&2; exit 2; }
+if [ "$FIT" = "1" ]; then
+    echo "node=$(hostname) fit-microstate"
+    python3 scripts/surrogate.py --fit-microstate
+    echo "done: fit-microstate"
+    exit 0
+fi
+[ -n "$KIND" ] || { echo "pass --kind K or --fit-microstate" >&2; exit 2; }
 echo "node=$(hostname) kind=$KIND"
 
 ROOT="${VIEB_SURROGATE_ROOT:-$REPO/work/surrogate}/$KIND"

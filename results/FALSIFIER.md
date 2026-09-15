@@ -1,5 +1,22 @@
 # The falsifier fired. The transition-table claim is withdrawn.
 
+> ## Follow-up: `DWELL.md` resolved the confound this document could not
+>
+> Two more arms were run — `microstate` and `microstate0`, which preserve the
+> corpus's dwell distribution by stitching its own real visits. **The corpus
+> beats both**, at both N, on the same registered per-second statistic.
+>
+> With four arms the run-rate confound below is no longer a caveat but a
+> measurement: **the gap is monotone in the surrogate's run-rate ratio and
+> changes sign inside it** — 2.08× gives −11.2, 1.46× gives +10.0. And per run,
+> which needs no such correction, **the corpus beats all four arms**.
+>
+> **The verdict in this document stands as registered.** Per-second was the
+> registered statistic, per-run was registered as non-retroactive, and that
+> commitment is kept. What has changed is the evidence about whether per-second
+> was the right choice — which still needs its own registration, as §"the one
+> decision I am not taking alone" below already said.
+
 `FALSIFIER_PREREGISTRATION.md` was committed before any surrogate was generated.
 Its stopping rule, quoted from §7:
 
