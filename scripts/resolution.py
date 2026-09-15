@@ -39,6 +39,7 @@ from recur.util import log, peak_rss_gb, write_json               # noqa: E402
 from vieb.io import spine                                         # noqa: E402
 from vieb.tok import config, distortion as dz, ego                # noqa: E402
 from vieb.tok import frailty as fr, hazard as hz, ladder as ld    # noqa: E402
+from vieb.tok import homogeneity as hm                             # noqa: E402
 from vieb.tok import quantize as qz, rle                          # noqa: E402
 
 POSE_ARM, SCALE_ARM = "raw", "bodylen"
@@ -310,6 +311,64 @@ def frailty(args) -> int:
     return 0
 
 
+# --------------------------------------------------------------------------
+# 4. Symbol homogeneity
+# --------------------------------------------------------------------------
+
+def homogeneity(args) -> int:
+    arm, n = args.arm, int(args.n_states)
+    os.makedirs(tok_dir("resolution"), exist_ok=True)
+    t = load_runs(arm, n)
+    d = ld.prepare({"code": t["code"], "duration": t["duration"],
+                    "recording": t["recording"]}, n, abstain="conditioned")
+    keep = d["keep"]
+    animal, split = t["animal"][keep], t["split"][keep]
+    dist = t["mean_dist"][keep]
+
+    edges = hz.duration_grid(d["duration"][split == "tune"])
+    rep = split == "report"
+    code, dur = d["code"][rep], d["duration"][rep]
+    nxt, cen = d["next_state"][rep], d["censored"][rep]
+    ani, dst = animal[rep], dist[rep]
+    dbin = hz.bin_of(np.maximum(dur - 1, 0), edges)
+
+    # Quartiles are cut within (symbol, animal). An animal whose frames sit
+    # systematically far from every centroid would otherwise fill the far
+    # quartile of every symbol, and the test would be measuring that animal
+    # against the others rather than position within the cell.
+    tags, a_idx = np.unique(ani, return_inverse=True)
+    group = code.astype(np.int64) * int(tags.shape[0]) + a_idx
+    quart = hm.quartiles_within(dst, group)
+    log(f"[{arm} N={n}] report {code.shape[0]:,} runs, {tags.shape[0]} animals, "
+        f"{int((quart >= 0).sum()):,} runs in a quartile")
+
+    rows = hm.symbol_table(code, nxt, cen, dbin, quart, dur, n_states=n,
+                           n_dur_bins=int(edges.shape[0] - 1), seed=SEED)
+    log(f"[{arm} N={n}] {len(rows)} of {n} symbols testable at "
+        f"{hm.MIN_RUNS_PER_SYMBOL} runs")
+    agg = hm.aggregate(rows)
+    ci = hm.jackknife(rows, code, nxt, cen, quart, dur, ani, n_states=n,
+                      point=float(agg["excess"]), seed=SEED)
+    obj = {"dataset": "luna", "arm": arm, "n_states": n, "split": "report",
+           "pose_arm": POSE_ARM, "retired": True}
+    rd = hm.homogeneity_read(agg, ci, scored_object=obj,
+                             n_effective=int(tags.shape[0]))
+    doc = {**anchors.header(anchors.LUNA, stage="tok_homogeneity",
+                            unverified="report split only; the anchor counts all"),
+           "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
+           "pose_arm": POSE_ARM, "arm": arm, "n_states": n,
+           "retired_by_runlength": True,
+           "min_runs_per_symbol": hm.MIN_RUNS_PER_SYMBOL,
+           "n_perm": hm.N_PERM, "n_fix": hm.N_FIX,
+           "read": rd.to_dict(), "aggregate": agg, "animal_interval": ci,
+           "n_symbols_testable": len(rows), "n_symbols": n,
+           "per_symbol": rows[:64],
+           "peak_rss_gb": peak_rss_gb()}
+    write_json(doc, tok_dir("resolution", f"homogeneity_{arm}_N{n}.json"))
+    log(rd.line())
+    return 0
+
+
 def write_grid(args) -> int:
     os.makedirs(config.PATHS.grids_dir, exist_ok=True)
     path = config.PATHS.grid("resolution")
@@ -327,6 +386,7 @@ def main(argv=None) -> int:
     p.add_argument("--covariates", action="store_true")
     p.add_argument("--distortion", action="store_true")
     p.add_argument("--frailty", action="store_true")
+    p.add_argument("--homogeneity", action="store_true")
     p.add_argument("--combine", action="store_true")
     p.add_argument("--arm", choices=qz.ARMS, default=None)
     p.add_argument("--n-states", type=int, default=None)
@@ -352,8 +412,10 @@ def main(argv=None) -> int:
         return covariates(a)
     if a.distortion:
         return distortion(a)
+    if a.homogeneity:
+        return homogeneity(a)
     raise SystemExit("pass --write-grid, --covariates, --distortion, "
-                     "--frailty or --combine")
+                     "--homogeneity, --frailty or --combine")
 
 
 def combine(args) -> int:
@@ -362,16 +424,20 @@ def combine(args) -> int:
     for p in sorted(glob.glob(os.path.join(d, "distortion_*.json"))):
         with open(p, encoding="utf-8") as fh:
             cells.append(json.load(fh))
-    frail = []
+    frail, homo = [], []
     for p in sorted(glob.glob(os.path.join(d, "frailty_*.json"))):
         with open(p, encoding="utf-8") as fh:
             frail.append(json.load(fh))
+    for p in sorted(glob.glob(os.path.join(d, "homogeneity_*.json"))):
+        with open(p, encoding="utf-8") as fh:
+            homo.append(json.load(fh))
     if not cells:
         raise SystemExit(f"no distortion shards in {d}")
     doc = {**anchors.header(anchors.LUNA, stage="tok_resolution",
                             unverified="report split only"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "distortion": cells, "frailty": frail,
+           "homogeneity": homo,
            "peak_rss_gb": peak_rss_gb()}
     write_json(doc, args.out)
     for c in cells:
@@ -380,6 +446,12 @@ def combine(args) -> int:
     for f in frail:
         for k, rd in f["reads"].items():
             log(f"{f['arm']}_N{f['n_states']} {k}: {rd['verdict']}")
+    for h in homo:
+        log(f"{h['arm']}_N{h['n_states']} homogeneity: "
+            f"{h['read']['verdict']} excess "
+            f"{h['aggregate']['excess']:+.4f} "
+            f"[{h['animal_interval']['lo']:+.4f}, "
+            f"{h['animal_interval']['hi']:+.4f}]")
     log(f"wrote {args.out}")
     return 0
 
