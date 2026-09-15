@@ -1,5 +1,27 @@
 # Step 4 - the hazard ladder. Rung 2 does not beat rung 1, on any alphabet
 
+> ## WITHDRAWN IN PART - read `FALSIFIER.md` before P1
+>
+> **P1's reading is withdrawn.** "Rung 1 beats rung 0, so the transition table
+> carries real information" was the claim the surrogate falsifier was registered
+> against, and it **failed**: a phase-randomised signal with the same power
+> spectrum, and a VAR(5), both get roughly **twice** the corpus's advantage on
+> the identical pipeline. The numbers in this document are unchanged and
+> correctly computed; what is withdrawn is reading them as evidence of
+> sequential structure.
+>
+> `FALSIFIER.md` also records a run-rate confound in the registered statistic
+> that reverses the comparison when it is taken per run rather than per second,
+> and states plainly that switching statistics after the fact is not something
+> that may be done without its own registration.
+>
+> **Everything else here stands**, because none of it was the claim at risk:
+> rung 2's failure to beat rung 1 is a comparison between two models of the
+> corpus; `k* = 0`; the hazard shape; the parameter counts. The substantive
+> replacement finding is that **the corpus's whole advantage over a
+> spectrum-matched surrogate is dwell duration, not sequence** - which sits
+> consistently with rung 2 buying nothing and with `FRAILTY.md`.
+
 **The registered stopping rule fired.** `TOK_PREREGISTRATION.md` SS5: *if rung 2
 does not beat rung 1, stop and report. That is a complete finding - duration
 carries no information beyond the transition table on this corpus.* It does not

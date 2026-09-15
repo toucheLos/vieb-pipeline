@@ -1,0 +1,347 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "report split only; the anchor counts all"
+  },
+  "arm": "plain",
+  "cells": [
+    256,
+    512
+  ],
+  "comparisons": [
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -10.66554219815539,
+        "lo": -11.753153427959795,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": -11.208093140351851
+      },
+      "corpus_advantage": 11.299875669743177,
+      "frame_interval": {
+        "hi": -10.66554219815539,
+        "lo": -11.753153427959795,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": -11.208093140351851
+      },
+      "gap": -11.208093140351851,
+      "kind": "phase",
+      "n_animals": 89,
+      "n_better": 0,
+      "n_states": 256,
+      "surrogate_advantage": 22.50796881009503,
+      "verdict": "FAIL"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -11.143146694822843,
+        "lo": -12.167188484559489,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": -11.652531399657072
+      },
+      "corpus_advantage": 11.299875669743177,
+      "frame_interval": {
+        "hi": -11.143146694822843,
+        "lo": -12.167188484559489,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": -11.652531399657072
+      },
+      "gap": -11.652531399657072,
+      "kind": "var5",
+      "n_animals": 89,
+      "n_better": 0,
+      "n_states": 256,
+      "surrogate_advantage": 22.952407069400248,
+      "verdict": "FAIL"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -13.069607685469114,
+        "lo": -14.388513467049556,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": -13.756038879111703
+      },
+      "corpus_advantage": 8.916812395005419,
+      "frame_interval": {
+        "hi": -13.069607685469114,
+        "lo": -14.388513467049556,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": -13.756038879111703
+      },
+      "gap": -13.756038879111703,
+      "kind": "phase",
+      "n_animals": 89,
+      "n_better": 0,
+      "n_states": 512,
+      "surrogate_advantage": 22.67285127411712,
+      "verdict": "FAIL"
+    },
+    {
+      "animal_interval": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -13.275605574116245,
+        "lo": -14.56848326691993,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": -13.955859296870456
+      },
+      "corpus_advantage": 8.916812395005419,
+      "frame_interval": {
+        "hi": -13.275605574116245,
+        "lo": -14.56848326691993,
+        "method": "FRAME bootstrap -- anticonservative, for comparison only",
+        "n_boot": 2000,
+        "n_frames": 89,
+        "point": -13.955859296870456
+      },
+      "gap": -13.955859296870456,
+      "kind": "var5",
+      "n_animals": 89,
+      "n_better": 0,
+      "n_states": 512,
+      "surrogate_advantage": 22.872671691875873,
+      "verdict": "FAIL"
+    }
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "kinds": [
+    "phase",
+    "var5"
+  ],
+  "peak_rss_gb": 0.6044769287109375,
+  "pose_arm": "raw",
+  "preprocessing_freeze": "F3",
+  "reads": {
+    "phase_N256": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -10.66554219815539,
+          "lo": -11.753153427959795,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -11.208093140351851
+        },
+        "corpus_advantage": 11.299875669743177,
+        "frame_interval": {
+          "hi": -10.66554219815539,
+          "lo": -11.753153427959795,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": -11.208093140351851
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": -11.208093140351851,
+        "kind": "phase",
+        "n_animals": 89,
+        "surrogate_advantage": 22.50796881009503
+      },
+      "n_effective": 89,
+      "reason": "the phase surrogate BEATS the corpus: corpus +11.300 against phase +22.508 nats/s, a gap of -11.208 [-11.753, -10.666] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 256,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "phase"
+      },
+      "verdict": "FAIL"
+    },
+    "phase_N512": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -13.069607685469114,
+          "lo": -14.388513467049556,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -13.756038879111703
+        },
+        "corpus_advantage": 8.916812395005419,
+        "frame_interval": {
+          "hi": -13.069607685469114,
+          "lo": -14.388513467049556,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": -13.756038879111703
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": -13.756038879111703,
+        "kind": "phase",
+        "n_animals": 89,
+        "surrogate_advantage": 22.67285127411712
+      },
+      "n_effective": 89,
+      "reason": "the phase surrogate BEATS the corpus: corpus +8.917 against phase +22.673 nats/s, a gap of -13.756 [-14.389, -13.070] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 512,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "phase"
+      },
+      "verdict": "FAIL"
+    },
+    "var5_N256": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -11.143146694822843,
+          "lo": -12.167188484559489,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -11.652531399657072
+        },
+        "corpus_advantage": 11.299875669743177,
+        "frame_interval": {
+          "hi": -11.143146694822843,
+          "lo": -12.167188484559489,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": -11.652531399657072
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": -11.652531399657072,
+        "kind": "var5",
+        "n_animals": 89,
+        "surrogate_advantage": 22.952407069400248
+      },
+      "n_effective": 89,
+      "reason": "the var5 surrogate BEATS the corpus: corpus +11.300 against var5 +22.952 nats/s, a gap of -11.653 [-12.167, -11.143] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 256,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "var5"
+      },
+      "verdict": "FAIL"
+    },
+    "var5_N512": {
+      "degenerate": 0,
+      "detail": {
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -13.275605574116245,
+          "lo": -14.56848326691993,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -13.955859296870456
+        },
+        "corpus_advantage": 8.916812395005419,
+        "frame_interval": {
+          "hi": -13.275605574116245,
+          "lo": -14.56848326691993,
+          "method": "FRAME bootstrap -- anticonservative, for comparison only",
+          "n_boot": 2000,
+          "n_frames": 89,
+          "point": -13.955859296870456
+        },
+        "frame_interval_note": "printed to show how much narrower the wrong method looks; the verdict does not read it",
+        "gap": -13.955859296870456,
+        "kind": "var5",
+        "n_animals": 89,
+        "surrogate_advantage": 22.872671691875873
+      },
+      "n_effective": 89,
+      "reason": "the var5 surrogate BEATS the corpus: corpus +8.917 against var5 +22.873 nats/s, a gap of -13.956 [-14.568, -13.276] animal-level over 89 animals, interval excluding zero on the wrong side. Every ladder number is withdrawn",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plain",
+        "dataset": "luna",
+        "n_states": 512,
+        "pose_arm": "raw",
+        "retired": 1,
+        "split": "report",
+        "surrogate": "var5"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "registration": "results/FALSIFIER_PREREGISTRATION.md",
+  "retired_by_runlength": 1,
+  "stage": "tok_falsifier"
+}

@@ -17,10 +17,36 @@ programme and the cleaning work under it.
 | C | Before/after video | **rendered** | 42 clips, 4.6 MB, all h264 | `results/compare/` |
 | C2 | Publish to the VIEB Atlas | next | — | — |
 | 3 | Coarse alphabet + RLE, 8 cells | **done — STOPPED** | all 8 retired: median run **1.0 frame** · occupancy `PASS` in all 8 | `results/alphabet.json`, `ALPHABET.md`, `work/tok/` |
-| 4 | Rungs 0–2, hazard + MDL | **done — STOPPED** | rung 1 `PASS` at N≤512 · **rung 2 `FAIL` in all 16** · k\* = 0 | `results/ladder.json`, `LADDER.md`, `TOK_PREREGISTRATION.md` |
+| 4 | Rungs 0–2, hazard + MDL | **done — STOPPED** | rung 1 `PASS` at N≤512 (**withdrawn, see 7**) · **rung 2 `FAIL` in all 16** · k\* = 0 | `results/ladder.json`, `LADDER.md`, `TOK_PREREGISTRATION.md` |
+| 5 | Frailty: is the 148× fall mixing? | **done** | `PASS` — 0.756 [0.742, 0.769] of the log fall survives speed conditioning | `results/FRAILTY.md` |
+| 6 | Distortion + symbol homogeneity | **done** | all 8 alphabets **under-resolved**; N=256 is a compression preference | `results/RESOLUTION.md`, `resolution.json` |
+| 7 | **Surrogate falsifier** | **done — FAILED** | both surrogates BEAT the corpus on `rung1−rung0`; the transition-table claim is withdrawn | `results/FALSIFIER.md`, `FALSIFIER_PREREGISTRATION.md` |
+| 8 | Coarse sweep N ∈ {8…128} | **not run** | blocked by 7, as registered | — |
 
-**Tests:** 443 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 567 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
+
+## The falsifier fired, and what it leaves standing
+
+Both ego-space surrogates — phase randomisation and VAR(5), per recording, run
+through `scripts/quantize.py` and `scripts/ladder.py` unmodified on redirected
+paths — get roughly **twice** the corpus's `rung1 − rung0`. So that advantage is
+not evidence of sequential structure, and `LADDER.md`'s P1 reading is withdrawn.
+
+**The substantive replacement finding.** The corpus costs **45.7 nats/s** where
+its phase surrogate costs **86.9** — described in half the bits. But **per run**
+the corpus is more expensive, 5.127 against 4.806. Its entire compressibility
+advantage is that it has 2.1× fewer transitions per second.
+
+> The corpus's advantage over a spectrum-matched surrogate is **dwell duration,
+> and nothing else.** Per transition its symbol stream is no more predictable
+> than a structureless signal's. That sits consistently with rung 2 buying
+> nothing and with `FRAILTY.md`: the information is in how long, not what next.
+
+A run-rate confound in the registered statistic is recorded in `FALSIFIER.md` —
+it reverses the comparison per run — and amending the statistic after seeing that
+needs its own registration. The coarse sweep has **not** been started, as
+registered.
 
 ## Where Step 3 stopped, and why Step 4 is not built
 

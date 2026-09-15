@@ -42,8 +42,18 @@ class Paths:
     exbias_segments: str = "segments_v2"
 
     bones_dir: str = os.path.join(REPO, "work", "bones")
-    ego_dir: str = os.path.join(REPO, "work", "ego")
-    tok_dir: str = os.path.join(REPO, "work", "tok")
+    #: Overridable so the WHOLE tokenizer stack can be pointed at a different
+    #: tree without editing a line of it. That is what the surrogate falsifier
+    #: needs: `scripts/quantize.py` and `scripts/ladder.py` run unmodified on
+    #: `VIEB_EGO_DIR` / `VIEB_TOK_DIR`, so "the identical pipeline" is true by
+    #: construction rather than by inspection. A second implementation of a
+    #: stage is a second thing that can differ from the one it is a control for.
+    ego_dir: str = field(
+        default_factory=lambda: _env("VIEB_EGO_DIR",
+                                     os.path.join(REPO, "work", "ego")))
+    tok_dir: str = field(
+        default_factory=lambda: _env("VIEB_TOK_DIR",
+                                     os.path.join(REPO, "work", "tok")))
     grids_dir: str = os.path.join(REPO, "work", "grids")
     results_dir: str = os.path.join(REPO, "results")
 
