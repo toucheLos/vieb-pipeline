@@ -229,3 +229,48 @@ the result but a **sanity check on the threshold against the data it is applied
 to** — is this cut placed where any of the distribution actually is?
 
 Add that check wherever a threshold from one distribution is applied to another.
+
+## M9 — a blind panel leaks through whatever the render adds, not only through what it shows
+
+**What happened.** `island_clips.py` renders the island's 361 segments against a
+duration-matched control from the continuum, blind, with the arm held in a
+separate key. It draws the skeleton and marks **flagged frames** with a red
+border, so a viewer can see tracker failure rather than rating it as behaviour.
+
+Each clip is rendered at its segment's own extent **plus half a second either
+side** — padding, so a viewer sees the animal enter the state rather than opening
+mid-state. The flag mask was applied across the whole rendered range, padding
+included.
+
+Measured on the first render:
+
+| arm | clips carrying a flagged frame | flagged frames |
+|---|---:|---:|
+| control | **64 of 361** | 253 |
+| island | **2 of 361** | 2 |
+
+Inside the segments themselves, both arms measure **exactly zero** — a selected
+segment has `abstain_frac == 0` and the abstain mask contains the bone-violation
+mask. **Every one of those 255 frames lay in the padding.**
+
+So a red border in the lead-in was an **18% cue for "control"** in a panel whose
+entire purpose is that a viewer cannot tell the arms apart. Nothing about the
+units differed. The *render* differed, because the island's segments happen to
+sit in cleaner surrounding video than their duration-matched partners do.
+
+**The rule.** A blind is a property of everything the viewer receives, not only
+of the thing being compared. Anything a render **adds** around the unit — padding,
+overlays, captions, a poster, a filename — is part of the stimulus and has to be
+checked for class information as hard as the unit is. It is not enough that the
+quantity under test was matched.
+
+**What it cost, and what it would have cost.** Caught before publication by
+counting the marks per arm rather than in total; the fix marks only inside the
+segment, and both arms are now zero. Had the total alone been reported — "255
+flagged frames across 722 clips" — the asymmetry would have been invisible and
+the panel would have shipped with a working cue in it.
+
+**The second-order point.** The corrected overlay never fires. That is worth
+saying out loud on the page rather than leaving as an absence, because "no island
+clip contains a flagged frame" reads as a finding about freezing and is nothing
+of the kind: it is a property of the selection, true of the control too.
