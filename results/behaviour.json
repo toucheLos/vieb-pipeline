@@ -1,0 +1,841 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "one channel group per run"
+  },
+  "arena_clump0": {
+    "edgeness_in_clump0": 1.686774486753865,
+    "edgeness_other_segments": 3.6058146380287877,
+    "n_animals": 46,
+    "paired_difference": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": -0.8289178145082678,
+      "lo": -2.9534264858228747,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 46,
+      "n_boot": 2000,
+      "n_units": 46,
+      "point": -1.9190401512749222
+    },
+    "units": "IQR of the animal's own centroid cloud, as vieb/qc/concentration.py:edgeness defines it"
+  },
+  "bone_violations": "vacuous by construction and reported as such: a selected segment has abstain_frac == 0, and the abstain mask CONTAINS the skull bone-violation mask, so clump 0 holds zero flagged frames and so does every other segment. It cannot be a bone-violation artifact, and that is a property of the selection rather than a measured contrast",
+  "corpus": "luna",
+  "diameters": [
+    {
+      "clump": 0,
+      "diameter": 0.9031771254215327,
+      "diameter_over_theta": 4.754049036585477,
+      "median_pair": 0.39777470116585406,
+      "n_measured": 361,
+      "size": 361
+    },
+    {
+      "clump": 1,
+      "diameter": 0.664103534220792,
+      "diameter_over_theta": 3.49563853887668,
+      "median_pair": 0.32714485117801245,
+      "n_measured": 173,
+      "size": 173
+    },
+    {
+      "clump": 2,
+      "diameter": 0.5133270401334026,
+      "diameter_over_theta": 2.7019970412342946,
+      "median_pair": 0.28636589045897376,
+      "n_measured": 89,
+      "size": 89
+    },
+    {
+      "clump": 3,
+      "diameter": 0.3699632920522675,
+      "diameter_over_theta": 1.9473739786447668,
+      "median_pair": 0.1552554736330713,
+      "n_measured": 69,
+      "size": 69
+    },
+    {
+      "clump": 4,
+      "diameter": 0.40504780482618435,
+      "diameter_over_theta": 2.1320481576703525,
+      "median_pair": 0.2541858905249321,
+      "n_measured": 68,
+      "size": 68
+    },
+    {
+      "clump": 5,
+      "diameter": 0.3964221390328867,
+      "diameter_over_theta": 2.086645282641386,
+      "median_pair": 0.19880353402969844,
+      "n_measured": 60,
+      "size": 60
+    },
+    {
+      "clump": 6,
+      "diameter": 0.39958859507086114,
+      "diameter_over_theta": 2.10331254186775,
+      "median_pair": 0.172574975613551,
+      "n_measured": 45,
+      "size": 45
+    },
+    {
+      "clump": 7,
+      "diameter": 0.24198452601767662,
+      "diameter_over_theta": 1.273732771128375,
+      "median_pair": 0.14928905415504132,
+      "n_measured": 44,
+      "size": 44
+    },
+    {
+      "clump": 8,
+      "diameter": 0.24106851218183506,
+      "diameter_over_theta": 1.2689111535616666,
+      "median_pair": 0.10106880062147001,
+      "n_measured": 39,
+      "size": 39
+    },
+    {
+      "clump": 9,
+      "diameter": 0.30598237598821737,
+      "diameter_over_theta": 1.610597942347134,
+      "median_pair": 0.14861208908523976,
+      "n_measured": 33,
+      "size": 33
+    },
+    {
+      "clump": 10,
+      "diameter": 0.43506553374132173,
+      "diameter_over_theta": 2.290052331173849,
+      "median_pair": 0.2065194576066957,
+      "n_measured": 32,
+      "size": 32
+    },
+    {
+      "clump": 11,
+      "diameter": 0.37563646102920667,
+      "diameter_over_theta": 1.9772358105602026,
+      "median_pair": 0.16096294882527762,
+      "n_measured": 28,
+      "size": 28
+    },
+    {
+      "clump": 12,
+      "diameter": 0.4353682643373883,
+      "diameter_over_theta": 2.2916458127380586,
+      "median_pair": 0.24468194963021073,
+      "n_measured": 26,
+      "size": 26
+    },
+    {
+      "clump": 13,
+      "diameter": 0.30410477526738755,
+      "diameter_over_theta": 1.6007148245768659,
+      "median_pair": 0.06992804651700571,
+      "n_measured": 24,
+      "size": 24
+    },
+    {
+      "clump": 14,
+      "diameter": 0.3015237315220952,
+      "diameter_over_theta": 1.58712899718452,
+      "median_pair": 0.1111804412914515,
+      "n_measured": 23,
+      "size": 23
+    },
+    {
+      "clump": 15,
+      "diameter": 0.32063152366692804,
+      "diameter_over_theta": 1.687706589641837,
+      "median_pair": 0.17105722062600837,
+      "n_measured": 21,
+      "size": 21
+    },
+    {
+      "clump": 16,
+      "diameter": 0.27253219897403547,
+      "diameter_over_theta": 1.4345264085008076,
+      "median_pair": 0.15241431032234415,
+      "n_measured": 21,
+      "size": 21
+    },
+    {
+      "clump": 17,
+      "diameter": 0.25718557559675614,
+      "diameter_over_theta": 1.3537464617682733,
+      "median_pair": 0.16202142784870827,
+      "n_measured": 20,
+      "size": 20
+    },
+    {
+      "clump": 18,
+      "diameter": 0.39875443236934516,
+      "diameter_over_theta": 2.098921763718174,
+      "median_pair": 0.1889123017149833,
+      "n_measured": 20,
+      "size": 20
+    }
+  ],
+  "duration_s": {
+    "clump0": {
+      "max": 64.96666666666667,
+      "mean": 3.920036934441366,
+      "min": 0.5333333333333333,
+      "n": 361,
+      "p1": 0.5333333333333333,
+      "p10": 0.6,
+      "p25": 0.8,
+      "p50": 1.3,
+      "p75": 3.6333333333333333,
+      "p90": 9.8,
+      "p99": 35.38666666666641
+    },
+    "corpus": {
+      "max": 151.23333333333332,
+      "mean": 2.170642358682644,
+      "min": 0.5333333333333333,
+      "n": 64341,
+      "p1": 0.5333333333333333,
+      "p10": 0.5666666666666667,
+      "p25": 0.6666666666666666,
+      "p50": 0.9333333333333333,
+      "p75": 2.0,
+      "p90": 4.7,
+      "p99": 18.666666666666668
+    }
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "group": "shape",
+  "inherited_digest": "198eb14ff258c7f6",
+  "k_mad": 3.0,
+  "n_assigned": 1196,
+  "n_segments": 64341,
+  "open_end": {
+    "clump": 0,
+    "mean_abs_log_duration_gap_of_pairs": 1.3004879806872842,
+    "median_open_end": 0.7160303226365179,
+    "median_time_normalised": 0.17343394458293915,
+    "n": 361,
+    "note": "the primary warps and so is blind to duration; the secondary compares the shared extent and is not. Disagreement measures how much of the clumping is tempo-invariance rather than shape",
+    "spearman": 0.6161100993250791
+  },
+  "reads": {
+    "chaining": {
+      "degenerate": 0,
+      "detail": {
+        "limit": 3.0,
+        "median_diameter_over_theta": 1.9772358105602026,
+        "n_clumps": 19,
+        "n_over_limit": 2,
+        "rows": [
+          {
+            "clump": 0,
+            "diameter": 0.9031771254215327,
+            "diameter_over_theta": 4.754049036585477,
+            "median_pair": 0.39777470116585406,
+            "n_measured": 361,
+            "size": 361
+          },
+          {
+            "clump": 1,
+            "diameter": 0.664103534220792,
+            "diameter_over_theta": 3.49563853887668,
+            "median_pair": 0.32714485117801245,
+            "n_measured": 173,
+            "size": 173
+          },
+          {
+            "clump": 2,
+            "diameter": 0.5133270401334026,
+            "diameter_over_theta": 2.7019970412342946,
+            "median_pair": 0.28636589045897376,
+            "n_measured": 89,
+            "size": 89
+          },
+          {
+            "clump": 3,
+            "diameter": 0.3699632920522675,
+            "diameter_over_theta": 1.9473739786447668,
+            "median_pair": 0.1552554736330713,
+            "n_measured": 69,
+            "size": 69
+          },
+          {
+            "clump": 4,
+            "diameter": 0.40504780482618435,
+            "diameter_over_theta": 2.1320481576703525,
+            "median_pair": 0.2541858905249321,
+            "n_measured": 68,
+            "size": 68
+          },
+          {
+            "clump": 5,
+            "diameter": 0.3964221390328867,
+            "diameter_over_theta": 2.086645282641386,
+            "median_pair": 0.19880353402969844,
+            "n_measured": 60,
+            "size": 60
+          },
+          {
+            "clump": 6,
+            "diameter": 0.39958859507086114,
+            "diameter_over_theta": 2.10331254186775,
+            "median_pair": 0.172574975613551,
+            "n_measured": 45,
+            "size": 45
+          },
+          {
+            "clump": 7,
+            "diameter": 0.24198452601767662,
+            "diameter_over_theta": 1.273732771128375,
+            "median_pair": 0.14928905415504132,
+            "n_measured": 44,
+            "size": 44
+          },
+          {
+            "clump": 8,
+            "diameter": 0.24106851218183506,
+            "diameter_over_theta": 1.2689111535616666,
+            "median_pair": 0.10106880062147001,
+            "n_measured": 39,
+            "size": 39
+          },
+          {
+            "clump": 9,
+            "diameter": 0.30598237598821737,
+            "diameter_over_theta": 1.610597942347134,
+            "median_pair": 0.14861208908523976,
+            "n_measured": 33,
+            "size": 33
+          },
+          {
+            "clump": 10,
+            "diameter": 0.43506553374132173,
+            "diameter_over_theta": 2.290052331173849,
+            "median_pair": 0.2065194576066957,
+            "n_measured": 32,
+            "size": 32
+          },
+          {
+            "clump": 11,
+            "diameter": 0.37563646102920667,
+            "diameter_over_theta": 1.9772358105602026,
+            "median_pair": 0.16096294882527762,
+            "n_measured": 28,
+            "size": 28
+          },
+          {
+            "clump": 12,
+            "diameter": 0.4353682643373883,
+            "diameter_over_theta": 2.2916458127380586,
+            "median_pair": 0.24468194963021073,
+            "n_measured": 26,
+            "size": 26
+          },
+          {
+            "clump": 13,
+            "diameter": 0.30410477526738755,
+            "diameter_over_theta": 1.6007148245768659,
+            "median_pair": 0.06992804651700571,
+            "n_measured": 24,
+            "size": 24
+          },
+          {
+            "clump": 14,
+            "diameter": 0.3015237315220952,
+            "diameter_over_theta": 1.58712899718452,
+            "median_pair": 0.1111804412914515,
+            "n_measured": 23,
+            "size": 23
+          },
+          {
+            "clump": 15,
+            "diameter": 0.32063152366692804,
+            "diameter_over_theta": 1.687706589641837,
+            "median_pair": 0.17105722062600837,
+            "n_measured": 21,
+            "size": 21
+          },
+          {
+            "clump": 16,
+            "diameter": 0.27253219897403547,
+            "diameter_over_theta": 1.4345264085008076,
+            "median_pair": 0.15241431032234415,
+            "n_measured": 21,
+            "size": 21
+          },
+          {
+            "clump": 17,
+            "diameter": 0.25718557559675614,
+            "diameter_over_theta": 1.3537464617682733,
+            "median_pair": 0.16202142784870827,
+            "n_measured": 20,
+            "size": 20
+          },
+          {
+            "clump": 18,
+            "diameter": 0.39875443236934516,
+            "diameter_over_theta": 2.098921763718174,
+            "median_pair": 0.1889123017149833,
+            "n_measured": 20,
+            "size": 20
+          }
+        ],
+        "worst_diameter_over_theta": 4.754049036585477
+      },
+      "n_effective": 89,
+      "reason": "the clumps are groups rather than chains: median diameter 2.0x the linking distance, worst 4.8x, with 2 of 19 over the 3x limit",
+      "saturation": null,
+      "scored_object": {
+        "arm": "behaviour",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "PASS"
+    },
+    "chaining_clump0": {
+      "degenerate": 0,
+      "detail": {
+        "clump": 0,
+        "diameter": 0.9031771254215327,
+        "diameter_over_theta": 4.754049036585477,
+        "median_pair": 0.39777470116585406,
+        "n_measured": 361,
+        "size": 361
+      },
+      "n_effective": 89,
+      "reason": "CLUMP 0 IS A CHAIN, not a group: its widest pair sits 4.8x the linking distance apart and its TYPICAL pair sits 0.398 apart against a linking distance of 0.190 -- 2.1x. Single linkage joins A to C through B however far apart A and C are, so its members are not one thing and it must not be named as one behaviour",
+      "saturation": null,
+      "scored_object": {
+        "arm": "behaviour",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "FAIL"
+    },
+    "speed_clump0": {
+      "degenerate": 0,
+      "detail": {
+        "clump": 0,
+        "mean_speed_inside": 0.08875978285737066,
+        "n_animals": 46,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3369542762736574,
+          "lo": 0.22260592110346417,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.27153803989123193
+        }
+      },
+      "n_effective": 89,
+      "reason": "clump 0 is SLOWER than the same animals' other segments: speed ratio 0.272 [0.223, 0.337] over 46 animals, paired within animal. In a fear-conditioning corpus that is what immobility looks like -- and it is also what a flat-line tracking artifact looks like, which the clip render is for",
+      "saturation": null,
+      "scored_object": {
+        "arm": "behaviour",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "PASS"
+    }
+  },
+  "session_clump0": {
+    "clump": 0,
+    "confound_note": "context and day are completely confounded in this corpus -- one session factor, not two",
+    "context": {
+      "counts": {
+        "A": 266,
+        "B": 94,
+        "C": 1
+      },
+      "n_levels": 3,
+      "top_share": 0.7368421052631579
+    },
+    "date": {
+      "counts": {
+        "20241219": 13,
+        "20251028": 14,
+        "20251029": 20,
+        "20251030": 13,
+        "20251031": 40,
+        "20260415": 13,
+        "20260416": 22,
+        "20260417": 19
+      },
+      "n_levels": 59,
+      "top_share": 0.11080332409972299
+    },
+    "day": {
+      "counts": {
+        "1": 2,
+        "2": 1,
+        "3": 30,
+        "4": 54,
+        "5": 91,
+        "6": 89,
+        "7": 94
+      },
+      "n_levels": 7,
+      "top_share": 0.26038781163434904
+    },
+    "n": 361
+  },
+  "speed": {
+    "clumps": [
+      {
+        "clump": 0,
+        "mean_speed_inside": 0.08875978285737066,
+        "n_animals": 46,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3369542762736574,
+          "lo": 0.22260592110346417,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.27153803989123193
+        }
+      },
+      {
+        "clump": 1,
+        "mean_speed_inside": 0.09991894981222903,
+        "n_animals": 23,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.4486424882562282,
+          "lo": 0.27504056867145715,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 23,
+          "n_boot": 2000,
+          "n_units": 23,
+          "point": 0.35607119290492567
+        }
+      },
+      {
+        "clump": 2,
+        "mean_speed_inside": 0.08395324480896474,
+        "n_animals": 16,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3824311123572999,
+          "lo": 0.20617991457248167,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 16,
+          "n_boot": 2000,
+          "n_units": 16,
+          "point": 0.2918627661000329
+        }
+      },
+      {
+        "clump": 3,
+        "mean_speed_inside": 0.03212414332754384,
+        "n_animals": 6,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.37098471649169246,
+          "lo": 0.13134996639810997,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 6,
+          "n_boot": 2000,
+          "n_units": 6,
+          "point": 0.25267669850553537
+        }
+      },
+      {
+        "clump": 4,
+        "mean_speed_inside": 0.05507084650286718,
+        "n_animals": 13,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3828848573624654,
+          "lo": 0.16403747108808997,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 13,
+          "n_boot": 2000,
+          "n_units": 13,
+          "point": 0.27096675242812596
+        }
+      },
+      {
+        "clump": 5,
+        "mean_speed_inside": 0.07309907442142966,
+        "n_animals": 5,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2237628797712489,
+          "lo": 0.07302753292017891,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 5,
+          "n_boot": 2000,
+          "n_units": 5,
+          "point": 0.15052604547204768
+        }
+      },
+      {
+        "clump": 6,
+        "mean_speed_inside": 0.05122041229640141,
+        "n_animals": 6,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.4367477297154747,
+          "lo": 0.11353810915241776,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 6,
+          "n_boot": 2000,
+          "n_units": 6,
+          "point": 0.264400498258828
+        }
+      },
+      {
+        "clump": 7,
+        "mean_speed_inside": 0.025836971375850303,
+        "n_animals": 2,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.12930822798526548,
+          "lo": 0.05122049997589918,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 2,
+          "n_boot": 2000,
+          "n_units": 2,
+          "point": 0.09026436398058232
+        }
+      },
+      {
+        "clump": 8,
+        "mean_speed_inside": 0.0388229596847369,
+        "n_animals": 2,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.20389005103275315,
+          "lo": 0.09824446566209115,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 2,
+          "n_boot": 2000,
+          "n_units": 2,
+          "point": 0.15106725834742216
+        }
+      },
+      {
+        "clump": 9,
+        "mean_speed_inside": 0.02801185587232834,
+        "n_animals": 2,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.19083005363452163,
+          "lo": 0.03879809587209998,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 2,
+          "n_boot": 2000,
+          "n_units": 2,
+          "point": 0.1148140747533108
+        }
+      },
+      {
+        "clump": 10,
+        "mean_speed_inside": 0.09325387010698777,
+        "n_animals": 5,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.36285462583282213,
+          "lo": 0.21770380023007024,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 5,
+          "n_boot": 2000,
+          "n_units": 5,
+          "point": 0.29431824348329827
+        }
+      },
+      {
+        "clump": 11,
+        "mean_speed_inside": 0.14897627278328068,
+        "n_animals": 5,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.6460119606776107,
+          "lo": 0.2733081977462306,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 5,
+          "n_boot": 2000,
+          "n_units": 5,
+          "point": 0.4468984181290251
+        }
+      },
+      {
+        "clump": 12,
+        "mean_speed_inside": 0.1558631086124735,
+        "n_animals": 11,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5638994586725316,
+          "lo": 0.2531667430196627,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 11,
+          "n_boot": 2000,
+          "n_units": 11,
+          "point": 0.38720724746641005
+        }
+      },
+      {
+        "clump": 13,
+        "mean_speed_inside": 0.12972895652423494,
+        "n_animals": 4,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7777100451776743,
+          "lo": 0.3179326425058824,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 4,
+          "n_boot": 2000,
+          "n_units": 4,
+          "point": 0.5021312004926005
+        }
+      },
+      {
+        "clump": 14,
+        "mean_speed_inside": 0.0590862468979617,
+        "n_animals": 4,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5258266146659941,
+          "lo": 0.13737752565048594,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 4,
+          "n_boot": 2000,
+          "n_units": 4,
+          "point": 0.33160207015824006
+        }
+      },
+      {
+        "clump": 15,
+        "mean_speed_inside": 0.04788403816921708,
+        "n_animals": 6,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.4826313418571749,
+          "lo": 0.10285791420525058,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 6,
+          "n_boot": 2000,
+          "n_units": 6,
+          "point": 0.2733940727375524
+        }
+      },
+      {
+        "clump": 16,
+        "mean_speed_inside": 0.12818084312767372,
+        "n_animals": 2,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.6060518325409775,
+          "lo": 0.30961879700039807,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 2,
+          "n_boot": 2000,
+          "n_units": 2,
+          "point": 0.4578353147706878
+        }
+      },
+      {
+        "clump": 17,
+        "mean_speed_inside": 0.01524297540508861,
+        "n_animals": 2,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.05720160315441383,
+          "lo": 0.03125949401074214,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 2,
+          "n_boot": 2000,
+          "n_units": 2,
+          "point": 0.04423054858257799
+        }
+      },
+      {
+        "clump": 18,
+        "mean_speed_inside": 0.24494333015446745,
+        "n_animals": 5,
+        "speed_ratio_within_animal": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5252305469521337,
+          "lo": 0.15827642879001697,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 5,
+          "n_boot": 2000,
+          "n_units": 5,
+          "point": 0.34175348787107535
+        }
+      }
+    ],
+    "corpus_mean_speed": 0.4761092180824487
+  },
+  "stage": "behaviour",
+  "theta": 0.18998060778738327
+}

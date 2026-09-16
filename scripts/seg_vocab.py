@@ -54,6 +54,11 @@ ARMS: tuple[str, ...] = ("corpus",) + rc.NULLS
 SEED = 0
 
 
+#: The cell whose characterisation is promoted into results/.
+#: `shape` is the arm that recurs; twist does not.
+PRIMARY_GROUP = "shape"
+
+
 def out_dir() -> str:
     return os.path.join(config.PATHS.tok_dir, "seg_vocab")
 
@@ -380,6 +385,14 @@ def characterise(args) -> int:
                           "corpus": _describe(nfr / fps)}}
     write_json(doc, os.path.join(out_dir(),
                                  f"{args.group}__k{args.k_mad:g}__behaviour.json"))
+    # The same document, in the INDEXED tree. `work/` is gitignored and is not
+    # in the atlas's `Repo.result_dirs`, so nothing written only there can ever
+    # become a record -- which is why the island's "3.7x slower" and "2.1x the
+    # linking distance" were quotable in prose and unquotable as numbers. Only
+    # the primary cell is promoted; a sweep cell would collide on the filename.
+    if args.group == PRIMARY_GROUP and args.k_mad == rc.K_MAD_PRIMARY:
+        write_json(doc, config.PATHS.result("behaviour.json"))
+        log("  also wrote results/behaviour.json (the indexed copy)")
     log(f"wrote {args.group} characterisation")
     return 0
 

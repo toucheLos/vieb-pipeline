@@ -189,3 +189,51 @@ def test_published_manifest_carries_no_answer():
     for row in doc["clips"]:
         by_trial.setdefault(row["trial"], set()).add(row["duration_s"])
     assert all(len(v) == 1 for v in by_trial.values())
+
+
+def test_island_manifest_carries_no_arm_and_no_absolute_path():
+    """The published island panel is blind, and carries no path off this machine.
+
+    The arm lives only in `results/island/key.json`, which is not published. And
+    a manifest that records the absolute path it was built from ships a path
+    that exists on exactly one computer -- every clip link on the site was once
+    `file:///home/tul26194/recur/...` and broken for every visitor.
+    """
+    import json
+    import os
+
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(root, "results", "island", "manifest.json")
+    if not os.path.exists(path):
+        return                       # nothing rendered in this checkout
+    with open(path, encoding="utf-8") as fh:
+        doc = json.load(fh)
+    # Scoped to the rows that get PUBLISHED. `anchors.header` records the
+    # interpreter's absolute path as provenance in every result document in this
+    # repo, deliberately; `sync_assets.py` rebuilds the site's manifest from the
+    # rows alone and never carries the header across.
+    blob = json.dumps(doc["clips"])
+    for bad in ("/home/", "file://", "C:\\"):
+        assert bad not in blob, bad
+    for row in doc["clips"]:
+        assert "arm" not in row and "a" not in row and "b" not in row
+        # check.py refuses a clip with no animal or recording id.
+        assert row["animal"] is not None and row["recording_id"] is not None
+        assert row["file"].startswith("clips/")
+
+
+def test_island_key_is_balanced_and_separate():
+    """The key is the only place the arm exists, and it is two equal halves."""
+    import collections
+    import json
+    import os
+
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(root, "results", "island", "key.json")
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as fh:
+        key = json.load(fh)["key"]
+    n = collections.Counter(r["arm"] for r in key)
+    assert set(n) == {"island", "control"}
+    assert n["island"] == n["control"]
