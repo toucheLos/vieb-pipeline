@@ -1,0 +1,201 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "one clump, one contrast"
+  },
+  "clump": 0,
+  "confound_note": "context and day are completely confounded in the whole-corpus marginal grouping -- Context C occurs only on Day 2 -- and that is why C and day 2 are excluded here. On days 3-7 every animal sees both A and B, so the confounded factor does not enter this contrast",
+  "contexts": [
+    "A",
+    "B"
+  ],
+  "contrast": {
+    "ci": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": -0.0024324024793461172,
+      "lo": -0.015197907015411752,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 89,
+      "n_boot": 2000,
+      "n_units": 439,
+      "point": -0.008114690381327477
+    },
+    "flip": {
+      "method": "within-(animal, day) pair sign flip; an animal-level label permutation is degenerate on this paired design",
+      "n_pairs": 439,
+      "n_perm": 2000,
+      "null_mean": 1.315897429096091e-05,
+      "null_sd": 0.003157453868247826,
+      "observed": -0.008114690381327477,
+      "p_two_sided": 0.005
+    },
+    "frame_interval_for_comparison_only": {
+      "hi": -0.002569042360590589,
+      "lo": -0.014545687304699965,
+      "method": "FRAME bootstrap -- anticonservative, for comparison only",
+      "n_boot": 2000,
+      "n_frames": 439,
+      "point": -0.008114690381327477
+    },
+    "mean_occupancy_A": 0.012754413092408386,
+    "mean_occupancy_B": 0.004697829376649968,
+    "mean_signed_diff": -0.008114690381327477,
+    "n_pairs": 439,
+    "width_ratio": 1.0658664922970982
+  },
+  "corpus": "luna",
+  "days": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "group": "shape",
+  "inherited_digest": "198eb14ff258c7f6",
+  "k_mad": 3.0,
+  "n_animals": 89,
+  "plausible_effect": 0.02,
+  "reads": {
+    "cohort": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 89,
+      "reason": "89 report animals contribute at least one (animal, day) cell holding both contexts on days 3-7; 439 cells, 2 dropped as incomplete",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_context",
+        "clump": 0,
+        "contrast": "CFD d3-7 context B minus A",
+        "dataset": "luna",
+        "days": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "PASS"
+    },
+    "context": {
+      "degenerate": 0,
+      "detail": {
+        "ci": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.0024324024793461172,
+          "lo": -0.015197907015411752,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 439,
+          "point": -0.008114690381327477
+        },
+        "clump": 0,
+        "flip": {
+          "method": "within-(animal, day) pair sign flip; an animal-level label permutation is degenerate on this paired design",
+          "n_pairs": 439,
+          "n_perm": 2000,
+          "null_mean": 1.315897429096091e-05,
+          "null_sd": 0.003157453868247826,
+          "observed": -0.008114690381327477,
+          "p_two_sided": 0.005
+        },
+        "mean_occupancy_A": 0.012754413092408386,
+        "mean_occupancy_B": 0.004697829376649968,
+        "n_pairs": 439
+      },
+      "n_effective": 89,
+      "reason": "THE ISLAND MOVES WITH CONTEXT: occupancy B \u2212 A = -0.00811 [-0.01520, -0.00243] over 89 animals and 439 (animal, day) cells, pair-flip p = 0.0050. Occupancy is higher in context A, within animal and day, on days 3-7 where both contexts are present. This is the experimental design rather than appearance \u2014 and it still does not name the state, which needs the context-to-shock mapping this repository does not hold",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_context",
+        "clump": 0,
+        "contrast": "CFD d3-7 context B minus A",
+        "dataset": "luna",
+        "days": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "PASS"
+    },
+    "mde": {
+      "degenerate": 0,
+      "detail": {
+        "alpha": 0.05,
+        "mde": 0.008701918182935772,
+        "n_pairs": 439,
+        "plausible_effect": 0.02,
+        "power": 0.8,
+        "within_sd": 0.06507938174534672
+      },
+      "n_effective": 89,
+      "reason": "MDE = 0.0087 at 80% power over 439 pairs, below the 0.0200 that would count as a biological effect, so a null here would be informative",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_context_mde",
+        "clump": 0,
+        "contrast": "CFD d3-7 context B minus A",
+        "dataset": "luna",
+        "days": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "registration": "results/FREEZING_PREREGISTRATION.md",
+  "stage": "seg_context",
+  "within_sd": 0.06507938174534672
+}
