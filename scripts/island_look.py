@@ -3,6 +3,7 @@
     python3 scripts/island_look.py --build            # trials, clips, sheets, key
     #   ... read the sheets, write scores.json ...
     python3 scripts/island_look.py --score scores.json
+    python3 scripts/island_look.py --manifest   # blind manifest for the site
 
 READ results/ISLAND_LOOK_PREREGISTRATION.md FIRST.
 
@@ -39,7 +40,8 @@ from recur.render import video as vid                               # noqa: E402
 from recur.util import log, write_json                              # noqa: E402
 from vieb.clean import arms as clean_arms                           # noqa: E402
 from vieb.io import spine                                           # noqa: E402
-from vieb.seg import breaks as bk, embed, triad as tr               # noqa: E402
+from vieb.seg import breaks as bk, embed                            # noqa: E402
+from vieb.seg import triad as tr                                    # noqa: E402
 from vieb.tok import config                                         # noqa: E402
 
 GROUP, K_MAD, CLUMP = "shape", 3.0, 0
@@ -326,12 +328,78 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--build", action="store_true")
     p.add_argument("--score", default=None)
+    p.add_argument("--manifest", action="store_true",
+                   help="write the blind publication manifest for the site")
     a = p.parse_args(argv)
     if a.build:
         return build(a)
     if a.score:
         return score(a)
-    raise SystemExit("pass --build or --score")
+    if a.manifest:
+        return manifest(a)
+    raise SystemExit("pass --build, --score or --manifest")
+
+
+
+
+# --------------------------------------------------------------------------
+# The publication manifest — the same trials, with the answers removed
+# --------------------------------------------------------------------------
+
+#: Every key of a key.json trial that would tell a reader the answer, or let
+#: them infer it. `arm` and `type` are not the answer, but they partition the
+#: trials into the two questions the design asks and a reader who sees them can
+#: treat the arms differently; `speed` is the island's single strongest cue at
+#: 0.205x, so a published speed is the answer in a column.
+LEAKS = ("odd_position", "odd_is", "arm", "type", "index", "speed",
+         "a", "b", "n_frames")
+
+
+def manifest(args) -> int:
+    """Write the blind publication manifest over the clips already rendered.
+
+    The site publishes the instrument, not the result: trials in key order, no
+    arm, no trial type, no odd position, nothing that separates an island clip
+    from a control. That is what makes the published page scoreable by someone
+    who is not this session — which, after this session failed the positive
+    control, is the only way the question gets answered.
+    """
+    with open(os.path.join(out_dir(), "key.json"), encoding="utf-8") as fh:
+        doc = json.load(fh)
+    fps = spine.fps()
+    rows: list = []
+    for t in doc["trials"]:
+        secs = round(int(t["clip_frames"]) / fps, 3)
+        for j, c in enumerate(t["clips"]):
+            rel = os.path.join("clips", f"{t['id']}_{j}_plain.mp4")
+            skel = os.path.join("clips", f"{t['id']}_{j}_skel.mp4")
+            if not all(os.path.exists(os.path.join(out_dir(), p))
+                       for p in (rel, skel)):
+                continue
+            rows.append({
+                "trial": int(t["n"]), "id": t["id"], "pos": "ABC"[j],
+                "file": rel, "skel": skel,
+                "animal": c["animal"], "recording_id": c["recording_id"],
+                # The CLIP's duration, which is equal across the three members
+                # by construction, not the source segment's -- that differs by
+                # class and would be the cue `hstack3` exists to remove.
+                "duration_s": secs,
+                "bytes": os.path.getsize(os.path.join(out_dir(), rel)),
+            })
+    for r in rows:
+        assert not (set(r) & set(LEAKS)), sorted(set(r) & set(LEAKS))
+    out = os.path.join(out_dir(), "manifest.json")
+    write_json({**anchors.header(anchors.LUNA, stage="island_look_manifest",
+                                 unverified="a curated trial set"),
+                "inherited_digest": spine.digest(),
+                "registration": "results/ISLAND_LOOK_PREREGISTRATION.md",
+                "blind": ("trials in key order; no arm, no trial type, no odd "
+                          "position, no per-segment speed"),
+                "n_trials": len({r["trial"] for r in rows}),
+                "clips": rows}, out)
+    log(f"  {len(rows)} clips across {len({r['trial'] for r in rows})} trials")
+    log(f"  wrote {out}")
+    return 0
 
 
 if __name__ == "__main__":

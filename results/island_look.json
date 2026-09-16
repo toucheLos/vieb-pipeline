@@ -1,0 +1,2803 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a curated trial set"
+  },
+  "chance": 0.3333333333333333,
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_scored": 180,
+  "plausible_lift": 0.2,
+  "reads": {
+    "matched|both": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.3888888888888889,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5,
+          "lo": 0.27380952380952384,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 90,
+          "point": 0.3888888888888889
+        },
+        "chance": 0.3333333333333333,
+        "n": 90,
+        "n_correct": 35
+      },
+      "n_effective": 68,
+      "reason": "matched/both: the scorer does not beat chance \u2014 35/90 = 38.9% against chance 33.3%, animal-clustered interval [0.274, 0.500] over 46 animals, an interval that includes chance",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "matched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "both"
+      },
+      "verdict": "FAIL"
+    },
+    "matched|control_pair": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.28888888888888886,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.42005555555555524,
+          "lo": 0.16216216216216217,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 34,
+          "n_boot": 2000,
+          "n_units": 45,
+          "point": 0.28888888888888886
+        },
+        "chance": 0.3333333333333333,
+        "n": 45,
+        "n_correct": 13
+      },
+      "n_effective": 57,
+      "reason": "matched/control_pair: the scorer does not beat chance \u2014 13/45 = 28.9% against chance 33.3%, animal-clustered interval [0.162, 0.420] over 34 animals, an interval that includes chance",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "matched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "control_pair"
+      },
+      "verdict": "FAIL"
+    },
+    "matched|island_pair": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.4888888888888889,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.625,
+          "lo": 0.34146341463414637,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 27,
+          "n_boot": 2000,
+          "n_units": 45,
+          "point": 0.4888888888888889
+        },
+        "chance": 0.3333333333333333,
+        "n": 45,
+        "n_correct": 22
+      },
+      "n_effective": 51,
+      "reason": "matched/island_pair: the scorer beats chance \u2014 22/45 = 48.9% against chance 33.3%, animal-clustered interval [0.341, 0.625] over 27 animals",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "matched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "island_pair"
+      },
+      "verdict": "PASS"
+    },
+    "mde": {
+      "degenerate": 0,
+      "detail": {
+        "alpha": 0.05,
+        "chance": 0.3333333333333333,
+        "mde": 0.09843767053662886,
+        "n_trials": 180,
+        "plausible_effect": 0.2,
+        "power": 0.8
+      },
+      "n_effective": 180,
+      "reason": "MDE = 0.0984 over 180 trials at 80% power against chance 0.3333, below the 0.2000 that would count as a real effect, so a null here is informative",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "PASS"
+    },
+    "unmatched|both": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.37777777777777777,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.4666666666666667,
+          "lo": 0.2804756097560976,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 44,
+          "n_boot": 2000,
+          "n_units": 90,
+          "point": 0.37777777777777777
+        },
+        "chance": 0.3333333333333333,
+        "n": 90,
+        "n_correct": 34
+      },
+      "n_effective": 77,
+      "reason": "unmatched/both: the scorer does not beat chance \u2014 34/90 = 37.8% against chance 33.3%, animal-clustered interval [0.280, 0.467] over 44 animals, an interval that includes chance",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "unmatched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "both"
+      },
+      "verdict": "FAIL"
+    },
+    "unmatched|control_pair": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.26666666666666666,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.4,
+          "lo": 0.13633292383292384,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 30,
+          "n_boot": 2000,
+          "n_units": 45,
+          "point": 0.26666666666666666
+        },
+        "chance": 0.3333333333333333,
+        "n": 45,
+        "n_correct": 12
+      },
+      "n_effective": 62,
+      "reason": "unmatched/control_pair: the scorer does not beat chance \u2014 12/45 = 26.7% against chance 33.3%, animal-clustered interval [0.136, 0.400] over 30 animals, an interval that includes chance",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "unmatched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "control_pair"
+      },
+      "verdict": "FAIL"
+    },
+    "unmatched|island_pair": {
+      "degenerate": 0,
+      "detail": {
+        "accuracy": 0.4888888888888889,
+        "animal_interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.6458639705882352,
+          "lo": 0.325,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 29,
+          "n_boot": 2000,
+          "n_units": 45,
+          "point": 0.4888888888888889
+        },
+        "chance": 0.3333333333333333,
+        "n": 45,
+        "n_correct": 22
+      },
+      "n_effective": 54,
+      "reason": "unmatched/island_pair: the scorer does not beat chance \u2014 22/45 = 48.9% against chance 33.3%, animal-clustered interval [0.325, 0.646] over 29 animals, an interval that includes chance",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_look",
+        "chance": 0.3333333333333333,
+        "clump": 0,
+        "control": "unmatched",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report",
+        "trial_type": "island_pair"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "registration": "results/ISLAND_LOOK_PREREGISTRATION.md",
+  "responses": [
+    {
+      "animals": [
+        "9022",
+        "797H",
+        "2937"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t5a246b530f",
+      "n": 0,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "590",
+        "9065"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t5adc934eff",
+      "n": 1,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "48",
+        "899",
+        "793H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t710dae9db7",
+      "n": 2,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "236",
+        "797H",
+        "844"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t9c05ec7253",
+      "n": 3,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "717",
+        "2937",
+        "9067"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t6408571219",
+      "n": 4,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "48",
+        "265"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t072157d2e7",
+      "n": 5,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "48",
+        "158",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t2b7d9d24ad",
+      "n": 6,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "797H",
+        "793H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t3634da6f4d",
+      "n": 7,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "312",
+        "HM01",
+        "38"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t046faa90fa",
+      "n": 8,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9065",
+        "48",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t8a0bb75977",
+      "n": 9,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "277",
+        "943"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tbd90fb0970",
+      "n": 10,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "949",
+        "265",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t163c0834bb",
+      "n": 11,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9050",
+        "9069",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t52d784a7dc",
+      "n": 12,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "156",
+        "9052"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t2732d2a474",
+      "n": 13,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9022",
+        "793H",
+        "711"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t8d58bf20ad",
+      "n": 14,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "776",
+        "32",
+        "233"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t5d5c6ae5a7",
+      "n": 15,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "776",
+        "777",
+        "111"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t71017c470a",
+      "n": 16,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "160",
+        "38",
+        "582"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "ta8228d50a0",
+      "n": 17,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "777",
+        "898"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tb416313543",
+      "n": 18,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "155",
+        "794",
+        "667"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t6738a8c3e9",
+      "n": 19,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9054",
+        "2937",
+        "9018"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t80524c7bea",
+      "n": 20,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "48",
+        "9026",
+        "158"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t61aedf1dfc",
+      "n": 21,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "796H",
+        "899",
+        "831"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tb17934a7c6",
+      "n": 22,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "48",
+        "32",
+        "582"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t1afeddbb77",
+      "n": 23,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "158",
+        "32",
+        "898"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tf537fa9563",
+      "n": 24,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9031",
+        "797H",
+        "48"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t17c372942f",
+      "n": 25,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9026",
+        "9018",
+        "158"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t47aa58df5e",
+      "n": 26,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "38",
+        "9007"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tbb0e48d1ef",
+      "n": 27,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "785",
+        "42",
+        "810"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t90d6e32db1",
+      "n": 28,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "155",
+        "527",
+        "783"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t2c03f76019",
+      "n": 29,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "312",
+        "9026"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t0c27875940",
+      "n": 30,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "785",
+        "797H",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t25d5bfdebb",
+      "n": 31,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "236",
+        "9026",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t2effce7cef",
+      "n": 32,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "111",
+        "277",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t63b99d7ccc",
+      "n": 33,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "HM01",
+        "9003"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t229bcd1d82",
+      "n": 34,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "233",
+        "48",
+        "277"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t90004e0b13",
+      "n": 35,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "236",
+        "HM01",
+        "277"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t87a0d4c3e6",
+      "n": 36,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "831",
+        "32",
+        "48"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t22e4efeef7",
+      "n": 37,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "233",
+        "527"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "td0321bdd85",
+      "n": 38,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "156",
+        "803",
+        "9004"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t27bc084e31",
+      "n": 39,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "HM10",
+        "922",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t4c9f4c9534",
+      "n": 40,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "40",
+        "38",
+        "830"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tfcf81da719",
+      "n": 41,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9022",
+        "574",
+        "233"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "td6f5a5aadf",
+      "n": 42,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "527",
+        "HM04",
+        "9052"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tedc45b7d0a",
+      "n": 43,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "HM04",
+        "236",
+        "158"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tf41e82854e",
+      "n": 44,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "785",
+        "844",
+        "9018"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t670e5b56d1",
+      "n": 45,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "9022",
+        "40"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t97f85a638e",
+      "n": 46,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9018",
+        "32",
+        "9022"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "ta15373c376",
+      "n": 47,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "844",
+        "157",
+        "158"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t1424ad3ac6",
+      "n": 48,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "711",
+        "922"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tb6b8bde05d",
+      "n": 49,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9064",
+        "109",
+        "48"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "td8104b9764",
+      "n": 50,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "40",
+        "797H",
+        "793H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t045ca2c861",
+      "n": 51,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "831",
+        "9018",
+        "38"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t2c27757782",
+      "n": 52,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "157",
+        "2937",
+        "9052"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t379a7d8deb",
+      "n": 53,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "HM04",
+        "9061"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t6aea8bba2b",
+      "n": 54,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "898",
+        "797H",
+        "943"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t373354b68d",
+      "n": 55,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "752",
+        "794"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "td93ef8f7b5",
+      "n": 56,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "613",
+        "949"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tfb2efe2b66",
+      "n": 57,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "831",
+        "48",
+        "9018"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t385f4aa7f4",
+      "n": 58,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "277",
+        "9018",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tf91a7615ea",
+      "n": 59,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "830",
+        "HM16"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t7cb8e6858f",
+      "n": 60,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "830",
+        "922"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t6974877482",
+      "n": 61,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "111",
+        "591",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t30e9bbac11",
+      "n": 62,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "158",
+        "797H",
+        "9018"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tebb554d293",
+      "n": 63,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9048",
+        "109",
+        "667"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t357c5da3aa",
+      "n": 64,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "48",
+        "717"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t2d1e2c8668",
+      "n": 65,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9022",
+        "9009",
+        "277"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t4311c80797",
+      "n": 66,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "608",
+        "158"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t224cf9d78c",
+      "n": 67,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "156",
+        "158",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t6d168d3130",
+      "n": 68,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9018",
+        "797H",
+        "527"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tdc8c7dc183",
+      "n": 69,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "607",
+        "156",
+        "40"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "td68fd00d8d",
+      "n": 70,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "960",
+        "667",
+        "577"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "ta22ac6a2cc",
+      "n": 71,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "943",
+        "527",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "ta4f726233a",
+      "n": 72,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "667",
+        "949"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t793f787660",
+      "n": 73,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "777",
+        "234"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "taf804e6caa",
+      "n": 74,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "576",
+        "9022",
+        "38"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t48d9cdc999",
+      "n": 75,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "952",
+        "312",
+        "527"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "te233ac241f",
+      "n": 76,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "793H",
+        "527",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "ta97302db34",
+      "n": 77,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "803",
+        "9065",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t274505ae29",
+      "n": 78,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "717",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t7406f19d26",
+      "n": 79,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "608",
+        "38",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tdf83658f44",
+      "n": 80,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "793H",
+        "830",
+        "38"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "taa21605a3f",
+      "n": 81,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "899",
+        "830",
+        "793H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tfeefda078c",
+      "n": 82,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "922",
+        "9022",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t4292ea9ee8",
+      "n": 83,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "577",
+        "158"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "ta592890b0a",
+      "n": 84,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "155",
+        "9061",
+        "9052"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t87726d39d0",
+      "n": 85,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "527",
+        "608"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "ta81b63a8c4",
+      "n": 86,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "233",
+        "922",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t641b6d748c",
+      "n": 87,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "111",
+        "899"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t459c62ff66",
+      "n": 88,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "234",
+        "785",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "teccff161e0",
+      "n": 89,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "582",
+        "709",
+        "827"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t2a74d576d8",
+      "n": 90,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "527",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t3766545f83",
+      "n": 91,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "717",
+        "899",
+        "922"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t4e2c37a32e",
+      "n": 92,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "794",
+        "783",
+        "38"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t7ed5854bff",
+      "n": 93,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "157",
+        "277",
+        "9022"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "te99693ad05",
+      "n": 94,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "160",
+        "831"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t99e04ffb0d",
+      "n": 95,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "9022",
+        "9054"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tc5dbe5efd3",
+      "n": 96,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "776",
+        "32",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t86a406b4d8",
+      "n": 97,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9065",
+        "2937",
+        "312"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t046a93791c",
+      "n": 98,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9022",
+        "38",
+        "796H"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t14f22ff1ca",
+      "n": 99,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "109",
+        "233",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t0590efe335",
+      "n": 100,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "796H",
+        "810"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tfc71db73c5",
+      "n": 101,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "810",
+        "752"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t19838c3d61",
+      "n": 102,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "9064",
+        "158"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "ta741e474c5",
+      "n": 103,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9061",
+        "797H",
+        "2937"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t23051f0a61",
+      "n": 104,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "774H",
+        "9022",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tfaa96b758d",
+      "n": 105,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "160",
+        "9061",
+        "9069"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t8551384bf3",
+      "n": 106,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "774H",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "te46e8bb13a",
+      "n": 107,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "38",
+        "830"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t5969d96071",
+      "n": 108,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "HM01",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tc6579469a3",
+      "n": 109,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "722",
+        "527",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t30e89e82dd",
+      "n": 110,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "277",
+        "830",
+        "HM04"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t434b56ab34",
+      "n": 111,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "898",
+        "776",
+        "9026"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t20890da81c",
+      "n": 112,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "899",
+        "48"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t989aea770f",
+      "n": 113,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "157",
+        "156"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t8a2f371bf6",
+      "n": 114,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "HM10",
+        "9022"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t2be8bdc355",
+      "n": 115,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "752",
+        "797H",
+        "717"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tdf6462d431",
+      "n": 116,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "898",
+        "9064",
+        "9031"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t56276c3c8d",
+      "n": 117,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "842",
+        "844",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t191268d214",
+      "n": 118,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "949",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t135419a67d",
+      "n": 119,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9061",
+        "233",
+        "793H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "td19cd7cd06",
+      "n": 120,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "277",
+        "156",
+        "2937"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t8fd61da87c",
+      "n": 121,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "591",
+        "844",
+        "2937"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t51dc49f774",
+      "n": 122,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM04",
+        "32",
+        "752"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tb6bb33b630",
+      "n": 123,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "9065",
+        "9058"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tc8a6c155cd",
+      "n": 124,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "844",
+        "797H",
+        "265"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tc1a3c86d31",
+      "n": 125,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM16",
+        "9048",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "te71fe09678",
+      "n": 126,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "711",
+        "9026"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "tcb5fe3859c",
+      "n": 127,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "HM16",
+        "2937"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t81061a285c",
+      "n": 128,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "158",
+        "277",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t8b34e5ceec",
+      "n": 129,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "803",
+        "124",
+        "777"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t8bce66a896",
+      "n": 130,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "156",
+        "830"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tfed1cbaec1",
+      "n": 131,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "943",
+        "155",
+        "156"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t1b3a4a6b52",
+      "n": 132,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "527",
+        "607",
+        "785"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t1f27982d52",
+      "n": 133,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "844",
+        "949",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tc6afe7d3fe",
+      "n": 134,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "40",
+        "797H",
+        "949"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "te2d98fc0e5",
+      "n": 135,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "709",
+        "607"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t1a2d4d78ea",
+      "n": 136,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "48",
+        "830",
+        "9050"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t9dec8907df",
+      "n": 137,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9061",
+        "797H",
+        "9018"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "td4dfaae018",
+      "n": 138,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "32",
+        "922"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "ted6c1a4250",
+      "n": 139,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "960",
+        "40"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "tdca48acc7f",
+      "n": 140,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "899",
+        "109",
+        "830"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tb2929b5b77",
+      "n": 141,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "797H",
+        "HM08"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "te7e2fbf229",
+      "n": 142,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "527",
+        "236",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "teb0debe003",
+      "n": 143,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "952",
+        "9022"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t39e50d0871",
+      "n": 144,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "844",
+        "32",
+        "794"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t2246150a34",
+      "n": 145,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "608",
+        "HM10",
+        "38"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t90dc380701",
+      "n": 146,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "277",
+        "111",
+        "9022"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t4b41e95bc8",
+      "n": 147,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9048",
+        "711",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t7de86a4f70",
+      "n": 148,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "842",
+        "48"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tf489663497",
+      "n": 149,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "960",
+        "949"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t1de66ce72c",
+      "n": 150,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "277",
+        "38",
+        "960"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t6022bf8a73",
+      "n": 151,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM10",
+        "9069",
+        "234"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t338e32bc05",
+      "n": 152,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "591",
+        "32"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "te490dd24ef",
+      "n": 153,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "952",
+        "899",
+        "842"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "te7d27b5362",
+      "n": 154,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "793H",
+        "38",
+        "899"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "tc830dbaa61",
+      "n": 155,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "797H",
+        "711",
+        "943"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t43773a174e",
+      "n": 156,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "797H",
+        "9050"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t6c766b8c59",
+      "n": 157,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "794",
+        "842",
+        "667"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "tf010f17294",
+      "n": 158,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "312",
+        "9052",
+        "527"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t663c10dcc1",
+      "n": 159,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "157",
+        "48",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t2006929a0a",
+      "n": 160,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "9018",
+        "233",
+        "32"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "ted9e34ba5b",
+      "n": 161,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "32",
+        "777"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t336d827b37",
+      "n": 162,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "2937",
+        "898",
+        "797H"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t79a74ce974",
+      "n": 163,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "943",
+        "2937",
+        "590"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tace41dfefb",
+      "n": 164,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "38",
+        "797H",
+        "HM10"
+      ],
+      "arm": "unmatched",
+      "correct": 1,
+      "id": "t82003c9034",
+      "n": 165,
+      "odd_is": "control",
+      "response": "C",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "HM01",
+        "2937",
+        "9022"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "tbdc562d12f",
+      "n": 166,
+      "odd_is": "island",
+      "response": "A",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "842",
+        "899"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "ta9ff3bac70",
+      "n": 167,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "943",
+        "158",
+        "794"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t13bf7e7d00",
+      "n": 168,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "157",
+        "156",
+        "277"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t3b1ac830f4",
+      "n": 169,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "777",
+        "9069",
+        "9003"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t0922cdbec8",
+      "n": 170,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "830",
+        "HM01",
+        "9026"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "td6fdefb7da",
+      "n": 171,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "527",
+        "158",
+        "797H"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "tcb6e24d873",
+      "n": 172,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "160",
+        "HM10",
+        "577"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t294393845d",
+      "n": 173,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "898",
+        "233",
+        "HM01"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t39c28e8464",
+      "n": 174,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "32",
+        "9053",
+        "803"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t6a468f01c3",
+      "n": 175,
+      "odd_is": "island",
+      "response": "B",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9022",
+        "312",
+        "48"
+      ],
+      "arm": "matched",
+      "correct": 1,
+      "id": "t5710d98b62",
+      "n": 176,
+      "odd_is": "control",
+      "response": "B",
+      "type": "island_pair"
+    },
+    {
+      "animals": [
+        "608",
+        "38",
+        "582"
+      ],
+      "arm": "unmatched",
+      "correct": 0,
+      "id": "t4799fd715b",
+      "n": 177,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "785",
+        "38",
+        "952"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t36ee4de935",
+      "n": 178,
+      "odd_is": "island",
+      "response": "C",
+      "type": "control_pair"
+    },
+    {
+      "animals": [
+        "9052",
+        "9048",
+        "527"
+      ],
+      "arm": "matched",
+      "correct": 0,
+      "id": "t58f0533e90",
+      "n": 179,
+      "odd_is": "control",
+      "response": "A",
+      "type": "island_pair"
+    }
+  ],
+  "stage": "island_look_score"
+}

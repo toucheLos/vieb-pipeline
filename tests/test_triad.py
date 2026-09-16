@@ -160,3 +160,32 @@ def test_the_registered_constants_match_the_registration():
     assert tr.ARMS == ("matched", "unmatched")
     assert tr.TYPES == ("island_pair", "control_pair")
     assert tr.CHANCE == pytest.approx(1 / 3)
+
+
+def test_published_manifest_carries_no_answer():
+    """The site publishes the instrument, not the result.
+
+    A published `arm` or `type` partitions the trials into the two questions the
+    design asks; a published `speed` is the island's 0.205x cue in a column; a
+    published `odd_position` is simply the key. Any of them makes the page
+    unscoreable by the next reader, which is the only reason it is published.
+    """
+    import json
+    import os
+
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "results", "island_look", "manifest.json")
+    if not os.path.exists(path):
+        return                       # nothing rendered in this checkout
+    with open(path, encoding="utf-8") as fh:
+        doc = json.load(fh)
+    banned = {"odd_position", "odd_is", "arm", "type", "index", "speed",
+              "a", "b", "n_frames"}
+    for row in doc["clips"]:
+        assert not (set(row) & banned), sorted(set(row) & banned)
+    # And the clip duration must be constant within a trial, or the reader picks
+    # the odd one with a stopwatch.
+    by_trial: dict = {}
+    for row in doc["clips"]:
+        by_trial.setdefault(row["trial"], set()).add(row["duration_s"])
+    assert all(len(v) == 1 for v in by_trial.values())
