@@ -92,21 +92,47 @@ is what the registration said a continuum verdict would license, and it is the
 first such claim here made by an instrument that could have returned the
 opposite — it did return the opposite on `twist`, where the null won.
 
-## Step 4 does not run, and this is the reason
+## Assignment is 38× clustered in time, which is a finding in its own right
 
-Step 4 was gated on Step 3 finding clumps. It found some, and they cover 1.9% of
-segments.
+Before deciding anything about Step 4, the adjacency was measured rather than
+assumed. Consecutive segments within an animal:
 
-Assigning each segment to its clump would give a symbol stream in which **98% of
-the tokens are a single `unassigned` symbol**. Merging frequent adjacent pairs in
-that stream would merge `unassigned` with `unassigned`, the MDL would select
-merges of a symbol that means "no symbol", and the surrogate control would be
-passed or failed by the behaviour of a placeholder. There is no version of the
-Step 4 measurement that is about behaviour on this input.
+| group | adjacent same-animal pairs | **both assigned** | expected if independent | enrichment |
+|---|---:|---:|---:|---:|
+| shape | 64,252 | **1.326%** (852 pairs) | 0.035% | **38×** |
+| both | 57,317 | **0.803%** (460 pairs) | 0.013% | **63×** |
 
-Reporting that is the result. The alternative — dropping `min_size`, or widening
-θ until coverage rose — would be choosing a parameter against an outcome after
-seeing the outcome, and both are registered.
+**When one segment falls in a clump, its neighbour usually does too.** At 1.9%
+coverage, chance would put both members of a pair in clumps 0.035% of the time;
+the measured rate is 38 times that. The islands are not scattered — they arrive
+in runs.
+
+That is independent support for the islands being real, and it is the most
+encouraging number in this document. It is also not a vocabulary.
+
+## Step 4 does not run, and the reason is a count
+
+Step 4 was gated on Step 3 finding clumps. It found some; they cover 1.9% of
+segments; and their temporal clustering gives **852 mergeable adjacent pairs on
+`shape`, 460 on `both`**.
+
+That is the whole input to the Step 4 measurement. Byte-pair merging selected by
+**held-out MDL on the per-animal distribution** against a **surrogate merged
+under identical rules** needs, at minimum, enough pairs per animal to estimate a
+distribution: 852 pairs spread over the 46 animals that participate is about
+eighteen each, before any held-out split. This programme's standing rule refuses
+a stratum below 20,000 scored keypoint-frames rather than reporting it with a
+caveat, and this is three orders of magnitude under that.
+
+The remaining 98% of the stream is a single `unassigned` symbol. Merging in that
+stream would merge `unassigned` with `unassigned`, the MDL would select merges of
+a symbol meaning "no symbol", and the surrogate control would be decided by the
+behaviour of a placeholder.
+
+**So Step 4 is refused on sample size, not on principle**, and the refusal is a
+measured one. The alternative — dropping `min_size`, or widening θ until coverage
+rose — would be choosing a parameter against an outcome after seeing the outcome,
+and both are registered.
 
 **What would unblock Step 4** is not a different clustering. It is more segments
 falling within θ of each other, which means either a detector whose boundaries
