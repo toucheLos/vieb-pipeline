@@ -1,0 +1,2302 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "scored on the report split"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "groups": {
+    "both|k3": {
+      "corpus": {
+        "bic_gain": 21621.0129553462,
+        "bimodality_coefficient": 0.4138603624563552,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 19.624696281700892,
+        "gmm_bic_1": -23202.122404486097,
+        "gmm_bic_2": -44823.1353598323,
+        "gmm_means": [
+          0.3865867273840136,
+          0.7772397723654895
+        ],
+        "gmm_n": 57406,
+        "gmm_sds": [
+          0.12992625514382006,
+          0.35794836417520887
+        ],
+        "gmm_separation_in_sds": 1.601448525962453,
+        "gmm_weights": [
+          0.9113655237301065,
+          0.08863447626988445
+        ],
+        "kurtosis": 22.624696281700892,
+        "largest_clump_fraction": 0.002473609030414939,
+        "mean": 0.4212120554291825,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 15,
+        "n_edges": 3752,
+        "n_units": 57406,
+        "scale": 26.298538208007812,
+        "sd": 0.19765965063521387,
+        "sizes_top": [
+          142,
+          81,
+          55,
+          47,
+          37,
+          36,
+          36,
+          33,
+          32,
+          30,
+          27,
+          24,
+          24,
+          21,
+          21
+        ],
+        "skew": 2.8919768138062123,
+        "theta": 0.18712739951906016,
+        "unassigned_fraction": 0.9887468208898025,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_clumps_total": 15,
+      "nulls": {
+        "microstate": {
+          "bic_gain": 10965.539031006161,
+          "bimodality_coefficient": 0.3189401403585889,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 11.865690825700634,
+          "gmm_bic_1": -659.861633738466,
+          "gmm_bic_2": -11625.400664744628,
+          "gmm_means": [
+            0.5521869314953832,
+            0.9801072056084178
+          ],
+          "gmm_n": 44702,
+          "gmm_sds": [
+            0.16860194631074674,
+            0.3769818183460503
+          ],
+          "gmm_separation_in_sds": 1.5686693843693116,
+          "gmm_weights": [
+            0.8946436413054218,
+            0.10535635869457924
+          ],
+          "kurtosis": 14.865690825700634,
+          "largest_clump_fraction": 0.0010066663683951501,
+          "mean": 0.597271053387515,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 3,
+          "n_edges": 406,
+          "n_units": 44702,
+          "scale": 28.849205017089844,
+          "sd": 0.24013655048817026,
+          "sizes_top": [
+            45,
+            24,
+            23
+          ],
+          "skew": 1.9342517252228324,
+          "theta": 0.18712739951906016,
+          "unassigned_fraction": 0.9979419265357254,
+          "uniform_reference": 0.5555555555555556
+        },
+        "microstate0": {
+          "bic_gain": 18317.070787608114,
+          "bimodality_coefficient": 0.375457894171289,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 11.960725889805724,
+          "gmm_bic_1": 652.6811589546792,
+          "gmm_bic_2": -17664.389628653436,
+          "gmm_means": [
+            0.513428446302086,
+            0.9440977406732141
+          ],
+          "gmm_n": 60115,
+          "gmm_sds": [
+            0.15922798298754548,
+            0.37465411511446955
+          ],
+          "gmm_separation_in_sds": 1.613349823499177,
+          "gmm_weights": [
+            0.878333605493,
+            0.12166639450700648
+          ],
+          "kurtosis": 14.960725889805724,
+          "largest_clump_fraction": 0.0008816435165931964,
+          "mean": 0.5658264265730982,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 2,
+          "n_edges": 699,
+          "n_units": 60115,
+          "scale": 26.214963912963867,
+          "sd": 0.24324535338663889,
+          "sizes_top": [
+            53,
+            22
+          ],
+          "skew": 2.1487621673707498,
+          "theta": 0.18712739951906016,
+          "unassigned_fraction": 0.998752391250104,
+          "uniform_reference": 0.5555555555555556
+        }
+      },
+      "participation_top": [
+        {
+          "animal_fraction": 0.25842696629213485,
+          "animals": [
+            "158",
+            "233",
+            "234",
+            "38",
+            "752",
+            "777",
+            "785",
+            "797H",
+            "827",
+            "831",
+            "844",
+            "898",
+            "899",
+            "9022",
+            "9026",
+            "9052",
+            "9061",
+            "9065",
+            "9067",
+            "922",
+            "943",
+            "960",
+            "HM01"
+          ],
+          "clump": 0,
+          "n_animals": 23,
+          "size": 142,
+          "top_animal_share": 0.28169014084507044
+        },
+        {
+          "animal_fraction": 0.25842696629213485,
+          "animals": [
+            "109",
+            "156",
+            "158",
+            "277",
+            "2937",
+            "38",
+            "42",
+            "48",
+            "607",
+            "608",
+            "717",
+            "777",
+            "797H",
+            "827",
+            "830",
+            "844",
+            "899",
+            "9018",
+            "9022",
+            "9026",
+            "9052",
+            "9064",
+            "HM10"
+          ],
+          "clump": 1,
+          "n_animals": 23,
+          "size": 81,
+          "top_animal_share": 0.24691358024691357
+        },
+        {
+          "animal_fraction": 0.1348314606741573,
+          "animals": [
+            "158",
+            "277",
+            "32",
+            "38",
+            "607",
+            "776",
+            "793H",
+            "796H",
+            "830",
+            "898",
+            "899",
+            "9022"
+          ],
+          "clump": 6,
+          "n_animals": 12,
+          "size": 36,
+          "top_animal_share": 0.3055555555555556
+        },
+        {
+          "animal_fraction": 0.12359550561797752,
+          "animals": [
+            "156",
+            "2937",
+            "38",
+            "48",
+            "667",
+            "776",
+            "777",
+            "794",
+            "797H",
+            "830",
+            "844"
+          ],
+          "clump": 3,
+          "n_animals": 11,
+          "size": 47,
+          "top_animal_share": 0.2978723404255319
+        },
+        {
+          "animal_fraction": 0.10112359550561797,
+          "animals": [
+            "109",
+            "155",
+            "156",
+            "42",
+            "717",
+            "796H",
+            "9026",
+            "9064",
+            "HM08"
+          ],
+          "clump": 4,
+          "n_animals": 9,
+          "size": 37,
+          "top_animal_share": 0.5135135135135135
+        },
+        {
+          "animal_fraction": 0.0898876404494382,
+          "animals": [
+            "157",
+            "277",
+            "38",
+            "40",
+            "42",
+            "803",
+            "9009",
+            "922"
+          ],
+          "clump": 10,
+          "n_animals": 8,
+          "size": 27,
+          "top_animal_share": 0.3333333333333333
+        },
+        {
+          "animal_fraction": 0.06741573033707865,
+          "animals": [
+            "158",
+            "2937",
+            "608",
+            "776",
+            "797H",
+            "844"
+          ],
+          "clump": 2,
+          "n_animals": 6,
+          "size": 55,
+          "top_animal_share": 0.6
+        },
+        {
+          "animal_fraction": 0.06741573033707865,
+          "animals": [
+            "109",
+            "156",
+            "32",
+            "40",
+            "48",
+            "922"
+          ],
+          "clump": 5,
+          "n_animals": 6,
+          "size": 36,
+          "top_animal_share": 0.8055555555555556
+        },
+        {
+          "animal_fraction": 0.056179775280898875,
+          "animals": [
+            "158",
+            "277",
+            "2937",
+            "32",
+            "952"
+          ],
+          "clump": 8,
+          "n_animals": 5,
+          "size": 32,
+          "top_animal_share": 0.65625
+        },
+        {
+          "animal_fraction": 0.033707865168539325,
+          "animals": [
+            "42",
+            "9003",
+            "HM04"
+          ],
+          "clump": 11,
+          "n_animals": 3,
+          "size": 24,
+          "top_animal_share": 0.7083333333333334
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "155",
+            "898"
+          ],
+          "clump": 7,
+          "n_animals": 2,
+          "size": 33,
+          "top_animal_share": 0.8181818181818182
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "922",
+            "HM04"
+          ],
+          "clump": 9,
+          "n_animals": 2,
+          "size": 30,
+          "top_animal_share": 0.7
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "830",
+            "898"
+          ],
+          "clump": 12,
+          "n_animals": 2,
+          "size": 24,
+          "top_animal_share": 0.6666666666666666
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "803",
+            "952"
+          ],
+          "clump": 13,
+          "n_animals": 2,
+          "size": 21,
+          "top_animal_share": 0.8571428571428571
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "9003",
+            "9069"
+          ],
+          "clump": 14,
+          "n_animals": 2,
+          "size": 21,
+          "top_animal_share": 0.9523809523809523
+        }
+      ]
+    },
+    "shape|k3": {
+      "corpus": {
+        "bic_gain": 21924.482368955738,
+        "bimodality_coefficient": 0.4198628522484265,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 14.489751850372794,
+        "gmm_bic_1": -46945.072316625796,
+        "gmm_bic_2": -68869.55468558153,
+        "gmm_means": [
+          0.3550627862392104,
+          0.6588000907732225
+        ],
+        "gmm_n": 64341,
+        "gmm_sds": [
+          0.10902552543158234,
+          0.27525910065117337
+        ],
+        "gmm_separation_in_sds": 1.5807934219497104,
+        "gmm_weights": [
+          0.888001799894108,
+          0.11199820010588964
+        ],
+        "kurtosis": 17.489751850372794,
+        "largest_clump_fraction": 0.005610730327473928,
+        "mean": 0.3890808176520315,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 19,
+        "n_edges": 7054,
+        "n_units": 64341,
+        "scale": 25.319997787475586,
+        "sd": 0.1679788090548103,
+        "sizes_top": [
+          361,
+          173,
+          89,
+          69,
+          68,
+          60,
+          45,
+          44,
+          39,
+          33,
+          32,
+          28,
+          26,
+          24,
+          23,
+          21,
+          21,
+          20,
+          20
+        ],
+        "skew": 2.5186019594903817,
+        "theta": 0.18998060778738327,
+        "unassigned_fraction": 0.981411541629754,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_clumps_total": 19,
+      "nulls": {
+        "microstate": {
+          "bic_gain": 10369.119128995684,
+          "bimodality_coefficient": 0.26191737436428714,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 18.221528801385865,
+          "gmm_bic_1": -9264.165889597265,
+          "gmm_bic_2": -19633.28501859295,
+          "gmm_means": [
+            0.5282627788257385,
+            0.93375799983982
+          ],
+          "gmm_n": 46682,
+          "gmm_sds": [
+            0.1624950629944694,
+            0.3711881803631496
+          ],
+          "gmm_separation_in_sds": 1.5196100910455637,
+          "gmm_weights": [
+            0.9177032313704461,
+            0.08229676862955439
+          ],
+          "kurtosis": 21.221528801385865,
+          "largest_clump_fraction": 0.0011353412450194936,
+          "mean": 0.5616337252099298,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 2,
+          "n_edges": 423,
+          "n_units": 46682,
+          "scale": 26.413606643676758,
+          "sd": 0.21906551361443774,
+          "sizes_top": [
+            53,
+            22
+          ],
+          "skew": 2.1350263706347827,
+          "theta": 0.18998060778738327,
+          "unassigned_fraction": 0.9983933850306328,
+          "uniform_reference": 0.5555555555555556
+        },
+        "microstate0": {
+          "bic_gain": 20097.960502932852,
+          "bimodality_coefficient": 0.3401823205069839,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 17.842527125867683,
+          "gmm_bic_1": -10459.16984610801,
+          "gmm_bic_2": -30557.13034904086,
+          "gmm_means": [
+            0.5008231332186385,
+            0.918781358538981
+          ],
+          "gmm_n": 64362,
+          "gmm_sds": [
+            0.15098821513411304,
+            0.37816680517018453
+          ],
+          "gmm_separation_in_sds": 1.5797193989768448,
+          "gmm_weights": [
+            0.9030319954181434,
+            0.09696800458185895
+          ],
+          "kurtosis": 20.842527125867683,
+          "largest_clump_fraction": 0.000590410490662192,
+          "mean": 0.5413517083265283,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 4,
+          "n_edges": 718,
+          "n_units": 64362,
+          "scale": 24.68563461303711,
+          "sd": 0.22305085708532535,
+          "sizes_top": [
+            38,
+            24,
+            20,
+            20
+          ],
+          "skew": 2.4678546988117844,
+          "theta": 0.18998060778738327,
+          "unassigned_fraction": 0.9984152139461173,
+          "uniform_reference": 0.5555555555555556
+        }
+      },
+      "participation_top": [
+        {
+          "animal_fraction": 0.5168539325842697,
+          "animals": [
+            "109",
+            "111",
+            "155",
+            "156",
+            "157",
+            "158",
+            "233",
+            "277",
+            "2937",
+            "32",
+            "38",
+            "42",
+            "48",
+            "527",
+            "607",
+            "667",
+            "711",
+            "752",
+            "776",
+            "777",
+            "785",
+            "793H",
+            "794",
+            "796H",
+            "797H",
+            "810",
+            "827",
+            "830",
+            "844",
+            "898",
+            "899",
+            "9018",
+            "9022",
+            "9026",
+            "9052",
+            "9061",
+            "9064",
+            "9065",
+            "9067",
+            "9069",
+            "922",
+            "949",
+            "960",
+            "HM01",
+            "HM08",
+            "HM10"
+          ],
+          "clump": 0,
+          "n_animals": 46,
+          "size": 361,
+          "top_animal_share": 0.15512465373961218
+        },
+        {
+          "animal_fraction": 0.25842696629213485,
+          "animals": [
+            "109",
+            "156",
+            "234",
+            "265",
+            "277",
+            "2937",
+            "752",
+            "776",
+            "793H",
+            "794",
+            "797H",
+            "803",
+            "827",
+            "831",
+            "844",
+            "898",
+            "9022",
+            "9064",
+            "9067",
+            "922",
+            "943",
+            "HM01",
+            "HM10"
+          ],
+          "clump": 1,
+          "n_animals": 23,
+          "size": 173,
+          "top_animal_share": 0.2832369942196532
+        },
+        {
+          "animal_fraction": 0.1797752808988764,
+          "animals": [
+            "155",
+            "156",
+            "157",
+            "236",
+            "277",
+            "312",
+            "32",
+            "717",
+            "752",
+            "776",
+            "785",
+            "796H",
+            "831",
+            "9018",
+            "9064",
+            "HM10"
+          ],
+          "clump": 2,
+          "n_animals": 16,
+          "size": 89,
+          "top_animal_share": 0.43820224719101125
+        },
+        {
+          "animal_fraction": 0.14606741573033707,
+          "animals": [
+            "158",
+            "2937",
+            "312",
+            "32",
+            "38",
+            "608",
+            "776",
+            "797H",
+            "803",
+            "842",
+            "844",
+            "9018",
+            "9052"
+          ],
+          "clump": 4,
+          "n_animals": 13,
+          "size": 68,
+          "top_animal_share": 0.4264705882352941
+        },
+        {
+          "animal_fraction": 0.12359550561797752,
+          "animals": [
+            "156",
+            "38",
+            "48",
+            "641",
+            "776",
+            "794",
+            "796H",
+            "830",
+            "842",
+            "898",
+            "HM16"
+          ],
+          "clump": 12,
+          "n_animals": 11,
+          "size": 26,
+          "top_animal_share": 0.3076923076923077
+        },
+        {
+          "animal_fraction": 0.06741573033707865,
+          "animals": [
+            "109",
+            "156",
+            "32",
+            "40",
+            "922",
+            "943"
+          ],
+          "clump": 3,
+          "n_animals": 6,
+          "size": 69,
+          "top_animal_share": 0.7971014492753623
+        },
+        {
+          "animal_fraction": 0.06741573033707865,
+          "animals": [
+            "109",
+            "158",
+            "32",
+            "38",
+            "796H",
+            "9022"
+          ],
+          "clump": 6,
+          "n_animals": 6,
+          "size": 45,
+          "top_animal_share": 0.4888888888888889
+        },
+        {
+          "animal_fraction": 0.06741573033707865,
+          "animals": [
+            "155",
+            "277",
+            "776",
+            "797H",
+            "9070",
+            "943"
+          ],
+          "clump": 15,
+          "n_animals": 6,
+          "size": 21,
+          "top_animal_share": 0.6666666666666666
+        },
+        {
+          "animal_fraction": 0.056179775280898875,
+          "animals": [
+            "38",
+            "48",
+            "796H",
+            "803",
+            "9018"
+          ],
+          "clump": 5,
+          "n_animals": 5,
+          "size": 60,
+          "top_animal_share": 0.5333333333333333
+        },
+        {
+          "animal_fraction": 0.056179775280898875,
+          "animals": [
+            "277",
+            "40",
+            "803",
+            "9070",
+            "922"
+          ],
+          "clump": 10,
+          "n_animals": 5,
+          "size": 32,
+          "top_animal_share": 0.46875
+        },
+        {
+          "animal_fraction": 0.056179775280898875,
+          "animals": [
+            "38",
+            "527",
+            "796H",
+            "9022",
+            "HM01"
+          ],
+          "clump": 11,
+          "n_animals": 5,
+          "size": 28,
+          "top_animal_share": 0.5714285714285714
+        },
+        {
+          "animal_fraction": 0.056179775280898875,
+          "animals": [
+            "9003",
+            "9064",
+            "9069",
+            "943",
+            "HM10"
+          ],
+          "clump": 18,
+          "n_animals": 5,
+          "size": 20,
+          "top_animal_share": 0.65
+        },
+        {
+          "animal_fraction": 0.0449438202247191,
+          "animals": [
+            "312",
+            "777",
+            "810",
+            "952"
+          ],
+          "clump": 13,
+          "n_animals": 4,
+          "size": 24,
+          "top_animal_share": 0.8333333333333334
+        },
+        {
+          "animal_fraction": 0.0449438202247191,
+          "animals": [
+            "157",
+            "9069",
+            "922",
+            "HM04"
+          ],
+          "clump": 14,
+          "n_animals": 4,
+          "size": 23,
+          "top_animal_share": 0.782608695652174
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "155",
+            "898"
+          ],
+          "clump": 7,
+          "n_animals": 2,
+          "size": 44,
+          "top_animal_share": 0.5909090909090909
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "922",
+            "HM04"
+          ],
+          "clump": 8,
+          "n_animals": 2,
+          "size": 39,
+          "top_animal_share": 0.6410256410256411
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "830",
+            "898"
+          ],
+          "clump": 9,
+          "n_animals": 2,
+          "size": 33,
+          "top_animal_share": 0.7575757575757576
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "803",
+            "952"
+          ],
+          "clump": 16,
+          "n_animals": 2,
+          "size": 21,
+          "top_animal_share": 0.8571428571428571
+        },
+        {
+          "animal_fraction": 0.02247191011235955,
+          "animals": [
+            "42",
+            "HM04"
+          ],
+          "clump": 17,
+          "n_animals": 2,
+          "size": 20,
+          "top_animal_share": 0.6
+        }
+      ]
+    },
+    "twist|k3": {
+      "corpus": {
+        "bic_gain": 36514.3076542634,
+        "bimodality_coefficient": 0.4380705918323922,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 42.11538161755193,
+        "gmm_bic_1": 94458.78560373593,
+        "gmm_bic_2": 57944.47794947253,
+        "gmm_means": [
+          0.4898174968313877,
+          1.908981856957178
+        ],
+        "gmm_n": 65993,
+        "gmm_sds": [
+          0.3197459051351594,
+          1.2536284992162225
+        ],
+        "gmm_separation_in_sds": 1.8039753998805335,
+        "gmm_weights": [
+          0.9580233090315412,
+          0.04197669096846422
+        ],
+        "kurtosis": 45.11538161755193,
+        "largest_clump_fraction": 0.01010713257466701,
+        "mean": 0.5493893206098494,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 1,
+        "n_edges": 5657,
+        "n_units": 65993,
+        "scale": 5.94834566116333,
+        "sd": 0.4948867403000289,
+        "sizes_top": [
+          667
+        ],
+        "skew": 4.331718097037052,
+        "theta": 0.022657741674908638,
+        "unassigned_fraction": 0.989892867425333,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_clumps_total": 1,
+      "nulls": {
+        "microstate": {
+          "bic_gain": 28593.067687595747,
+          "bimodality_coefficient": 0.39311480869551313,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 21.660798722787604,
+          "gmm_bic_1": 53565.25687825872,
+          "gmm_bic_2": 24972.18919066297,
+          "gmm_means": [
+            0.5040086227873558,
+            1.219289471625058
+          ],
+          "gmm_n": 68867,
+          "gmm_sds": [
+            0.22739160301465544,
+            0.6639438493596226
+          ],
+          "gmm_separation_in_sds": 1.6049644315894454,
+          "gmm_weights": [
+            0.9115141834562481,
+            0.08848581654374757
+          ],
+          "kurtosis": 24.660798722787604,
+          "largest_clump_fraction": 0.009220671729565685,
+          "mean": 0.5673008327548617,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 1,
+          "n_edges": 5811,
+          "n_units": 68867,
+          "scale": 9.313255310058594,
+          "sd": 0.3569393599812069,
+          "sizes_top": [
+            635
+          ],
+          "skew": 2.9486567364726484,
+          "theta": 0.022657741674908638,
+          "unassigned_fraction": 0.9907793282704344,
+          "uniform_reference": 0.5555555555555556
+        },
+        "microstate0": {
+          "bic_gain": 42356.57920710454,
+          "bimodality_coefficient": 0.4394416237402164,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 25.38904609857431,
+          "gmm_bic_1": 98133.60405497409,
+          "gmm_bic_2": 55777.02484786954,
+          "gmm_means": [
+            0.45327325203657237,
+            1.3511053710698628
+          ],
+          "gmm_n": 77220,
+          "gmm_sds": [
+            0.2548119367655265,
+            0.8061415425428549
+          ],
+          "gmm_separation_in_sds": 1.6925004470857155,
+          "gmm_weights": [
+            0.889661696272908,
+            0.11033830372708922
+          ],
+          "kurtosis": 28.38904609857431,
+          "largest_clump_fraction": 0.009077959077959078,
+          "mean": 0.5523385250824032,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 1,
+          "n_edges": 6424,
+          "n_units": 77220,
+          "scale": 6.798172473907471,
+          "sd": 0.45673036128456407,
+          "sizes_top": [
+            701
+          ],
+          "skew": 3.3875329862861516,
+          "theta": 0.022657741674908638,
+          "unassigned_fraction": 0.990922040922041,
+          "uniform_reference": 0.5555555555555556
+        }
+      },
+      "participation_top": [
+        {
+          "animal_fraction": 0.3595505617977528,
+          "animals": [
+            "109",
+            "111",
+            "155",
+            "156",
+            "157",
+            "158",
+            "236",
+            "277",
+            "312",
+            "40",
+            "42",
+            "527",
+            "717",
+            "752",
+            "793H",
+            "797H",
+            "803",
+            "810",
+            "830",
+            "842",
+            "898",
+            "899",
+            "9018",
+            "9061",
+            "9069",
+            "922",
+            "943",
+            "949",
+            "952",
+            "HM01",
+            "HM04",
+            "HM16"
+          ],
+          "clump": 0,
+          "n_animals": 32,
+          "size": 667,
+          "top_animal_share": 0.25787106446776614
+        }
+      ]
+    }
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "nulls": [
+    "microstate",
+    "microstate0"
+  ],
+  "reads": {
+    "both|k3|clumps": {
+      "degenerate": 0,
+      "detail": {
+        "corpus": {
+          "bic_gain": 21621.0129553462,
+          "bimodality_coefficient": 0.4138603624563552,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 19.624696281700892,
+          "gmm_bic_1": -23202.122404486097,
+          "gmm_bic_2": -44823.1353598323,
+          "gmm_means": [
+            0.3865867273840136,
+            0.7772397723654895
+          ],
+          "gmm_n": 57406,
+          "gmm_sds": [
+            0.12992625514382006,
+            0.35794836417520887
+          ],
+          "gmm_separation_in_sds": 1.601448525962453,
+          "gmm_weights": [
+            0.9113655237301065,
+            0.08863447626988445
+          ],
+          "kurtosis": 22.624696281700892,
+          "largest_clump_fraction": 0.002473609030414939,
+          "mean": 0.4212120554291825,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 15,
+          "n_edges": 3752,
+          "n_units": 57406,
+          "scale": 26.298538208007812,
+          "sd": 0.19765965063521387,
+          "sizes_top": [
+            142,
+            81,
+            55,
+            47,
+            37,
+            36,
+            36,
+            33,
+            32,
+            30,
+            27,
+            24,
+            24,
+            21,
+            21
+          ],
+          "skew": 2.8919768138062123,
+          "theta": 0.18712739951906016,
+          "unassigned_fraction": 0.9887468208898025,
+          "uniform_reference": 0.5555555555555556
+        },
+        "nulls": {
+          "microstate": {
+            "bic_gain": 10965.539031006161,
+            "bimodality_coefficient": 0.3189401403585889,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 11.865690825700634,
+            "gmm_bic_1": -659.861633738466,
+            "gmm_bic_2": -11625.400664744628,
+            "gmm_means": [
+              0.5521869314953832,
+              0.9801072056084178
+            ],
+            "gmm_n": 44702,
+            "gmm_sds": [
+              0.16860194631074674,
+              0.3769818183460503
+            ],
+            "gmm_separation_in_sds": 1.5686693843693116,
+            "gmm_weights": [
+              0.8946436413054218,
+              0.10535635869457924
+            ],
+            "kurtosis": 14.865690825700634,
+            "largest_clump_fraction": 0.0010066663683951501,
+            "mean": 0.597271053387515,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 3,
+            "n_edges": 406,
+            "n_units": 44702,
+            "scale": 28.849205017089844,
+            "sd": 0.24013655048817026,
+            "sizes_top": [
+              45,
+              24,
+              23
+            ],
+            "skew": 1.9342517252228324,
+            "theta": 0.18712739951906016,
+            "unassigned_fraction": 0.9979419265357254,
+            "uniform_reference": 0.5555555555555556
+          },
+          "microstate0": {
+            "bic_gain": 18317.070787608114,
+            "bimodality_coefficient": 0.375457894171289,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 11.960725889805724,
+            "gmm_bic_1": 652.6811589546792,
+            "gmm_bic_2": -17664.389628653436,
+            "gmm_means": [
+              0.513428446302086,
+              0.9440977406732141
+            ],
+            "gmm_n": 60115,
+            "gmm_sds": [
+              0.15922798298754548,
+              0.37465411511446955
+            ],
+            "gmm_separation_in_sds": 1.613349823499177,
+            "gmm_weights": [
+              0.878333605493,
+              0.12166639450700648
+            ],
+            "kurtosis": 14.960725889805724,
+            "largest_clump_fraction": 0.0008816435165931964,
+            "mean": 0.5658264265730982,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 2,
+            "n_edges": 699,
+            "n_units": 60115,
+            "scale": 26.214963912963867,
+            "sd": 0.24324535338663889,
+            "sizes_top": [
+              53,
+              22
+            ],
+            "skew": 2.1487621673707498,
+            "theta": 0.18712739951906016,
+            "unassigned_fraction": 0.998752391250104,
+            "uniform_reference": 0.5555555555555556
+          }
+        }
+      },
+      "n_effective": 89,
+      "reason": "THERE IS CLUMP STRUCTURE the nulls do not reproduce -- corpus: 15 clumps, 98.9% unassigned, two-component BIC gain +21621; nulls: [3, 2] clumps, ['99.8%', '99.9%'] unassigned, gains ['+10966', '+18317']. Found by observation rather than by assuming a count",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "both",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18712739951906016
+      },
+      "verdict": "PASS"
+    },
+    "both|k3|coverage": {
+      "degenerate": 0,
+      "detail": {
+        "bic_gain": 21621.0129553462,
+        "bimodality_coefficient": 0.4138603624563552,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 19.624696281700892,
+        "gmm_bic_1": -23202.122404486097,
+        "gmm_bic_2": -44823.1353598323,
+        "gmm_means": [
+          0.3865867273840136,
+          0.7772397723654895
+        ],
+        "gmm_n": 57406,
+        "gmm_sds": [
+          0.12992625514382006,
+          0.35794836417520887
+        ],
+        "gmm_separation_in_sds": 1.601448525962453,
+        "gmm_weights": [
+          0.9113655237301065,
+          0.08863447626988445
+        ],
+        "kurtosis": 22.624696281700892,
+        "largest_clump_fraction": 0.002473609030414939,
+        "mean": 0.4212120554291825,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 15,
+        "n_edges": 3752,
+        "n_units": 57406,
+        "scale": 26.298538208007812,
+        "sd": 0.19765965063521387,
+        "sizes_top": [
+          142,
+          81,
+          55,
+          47,
+          37,
+          36,
+          36,
+          33,
+          32,
+          30,
+          27,
+          24,
+          24,
+          21,
+          21
+        ],
+        "skew": 2.8919768138062123,
+        "theta": 0.18712739951906016,
+        "unassigned_fraction": 0.9887468208898025,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_effective": 89,
+      "reason": "98.9% of segments are unassigned, above the 90% limit: whatever the clumps are, they do not cover the corpus and a vocabulary built on them would describe a fraction of behaviour while appearing to describe all of it",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "both",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18712739951906016
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "both|k3|participation": {
+      "degenerate": 0,
+      "detail": {
+        "floor": 0.5,
+        "mean_animal_fraction": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.12584269662921346,
+          "lo": 0.05243445692883895,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 15,
+          "n_boot": 2000,
+          "n_units": 15,
+          "point": 0.08689138576779028
+        },
+        "n_clumps": 15,
+        "n_clumps_above_floor": 0,
+        "top": [
+          {
+            "animal_fraction": 0.25842696629213485,
+            "animals": [
+              "158",
+              "233",
+              "234",
+              "38",
+              "752",
+              "777",
+              "785",
+              "797H",
+              "827",
+              "831",
+              "844",
+              "898",
+              "899",
+              "9022",
+              "9026",
+              "9052",
+              "9061",
+              "9065",
+              "9067",
+              "922",
+              "943",
+              "960",
+              "HM01"
+            ],
+            "clump": 0,
+            "n_animals": 23,
+            "size": 142,
+            "top_animal_share": 0.28169014084507044
+          },
+          {
+            "animal_fraction": 0.25842696629213485,
+            "animals": [
+              "109",
+              "156",
+              "158",
+              "277",
+              "2937",
+              "38",
+              "42",
+              "48",
+              "607",
+              "608",
+              "717",
+              "777",
+              "797H",
+              "827",
+              "830",
+              "844",
+              "899",
+              "9018",
+              "9022",
+              "9026",
+              "9052",
+              "9064",
+              "HM10"
+            ],
+            "clump": 1,
+            "n_animals": 23,
+            "size": 81,
+            "top_animal_share": 0.24691358024691357
+          },
+          {
+            "animal_fraction": 0.1348314606741573,
+            "animals": [
+              "158",
+              "277",
+              "32",
+              "38",
+              "607",
+              "776",
+              "793H",
+              "796H",
+              "830",
+              "898",
+              "899",
+              "9022"
+            ],
+            "clump": 6,
+            "n_animals": 12,
+            "size": 36,
+            "top_animal_share": 0.3055555555555556
+          },
+          {
+            "animal_fraction": 0.12359550561797752,
+            "animals": [
+              "156",
+              "2937",
+              "38",
+              "48",
+              "667",
+              "776",
+              "777",
+              "794",
+              "797H",
+              "830",
+              "844"
+            ],
+            "clump": 3,
+            "n_animals": 11,
+            "size": 47,
+            "top_animal_share": 0.2978723404255319
+          },
+          {
+            "animal_fraction": 0.10112359550561797,
+            "animals": [
+              "109",
+              "155",
+              "156",
+              "42",
+              "717",
+              "796H",
+              "9026",
+              "9064",
+              "HM08"
+            ],
+            "clump": 4,
+            "n_animals": 9,
+            "size": 37,
+            "top_animal_share": 0.5135135135135135
+          },
+          {
+            "animal_fraction": 0.0898876404494382,
+            "animals": [
+              "157",
+              "277",
+              "38",
+              "40",
+              "42",
+              "803",
+              "9009",
+              "922"
+            ],
+            "clump": 10,
+            "n_animals": 8,
+            "size": 27,
+            "top_animal_share": 0.3333333333333333
+          },
+          {
+            "animal_fraction": 0.06741573033707865,
+            "animals": [
+              "158",
+              "2937",
+              "608",
+              "776",
+              "797H",
+              "844"
+            ],
+            "clump": 2,
+            "n_animals": 6,
+            "size": 55,
+            "top_animal_share": 0.6
+          },
+          {
+            "animal_fraction": 0.06741573033707865,
+            "animals": [
+              "109",
+              "156",
+              "32",
+              "40",
+              "48",
+              "922"
+            ],
+            "clump": 5,
+            "n_animals": 6,
+            "size": 36,
+            "top_animal_share": 0.8055555555555556
+          },
+          {
+            "animal_fraction": 0.056179775280898875,
+            "animals": [
+              "158",
+              "277",
+              "2937",
+              "32",
+              "952"
+            ],
+            "clump": 8,
+            "n_animals": 5,
+            "size": 32,
+            "top_animal_share": 0.65625
+          },
+          {
+            "animal_fraction": 0.033707865168539325,
+            "animals": [
+              "42",
+              "9003",
+              "HM04"
+            ],
+            "clump": 11,
+            "n_animals": 3,
+            "size": 24,
+            "top_animal_share": 0.7083333333333334
+          }
+        ]
+      },
+      "n_effective": 89,
+      "reason": "15 clumps and not one reaches 50% of animals -- the best spans 25.8%. These are artifacts of whichever animals dominate the sample, not vocabulary entries",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "both",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18712739951906016
+      },
+      "verdict": "FAIL"
+    },
+    "shape|k3|clumps": {
+      "degenerate": 0,
+      "detail": {
+        "corpus": {
+          "bic_gain": 21924.482368955738,
+          "bimodality_coefficient": 0.4198628522484265,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 14.489751850372794,
+          "gmm_bic_1": -46945.072316625796,
+          "gmm_bic_2": -68869.55468558153,
+          "gmm_means": [
+            0.3550627862392104,
+            0.6588000907732225
+          ],
+          "gmm_n": 64341,
+          "gmm_sds": [
+            0.10902552543158234,
+            0.27525910065117337
+          ],
+          "gmm_separation_in_sds": 1.5807934219497104,
+          "gmm_weights": [
+            0.888001799894108,
+            0.11199820010588964
+          ],
+          "kurtosis": 17.489751850372794,
+          "largest_clump_fraction": 0.005610730327473928,
+          "mean": 0.3890808176520315,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 19,
+          "n_edges": 7054,
+          "n_units": 64341,
+          "scale": 25.319997787475586,
+          "sd": 0.1679788090548103,
+          "sizes_top": [
+            361,
+            173,
+            89,
+            69,
+            68,
+            60,
+            45,
+            44,
+            39,
+            33,
+            32,
+            28,
+            26,
+            24,
+            23,
+            21,
+            21,
+            20,
+            20
+          ],
+          "skew": 2.5186019594903817,
+          "theta": 0.18998060778738327,
+          "unassigned_fraction": 0.981411541629754,
+          "uniform_reference": 0.5555555555555556
+        },
+        "nulls": {
+          "microstate": {
+            "bic_gain": 10369.119128995684,
+            "bimodality_coefficient": 0.26191737436428714,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 18.221528801385865,
+            "gmm_bic_1": -9264.165889597265,
+            "gmm_bic_2": -19633.28501859295,
+            "gmm_means": [
+              0.5282627788257385,
+              0.93375799983982
+            ],
+            "gmm_n": 46682,
+            "gmm_sds": [
+              0.1624950629944694,
+              0.3711881803631496
+            ],
+            "gmm_separation_in_sds": 1.5196100910455637,
+            "gmm_weights": [
+              0.9177032313704461,
+              0.08229676862955439
+            ],
+            "kurtosis": 21.221528801385865,
+            "largest_clump_fraction": 0.0011353412450194936,
+            "mean": 0.5616337252099298,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 2,
+            "n_edges": 423,
+            "n_units": 46682,
+            "scale": 26.413606643676758,
+            "sd": 0.21906551361443774,
+            "sizes_top": [
+              53,
+              22
+            ],
+            "skew": 2.1350263706347827,
+            "theta": 0.18998060778738327,
+            "unassigned_fraction": 0.9983933850306328,
+            "uniform_reference": 0.5555555555555556
+          },
+          "microstate0": {
+            "bic_gain": 20097.960502932852,
+            "bimodality_coefficient": 0.3401823205069839,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 17.842527125867683,
+            "gmm_bic_1": -10459.16984610801,
+            "gmm_bic_2": -30557.13034904086,
+            "gmm_means": [
+              0.5008231332186385,
+              0.918781358538981
+            ],
+            "gmm_n": 64362,
+            "gmm_sds": [
+              0.15098821513411304,
+              0.37816680517018453
+            ],
+            "gmm_separation_in_sds": 1.5797193989768448,
+            "gmm_weights": [
+              0.9030319954181434,
+              0.09696800458185895
+            ],
+            "kurtosis": 20.842527125867683,
+            "largest_clump_fraction": 0.000590410490662192,
+            "mean": 0.5413517083265283,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 4,
+            "n_edges": 718,
+            "n_units": 64362,
+            "scale": 24.68563461303711,
+            "sd": 0.22305085708532535,
+            "sizes_top": [
+              38,
+              24,
+              20,
+              20
+            ],
+            "skew": 2.4678546988117844,
+            "theta": 0.18998060778738327,
+            "unassigned_fraction": 0.9984152139461173,
+            "uniform_reference": 0.5555555555555556
+          }
+        }
+      },
+      "n_effective": 89,
+      "reason": "THERE IS CLUMP STRUCTURE the nulls do not reproduce -- corpus: 19 clumps, 98.1% unassigned, two-component BIC gain +21924; nulls: [2, 4] clumps, ['99.8%', '99.8%'] unassigned, gains ['+10369', '+20098']. Found by observation rather than by assuming a count",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "PASS"
+    },
+    "shape|k3|coverage": {
+      "degenerate": 0,
+      "detail": {
+        "bic_gain": 21924.482368955738,
+        "bimodality_coefficient": 0.4198628522484265,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 14.489751850372794,
+        "gmm_bic_1": -46945.072316625796,
+        "gmm_bic_2": -68869.55468558153,
+        "gmm_means": [
+          0.3550627862392104,
+          0.6588000907732225
+        ],
+        "gmm_n": 64341,
+        "gmm_sds": [
+          0.10902552543158234,
+          0.27525910065117337
+        ],
+        "gmm_separation_in_sds": 1.5807934219497104,
+        "gmm_weights": [
+          0.888001799894108,
+          0.11199820010588964
+        ],
+        "kurtosis": 17.489751850372794,
+        "largest_clump_fraction": 0.005610730327473928,
+        "mean": 0.3890808176520315,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 19,
+        "n_edges": 7054,
+        "n_units": 64341,
+        "scale": 25.319997787475586,
+        "sd": 0.1679788090548103,
+        "sizes_top": [
+          361,
+          173,
+          89,
+          69,
+          68,
+          60,
+          45,
+          44,
+          39,
+          33,
+          32,
+          28,
+          26,
+          24,
+          23,
+          21,
+          21,
+          20,
+          20
+        ],
+        "skew": 2.5186019594903817,
+        "theta": 0.18998060778738327,
+        "unassigned_fraction": 0.981411541629754,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_effective": 89,
+      "reason": "98.1% of segments are unassigned, above the 90% limit: whatever the clumps are, they do not cover the corpus and a vocabulary built on them would describe a fraction of behaviour while appearing to describe all of it",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "shape|k3|participation": {
+      "degenerate": 0,
+      "detail": {
+        "floor": 0.5,
+        "mean_animal_fraction": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.15495269071555287,
+          "lo": 0.05557362507392075,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 19,
+          "n_boot": 2000,
+          "n_units": 19,
+          "point": 0.09757539917208753
+        },
+        "n_clumps": 19,
+        "n_clumps_above_floor": 1,
+        "top": [
+          {
+            "animal_fraction": 0.5168539325842697,
+            "animals": [
+              "109",
+              "111",
+              "155",
+              "156",
+              "157",
+              "158",
+              "233",
+              "277",
+              "2937",
+              "32",
+              "38",
+              "42",
+              "48",
+              "527",
+              "607",
+              "667",
+              "711",
+              "752",
+              "776",
+              "777",
+              "785",
+              "793H",
+              "794",
+              "796H",
+              "797H",
+              "810",
+              "827",
+              "830",
+              "844",
+              "898",
+              "899",
+              "9018",
+              "9022",
+              "9026",
+              "9052",
+              "9061",
+              "9064",
+              "9065",
+              "9067",
+              "9069",
+              "922",
+              "949",
+              "960",
+              "HM01",
+              "HM08",
+              "HM10"
+            ],
+            "clump": 0,
+            "n_animals": 46,
+            "size": 361,
+            "top_animal_share": 0.15512465373961218
+          },
+          {
+            "animal_fraction": 0.25842696629213485,
+            "animals": [
+              "109",
+              "156",
+              "234",
+              "265",
+              "277",
+              "2937",
+              "752",
+              "776",
+              "793H",
+              "794",
+              "797H",
+              "803",
+              "827",
+              "831",
+              "844",
+              "898",
+              "9022",
+              "9064",
+              "9067",
+              "922",
+              "943",
+              "HM01",
+              "HM10"
+            ],
+            "clump": 1,
+            "n_animals": 23,
+            "size": 173,
+            "top_animal_share": 0.2832369942196532
+          },
+          {
+            "animal_fraction": 0.1797752808988764,
+            "animals": [
+              "155",
+              "156",
+              "157",
+              "236",
+              "277",
+              "312",
+              "32",
+              "717",
+              "752",
+              "776",
+              "785",
+              "796H",
+              "831",
+              "9018",
+              "9064",
+              "HM10"
+            ],
+            "clump": 2,
+            "n_animals": 16,
+            "size": 89,
+            "top_animal_share": 0.43820224719101125
+          },
+          {
+            "animal_fraction": 0.14606741573033707,
+            "animals": [
+              "158",
+              "2937",
+              "312",
+              "32",
+              "38",
+              "608",
+              "776",
+              "797H",
+              "803",
+              "842",
+              "844",
+              "9018",
+              "9052"
+            ],
+            "clump": 4,
+            "n_animals": 13,
+            "size": 68,
+            "top_animal_share": 0.4264705882352941
+          },
+          {
+            "animal_fraction": 0.12359550561797752,
+            "animals": [
+              "156",
+              "38",
+              "48",
+              "641",
+              "776",
+              "794",
+              "796H",
+              "830",
+              "842",
+              "898",
+              "HM16"
+            ],
+            "clump": 12,
+            "n_animals": 11,
+            "size": 26,
+            "top_animal_share": 0.3076923076923077
+          },
+          {
+            "animal_fraction": 0.06741573033707865,
+            "animals": [
+              "109",
+              "156",
+              "32",
+              "40",
+              "922",
+              "943"
+            ],
+            "clump": 3,
+            "n_animals": 6,
+            "size": 69,
+            "top_animal_share": 0.7971014492753623
+          },
+          {
+            "animal_fraction": 0.06741573033707865,
+            "animals": [
+              "109",
+              "158",
+              "32",
+              "38",
+              "796H",
+              "9022"
+            ],
+            "clump": 6,
+            "n_animals": 6,
+            "size": 45,
+            "top_animal_share": 0.4888888888888889
+          },
+          {
+            "animal_fraction": 0.06741573033707865,
+            "animals": [
+              "155",
+              "277",
+              "776",
+              "797H",
+              "9070",
+              "943"
+            ],
+            "clump": 15,
+            "n_animals": 6,
+            "size": 21,
+            "top_animal_share": 0.6666666666666666
+          },
+          {
+            "animal_fraction": 0.056179775280898875,
+            "animals": [
+              "38",
+              "48",
+              "796H",
+              "803",
+              "9018"
+            ],
+            "clump": 5,
+            "n_animals": 5,
+            "size": 60,
+            "top_animal_share": 0.5333333333333333
+          },
+          {
+            "animal_fraction": 0.056179775280898875,
+            "animals": [
+              "277",
+              "40",
+              "803",
+              "9070",
+              "922"
+            ],
+            "clump": 10,
+            "n_animals": 5,
+            "size": 32,
+            "top_animal_share": 0.46875
+          }
+        ]
+      },
+      "n_effective": 89,
+      "reason": "1 of 19 clumps are present in at least 50% of animals, mean animal fraction 0.098 [0.056, 0.155]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "PASS"
+    },
+    "twist|k3|clumps": {
+      "degenerate": 0,
+      "detail": {
+        "corpus": {
+          "bic_gain": 36514.3076542634,
+          "bimodality_coefficient": 0.4380705918323922,
+          "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+          "excess_kurtosis": 42.11538161755193,
+          "gmm_bic_1": 94458.78560373593,
+          "gmm_bic_2": 57944.47794947253,
+          "gmm_means": [
+            0.4898174968313877,
+            1.908981856957178
+          ],
+          "gmm_n": 65993,
+          "gmm_sds": [
+            0.3197459051351594,
+            1.2536284992162225
+          ],
+          "gmm_separation_in_sds": 1.8039753998805335,
+          "gmm_weights": [
+            0.9580233090315412,
+            0.04197669096846422
+          ],
+          "kurtosis": 45.11538161755193,
+          "largest_clump_fraction": 0.01010713257466701,
+          "mean": 0.5493893206098494,
+          "min_size": 20,
+          "n_animals": 89,
+          "n_clumps": 1,
+          "n_edges": 5657,
+          "n_units": 65993,
+          "scale": 5.94834566116333,
+          "sd": 0.4948867403000289,
+          "sizes_top": [
+            667
+          ],
+          "skew": 4.331718097037052,
+          "theta": 0.022657741674908638,
+          "unassigned_fraction": 0.989892867425333,
+          "uniform_reference": 0.5555555555555556
+        },
+        "nulls": {
+          "microstate": {
+            "bic_gain": 28593.067687595747,
+            "bimodality_coefficient": 0.39311480869551313,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 21.660798722787604,
+            "gmm_bic_1": 53565.25687825872,
+            "gmm_bic_2": 24972.18919066297,
+            "gmm_means": [
+              0.5040086227873558,
+              1.219289471625058
+            ],
+            "gmm_n": 68867,
+            "gmm_sds": [
+              0.22739160301465544,
+              0.6639438493596226
+            ],
+            "gmm_separation_in_sds": 1.6049644315894454,
+            "gmm_weights": [
+              0.9115141834562481,
+              0.08848581654374757
+            ],
+            "kurtosis": 24.660798722787604,
+            "largest_clump_fraction": 0.009220671729565685,
+            "mean": 0.5673008327548617,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 1,
+            "n_edges": 5811,
+            "n_units": 68867,
+            "scale": 9.313255310058594,
+            "sd": 0.3569393599812069,
+            "sizes_top": [
+              635
+            ],
+            "skew": 2.9486567364726484,
+            "theta": 0.022657741674908638,
+            "unassigned_fraction": 0.9907793282704344,
+            "uniform_reference": 0.5555555555555556
+          },
+          "microstate0": {
+            "bic_gain": 42356.57920710454,
+            "bimodality_coefficient": 0.4394416237402164,
+            "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+            "excess_kurtosis": 25.38904609857431,
+            "gmm_bic_1": 98133.60405497409,
+            "gmm_bic_2": 55777.02484786954,
+            "gmm_means": [
+              0.45327325203657237,
+              1.3511053710698628
+            ],
+            "gmm_n": 77220,
+            "gmm_sds": [
+              0.2548119367655265,
+              0.8061415425428549
+            ],
+            "gmm_separation_in_sds": 1.6925004470857155,
+            "gmm_weights": [
+              0.889661696272908,
+              0.11033830372708922
+            ],
+            "kurtosis": 28.38904609857431,
+            "largest_clump_fraction": 0.009077959077959078,
+            "mean": 0.5523385250824032,
+            "min_size": 20,
+            "n_animals": 89,
+            "n_clumps": 1,
+            "n_edges": 6424,
+            "n_units": 77220,
+            "scale": 6.798172473907471,
+            "sd": 0.45673036128456407,
+            "sizes_top": [
+              701
+            ],
+            "skew": 3.3875329862861516,
+            "theta": 0.022657741674908638,
+            "unassigned_fraction": 0.990922040922041,
+            "uniform_reference": 0.5555555555555556
+          }
+        }
+      },
+      "n_effective": 89,
+      "reason": "A CONTINUUM, not a vocabulary: corpus: 1 clumps, 99.0% unassigned, two-component BIC gain +36514; nulls: [1, 1] clumps, ['99.1%', '99.1%'] unassigned, gains ['+28593', '+42357']. The corpus's component structure is not beyond what the dwell-matched nulls produce under the identical graph, so there are local neighbourhoods -- enough for averaging without a global partition -- and no evidence of discrete entries",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "twist",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.022657741674908638
+      },
+      "verdict": "FAIL"
+    },
+    "twist|k3|coverage": {
+      "degenerate": 0,
+      "detail": {
+        "bic_gain": 36514.3076542634,
+        "bimodality_coefficient": 0.4380705918323922,
+        "caveat": "BC rises on heavy tails as well as on two peaks -- a standard exponential scores 0.58 -- so the excess kurtosis beside it is what separates a flat-topped two-peak distribution (negative) from a heavy-tailed one (positive)",
+        "excess_kurtosis": 42.11538161755193,
+        "gmm_bic_1": 94458.78560373593,
+        "gmm_bic_2": 57944.47794947253,
+        "gmm_means": [
+          0.4898174968313877,
+          1.908981856957178
+        ],
+        "gmm_n": 65993,
+        "gmm_sds": [
+          0.3197459051351594,
+          1.2536284992162225
+        ],
+        "gmm_separation_in_sds": 1.8039753998805335,
+        "gmm_weights": [
+          0.9580233090315412,
+          0.04197669096846422
+        ],
+        "kurtosis": 45.11538161755193,
+        "largest_clump_fraction": 0.01010713257466701,
+        "mean": 0.5493893206098494,
+        "min_size": 20,
+        "n_animals": 89,
+        "n_clumps": 1,
+        "n_edges": 5657,
+        "n_units": 65993,
+        "scale": 5.94834566116333,
+        "sd": 0.4948867403000289,
+        "sizes_top": [
+          667
+        ],
+        "skew": 4.331718097037052,
+        "theta": 0.022657741674908638,
+        "unassigned_fraction": 0.989892867425333,
+        "uniform_reference": 0.5555555555555556
+      },
+      "n_effective": 89,
+      "reason": "99.0% of segments are unassigned, above the 90% limit: whatever the clumps are, they do not cover the corpus and a vocabulary built on them would describe a fraction of behaviour while appearing to describe all of it",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "twist",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.022657741674908638
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "twist|k3|participation": {
+      "degenerate": 0,
+      "detail": {
+        "floor": 0.5,
+        "mean_animal_fraction": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3595505617977528,
+          "lo": 0.3595505617977528,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 1,
+          "n_boot": 2000,
+          "n_units": 1,
+          "point": 0.3595505617977528
+        },
+        "n_clumps": 1,
+        "n_clumps_above_floor": 0,
+        "top": [
+          {
+            "animal_fraction": 0.3595505617977528,
+            "animals": [
+              "109",
+              "111",
+              "155",
+              "156",
+              "157",
+              "158",
+              "236",
+              "277",
+              "312",
+              "40",
+              "42",
+              "527",
+              "717",
+              "752",
+              "793H",
+              "797H",
+              "803",
+              "810",
+              "830",
+              "842",
+              "898",
+              "899",
+              "9018",
+              "9061",
+              "9069",
+              "922",
+              "943",
+              "949",
+              "952",
+              "HM01",
+              "HM04",
+              "HM16"
+            ],
+            "clump": 0,
+            "n_animals": 32,
+            "size": 667,
+            "top_animal_share": 0.25787106446776614
+          }
+        ]
+      },
+      "n_effective": 89,
+      "reason": "1 clumps and not one reaches 50% of animals -- the best spans 36.0%. These are artifacts of whichever animals dominate the sample, not vocabulary entries",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_vocab",
+        "dataset": "luna",
+        "group": "twist",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "report",
+        "theta": 0.022657741674908638
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "registration": "results/VOCAB_PREREGISTRATION.md",
+  "stage": "seg_vocab_combine"
+}
