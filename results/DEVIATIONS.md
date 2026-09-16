@@ -215,3 +215,34 @@ probe **bit-for-bit** before anything was concluded from it.
 > **A probe with no negative control is not a probe.** The blind instrument
 > passed four nulls and would have licensed the whole gate. Only the null whose
 > answer was already known could say the probe was measuring nothing.
+
+---
+
+## D8 — the registered secondary distance was never computed
+
+**Registered** (`SEGRECUR_PREREGISTRATION.md` §4): time-normalised as the
+primary, and *"**SECONDARY: open-end alignment**, no warp, compared over the
+overlapping extent. Reported beside the primary."*
+
+**What happened.** `vieb/seg/embed.open_end_distance` was written, unit-tested,
+and **never called by any driver**. `SEGRECUR.md` reports only the primary. It
+does not claim the secondary ran — it simply omits it, which is worse in one
+specific way: a reader checking the registration against the result would find a
+promised comparison missing with nothing saying so.
+
+**Why it mattered here specifically.** The primary warps every segment to 40
+points, so duration is invisible to it, and clump 0 pools 0.53 s with 65 s. The
+secondary is precisely the instrument that says whether those belong together.
+Omitting it removed the one check aimed at the most suspicious property of the
+headline result.
+
+**Fixed.** Computed in `results/BEHAVIOUR.md`: on clump 0's own nearest pairs the
+median open-end distance is **0.716** against the primary's **0.173**, Spearman
+0.616, and matched partners differ by a mean factor of **3.7×** in duration. The
+clumping is substantially tempo-invariance, and that is now on the record.
+
+**The rule:**
+
+> **A registered secondary is a deliverable, not a courtesy.** If a registration
+> promises a second measurement, the result document either carries it or says in
+> its own text that it does not and why. Silence reads as "reported".

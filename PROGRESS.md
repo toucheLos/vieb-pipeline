@@ -29,6 +29,8 @@ programme and the cleaning work under it.
 | 13 | **Segment recurrence — the gate** | **done — PASS ×3** | shape +5.93% vs a length-matched windowed +0.74%; twist segments do **not** recur | `results/SEGRECUR.md`, `seg_recur.json` |
 | 14 | **Vocabulary or continuum** | **done — a continuum with islands** | 19 clumps the nulls don't reproduce, covering **1.9%**; one shared by 46/89 animals | `results/VOCAB.md`, `seg_vocab.json` |
 | 15 | Tokens, merge, MDL | **refused** | 852 mergeable adjacent pairs — three orders of magnitude under the thin-stratum floor | `results/VOCAB.md` |
+| 16 | **What the island is** | **done** | a **chain**, 3.7× slower than baseline — a basin of near-immobility, not a token | `results/BEHAVIOUR.md` |
+| 17 | Continuing the token search | **planned** | four levers, ranked by the measured blocker | `results/TOKENS_NEXT.md` |
 
 **Tests:** 701 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 42 files.

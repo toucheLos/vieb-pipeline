@@ -1,0 +1,89 @@
+{
+  "clump": 0,
+  "columns": "first / mid / last frame of each segment",
+  "group": "shape",
+  "inherited_digest": "198eb14ff258c7f6",
+  "n": 10,
+  "rows": [
+    {
+      "animal": "156",
+      "duration_s": 0.5333333333333333,
+      "index": 0,
+      "n_frames": 16,
+      "recording_id": "20251212_Box_2_CFD_Day_6_(Context_A)_156",
+      "start_frame": 959
+    },
+    {
+      "animal": "9022",
+      "duration_s": 0.6,
+      "index": 1,
+      "n_frames": 18,
+      "recording_id": "20241220_Box_2_CFD_Day_6_(Context_A)_9022",
+      "start_frame": 1446
+    },
+    {
+      "animal": "844",
+      "duration_s": 0.7333333333333333,
+      "index": 2,
+      "n_frames": 22,
+      "recording_id": "20250408_Box_1_CFD_Day_4_(Context_A)_844",
+      "start_frame": 1581
+    },
+    {
+      "animal": "777",
+      "duration_s": 0.9333333333333333,
+      "index": 3,
+      "n_frames": 28,
+      "recording_id": "20260423_Box_2_CFD_Day_6_(Context_A)_777",
+      "start_frame": 6033
+    },
+    {
+      "animal": "830",
+      "duration_s": 1.1333333333333333,
+      "index": 4,
+      "n_frames": 34,
+      "recording_id": "20250502_Box_2_CFD_Day_7_(Context_A)_830",
+      "start_frame": 2516
+    },
+    {
+      "animal": "32",
+      "duration_s": 1.6,
+      "index": 5,
+      "n_frames": 48,
+      "recording_id": "20251028_Box_2_CFD_Day_4_(Context_B)_32",
+      "start_frame": 1074
+    },
+    {
+      "animal": "797H",
+      "duration_s": 2.3333333333333335,
+      "index": 6,
+      "n_frames": 70,
+      "recording_id": "20260417_Box_1_CFD_Day_7_(Context_B)_797H",
+      "start_frame": 1236
+    },
+    {
+      "animal": "233",
+      "duration_s": 4.133333333333334,
+      "index": 7,
+      "n_frames": 124,
+      "recording_id": "20251230_Box_2_CFD_Day_4_(Context_A)_233",
+      "start_frame": 646
+    },
+    {
+      "animal": "777",
+      "duration_s": 9.366666666666667,
+      "index": 8,
+      "n_frames": 281,
+      "recording_id": "20260420_Box_2_CFD_Day_3_(Context_B)_777",
+      "start_frame": 2266
+    },
+    {
+      "animal": "527",
+      "duration_s": 64.96666666666667,
+      "index": 9,
+      "n_frames": 1949,
+      "recording_id": "20250212_Box_2_CFD_Day_5_(Context_B)_527",
+      "start_frame": 2829
+    }
+  ]
+}

@@ -42,9 +42,11 @@ F64 = npt.NDArray[np.float64]
 I64 = npt.NDArray[np.int64]
 Detail = dict[str, Any]
 
-__all__ = ["KNN", "MIN_CLUMP", "bimodality", "clump_read", "components",
-           "coverage_read", "gmm1d_bic_gain", "participation",
-           "participation_read"]
+__all__ = ["CHAIN_LIMIT", "KNN", "MIN_CLUMP", "bimodality", "chaining_read",
+           "clump_diameter", "clump_read", "components", "coverage_read",
+           "gmm1d_bic_gain", "one_clump_chaining_read", "open_end_agreement",
+           "participation", "participation_read", "session_composition",
+           "speed_contrast", "speed_read"]
 
 #: Neighbours considered per segment when building the graph. Bounded so the
 #: graph cannot blow up on a dense region; a segment with more than KNN
@@ -324,3 +326,268 @@ def coverage_read(summary: Mapping[str, Any], *, scored_object: Detail,
                 f"{int(summary['min_size'])} members; {un:.1%} are unassigned "
                 f"and are reported as such",
                 n_effective=n_effective, detail=detail)
+
+
+# --------------------------------------------------------------------------
+# Characterising a clump: four checks, run before anything is named
+# --------------------------------------------------------------------------
+#
+# Counting clumps says there is structure. It does not say WHAT the structure
+# is, and three properties of the headline clump make naming it prematurely a
+# wrong-object risk rather than a hypothetical one:
+#
+#   * it pools durations from 0.53 s to 65 s -- a 122x range, and the primary
+#     distance is time-normalised, so duration is invisible to it;
+#   * its members sit at median normalised distance 0.173 against theta = 0.190,
+#     where unassigned segments sit at 0.361. These are threshold-hugging links;
+#   * components come from SINGLE LINKAGE, which chains: a path of near-theta
+#     links can string together members that are nowhere near each other.
+#
+# So: is it one thing (freezing, say -- this is fear-conditioning data) or is it
+# a chain? The four functions below answer that, and each can refuse.
+
+#: A clump whose diameter exceeds this multiple of theta is a chain rather than
+#: a group. Two members linked through a path of k near-theta steps can sit k*
+#: theta apart; at 3x the clump is no longer describable as one thing.
+CHAIN_LIMIT = 3.0
+
+
+def clump_diameter(bank: npt.ArrayLike, labels: npt.ArrayLike, *, scale: float,
+                   theta: float, max_members: int = 400,
+                   seed: int = 0) -> list[Detail]:
+    """Widest normalised distance between any two members of each clump.
+
+    **The check single linkage most needs and least often gets.** A connected
+    component is a statement about paths, not about proximity: A links to B and
+    B to C puts A and C in one clump however far apart they are. Comparing the
+    diameter against the linking distance is what separates a group from a path.
+
+    Subsampled above `max_members` because the diameter is O(n^2) and the
+    largest clump does not need all of itself to show whether it is wide.
+    """
+    B = np.asarray(bank, dtype=np.float64)
+    lab = np.asarray(labels, dtype=np.int64)
+    rng = np.random.default_rng(seed)
+    out: list[Detail] = []
+    n_clumps = int(lab.max()) + 1 if lab.size and lab.max() >= 0 else 0
+    for c in range(n_clumps):
+        idx = np.flatnonzero(lab == c)
+        took = idx
+        if idx.size > max_members:
+            took = rng.choice(idx, size=max_members, replace=False)
+        sub = B[took]
+        d2 = ((sub[:, None, :] - sub[None, :, :]) ** 2).sum(-1)
+        diam = float(np.sqrt(d2.max()) / scale)
+        out.append({"clump": int(c), "size": int(idx.size),
+                    "n_measured": int(took.size),
+                    "diameter": diam,
+                    "diameter_over_theta": float(diam / theta),
+                    "median_pair": float(np.median(np.sqrt(d2)) / scale)})
+    return out
+
+
+def chaining_read(rows: Sequence[Mapping[str, Any]], *, scored_object: Detail,
+                  n_effective: int, limit: float = CHAIN_LIMIT) -> Read:
+    """Are the clumps groups, or single-linkage chains?
+
+    **A FAIL here stops the behaviour from being named.** If the widest pair in
+    a clump sits several linking-distances apart, the clump is a path through
+    the space and "the segments in it are the same thing" is not a claim the
+    data supports, however many animals contribute to it.
+    """
+    if not rows:
+        return Read("INCONCLUSIVE", scored_object,
+                    "no clump to measure a diameter on",
+                    n_effective=n_effective, detail={"n_clumps": 0})
+    ratios = np.asarray([float(r["diameter_over_theta"]) for r in rows])
+    worst = float(ratios.max())
+    med = float(np.median(ratios))
+    big = [r for r in rows if float(r["diameter_over_theta"]) > limit]
+    detail: Detail = {"n_clumps": len(rows), "median_diameter_over_theta": med,
+                      "worst_diameter_over_theta": worst,
+                      "n_over_limit": len(big), "limit": limit, "rows": rows[:20]}
+    if len(big) * 2 > len(rows):
+        return Read("FAIL", scored_object,
+                    f"THE CLUMPS ARE CHAINS: {len(big)} of {len(rows)} have a "
+                    f"diameter over {limit:.0f}x the linking distance (median "
+                    f"{med:.1f}x, worst {worst:.1f}x). Single linkage joins A to "
+                    f"C through B however far apart A and C are, so these are "
+                    f"paths through the space rather than groups, and no "
+                    f"behaviour is named from them",
+                    n_effective=n_effective, detail=detail)
+    return Read("PASS", scored_object,
+                f"the clumps are groups rather than chains: median diameter "
+                f"{med:.1f}x the linking distance, worst {worst:.1f}x, with "
+                f"{len(big)} of {len(rows)} over the {limit:.0f}x limit",
+                n_effective=n_effective, detail=detail)
+
+
+def one_clump_chaining_read(rows: Sequence[Mapping[str, Any]], *, clump: int,
+                            scored_object: Detail, n_effective: int,
+                            limit: float = CHAIN_LIMIT) -> Read:
+    """The chaining check scored on ONE clump, because that is the object.
+
+    `chaining_read` scores the whole set and can PASS on a majority while the
+    single clump a page is about fails. A claim about clump 0 is not supported by
+    a statistic over nineteen clumps -- naming the scored object is the entire
+    point of this type, and "most clumps are groups" is a different object from
+    "this clump is a group".
+    """
+    row = next((r for r in rows if int(r["clump"]) == int(clump)), None)
+    if row is None:
+        return Read("INCONCLUSIVE", scored_object,
+                    f"clump {clump} has no diameter measurement",
+                    n_effective=n_effective, detail={"clump": clump})
+    ratio = float(row["diameter_over_theta"])
+    med = float(row["median_pair"])
+    theta = float(row["diameter"]) / max(ratio, 1e-12)
+    detail: Detail = dict(row)
+    if ratio > limit:
+        return Read("FAIL", scored_object,
+                    f"CLUMP {clump} IS A CHAIN, not a group: its widest pair "
+                    f"sits {ratio:.1f}x the linking distance apart and its "
+                    f"TYPICAL pair sits {med:.3f} apart against a linking "
+                    f"distance of {theta:.3f} -- {med / theta:.1f}x. Single "
+                    f"linkage joins A to C through B however far apart A and C "
+                    f"are, so its members are not one thing and it must not be "
+                    f"named as one behaviour",
+                    n_effective=n_effective, detail=detail)
+    return Read("PASS", scored_object,
+                f"clump {clump} is a group rather than a chain: widest pair "
+                f"{ratio:.1f}x the linking distance, typical pair "
+                f"{med / theta:.1f}x",
+                n_effective=n_effective, detail=detail)
+
+
+def speed_contrast(speed: npt.ArrayLike, labels: npt.ArrayLike,
+                   animals: Sequence[str], *, seed: int = 0) -> Detail:
+    """Mean speed inside each clump against the same animal's own segments.
+
+    **Paired within animal**, because animals differ in how much they move and
+    an unpaired contrast would rank clumps by which animals happen to be in
+    them. This is the freezing test: in fear conditioning a long smooth immobile
+    stretch is the behaviour of interest, and it is also exactly what a
+    flat-line artifact looks like, so the number is reported either way.
+    """
+    v = np.asarray(speed, dtype=np.float64)
+    lab = np.asarray(labels, dtype=np.int64)
+    an = np.asarray(animals)
+    out: Detail = {"corpus_mean_speed": float(np.nanmean(v)), "clumps": []}
+    n_clumps = int(lab.max()) + 1 if lab.size and lab.max() >= 0 else 0
+    for c in range(n_clumps):
+        m = lab == c
+        if not m.any():
+            continue
+        ratios, tags = [], []
+        for a in sorted(set(an[m].tolist())):
+            mine = an == a
+            inside = v[mine & m]
+            outside = v[mine & ~m]
+            if inside.size and outside.size and np.nanmean(outside) > 0:
+                ratios.append(float(np.nanmean(inside) / np.nanmean(outside)))
+                tags.append(str(a))
+        if len(ratios) < 2:
+            out["clumps"].append({"clump": int(c), "n_animals": len(ratios),
+                                  "why": "fewer than two animals with both sides"})
+            continue
+        ci = boot.animal_interval(np.asarray(ratios), tags, how="mean", seed=seed)
+        out["clumps"].append({
+            "clump": int(c), "n_animals": len(ratios),
+            "mean_speed_inside": float(np.nanmean(v[m])),
+            "speed_ratio_within_animal": ci})
+    return out
+
+
+def speed_read(contrast: Mapping[str, Any], *, clump: int,
+               scored_object: Detail, n_effective: int) -> Read:
+    """Is this clump slower than the animal's own behaviour, or faster?
+
+    Descriptive by design: neither answer is a failure. A ratio well below 1
+    with an interval excluding it says the segments are periods of unusual
+    stillness, which in this corpus is what freezing would look like.
+    """
+    rows = {int(r["clump"]): r for r in contrast.get("clumps", [])}
+    row = rows.get(int(clump))
+    if row is None or "speed_ratio_within_animal" not in row:
+        return Read("INCONCLUSIVE", scored_object,
+                    f"clump {clump} has no within-animal speed contrast: "
+                    f"{(row or {}).get('why', 'not measured')}",
+                    n_effective=n_effective, detail=dict(row or {}))
+    ci = row["speed_ratio_within_animal"]
+    pt, lo, hi = float(ci["point"]), float(ci["lo"]), float(ci["hi"])
+    detail: Detail = dict(row)
+    if hi < 1.0:
+        return Read("PASS", scored_object,
+                    f"clump {clump} is SLOWER than the same animals' other "
+                    f"segments: speed ratio {pt:.3f} [{lo:.3f}, {hi:.3f}] over "
+                    f"{int(row['n_animals'])} animals, paired within animal. In "
+                    f"a fear-conditioning corpus that is what immobility looks "
+                    f"like -- and it is also what a flat-line tracking artifact "
+                    f"looks like, which the clip render is for",
+                    n_effective=n_effective, detail=detail)
+    if lo > 1.0:
+        return Read("PASS", scored_object,
+                    f"clump {clump} is FASTER than the same animals' other "
+                    f"segments: speed ratio {pt:.3f} [{lo:.3f}, {hi:.3f}] over "
+                    f"{int(row['n_animals'])} animals. Not immobility",
+                    n_effective=n_effective, detail=detail)
+    return Read("INCONCLUSIVE", scored_object,
+                f"clump {clump} does not differ in speed from the same animals' "
+                f"other segments: ratio {pt:.3f} [{lo:.3f}, {hi:.3f}]",
+                n_effective=n_effective, detail=detail)
+
+
+def session_composition(labels: npt.ArrayLike, sessions: Sequence[Mapping[str, str]],
+                        *, clump: int) -> Detail:
+    """How a clump's members distribute over context, day and date.
+
+    `CONCENTRATION.md` records **context and day completely confounded** in this
+    corpus -- context C occurs only on day 2 -- so these are reported as ONE
+    session factor and never as two findings. A clump drawn overwhelmingly from
+    one session is a property of that session, not of behaviour.
+    """
+    lab = np.asarray(labels, dtype=np.int64)
+    m = lab == int(clump)
+    out: Detail = {"clump": int(clump), "n": int(m.sum()),
+                   "confound_note": ("context and day are completely confounded "
+                                     "in this corpus -- one session factor, not "
+                                     "two")}
+    for key in ("context", "day", "date"):
+        vals = [str(s.get(key, "?")) for s, keep in zip(sessions, m) if keep]
+        if not vals:
+            continue
+        uniq, cnt = np.unique(np.asarray(vals), return_counts=True)
+        order = np.argsort(-cnt)
+        out[key] = {"n_levels": int(uniq.size),
+                    "top_share": float(cnt.max() / cnt.sum()),
+                    "counts": {str(uniq[i]): int(cnt[i]) for i in order[:8]}}
+    return out
+
+
+def open_end_agreement(open_end: npt.ArrayLike, warped: npt.ArrayLike) -> Detail:
+    """Do the two registered distances agree about a clump's members?
+
+    The registered SECONDARY, owed since `SEGRECUR_PREREGISTRATION.md` and not
+    computed until now. The primary time-normalises, so a 0.53 s and a 65 s
+    segment can sit at distance zero from each other; the open-end form compares
+    the shared extent without warping and therefore cannot.
+
+    A low correlation is not a failure of either -- it is the measurement of how
+    much of the clumping is tempo-invariance rather than shape.
+    """
+    a = np.asarray(open_end, dtype=np.float64)
+    b = np.asarray(warped, dtype=np.float64)
+    ok = np.isfinite(a) & np.isfinite(b)
+    a, b = a[ok], b[ok]
+    if a.size < 3:
+        return {"n": int(a.size), "why": "fewer than three finite pairs"}
+    ra = np.argsort(np.argsort(a)).astype(np.float64)
+    rb = np.argsort(np.argsort(b)).astype(np.float64)
+    return {"n": int(a.size),
+            "spearman": float(np.corrcoef(ra, rb)[0, 1]),
+            "median_open_end": float(np.median(a)),
+            "median_time_normalised": float(np.median(b)),
+            "note": ("the primary warps and so is blind to duration; the "
+                     "secondary compares the shared extent and is not. "
+                     "Disagreement measures how much of the clumping is "
+                     "tempo-invariance rather than shape")}
