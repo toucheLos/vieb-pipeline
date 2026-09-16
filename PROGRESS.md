@@ -37,8 +37,10 @@ programme and the cleaning work under it.
 | 21 | Step D — coverage, then tokens | **not run** | gated behind 20 | — |
 | 22 | **Watch the island — blind odd-one-out** | **done — INSTRUMENT BLIND** | positive control 37.8% [0.280, 0.467] against chance 33.3%; neither arm interpretable, 180 trials published for a human scorer | `results/ISLAND_LOOK.md`, `island_look.json` |
 | 23 | **Step 0 — is the plant findable at all?** | **done — INCONCLUSIVE** | planted edges sit at the 60th percentile of the criterion's own scalar against real firings' 96th; only 19.87% clear their own threshold | `results/PROBE_AUDIT.md`, `probe_audit.json` |
+| 24 | **Step 1 — human boundary annotation** | **instrument built, awaiting raters** | 58 clips / 9.7 min from tune animals, six per arena decile; blind tool published; inter-rater F1 at ±2/±5/±10 with one-to-one matching | `results/ANNOTATION_PREREGISTRATION.md`, `vieb/seg/annot.py` |
+| 25 | **Step 6 — the island published** | **done** | 361 segments at their own extent against a duration-matched blind control; every published number now a record | `results/island/`, `scripts/island_clips.py` |
 
-**Tests:** 757 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 783 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 47 files.
 
 ## The dwell-matched arms reverse the sign, and show why
