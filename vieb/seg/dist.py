@@ -50,8 +50,8 @@ F64 = npt.NDArray[np.float64]
 I64 = npt.NDArray[np.int64]
 Detail = dict[str, Any]
 
-__all__ = ["CANDIDATES", "METRICS", "PREFIX_L", "metric_fn", "open_end",
-           "pairwise", "recovery_read", "rerank", "union_end"]
+__all__ = ["CANDIDATES", "KEEP", "METRICS", "PREFIX_L", "metric_fn",
+           "open_end", "pairwise", "recovery_read", "rerank", "union_end"]
 
 #: Fixed in the registration. The identifiability floor, and the length at which
 #: 100% of segments survive truncation -- so the retrieval stage drops nothing.
@@ -106,10 +106,21 @@ def metric_fn(name: str) -> Callable[[npt.ArrayLike, npt.ArrayLike], float]:
     raise ValueError(f"unknown metric {name!r}; one of {METRICS}")
 
 
+#: Neighbours kept per query after reranking. Ten, because `vocab.KNN` is ten
+#: and the clump graph has to be built on the same number of edges per node --
+#: a graph with one edge per node and one with ten are different objects, and
+#: comparing their component counts would compare the graph, not the metric.
+KEEP = 10
+
+
 def rerank(blocks: Sequence[npt.ArrayLike], query: int,
-           candidates: npt.ArrayLike, *, metric: str,
-           forbid: npt.ArrayLike | None = None) -> tuple[int, float]:
-    """True nearest among the candidates, under the true metric.
+           candidates: npt.ArrayLike, *, metric: str, keep: int = KEEP,
+           forbid: npt.ArrayLike | None = None) -> tuple[I64, F64]:
+    """The `keep` nearest among the candidates, under the true metric.
+
+    Returns `keep` neighbours rather than one because the clump graph needs the
+    same number of edges per node that Step 3's did. Slots with no candidate are
+    `-1` with an infinite distance, so the caller can mask them.
 
     `forbid` marks candidates that must not win -- the query's own animal, for a
     cross-animal statistic. Masking here rather than at retrieval keeps the
@@ -119,14 +130,22 @@ def rerank(blocks: Sequence[npt.ArrayLike], query: int,
     cand = np.asarray(candidates, dtype=np.int64)
     bad = (np.zeros(cand.size, dtype=bool) if forbid is None
            else np.asarray(forbid, dtype=bool))
-    best_i, best_d = -1, float("inf")
+    idx: list[int] = []
+    dst: list[float] = []
     for j, c in enumerate(cand.tolist()):
         if c < 0 or c == int(query) or bad[j]:
             continue
         d = fn(blocks[int(query)], blocks[int(c)])
-        if np.isfinite(d) and d < best_d:
-            best_i, best_d = int(c), float(d)
-    return best_i, (best_d if best_i >= 0 else float("nan"))
+        if np.isfinite(d):
+            idx.append(int(c))
+            dst.append(float(d))
+    out_i = np.full(int(keep), -1, dtype=np.int64)
+    out_d = np.full(int(keep), np.inf, dtype=np.float64)
+    if idx:
+        order = np.argsort(np.asarray(dst))[:int(keep)]
+        out_i[:order.size] = np.asarray(idx, dtype=np.int64)[order]
+        out_d[:order.size] = np.asarray(dst)[order]
+    return out_i, out_d
 
 
 def pairwise(blocks: Sequence[npt.ArrayLike], queries: npt.ArrayLike,

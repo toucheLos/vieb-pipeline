@@ -90,10 +90,12 @@ def _graph(z: Any, theta: float) -> Any:
     """
     q_idx = np.asarray(z["q_idx"], dtype=np.int64)
     pos = {int(g): r for r, g in enumerate(q_idx.tolist())}
-    ii = np.asarray(z["i_cross"], dtype=np.int64)
-    local = np.asarray([pos.get(int(v), -1) for v in ii.tolist()],
-                       dtype=np.int64)[:, None]
-    nn = np.asarray(z["d_cross"], dtype=np.float64)[:, None]
+    # ALL `KEEP` neighbours, not just the nearest: Step 3 built its graph with
+    # ten edges per node, and a one-edge graph would have a different component
+    # count for reasons that have nothing to do with the metric.
+    ii = np.asarray(z["nn_idx"], dtype=np.int64)
+    local = np.vectorize(lambda v: pos.get(int(v), -1))(ii).astype(np.int64)
+    nn = np.asarray(z["nn_all"], dtype=np.float64)
     return vb.components(local, nn, theta=theta, min_size=vb.MIN_CLUMP)
 
 

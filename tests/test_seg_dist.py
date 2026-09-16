@@ -66,10 +66,23 @@ def test_metric_fn_refuses_an_unknown_name():
         ds.metric_fn("dtw")
 
 
-def test_rerank_finds_the_true_nearest_among_candidates():
+def test_rerank_returns_the_candidates_sorted_by_the_true_metric():
     blocks = [_ramp(20), _ramp(20, slope=1.001), _ramp(20, slope=9.0)]
-    i, d = ds.rerank(blocks, 0, [1, 2], metric="open")
-    assert i == 1 and d < 0.1
+    i, d = ds.rerank(blocks, 0, [1, 2], metric="open", keep=2)
+    assert i.tolist() == [1, 2]
+    assert d[0] < 0.1 < d[1]
+
+
+def test_rerank_keeps_the_same_number_of_edges_per_node_as_step_3():
+    """Ten, matching `vocab.KNN`. A one-edge graph and a ten-edge graph have
+    different component counts for reasons that are not the metric."""
+    from vieb.seg import vocab as vb
+    assert ds.KEEP == vb.KNN
+    blocks = [_ramp(20, slope=s) for s in (1.0, 1.1, 1.2, 1.3)]
+    i, d = ds.rerank(blocks, 0, [1, 2, 3], metric="open")
+    assert i.size == ds.KEEP and d.size == ds.KEEP
+    assert (i[:3] >= 0).all() and (i[3:] == -1).all()
+    assert not np.isfinite(d[3:]).any()
 
 
 def test_rerank_never_returns_the_query_or_a_forbidden_candidate():
@@ -78,14 +91,14 @@ def test_rerank_never_returns_the_query_or_a_forbidden_candidate():
     blocks = [_ramp(20), _ramp(20, slope=1.0), _ramp(20, slope=5.0)]
     i, _d = ds.rerank(blocks, 0, [0, 1, 2], metric="open",
                       forbid=np.array([False, True, False]))
-    assert i == 2
+    assert i[0] == 2 and 1 not in i.tolist()
 
 
 def test_rerank_refuses_when_every_candidate_is_masked():
     blocks = [_ramp(12), _ramp(12)]
     i, d = ds.rerank(blocks, 0, [1], metric="union",
                      forbid=np.array([True]))
-    assert i == -1 and not np.isfinite(d)
+    assert (i == -1).all() and not np.isfinite(d).any()
 
 
 def test_pairwise_excludes_the_query_s_own_animal():

@@ -159,8 +159,8 @@ def run(args) -> int:
             del Xs
             split = np.asarray([split_of.get(a, "?") for a in an])
             q = np.flatnonzero(split == "report")
-            nn_i = np.full(q.size, -1, dtype=np.int64)
-            nn_d = np.full(q.size, np.nan, dtype=np.float64)
+            nn_i = np.full((q.size, ds.KEEP), -1, dtype=np.int64)
+            nn_d = np.full((q.size, ds.KEEP), np.inf, dtype=np.float64)
             for r, i in enumerate(q.tolist()):
                 nn_i[r], nn_d[r] = ds.rerank(blocks, i, cand[i],
                                              metric=args.metric)
@@ -184,7 +184,8 @@ def run(args) -> int:
             np.savez_compressed(
                 os.path.join(out_dir(),
                              f"{args.group}__{args.metric}__{arm}__{unit}.npz"),
-                d_cross=(nn_d / scale).astype(np.float32),
+                d_cross=(nn_d[:, 0] / scale).astype(np.float32),
+                nn_idx=nn_i, nn_all=(nn_d / scale).astype(np.float32),
                 d_within=np.full(q.size, np.nan, dtype=np.float32),
                 # `i_cross` indexes the FULL bank (all 298 animals) while the
                 # queries are the report split, so a clump graph built from it
@@ -192,11 +193,12 @@ def run(args) -> int:
                 # combine step map a neighbour back to a query row -- and Step
                 # 3 built its graph on the report-only bank, so the comparison
                 # has to be restricted the same way to stay like-for-like.
-                i_cross=nn_i, q_idx=q, q_animal=an[q], q_len=nfr[q],
-                nn_len=np.where(nn_i >= 0, nfr[np.maximum(nn_i, 0)], -1))
+                i_cross=nn_i[:, 0], q_idx=q, q_animal=an[q], q_len=nfr[q],
+                nn_len=np.where(nn_i[:, 0] >= 0,
+                                nfr[np.maximum(nn_i[:, 0], 0)], -1))
             out["arms"][name] = {
                 "scale": scale, "n_bank": len(blocks), "n_queries": int(q.size),
-                "n_unmatched": int((nn_i < 0).sum()),
+                "n_unmatched": int((nn_i[:, 0] < 0).sum()),
                 **({"recovery": rec_read} if rec_read else {})}
             log(f"    {len(blocks):,} units, {q.size:,} queries, "
                 f"scale {scale:.4f}, peak_rss={peak_rss_gb():.1f} GB")
@@ -232,7 +234,8 @@ def exactness(blocks, an, q, metric: str, group: str) -> dict:
     ap_i = np.full(qs.size, -1, dtype=np.int64)
     ap_d = np.full(qs.size, np.nan, dtype=np.float64)
     for r, i in enumerate(qs.tolist()):
-        ap_i[r], ap_d[r] = ds.rerank(sub, i, cand[i], metric=metric)
+        ii, dd = ds.rerank(sub, i, cand[i], metric=metric)
+        ap_i[r], ap_d[r] = int(ii[0]), float(dd[0])
     rd = ds.recovery_read(ap_i, ex_i, ap_d, ex_d, metric=metric,
                           scored_object={"dataset": "luna", "arm": "seg_dist",
                                          "group": group, "metric": metric,
