@@ -48,8 +48,25 @@ Over 3 derivative half-widths × 2 degrees × 4 planted durations:
 | 0.133 | 3 | 0.50 s | 3.7% | 78.1% | 18.2% | 0.0% |
 | 0.133 | 3 | 0.25 s | 0.3% | 88.2% | 11.4% | 0.0% |
 
-A shorter derivative window and a lower degree both help, in the direction
-theory predicts — the shortest resolvable feature is bounded by the half-width
+The full registered sweep — isolation by planted duration, all 25 cells:
+
+| deriv_sec | degree | 0.25 s | 0.50 s | 1.00 s | 2.00 s |
+|---:|---:|---:|---:|---:|---:|
+| 0.067 | 2 | 1.1% | **12.8%** | 9.2% | 4.9% |
+| 0.067 | 3 | 0.5% | 9.8% | 12.3% | 4.7% |
+| 0.133 | 2 | 0.3% | 9.1% | 4.8% | 4.1% |
+| 0.133 | 3 | 0.3% | 3.7% | 9.4% | 3.8% |
+| 0.267 | 2 | 0.4% | 0.4% | **14.4%** | 6.1% |
+| 0.267 | 3 | 0.4% | 0.3% | 13.9% | 5.9% |
+
+**Each derivative half-width peaks at the planted duration it is scaled to** —
+0.067 s at a 0.5 s insert, 0.267 s at a 1.0 s insert — which is the behaviour a
+scale-matched filter should show and is evidence the sweep is doing what it
+claims. A 0.25 s insert is essentially invisible at every setting, and the
+ceiling across the whole grid is **14.4%**.
+
+A shorter derivative window and a lower degree both help at the primary duration,
+in the direction theory predicts — the shortest resolvable feature is bounded by the half-width
 and the degrees of freedom. Isolation rises **5.6×**, from 2.3% to 12.8%.
 
 **No cell reached the target at any planted duration**, so
