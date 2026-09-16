@@ -148,3 +148,49 @@ name — no Wiener array enters this stage, and a low-pass filter manufactures
 exactly the smoothness whose breaks are at issue. Windows in seconds, converted
 once via `recur.util.frames`. Never compute across a recording boundary.
 `mypy --strict` on new modules.
+
+---
+
+## Amendment, 2026-09-16 — three fixes to the sampler, before any rater saw anything
+
+Made while building `scripts/annot_sample.py` and before a single clip was
+rated. Recorded here rather than folded silently into §2.
+
+**1. The decile edges are the corpus's, read from the published artifact.**
+§2 said "corpus-wide decile edges computed over the sampled recordings", which is
+self-contradictory. They are now read from
+`results/concentration.json#/edge_profile` — the same ten bins, 0.014 → 5.741
+IQR, that `CONCENTRATION.md:75-88` measured the 3.7× rise across. Stratifying
+against quantiles of the 60 windows in hand would have stratified the sample
+against itself.
+
+**2. Windows above 5.741 IQR are excluded.** The first draw contained a window
+whose median edgeness was **131.9 IQR units** from the animal's own centroid
+median, with an abstain fraction of zero. That is not a mouse at the wall; it is
+a centroid that left the animal, and the bone/missing/interpolated union did not
+catch it. The bound is the published profile's **own top-bin upper edge**, not a
+number chosen here: beyond it, the frame is outside the corpus's own decile
+range. 38 of 695 candidate windows are dropped by it.
+
+This adds an exclusion §2 did not name. It is an instrument defect found before
+data collection, not a criterion moved after seeing an outcome, and §7's
+prohibition — on adjusting anything after seeing an **agreement** number — is
+untouched.
+
+**3. Candidate windows per animal, and scarcest decile first.** The first draw
+took one window per animal, so with 60 animals and 10 deciles every decile held
+exactly 6 by arithmetic and the stratification selected nothing. It now gathers
+up to 12 windows per animal and chooses between them, still **at most one window
+per animal** (`select.one_per_recording`: twenty clips of one animal is one
+observation, not twenty).
+
+Deciles are filled **scarcest-first**. Filling in index order starved decile 9 —
+the wall, the regime this stratification exists to protect — to 3 of 6, because
+earlier deciles had already claimed the animals. Scarcest-first gives the wall
+its full six and puts the shortfall in the most abundant middle decile instead.
+
+**Realised sample: 58 clips, 9.7 minutes**, six per decile except decile 4 at
+four. 60 animals and 60 slots is exactly tight, so an animal whose every window
+falls in an already-filled decile is lost; a bipartite matching would recover the
+last two and is not worth the machinery. The per-decile counts are in the
+manifest so the shortfall is visible rather than implied by a total.
