@@ -75,10 +75,12 @@ every arm re-run with its bank cut to the smallest in the group.
 | group | gate as registered | gate at matched bank | matched size |
 |---|---|---|---:|
 | shape | +5.1931% [+3.9588%, +6.4495%] | **+4.8805% [+3.7053%, +6.0849%]** | 161,271 |
+| both | +3.6844% [+2.7225%, +4.6385%] | **+3.4459% [+2.5487%, +4.3277%]** | 153,960 |
 | twist | +0.6522% [+0.3360%, +0.9853%] | **+0.6448% [+0.3258%, +0.9812%]** | 221,838 |
 
-The confound is real and small — it moves the shape gate by 0.31 points and the
-twist gate by 0.007. The result does not rest on it.
+The confound is real and small — it moves the shape gate by 0.31 points, `both`
+by 0.24 and twist by 0.007, every interval still excluding zero. The result does
+not rest on it.
 
 **Duration matching**, reported beside the comparison and never gating it, as
 registered. KS on log duration: 0.031–0.110 against `microstate0`, 0.084–0.125

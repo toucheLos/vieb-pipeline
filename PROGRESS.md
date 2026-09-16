@@ -25,10 +25,13 @@ programme and the cleaning work under it.
 | 9 | **Dwell-matched surrogate** | **done** | corpus **beats** both arms at both N; the per-second statistic tracks run rate | `results/DWELL.md`, `DWELL_PREREGISTRATION.md` |
 | 10 | Segmentation Step 1: the boundary statistic | **done** | a statistic, not a finding — 0.26–0.64 boundaries/s across 18 cells | `results/BREAKS.md`, `breaks.json` |
 | 11 | Segmentation Step 2: **the gate** | **done — NO VERDICT** | gate `FAIL` *and* separability `FAIL` on all four nulls, so the gap is not evidence in either direction | `results/SEGMENTATION.md`, `seg_gate.json`, `DEVIATIONS.md` D7 |
-| 12 | Segmentation Steps 3–4 | **not run** | gated behind 11, which returned no verdict | — |
+| 12 | **Bank the three passes** | **done** | Q1 is a WIENER result; its unfiltered cell is −0.199% | `results/Q1_BANKED.md`, `ROUGHNESS.md` |
+| 13 | **Segment recurrence — the gate** | **done — PASS ×3** | shape +5.93% vs a length-matched windowed +0.74%; twist segments do **not** recur | `results/SEGRECUR.md`, `seg_recur.json` |
+| 14 | **Vocabulary or continuum** | **done — a continuum with islands** | 19 clumps the nulls don't reproduce, covering **1.9%**; one shared by 46/89 animals | `results/VOCAB.md`, `seg_vocab.json` |
+| 15 | Tokens, merge, MDL | **refused** | 852 mergeable adjacent pairs — three orders of magnitude under the thin-stratum floor | `results/VOCAB.md` |
 
-**Tests:** 653 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
-`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 36 files.
+**Tests:** 701 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 42 files.
 
 ## The dwell-matched arms reverse the sign, and show why
 
