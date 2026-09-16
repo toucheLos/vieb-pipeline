@@ -81,15 +81,28 @@ pairs:
 
 | | |
 |---|---:|
-| median time-normalised distance (the primary) | **0.173** |
-| median open-end distance (the secondary) | **0.716** |
-| Spearman between them | 0.616 |
+| Spearman between the two distances | 0.616 |
 | mean absolute log duration gap of matched pairs | **1.30** — a factor of **3.7×** |
 
-**The matching is substantially tempo-invariance.** Segments called nearest
-neighbours differ by 3.7× in duration on average, and without the warp they sit
-4.1× farther apart. This is the number that explains the 122× duration range
-inside one clump, and it was owed.
+**Segments called nearest neighbours differ by 3.7× in duration on average.**
+That is the number that bears on the 122× duration range inside one clump, and
+it was owed.
+
+> **Correction.** This table previously carried a third row — "median open-end
+> distance **0.716** against the primary's **0.173**" — and a sentence reading
+> "without the warp they sit 4.1× farther apart". **That comparison was invalid
+> and the row is withdrawn.** 0.716 is a per-frame RMS in standardised channel
+> units; 0.173 is a 560-dimensional Euclidean norm already divided by its own
+> ambient scale. They are not in the same units and their ratio means nothing.
+> Measured since, the open-end ambient scale on eight report animals is **3.885**,
+> which puts the same pairs at **0.716 / 3.885 = 0.184** against **0.173** —
+> near-identical, the opposite of what the withdrawn row implied.
+>
+> **What survives is the duration gap**, which is a ratio of durations and needs
+> no distance scale, and the Spearman, which is rank-based. So "the matching is
+> substantially tempo-invariance" now rests on the duration gap alone. The
+> distance evidence requires a per-metric ambient scale, and computing it
+> properly is what `DISTANCE_PREREGISTRATION.md` registers.
 
 ## What this does to the vocabulary question
 

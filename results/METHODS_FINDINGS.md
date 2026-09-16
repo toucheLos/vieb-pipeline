@@ -143,3 +143,45 @@ of the split. Leave-one-animal-out jackknife was the one that worked.
 
 > **RULE.** An interval that does not contain its own estimate is not a tight
 > interval. Stop and find the unit of resampling.
+
+---
+
+## M7 — a centred crop is evidence about the tracker, never about location
+
+**What happened.** Ten segments from the widest clump were rendered as contact
+sheets — first, middle and last frame, skeleton drawn, cropped 320 px on the
+animal — to settle whether a 3.7×-slower state was immobility or a flat-line
+tracking artifact. The sheet answered that: the skeleton sits on a plainly
+visible animal in every frame, and the animal does not move, including across a
+65-second segment.
+
+**And I read a second thing off it that was not there.** Every row looked like an
+animal pressed against the arena wall. That mattered: `CONCENTRATION.md` records
+tracking failure rising **3.7× monotone** from arena centre to wall, so a
+wall-enriched clump would be finding the arena rather than behaviour.
+
+Measured, paired within animal, the clump sits at edgeness **1.69** against
+**3.61** for the same animals' other segments — difference **−1.92 [−2.95,
+−0.83]**. It is **less than half as far out**. The visual read was not merely
+unsupported; it was backwards.
+
+**Why the sheet cannot answer it.** The crop is centred on the animal. The wall
+therefore fills the frame whenever the animal is anywhere near it, and it fills
+the frame identically at one body-length away as at contact. The image contains
+no arena-scale reference, so there is nothing in it from which proximity could be
+judged — the information was cropped out before the scorer ever saw it.
+
+> **RULE.** Separate what a rendering can show from what it cannot. A crop
+> centred on the subject supports claims about the subject — is the skeleton on
+> the animal, is the animal moving — and supports **no** claim about where the
+> subject is, because the framing removed the reference frame. Before reading
+> anything off an image, ask which measurement the image is standing in for, and
+> whether the image could have come out differently had that measurement been
+> different.
+
+This is the second time in this programme that the by-eye scorer was corrected by
+a number, and the first is recorded in `ADJUDICATION.md`: two frames read as
+"rearing against a wall" were teleports, caught by a nine-frame contact sheet. In
+that case the sheet was the correction. Here the sheet was the error, and the
+measurement was the correction — so "look at the data" is not a rule that
+supersedes measurement, only one that complements it.

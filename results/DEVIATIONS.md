@@ -236,10 +236,29 @@ secondary is precisely the instrument that says whether those belong together.
 Omitting it removed the one check aimed at the most suspicious property of the
 headline result.
 
-**Fixed.** Computed in `results/BEHAVIOUR.md`: on clump 0's own nearest pairs the
-median open-end distance is **0.716** against the primary's **0.173**, Spearman
-0.616, and matched partners differ by a mean factor of **3.7×** in duration. The
-clumping is substantially tempo-invariance, and that is now on the record.
+**Fixed, then half-withdrawn.** Computed in `results/BEHAVIOUR.md`: on clump 0's
+own nearest pairs the Spearman between the two distances is 0.616 and matched
+partners differ by a mean factor of **3.7×** in duration.
+
+**The distance half of that was wrong and is withdrawn.** It read "median
+open-end **0.716** against the primary's **0.173**" — a per-frame RMS in
+standardised channel units against a 560-dimensional Euclidean norm already
+divided by its ambient scale. Different units; the ratio meant nothing. The
+open-end ambient scale, measured since on eight report animals, is **3.885**, so
+the same pairs sit at **0.184** against **0.173** — near-identical, the opposite
+of what was reported. It never reached the website.
+
+So the clumping being "substantially tempo-invariance" rests on the **duration
+gap alone**, which needs no distance scale. The distance comparison requires a
+per-metric ambient scale and is what `DISTANCE_PREREGISTRATION.md` registers.
+
+**The rule this leaves, which is the same failure in a new place:**
+
+> **Two numbers are not comparable until something has divided them by the same
+> thing.** A normalised distance and an unnormalised one look alike in a table
+> and their ratio is meaningless. `paired_excess` exists precisely because raw
+> distances are not comparable across arms, and this put an unnormalised
+> quantity in a table beside a normalised one anyway.
 
 **The rule:**
 
