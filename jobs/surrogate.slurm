@@ -45,11 +45,15 @@ source "$REPO/env.sh"
 python3 scripts/freeze.py
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 
-KIND=""; FIT=0
+# --generate-only stops after writing the surrogate ego shards. Step 2 of the
+# segmentation arm needs those and nothing downstream of them, and the
+# tokenizer chain is ~20 minutes per arm that would go unread.
+KIND=""; FIT=0; GEN_ONLY=0
 while [ $# -gt 0 ]; do
     case "$1" in
         --kind) KIND="$2"; shift 2 ;;
         --fit-microstate) FIT=1; shift ;;
+        --generate-only) GEN_ONLY=1; shift ;;
         *) shift ;;
     esac
 done
@@ -64,6 +68,11 @@ echo "node=$(hostname) kind=$KIND"
 
 ROOT="${VIEB_SURROGATE_ROOT:-$REPO/work/surrogate}/$KIND"
 python3 scripts/surrogate.py --generate --kind "$KIND"
+
+if [ "$GEN_ONLY" = "1" ]; then
+    echo "done: $KIND (generate only)"
+    exit 0
+fi
 
 export VIEB_EGO_DIR="$ROOT/ego"
 export VIEB_TOK_DIR="$ROOT/tok"

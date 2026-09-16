@@ -24,10 +24,11 @@ programme and the cleaning work under it.
 | 8 | Coarse sweep N ∈ {8…128} | **not run** | blocked by 7, as registered | — |
 | 9 | **Dwell-matched surrogate** | **done** | corpus **beats** both arms at both N; the per-second statistic tracks run rate | `results/DWELL.md`, `DWELL_PREREGISTRATION.md` |
 | 10 | Segmentation Step 1: the boundary statistic | **done** | a statistic, not a finding — 0.26–0.64 boundaries/s across 18 cells | `results/BREAKS.md`, `breaks.json` |
-| 11 | Segmentation Step 2: are the boundaries real? | next — **the gate** | — | — |
+| 11 | Segmentation Step 2: **the gate** | **done — NO VERDICT** | gate `FAIL` *and* separability `FAIL` on all four nulls, so the gap is not evidence in either direction | `results/SEGMENTATION.md`, `seg_gate.json`, `DEVIATIONS.md` D7 |
+| 12 | Segmentation Steps 3–4 | **not run** | gated behind 11, which returned no verdict | — |
 
-**Tests:** 633 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
-`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean` — 25 files.
+**Tests:** 653 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 36 files.
 
 ## The dwell-matched arms reverse the sign, and show why
 

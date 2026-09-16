@@ -161,3 +161,57 @@ share:
 simplexes would need a stacked extra axis to check with `assert_pmf(axis=-1)`,
 which at the `k = 2` history depth is 7.5M contexts × 13 bins × 3 outcomes, about
 2.3 GB of temporary, for an identity that holds cellwise.
+
+---
+
+## D7 — Step 2's separability precondition is unsatisfiable by any null the question admits
+
+**Registered** (`SEGMENTATION_PREREGISTRATION.md` §3): the probe runs first, on
+every null, on window features; **high separability is failure**; limit
+`balanced accuracy ≤ 0.60`; a null above it *"differs from the corpus in ways
+unrelated to boundaries, so a boundary-rate gap against it is uninterpretable."*
+
+**What happened.** The first run passed all four nulls. It was wrong: `white` —
+i.i.d. noise — came back inseparable at **AUC 0.496**, which is chance, and white
+noise is not inseparable from a mouse trajectory. `separability` fits a logistic
+regression, and smooth-versus-rough lives in the **second moment of the
+increments**, which is quadratic in the raw window and outside a linear model's
+reach. Per-channel `log` mean-squared-first-difference features were added,
+`white` failed as it must, and **so did the other three**: `ou` 0.999, `white`
+0.989, `phase` 0.800, `var5` 0.801.
+
+**Why it is a design defect and not a result.** The post-hoc diagnostic
+(`work/tok/seg_validate/_separability_diagnose.json`) shows what separates them.
+It is not a roughness *level* — that would have been benign, since the threshold
+is MAD-standardised per recording and divides a level out. `phase` preserves the
+corpus's power spectrum exactly, hence its mean squared increment exactly, yet
+the corpus's mean **log** window energy sits 2.22 nats lower (9.2×) in 15 of 17
+channels with 2.15× the window-to-window spread. The corpus's roughness is
+*concentrated*: smooth stretches, rare rough moments.
+
+That is the hypothesis under test, visible in the probe's own features. A null
+constructed to have **no** boundaries differs from a piecewise-smooth corpus in
+its roughness distribution **because** it has no boundaries. So once the probe
+could see roughness at all, no boundary-free null could have passed, and the
+precondition rules out every null the question admits.
+
+**What was done about it: nothing, deliberately.** The registration is not
+amended and the limit is not moved. Both registered checks are reported as
+failing, and the gate's `FAIL` is declared **non-licensing in both directions** —
+it cannot say the route closes, exactly as a `PASS` could not have said the
+boundaries are real. Step 2 returns no verdict; Steps 3 and 4 do not run.
+Reopening requires a **new** registration whose precondition can separate "this
+null is off-manifold in an irrelevant way" from "this null lacks the structure
+under test". The current one cannot, and neither can a threshold chosen after
+seeing this.
+
+**Both probe runs are on disk**, the blind one preserved rather than deleted:
+`_separability_rawonly.json` and `_separability.json`. The refactor that gave the
+diagnostic access to the window builder was verified to reproduce the standing
+probe **bit-for-bit** before anything was concluded from it.
+
+**The rule this leaves:**
+
+> **A probe with no negative control is not a probe.** The blind instrument
+> passed four nulls and would have licensed the whole gate. Only the null whose
+> answer was already known could say the probe was measuring nothing.
