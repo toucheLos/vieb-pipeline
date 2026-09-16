@@ -194,3 +194,27 @@ four. 60 animals and 60 slots is exactly tight, so an animal whose every window
 falls in an already-filled decile is lost; a bipartite matching would recover the
 last two and is not worth the machinery. The per-decile counts are in the
 manifest so the shortfall is visible rather than implied by a total.
+
+## Amendment 2 — presentation order, and where the tool lives
+
+**Presentation order is seeded and interleaved, seed 0.** The manifest is sorted
+by arena decile; handing a rater six wall clips in a row and then six centre
+clips would let them calibrate on the regime rather than on the animal. Each
+clip's position is recorded as `present_order` in the manifest, so the analysis
+knows what every rater saw and in what sequence.
+
+**The tool is a private Artifact, not a page on the public site.** The
+instrument has to collect, not only display, and it must not be indexed or
+shared. Access rules make the independence a property of the store rather than a
+promise made by the interface:
+
+* each rater's working copy lives in their own `data/users/<id>/` subtree, which
+  is private from every other viewer **and from the artifact's owner**;
+* the submitted shard goes to `submissions/<rater id>`, where the rule at the
+  prefix is `read: admin` — so **no rater can read another rater's marks**, by
+  devtools or otherwise, and only an editor can read them at all;
+* rater identity is `user.id()`, an opaque per-organisation id the page cannot
+  mistype and a rater cannot borrow.
+
+`opened` counts how many times a rater opened each clip and is written with every
+mark. That is the naivety record, derived and never self-reported.
