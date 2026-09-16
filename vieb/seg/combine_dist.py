@@ -79,7 +79,7 @@ def _load(d: str, group: str, metric: str, arm: str, unit: str) -> Any:
     return np.load(p, allow_pickle=False) if os.path.exists(p) else None
 
 
-def _graph(z: Any, theta: float) -> Any:
+def _graph(z: Any, theta: float, scale: float) -> Any:
     """The clump graph, restricted to report queries as Step 3's was.
 
     `i_cross` indexes the full 298-animal bank; the queries are the report
@@ -95,7 +95,10 @@ def _graph(z: Any, theta: float) -> Any:
     # count for reasons that have nothing to do with the metric.
     ii = np.asarray(z["nn_idx"], dtype=np.int64)
     local = np.vectorize(lambda v: pos.get(int(v), -1))(ii).astype(np.int64)
-    nn = np.asarray(z["nn_all"], dtype=np.float64)
+    # Divided by the arm's own ambient scale exactly ONCE, here, because theta
+    # is a quantile of the null's scale-normalised distances. The shards store
+    # raw distances precisely so this happens in one place.
+    nn = np.asarray(z["nn_all"], dtype=np.float64) / float(scale)
     return vb.components(local, nn, theta=theta, min_size=vb.MIN_CLUMP)
 
 
@@ -156,13 +159,14 @@ def main(args: Any, shard_dir: str) -> int:
         # Clumps, at the same theta derivation as Step 3.
         prim = cell["excess_by_null"].get(f"segment|{rc.NULLS[0]}")
         theta = float(prim["theta"]) if prim else float("nan")
-        lab, summ = _graph(o, theta)
+        lab, summ = _graph(o, theta, meta["arms"]["corpus|segment"]["scale"])
         null_clumps = 0
         for null in rc.NULLS:
             nz = _load(shard_dir, group, metric, null, "segment")
             if nz is None:
                 continue
-            _nl, ns = _graph(nz, theta)
+            _nl, ns = _graph(nz, theta,
+                             meta["arms"][f"{null}|segment"]["scale"])
             null_clumps = max(null_clumps, int(ns["n_clumps"]))
         cell["clumps"] = {**summ, "null_clumps": null_clumps}
 

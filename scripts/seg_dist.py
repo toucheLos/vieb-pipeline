@@ -184,8 +184,14 @@ def run(args) -> int:
             np.savez_compressed(
                 os.path.join(out_dir(),
                              f"{args.group}__{args.metric}__{arm}__{unit}.npz"),
-                d_cross=(nn_d[:, 0] / scale).astype(np.float32),
-                nn_idx=nn_i, nn_all=(nn_d / scale).astype(np.float32),
+                # RAW distances, not divided by the ambient scale. The scale
+                # sits in the group JSON and `paired_excess` applies it exactly
+                # once. Dividing here as well made theta a quantile of
+                # d/scale^2 while the clump graph compared d/scale -- two units
+                # in one comparison, which is the failure DEVIATIONS.md D8
+                # records and which produced a graph with zero edges.
+                d_cross=nn_d[:, 0].astype(np.float32),
+                nn_idx=nn_i, nn_all=nn_d.astype(np.float32),
                 d_within=np.full(q.size, np.nan, dtype=np.float32),
                 # `i_cross` indexes the FULL bank (all 298 animals) while the
                 # queries are the report split, so a clump graph built from it

@@ -185,3 +185,47 @@ a number, and the first is recorded in `ADJUDICATION.md`: two frames read as
 that case the sheet was the correction. Here the sheet was the error, and the
 measurement was the correction — so "look at the data" is not a rule that
 supersedes measurement, only one that complements it.
+
+---
+
+## M8 — normalise in exactly one place, and make the shard say which
+
+**What happened, twice in one session.** M-class failures are supposed to be
+learned once. This one recurred within hours of being written down.
+
+**First**, `BEHAVIOUR.md` compared a per-frame RMS in standardised channel units
+against a 560-dimensional Euclidean norm already divided by its ambient scale,
+and reported their ratio as though it meant something. Withdrawn as
+`DEVIATIONS.md` D8; corrected, the two quantities are near-identical rather than
+4× apart.
+
+**Then**, in the very stage registered to fix that, `seg_dist.py` divided each
+distance by its arm's ambient scale **when writing the shard** — and
+`paired_excess`, which exists to do exactly that, divided again. So θ became a
+quantile of `d/scale²` while the clump graph compared `d/scale`.
+
+**What it looked like.** Not an error. A clean, plausible, publishable result:
+**zero clumps in every arm, 100.00% unassigned**, under both new metrics, with
+the nulls at zero too. Read at face value it said *the clumps were entirely an
+artifact of time-normalisation* — a strong finding, consistent with the
+hypothesis under test, and wrong.
+
+**What caught it.** Not review, and not the verdict, which was internally
+coherent. A single diagnostic: θ = 0.0395 against a corpus 1st-percentile
+nearest-neighbour distance of 0.1415. **The threshold sat below anything the
+data attained**, which no property of a metric explains and only a units error
+does.
+
+> **RULE.** A normalisation is applied in **one** place, and the artifact
+> records which. A quantity written to disk is raw or normalised, never
+> "probably normalised" — and a function whose whole purpose is to normalise
+> must be handed raw input, or it will normalise twice and say nothing.
+
+**The general form, and why it is worth a numbered entry.** A pipeline that
+divides by a scale in two places produces numbers that are *self-consistent*
+within each stage and wrong between them. Nothing crashes; every assertion
+passes; the verdict reads fluently. The check that catches it is not a test of
+the result but a **sanity check on the threshold against the data it is applied
+to** — is this cut placed where any of the distribution actually is?
+
+Add that check wherever a threshold from one distribution is applied to another.
