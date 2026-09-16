@@ -36,8 +36,9 @@ programme and the cleaning work under it.
 | 20 | **Step B — can the detector see what is there?** | **done — FAIL** | 12.8% isolation against a 20% gate; `no_edge` 66%, `merged` 0% | `results/DETECTOR.md` |
 | 21 | Step D — coverage, then tokens | **not run** | gated behind 20 | — |
 | 22 | **Watch the island — blind odd-one-out** | **done — INSTRUMENT BLIND** | positive control 37.8% [0.280, 0.467] against chance 33.3%; neither arm interpretable, 180 trials published for a human scorer | `results/ISLAND_LOOK.md`, `island_look.json` |
+| 23 | **Step 0 — is the plant findable at all?** | **done — INCONCLUSIVE** | planted edges sit at the 60th percentile of the criterion's own scalar against real firings' 96th; only 19.87% clear their own threshold | `results/PROBE_AUDIT.md`, `probe_audit.json` |
 
-**Tests:** 741 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+**Tests:** 757 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 47 files.
 
 ## The dwell-matched arms reverse the sign, and show why
