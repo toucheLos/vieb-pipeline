@@ -140,3 +140,52 @@ chain. It would not license the island being one behaviour rather than one
 
 The unblinded description written afterwards is **description, not evidence**,
 and will be labelled as such wherever it appears.
+
+---
+
+# Amendment — the trial count, raised before any trial was built
+
+**Nothing had been built when this was written.** No trial existed, no clip had
+been cut, and no response had been given.
+
+## What was wrong
+
+§7 fixed **72 trials** and said the design detects "roughly a +17-point lift".
+That figure is the **naive binomial** MDE. It is not the statistic §7 also
+commits the verdict to: *"an **animal-clustered** interval beside the binomial
+one"*, with `percall.py`'s reason quoted — batch 1 returned 43.1% at binomial
+p = 0.025 with a clustered CI of [0.320, 0.546] that **includes chance**.
+
+So the registration named one power and gated on another. Measured by simulating
+the analysis as it will actually run:
+
+| trials per arm | accuracy needed for the clustered interval to clear chance |
+|---:|---:|
+| 36 (what 72 total gives) | **0.65** |
+| 60 | 0.55 |
+| **90** | **0.50** |
+| 120 | 0.50 |
+
+At the registered size the test could only have found an effect of **+32 points**
+— nearly double chance — and a null would have meant almost nothing.
+
+## The amendment
+
+**180 trials, 90 per arm**, 45 per (arm × trial type).
+
+* **The per-arm cell (n = 90) is what the verdict reads.** It detects a
+  +17-point lift, which is what §7 intended.
+* **The trial-type split (n = 45) is descriptive** and is reported with its
+  interval, not gated. At 45 it would need ~0.60, and saying so is better than
+  quietly reading it as though it were powered.
+
+Everything else in the registration stands unchanged: the arms, the matching,
+the three-distinct-animals rule, the blinding, and the reading table.
+
+## Why this is an amendment and not a tuning
+
+The change is to the **sample size**, made **before any data existed**, in the
+direction that makes a null harder to claim rather than easier. It cannot have
+been selected against an outcome because there is no outcome yet. The failure it
+corrects is mine: quoting a power figure from a statistic the verdict does not
+use.
