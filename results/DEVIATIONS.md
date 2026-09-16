@@ -265,3 +265,35 @@ per-metric ambient scale and is what `DISTANCE_PREREGISTRATION.md` registers.
 > **A registered secondary is a deliverable, not a courtesy.** If a registration
 > promises a second measurement, the result document either carries it or says in
 > its own text that it does not and why. Silence reads as "reported".
+
+## D9 — the island's poster is a video frame, not a mean skeleton
+
+**The brief:** "Mean-skeleton render as the poster frame, so the page is legible
+before video loads and still legible if a clip 404s."
+
+**What shipped:** a frame of the first clip in each panel, via
+`sync_assets._poster_from_clip`. The legibility requirement is met; the mean
+skeleton is not drawn.
+
+**Cause, and it is the page's own argument.** The island is a **single-linkage
+chain**: a typical pair of its members sits `0.3978` apart against a linking
+distance of `0.1900` — 2.1×, further apart than the threshold that built it.
+`BEHAVIOUR.md` states the consequence and `island.html` repeats it: **its
+members are not copies of one another and it must not be named as one
+behaviour.**
+
+A mean skeleton is a picture of a prototype. Drawing one for a chain would put,
+at the top of the page, an image asserting exactly what the page spends its
+words denying — and a reader who looked at the poster and stopped would take
+away the opposite of the result. `recur/scripts/meanskel.py` already refuses the
+analogous move for v2 motifs: rather than borrow one component's skeleton and
+call it the motif, "which would be a picture of something else", it lays the
+components out side by side.
+
+**What it costs.** The poster carries less information than a mean skeleton
+would for a genuine motif. For this object it carries the right amount: one real
+frame of one real segment, captioned as such.
+
+**What would change it.** If a future clump passes `chaining_read` — a group
+rather than a chain — its poster should be a mean skeleton, and this deviation
+does not extend to it.
