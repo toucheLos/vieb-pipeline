@@ -35,9 +35,10 @@ programme and the cleaning work under it.
 | 19 | **Step C — does the island move with context?** | **done — PASS** | occupancy 1.275% in A against 0.470% in B, paired, p = 0.0050 | `results/CONTEXT.md` |
 | 20 | **Step B — can the detector see what is there?** | **done — FAIL** | 12.8% isolation against a 20% gate; `no_edge` 66%, `merged` 0% | `results/DETECTOR.md` |
 | 21 | Step D — coverage, then tokens | **not run** | gated behind 20 | — |
+| 22 | **Watch the island — blind odd-one-out** | **done — INSTRUMENT BLIND** | positive control 37.8% [0.280, 0.467] against chance 33.3%; neither arm interpretable, 180 trials published for a human scorer | `results/ISLAND_LOOK.md`, `island_look.json` |
 
-**Tests:** 701 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
-`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 42 files.
+**Tests:** 741 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
+`vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 47 files.
 
 ## The dwell-matched arms reverse the sign, and show why
 
