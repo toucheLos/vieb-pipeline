@@ -218,3 +218,65 @@ promise made by the interface:
 
 `opened` counts how many times a rater opened each clip and is written with every
 mark. That is the naivety record, derived and never self-reported.
+
+## Amendment 3 — the instrument moves to the public site, and the order becomes per rater
+
+Made before any rater has marked anything. Three changes, one of them a
+weakening that has to be stated rather than absorbed.
+
+### Per-rater order, over the whole set
+
+§2 fixed one seeded presentation order (seed 0) shared by everyone. **Each rater
+now meets the clips in an order seeded from their own name.** Shared order means
+fatigue and calibration drift land on the same clips for every rater, which
+inflates their agreement — and their agreement is the one number this instrument
+exists to measure. Per-rater order removes that.
+
+It is seeded from the name rather than drawn fresh so it is **stable across
+reloads**: a rater who comes back to a half-finished pass must meet the same
+sequence, or their progress display is meaningless.
+
+**Every rater still sees every clip.** The order is randomised; the set is not
+sampled. The ceiling is computed on clips *both* raters rated, so a random
+subset per rater would shrink the overlap the whole measurement rests on — with
+58 clips and two raters, sampling half each would leave roughly a quarter of the
+set in common. Randomising order costs nothing and buys the same
+decorrelation.
+
+Each export carries the order it was rated in, so the analysis knows what each
+rater saw and in what sequence.
+
+### Identity is typed, and that is weaker than what §4 fixed
+
+§4 fixed "rater identity is carried automatically by the tool, not typed in".
+That held on the private artifact, where identity was an opaque per-organisation
+id. **The public site has no accounts**, so a rater types a name.
+
+What this loses: a typo makes one rater look like two, and nothing stops two
+people using the same name. Mitigated by normalising (trim, collapse spaces,
+lowercase) and showing the name back; `annot_ceiling.py` refuses two exports
+claiming the same rater. **Not mitigated**: the instrument now trusts the raters
+to identify themselves honestly, and the write-up says so.
+
+What it does not lose: **naivety is still derived, never self-reported** — the
+tool counts how many times each rater opened each clip and writes that with the
+marks.
+
+### Collection is by export, because a static site cannot collect
+
+§4 fixed a commit protocol over shards read back from a store. `carloseckert.com`
+is a **static site with no backend**, so there is nowhere central for marks to
+go. Instead:
+
+* every mark writes through to that browser's `localStorage` immediately, so a
+  rater can close the tab and resume — nothing is lost to a reload;
+* **Export my marks** downloads one JSON file, which the rater sends on.
+
+**Independence is now stronger, not weaker.** There is no shared store at all: a
+rater's marks exist only in their own browser until they choose to send them.
+The commit protocol is unchanged — each export is committed to
+`results/annot/<rater>.json` **alone**, before the next is opened.
+
+The cost is that nobody can see a rater's progress but the rater, and an export
+that is never sent is simply absent. That is the trade a static site imposes and
+it is recorded here rather than presented as a design choice.
