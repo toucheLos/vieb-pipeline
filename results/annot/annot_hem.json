@@ -1,0 +1,511 @@
+{
+ "rater": "hem",
+ "exported_at": "2026-09-20T18:59:58.775Z",
+ "instrument": "vieb boundary marker",
+ "registration": "results/ANNOTATION_PREREGISTRATION.md",
+ "n_clips": 58,
+ "frame_api": "requestVideoFrameCallback",
+ "order": [
+  "a013",
+  "a043",
+  "a047",
+  "a012",
+  "a042",
+  "a057",
+  "a015",
+  "a005",
+  "a054",
+  "a045",
+  "a006",
+  "a025",
+  "a003",
+  "a037",
+  "a031",
+  "a035",
+  "a008",
+  "a021",
+  "a046",
+  "a056",
+  "a016",
+  "a010",
+  "a033",
+  "a051",
+  "a041",
+  "a050",
+  "a036",
+  "a027",
+  "a018",
+  "a014",
+  "a001",
+  "a002",
+  "a030",
+  "a048",
+  "a034",
+  "a039",
+  "a019",
+  "a007",
+  "a020",
+  "a026",
+  "a011",
+  "a038",
+  "a017",
+  "a004",
+  "a028",
+  "a052",
+  "a032",
+  "a022",
+  "a049",
+  "a009",
+  "a023",
+  "a029",
+  "a053",
+  "a024",
+  "a044",
+  "a000",
+  "a055",
+  "a040"
+ ],
+ "clips": {
+  "a013": {
+   "marks": [
+    83,
+    246
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a043": {
+   "marks": [
+    245
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a047": {
+   "marks": [
+    8,
+    41,
+    84,
+    137
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a012": {
+   "marks": [
+    15
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a042": {
+   "marks": [
+    129,
+    272
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a057": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a015": {
+   "marks": [
+    56,
+    117,
+    192,
+    267
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a005": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a054": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a045": {
+   "marks": [
+    127,
+    188
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a006": {
+   "marks": [
+    33,
+    136,
+    261
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a025": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a003": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a037": {
+   "marks": [
+    30,
+    222
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a031": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a035": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a008": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a021": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a046": {
+   "marks": [
+    182,
+    209
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a056": {
+   "marks": [
+    191
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a016": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a010": {
+   "marks": [
+    210
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a033": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a051": {
+   "marks": [
+    33,
+    79,
+    104,
+    229
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a041": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a050": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a036": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a027": {
+   "marks": [
+    164,
+    194
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a018": {
+   "marks": [
+    91,
+    211
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a014": {
+   "marks": [
+    109,
+    161,
+    240
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a001": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a002": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a030": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a048": {
+   "marks": [
+    62,
+    156
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a034": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a039": {
+   "marks": [
+    63,
+    126,
+    170
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a019": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a007": {
+   "marks": [
+    30,
+    79,
+    123,
+    183
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a020": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a026": {
+   "marks": [
+    97
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a011": {
+   "marks": [
+    74,
+    93,
+    171
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a038": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a017": {
+   "marks": [
+    256
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a004": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a028": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a052": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a032": {
+   "marks": [
+    80,
+    137
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a022": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a049": {
+   "marks": [
+    154,
+    266
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a009": {
+   "marks": [
+    272
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a023": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a029": {
+   "marks": [
+    166,
+    208
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a053": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a024": {
+   "marks": [
+    76,
+    295
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a044": {
+   "marks": [
+    94,
+    210
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a000": {
+   "marks": [
+    219,
+    255
+   ],
+   "empty": false,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a055": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  },
+  "a040": {
+   "marks": [],
+   "empty": true,
+   "opened": 1,
+   "frame_source": "currentTime"
+  }
+ },
+ "n_rated": 58
+}
