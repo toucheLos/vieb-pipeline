@@ -87,11 +87,15 @@ boundary position, carry **no** context information — Δ = −0.00270 [−0.00
 residual −0.00699 [−0.01319, −0.00148]. **Where the detector cuts carries
 information that the existence of intervals of this length does not.**
 
-**A stillness control, which was not a control.** Matched on occupancy, the
-threshold landed at 0.000199 body lengths/s and selected **2.27%** of the
-island's own frames. It cannot test whether this result is a speed effect, and
-that question remains open. `BEHAVIOUR.md`'s 3.7× is a ratio of segment **mean**
-speeds, so the control that tests it must match segments, not threshold frames.
+**A duration- and speed-matched segment control, which it also passes.**
+`STILLNESS_CONTROL.md`: each of the 358 clump-0 segments matched to one of the
+same animal's own segments at the same duration and mean speed (balanced at
+|SMD| ≤ 0.024). That arm moves with context on its own — −0.00512 [−0.00961,
+−0.00113], p = 0.0085 — so being slow and long is itself worth something. But
+it explains only β = 0.246 of the island, and the residual still excludes zero:
+**−0.00685 [−0.01371, −0.00147]**, p = 0.0270. **84% of the effect below
+survives it.** An earlier frame-threshold attempt at this control was vacuous
+and is recorded as M11.
 
 **Tracking quality differs by context.** Frames whose whole pose is held — a
 dropout, not a slow animal — are **6.8× more common in Context A** (0.643%)

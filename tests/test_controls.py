@@ -115,3 +115,65 @@ def test_the_read_passes_when_the_residual_excludes_zero():
     r = co.controls_read(res, {"p_two_sided": 0.03}, arm="windows",
                          beta=0.4, scored_object=OBJ, n_effective=89)
     assert r.verdict == "PASS" and "ADDS TO WINDOWS" in r.reason
+
+
+# --- the matched arm ----------------------------------------------------
+
+def test_matching_is_within_animal():
+    """A partner from another animal imports its body size and tracking."""
+    t = np.array([True, False, False])
+    an = ["a", "b", "b"]
+    f = np.array([[0.0, 0.0], [0.01, 0.01], [5.0, 5.0]])
+    assert co.matched_partners(t, an, f)[0] == -1     # no partner in animal a
+
+
+def test_matching_is_without_replacement():
+    t = np.array([True, True, False, False])
+    an = ["a"] * 4
+    f = np.array([[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [9.0, 9.0]])
+    got = co.matched_partners(t, an, f)
+    assert sorted(got.tolist()) == [2, 3]             # both used, neither twice
+
+
+def test_the_eligible_pool_excludes_rows_with_undefined_features():
+    """The bug the balance precondition caught on the first real run.
+
+    A NaN distance sorts LAST rather than being refused, so rows from outside
+    the scored population get matched at the end of the greedy pass and poison
+    the balance instead of being skipped.
+    """
+    t = np.array([True, False, False])
+    an = ["a"] * 3
+    f = np.array([[0.0, 0.0], [np.nan, np.nan], [3.0, 3.0]])
+    assert co.matched_partners(t, an, f)[0] == 2
+
+
+def test_an_explicit_pool_narrows_the_candidates():
+    t = np.array([True, False, False])
+    an = ["a"] * 3
+    f = np.array([[0.0, 0.0], [0.1, 0.1], [3.0, 3.0]])
+    pool = np.array([False, False, True])
+    assert co.matched_partners(t, an, f, pool=pool)[0] == 2
+
+
+def test_balance_refuses_an_unbalanced_matched_arm():
+    """M11 in a new costume, if it were reported anyway."""
+    rng = np.random.default_rng(0)
+    a = rng.normal(1.0, 1.0, size=(400, 1))
+    b = rng.normal(0.0, 1.0, size=(400, 1))
+    r = co.balance_read(a, b, names=("x",), scored_object=OBJ,
+                        n_effective=400)
+    assert r.verdict == "NOT_A_RESULT" and "MATCH FAILED" in r.reason
+
+
+def test_balance_passes_when_the_match_holds():
+    rng = np.random.default_rng(0)
+    a = rng.normal(0.0, 1.0, size=(4000, 2))
+    b = rng.normal(0.0, 1.0, size=(4000, 2))
+    r = co.balance_read(a, b, names=("x", "y"), scored_object=OBJ,
+                        n_effective=4000)
+    assert r.verdict == "PASS" and r.detail["worst_abs_smd"] < co.BALANCE_SMD
+
+
+def test_the_balance_bound_is_the_registered_one():
+    assert co.BALANCE_SMD == 0.10

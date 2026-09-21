@@ -48,6 +48,7 @@ from vieb.seg import context as cx                                  # noqa: E402
 
 __all__ = ["cell_sums", "occupancy", "match_threshold", "residual",
            "aligned_deltas", "controls_read", "overlap_read",
+           "matched_partners", "balance_read", "BALANCE_SMD",
            "N_BOOT", "N_PERM"]
 
 CellMap = dict[tuple[str, int, str], float]
@@ -236,4 +237,112 @@ def overlap_read(selected: npt.ArrayLike, island: npt.ArrayLike, *,
          f"own frames at theta = {theta:.6g}, and {share_sel:.4f} of what it "
          f"selects is island. The arms overlap enough for the residual to be "
          f"about the detector"),
+        n_effective=n_effective, detail=detail)
+
+
+#: Registered balance bound for a matched arm. The conventional standardised
+#: mean difference cutoff, fixed in
+#: `results/STILLNESS_CONTROL_PREREGISTRATION.md` §3 before any draw.
+BALANCE_SMD = 0.10
+
+
+def matched_partners(is_target: npt.ArrayLike, animal: Sequence[str],
+                     features: npt.ArrayLike, *,
+                     pool: npt.ArrayLike | None = None
+                     ) -> npt.NDArray[np.int64]:
+    """One partner per target, nearest in standardised joint feature space.
+
+    **Nearest-first and without replacement**, the same discipline
+    `annot.match` uses: the globally closest available pair is taken first, so
+    one convenient partner cannot be spent on a distant target and leave a near
+    one unmatched. Drawn **within animal**, because a partner from another
+    animal imports that animal's body size and tracking quality.
+
+    `pool` names the ELIGIBLE candidates explicitly and defaults to "everything
+    that is not a target". Passing it is not optional in practice: the default
+    silently admits rows outside the scored population -- other splits, other
+    days -- whose features are undefined, and a NaN distance sorts last rather
+    than being refused, so a handful of them get matched at the end of the
+    greedy pass and poison the balance. That happened on the first run here and
+    the balance precondition is what caught it.
+
+    Returns an index array the length of the targets, `-1` where that animal
+    had no partner left to give.
+    """
+    t = np.asarray(is_target, dtype=bool)
+    an = np.asarray(animal)
+    f = np.asarray(features, dtype=np.float64)
+    elig = (~t if pool is None else np.asarray(pool, dtype=bool) & ~t)
+    elig = elig & np.isfinite(f).all(axis=1)
+    keep = np.isfinite(f).all(axis=1)
+    mu = f[keep].mean(axis=0)
+    sd = f[keep].std(axis=0)
+    z = (f - mu) / np.where(sd > 0, sd, 1.0)
+    out = np.full(int(t.sum()), -1, dtype=np.int64)
+    pos = {int(i): k for k, i in enumerate(np.flatnonzero(t))}
+    for tag in sorted(set(an[t].tolist())):
+        tgt = np.flatnonzero(t & (an == tag))
+        cand = np.flatnonzero(elig & (an == tag))
+        if tgt.size == 0 or cand.size == 0:
+            continue
+        d = np.linalg.norm(z[tgt][:, None, :] - z[cand][None, :, :], axis=2)
+        used_t: set[int] = set()
+        used_p: set[int] = set()
+        order = np.dstack(np.unravel_index(np.argsort(d, axis=None), d.shape))
+        for i, j in order[0]:
+            if len(used_t) == tgt.size or len(used_p) == cand.size:
+                break
+            if int(i) in used_t or int(j) in used_p:
+                continue
+            used_t.add(int(i))
+            used_p.add(int(j))
+            out[pos[int(tgt[int(i)])]] = int(cand[int(j)])
+    return out
+
+
+def balance_read(target: npt.ArrayLike, control: npt.ArrayLike, *,
+                 names: Sequence[str], scored_object: dict[str, Any],
+                 n_effective: int, bound: float = BALANCE_SMD) -> Read:
+    """Did the match actually balance the variables it matched on?
+
+    **This is the precondition for a matched arm, and `overlap_read` is not.**
+    A matched-segment control is disjoint from its target by construction, so
+    frame overlap is zero by design rather than by failure; asking for overlap
+    here would refuse a working arm. What a matched arm has to demonstrate is
+    that the quantities it was matched on are actually balanced.
+
+    Refuses when any standardised mean difference reaches `bound`. An
+    unbalanced matched arm reported anyway repeats `METHODS_FINDINGS.md` M11 in
+    a new costume: a control that does not resemble the thing it controls for
+    cannot answer the question it was built for.
+    """
+    a = np.asarray(target, dtype=np.float64)
+    b = np.asarray(control, dtype=np.float64)
+    rows: list[dict[str, Any]] = []
+    worst = 0.0
+    for k, nm in enumerate(names):
+        x, y = a[:, k], b[:, k]
+        pooled = float(np.sqrt((np.var(x, ddof=1) + np.var(y, ddof=1)) / 2.0))
+        smd = float((x.mean() - y.mean()) / pooled) if pooled > 0 else 0.0
+        rows.append({"variable": nm, "mean_target": float(x.mean()),
+                     "mean_control": float(y.mean()), "smd": smd})
+        worst = max(worst, abs(smd))
+    detail = {"balance": rows, "worst_abs_smd": worst, "bound": float(bound),
+              "n_pairs": int(a.shape[0])}
+    shown = "; ".join(f"{r['variable']} SMD {r['smd']:+.4f}" for r in rows)
+    if worst >= bound:
+        return Read(
+            "NOT_A_RESULT", scored_object,
+            (f"THE MATCH FAILED: {shown}, worst |SMD| {worst:.4f} at or above "
+             f"the registered {bound:.2f} bound over {a.shape[0]} pairs. The "
+             f"control does not resemble what it controls for, so no residual "
+             f"computed against it would answer the question. Re-drawing with "
+             f"another seed is forbidden -- that would make the control a "
+             f"fitted object"),
+            n_effective=n_effective, detail=detail)
+    return Read(
+        "PASS", scored_object,
+        (f"the matched arm is balanced on every variable it was matched on: "
+         f"{shown}, worst |SMD| {worst:.4f} against the registered "
+         f"{bound:.2f} bound, over {a.shape[0]} pairs"),
         n_effective=n_effective, detail=detail)
