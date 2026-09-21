@@ -274,3 +274,52 @@ the panel would have shipped with a working cue in it.
 saying out loud on the page rather than leaving as an absence, because "no island
 clip contains a flagged frame" reads as a finding about freezing and is nothing
 of the kind: it is a property of the selection, true of the control too.
+
+## M10 — a free choice inside an instrument is a variable, and an unregistered variable is a confound
+
+**What happened.** The boundary marker let a rater place a mark two ways: with
+the video **paused**, reading the frame off `currentTime`, or **while it
+played**, reading it off `requestVideoFrameCallback`. The tool offered both, said
+nothing about which to use, and recorded which was used per clip — that last part
+only because the field was cheap to store, not because anyone had registered it
+as a variable.
+
+Two raters did two different things. `hem` paused on all 58 clips. `ce` marked
+34 of 58 while the video was playing.
+
+Measured against the other rater's nearest mark:
+
+| how the mark was placed | n marks | median offset |
+|---|---:|---:|
+| playing (`rvfc`) | 27 | **+9 frames** (300 ms) |
+| paused (`currentTime`) | 7 | **−12 frames** |
+
+A mark placed while playing carries visual reaction time **and** a `currentTime`
+that is stale by up to a frame interval. A mark placed while paused carries
+neither. The finest registered tolerance band was **±2 frames**.
+
+**The rule.** Every degree of freedom an instrument leaves to its operator is a
+variable in the experiment, whether or not the registration names it. Registering
+the *measurement* is not enough; the registration has to fix the **procedure**,
+or the procedure becomes a per-operator choice that is then confounded with
+operator identity. The fix is to remove the choice — force a pause on mark — or
+to measure the lag and correct it, and either is a new registration.
+
+**What it cost, and what it did not.** It cost nothing here, which is the only
+reason it is a methods finding rather than a retraction. The ceiling failed at
+±2, ±5 **and** ±10, and a median offset of +9 frames cannot explain a failure at
+±10; the spread is ±15 frames and spread is what kills it. The samples are also
+small and the choice is perfectly confounded with rater identity, so nothing
+here separates "marking while playing is late" from "`ce` marks late".
+
+**Why it is recorded anyway.** Had the ceiling *passed* at ±10 and failed at ±2,
+this would have been the first suspect, and the data to check it would have
+existed only by luck. The general form is worth more than this instance: an
+instrument that permits two methods measures both, and reports their mixture as
+one number.
+
+**The near miss.** `frame_source` was stored as a convenience. Had it not been,
+the two raters would have differed by an unrecoverable 300 ms and the difference
+would have been invisible — indistinguishable from raters who simply disagree.
+Recording *how* a measurement was taken, not only what it was, is what made this
+finding possible at all.

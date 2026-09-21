@@ -48,7 +48,9 @@ from recur import boot                                              # noqa: E402
 from recur.read import Read                                         # noqa: E402
 
 __all__ = ["TOLERANCES", "N_BOOT", "N_CHANCE", "match", "prf",
-           "chance_f1", "pair_rows", "ceiling_read", "coverage_read"]
+           "chance_f1", "pair_rows", "ceiling_read", "coverage_read",
+           "decompose", "decompose_read", "offsets", "offset_read",
+           "source_read"]
 
 I64 = NDArray[np.int64]
 
@@ -271,3 +273,191 @@ def coverage_read(marks: Mapping[str, Mapping[str, Sequence[int]]],
                 f"boundaries per second, and called {empty}/{total} clip "
                 f"ratings empty. No threshold for 'near-zero' was registered "
                 f"and choosing one now would be choosing it after the fact."))
+
+
+def decompose(rows: Sequence[Mapping[str, Any]], *,
+              tol: int) -> dict[str, Any]:
+    """Split the pair rows at one tolerance by whether either rater marked.
+
+    `prf` scores two empty sets as F1 = 1.0 deliberately -- two raters who both
+    say "nothing changed" agree -- and `chance_f1` does the same. So a
+    both-empty clip contributes 1.0 to the observed value **and** 1.0 to the
+    chance level, and cannot separate them. Quoting a headline F1 without
+    saying how much of it is that is overstating agreement.
+
+    Three disjoint classes, and only the third carries information:
+
+    * `both_empty` -- neither rater marked. F1 = 1.0 by construction, on both
+      sides.
+    * `one_empty` -- exactly one marked. F1 = 0.0 by construction.
+    * `both_marked` -- both marked. The only clips where the matcher does work.
+    """
+    sel = [r for r in rows if int(r["tol"]) == int(tol)]
+    out: dict[str, Any] = {"tol": int(tol), "n_rows": len(sel)}
+    classes: dict[str, list[Mapping[str, Any]]] = {
+        "both_empty": [], "one_empty": [], "both_marked": []}
+    for r in sel:
+        a, b = float(r["n_ref"]), float(r["n_hyp"])
+        if a == 0.0 and b == 0.0:
+            classes["both_empty"].append(r)
+        elif a == 0.0 or b == 0.0:
+            classes["one_empty"].append(r)
+        else:
+            classes["both_marked"].append(r)
+    for name, got in classes.items():
+        out[f"n_{name}"] = len(got)
+    out["rows_both_marked"] = classes["both_marked"]
+    return out
+
+
+def decompose_read(rows: Sequence[Mapping[str, Any]], *, tol: int,
+                   scored_object: dict[str, Any], n_effective: int,
+                   seed: int = 0) -> Read:
+    """The decomposition, and the ceiling recomputed on informative clips only.
+
+    No verdict. The registered ceiling is the one `ceiling_read` returns over
+    every clip, and it is not restated or replaced here -- §7 forbids changing
+    what is scored after an agreement number has been seen. This reports what
+    the registered number is **made of**, which is a different thing and is owed
+    to anyone reading it.
+    """
+    got = decompose(rows, tol=tol)
+    sub = got.pop("rows_both_marked")
+    detail: dict[str, Any] = dict(got)
+    if sub:
+        f1 = boot.animal_interval([float(r["f1"]) for r in sub],
+                                  [str(r["animal"]) for r in sub],
+                                  how="mean", n_boot=N_BOOT, seed=seed)
+        ch = float(np.mean([float(r["chance_f1"]) for r in sub]))
+        detail["both_marked_f1"] = f1
+        detail["both_marked_chance_f1"] = ch
+        body = (f"on the {len(sub)} clips where BOTH raters marked something, "
+                f"F1 is {f1['point']:.4f} [{f1['lo']:.4f}, {f1['hi']:.4f}] "
+                f"against chance {ch:.4f}")
+    else:
+        detail["both_marked_f1"] = None
+        detail["both_marked_chance_f1"] = float("nan")
+        body = "no clip had marks from both raters"
+    n_be = int(got["n_both_empty"])
+    n_rows = int(got["n_rows"])
+    share = (n_be / n_rows) if n_rows else float("nan")
+    return Read(
+        verdict="NOT_A_RESULT", scored_object=scored_object,
+        n_effective=n_effective, detail=detail,
+        reason=(f"descriptive, no verdict: at ±{tol} the registered F1 is "
+                f"carried by {n_be} clips BOTH raters called empty, which "
+                f"score 1.0 on the observed value and 1.0 on chance alike and "
+                f"cannot separate them ({share:.3f} of rows). "
+                f"{got['n_one_empty']} rows score 0.0 because exactly one "
+                f"rater marked. {body}. This does not restate or replace the "
+                f"registered ceiling."))
+
+
+def offsets(marks: Mapping[str, Mapping[str, Sequence[int]]],
+            clips: Mapping[str, Mapping[str, Any]], *,
+            sources: Mapping[str, Mapping[str, str]] | None = None
+            ) -> list[dict[str, Any]]:
+    """Signed frame offset from each of rater A's marks to rater B's nearest.
+
+    One distribution, not a tolerance sweep. Every "within N" share quoted
+    anywhere is read off this, so no second matching pass at an unregistered
+    tolerance ever happens -- §7 forbids scoring at a band chosen after the
+    fact, and a nearest-neighbour distance is not a score.
+
+    Positive means A's mark falls **later** than B's nearest. Defined only on
+    clips where both raters marked; elsewhere there is no nearest mark.
+    """
+    raters = sorted(marks)
+    out: list[dict[str, Any]] = []
+    for ra, rb in itertools.combinations(raters, 2):
+        for cid in sorted(set(marks[ra]) & set(marks[rb])):
+            a = np.sort(np.asarray(list(marks[ra][cid]), dtype=np.int64))
+            b = np.sort(np.asarray(list(marks[rb][cid]), dtype=np.int64))
+            if a.size == 0 or b.size == 0:
+                continue
+            meta = clips[cid]
+            src = ""
+            if sources is not None:
+                src = str(sources.get(ra, {}).get(cid, ""))
+            for m in a.tolist():
+                j = int(np.argmin(np.abs(b - m)))
+                out.append({"rater_a": ra, "rater_b": rb, "clip": cid,
+                            "animal": str(meta["animal"]),
+                            "fps": float(meta["fps"]),
+                            "mark": int(m), "offset": int(m - int(b[j])),
+                            "frame_source_a": src})
+    return out
+
+
+def offset_read(rows: Sequence[Mapping[str, Any]], *,
+                scored_object: dict[str, Any], n_effective: int,
+                seed: int = 0) -> Read:
+    """Coarse agreement against fine agreement, off one offset distribution.
+
+    No verdict. This is the shape of the disagreement, not a re-score: raters
+    can be looking at the same events and still be unable to place them, and
+    the registered F1 cannot tell those apart from raters looking at different
+    events.
+    """
+    if not rows:
+        return Read(verdict="NOT_A_RESULT", scored_object=scored_object,
+                    n_effective=n_effective, detail={"n_marks": 0},
+                    reason=("descriptive, no verdict: no clip had marks from "
+                            "both raters, so no offset is defined"))
+    off = np.asarray([int(r["offset"]) for r in rows], dtype=np.float64)
+    fps = float(rows[0]["fps"])
+    animals = [str(r["animal"]) for r in rows]
+    near_s = boot.animal_interval((np.abs(off) <= fps).astype(float), animals,
+                                  how="mean", n_boot=N_BOOT, seed=seed)
+    near_f = boot.animal_interval((np.abs(off) <= 2.0).astype(float), animals,
+                                  how="mean", n_boot=N_BOOT, seed=seed)
+    detail = {"n_marks": int(off.size), "fps": fps,
+              "within_one_second": near_s, "within_two_frames": near_f,
+              "median_abs_offset_frames": float(np.median(np.abs(off))),
+              "iqr_abs_offset_frames": [float(np.percentile(np.abs(off), 25)),
+                                        float(np.percentile(np.abs(off), 75))]}
+    return Read(
+        verdict="NOT_A_RESULT", scored_object=scored_object,
+        n_effective=n_effective, detail=detail,
+        reason=(f"descriptive, no verdict: {near_s['point']:.3f} "
+                f"[{near_s['lo']:.3f}, {near_s['hi']:.3f}] of marks sit within "
+                f"one second of the other rater's nearest, against "
+                f"{near_f['point']:.3f} [{near_f['lo']:.3f}, "
+                f"{near_f['hi']:.3f}] within two frames. The raters are "
+                f"looking at the same events and cannot place them. Read off "
+                f"one nearest-neighbour distribution, not a second matching "
+                f"pass at an unregistered tolerance."))
+
+
+def source_read(rows: Sequence[Mapping[str, Any]], *,
+                scored_object: dict[str, Any], n_effective: int) -> Read:
+    """The paused-versus-playing gap, which the registration did not close.
+
+    The marker permitted marking while the video played and while it was
+    paused, and specified neither. A mark placed while playing carries visual
+    reaction time **and** a `currentTime` that is stale by up to a frame
+    interval; a mark placed while paused carries neither. One rater did each,
+    so the choice is confounded with rater identity and nothing here separates
+    them. Reported because an unregistered free choice inside an instrument is
+    a variable, not because it explains the ceiling.
+    """
+    by: dict[str, list[int]] = {}
+    for r in rows:
+        by.setdefault(str(r["frame_source_a"]) or "unknown", []).append(
+            int(r["offset"]))
+    detail = {src: {"n": len(v),
+                    "median_offset_frames": float(np.median(v)),
+                    "iqr_offset_frames": [float(np.percentile(v, 25)),
+                                          float(np.percentile(v, 75))]}
+              for src, v in sorted(by.items())}
+    parts = [f"{src} n={d['n']} median {d['median_offset_frames']:+.1f}"
+             for src, d in sorted(detail.items())]
+    return Read(
+        verdict="NOT_A_RESULT", scored_object=scored_object,
+        n_effective=n_effective, detail=detail,
+        reason=("descriptive, no verdict: offset by how the mark was placed, "
+                + "; ".join(parts) + " frames. The samples are small and the "
+                "choice is confounded with rater identity, so this is an "
+                "instrument defect on the record, not an explanation of the "
+                "ceiling -- correcting a median offset would not rescue ±2 "
+                "agreement when the spread is what kills it."))

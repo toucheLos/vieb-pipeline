@@ -184,3 +184,77 @@ def test_every_read_carries_n_effective_and_a_reason():
 
 def test_tolerances_are_the_registered_three():
     assert an.TOLERANCES == (2, 5, 10)
+
+
+# --- the decomposition, and the offset distribution ---------------------
+
+def test_decompose_partitions_every_row_exactly_once():
+    marks = {"r1": {"c0": [10, 100], "c1": []},
+             "r2": {"c0": [11], "c1": []}}
+    rows = an.pair_rows(marks, CLIPS)
+    got = an.decompose(rows, tol=5)
+    assert (got["n_both_empty"] + got["n_one_empty"]
+            + got["n_both_marked"]) == got["n_rows"]
+
+
+def test_a_both_empty_clip_scores_one_on_the_observed_AND_on_chance():
+    """The reason the decomposition exists.
+
+    Two raters who both say "nothing changed" agree, so `prf` returns 1.0
+    deliberately -- and `chance_f1` returns 1.0 too. Such a clip therefore
+    contributes the maximum to BOTH sides of the comparison and cannot
+    separate them. A headline F1 quoted without saying how many of these it
+    contains overstates agreement.
+    """
+    marks = {"r1": {"c0": []}, "r2": {"c0": []}}
+    row = an.pair_rows(marks, CLIPS)[0]
+    assert row["f1"] == 1.0 and row["chance_f1"] == 1.0
+
+
+def test_decompose_read_claims_no_verdict_and_says_so():
+    marks = {"r1": {"c0": [10, 100], "c1": []},
+             "r2": {"c0": [11], "c1": []}}
+    rows = an.pair_rows(marks, CLIPS)
+    r = an.decompose_read(rows, tol=5, scored_object=OBJ, n_effective=2)
+    assert r.verdict == "NOT_A_RESULT"
+    assert "does not restate or replace" in r.reason
+
+
+def test_offsets_are_signed_with_a_later_mark_positive():
+    marks = {"aa": {"c0": [110]}, "bb": {"c0": [100]}}
+    got = an.offsets(marks, CLIPS)
+    assert [r["offset"] for r in got] == [10]
+
+
+def test_offsets_are_undefined_where_one_rater_marked_nothing():
+    """There is no nearest mark to measure against, so no row is emitted."""
+    marks = {"aa": {"c0": [110], "c1": [5]}, "bb": {"c0": [100], "c1": []}}
+    assert {r["clip"] for r in an.offsets(marks, CLIPS)} == {"c0"}
+
+
+def test_offset_read_refuses_rather_than_dividing_by_nothing():
+    r = an.offset_read([], scored_object=OBJ, n_effective=1)
+    assert r.verdict == "NOT_A_RESULT" and r.detail["n_marks"] == 0
+
+
+def test_source_read_splits_on_how_the_mark_was_placed():
+    marks = {"aa": {"c0": [110], "c1": [90]}, "bb": {"c0": [100], "c1": [100]}}
+    src = {"aa": {"c0": "rvfc", "c1": "currentTime"}}
+    rows = an.offsets(marks, CLIPS, sources=src)
+    r = an.source_read(rows, scored_object=OBJ, n_effective=2)
+    assert r.verdict == "NOT_A_RESULT"
+    assert r.detail["rvfc"]["median_offset_frames"] == 10.0
+    assert r.detail["currentTime"]["median_offset_frames"] == -10.0
+
+
+def test_the_descriptive_reads_never_return_a_verdict():
+    """None of them may pass or fail. The registered ceiling is the verdict."""
+    marks = {"aa": {"c0": [110], "c1": []}, "bb": {"c0": [100], "c1": []}}
+    rows = an.pair_rows(marks, CLIPS)
+    offs = an.offsets(marks, CLIPS, sources={"aa": {"c0": "rvfc"}})
+    for r in (an.decompose_read(rows, tol=5, scored_object=OBJ,
+                                n_effective=2),
+              an.offset_read(offs, scored_object=OBJ, n_effective=2),
+              an.source_read(offs, scored_object=OBJ, n_effective=2)):
+        assert r.verdict == "NOT_A_RESULT"
+        assert r.n_effective is not None and r.scored_object and r.reason

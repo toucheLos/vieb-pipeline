@@ -62,6 +62,7 @@ def load_exports(paths: list[str]) -> dict:
     """
     marks: dict = {}
     meta: dict = {}
+    sources: dict = {}
     for p in sorted(paths):
         with open(p, encoding="utf-8") as fh:
             doc = json.load(fh)
@@ -71,17 +72,23 @@ def load_exports(paths: list[str]) -> dict:
         if rater in marks:
             raise SystemExit(f"two exports both name rater {rater!r}")
         got: dict = {}
+        src: dict = {}
         for cid, row in (doc.get("clips") or {}).items():
             if not (row.get("marks") or row.get("empty")):
                 continue
             got[cid] = [int(m) for m in (row.get("marks") or [])]
+            # How the mark was placed. The tool permitted "paused"
+            # (`currentTime`) and "playing" (`rvfc`) and specified neither,
+            # so it is carried rather than assumed uniform.
+            src[cid] = str(row.get("frame_source") or "")
         marks[rater] = got
+        sources[rater] = src
         meta[rater] = {"file": os.path.basename(p),
                        "exported_at": doc.get("exported_at"),
                        "n_rated": len(got),
                        "frame_api": doc.get("frame_api"),
                        "order": doc.get("order") or []}
-    return {"marks": marks, "meta": meta}
+    return {"marks": marks, "meta": meta, "sources": sources}
 
 
 def main(argv=None) -> int:
@@ -104,7 +111,7 @@ def main(argv=None) -> int:
              for r in man["clips"]}
 
     got = load_exports(paths)
-    marks, meta = got["marks"], got["meta"]
+    marks, meta, sources = got["marks"], got["meta"], got["sources"]
     for rater, by_clip in marks.items():
         unknown = sorted(set(by_clip) - set(clips))
         if unknown:
@@ -135,6 +142,28 @@ def main(argv=None) -> int:
     reads["coverage"] = cov.to_dict()
     log("  " + cov.line())
 
+    # What the registered ceiling is MADE of, and the shape of the
+    # disagreement. All three are NOT_A_RESULT by construction: they describe
+    # the number above, they do not restate or replace it. Registration §7
+    # forbids re-scoring at a band chosen after the fact, and none of these
+    # scores anything -- the decomposition partitions rows already computed,
+    # and the offsets are one nearest-neighbour distribution.
+    for tol in an.TOLERANCES:
+        dec = an.decompose_read(rows, tol=tol, scored_object=obj,
+                                n_effective=n_eff, seed=SEED)
+        reads[f"decompose|{tol}"] = dec.to_dict()
+        log("  " + dec.line())
+
+    offs = an.offsets(marks, clips, sources=sources)
+    off = an.offset_read(offs, scored_object=obj, n_effective=n_eff,
+                         seed=SEED)
+    reads["offsets"] = off.to_dict()
+    log("  " + off.line())
+
+    src = an.source_read(offs, scored_object=obj, n_effective=n_eff)
+    reads["frame_source"] = src.to_dict()
+    log("  " + src.line())
+
     out = a.out or config.PATHS.result("annot_ceiling.json")
     write_json({**anchors.header(anchors.LUNA, stage="annot_ceiling",
                                  unverified="a curated sample, human-rated"),
@@ -143,7 +172,7 @@ def main(argv=None) -> int:
                 "n_raters": len(marks), "raters": meta,
                 "n_clips": len(clips), "n_pair_rows": len(rows),
                 "tolerances": list(an.TOLERANCES),
-                "reads": reads, "rows": rows}, out)
+                "reads": reads, "rows": rows, "offsets": offs}, out)
     log(f"  wrote {out}")
     if not ok:
         log("  THE CEILING DOES NOT STAND at ±5 frames. No detector is scored "
