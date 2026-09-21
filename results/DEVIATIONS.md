@@ -297,3 +297,44 @@ frame of one real segment, captioned as such.
 **What would change it.** If a future clump passes `chaining_read` — a group
 rather than a chain — its poster should be a mean skeleton, and this deviation
 does not extend to it.
+
+## D10 — two diagnostics added to the context controls after seeing the threshold
+
+**What the registration said.** `CONTEXT_CONTROLS_PREREGISTRATION.md` fixed three
+arms — `island`, `stillness`, `windows` — one nested residual per control arm,
+and an MDE gate before any residual is read. It named no diagnostic beyond that.
+
+**What was added.** Two reads, both `NOT_A_RESULT`, both written after
+`θ_still = 0.000199` had been computed and its consequences seen:
+
+* **`overlap|stillness`** — the share of the island's own frames the control arm
+  also selects. It came out at **0.0227**, which is what shows the arm is not a
+  control for this clump at all.
+* **`held_frames`** — the share of frames at exactly zero ego speed, a tracking
+  dropout rather than a slow animal, contrasted by context. It came out at
+  **0.643% in A against 0.094% in B**, p = 0.0005.
+
+**Why this is not a verdict moved after the fact.** Neither read carries a
+verdict, and neither changes one. The registered residuals are reported exactly
+as §5 specified, with the values they had before these were written. What the
+diagnostics change is what a reader is told the residuals *mean* — and the
+alternative was to publish a `PASS` that a reader would reasonably take as
+"the detector is not a freeze scorer" when the arm producing it selects 2.27% of
+the island.
+
+**Why it had to be added rather than deferred.** A number that is vacuous is not
+made less vacuous by being reported on its own and corrected later. `M5` is the
+standing rule — *a control that returns nothing is usually testing the control* —
+and the honest response to discovering it mid-run is to instrument it, not to
+publish the number and file the doubt separately.
+
+**What it costs.** The held-frame contrast is unregistered and no verdict rests
+on it. It is a measured confound, reported at the strength a post-hoc
+measurement earns: it moves with context, it does not explain the island cell
+for cell, and it means no occupancy in this design is free of tracking quality.
+A registered version would need its own contrast and its own gate.
+
+**What would change it.** The segment-level stillness control
+`CONTEXT_CONTROLS.md` names as owed — segments matched on joint (log duration,
+log mean speed) — supersedes the vacuous arm. When it is registered and run, the
+`overlap` read becomes a routine precondition rather than a finding.

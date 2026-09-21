@@ -78,6 +78,33 @@ what the rule predicts when the unit of analysis is already close to the animal:
 left for the animal bootstrap to account for. The frame-level interval is printed
 for comparison only and licenses nothing, as always.
 
+## Two things measured afterwards, which this result now carries
+
+**A length-matched window control, which it passes.** `CONTEXT_CONTROLS.md`:
+298 intervals count- and length-matched to clump 0, placed without regard to
+boundary position, carry **no** context information — Δ = −0.00270 [−0.00758,
++0.00172], p = 0.2110 — and the island's effect survives removing them,
+residual −0.00699 [−0.01319, −0.00148]. **Where the detector cuts carries
+information that the existence of intervals of this length does not.**
+
+**A stillness control, which was not a control.** Matched on occupancy, the
+threshold landed at 0.000199 body lengths/s and selected **2.27%** of the
+island's own frames. It cannot test whether this result is a speed effect, and
+that question remains open. `BEHAVIOUR.md`'s 3.7× is a ratio of segment **mean**
+speeds, so the control that tests it must match segments, not threshold frames.
+
+**Tracking quality differs by context.** Frames whose whole pose is held — a
+dropout, not a slow animal — are **6.8× more common in Context A** (0.643%)
+than in B (0.094%), Δ = −0.00551 [−0.00843, −0.00311], p = 0.0005: the same
+direction as the effect above, at a comparable size. Across the 439 cells the
+two correlate only **−0.119** and the island residual on held frames is
+−0.00956 [−0.01645, −0.00381], so dropout does **not** explain this result cell
+for cell. But occupancy is a rate over segment frames, and how many frames a
+session contributes depends on how well it tracked. **No number on this page is
+free of that**, and whether a freezing animal is harder to track or a
+harder-to-track session looks stiller is not separable from anything this
+repository holds.
+
 ## What this licenses, and what it does not
 
 **Licenses:** occupancy of this kinematic state — sustained near-immobility,

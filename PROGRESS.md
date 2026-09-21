@@ -39,6 +39,7 @@ programme and the cleaning work under it.
 | 23 | **Step 0 — is the plant findable at all?** | **done — INCONCLUSIVE** | planted edges sit at the 60th percentile of the criterion's own scalar against real firings' 96th; only 19.87% clear their own threshold | `results/PROBE_AUDIT.md`, `probe_audit.json` |
 | 24 | **Step 1 — human boundary annotation** | **done — FAIL** | ceiling does not stand: F1 0.2615 / 0.3046 / 0.3247 at ±2/±5/±10 against chance 0.2510 / 0.2652 / 0.2810, every interval containing its own chance level. Two raters, 58 of 58 clips each. Step 2 blocked for this round; no detector is scored | `results/ANNOTATION.md`, `annot_ceiling.json` |
 | 25 | **Step 6 — the island published** | **done** | 361 segments at their own extent against a duration-matched blind control; every published number now a record | `results/island/`, `scripts/island_clips.py` |
+| 26 | **Controls on the context result** | **done — mixed** | window control PASSES: length-matched intervals carry no context information (p = 0.2110) and the island survives removing them, residual −0.00699 [−0.01319, −0.00148]. Stillness control was VACUOUS — selected 2.27% of the island's frames — so the freeze-scorer question is still open. Incidental: tracking dropout 6.8× higher in context A | `results/CONTEXT_CONTROLS.md`, `context_controls.json` |
 
 **Tests:** 783 passing, CPU only, `pytest tests/`. `mypy --strict` clean over
 `vieb/tok`, `vieb/qc`, `vieb/audit`, `vieb/clean`, `vieb/seg` — 47 files.
