@@ -374,3 +374,52 @@ claim rests on it.
 **What would change it.** The segment-level stillness control
 `CONTEXT_CONTROLS.md` names as owed is the registered test of the same worry.
 This diagnostic informs how to design it; it does not substitute for it.
+
+## D12 — the plant's return to baseline is an exponential decay, not a mirror
+
+**What the registration said.** `PLANT_PREREGISTRATION.md` §2 describes the
+added signal as `A·((t−t0)/W)^k` on `[t0, t0+W)`, "mirrored back to zero over
+`[t0+W, t0+2W)` so the signal returns to baseline at the same order", with the
+midpoint break excluded from scoring.
+
+**Why that construction could not be used.** It plants a second break that is
+*sharper than the one under test*, and at a lower order.
+
+* **Mirrored:** for order 2 the rising ramp meets its own reflection with
+  slopes `+2A` and `−2A`. That is an order-**1** discontinuity at the midpoint,
+  against the order-**2** discontinuity the probe exists to measure.
+* **Clamped-then-tapered**, the first thing built instead: holding the
+  polynomial at 1 after `u = 1` drops the slope from `2/w` to `0` there, which
+  is the same order-1 break. Measured at `w = 16`, that junction's second
+  difference was **15.5×** the planted order-2 break.
+
+Non-maximum suppression keeps the strongest peak. Either construction would
+have handed the detector a sharper, lower-order target a few frames away from
+the one being scored, and the recovery numbers would have been about that
+instead. Excluding the midpoint from *scoring*, as §2 provides, does not help:
+the competing peak still wins NMS inside the same refractory window and
+suppresses the onset.
+
+**What is used instead.** `g(u) = u^k · exp(−u/τ)`, normalised to unit peak,
+with `τ` placing the peak near `u = 1` and a smootherstep taper applied only in
+the far tail at `u ≥ 8`, where the profile is already ~7e-6 of its peak. Below
+`order` every derivative at `u = 0` is zero and the `order`-th is not, so **the
+only discontinuity of any order in the instance is the planted one**, and the
+profile returns to exactly zero. Measured: the planted break is the largest
+second difference in the instance for all three orders, by at least 3.3×.
+
+**Why this is a refinement and not a loosening.** §2's stated intent is a
+plant whose only break is the registered one — "returns to baseline at the same
+order". The mirror does not achieve that intent for `k = 2`; the exponential
+does. Nothing about the order, the amplitude ladder, the ±2 band or the scoring
+rule moved, and the change makes the target *harder* to find, not easier, by
+removing a sharp competing edge.
+
+**What it costs.** Instances are longer — `12w + 1` frames against `2w` — so
+fewer fit per recording and the placement guard is wider. `tests/test_plant.py`
+asserts the margin rather than the constant, so a future change to the taper
+that reintroduced a competing break would fail rather than pass quietly.
+
+**Caught before any number was read.** The first implementation's recovery
+figures were computed on a smoke test and discarded unread when the test that
+checks where the break lives failed.

@@ -1,0 +1,2374 @@
+{
+  "amps_sigma": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0
+  ],
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "an instrument probe on tune"
+  },
+  "arms": [
+    "corpus",
+    "white"
+  ],
+  "corpus": "luna",
+  "degree": 3,
+  "deriv_sec": 0.133,
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "81519"
+  },
+  "group": "shape",
+  "inherited_digest": "198eb14ff258c7f6",
+  "k_mad": 3.0,
+  "n_animals": 60,
+  "n_instances": {
+    "corpus": {
+      "0": {
+        "1.0": 7356,
+        "16.0": 7356,
+        "2.0": 7356,
+        "32.0": 7356,
+        "4.0": 7356,
+        "8.0": 7356
+      },
+      "1": {
+        "1.0": 7356,
+        "16.0": 7356,
+        "2.0": 7356,
+        "32.0": 7356,
+        "4.0": 7356,
+        "8.0": 7356
+      },
+      "2": {
+        "1.0": 7356,
+        "16.0": 7356,
+        "2.0": 7356,
+        "32.0": 7356,
+        "4.0": 7356,
+        "8.0": 7356
+      }
+    },
+    "white": {
+      "0": {
+        "1.0": 7373,
+        "16.0": 7373,
+        "2.0": 7373,
+        "32.0": 7373,
+        "4.0": 7373,
+        "8.0": 7373
+      },
+      "1": {
+        "1.0": 7373,
+        "16.0": 7373,
+        "2.0": 7373,
+        "32.0": 7373,
+        "4.0": 7373,
+        "8.0": 7373
+      },
+      "2": {
+        "1.0": 7373,
+        "16.0": 7373,
+        "2.0": 7373,
+        "32.0": 7373,
+        "4.0": 7373,
+        "8.0": 7373
+      }
+    }
+  },
+  "orders": [
+    0,
+    1,
+    2
+  ],
+  "per_recording": 10,
+  "plant_s": 0.25,
+  "reads": {
+    "corpus|o0|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.075814498041591,
+          "lo": 0.0711910185834835,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07355911594322309
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.19053675392623806,
+          "lo": 0.09333907688060288,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.13968262974707774
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2651044575484169,
+          "lo": 0.16624609750628108,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.21324174569030074
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 1 sigma: recall 0.2132 [0.1662, 0.2651] against chance 0.0736, effect +0.1397 [+0.0933, +0.1905] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o0|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07942046552810322,
+          "lo": 0.07509259936209384,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07730498704871468
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.8969369385416814,
+          "lo": 0.855322661893624,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.8779907699062093
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.9737139522352588,
+          "lo": 0.932106615674888,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9552957569549242
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 16 sigma: recall 0.9553 [0.9321, 0.9737] against chance 0.0773, effect +0.8780 [+0.8553, +0.8969] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o0|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07646624527454549,
+          "lo": 0.07185958146204999,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.074208308360922
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.34581035255595827,
+          "lo": 0.230563368032171,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.285762529584223
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.42041934764814914,
+          "lo": 0.3038656004152129,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.359970837945145
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 2 sigma: recall 0.3600 [0.3039, 0.4204] against chance 0.0742, effect +0.2858 [+0.2306, +0.3458] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o0|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07930403073314954,
+          "lo": 0.07498070783137928,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07720956598699275
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.9185911561359178,
+          "lo": 0.9042098723992141,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9122980710925489
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.995164523122911,
+          "lo": 0.9815846550104177,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9895076370795416
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 32 sigma: recall 0.9895 [0.9816, 0.9952] against chance 0.0772, effect +0.9123 [+0.9042, +0.9186] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o0|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07772202621228107,
+          "lo": 0.0735278810321029,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07566911291033189
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5897600612558864,
+          "lo": 0.47329092048759336,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.5303684260665985
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.6651462121282258,
+          "lo": 0.5488763611835654,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.6060375389769302
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 4 sigma: recall 0.6060 [0.5489, 0.6651] against chance 0.0757, effect +0.5304 [+0.4733, +0.5898] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o0|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07920934840687412,
+          "lo": 0.07501359347121338,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07715553604003778
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.8238043785893925,
+          "lo": 0.7390652912241359,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.7845216002799767
+        },
+        "n_instances": 7356,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.9008452315266113,
+          "lo": 0.8169796376908912,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.8616771363200147
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 8 sigma: recall 0.8617 [0.8170, 0.9008] against chance 0.0772, effect +0.7845 [+0.7391, +0.8238] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07513350303642782,
+          "lo": 0.0706446902668893,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07297973613502019
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.03504326238668929,
+          "lo": 0.002292549077091364,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.017563683720052455
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.10855900179863946,
+          "lo": 0.07467236619943544,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.09054341985507265
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 1 sigma: recall 0.0905 [0.0747, 0.1086] against chance 0.0730, effect +0.0176 [+0.0023, +0.0350] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0779452925524454,
+          "lo": 0.07391322165325585,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07597561586209303
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7526749564218864,
+          "lo": 0.6430550196092648,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.697968085813909
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.8281656925256666,
+          "lo": 0.7200204257472886,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.773943701676002
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 16 sigma: recall 0.7739 [0.7200, 0.8282] against chance 0.0760, effect +0.6980 [+0.6431, +0.7527] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07555900860795559,
+          "lo": 0.0709726012539243,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07332615178829653
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.13822233567944733,
+          "lo": 0.05914216502543447,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.09640165313482844
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.212370916881882,
+          "lo": 0.13145901105123378,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.16972780492312498
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 2 sigma: recall 0.1697 [0.1315, 0.2124] against chance 0.0733, effect +0.0964 [+0.0591, +0.1382] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07830118257634736,
+          "lo": 0.07401788755992393,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07620221278329456
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.882508739262586,
+          "lo": 0.8207152041201969,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.8545848575329479
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.9582193567896504,
+          "lo": 0.8964220459327928,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9307870703162421
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 32 sigma: recall 0.9308 [0.8964, 0.9582] against chance 0.0762, effect +0.8546 [+0.8207, +0.8825] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07598404559397193,
+          "lo": 0.0713397566376349,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07373745412183698
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2765968286343841,
+          "lo": 0.16452022101427768,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2180990148823249
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.350834314367663,
+          "lo": 0.23747570313795252,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2918364690041618
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 4 sigma: recall 0.2918 [0.2375, 0.3508] against chance 0.0737, effect +0.2181 [+0.1645, +0.2766] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o1|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07659012372423563,
+          "lo": 0.07223559789823963,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07447849142544068
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.46353913436705985,
+          "lo": 0.3489897560968894,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.4057445285187315
+        },
+        "n_instances": 7356,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5386265785914705,
+          "lo": 0.42229148102946845,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.4802230199441722
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 8 sigma: recall 0.4802 [0.4223, 0.5386] against chance 0.0745, effect +0.4057 [+0.3490, +0.4635] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o2|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07505120833960627,
+          "lo": 0.07058359994164831,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07289286030519387
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.0030533077128931064,
+          "lo": -0.017536932689429564,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.010405361927028114
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07038152933852461,
+          "lo": 0.05484663539170998,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.06248749837816572
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 1 sigma is NOT recovered above chance: recall 0.0625 against chance 0.0729, effect -0.0104 [-0.0175, -0.0031]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "corpus|o2|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07644198678903569,
+          "lo": 0.0721849037662965,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07438211682096814
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5251646007182986,
+          "lo": 0.41112560791941083,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.46768008589342885
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.599259103664735,
+          "lo": 0.48496096766125113,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.542062202714397
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 16 sigma: recall 0.5421 [0.4850, 0.5993] against chance 0.0744, effect +0.4677 [+0.4111, +0.5252] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o2|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07516874454900264,
+          "lo": 0.07067325760676642,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07301018919590867
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.05550109044517814,
+          "lo": 0.01200984245333891,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.03184529362937503
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.1288232097041464,
+          "lo": 0.0844915064824139,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.10485548282528366
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 2 sigma: recall 0.1049 [0.0845, 0.1288] against chance 0.0730, effect +0.0318 [+0.0120, +0.0555] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o2|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07750482542509934,
+          "lo": 0.07337457262622475,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07547267389923715
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7994233106983716,
+          "lo": 0.7026527230428077,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.7523547624411757
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.873934498449188,
+          "lo": 0.7783337928194441,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.8278274363404129
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 32 sigma: recall 0.8278 [0.7783, 0.8739] against chance 0.0755, effect +0.7524 [+0.7027, +0.7994] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o2|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.07546332873301939,
+          "lo": 0.07090695637809058,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07325083664661507
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.16647676945656745,
+          "lo": 0.07655740595964013,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.11894907039994049
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.24007818149553012,
+          "lo": 0.14898050850814445,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.19219990704655554
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 4 sigma: recall 0.1922 [0.1490, 0.2401] against chance 0.0733, effect +0.1189 [+0.0766, +0.1665] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "corpus|o2|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0758443625957088,
+          "lo": 0.07132499413861004,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.07363172861465471
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3084955460449077,
+          "lo": 0.19225893588685244,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2487078258176856
+        },
+        "n_instances": 7356,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.38257356530947806,
+          "lo": 0.2648958467422785,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.32233955443234036
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 8 sigma: recall 0.3223 [0.2649, 0.3826] against chance 0.0736, effect +0.2487 [+0.1923, +0.3085] over 7,356 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "corpus",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "monotone": {
+      "degenerate": 0,
+      "detail": {
+        "monotone_in_amplitude": 1,
+        "n_amplitudes_compared": 6,
+        "n_violations": 0,
+        "order1_minus_order2": [
+          0.028055921476906928,
+          0.06487232209784131,
+          0.09963656195760628,
+          0.15788346551183186,
+          0.23188149896160504,
+          0.10295963397582919
+        ],
+        "ordered_by_order": 1
+      },
+      "n_effective": 60,
+      "reason": "recovery is monotone in amplitude within every order and ordered 0 >= 1 >= 2 at all 6 amplitudes. Order 2 sits below order 1 at every rung, by 0.028 to 0.232 of recall -- the criterion IS preferentially blind to the smoother break, at a resolution the crossing ladder cannot see",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "negative_control": {
+      "degenerate": 0,
+      "detail": {
+        "corpus": {
+          "o0|a16": 0.9552957569549242,
+          "o0|a32": 0.9895076370795416,
+          "o0|a8": 0.8616771363200147,
+          "o1|a16": 0.773943701676002,
+          "o1|a32": 0.9307870703162421,
+          "o1|a8": 0.4802230199441722,
+          "o2|a16": 0.542062202714397,
+          "o2|a32": 0.8278274363404129,
+          "o2|a8": 0.32233955443234036
+        },
+        "white": {
+          "o0|a16": 0.7324509350202103,
+          "o0|a32": 0.9318413288003266,
+          "o0|a8": 0.2594751280671777,
+          "o1|a16": 0.11951033425616263,
+          "o1|a32": 0.5245051092982425,
+          "o1|a8": 0.03322431984314836,
+          "o2|a16": 0.03585437693631429,
+          "o2|a32": 0.15526836617883483,
+          "o2|a8": 0.022855447913908835
+        }
+      },
+      "n_effective": 60,
+      "reason": "the plant is recovered better on the corpus than on i.i.d. `white` at every cell above 4 sigma (worst gap -0.0577), so the probe measures the plant and not the threshold. This discharges the negative control `DETECTOR_PREREGISTRATION.md:84-90` has required since Step B, for these cells only",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "ordering": {
+      "degenerate": 0,
+      "detail": {
+        "recall_50_sigma": {
+          "0": 4.0,
+          "1": 16.0,
+          "2": 16.0
+        },
+        "recall_by_cell": {
+          "0": {
+            "1.0": 0.21324174569030074,
+            "16.0": 0.9552957569549242,
+            "2.0": 0.359970837945145,
+            "32.0": 0.9895076370795416,
+            "4.0": 0.6060375389769302,
+            "8.0": 0.8616771363200147
+          },
+          "1": {
+            "1.0": 0.09054341985507265,
+            "16.0": 0.773943701676002,
+            "2.0": 0.16972780492312498,
+            "32.0": 0.9307870703162421,
+            "4.0": 0.2918364690041618,
+            "8.0": 0.4802230199441722
+          },
+          "2": {
+            "1.0": 0.06248749837816572,
+            "16.0": 0.542062202714397,
+            "2.0": 0.10485548282528366,
+            "32.0": 0.8278274363404129,
+            "4.0": 0.19219990704655554,
+            "8.0": 0.32233955443234036
+          }
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 reaches 50% at 16 sigma and order 1 at 16: the same rung, so the registered one-rung separation is not demonstrated. The ladder doubles, so it cannot resolve a difference smaller than 2x -- read `monotone_read`, which compares every cell, before drawing any conclusion about whether the criterion is blind to the smoother break",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o0|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022427395930964284,
+          "lo": 0.019910187114752727,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021150961053377482
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.003590346286930528,
+          "lo": -0.00291865221634624,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.0002121832664142317
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.025122349287916637,
+          "lo": 0.01775831356443095,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021363144319791708
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 1 sigma is NOT recovered above chance: recall 0.0214 against chance 0.0212, effect +0.0002 [-0.0029, +0.0036]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o0|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02742775468388674,
+          "lo": 0.024796976482349787,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02612659109767031
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7454315100538532,
+          "lo": 0.6685068156330356,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.7063243439225401
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7721689799515316,
+          "lo": 0.6937969490267781,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.7324509350202103
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 16 sigma: recall 0.7325 [0.6938, 0.7722] against chance 0.0261, effect +0.7063 [+0.6685, +0.7454] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o0|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022416106545135588,
+          "lo": 0.019888597962721504,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02113670013643558
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.007122064150446611,
+          "lo": 0.00030018191520829544,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.003534901683594213
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.028651665462226295,
+          "lo": 0.020762653294607362,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.024671601820029792
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 2 sigma: recall 0.0247 [0.0208, 0.0287] against chance 0.0211, effect +0.0035 [+0.0003, +0.0071] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o0|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.028178157246973208,
+          "lo": 0.025770231505237707,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.026976630730853303
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.915419078367546,
+          "lo": 0.8947047299157779,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9048646980694736
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.942909543303825,
+          "lo": 0.9215585437749145,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.9318413288003266
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 32 sigma: recall 0.9318 [0.9216, 0.9429] against chance 0.0270, effect +0.9049 [+0.8947, +0.9154] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o0|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022587508706718665,
+          "lo": 0.02007389416399677,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02131192023098343
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.04723716166342243,
+          "lo": 0.026833983731780864,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.0361728803089714
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.06895684813183207,
+          "lo": 0.04766513044066191,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.05748480053995482
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 4 sigma: recall 0.0575 [0.0477, 0.0690] against chance 0.0213, effect +0.0362 [+0.0268, +0.0472] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o0|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.024080522679786023,
+          "lo": 0.021367349309329497,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.022727670600720725
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2758513735559139,
+          "lo": 0.20050044571462303,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.23674745746645695
+        },
+        "n_instances": 7373,
+        "order": 0,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2995890718439226,
+          "lo": 0.22251911243501163,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2594751280671777
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 0 at 8 sigma: recall 0.2595 [0.2225, 0.2996] against chance 0.0227, effect +0.2367 [+0.2005, +0.2759] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o1|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022426122455546777,
+          "lo": 0.01991974545609343,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021160305288723688
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0032560560541677096,
+          "lo": -0.0037393264381807537,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.0003861208871689348
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.024808485879803322,
+          "lo": 0.016987269443755264,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02077418440155475
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 1 sigma is NOT recovered above chance: recall 0.0208 against chance 0.0212, effect -0.0004 [-0.0037, +0.0033]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o1|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022873262718639525,
+          "lo": 0.02030714903426841,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021576786647843776
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.12227239548085694,
+          "lo": 0.0767984215239229,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.09793354760831886
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.14443229762997895,
+          "lo": 0.0976936208240977,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.11951033425616263
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 16 sigma: recall 0.1195 [0.0977, 0.1444] against chance 0.0216, effect +0.0979 [+0.0768, +0.1223] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o1|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022407320587618962,
+          "lo": 0.01990853543535717,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02114576644943146
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0035879283680578383,
+          "lo": -0.0032924219871939167,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 7.054712909902791e-05
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.024994184996136905,
+          "lo": 0.017463185108158624,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021216313578530488
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 2 sigma is NOT recovered above chance: recall 0.0212 against chance 0.0211, effect +0.0001 [-0.0033, +0.0036]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o1|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.025482308814210746,
+          "lo": 0.022693314273232332,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.024093783566870728
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5536604610888584,
+          "lo": 0.4499566515696699,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.5004113257313719
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5784037159067361,
+          "lo": 0.4731523042838194,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.5245051092982425
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 32 sigma: recall 0.5245 [0.4732, 0.5784] against chance 0.0241, effect +0.5004 [+0.4500, +0.5537] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o1|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022401853289322742,
+          "lo": 0.019888160721604257,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021133348255173257
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.003973027777957566,
+          "lo": -0.002617306058369888,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.0006553223662569054
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.025529832202229874,
+          "lo": 0.018283200396017555,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021788670621430164
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 4 sigma is NOT recovered above chance: recall 0.0218 against chance 0.0211, effect +0.0007 [-0.0026, +0.0040]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o1|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022443530319475515,
+          "lo": 0.01990695293184544,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021164133769831815
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.01758577107298969,
+          "lo": 0.007138445860482599,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.012060186073316548
+        },
+        "n_instances": 7373,
+        "order": 1,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.039252776169414146,
+          "lo": 0.027859297018185344,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.03322431984314836
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 1 at 8 sigma: recall 0.0332 [0.0279, 0.0393] against chance 0.0212, effect +0.0121 [+0.0071, +0.0176] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o2|a1": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 1.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022414690287887937,
+          "lo": 0.01991134389851631,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021147887068845246
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.002469224371946139,
+          "lo": -0.004369473929770419,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.0010490140399874684
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02381449586302758,
+          "lo": 0.016466259627844045,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.020098873028857777
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 1 sigma is NOT recovered above chance: recall 0.0201 against chance 0.0211, effect -0.0010 [-0.0044, +0.0025]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o2|a16": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 16.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022446918718910795,
+          "lo": 0.01994128499646164,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021188682051735686
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.020408506799691733,
+          "lo": 0.009524848844249697,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.014665694884578605
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.042036305244206214,
+          "lo": 0.03022678638619797,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.03585437693631429
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 16 sigma: recall 0.0359 [0.0302, 0.0420] against chance 0.0212, effect +0.0147 [+0.0095, +0.0204] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o2|a2": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 2.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02241871501114772,
+          "lo": 0.019912418020998336,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021152382763942428
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.002618589796422594,
+          "lo": -0.004296523583104466,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.0009337115005323172
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.024045566239936655,
+          "lo": 0.01657773165584277,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02021867126341011
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 2 sigma is NOT recovered above chance: recall 0.0202 against chance 0.0212, effect -0.0009 [-0.0043, +0.0026]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o2|a32": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 32.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02343296907509816,
+          "lo": 0.02078459870313342,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.022103777926421535
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.1610564134735701,
+          "lo": 0.10771373744582084,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.1331645882524133
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.183981233954389,
+          "lo": 0.12921966426460843,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.15526836617883483
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 32 sigma: recall 0.1553 [0.1292, 0.1840] against chance 0.0221, effect +0.1332 [+0.1077, +0.1611] over 7,373 instances",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    "white|o2|a4": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 4.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.022419951328789045,
+          "lo": 0.019913028622278672,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.021152584711131562
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0028936153890085988,
+          "lo": -0.0036855125887394163,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.0005146909107457429
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.024331108430196327,
+          "lo": 0.017005740946247922,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.020637893800385818
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 4 sigma is NOT recovered above chance: recall 0.0206 against chance 0.0212, effect -0.0005 [-0.0037, +0.0029]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    },
+    "white|o2|a8": {
+      "degenerate": 0,
+      "detail": {
+        "amp_sigma": 8.0,
+        "chance": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02243630418346006,
+          "lo": 0.019921751858309675,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02116544740024031
+        },
+        "effect": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.004929721401580599,
+          "lo": -0.0012907398167752502,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.0016900005136685234
+        },
+        "n_instances": 7373,
+        "order": 2,
+        "recall": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.02660502018832006,
+          "lo": 0.019317403137679733,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.022855447913908835
+        }
+      },
+      "n_effective": 60,
+      "reason": "order 2 at 8 sigma is NOT recovered above chance: recall 0.0229 against chance 0.0212, effect +0.0017 [-0.0013, +0.0049]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "plant",
+        "dataset": "luna",
+        "degree": 3,
+        "deriv_sec": 0.133,
+        "group": "shape",
+        "k_mad": 3.0,
+        "null": "white",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "recall": {
+    "corpus": {
+      "0": {
+        "1.0": 0.21324174569030074,
+        "16.0": 0.9552957569549242,
+        "2.0": 0.359970837945145,
+        "32.0": 0.9895076370795416,
+        "4.0": 0.6060375389769302,
+        "8.0": 0.8616771363200147
+      },
+      "1": {
+        "1.0": 0.09054341985507265,
+        "16.0": 0.773943701676002,
+        "2.0": 0.16972780492312498,
+        "32.0": 0.9307870703162421,
+        "4.0": 0.2918364690041618,
+        "8.0": 0.4802230199441722
+      },
+      "2": {
+        "1.0": 0.06248749837816572,
+        "16.0": 0.542062202714397,
+        "2.0": 0.10485548282528366,
+        "32.0": 0.8278274363404129,
+        "4.0": 0.19219990704655554,
+        "8.0": 0.32233955443234036
+      }
+    },
+    "white": {
+      "0": {
+        "1.0": 0.021363144319791708,
+        "16.0": 0.7324509350202103,
+        "2.0": 0.024671601820029792,
+        "32.0": 0.9318413288003266,
+        "4.0": 0.05748480053995482,
+        "8.0": 0.2594751280671777
+      },
+      "1": {
+        "1.0": 0.02077418440155475,
+        "16.0": 0.11951033425616263,
+        "2.0": 0.021216313578530488,
+        "32.0": 0.5245051092982425,
+        "4.0": 0.021788670621430164,
+        "8.0": 0.03322431984314836
+      },
+      "2": {
+        "1.0": 0.020098873028857777,
+        "16.0": 0.03585437693631429,
+        "2.0": 0.02021867126341011,
+        "32.0": 0.15526836617883483,
+        "4.0": 0.020637893800385818,
+        "8.0": 0.022855447913908835
+      }
+    }
+  },
+  "recall_anywhere": {
+    "corpus": {
+      "0": {
+        "1.0": 0.5641601242575845,
+        "16.0": 0.918982142525842,
+        "2.0": 0.6238111549581753,
+        "32.0": 0.9589940489098223,
+        "4.0": 0.7336329082322433,
+        "8.0": 0.859225615641548
+      },
+      "1": {
+        "1.0": 0.5206692038105082,
+        "16.0": 0.8929168276167976,
+        "2.0": 0.5609125213488594,
+        "32.0": 0.9688837322279068,
+        "4.0": 0.6191916365025885,
+        "8.0": 0.7208922053131356
+      },
+      "2": {
+        "1.0": 0.5085346937545295,
+        "16.0": 0.7703174973783313,
+        "2.0": 0.5297270869268156,
+        "32.0": 0.9304115417947625,
+        "4.0": 0.5758235148753473,
+        "8.0": 0.6447764647469183
+      }
+    },
+    "white": {
+      "0": {
+        "1.0": 0.3576194056355178,
+        "16.0": 0.615016128554822,
+        "2.0": 0.3579290410408433,
+        "32.0": 0.6905700582847817,
+        "4.0": 0.3690944615709607,
+        "8.0": 0.4401557982920884
+      },
+      "1": {
+        "1.0": 0.3571876051218313,
+        "16.0": 0.4002075338551426,
+        "2.0": 0.3569814511642122,
+        "32.0": 0.6481164825737088,
+        "4.0": 0.35770293115069296,
+        "8.0": 0.3622619695601834
+      },
+      "2": {
+        "1.0": 0.3563889438764199,
+        "16.0": 0.36695827414111243,
+        "2.0": 0.3569303163391139,
+        "32.0": 0.45786602455575015,
+        "4.0": 0.35751021878306966,
+        "8.0": 0.359240981123837
+      }
+    }
+  },
+  "registration": "results/PLANT_PREREGISTRATION.md",
+  "seed": 0,
+  "sigma_bar_bl": 0.06179869069997513,
+  "split": "tune",
+  "stage": "plant",
+  "tol": 2,
+  "w_frames": 8
+}
