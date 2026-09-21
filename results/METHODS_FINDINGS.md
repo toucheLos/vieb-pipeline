@@ -323,3 +323,64 @@ the two raters would have differed by an unrecoverable 300 ms and the difference
 would have been invisible — indistinguishable from raters who simply disagree.
 Recording *how* a measurement was taken, not only what it was, is what made this
 finding possible at all.
+
+## M11 — match a control on what defines the object, at the level it is defined
+
+**What happened.** `CONTEXT.md` found the island's occupancy differs by context.
+`BEHAVIOUR.md` found the island **3.7× slower** than its animals' other
+segments. The obvious worry is that the first is just the second, so
+`CONTEXT_CONTROLS_PREREGISTRATION.md` §4 registered a stillness arm and fixed
+its threshold by matching:
+
+> θ_still is the speed at which the `stillness` arm's corpus-wide **occupancy**
+> equals clump 0's corpus-wide occupancy.
+
+That rule is defensible on its face — it makes the two arms equal on rate, so
+they differ only in *how* frames were selected — and it is not tunable, which
+was the point. It produced:
+
+| | |
+|---|---:|
+| θ_still | **0.000199 body lengths/s** |
+| island frame speed, median | 0.0279 — **140× higher** |
+| **share of island frames the arm selected** | **0.0227** |
+
+**The control selected 2.3% of the thing it was controlling for**, and about 39%
+of what it did select was frames at *exactly* zero speed — a held pose, which is
+a tracking dropout and not a slow animal.
+
+**Why the rule failed.** The island is defined by a **segment-level** statistic:
+3.7× is a ratio of *segment mean* speeds. Occupancy is a **frame-level**
+marginal that the island merely happens to have. A slow segment still contains
+fast frames, so matching on frame share reached into the extreme tail of the
+frame speed distribution instead of selecting frames like the island's. The two
+arms ended up near-disjoint.
+
+**The consequence, and why it is not a small one.** The residual came back
+excluding zero — `PASS`, "clump membership adds to stillness" — which reads
+exactly like "the detector is not a freeze scorer". It is not that. Two
+near-disjoint sets do not explain each other, and a residual saying so is a
+statement about the arms. **The registered question was not answered, and the
+number produced looks like an answer.**
+
+**The rule.** When a control is matched to an object, match it on the statistic
+that **defines** the object, at the **level** the definition lives. Matching on
+a downstream marginal the object happens to share is not the same thing and can
+select a disjoint population while satisfying the match exactly. Here the
+correct arm draws **segments** matched on joint (log duration, log mean speed) —
+which `ISLAND_LOOK.md` already specifies for its own `matched` arm.
+
+**What it cost.** Nothing published, because `controls.overlap_read` was added
+before the result was written up and names the arm vacuous inside the result
+itself. It cost one registered arm and a re-registration.
+
+**The relationship to M5.** M5 is *a control that returns nothing is usually
+testing the control*. This is its converse and it is the more dangerous of the
+two: **a control that returns everything is usually testing the control as
+well**, and it arrives wearing a `PASS`. A null result invites scrutiny. A
+positive one does not.
+
+**The general precondition this leaves behind.** Any matched control should
+report the **overlap** between what it selected and what it controls for, as a
+precondition, before its verdict is read. An overlap near zero means the
+comparison is vacuous however clean its interval looks.

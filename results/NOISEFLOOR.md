@@ -166,13 +166,66 @@ Both are true at once: **boundary rate in slow frames is at the noise floor,
 and boundary placement still carries context information.** Nothing here
 resolves that, and it is the sharpest open question this programme has.
 
+## Cross-arm concordance — §6, and the prediction is refuted
+
+Registered prediction 4 said raw-vs-viterbi concordance at ±2 would be **below
+0.5**: `viterbi` reassigns only 0.31% of keypoint-frames, so if that moved most
+of the boundaries, the boundaries were sitting on noise — an inference needing
+no floor, no human and no surrogate.
+
+**It is 0.7559 [0.7239, 0.7878]. The prediction is refuted.** The verdict is
+`INCONCLUSIVE`: between the registered 0.5 limit and the 0.9 robustness bar, the
+boundaries are neither clearly noise nor clearly robust to the cleaner.
+
+60 `tune` animals, 65,115 `raw` boundaries. **`wiener` and `butterworth`
+excluded by name** — a low-pass filter manufactures the smoothness whose breaks
+this detects, and both are `STORED_ARMS` that cannot be applied to an array in
+any case. Matched with `annot.match` / `annot.prf`, greedy nearest-first and
+one-to-one; `scripts/breaks.py:165 _agreement` is not used because it counts
+unmatched hits.
+
+| pair | ±2 | ±5 | ±10 |
+|---|---|---|---|
+| `raw` vs **`disposition`** | **0.9542** [0.9467, 0.9612] | 0.9698 | 0.9819 |
+| `raw` vs **`viterbi`** | **0.7559** [0.7239, 0.7878] | 0.8325 | 0.8927 |
+| `viterbi` vs `disposition` | 0.7564 [0.7257, 0.7872] | 0.8343 | 0.8944 |
+
+**`raw` boundaries surviving *both* other arms at ±2: 0.7212 [0.6871, 0.7553].**
+
+### What it says, at the strength it earns
+
+**Roughly three-quarters of boundaries are arm-invariant, and a quarter are
+not.** That is neither the wholesale collapse the prediction described nor
+robustness. A quarter of a detector's output moving when 0.31% of the data
+changes is a real amount of instability, and it is now measured rather than
+suspected.
+
+**The disagreement is mostly placement, not existence.** Concordance rises from
+0.756 at ±2 to 0.893 at ±10, so most arm-to-arm disagreement is a boundary
+shifting by a few frames rather than appearing or vanishing. That is the same
+shape the human raters showed — 8.8% within two frames against 85.3% within a
+second — at a much finer scale. **Coarse agreement with fine disagreement is
+turning up in every instrument this programme points at the question.**
+
+**Edit magnitude matters, not edit count.** `disposition` touches ~0.5% of
+frames and moves boundaries almost not at all (0.954); `viterbi` reassigns 0.31%
+and moves a quarter of them. The difference is what each edit does: disposition
+corrects short violation runs by geometric projection, in moves measured at
+0.00004 body lengths of damage, while viterbi relocates a keypoint by a **median
+46.65 px** (`CLEANING.md`). **Boundary stability tracks how far a cleaner moves
+a keypoint, not how often.** A cleaning arm is not "gentle" because it edits
+rarely.
+
+**Which arm is the odd one out is answered.** `viterbi` vs `disposition` (0.7564)
+is indistinguishable from `raw` vs `viterbi` (0.7559), while `raw` vs
+`disposition` is 0.9542. `raw` and `disposition` produce nearly the same
+boundaries and `viterbi` produces different ones — so the instability is a
+property of Viterbi path selection, not a symmetric disagreement among three
+equal arms.
+
 ## What is owed
 
-1. **Cross-arm concordance** (`raw`, `viterbi`, `disposition`), registered in §6
-   and not yet run. Its prediction needs no floor at all: `viterbi` reassigns
-   0.31% of keypoint-frames, so if changing three keypoint-frames in a thousand
-   moves most of the boundaries, the boundaries are sitting on noise.
-2. **The order-controlled C² plant** (§1e of the plan, `DETECTOR.md:98-102`).
+1. **The order-controlled C² plant** (§1e of the plan, `DETECTOR.md:98-102`).
    The floor fixes the amplitude such a plant must stand above, which is what it
    was needed for.
 3. **The registered negative control is still not discharged.**
