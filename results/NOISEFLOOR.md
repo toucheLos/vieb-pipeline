@@ -163,8 +163,54 @@ That is a caveat and not a refutation, and the distinction matters:
   produce.
 
 Both are true at once: **boundary rate in slow frames is at the noise floor,
-and boundary placement still carries context information.** Nothing here
-resolves that, and it is the sharpest open question this programme has.
+and boundary placement still carries context information.**
+
+### Where the island's boundaries actually sit — measured
+
+Unregistered diagnostic, `DEVIATIONS.md` D11, `results/island_boundaries.json`.
+Carries no verdict.
+
+**A segment's content and its edges are not in the same regime.** A long still
+segment is delimited by the animal *entering* and *leaving* stillness, and those
+are motion events. So the 3.7× above describes the island's interior and says
+nothing directly about the frames its boundaries fall on. Measured, on the same
+tune-derived speed quintiles as the floor — a yardstick transfer across splits,
+since the island lives on `report`:
+
+| speed quintile | rate/s | vs floor | island **boundary** | island **interior** | other boundaries |
+|---|---:|---|---|---|---|
+| q0 | 0.1851 | **at/below** | 15.1% [9.9, 20.0] | 38.7% [31.8, 45.8] | 7.9% [6.2, 9.6] |
+| q1 | 0.2493 | **at/below** | 21.6% [16.1, 27.3] | 33.7% [30.2, 36.9] | 11.5% [10.2, 12.9] |
+| q2 | 0.3759 | above | 25.5% [17.7, 34.5] | 19.5% [15.2, 24.1] | 18.4% [17.6, 19.2] |
+| q3 | 0.6140 | above | 27.1% [20.1, 34.7] | 6.5% [4.3, 8.9] | 27.4% [26.2, 28.5] |
+| q4 | 0.9359 | above | 10.8% [5.9, 16.8] | 1.6% [0.9, 2.6] | 34.8% [32.3, 37.3] |
+
+Animal-weighted, 46 animals. Pooled shares differ materially — the island is
+animal-concentrated, the top animal supplying 16% of it (`VOCAB.md`) — and both
+are in the result; the animal-level figures are the ones quoted, as everywhere.
+
+**The distinction is real and large.** Island boundary frames run at a median
+**0.0654** body lengths/s against their own interiors' **0.0275** — 2.4× faster
+— and the share falling in the floor strata **halves**, from **72.4%
+[65.8, 78.4]** for interiors to **36.7% [28.0, 44.8]** for boundaries. The
+intervals do not overlap. **Roughly two-thirds of the island's boundaries fall
+where the detector is demonstrably above its own noise floor.** In q3 the
+island's boundaries (27.1%) are statistically indistinguishable from every other
+segment's (27.4%): in the fast strata they look entirely ordinary.
+
+**It does not clear them.** Island boundaries remain about **1.9× enriched** in
+the floor strata relative to boundaries in general — 36.7% [28.0, 44.8] against
+19.4% [16.5, 22.4], non-overlapping — and sit at about the rate of a randomly
+chosen frame (37.3%), where boundaries in general sit far below it.
+
+**So the tension is roughly halved, not dissolved.** The island's boundaries are
+emphatically not in the regime its interior occupies, which is the thing the
+3.7× appeared to imply and does not. About a third of them still land where the
+detector cannot be told from jitter.
+
+One caveat that does not go away: the floor is a statement about a **population
+rate in a stratum**. A boundary frame sitting in a fast quintile does not make
+*that* boundary correct. Nothing here licenses reading the table per boundary.
 
 ## Cross-arm concordance — §6, and the prediction is refuted
 

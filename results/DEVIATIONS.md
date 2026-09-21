@@ -338,3 +338,39 @@ A registered version would need its own contrast and its own gate.
 `CONTEXT_CONTROLS.md` names as owed — segments matched on joint (log duration,
 log mean speed) — supersedes the vacuous arm. When it is registered and run, the
 `overlap` read becomes a routine precondition rather than a finding.
+
+
+## D11 — an unregistered diagnostic on where the island's boundaries sit
+
+**What prompted it.** `NOISEFLOOR.md` found the detector at its own noise floor
+in the slowest speed quintiles. `BEHAVIOUR.md` found the island **3.7× slower**
+than its animals' other segments. Read together those say the one
+design-validated unit in the programme sits where boundaries cannot be told from
+jitter, and the first write-up of the floor said exactly that.
+
+**Why it was wrong to leave there.** A segment's content and its edges are not
+in the same regime. A long still segment is delimited by the animal entering and
+leaving stillness, and those are motion events. The 3.7× describes interiors. No
+measurement on disk had asked about the boundary frames.
+
+**What was run.** Per-frame speed at island boundary frames, island interior
+frames, every other selected segment's boundaries, and every scored frame,
+placed in the **tune-derived** speed quintiles from `noise_floor.json`. No
+verdict: the read is `NOT_A_RESULT` and changes no published number.
+
+**The result.** Island boundary frames run 2.4× faster than their own interiors
+(0.0654 against 0.0275 body lengths/s) and their share in the floor strata
+halves, 72.4% [65.8, 78.4] to 36.7% [28.0, 44.8]. They remain ~1.9× enriched in
+those strata against boundaries in general, 19.4% [16.5, 22.4].
+
+**What it costs.** It is post-hoc and it improves the standing of a published
+result, which is the direction in which a post-hoc analysis should be trusted
+least. It is therefore reported without a verdict, with both the pooled and
+animal-weighted shares (they disagree, because the island is animal-
+concentrated), and with the split transfer named. A registered version would fix
+the strata and the comparison before running, and would be needed before any
+claim rests on it.
+
+**What would change it.** The segment-level stillness control
+`CONTEXT_CONTROLS.md` names as owed is the registered test of the same worry.
+This diagnostic informs how to design it; it does not substitute for it.

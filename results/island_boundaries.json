@@ -1,0 +1,754 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "an unregistered diagnostic"
+  },
+  "clump": 0,
+  "corpus": "luna",
+  "deviation": "results/DEVIATIONS.md D11",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "floor": {
+    "aggregator": "mean",
+    "alpha": 0.05,
+    "hi": 0.26443014335169723,
+    "lo": 0.25540862404823617,
+    "method": "animal bootstrap (resamples animals with replacement)",
+    "n_animals": 60,
+    "n_boot": 2000,
+    "n_units": 60,
+    "point": 0.2598812399569307
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "pools": {
+    "all_frames": {
+      "median_speed": 0.1364614409889236,
+      "n_animals": 89,
+      "n_frames": 6678488,
+      "quintile_share_animal_mean": [
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.20813186131828418,
+          "lo": 0.15400880447579138,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.18045424026812476
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.20321660344028228,
+          "lo": 0.18086933066819377,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.1921457606727493
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2152615793297795,
+          "lo": 0.1950793203242294,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.2051490573258005
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.22664992278237533,
+          "lo": 0.1984444935121854,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.21237138325732802
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.22785064666138793,
+          "lo": 0.1925610406260718,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.2098795584759974
+        }
+      ],
+      "quintile_share_pooled": [
+        0.17877729210563828,
+        0.19212956585382798,
+        0.20576543672759462,
+        0.21302950607981927,
+        0.21029819923311982
+      ],
+      "share_in_two_slowest": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.40805405095458647,
+        "lo": 0.3380226971070117,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.3726000009408741
+      }
+    },
+    "island_boundary": {
+      "median_speed": 0.06536807323366972,
+      "n_animals": 46,
+      "n_frames": 722,
+      "quintile_share_animal_mean": [
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.20015953859467558,
+          "lo": 0.09917126951094343,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.15118663417340164
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.27342948561905317,
+          "lo": 0.16075665382021712,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.21554756988358123
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.345282626844536,
+          "lo": 0.17652331112279127,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.2552193846617287
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.34653590853555405,
+          "lo": 0.20057108076425187,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.27051474726332947
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.1677850585536077,
+          "lo": 0.05892199547533906,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.10753166401795893
+        }
+      ],
+      "quintile_share_pooled": [
+        0.22022160664819945,
+        0.3047091412742382,
+        0.22437673130193905,
+        0.18282548476454294,
+        0.06786703601108034
+      ],
+      "share_in_two_slowest": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.4476223806448877,
+        "lo": 0.2798487197748776,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 46,
+        "n_boot": 2000,
+        "n_units": 46,
+        "point": 0.36673420405698287
+      }
+    },
+    "island_interior": {
+      "median_speed": 0.02750822559075393,
+      "n_animals": 46,
+      "n_frames": 41732,
+      "quintile_share_animal_mean": [
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.45784461036836316,
+          "lo": 0.31849785924795365,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.38655587116907675
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3693243983810219,
+          "lo": 0.3022903700462784,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.3370183515680679
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2411262179610533,
+          "lo": 0.1523592159595776,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.1953409315788994
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.08930487432988099,
+          "lo": 0.04287915472135162,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.06460346361485295
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.026102462925698882,
+          "lo": 0.008732087929811462,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 46,
+          "n_boot": 2000,
+          "n_units": 46,
+          "point": 0.016481382069102955
+        }
+      ],
+      "quintile_share_pooled": [
+        0.4473066232147992,
+        0.33667209815010063,
+        0.17034889293587654,
+        0.03949007955525736,
+        0.006182306143966261
+      ],
+      "share_in_two_slowest": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.7844603233763761,
+        "lo": 0.6580317154108087,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 46,
+        "n_boot": 2000,
+        "n_units": 46,
+        "point": 0.7235742227371449
+      }
+    },
+    "other_boundary": {
+      "median_speed": 0.2770057254125107,
+      "n_animals": 89,
+      "n_frames": 127960,
+      "quintile_share_animal_mean": [
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.09644554480076917,
+          "lo": 0.062253330524050854,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.07866725324146615
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.12866004362313502,
+          "lo": 0.1024062428098844,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.11544902042124833
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.19204965962865875,
+          "lo": 0.1756314658623406,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.18389907200524166
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.28540840175775334,
+          "lo": 0.2624271150264566,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.2740433772132021
+        },
+        {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3726926985190887,
+          "lo": 0.32348310963554927,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.3479412771188418
+        }
+      ],
+      "quintile_share_pooled": [
+        0.08862925914348234,
+        0.12378086902156923,
+        0.1880353235386058,
+        0.2701078462019381,
+        0.3294467020944045
+      ],
+      "share_in_two_slowest": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.22395817218423297,
+        "lo": 0.16543813413847383,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.19411627366271444
+      }
+    }
+  },
+  "reads": {
+    "island_boundaries": {
+      "degenerate": 0,
+      "detail": {
+        "floor_ci": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.26443014335169723,
+          "lo": 0.25540862404823617,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2598812399569307
+        },
+        "pools": {
+          "all_frames": {
+            "median_speed": 0.1364614409889236,
+            "n_animals": 89,
+            "n_frames": 6678488,
+            "quintile_share_animal_mean": [
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.20813186131828418,
+                "lo": 0.15400880447579138,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.18045424026812476
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.20321660344028228,
+                "lo": 0.18086933066819377,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.1921457606727493
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.2152615793297795,
+                "lo": 0.1950793203242294,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.2051490573258005
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.22664992278237533,
+                "lo": 0.1984444935121854,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.21237138325732802
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.22785064666138793,
+                "lo": 0.1925610406260718,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.2098795584759974
+              }
+            ],
+            "quintile_share_pooled": [
+              0.17877729210563828,
+              0.19212956585382798,
+              0.20576543672759462,
+              0.21302950607981927,
+              0.21029819923311982
+            ],
+            "share_in_two_slowest": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.40805405095458647,
+              "lo": 0.3380226971070117,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 89,
+              "n_boot": 2000,
+              "n_units": 89,
+              "point": 0.3726000009408741
+            }
+          },
+          "island_boundary": {
+            "median_speed": 0.06536807323366972,
+            "n_animals": 46,
+            "n_frames": 722,
+            "quintile_share_animal_mean": [
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.20015953859467558,
+                "lo": 0.09917126951094343,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.15118663417340164
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.27342948561905317,
+                "lo": 0.16075665382021712,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.21554756988358123
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.345282626844536,
+                "lo": 0.17652331112279127,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.2552193846617287
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.34653590853555405,
+                "lo": 0.20057108076425187,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.27051474726332947
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.1677850585536077,
+                "lo": 0.05892199547533906,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.10753166401795893
+              }
+            ],
+            "quintile_share_pooled": [
+              0.22022160664819945,
+              0.3047091412742382,
+              0.22437673130193905,
+              0.18282548476454294,
+              0.06786703601108034
+            ],
+            "share_in_two_slowest": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.4476223806448877,
+              "lo": 0.2798487197748776,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 46,
+              "n_boot": 2000,
+              "n_units": 46,
+              "point": 0.36673420405698287
+            }
+          },
+          "island_interior": {
+            "median_speed": 0.02750822559075393,
+            "n_animals": 46,
+            "n_frames": 41732,
+            "quintile_share_animal_mean": [
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.45784461036836316,
+                "lo": 0.31849785924795365,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.38655587116907675
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.3693243983810219,
+                "lo": 0.3022903700462784,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.3370183515680679
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.2411262179610533,
+                "lo": 0.1523592159595776,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.1953409315788994
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.08930487432988099,
+                "lo": 0.04287915472135162,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.06460346361485295
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.026102462925698882,
+                "lo": 0.008732087929811462,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 46,
+                "n_boot": 2000,
+                "n_units": 46,
+                "point": 0.016481382069102955
+              }
+            ],
+            "quintile_share_pooled": [
+              0.4473066232147992,
+              0.33667209815010063,
+              0.17034889293587654,
+              0.03949007955525736,
+              0.006182306143966261
+            ],
+            "share_in_two_slowest": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.7844603233763761,
+              "lo": 0.6580317154108087,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 46,
+              "n_boot": 2000,
+              "n_units": 46,
+              "point": 0.7235742227371449
+            }
+          },
+          "other_boundary": {
+            "median_speed": 0.2770057254125107,
+            "n_animals": 89,
+            "n_frames": 127960,
+            "quintile_share_animal_mean": [
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.09644554480076917,
+                "lo": 0.062253330524050854,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.07866725324146615
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.12866004362313502,
+                "lo": 0.1024062428098844,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.11544902042124833
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.19204965962865875,
+                "lo": 0.1756314658623406,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.18389907200524166
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.28540840175775334,
+                "lo": 0.2624271150264566,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.2740433772132021
+              },
+              {
+                "aggregator": "mean",
+                "alpha": 0.05,
+                "hi": 0.3726926985190887,
+                "lo": 0.32348310963554927,
+                "method": "animal bootstrap (resamples animals with replacement)",
+                "n_animals": 89,
+                "n_boot": 2000,
+                "n_units": 89,
+                "point": 0.3479412771188418
+              }
+            ],
+            "quintile_share_pooled": [
+              0.08862925914348234,
+              0.12378086902156923,
+              0.1880353235386058,
+              0.2701078462019381,
+              0.3294467020944045
+            ],
+            "share_in_two_slowest": {
+              "aggregator": "mean",
+              "alpha": 0.05,
+              "hi": 0.22395817218423297,
+              "lo": 0.16543813413847383,
+              "method": "animal bootstrap (resamples animals with replacement)",
+              "n_animals": 89,
+              "n_boot": 2000,
+              "n_units": 89,
+              "point": 0.19411627366271444
+            }
+          }
+        },
+        "speed_edges_source": "results/noise_floor.json (tune)",
+        "speed_marginal_rates": [
+          0.18508382419574082,
+          0.24927956502038967,
+          0.37593158245773445,
+          0.6140462165835976,
+          0.9359311282283643
+        ]
+      },
+      "n_effective": 46,
+      "reason": "UNREGISTERED DIAGNOSTIC, no verdict: 0.367 [0.280, 0.448] of island BOUNDARY frames fall in the two slowest speed quintiles -- the strata NOISEFLOOR.md finds at or below the noise floor -- against 0.724 [0.658, 0.784] of the same segments' INTERIOR frames and 0.194 [0.165, 0.224] of every other selected segment's boundaries. Island boundary median speed 0.0654 against interior 0.0275 body lengths/s. Speed quintiles are the TUNE-derived edges from the floor run, applied to report frames so the axis matches; that is a yardstick transfer across splits",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_boundaries",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "NOT_A_RESULT"
+    }
+  },
+  "registered": 0,
+  "seed": 0,
+  "speed_edges": [
+    null,
+    0.022800843045115475,
+    0.07425863444805145,
+    0.19091846942901614,
+    0.48335859775543216,
+    null
+  ],
+  "speed_marginal_rates": [
+    0.18508382419574082,
+    0.24927956502038967,
+    0.37593158245773445,
+    0.6140462165835976,
+    0.9359311282283643
+  ],
+  "split": "report",
+  "stage": "island_boundaries"
+}
