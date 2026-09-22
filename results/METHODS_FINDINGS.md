@@ -427,3 +427,49 @@ statistic; this is about setting a **threshold** with no reference point. Both
 are the same underlying error — **a comparison specified without checking what
 it is a comparison to** — arriving once on the control side and once on the
 criterion side.
+
+## M13 — a threshold defined in samples is a different threshold at a different sampling rate
+
+**What happened.** Stage 2 re-ran both detectors at 15 fps to ask which
+boundaries survive. Everything temporal in this programme derives from
+`recur.util.frames(seconds, fps)` at use time, which is exactly the discipline
+that should make a frame-rate sweep meaningful: pass a different `fps` and every
+window re-derives in *seconds*.
+
+One quantity does not.
+
+```
+breaks.identifiability_floor(degree=3, k=3) = k * (degree + 1) = 12   # SAMPLES
+breaks.min_segment_frames = identifiability_floor + 2 * guard
+```
+
+| | 30 fps | 15 fps |
+|---|---:|---:|
+| `min_gap` | 16 frames | 14 frames |
+| **refractory period** | **0.533 s** | **0.933 s** |
+
+**The detector's refractory period is 1.75× longer at half the frame rate**, so
+the 15 fps arm is mechanically forbidden from placing boundaries the 30 fps arm
+places. Measured, the boundary rate fell to **0.627×** and 1/1.75 = 0.571 —
+the floor alone predicts nearly the whole drop.
+
+**The rule.** A parameter expressed in samples is a *time* parameter in
+disguise, and it silently changes meaning whenever the sampling rate does.
+Before any robustness test that varies the rate, every constant has to be
+audited for its units — the ones in seconds are safe, the ones in samples are
+the test's confound. The tell is that the quantity has a sound justification in
+sample terms: `k·(degree+1)` is samples-per-parameter, which is exactly right
+as an identifiability floor and exactly wrong as a refractory period, and it is
+serving as both.
+
+**What it cost.** Stage 2's headline. Configuration survival came out at
+**0.2604**, and that number cannot be read as evidence about whether the
+boundaries are real, because most of the loss is the floor. The registration
+forbids changing the floor after seeing the number, so the test is reported as
+**not settled** rather than as a failure, and a corrected version is owed.
+
+**The relationship to M12.** M12 is a threshold set without reference to what it
+is being compared *to*; this is a threshold whose *units* change what it means
+between two arms of one comparison. Both are the same underlying failure —
+**a comparison whose two sides are not the same measurement** — and both were
+invisible until something was varied that had never been varied before.

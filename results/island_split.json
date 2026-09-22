@@ -1,0 +1,376 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a post-hoc split on a published clump"
+  },
+  "channels": {
+    "body_extension": {
+      "excess": -9.503466775020343,
+      "island": {
+        "bic_1": -1112.1777274214535,
+        "bic_2": -1135.6163532476921,
+        "bic_gain": 23.43862582623865,
+        "means": [
+          1.007646288623526,
+          1.0085356057811297
+        ],
+        "n": 361,
+        "sds": [
+          0.016906379102240937,
+          0.06204441397507261
+        ],
+        "separation_in_sds": 0.02252839073403045,
+        "weights": [
+          0.35000435132625746,
+          0.649995648673748
+        ]
+      },
+      "island_gain": 23.43862582623865,
+      "island_median": 1.0083280251721325,
+      "n": 361,
+      "null": {
+        "bic_1": -605.9443850490999,
+        "bic_2": -638.8864776503589,
+        "bic_gain": 32.94209260125899,
+        "means": [
+          0.9953948755223733,
+          1.041738525492707
+        ],
+        "n": 361,
+        "sds": [
+          0.06632800330163822,
+          0.16184103256325935
+        ],
+        "separation_in_sds": 0.40622207824706313,
+        "weights": [
+          0.7356720680547622,
+          0.26432793194524357
+        ]
+      },
+      "null_gain": 32.94209260125899,
+      "null_median": 0.9989416683169734
+    },
+    "pole_radius": {
+      "excess": -8.616641771379136,
+      "island": {
+        "bic_1": -427.18357984390576,
+        "bic_2": -421.6914925815822,
+        "bic_gain": -5.492087262323537,
+        "means": [
+          0.6403037682931525,
+          0.7802614142129969
+        ],
+        "n": 361,
+        "sds": [
+          0.1308822299753938,
+          0.0461564025789411
+        ],
+        "separation_in_sds": 1.5810972317230252,
+        "weights": [
+          0.8359183881066061,
+          0.16408161189340034
+        ]
+      },
+      "island_gain": -5.492087262323537,
+      "island_median": 0.6748595682840637,
+      "n": 361,
+      "null": {
+        "bic_1": -329.4957407687155,
+        "bic_2": -332.6202952777711,
+        "bic_gain": 3.1245545090555993,
+        "means": [
+          0.45366538052185756,
+          0.7095109739135408
+        ],
+        "n": 361,
+        "sds": [
+          0.058420727695051106,
+          0.12441715512125535
+        ],
+        "separation_in_sds": 2.798605950263886,
+        "weights": [
+          0.17273771089578296,
+          0.8272622891042227
+        ]
+      },
+      "null_gain": 3.1245545090555993,
+      "null_median": 0.6742092460340608
+    }
+  },
+  "clump": 0,
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": "0",
+    "slurm_job": "81607"
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_animals": 89,
+  "n_pairs": 361,
+  "reads": {
+    "body_extension": {
+      "degenerate": 0,
+      "detail": {
+        "excess": -9.503466775020343,
+        "island": {
+          "bic_1": -1112.1777274214535,
+          "bic_2": -1135.6163532476921,
+          "bic_gain": 23.43862582623865,
+          "means": [
+            1.007646288623526,
+            1.0085356057811297
+          ],
+          "n": 361,
+          "sds": [
+            0.016906379102240937,
+            0.06204441397507261
+          ],
+          "separation_in_sds": 0.02252839073403045,
+          "weights": [
+            0.35000435132625746,
+            0.649995648673748
+          ]
+        },
+        "island_gain": 23.43862582623865,
+        "island_median": 1.0083280251721325,
+        "n": 361,
+        "null": {
+          "bic_1": -605.9443850490999,
+          "bic_2": -638.8864776503589,
+          "bic_gain": 32.94209260125899,
+          "means": [
+            0.9953948755223733,
+            1.041738525492707
+          ],
+          "n": 361,
+          "sds": [
+            0.06632800330163822,
+            0.16184103256325935
+          ],
+          "separation_in_sds": 0.40622207824706313,
+          "weights": [
+            0.7356720680547622,
+            0.26432793194524357
+          ]
+        },
+        "null_gain": 32.94209260125899,
+        "null_median": 0.9989416683169734
+      },
+      "n_effective": 89,
+      "reason": "clump 0 is NOT more bimodal in body_extension than its duration-matched partners: BIC gain +23.4 against the null's +32.9 over 361 pairs. A positive gain alone is not evidence -- any large set of segments has some bimodality -- which is why the null is the same statistic on the same animals' own segments",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_split",
+        "channel": "body_extension",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "FAIL"
+    },
+    "pole_radius": {
+      "degenerate": 0,
+      "detail": {
+        "excess": -8.616641771379136,
+        "island": {
+          "bic_1": -427.18357984390576,
+          "bic_2": -421.6914925815822,
+          "bic_gain": -5.492087262323537,
+          "means": [
+            0.6403037682931525,
+            0.7802614142129969
+          ],
+          "n": 361,
+          "sds": [
+            0.1308822299753938,
+            0.0461564025789411
+          ],
+          "separation_in_sds": 1.5810972317230252,
+          "weights": [
+            0.8359183881066061,
+            0.16408161189340034
+          ]
+        },
+        "island_gain": -5.492087262323537,
+        "island_median": 0.6748595682840637,
+        "n": 361,
+        "null": {
+          "bic_1": -329.4957407687155,
+          "bic_2": -332.6202952777711,
+          "bic_gain": 3.1245545090555993,
+          "means": [
+            0.45366538052185756,
+            0.7095109739135408
+          ],
+          "n": 361,
+          "sds": [
+            0.058420727695051106,
+            0.12441715512125535
+          ],
+          "separation_in_sds": 2.798605950263886,
+          "weights": [
+            0.17273771089578296,
+            0.8272622891042227
+          ]
+        },
+        "null_gain": 3.1245545090555993,
+        "null_median": 0.6742092460340608
+      },
+      "n_effective": 89,
+      "reason": "clump 0 is NOT more bimodal in pole_radius than its duration-matched partners: BIC gain -5.5 against the null's +3.1 over 361 pairs. A positive gain alone is not evidence -- any large set of segments has some bimodality -- which is why the null is the same statistic on the same animals' own segments",
+      "saturation": null,
+      "scored_object": {
+        "arm": "island_split",
+        "channel": "pole_radius",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "FAIL"
+    },
+    "which_channel": {
+      "degenerate": 0,
+      "detail": {
+        "body_extension": {
+          "excess": -9.503466775020343,
+          "island": {
+            "bic_1": -1112.1777274214535,
+            "bic_2": -1135.6163532476921,
+            "bic_gain": 23.43862582623865,
+            "means": [
+              1.007646288623526,
+              1.0085356057811297
+            ],
+            "n": 361,
+            "sds": [
+              0.016906379102240937,
+              0.06204441397507261
+            ],
+            "separation_in_sds": 0.02252839073403045,
+            "weights": [
+              0.35000435132625746,
+              0.649995648673748
+            ]
+          },
+          "island_gain": 23.43862582623865,
+          "island_median": 1.0083280251721325,
+          "n": 361,
+          "null": {
+            "bic_1": -605.9443850490999,
+            "bic_2": -638.8864776503589,
+            "bic_gain": 32.94209260125899,
+            "means": [
+              0.9953948755223733,
+              1.041738525492707
+            ],
+            "n": 361,
+            "sds": [
+              0.06632800330163822,
+              0.16184103256325935
+            ],
+            "separation_in_sds": 0.40622207824706313,
+            "weights": [
+              0.7356720680547622,
+              0.26432793194524357
+            ]
+          },
+          "null_gain": 32.94209260125899,
+          "null_median": 0.9989416683169734
+        },
+        "pole_radius": {
+          "excess": -8.616641771379136,
+          "island": {
+            "bic_1": -427.18357984390576,
+            "bic_2": -421.6914925815822,
+            "bic_gain": -5.492087262323537,
+            "means": [
+              0.6403037682931525,
+              0.7802614142129969
+            ],
+            "n": 361,
+            "sds": [
+              0.1308822299753938,
+              0.0461564025789411
+            ],
+            "separation_in_sds": 1.5810972317230252,
+            "weights": [
+              0.8359183881066061,
+              0.16408161189340034
+            ]
+          },
+          "island_gain": -5.492087262323537,
+          "island_median": 0.6748595682840637,
+          "n": 361,
+          "null": {
+            "bic_1": -329.4957407687155,
+            "bic_2": -332.6202952777711,
+            "bic_gain": 3.1245545090555993,
+            "means": [
+              0.45366538052185756,
+              0.7095109739135408
+            ],
+            "n": 361,
+            "sds": [
+              0.058420727695051106,
+              0.12441715512125535
+            ],
+            "separation_in_sds": 2.798605950263886,
+            "weights": [
+              0.17273771089578296,
+              0.8272622891042227
+            ]
+          },
+          "null_gain": 3.1245545090555993,
+          "null_median": 0.6742092460340608
+        }
+      },
+      "n_effective": 89,
+      "reason": "the island does not split on either channel against a duration-matched null. On the registered reading it is a unitary slow freezing state (body_extension excess -9.5, pole_radius excess -8.6)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "which_channel",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "report"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "registration": "results/VALIDATION_PREREGISTRATION.md",
+  "seed": 0,
+  "split": "report",
+  "stage": "island_split"
+}

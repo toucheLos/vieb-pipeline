@@ -15,4 +15,4 @@ REPO="/home/tul26194/vieb-pipeline"; cd "$REPO"
 mkdir -p work/logs work/twostream
 source "$REPO/env.sh"
 python3 scripts/freeze.py
-python3 scripts/twostream.py --shard "${SLURM_ARRAY_TASK_ID}" --of 12 "$@"
+python3 "${VIEB_SCRIPT:-scripts/twostream.py}" "$@"
