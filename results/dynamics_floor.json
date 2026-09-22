@@ -1,0 +1,1108 @@
+{
+  "amp_bl": 0.3,
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "an instrument probe on tune"
+  },
+  "corpus": "luna",
+  "descriptor_separation": {
+    "band_fast": {
+      "corpus_above_null_p95": 0.27291666666666664,
+      "corpus_median": 0.15543994459174815,
+      "null_median": 0.25138553497624005,
+      "null_p95": 0.2721230792461814
+    },
+    "band_marginal": {
+      "corpus_above_null_p95": 0.38333333333333336,
+      "corpus_median": 0.07324959460081495,
+      "null_median": 0.08402929525278889,
+      "null_p95": 0.09333563577162958
+    },
+    "band_mid": {
+      "corpus_above_null_p95": 0.24541666666666667,
+      "corpus_median": 0.16675735436489475,
+      "null_median": 0.19833847795441673,
+      "null_p95": 0.21444262036498785
+    },
+    "band_slow": {
+      "corpus_above_null_p95": 0.5866666666666667,
+      "corpus_median": 0.5540988803134823,
+      "null_median": 0.46686224836798473,
+      "null_p95": 0.49907009967680493
+    },
+    "pole_frequency_hz": {
+      "corpus_above_null_p95": 0.021285475792988316,
+      "corpus_median": 5.874775062615006,
+      "null_median": 8.404124747392999,
+      "null_p95": 10.085143758335178
+    },
+    "pole_radius": {
+      "corpus_above_null_p95": 0.8868948247078464,
+      "corpus_median": 0.6050881268415174,
+      "null_median": 0.4349636246567016,
+      "null_p95": 0.48994846841640155
+    }
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "81592"
+  },
+  "f_c_hz": 4.832960531486109,
+  "fps": 30.0,
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_animals": 60,
+  "noise_validation": {
+    "acf_lag1_measured": 0.5816939782348072,
+    "acf_lag1_synth": 0.5905441504320302,
+    "acf_lags_s": [
+      0.0,
+      0.03333333333333333,
+      0.06666666666666667,
+      0.1,
+      0.13333333333333333,
+      0.16666666666666666,
+      0.2,
+      0.23333333333333334,
+      0.26666666666666666,
+      0.3,
+      0.3333333333333333
+    ],
+    "acf_measured": [
+      1.0,
+      0.5816939782348072,
+      0.34611478798277134,
+      0.20660430883146566,
+      0.15626293582387224,
+      0.15459107168621275,
+      0.14309761848809918,
+      0.09455171870041326,
+      0.02568649747837897,
+      -0.03468175000525446,
+      -0.06979192765358747
+    ],
+    "acf_synth": [
+      1.0,
+      0.5905441504320302,
+      0.43867793439544905,
+      0.3318230038018317,
+      0.2415392062604091,
+      0.17226753900643899,
+      0.10110107076449948,
+      0.03695165914536415,
+      -0.023093661720972356,
+      -0.07666780999512601,
+      -0.11774876286150492
+    ],
+    "common_share": 0.11796511132220687,
+    "correlation_time_measured": 0.26666666666666666,
+    "correlation_time_synth": 0.23333333333333334,
+    "fps": 30.0,
+    "n_frames": 60000,
+    "psd_ratio_median": 0.9942597075796384,
+    "psd_ratio_p05": 0.7923906170274313,
+    "psd_ratio_p95": 1.1965456833269619,
+    "segment_frames": 63
+  },
+  "probe": {
+    "amplitude|0.5": {
+      "n_offsets": 164,
+      "offset_median": -4.0,
+      "offset_p05": -67.7,
+      "offset_p95": 76.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.030642361111111113,
+            "lo": 0.025,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.027864583333333335
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.02318142361111109,
+            "lo": -0.017447916666666667,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.001302083333333333
+          },
+          "kind": "amplitude",
+          "level": 0.5,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.05,
+            "lo": 0.0125,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.029166666666666667
+          }
+        },
+        "n_effective": 60,
+        "reason": "amplitude at 0.5 is NOT recovered above chance: recall 0.0292 against chance 0.0279, effect +0.0013 [-0.0174, +0.0232]",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "amplitude",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "FAIL"
+      },
+      "within_30_frames": 0.6646341463414634
+    },
+    "amplitude|2": {
+      "n_offsets": 154,
+      "offset_median": 2.0,
+      "offset_p05": -82.1,
+      "offset_p95": 73.39999999999998,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.026996527777777776,
+            "lo": 0.021961805555555554,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.02447916666666667
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.11354600694444443,
+            "lo": 0.04695529513888888,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.0796875
+          },
+          "kind": "amplitude",
+          "level": 2.0,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.1375,
+            "lo": 0.07083333333333333,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.10416666666666667
+          }
+        },
+        "n_effective": 60,
+        "reason": "amplitude at 2: recall 0.1042 [0.0708, 0.1375] against chance 0.0245, effect +0.0797 [+0.0470, +0.1135] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "amplitude",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.5714285714285714
+    },
+    "amplitude|5": {
+      "n_offsets": 178,
+      "offset_median": 2.0,
+      "offset_p05": -68.3,
+      "offset_p95": 48.30000000000001,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.03585069444444444,
+            "lo": 0.030640190972222217,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.03333333333333333
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.21692925347222214,
+            "lo": 0.11770616319444445,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.16666666666666663
+          },
+          "kind": "amplitude",
+          "level": 5.0,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.25,
+            "lo": 0.15,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.2
+          }
+        },
+        "n_effective": 60,
+        "reason": "amplitude at 5: recall 0.2000 [0.1500, 0.2500] against chance 0.0333, effect +0.1667 [+0.1177, +0.2169] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "amplitude",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.7808988764044944
+    },
+    "damping|0.5": {
+      "n_offsets": 199,
+      "offset_median": 6.0,
+      "offset_p05": -12.0,
+      "offset_p95": 76.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.04843750000000001,
+            "lo": 0.040362413194444446,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.04427083333333334
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.12430772569444445,
+            "lo": 0.04686631944444445,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.08489583333333335
+          },
+          "kind": "damping",
+          "level": 0.5,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.17083333333333334,
+            "lo": 0.09166666666666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.12916666666666668
+          }
+        },
+        "n_effective": 60,
+        "reason": "damping at 0.5: recall 0.1292 [0.0917, 0.1708] against chance 0.0443, effect +0.0849 [+0.0469, +0.1243] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "damping",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.7286432160804021
+    },
+    "damping|0.7": {
+      "n_offsets": 186,
+      "offset_median": 10.0,
+      "offset_p05": -37.5,
+      "offset_p95": 75.5,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.03767578124999999,
+            "lo": 0.03055555555555556,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.03411458333333333
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.13212239583333332,
+            "lo": 0.04652560763888888,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.08671875
+          },
+          "kind": "damping",
+          "level": 0.7,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.16666666666666666,
+            "lo": 0.07916666666666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.12083333333333333
+          }
+        },
+        "n_effective": 60,
+        "reason": "damping at 0.7: recall 0.1208 [0.0792, 0.1667] against chance 0.0341, effect +0.0867 [+0.0465, +0.1321] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "damping",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.6021505376344086
+    },
+    "damping|0.85": {
+      "n_offsets": 155,
+      "offset_median": 12.0,
+      "offset_p05": -60.6,
+      "offset_p95": 80.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.02873263888888889,
+            "lo": 0.022569444444444444,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.025694444444444447
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.056249999999999994,
+            "lo": 0.0038151041666666663,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.02847222222222222
+          },
+          "kind": "damping",
+          "level": 0.85,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.08333333333333333,
+            "lo": 0.029166666666666667,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.05416666666666667
+          }
+        },
+        "n_effective": 60,
+        "reason": "damping at 0.85: recall 0.0542 [0.0292, 0.0833] against chance 0.0257, effect +0.0285 [+0.0038, +0.0562] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "damping",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.6
+    },
+    "damping|0.95": {
+      "n_offsets": 150,
+      "offset_median": 2.0,
+      "offset_p05": -87.1,
+      "offset_p95": 81.49999999999983,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.026649305555555558,
+            "lo": 0.02126736111111111,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.02404513888888889
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.036458333333333336,
+            "lo": -0.0073828125000000005,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.013454861111111114
+          },
+          "kind": "damping",
+          "level": 0.95,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.0625,
+            "lo": 0.016666666666666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.0375
+          }
+        },
+        "n_effective": 60,
+        "reason": "damping at 0.95 is NOT recovered above chance: recall 0.0375 against chance 0.0240, effect +0.0135 [-0.0074, +0.0365]",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "damping",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "FAIL"
+      },
+      "within_30_frames": 0.5133333333333333
+    },
+    "damping|0.99": {
+      "n_offsets": 169,
+      "offset_median": -4.0,
+      "offset_p05": -86.4,
+      "offset_p95": 59.19999999999999,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.03411458333333333,
+            "lo": 0.027601996527777773,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.030815972222222227
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.06467230902777778,
+            "lo": 0.003209635416666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.03168402777777777
+          },
+          "kind": "damping",
+          "level": 0.99,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.09583333333333334,
+            "lo": 0.03333333333333333,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.0625
+          }
+        },
+        "n_effective": 60,
+        "reason": "damping at 0.99: recall 0.0625 [0.0333, 0.0958] against chance 0.0308, effect +0.0317 [+0.0032, +0.0647] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "damping",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.5857988165680473
+    },
+    "frequency|0.25": {
+      "n_offsets": 139,
+      "offset_median": 0.0,
+      "offset_p05": -82.2,
+      "offset_p95": 72.39999999999998,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.024828559027777766,
+            "lo": 0.019010416666666672,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.021961805555555557
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.06988715277777774,
+            "lo": 0.008235677083333334,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.03637152777777778
+          },
+          "kind": "frequency",
+          "level": 0.25,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.09166666666666666,
+            "lo": 0.029166666666666667,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.058333333333333334
+          }
+        },
+        "n_effective": 60,
+        "reason": "frequency at 0.25: recall 0.0583 [0.0292, 0.0917] against chance 0.0220, effect +0.0364 [+0.0082, +0.0699] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "frequency",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.5035971223021583
+    },
+    "frequency|0.5": {
+      "n_offsets": 125,
+      "offset_median": -4.0,
+      "offset_p05": -72.0,
+      "offset_p95": 68.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.02309027777777778,
+            "lo": 0.016927083333333336,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.01987847222222222
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.040974392361111105,
+            "lo": -0.0035590277777777747,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.017621527777777778
+          },
+          "kind": "frequency",
+          "level": 0.5,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.0625,
+            "lo": 0.016666666666666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.0375
+          }
+        },
+        "n_effective": 60,
+        "reason": "frequency at 0.5 is NOT recovered above chance: recall 0.0375 against chance 0.0199, effect +0.0176 [-0.0036, +0.0410]",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "frequency",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "FAIL"
+      },
+      "within_30_frames": 0.584
+    },
+    "frequency|1": {
+      "n_offsets": 115,
+      "offset_median": -4.0,
+      "offset_p05": -84.6,
+      "offset_p95": 53.19999999999999,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.020746527777777777,
+            "lo": 0.014756944444444444,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.017708333333333333
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.05712022569444443,
+            "lo": 0.009025607638888888,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.03229166666666667
+          },
+          "kind": "frequency",
+          "level": 1.0,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.075,
+            "lo": 0.025,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.05
+          }
+        },
+        "n_effective": 60,
+        "reason": "frequency at 1: recall 0.0500 [0.0250, 0.0750] against chance 0.0177, effect +0.0323 [+0.0090, +0.0571] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "frequency",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.6086956521739131
+    },
+    "frequency|2": {
+      "n_offsets": 151,
+      "offset_median": -4.0,
+      "offset_p05": -76.0,
+      "offset_p95": 14.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.025694444444444443,
+            "lo": 0.020052083333333335,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.02282986111111111
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.13030164930555554,
+            "lo": 0.05224609374999999,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.08967013888888889
+          },
+          "kind": "frequency",
+          "level": 2.0,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.15416666666666667,
+            "lo": 0.075,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.1125
+          }
+        },
+        "n_effective": 60,
+        "reason": "frequency at 2: recall 0.1125 [0.0750, 0.1542] against chance 0.0228, effect +0.0897 [+0.0522, +0.1303] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "frequency",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.8543046357615894
+    },
+    "frequency|4": {
+      "n_offsets": 229,
+      "offset_median": -2.0,
+      "offset_p05": -15.2,
+      "offset_p95": 8.0,
+      "read": {
+        "degenerate": 0,
+        "detail": {
+          "chance": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.043576388888888894,
+            "lo": 0.03967013888888889,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.04166666666666666
+          },
+          "effect": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.3402039930555555,
+            "lo": 0.22655598958333334,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.28333333333333327
+          },
+          "kind": "frequency",
+          "level": 4.0,
+          "n_instances": 240,
+          "recall": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.38333333333333336,
+            "lo": 0.26666666666666666,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 60,
+            "n_boot": 2000,
+            "n_units": 60,
+            "point": 0.325
+          }
+        },
+        "n_effective": 60,
+        "reason": "frequency at 4: recall 0.3250 [0.2667, 0.3833] against chance 0.0417, effect +0.2833 [+0.2266, +0.3402] over 240 instances",
+        "saturation": null,
+        "scored_object": {
+          "alpha": 3.0,
+          "arm": "dynamics_floor",
+          "dataset": "luna",
+          "group": "shape",
+          "kind": "frequency",
+          "pose_arm": "raw",
+          "split": "tune",
+          "win_s": 1.0
+        },
+        "verdict": "PASS"
+      },
+      "within_30_frames": 0.9912663755458515
+    }
+  },
+  "reads": {
+    "descriptor_floor": {
+      "degenerate": 0,
+      "detail": {
+        "band_fast": {
+          "median": 0.25138553497624005,
+          "n": 2400,
+          "p95": 0.2721230792461814,
+          "p99": 0.28167801442094087
+        },
+        "band_marginal": {
+          "median": 0.08402929525278889,
+          "n": 2400,
+          "p95": 0.09333563577162958,
+          "p99": 0.09733443417854087
+        },
+        "band_mid": {
+          "median": 0.19833847795441673,
+          "n": 2400,
+          "p95": 0.21444262036498785,
+          "p99": 0.22102910176552523
+        },
+        "band_slow": {
+          "median": 0.46686224836798473,
+          "n": 2400,
+          "p95": 0.49907009967680493,
+          "p99": 0.5112200662246017
+        },
+        "band_total_power": {
+          "median": 0.00015149786525887107,
+          "n": 2400,
+          "p95": 0.00019150737060517792,
+          "p99": 0.00023143826327046848
+        },
+        "motion_energy": {
+          "median": 0.0020255099613154214,
+          "n": 2400,
+          "p95": 0.0025364605496700074,
+          "p99": 0.0031034218270595683
+        },
+        "n_oscillatory_channels": {
+          "median": 14.0,
+          "n": 2400,
+          "p95": 14.0,
+          "p99": 14.0
+        },
+        "pole_damping": {
+          "median": 0.8330283071599482,
+          "n": 2400,
+          "p95": 0.9660367293203576,
+          "p99": 1.0328646649463673
+        },
+        "pole_frequency_hz": {
+          "median": 8.404124747392999,
+          "n": 2400,
+          "p95": 10.085143758335178,
+          "p99": 10.384758673467347
+        },
+        "pole_radius": {
+          "median": 0.4349636246567016,
+          "n": 2400,
+          "p95": 0.48994846841640155,
+          "p99": 0.5097425333971463
+        },
+        "pole_real_radius": {
+          "median": 0.8247194139969058,
+          "n": 2400,
+          "p95": 0.8549963651604735,
+          "p99": 0.8657225081679361
+        }
+      },
+      "n_effective": 60,
+      "reason": "descriptor floor under the MEASURED noise colour, no verdict: on tracking noise alone the fitted pole sits at 8.40 Hz with radius 0.435 (p95 0.490). Coloured noise therefore HAS an apparent frequency and it is the PERSISTENCE that separates it from a rhythm -- a frequency read alone cannot",
+      "saturation": null,
+      "scored_object": {
+        "alpha": 3.0,
+        "arm": "descriptor_floor",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "tune",
+        "win_s": 1.0
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "noise_model": {
+      "degenerate": 0,
+      "detail": {
+        "acf_lag1_measured": 0.5816939782348072,
+        "acf_lag1_synth": 0.5905441504320302,
+        "acf_lags_s": [
+          0.0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333
+        ],
+        "acf_measured": [
+          1.0,
+          0.5816939782348072,
+          0.34611478798277134,
+          0.20660430883146566,
+          0.15626293582387224,
+          0.15459107168621275,
+          0.14309761848809918,
+          0.09455171870041326,
+          0.02568649747837897,
+          -0.03468175000525446,
+          -0.06979192765358747
+        ],
+        "acf_synth": [
+          1.0,
+          0.5905441504320302,
+          0.43867793439544905,
+          0.3318230038018317,
+          0.2415392062604091,
+          0.17226753900643899,
+          0.10110107076449948,
+          0.03695165914536415,
+          -0.023093661720972356,
+          -0.07666780999512601,
+          -0.11774876286150492
+        ],
+        "acf_tol": 0.05,
+        "common_share": 0.11796511132220687,
+        "correlation_time_measured": 0.26666666666666666,
+        "correlation_time_synth": 0.23333333333333334,
+        "d_acf_lag1": 0.00885017219722306,
+        "d_correlation_time_frames": 0.9999999999999998,
+        "fps": 30.0,
+        "n_frames": 60000,
+        "psd_ratio_median": 0.9942597075796384,
+        "psd_ratio_p05": 0.7923906170274313,
+        "psd_ratio_p95": 1.1965456833269619,
+        "psd_tol": 1.25,
+        "segment_frames": 63,
+        "time_tol_frames": 1.0
+      },
+      "n_effective": 1,
+      "reason": "the synthesised noise carries the MEASURED colour: lag-1 ACF 0.5905 against the calibration's 0.5817 (|d| 0.0089 <= 0.05), correlation time 0.2333s against 0.2667s (1.00 frames), PSD ratio median 0.994 within 1.25x. White noise at the same variance would give lag-1 0.0",
+      "saturation": null,
+      "scored_object": {
+        "alpha": 3.0,
+        "arm": "noise_model",
+        "dataset": "luna",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "tune",
+        "win_s": 1.0
+      },
+      "verdict": "PASS"
+    }
+  },
+  "registration": "results/DYNAMICS_PREREGISTRATION.md",
+  "seed": 0,
+  "slice_len": 240,
+  "split": "tune",
+  "stage": "dynamics_floor",
+  "stride": 2,
+  "win_frames": 30
+}

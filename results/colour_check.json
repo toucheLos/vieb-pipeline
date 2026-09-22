@@ -1,0 +1,115 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "an instrument probe on tune"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "81593"
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_animals": 60,
+  "published_white_floor": 0.2598812399569307,
+  "rates": {
+    "coloured": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 0.3038676361048904,
+      "lo": 0.29183617746905255,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 60,
+      "n_boot": 2000,
+      "n_units": 60,
+      "point": 0.2977139229565198
+    },
+    "white": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 0.2645410338426247,
+      "lo": 0.2552591363196568,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 60,
+      "n_boot": 2000,
+      "n_units": 60,
+      "point": 0.2598682270597857
+    }
+  },
+  "reads": {
+    "colour": {
+      "degenerate": 0,
+      "detail": {
+        "coloured": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3038676361048904,
+          "lo": 0.29183617746905255,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2977139229565198
+        },
+        "published_white_floor": 0.2598812399569307,
+        "relative_move": 0.14563417900268086,
+        "tolerance": 0.25,
+        "white": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.2645410338426247,
+          "lo": 0.2552591363196568,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.2598682270597857
+        }
+      },
+      "n_effective": 60,
+      "reason": "the floor SURVIVES the correct noise colour: 0.2977 [0.2918, 0.3039]/s under measured-colour noise against 0.2599/s under white, a move of 14.6% below the registered 25%. NOISEFLOOR.md's 0.2599/s stands, and the reason it stands is the scale-adaptive threshold, not luck",
+      "saturation": null,
+      "scored_object": {
+        "arm": "colour_check",
+        "dataset": "luna",
+        "group": "shape",
+        "k_mad": 3.0,
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "registration": "results/DYNAMICS_PREREGISTRATION.md",
+  "relative_move": 0.14563417900268086,
+  "seed": 0,
+  "split": "tune",
+  "stage": "colour_check"
+}

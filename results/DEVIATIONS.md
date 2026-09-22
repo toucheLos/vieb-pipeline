@@ -477,3 +477,43 @@ instead, which is the check that actually matters here.
 
 **Caught before any number was read**, by sweeping the grid on synthetic data
 during implementation and finding every cell either fully dense or fully empty.
+
+## D14 — the published noise floor's margin is restated, not its verdict
+
+**What changed.** `NOISEFLOOR.md` measured the frozen detector's floor by
+injecting **white** noise at σ̄ = 0.0618 bl and reported **0.2599/s**, "54.8% of
+the corpus's 0.4746/s". The frozen shapeflow calibration says the residual is
+not white — lag-1 **+0.5817** over 267 ms — so that floor was measured under the
+wrong noise colour.
+
+**What was done.** `scripts/colour_check.py` re-ran the identical arm with the
+identical frozen detector and a noise model carrying the **measured** colour, on
+the same 60 `tune` animals. Registered prediction 2 set the tolerance at 25%
+before the run.
+
+| | floor |
+|---|---|
+| white (published) | 0.2599 [0.2553, 0.2645] /s |
+| measured colour | **0.2977 [0.2918, 0.3039]** /s |
+| move | **14.6%** |
+
+**The verdict does not move.** The corpus at 0.4746 [0.4573, 0.4909] /s is still
+non-overlapping with the floor, so `NOISEFLOOR.md`'s `PASS` stands and so does
+the reading that the detector is above its own noise floor overall.
+
+**One published figure does move and is restated here.** The floor is **62.7%**
+of the corpus rate, not 54.8%. `NOISEFLOOR.md`'s headline sentence is therefore
+conservative in the wrong direction by 8 points, and anywhere that number is
+quoted it should be quoted as 62.7% with this deviation attached.
+
+**Why the floor barely moved.** The threshold is `median + 3·MAD` of the
+detector's own scalar, recomputed per recording, so it adapts to whatever noise
+it is given. `PLANT.md` measured the same insensitivity to *amplitude* — 4×
+moved the rate 6.5%. The floor is a property of the rule, not of the noise, and
+this is now measured in both colour and amplitude rather than assumed in either.
+
+**What it does not excuse.** `PLANT.md`'s recovery curve — order-2 at 16 σ̄ ≈
+0.99 bl — was also measured under white noise and has **not** been re-run in
+colour. Its amplitudes are large relative to the noise in every cell that
+matters, so the effect is expected to be small, but that is an expectation and
+it is recorded as untested rather than claimed.
