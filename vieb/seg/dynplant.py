@@ -53,7 +53,7 @@ from vieb.seg import breaks as bk                                  # noqa: E402
 from vieb.seg import descriptors as ds                             # noqa: E402
 
 __all__ = ["KINDS", "FREQS_HZ", "DFREQ_HZ", "RADII", "AMPS_BL", "WIN_S",
-           "ALPHA", "SPAN", "MIN_INSTANCES", "contrast", "peaks_of", "oscillation",
+           "ALPHA", "SPAN", "MODES", "MIN_INSTANCES", "contrast", "peaks_of", "oscillation",
            "plant_into", "floor_read", "recovery_read"]
 
 F64 = npt.NDArray[np.float64]
@@ -102,18 +102,29 @@ MIN_INSTANCES = 200
 N_BOOT = 2000
 
 
-def _feat(block: npt.ArrayLike, fps: float) -> F64:
-    """The scale-free part of the descriptor: frequency and radius."""
+#: Which part of the pole descriptor a contrast reads.
+#:
+#: `radius` is what `DYNAMICS.md` licenses: measured against measured-colour
+#: noise, `pole_radius` separates corpus from null on **88.7%** of windows
+#: against the 5% chance gives, while `pole_frequency_hz` separates on
+#: **2.1%** -- below chance. `both` is kept only so the Stage 0 probe numbers
+#: remain reproducible.
+MODES: tuple[str, ...] = ("radius", "both")
+
+
+def _feat(block: npt.ArrayLike, fps: float, *, mode: str = "both") -> F64:
+    """The scale-free part of the descriptor. See `MODES`."""
     pf = ds.pole_features(block, fps=fps)
     with np.errstate(invalid="ignore"):
+        rad = float(np.nanmedian(pf["radius"])) * float(fps) / 4.0
+        if mode == "radius":
+            return np.asarray([rad], dtype=np.float64)
         return np.asarray(
-            [float(np.nanmedian(pf["frequency_hz"])),
-             float(np.nanmedian(pf["radius"])) * float(fps) / 4.0],
-            dtype=np.float64)
+            [float(np.nanmedian(pf["frequency_hz"])), rad], dtype=np.float64)
 
 
 def contrast(x: npt.ArrayLike, *, fps: float, win: int,
-             stride: int = 1) -> F64:
+             stride: int = 1, mode: str = "both") -> F64:
     """Per-frame dynamics contrast between the windows either side of `t`.
 
     Radius is put on a comparable scale to frequency by `fps/4`, so a pole
@@ -129,8 +140,8 @@ def contrast(x: npt.ArrayLike, *, fps: float, win: int,
     grid = np.arange(win, t - win, max(1, int(stride)))
     vals = np.zeros(grid.size)
     for i, c in enumerate(grid):
-        lhs = _feat(a[c - win:c], fps)
-        rhs = _feat(a[c:c + win], fps)
+        lhs = _feat(a[c - win:c], fps, mode=mode)
+        rhs = _feat(a[c:c + win], fps, mode=mode)
         d = lhs - rhs
         vals[i] = float(np.sqrt(np.nansum(d * d))) if np.isfinite(d).any() \
             else 0.0
@@ -144,7 +155,7 @@ def contrast(x: npt.ArrayLike, *, fps: float, win: int,
 
 def peaks_of(x: npt.ArrayLike, *, fps: float, win: int, alpha: float = ALPHA,
              blocked: npt.ArrayLike | None = None,
-             stride: int = 1) -> I64:
+             stride: int = 1, mode: str = "both") -> I64:
     """Boundaries for ONE recording, slice-local -- the detector interface.
 
     Deliberately the same shape as `floor.peaks_of` and
@@ -152,7 +163,7 @@ def peaks_of(x: npt.ArrayLike, *, fps: float, win: int, alpha: float = ALPHA,
     knowing which it has. The abstain veto is applied here, not inside
     `contrast`, so the exclusion matches every other stage's.
     """
-    d = contrast(x, fps=fps, win=win, stride=stride)
+    d = contrast(x, fps=fps, win=win, stride=stride, mode=mode)
     if not np.isfinite(d).any() or float(np.nanmax(d)) <= 0.0:
         return np.zeros(0, dtype=np.int64)
     guard = bk.guard_frames(fps, deriv_sec=bk.DERIV_SEC)
