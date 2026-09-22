@@ -384,3 +384,46 @@ positive one does not.
 report the **overlap** between what it selected and what it controls for, as a
 precondition, before its verdict is read. An overlap near zero means the
 comparison is vacuous however clean its interval looks.
+
+## M12 — a registered threshold must be calibrated against the thing it replaces
+
+**What happened.** `TRENDFILTER_PREREGISTRATION.md` §3 fixed the rule for
+choosing the new detector's one parameter: take the smallest setting whose
+jitter-only boundary rate is **below 5%** of the corpus rate. The 5% was
+invented there and named as invented, which is the repo's convention for a
+constant with no external source.
+
+**What §3 never did was ask what the incumbent scores on it.**
+
+| | jitter share |
+|---|---:|
+| the detector being replaced | **0.5475** |
+| the challenger, best point on the grid | **0.0704** |
+| **the registered bar** | **0.05** |
+
+The frozen detector misses the bar by a factor of **11**. The challenger comes
+within 1.4× of it and is **7.8× better than the incumbent** — and is refused.
+
+**The rule.** A threshold registered in advance is only a fair test if it is
+**calibrated against the object it is meant to improve on**. An absolute
+constant chosen for its roundness can be simultaneously too strict for anything
+that exists and too loose to be meaningful, and there is no way to tell which
+from the constant alone. Before registering a bar, measure the incumbent on it
+and state the margin being demanded — *"beat 0.5475 by 2×"* is a test; *"be
+below 0.05"* is a number.
+
+**What it cost.** The stage refuses. That cost is partly notional here, because
+the solver had also not converged anywhere near the bar, so no measurement
+existed to admit — but the two failures are independent, and had the solver
+worked the bar alone would have thrown away a 7.8× improvement.
+
+**Why the bar was not moved.** Moving it after seeing the challenger land at
+0.0704 is choosing a threshold to admit a result, which is the failure every
+registration in this programme exists to prevent. It stands, the stage refuses,
+and the next attempt gets a re-registration with a relative bar.
+
+**The relationship to M11.** M11 is about matching a **control** on the wrong
+statistic; this is about setting a **threshold** with no reference point. Both
+are the same underlying error — **a comparison specified without checking what
+it is a comparison to** — arriving once on the control side and once on the
+criterion side.

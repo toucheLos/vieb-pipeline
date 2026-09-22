@@ -1,0 +1,8057 @@
+{
+  "alphas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    20.0,
+    50.0,
+    100.0
+  ],
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "an instrument probe on tune"
+  },
+  "by_alpha": {
+    "0.5": {
+      "corpus": 12.982862323875976,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 13.099303028167965,
+        "lo": 12.868531386909506,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 12.982862323875976
+      },
+      "jitter": 10.024415800074117,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 10.062546262241291,
+        "lo": 9.985879701954431,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 10.024415800074117
+      },
+      "jitter_hi": 10.062546262241291
+    },
+    "1": {
+      "corpus": 10.61743394233714,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 10.730699434711871,
+        "lo": 10.503572080881483,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 10.61743394233714
+      },
+      "jitter": 7.722680514436576,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 7.751088485279515,
+        "lo": 7.694226527876108,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 7.722680514436576
+      },
+      "jitter_hi": 7.751088485279515
+    },
+    "10": {
+      "corpus": 5.250630078638238,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 5.348027082943607,
+        "lo": 5.155362000819253,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 5.250630078638238
+      },
+      "jitter": 2.9078647631702057,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 2.9342901046606897,
+        "lo": 2.8827573225784615,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 2.9078647631702057
+      },
+      "jitter_hi": 2.9342901046606897
+    },
+    "100": {
+      "corpus": 2.0580661546060255,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 2.1405316798191487,
+        "lo": 1.9756733163690625,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 2.0580661546060255
+      },
+      "jitter": 0.14041600864441453,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.14487510551111335,
+        "lo": 0.13595719935098724,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.14041600864441453
+      },
+      "jitter_hi": 0.14487510551111335
+    },
+    "2": {
+      "corpus": 8.659501674510913,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 8.767433394399237,
+        "lo": 8.55396460341722,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 8.659501674510913
+      },
+      "jitter": 5.968582988756449,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 5.995875303637378,
+        "lo": 5.94222196689163,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 5.968582988756449
+      },
+      "jitter_hi": 5.995875303637378
+    },
+    "20": {
+      "corpus": 4.08746730424949,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 4.1837326451299734,
+        "lo": 3.9906203086094583,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 4.08746730424949
+      },
+      "jitter": 1.4977889795080022,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 1.5180920604141792,
+        "lo": 1.4776357774039741,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 1.4977889795080022
+      },
+      "jitter_hi": 1.5180920604141792
+    },
+    "5": {
+      "corpus": 6.566457655084273,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 6.664820539632077,
+        "lo": 6.470201927847393,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 6.566457655084273
+      },
+      "jitter": 4.117541399340383,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 4.1436373883875,
+        "lo": 4.091852331133632,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 4.117541399340383
+      },
+      "jitter_hi": 4.1436373883875
+    },
+    "50": {
+      "corpus": 2.7938621243309547,
+      "corpus_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 2.88972663705279,
+        "lo": 2.6990286315897407,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 2.7938621243309547
+      },
+      "jitter": 0.3700250325608084,
+      "jitter_ci": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.38003630943696787,
+        "lo": 0.36068552750294164,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.3700250325608084
+      },
+      "jitter_hi": 0.38003630943696787
+    }
+  },
+  "converged_by_alpha": {
+    "0.5": 0.9520979020979022,
+    "1": 0.7261655011655012,
+    "10": 0.004487179487179488,
+    "100": 0.0032051282051282055,
+    "2": 0.20681818181818185,
+    "20": 0.0032051282051282055,
+    "5": 0.02814685314685315,
+    "50": 0.0032051282051282055
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "max_iters": 4000,
+  "n_animals": 60,
+  "reads": {
+    "lambda": {
+      "degenerate": 0,
+      "detail": {
+        "by_alpha": {
+          "0.5": {
+            "corpus_rate": 12.982862323875976,
+            "jitter_hi": 10.062546262241291,
+            "jitter_rate": 10.024415800074117,
+            "share": 0.775063773397326
+          },
+          "1": {
+            "corpus_rate": 10.61743394233714,
+            "jitter_hi": 7.751088485279515,
+            "jitter_rate": 7.722680514436576,
+            "share": 0.7300340673062218
+          },
+          "10": {
+            "corpus_rate": 5.250630078638238,
+            "jitter_hi": 2.9342901046606897,
+            "jitter_rate": 2.9078647631702057,
+            "share": 0.5588453310772379
+          },
+          "100": {
+            "corpus_rate": 2.0580661546060255,
+            "jitter_hi": 0.14487510551111335,
+            "jitter_rate": 0.14041600864441453,
+            "share": 0.07039380400230463
+          },
+          "2": {
+            "corpus_rate": 8.659501674510913,
+            "jitter_hi": 5.995875303637378,
+            "jitter_rate": 5.968582988756449,
+            "share": 0.692404197032045
+          },
+          "20": {
+            "corpus_rate": 4.08746730424949,
+            "jitter_hi": 1.5180920604141792,
+            "jitter_rate": 1.4977889795080022,
+            "share": 0.37140164004147797
+          },
+          "5": {
+            "corpus_rate": 6.566457655084273,
+            "jitter_hi": 4.1436373883875,
+            "jitter_rate": 4.117541399340383,
+            "share": 0.631030854996707
+          },
+          "50": {
+            "corpus_rate": 2.7938621243309547,
+            "jitter_hi": 0.38003630943696787,
+            "jitter_rate": 0.3700250325608084,
+            "share": 0.1360254345149459
+          }
+        },
+        "converged_by_alpha": {
+          "0.5": 0.9520979020979022,
+          "1": 0.7261655011655012,
+          "10": 0.004487179487179488,
+          "100": 0.0032051282051282055,
+          "2": 0.20681818181818185,
+          "20": 0.0032051282051282055,
+          "5": 0.02814685314685315,
+          "50": 0.0032051282051282055
+        },
+        "grid": [
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0,
+          100.0
+        ],
+        "n_passing": 0,
+        "share_bar": 0.05
+      },
+      "n_effective": 60,
+      "reason": "no alpha on the registered grid brings the jitter-only boundary rate below 5% of the corpus rate. The grid is NOT extended after the fact; the direction is reported and the selection is refused",
+      "saturation": null,
+      "scored_object": {
+        "arm": "trendfilter",
+        "dataset": "luna",
+        "estimator": "l1_tf_d3_group",
+        "group": "shape",
+        "pose_arm": "raw",
+        "split": "tune"
+      },
+      "verdict": "GRID_LIMITED"
+    }
+  },
+  "registration": "results/TRENDFILTER_PREREGISTRATION.md",
+  "rows": [
+    {
+      "alpha": 0.5,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.08189197229187
+    },
+    {
+      "alpha": 1.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.824869321320811
+    },
+    {
+      "alpha": 2.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 8.899324295610047
+    },
+    {
+      "alpha": 5.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.848837703455017
+    },
+    {
+      "alpha": 10.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.5114529769240574
+    },
+    {
+      "alpha": 20.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.339807063023246
+    },
+    {
+      "alpha": 50.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9229527006927034
+    },
+    {
+      "alpha": 100.0,
+      "animal": "103",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1639539331095152
+    },
+    {
+      "alpha": 0.5,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.980451319535932
+    },
+    {
+      "alpha": 1.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.677956737920191
+    },
+    {
+      "alpha": 2.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.9585227997110195
+    },
+    {
+      "alpha": 5.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.113722323743147
+    },
+    {
+      "alpha": 10.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.938251668012409
+    },
+    {
+      "alpha": 20.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4368280141090477
+    },
+    {
+      "alpha": 50.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.37184990013174113
+    },
+    {
+      "alpha": 100.0,
+      "animal": "103",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12664145170201013
+    },
+    {
+      "alpha": 0.5,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.059595095523239
+    },
+    {
+      "alpha": 1.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.757260988227626
+    },
+    {
+      "alpha": 2.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 8.745366410037068
+    },
+    {
+      "alpha": 5.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.683775306529797
+    },
+    {
+      "alpha": 10.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.385148071204529
+    },
+    {
+      "alpha": 20.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.2633101144649475
+    },
+    {
+      "alpha": 50.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.699498961261151
+    },
+    {
+      "alpha": 100.0,
+      "animal": "112",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.812293779787364
+    },
+    {
+      "alpha": 0.5,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.119353130473746
+    },
+    {
+      "alpha": 1.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.779135606338343
+    },
+    {
+      "alpha": 2.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 5.98517251211862
+    },
+    {
+      "alpha": 5.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.148437818241069
+    },
+    {
+      "alpha": 10.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.895433622550817
+    },
+    {
+      "alpha": 20.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5006721251374802
+    },
+    {
+      "alpha": 50.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4142734938286692
+    },
+    {
+      "alpha": 100.0,
+      "animal": "112",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.16579086724510161
+    },
+    {
+      "alpha": 0.5,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.107922288328272
+    },
+    {
+      "alpha": 1.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.762276892077711
+    },
+    {
+      "alpha": 2.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 8.748689602592204
+    },
+    {
+      "alpha": 5.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 6.681597255313066
+    },
+    {
+      "alpha": 10.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.398292739377272
+    },
+    {
+      "alpha": 20.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.155423343453458
+    },
+    {
+      "alpha": 50.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.6662673074566716
+    },
+    {
+      "alpha": 100.0,
+      "animal": "144",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8138623027596628
+    },
+    {
+      "alpha": 0.5,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.010755469632816
+    },
+    {
+      "alpha": 1.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.734952553402948
+    },
+    {
+      "alpha": 2.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.98970742399695
+    },
+    {
+      "alpha": 5.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.090482090100884
+    },
+    {
+      "alpha": 10.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.827599351948918
+    },
+    {
+      "alpha": 20.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5161127826714407
+    },
+    {
+      "alpha": 50.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4313079467944616
+    },
+    {
+      "alpha": 100.0,
+      "animal": "144",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15602238226845108
+    },
+    {
+      "alpha": 0.5,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 13.039852629155083
+    },
+    {
+      "alpha": 1.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.8181818181818182,
+      "n_recordings": 11,
+      "rate_per_s": 10.658563463214856
+    },
+    {
+      "alpha": 2.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.6363636363636364,
+      "n_recordings": 11,
+      "rate_per_s": 8.668070198523
+    },
+    {
+      "alpha": 5.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.09090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 6.527574466685307
+    },
+    {
+      "alpha": 10.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.23429661672067
+    },
+    {
+      "alpha": 20.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.046119179591769
+    },
+    {
+      "alpha": 50.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.538693070609714
+    },
+    {
+      "alpha": 100.0,
+      "animal": "153",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.748712972252833
+    },
+    {
+      "alpha": 0.5,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 10.098027928090922
+    },
+    {
+      "alpha": 1.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.7272727272727273,
+      "n_recordings": 11,
+      "rate_per_s": 7.786312274872942
+    },
+    {
+      "alpha": 2.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.09090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 6.060790473527525
+    },
+    {
+      "alpha": 5.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.241023701047714
+    },
+    {
+      "alpha": 10.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.9156729551472886
+    },
+    {
+      "alpha": 20.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.5439398674320302
+    },
+    {
+      "alpha": 50.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.3468807052747578
+    },
+    {
+      "alpha": 100.0,
+      "animal": "153",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.12533100873369626
+    },
+    {
+      "alpha": 0.5,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 13.682592480596714
+    },
+    {
+      "alpha": 1.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 11.44693075294829
+    },
+    {
+      "alpha": 2.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.7272727272727273,
+      "n_recordings": 11,
+      "rate_per_s": 9.502066323959278
+    },
+    {
+      "alpha": 5.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.18181818181818182,
+      "n_recordings": 11,
+      "rate_per_s": 7.283035984275778
+    },
+    {
+      "alpha": 10.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.912710412256829
+    },
+    {
+      "alpha": 20.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.705674831166213
+    },
+    {
+      "alpha": 50.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 3.2965426872291097
+    },
+    {
+      "alpha": 100.0,
+      "animal": "154",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.3092430198568694
+    },
+    {
+      "alpha": 0.5,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 9.973288982965427
+    },
+    {
+      "alpha": 1.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.5454545454545454,
+      "n_recordings": 11,
+      "rate_per_s": 7.718475960084668
+    },
+    {
+      "alpha": 2.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.9741961495816955
+    },
+    {
+      "alpha": 5.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.0328595907670595
+    },
+    {
+      "alpha": 10.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.767866142525955
+    },
+    {
+      "alpha": 20.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.48876121358734
+    },
+    {
+      "alpha": 50.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.3492591472633807
+    },
+    {
+      "alpha": 100.0,
+      "animal": "154",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.13405906662634814
+    },
+    {
+      "alpha": 0.5,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.678586278586279
+    },
+    {
+      "alpha": 1.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 11.156756756756756
+    },
+    {
+      "alpha": 2.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 9.097297297297297
+    },
+    {
+      "alpha": 5.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.875259875259875
+    },
+    {
+      "alpha": 10.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.474012474012474
+    },
+    {
+      "alpha": 20.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.236174636174636
+    },
+    {
+      "alpha": 50.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.767983367983368
+    },
+    {
+      "alpha": 100.0,
+      "animal": "238",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.027858627858628
+    },
+    {
+      "alpha": 0.5,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.23076923076923
+    },
+    {
+      "alpha": 1.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.872349272349273
+    },
+    {
+      "alpha": 2.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.1326403326403325
+    },
+    {
+      "alpha": 5.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.285239085239085
+    },
+    {
+      "alpha": 10.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0191268191268192
+    },
+    {
+      "alpha": 20.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5451143451143452
+    },
+    {
+      "alpha": 50.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3600831600831601
+    },
+    {
+      "alpha": 100.0,
+      "animal": "238",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14927234927234928
+    },
+    {
+      "alpha": 0.5,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.675482961611808
+    },
+    {
+      "alpha": 1.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 11.233313987231574
+    },
+    {
+      "alpha": 2.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 9.23306525163751
+    },
+    {
+      "alpha": 5.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.995688583036233
+    },
+    {
+      "alpha": 10.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.637177680126026
+    },
+    {
+      "alpha": 20.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.529889727219966
+    },
+    {
+      "alpha": 50.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.1705497056628804
+    },
+    {
+      "alpha": 100.0,
+      "animal": "257",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.369621092778377
+    },
+    {
+      "alpha": 0.5,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.179504187049167
+    },
+    {
+      "alpha": 1.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 7.786253212834757
+    },
+    {
+      "alpha": 2.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.034740071304204
+    },
+    {
+      "alpha": 5.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.2123372854655505
+    },
+    {
+      "alpha": 10.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0503275018655174
+    },
+    {
+      "alpha": 20.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4915844457341847
+    },
+    {
+      "alpha": 50.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.346571594395158
+    },
+    {
+      "alpha": 100.0,
+      "animal": "257",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.13514633944117405
+    },
+    {
+      "alpha": 0.5,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.99407994861842
+    },
+    {
+      "alpha": 1.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 11.756468075005934
+    },
+    {
+      "alpha": 2.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 9.877410256768266
+    },
+    {
+      "alpha": 5.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 7.759176777760712
+    },
+    {
+      "alpha": 10.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.44685218022647
+    },
+    {
+      "alpha": 20.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.263958894737577
+    },
+    {
+      "alpha": 50.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 3.8490107649990923
+    },
+    {
+      "alpha": 100.0,
+      "animal": "267",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.9400594797615223
+    },
+    {
+      "alpha": 0.5,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.16978260566035
+    },
+    {
+      "alpha": 1.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.776350511721422
+    },
+    {
+      "alpha": 2.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.054788400050264
+    },
+    {
+      "alpha": 5.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.120858407450329
+    },
+    {
+      "alpha": 10.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9400594797615223
+    },
+    {
+      "alpha": 20.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6097234051465352
+    },
+    {
+      "alpha": 50.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.42264140405746914
+    },
+    {
+      "alpha": 100.0,
+      "animal": "267",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15205037628628473
+    },
+    {
+      "alpha": 0.5,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 13.043674020711391
+    },
+    {
+      "alpha": 1.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.7272727272727273,
+      "n_recordings": 11,
+      "rate_per_s": 10.752914102756515
+    },
+    {
+      "alpha": 2.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.18181818181818182,
+      "n_recordings": 11,
+      "rate_per_s": 8.8258542198209
+    },
+    {
+      "alpha": 5.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 6.7477112411826505
+    },
+    {
+      "alpha": 10.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.481514833158236
+    },
+    {
+      "alpha": 20.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.38191005052779
+    },
+    {
+      "alpha": 50.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 3.056681174646055
+    },
+    {
+      "alpha": 100.0,
+      "animal": "276",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.286257441592876
+    },
+    {
+      "alpha": 0.5,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 9.845414978238031
+    },
+    {
+      "alpha": 1.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.5454545454545454,
+      "n_recordings": 11,
+      "rate_per_s": 7.546150382710491
+    },
+    {
+      "alpha": 2.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.7766771724448445
+    },
+    {
+      "alpha": 5.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 3.9581769973485414
+    },
+    {
+      "alpha": 10.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.8170493771574363
+    },
+    {
+      "alpha": 20.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.4257841812997147
+    },
+    {
+      "alpha": 50.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.36670168592726
+    },
+    {
+      "alpha": 100.0,
+      "animal": "276",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.14708089449197057
+    },
+    {
+      "alpha": 0.5,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 12.750097314130013
+    },
+    {
+      "alpha": 1.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 10.539120280264695
+    },
+    {
+      "alpha": 2.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.7272727272727273,
+      "n_recordings": 11,
+      "rate_per_s": 8.58991825613079
+    },
+    {
+      "alpha": 5.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.18181818181818182,
+      "n_recordings": 11,
+      "rate_per_s": 6.575029194239004
+    },
+    {
+      "alpha": 10.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.321623199688595
+    },
+    {
+      "alpha": 20.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.139743090696769
+    },
+    {
+      "alpha": 50.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.73550019462826
+    },
+    {
+      "alpha": 100.0,
+      "animal": "278",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.9457960295834957
+    },
+    {
+      "alpha": 0.5,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 9.77374464772285
+    },
+    {
+      "alpha": 1.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.5454545454545454,
+      "n_recordings": 11,
+      "rate_per_s": 7.498540288049825
+    },
+    {
+      "alpha": 2.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.754671078240561
+    },
+    {
+      "alpha": 5.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 3.871156091864539
+    },
+    {
+      "alpha": 10.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.7719929933826393
+    },
+    {
+      "alpha": 20.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.4874464772284937
+    },
+    {
+      "alpha": 50.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.35762942779291557
+    },
+    {
+      "alpha": 100.0,
+      "animal": "278",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.1654340210198521
+    },
+    {
+      "alpha": 0.5,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.9090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 13.100985221674877
+    },
+    {
+      "alpha": 1.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.6363636363636364,
+      "n_recordings": 11,
+      "rate_per_s": 10.800985221674877
+    },
+    {
+      "alpha": 2.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.36363636363636365,
+      "n_recordings": 11,
+      "rate_per_s": 8.861083743842364
+    },
+    {
+      "alpha": 5.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 6.679310344827586
+    },
+    {
+      "alpha": 10.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 5.293103448275862
+    },
+    {
+      "alpha": 20.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.098522167487685
+    },
+    {
+      "alpha": 50.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.8167487684729062
+    },
+    {
+      "alpha": 100.0,
+      "animal": "279",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.019704433497537
+    },
+    {
+      "alpha": 0.5,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 11,
+      "rate_per_s": 9.854187192118227
+    },
+    {
+      "alpha": 1.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.5454545454545454,
+      "n_recordings": 11,
+      "rate_per_s": 7.577339901477832
+    },
+    {
+      "alpha": 2.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.09090909090909091,
+      "n_recordings": 11,
+      "rate_per_s": 5.867487684729064
+    },
+    {
+      "alpha": 5.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 4.0344827586206895
+    },
+    {
+      "alpha": 10.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 2.7807881773399017
+    },
+    {
+      "alpha": 20.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 1.4975369458128078
+    },
+    {
+      "alpha": 50.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.39458128078817734
+    },
+    {
+      "alpha": 100.0,
+      "animal": "279",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 11,
+      "rate_per_s": 0.14039408866995073
+    },
+    {
+      "alpha": 0.5,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.909634693441573
+    },
+    {
+      "alpha": 1.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.561418500320444
+    },
+    {
+      "alpha": 2.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 8.612262337107456
+    },
+    {
+      "alpha": 5.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.4076052125614185
+    },
+    {
+      "alpha": 10.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.072420422986541
+    },
+    {
+      "alpha": 20.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.901730399487289
+    },
+    {
+      "alpha": 50.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.360179448835719
+    },
+    {
+      "alpha": 100.0,
+      "animal": "2922",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4415723136082035
+    },
+    {
+      "alpha": 0.5,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.144840845973082
+    },
+    {
+      "alpha": 1.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.8748130741294595
+    },
+    {
+      "alpha": 2.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.091860713522752
+    },
+    {
+      "alpha": 5.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.240119632557146
+    },
+    {
+      "alpha": 10.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.980986968596454
+    },
+    {
+      "alpha": 20.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5244605853450117
+    },
+    {
+      "alpha": 50.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3324076052125614
+    },
+    {
+      "alpha": 100.0,
+      "animal": "2922",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12561418500320445
+    },
+    {
+      "alpha": 0.5,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.241955853283548
+    },
+    {
+      "alpha": 1.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.850949923127608
+    },
+    {
+      "alpha": 2.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.850757742148033
+    },
+    {
+      "alpha": 5.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.752141445200966
+    },
+    {
+      "alpha": 10.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.468097957390731
+    },
+    {
+      "alpha": 20.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.2454151109158795
+    },
+    {
+      "alpha": 50.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.948605315176806
+    },
+    {
+      "alpha": 100.0,
+      "animal": "2935",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.2131012519218096
+    },
+    {
+      "alpha": 0.5,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.210575444761695
+    },
+    {
+      "alpha": 1.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 7.873517461014715
+    },
+    {
+      "alpha": 2.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.068938062815725
+    },
+    {
+      "alpha": 5.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.264770481001537
+    },
+    {
+      "alpha": 10.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.1013891939380627
+    },
+    {
+      "alpha": 20.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6114375137272128
+    },
+    {
+      "alpha": 50.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3381012519218098
+    },
+    {
+      "alpha": 100.0,
+      "animal": "2935",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14125301998682185
+    },
+    {
+      "alpha": 0.5,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.017148981779206
+    },
+    {
+      "alpha": 1.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.652980460054414
+    },
+    {
+      "alpha": 2.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.698573666419325
+    },
+    {
+      "alpha": 5.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.5788605820760155
+    },
+    {
+      "alpha": 10.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.229614972380245
+    },
+    {
+      "alpha": 20.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.01970483964053
+    },
+    {
+      "alpha": 50.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7273476791161677
+    },
+    {
+      "alpha": 100.0,
+      "animal": "51",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.952345617940473
+    },
+    {
+      "alpha": 0.5,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.877566163739797
+    },
+    {
+      "alpha": 1.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.674993816472916
+    },
+    {
+      "alpha": 2.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.890840135213125
+    },
+    {
+      "alpha": 5.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.9995053178332918
+    },
+    {
+      "alpha": 10.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.830406463846978
+    },
+    {
+      "alpha": 20.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.3983015912276362
+    },
+    {
+      "alpha": 50.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.34256740044521394
+    },
+    {
+      "alpha": 100.0,
+      "animal": "51",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.10099760903619424
+    },
+    {
+      "alpha": 0.5,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.93144838623633
+    },
+    {
+      "alpha": 1.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 10.638626440735072
+    },
+    {
+      "alpha": 2.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.775392736308628
+    },
+    {
+      "alpha": 5.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.65946006654406
+    },
+    {
+      "alpha": 10.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.36690485883955
+    },
+    {
+      "alpha": 20.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.300936390054892
+    },
+    {
+      "alpha": 50.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0804003874717467
+    },
+    {
+      "alpha": 100.0,
+      "animal": "543",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.335780769608738
+    },
+    {
+      "alpha": 0.5,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.810616164310483
+    },
+    {
+      "alpha": 1.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.622243124482318
+    },
+    {
+      "alpha": 2.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.825553480928248
+    },
+    {
+      "alpha": 5.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.982956858671084
+    },
+    {
+      "alpha": 10.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.788111917563982
+    },
+    {
+      "alpha": 20.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.3355140318119918
+    },
+    {
+      "alpha": 50.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.2994482739256784
+    },
+    {
+      "alpha": 100.0,
+      "animal": "543",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.10444890567309177
+    },
+    {
+      "alpha": 0.5,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 12.199091984058626
+    },
+    {
+      "alpha": 1.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.817520912103472
+    },
+    {
+      "alpha": 2.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 7.88616224580663
+    },
+    {
+      "alpha": 5.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.85801667128947
+    },
+    {
+      "alpha": 10.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.535846192026393
+    },
+    {
+      "alpha": 20.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.326228814177895
+    },
+    {
+      "alpha": 50.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1152975868965416
+    },
+    {
+      "alpha": 100.0,
+      "animal": "573",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.461000569334754
+    },
+    {
+      "alpha": 0.5,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.902483175428095
+    },
+    {
+      "alpha": 1.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.633027255076568
+    },
+    {
+      "alpha": 2.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.920205544444606
+    },
+    {
+      "alpha": 5.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.015123866804864
+    },
+    {
+      "alpha": 10.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8339732266682236
+    },
+    {
+      "alpha": 20.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.441730777652881
+    },
+    {
+      "alpha": 50.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.35298754762704193
+    },
+    {
+      "alpha": 100.0,
+      "animal": "573",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.11824644895694952
+    },
+    {
+      "alpha": 0.5,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.084667562943045
+    },
+    {
+      "alpha": 1.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 10.802676607186507
+    },
+    {
+      "alpha": 2.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 8.837845270105108
+    },
+    {
+      "alpha": 5.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.750641652407724
+    },
+    {
+      "alpha": 10.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.474211684184795
+    },
+    {
+      "alpha": 20.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.365986311415302
+    },
+    {
+      "alpha": 50.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0955145441212415
+    },
+    {
+      "alpha": 100.0,
+      "animal": "584",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.4066548521143973
+    },
+    {
+      "alpha": 0.5,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.814990222439501
+    },
+    {
+      "alpha": 1.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.580206550965534
+    },
+    {
+      "alpha": 2.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.886702517721828
+    },
+    {
+      "alpha": 5.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.04057687606942
+    },
+    {
+      "alpha": 10.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7902713273038375
+    },
+    {
+      "alpha": 20.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.46480078220484
+    },
+    {
+      "alpha": 50.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.35886702517721825
+    },
+    {
+      "alpha": 100.0,
+      "animal": "584",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14803837692495722
+    },
+    {
+      "alpha": 0.5,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.490579155947994
+    },
+    {
+      "alpha": 1.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 10.194535215184594
+    },
+    {
+      "alpha": 2.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.269762914551903
+    },
+    {
+      "alpha": 5.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.21733991517764
+    },
+    {
+      "alpha": 10.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.968365431412084
+    },
+    {
+      "alpha": 20.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.803657095181812
+    },
+    {
+      "alpha": 50.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.5830494333588265
+    },
+    {
+      "alpha": 100.0,
+      "animal": "585",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.9352012792880484
+    },
+    {
+      "alpha": 0.5,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.90752972258917
+    },
+    {
+      "alpha": 1.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 7.6152402141416955
+    },
+    {
+      "alpha": 2.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.917819648195787
+    },
+    {
+      "alpha": 5.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.063547243273309
+    },
+    {
+      "alpha": 10.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.836265035110895
+    },
+    {
+      "alpha": 20.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.3645275672669124
+    },
+    {
+      "alpha": 50.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3404018633108531
+    },
+    {
+      "alpha": 100.0,
+      "animal": "585",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.11889035667107002
+    },
+    {
+      "alpha": 0.5,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.775313320987122
+    },
+    {
+      "alpha": 1.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.373831775700934
+    },
+    {
+      "alpha": 2.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.47280244627245
+    },
+    {
+      "alpha": 5.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.492527671303673
+    },
+    {
+      "alpha": 10.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.262931220121452
+    },
+    {
+      "alpha": 20.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 4.126792712864464
+    },
+    {
+      "alpha": 50.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.8997803522976873
+    },
+    {
+      "alpha": 100.0,
+      "animal": "602",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.312761100822602
+    },
+    {
+      "alpha": 0.5,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.826004565226754
+    },
+    {
+      "alpha": 1.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.564494594943795
+    },
+    {
+      "alpha": 2.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.831861837288427
+    },
+    {
+      "alpha": 5.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.937292734398553
+    },
+    {
+      "alpha": 10.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7292303716783666
+    },
+    {
+      "alpha": 20.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.3743055256470993
+    },
+    {
+      "alpha": 50.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3320556440845859
+    },
+    {
+      "alpha": 100.0,
+      "animal": "602",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.10982385115638055
+    },
+    {
+      "alpha": 0.5,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 13.506031549644293
+    },
+    {
+      "alpha": 1.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 11.131920816579028
+    },
+    {
+      "alpha": 2.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 9.193009588617382
+    },
+    {
+      "alpha": 5.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.095886173832353
+    },
+    {
+      "alpha": 10.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.710021651716671
+    },
+    {
+      "alpha": 20.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 4.494896381070213
+    },
+    {
+      "alpha": 50.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 3.267708011135168
+    },
+    {
+      "alpha": 100.0,
+      "animal": "605",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.580575317042994
+    },
+    {
+      "alpha": 0.5,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.353850912465202
+    },
+    {
+      "alpha": 1.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.9444788122486845
+    },
+    {
+      "alpha": 2.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.114135477884317
+    },
+    {
+      "alpha": 5.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.208165790287659
+    },
+    {
+      "alpha": 10.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0292298175069594
+    },
+    {
+      "alpha": 20.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.7324466439839157
+    },
+    {
+      "alpha": 50.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4959789669038045
+    },
+    {
+      "alpha": 100.0,
+      "animal": "605",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.17630683575626352
+    },
+    {
+      "alpha": 0.5,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 12.849427168576105
+    },
+    {
+      "alpha": 1.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 10.440671031096564
+    },
+    {
+      "alpha": 2.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.465220949263502
+    },
+    {
+      "alpha": 5.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.388707037643208
+    },
+    {
+      "alpha": 10.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.024140752864157
+    },
+    {
+      "alpha": 20.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.8453355155482813
+    },
+    {
+      "alpha": 50.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.4009819967266774
+    },
+    {
+      "alpha": 100.0,
+      "animal": "606",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8089198036006546
+    },
+    {
+      "alpha": 0.5,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.059738134206219
+    },
+    {
+      "alpha": 1.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.747135842880524
+    },
+    {
+      "alpha": 2.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.9656301145662844
+    },
+    {
+      "alpha": 5.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.174713584288052
+    },
+    {
+      "alpha": 10.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9435351882160394
+    },
+    {
+      "alpha": 20.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5634206219312603
+    },
+    {
+      "alpha": 50.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4099836333878887
+    },
+    {
+      "alpha": 100.0,
+      "animal": "606",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.16489361702127658
+    },
+    {
+      "alpha": 0.5,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.00061488009838
+    },
+    {
+      "alpha": 1.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.66120106579217
+    },
+    {
+      "alpha": 2.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 8.737446197991392
+    },
+    {
+      "alpha": 5.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.62594794015167
+    },
+    {
+      "alpha": 10.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.309694609551138
+    },
+    {
+      "alpha": 20.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.165607706497233
+    },
+    {
+      "alpha": 50.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0014347202295553
+    },
+    {
+      "alpha": 100.0,
+      "animal": "633",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.2771059643369544
+    },
+    {
+      "alpha": 0.5,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.859807337569174
+    },
+    {
+      "alpha": 1.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.623693379790941
+    },
+    {
+      "alpha": 2.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.860627177700349
+    },
+    {
+      "alpha": 5.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.01762656282025
+    },
+    {
+      "alpha": 10.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.880508300881328
+    },
+    {
+      "alpha": 20.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4269317483090798
+    },
+    {
+      "alpha": 50.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3381840541094487
+    },
+    {
+      "alpha": 100.0,
+      "animal": "633",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1488009838081574
+    },
+    {
+      "alpha": 0.5,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 12.99773612497715
+    },
+    {
+      "alpha": 1.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.654414556294556
+    },
+    {
+      "alpha": 2.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 8.656158161902217
+    },
+    {
+      "alpha": 5.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.548223350253807
+    },
+    {
+      "alpha": 10.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.193694897141331
+    },
+    {
+      "alpha": 20.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.9699368646034
+    },
+    {
+      "alpha": 50.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8014398807598746
+    },
+    {
+      "alpha": 100.0,
+      "animal": "664",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.09949801032102
+    },
+    {
+      "alpha": 0.5,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.78542401957338
+    },
+    {
+      "alpha": 1.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 7.4771151763994546
+    },
+    {
+      "alpha": 2.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.781739949660419
+    },
+    {
+      "alpha": 5.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.968671344404292
+    },
+    {
+      "alpha": 10.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.804814601290831
+    },
+    {
+      "alpha": 20.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.383213577625603
+    },
+    {
+      "alpha": 50.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3319881322327995
+    },
+    {
+      "alpha": 100.0,
+      "animal": "664",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.10925657718970148
+    },
+    {
+      "alpha": 0.5,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 13.208001720800173
+    },
+    {
+      "alpha": 1.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 10.792428479242847
+    },
+    {
+      "alpha": 2.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 8.778662077866208
+    },
+    {
+      "alpha": 5.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.758872875887287
+    },
+    {
+      "alpha": 10.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.377930737793074
+    },
+    {
+      "alpha": 20.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.222843622284362
+    },
+    {
+      "alpha": 50.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.99032049903205
+    },
+    {
+      "alpha": 100.0,
+      "animal": "718",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.219402021940202
+    },
+    {
+      "alpha": 0.5,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.02064960206496
+    },
+    {
+      "alpha": 1.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.695418369541837
+    },
+    {
+      "alpha": 2.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.96386319638632
+    },
+    {
+      "alpha": 5.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.2064960206496025
+    },
+    {
+      "alpha": 10.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.99032049903205
+    },
+    {
+      "alpha": 20.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4648311464831147
+    },
+    {
+      "alpha": 50.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3213594321359432
+    },
+    {
+      "alpha": 100.0,
+      "animal": "718",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12604861260486125
+    },
+    {
+      "alpha": 0.5,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 12.255578608629378
+    },
+    {
+      "alpha": 1.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 9.992801795316934
+    },
+    {
+      "alpha": 2.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 8.072151416352629
+    },
+    {
+      "alpha": 5.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.021509929288225
+    },
+    {
+      "alpha": 10.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.712283524579752
+    },
+    {
+      "alpha": 20.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.5897870178261426
+    },
+    {
+      "alpha": 50.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.336875979167549
+    },
+    {
+      "alpha": 100.0,
+      "animal": "770H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6962357623745608
+    },
+    {
+      "alpha": 0.5,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.811999830630478
+    },
+    {
+      "alpha": 1.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 7.569123936147691
+    },
+    {
+      "alpha": 2.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.8580683406021095
+    },
+    {
+      "alpha": 5.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.968327899394504
+    },
+    {
+      "alpha": 10.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7412457128339756
+    },
+    {
+      "alpha": 20.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4845238599314055
+    },
+    {
+      "alpha": 50.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3459372485921159
+    },
+    {
+      "alpha": 100.0,
+      "animal": "770H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.11093703688021342
+    },
+    {
+      "alpha": 0.5,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.792638003078954
+    },
+    {
+      "alpha": 1.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.354354519463383
+    },
+    {
+      "alpha": 2.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 8.419974708599076
+    },
+    {
+      "alpha": 5.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.279002639102705
+    },
+    {
+      "alpha": 10.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.931410820321091
+    },
+    {
+      "alpha": 20.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.75
+    },
+    {
+      "alpha": 50.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.5483835495931384
+    },
+    {
+      "alpha": 100.0,
+      "animal": "772",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8387123378051462
+    },
+    {
+      "alpha": 0.5,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.981993622168464
+    },
+    {
+      "alpha": 1.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.732983285682868
+    },
+    {
+      "alpha": 2.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.975918187816142
+    },
+    {
+      "alpha": 5.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.153700241917748
+    },
+    {
+      "alpha": 10.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9034253353859687
+    },
+    {
+      "alpha": 20.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4762480756542775
+    },
+    {
+      "alpha": 50.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.33854739388607874
+    },
+    {
+      "alpha": 100.0,
+      "animal": "772",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14308884979107103
+    },
+    {
+      "alpha": 0.5,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.617356731560186
+    },
+    {
+      "alpha": 1.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.23265697833836
+    },
+    {
+      "alpha": 2.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 8.341102275843157
+    },
+    {
+      "alpha": 5.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.2188099808061414
+    },
+    {
+      "alpha": 10.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.8894982177131885
+    },
+    {
+      "alpha": 20.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.7177131889224015
+    },
+    {
+      "alpha": 50.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.457910611461475
+    },
+    {
+      "alpha": 100.0,
+      "animal": "773",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.72662462297779
+    },
+    {
+      "alpha": 0.5,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.96695914450233
+    },
+    {
+      "alpha": 1.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 7.647655607348505
+    },
+    {
+      "alpha": 2.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.941595832190841
+    },
+    {
+      "alpha": 5.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.057033177954483
+    },
+    {
+      "alpha": 10.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9103372635042497
+    },
+    {
+      "alpha": 20.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4975322182615847
+    },
+    {
+      "alpha": 50.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3969015629284343
+    },
+    {
+      "alpha": 100.0,
+      "animal": "773",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.13696188648204002
+    },
+    {
+      "alpha": 0.5,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.899497732481592
+    },
+    {
+      "alpha": 1.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.58467840249671
+    },
+    {
+      "alpha": 2.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.66338323499293
+    },
+    {
+      "alpha": 5.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.599210025844834
+    },
+    {
+      "alpha": 10.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.364509679621593
+    },
+    {
+      "alpha": 20.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.289267079533818
+    },
+    {
+      "alpha": 50.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.07065879943434
+    },
+    {
+      "alpha": 100.0,
+      "animal": "773H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.174867118544887
+    },
+    {
+      "alpha": 0.5,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.046325644901742
+    },
+    {
+      "alpha": 1.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.745160189203688
+    },
+    {
+      "alpha": 2.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.897498415175306
+    },
+    {
+      "alpha": 5.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.124445311357098
+    },
+    {
+      "alpha": 10.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.900960647583752
+    },
+    {
+      "alpha": 20.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4716925927731994
+    },
+    {
+      "alpha": 50.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3593894767640318
+    },
+    {
+      "alpha": 100.0,
+      "animal": "773H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12678597552055396
+    },
+    {
+      "alpha": 0.5,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.373430292157868
+    },
+    {
+      "alpha": 1.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 11.061635058944132
+    },
+    {
+      "alpha": 2.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 9.076114812916453
+    },
+    {
+      "alpha": 5.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 7.031970784213224
+    },
+    {
+      "alpha": 10.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.776845207585853
+    },
+    {
+      "alpha": 20.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.649058175294721
+    },
+    {
+      "alpha": 50.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.40834828293183
+    },
+    {
+      "alpha": 100.0,
+      "animal": "781",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.527549974372117
+    },
+    {
+      "alpha": 0.5,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.062628139415684
+    },
+    {
+      "alpha": 1.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.769573295745771
+    },
+    {
+      "alpha": 2.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.999807790876474
+    },
+    {
+      "alpha": 5.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.107508969759098
+    },
+    {
+      "alpha": 10.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.925422860071758
+    },
+    {
+      "alpha": 20.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5054779600205024
+    },
+    {
+      "alpha": 50.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.37240517683239366
+    },
+    {
+      "alpha": 100.0,
+      "animal": "781",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12733854433623784
+    },
+    {
+      "alpha": 0.5,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 13.079011421082194
+    },
+    {
+      "alpha": 1.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.70071147725145
+    },
+    {
+      "alpha": 2.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 8.760531735630032
+    },
+    {
+      "alpha": 5.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.706609249204268
+    },
+    {
+      "alpha": 10.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.393652873993634
+    },
+    {
+      "alpha": 20.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.29039505710541
+    },
+    {
+      "alpha": 50.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9961617674592773
+    },
+    {
+      "alpha": 100.0,
+      "animal": "787",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1554952256131807
+    },
+    {
+      "alpha": 0.5,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.88532110091743
+    },
+    {
+      "alpha": 1.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.614210821943456
+    },
+    {
+      "alpha": 2.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.83224115334207
+    },
+    {
+      "alpha": 5.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.005804156524995
+    },
+    {
+      "alpha": 10.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7995693690320165
+    },
+    {
+      "alpha": 20.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4309118142669912
+    },
+    {
+      "alpha": 50.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3800786369593709
+    },
+    {
+      "alpha": 100.0,
+      "animal": "787",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1436996817075454
+    },
+    {
+      "alpha": 0.5,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.345447617931097
+    },
+    {
+      "alpha": 1.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 11.076070868564898
+    },
+    {
+      "alpha": 2.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 9.03750054953912
+    },
+    {
+      "alpha": 5.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.889901669133487
+    },
+    {
+      "alpha": 10.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.541992115945427
+    },
+    {
+      "alpha": 20.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.420492680138924
+    },
+    {
+      "alpha": 50.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.007078063863773
+    },
+    {
+      "alpha": 100.0,
+      "animal": "788",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.260584123448468
+    },
+    {
+      "alpha": 0.5,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.011283869927755
+    },
+    {
+      "alpha": 1.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 7.77048315479418
+    },
+    {
+      "alpha": 2.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.003165345330383
+    },
+    {
+      "alpha": 5.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.118905611160773
+    },
+    {
+      "alpha": 10.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9099195474728528
+    },
+    {
+      "alpha": 20.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4696874221486247
+    },
+    {
+      "alpha": 50.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3297234719148874
+    },
+    {
+      "alpha": 100.0,
+      "animal": "788",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12001934377701902
+    },
+    {
+      "alpha": 0.5,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.601076886530999
+    },
+    {
+      "alpha": 1.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 11.159078311821997
+    },
+    {
+      "alpha": 2.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 9.169372080133027
+    },
+    {
+      "alpha": 5.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 7.073244120674637
+    },
+    {
+      "alpha": 10.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.780505186475572
+    },
+    {
+      "alpha": 20.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.70441048380711
+    },
+    {
+      "alpha": 50.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.444453242537018
+    },
+    {
+      "alpha": 100.0,
+      "animal": "789",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.6044817483569562
+    },
+    {
+      "alpha": 0.5,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.234539551825163
+    },
+    {
+      "alpha": 1.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.834349513025575
+    },
+    {
+      "alpha": 2.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.043708923905297
+    },
+    {
+      "alpha": 5.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.210309604877662
+    },
+    {
+      "alpha": 10.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.986459735529337
+    },
+    {
+      "alpha": 20.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4642489508274605
+    },
+    {
+      "alpha": 50.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3796025021775279
+    },
+    {
+      "alpha": 100.0,
+      "animal": "789",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14537968168501067
+    },
+    {
+      "alpha": 0.5,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 13.432898285643427
+    },
+    {
+      "alpha": 1.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 11.134792448150789
+    },
+    {
+      "alpha": 2.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 9.188238211860991
+    },
+    {
+      "alpha": 5.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 7.0677682363517995
+    },
+    {
+      "alpha": 10.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.789906066900207
+    },
+    {
+      "alpha": 20.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.659453761974145
+    },
+    {
+      "alpha": 50.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.477384753696872
+    },
+    {
+      "alpha": 100.0,
+      "animal": "790H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.6352419629847783
+    },
+    {
+      "alpha": 0.5,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.89413150633971
+    },
+    {
+      "alpha": 1.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.652292525653347
+    },
+    {
+      "alpha": 2.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.857798307344142
+    },
+    {
+      "alpha": 5.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.017267569829804
+    },
+    {
+      "alpha": 10.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7989273646030317
+    },
+    {
+      "alpha": 20.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.3443593638590072
+    },
+    {
+      "alpha": 50.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3041200359611867
+    },
+    {
+      "alpha": 100.0,
+      "animal": "790H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.10416343739343398
+    },
+    {
+      "alpha": 0.5,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 14.181455082723126
+    },
+    {
+      "alpha": 1.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 11.669562111347437
+    },
+    {
+      "alpha": 2.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 9.533211021090743
+    },
+    {
+      "alpha": 5.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 7.367147797567827
+    },
+    {
+      "alpha": 10.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.00915718205582
+    },
+    {
+      "alpha": 20.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.78657596077349
+    },
+    {
+      "alpha": 50.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.4621941517429495
+    },
+    {
+      "alpha": 100.0,
+      "animal": "792",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.6701953207449143
+    },
+    {
+      "alpha": 0.5,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.375866603886932
+    },
+    {
+      "alpha": 1.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.976977155753276
+    },
+    {
+      "alpha": 2.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.1806108035264895
+    },
+    {
+      "alpha": 5.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.272702180513387
+    },
+    {
+      "alpha": 10.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.1051614683963566
+    },
+    {
+      "alpha": 20.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5990972707051354
+    },
+    {
+      "alpha": 50.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.37895147018233183
+    },
+    {
+      "alpha": 100.0,
+      "animal": "792",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15050900293874106
+    },
+    {
+      "alpha": 0.5,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 13.631029688144606
+    },
+    {
+      "alpha": 1.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 11.260714776842331
+    },
+    {
+      "alpha": 2.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 9.226855318043608
+    },
+    {
+      "alpha": 5.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 7.096276376304491
+    },
+    {
+      "alpha": 10.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.793542866747139
+    },
+    {
+      "alpha": 20.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.61824071386007
+    },
+    {
+      "alpha": 50.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.409017984017602
+    },
+    {
+      "alpha": 100.0,
+      "animal": "795H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.5995079988387553
+    },
+    {
+      "alpha": 0.5,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.035448530872308
+    },
+    {
+      "alpha": 1.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.712805781777622
+    },
+    {
+      "alpha": 2.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.014485003132306
+    },
+    {
+      "alpha": 5.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.104848197778355
+    },
+    {
+      "alpha": 10.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.90846028083793
+    },
+    {
+      "alpha": 20.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5025898818891623
+    },
+    {
+      "alpha": 50.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.330954818402677
+    },
+    {
+      "alpha": 100.0,
+      "animal": "795H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14072455574739867
+    },
+    {
+      "alpha": 0.5,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.430765336258544
+    },
+    {
+      "alpha": 1.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 11.065901611678338
+    },
+    {
+      "alpha": 2.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 9.09290355244283
+    },
+    {
+      "alpha": 5.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.947768120833684
+    },
+    {
+      "alpha": 10.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.699772171124799
+    },
+    {
+      "alpha": 20.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.5894861193148255
+    },
+    {
+      "alpha": 50.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.3414901696059403
+    },
+    {
+      "alpha": 100.0,
+      "animal": "799H",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.435743819086997
+    },
+    {
+      "alpha": 0.5,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.119146063623322
+    },
+    {
+      "alpha": 1.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 7.673782803138975
+    },
+    {
+      "alpha": 2.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.962028520799932
+    },
+    {
+      "alpha": 5.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.152560965319382
+    },
+    {
+      "alpha": 10.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9172221753438525
+    },
+    {
+      "alpha": 20.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4960762804826597
+    },
+    {
+      "alpha": 50.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.34224959918994174
+    },
+    {
+      "alpha": 100.0,
+      "animal": "799H",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14378533457092227
+    },
+    {
+      "alpha": 0.5,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.660466733301465
+    },
+    {
+      "alpha": 1.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.219894832906002
+    },
+    {
+      "alpha": 2.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.30950415018904
+    },
+    {
+      "alpha": 5.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.343922471861284
+    },
+    {
+      "alpha": 10.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.124505671200731
+    },
+    {
+      "alpha": 20.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 3.9281213332753904
+    },
+    {
+      "alpha": 50.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.65003693885533
+    },
+    {
+      "alpha": 100.0,
+      "animal": "807",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.062491851723089
+    },
+    {
+      "alpha": 0.5,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.297683716483421
+    },
+    {
+      "alpha": 1.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.898830993872496
+    },
+    {
+      "alpha": 2.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.135326582938595
+    },
+    {
+      "alpha": 5.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.298813610881752
+    },
+    {
+      "alpha": 10.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0063882490982574
+    },
+    {
+      "alpha": 20.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6009734474816393
+    },
+    {
+      "alpha": 50.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4354439181261136
+    },
+    {
+      "alpha": 100.0,
+      "animal": "807",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.16253096345226198
+    },
+    {
+      "alpha": 0.5,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.570556290272657
+    },
+    {
+      "alpha": 1.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 10.156729227046343
+    },
+    {
+      "alpha": 2.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 8.234193421311797
+    },
+    {
+      "alpha": 5.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.158445651256366
+    },
+    {
+      "alpha": 10.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.864374349306395
+    },
+    {
+      "alpha": 20.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.753060018571147
+    },
+    {
+      "alpha": 50.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.4969751540561074
+    },
+    {
+      "alpha": 100.0,
+      "animal": "809",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.853738146824615
+    },
+    {
+      "alpha": 0.5,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.863811587270321
+    },
+    {
+      "alpha": 1.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.570274909254621
+    },
+    {
+      "alpha": 2.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.82627535946425
+    },
+    {
+      "alpha": 5.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.995751146627648
+    },
+    {
+      "alpha": 10.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.81479501392836
+    },
+    {
+      "alpha": 20.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4316666197698302
+    },
+    {
+      "alpha": 50.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3790202312951968
+    },
+    {
+      "alpha": 100.0,
+      "animal": "809",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15954303722670868
+    },
+    {
+      "alpha": 0.5,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.865878345362912
+    },
+    {
+      "alpha": 1.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.460148822404333
+    },
+    {
+      "alpha": 2.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 8.538999567214397
+    },
+    {
+      "alpha": 5.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.471680464616287
+    },
+    {
+      "alpha": 10.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.147775342389256
+    },
+    {
+      "alpha": 20.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.9846989347889825
+    },
+    {
+      "alpha": 50.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.73576344776557
+    },
+    {
+      "alpha": 100.0,
+      "animal": "826",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.9781094249535804
+    },
+    {
+      "alpha": 0.5,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.075248851722069
+    },
+    {
+      "alpha": 1.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 7.799355009842382
+    },
+    {
+      "alpha": 2.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.987100196847646
+    },
+    {
+      "alpha": 5.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.195786622736601
+    },
+    {
+      "alpha": 10.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.970724148040598
+    },
+    {
+      "alpha": 20.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4491337307515113
+    },
+    {
+      "alpha": 50.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.326264501807927
+    },
+    {
+      "alpha": 100.0,
+      "animal": "826",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12313448463611108
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.582674284427684
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 10.07584925839408
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 8.125439756832062
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.029382792491065
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.736286622948975
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.528468098280375
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.226506431003912
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9010",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6409614139765276
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.080070923981875
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.790239509161015
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.055557119135403
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.193802594917115
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.032422391714278
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6401170808589685
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4365202217781656
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9010",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1540907939545749
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 13.052600842614607
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.668251783256162
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 8.635548325199181
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.5444458348975925
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.15162891586368
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.915655112001001
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.714720727485087
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9013",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.0289492345555415
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.995828640553956
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.728277645684728
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.04513410920619
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.165936678763609
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9416426813498515
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5133692070245692
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.36374254369499015
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9013",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15809452300504734
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.228369223990747
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.768161039819352
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 8.795781241394502
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.644544803656991
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.312000881202842
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.124442363826623
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.941840612435975
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9016",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.2714380128875913
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.208046483449909
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.866800682932202
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.137715481632428
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.27231921572947
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0897174643388223
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5791430302362726
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3800187255603899
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9016",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15820344770611885
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.206185567010309
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 9.877113402061855
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.999175257731959
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 5.828453608247423
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.523298969072165
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.4123711340206184
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1595876288659794
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9021",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4313402061855671
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.171134020618556
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.789690721649484
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.09360824742268
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.206185567010309
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9682474226804123
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6045360824742267
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4065979381443299
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9021",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1661855670103093
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.4219394205926
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.056621406189874
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 8.121736023308229
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.065636853389038
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.832884393381343
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.5477708757077675
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.136908361277555
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9023",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.363036666483426
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.207107910505195
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.882606783574295
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 6.112638117750536
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.261860260568413
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.01715133857402
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6908086416359738
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4551701390797647
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9023",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14182837666978176
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.598569674203569
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.227262876544103
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.233475402730623
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.133497074333599
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.8071949721881095
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.620891425269089
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.507837896409738
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9028",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8901972115870838
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.948999494329264
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.683016687134292
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.92198222928556
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.100267283103374
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.830311348696092
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4363938452647549
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.34501191938163694
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9028",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1382648269883696
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.17900155264299
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.738834258857759
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 8.747254899218083
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.574393979661775
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.177854555118826
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.9961673497363304
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8589612678518974
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9029",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.167825320669735
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.194569945867313
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.860150228700117
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.078387489334322
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.26808968961128
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.1140982781049362
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5614552880782198
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.38480368158229705
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9029",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.16533549677581794
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.749854130199216
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.302992414770358
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.38461538461538464,
+      "n_recordings": 13,
+      "rate_per_s": 8.37084271067767
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.414937067600233
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.150454280236725
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.063099108110361
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8898891389514043
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9030",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1851296157372677
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.984162707343502
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 7.709010585979828
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.985246311577894
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.110610986079853
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9078102859048096
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4857881136950903
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3413353338334584
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9030",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.13336667500208385
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.46606888412326
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.166812993854258
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.23076923076923078,
+      "n_recordings": 13,
+      "rate_per_s": 8.192259531657047
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.160710430489789
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.828221476993048
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.5389110378675572
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.261258797622303
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9039",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.7046877473769053
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.035982095309373
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.748384403920609
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.946976784352106
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.063098202334518
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8817340491371493
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5319736898919099
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.40242375394003943
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9039",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.14421623799997121
+    },
+    {
+      "alpha": 0.5,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.970852343727296
+    },
+    {
+      "alpha": 1.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.515823428554823
+    },
+    {
+      "alpha": 2.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 8.4980093574729
+    },
+    {
+      "alpha": 5.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.345935892592485
+    },
+    {
+      "alpha": 10.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.926622301008399
+    },
+    {
+      "alpha": 20.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.6206445613321323
+    },
+    {
+      "alpha": 50.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.245793496265729
+    },
+    {
+      "alpha": 100.0,
+      "animal": "904",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5710092702914766
+    },
+    {
+      "alpha": 0.5,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.188021272267589
+    },
+    {
+      "alpha": 1.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.811019732062422
+    },
+    {
+      "alpha": 2.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.063032169945657
+    },
+    {
+      "alpha": 5.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.1956060562029585
+    },
+    {
+      "alpha": 10.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9785533695620585
+    },
+    {
+      "alpha": 20.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.555752520996193
+    },
+    {
+      "alpha": 50.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.39885501729098255
+    },
+    {
+      "alpha": 100.0,
+      "animal": "904",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.13120804393943797
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 12.604985098889191
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 10.261446762395016
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 8.324753905897229
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.2977512869141155
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.123272825792468
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.057617628465637
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8763659351575908
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9045",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1895601914566964
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.942201752009392
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.680393750564436
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.897679039104127
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.114512778831392
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8330172491646346
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4571480177007134
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3567235618170324
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9045",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1548812426623318
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 11.659695143566111
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 9.417511520737326
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.619425735554767
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.726479971641262
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.508613966678483
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.5281105990783406
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.3617157036511873
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9046",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6947181850407655
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.843743353420772
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.5785891527827
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.84516129032258
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.041970932293513
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7790145338532435
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.438213399503722
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.360723147819922
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9046",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1476072314781992
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 12.693805255683987
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 10.262784199355638
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.358095005420592
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 6.324685834694844
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 4.997175184376479
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 3.764944801575789
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 2.4800354247148464
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9056",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 1.8877403001939197
+    },
+    {
+      "alpha": 0.5,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.109327999267075
+    },
+    {
+      "alpha": 1.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 7.755722160296835
+    },
+    {
+      "alpha": 2.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.99532760226596
+    },
+    {
+      "alpha": 5.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.083767235192622
+    },
+    {
+      "alpha": 10.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9239132094486266
+    },
+    {
+      "alpha": 20.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.6394619107969035
+    },
+    {
+      "alpha": 50.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4658655387763204
+    },
+    {
+      "alpha": 100.0,
+      "animal": "9056",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15483043471622054
+    },
+    {
+      "alpha": 0.5,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.695327102803738
+    },
+    {
+      "alpha": 1.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.229331416247303
+    },
+    {
+      "alpha": 2.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.281811646297626
+    },
+    {
+      "alpha": 5.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 6.192810927390366
+    },
+    {
+      "alpha": 10.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.84097771387491
+    },
+    {
+      "alpha": 20.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.699640546369518
+    },
+    {
+      "alpha": 50.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.538892882818116
+    },
+    {
+      "alpha": 100.0,
+      "animal": "945",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8250179726815239
+    },
+    {
+      "alpha": 0.5,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.980014378145219
+    },
+    {
+      "alpha": 1.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 7.723652048885693
+    },
+    {
+      "alpha": 2.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.932278936017253
+    },
+    {
+      "alpha": 5.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.1007907979870595
+    },
+    {
+      "alpha": 10.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8908698777857653
+    },
+    {
+      "alpha": 20.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4424155283968367
+    },
+    {
+      "alpha": 50.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.35758447160316315
+    },
+    {
+      "alpha": 100.0,
+      "animal": "945",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.13371675053918045
+    },
+    {
+      "alpha": 0.5,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 13.341921858500529
+    },
+    {
+      "alpha": 1.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.961774023231257
+    },
+    {
+      "alpha": 2.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 9.02935586061246
+    },
+    {
+      "alpha": 5.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 6.844350580781415
+    },
+    {
+      "alpha": 10.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.07692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 5.43273495248152
+    },
+    {
+      "alpha": 20.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.160929250263991
+    },
+    {
+      "alpha": 50.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7146779303062303
+    },
+    {
+      "alpha": 100.0,
+      "animal": "946",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.9784582893347413
+    },
+    {
+      "alpha": 0.5,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.925237592397043
+    },
+    {
+      "alpha": 1.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.677296726504752
+    },
+    {
+      "alpha": 2.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.895670538542767
+    },
+    {
+      "alpha": 5.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.072228088701162
+    },
+    {
+      "alpha": 10.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.824920802534319
+    },
+    {
+      "alpha": 20.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5011615628299895
+    },
+    {
+      "alpha": 50.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.4092925026399155
+    },
+    {
+      "alpha": 100.0,
+      "animal": "946",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.15543822597676873
+    },
+    {
+      "alpha": 0.5,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 12.949158576494913
+    },
+    {
+      "alpha": 1.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.714901890977803
+    },
+    {
+      "alpha": 2.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.75504922567129
+    },
+    {
+      "alpha": 5.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.7011269187057545
+    },
+    {
+      "alpha": 10.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.39688625378264
+    },
+    {
+      "alpha": 20.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.194520135285016
+    },
+    {
+      "alpha": 50.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.867275540523887
+    },
+    {
+      "alpha": 100.0,
+      "animal": "961",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.150456655392915
+    },
+    {
+      "alpha": 0.5,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.81405156714272
+    },
+    {
+      "alpha": 1.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.64182333529597
+    },
+    {
+      "alpha": 2.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.851213868083416
+    },
+    {
+      "alpha": 5.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.0277416439594145
+    },
+    {
+      "alpha": 10.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8188029740795004
+    },
+    {
+      "alpha": 20.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.42788678780244
+    },
+    {
+      "alpha": 50.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3384863961879202
+    },
+    {
+      "alpha": 100.0,
+      "animal": "961",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1404882857964426
+    },
+    {
+      "alpha": 0.5,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 13.287824340001698
+    },
+    {
+      "alpha": 1.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.826094338020996
+    },
+    {
+      "alpha": 2.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.5384615384615384,
+      "n_recordings": 13,
+      "rate_per_s": 8.787951670863869
+    },
+    {
+      "alpha": 5.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.673410486403894
+    },
+    {
+      "alpha": 10.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.319458985314507
+    },
+    {
+      "alpha": 20.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.131462041255199
+    },
+    {
+      "alpha": 50.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.597125152089641
+    },
+    {
+      "alpha": 100.0,
+      "animal": "999",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8276223083670524
+    },
+    {
+      "alpha": 0.5,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 10.216603944427153
+    },
+    {
+      "alpha": 1.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 7.907670977052149
+    },
+    {
+      "alpha": 2.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.101270479047
+    },
+    {
+      "alpha": 5.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.2795902775812795
+    },
+    {
+      "alpha": 10.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.095413259387114
+    },
+    {
+      "alpha": 20.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5105684615602275
+    },
+    {
+      "alpha": 50.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3573752864944399
+    },
+    {
+      "alpha": 100.0,
+      "animal": "999",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1409128208030333
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 12.20738122636857
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 9.82451093210587
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 7.873582114088443
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.845799769850403
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.513397994410653
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.374157488081539
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.1991615978957753
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM02",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.638171954627651
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 9.922735492355747
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.6153846153846154,
+      "n_recordings": 13,
+      "rate_per_s": 7.6335689626828875
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.904570113430873
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.05638665132336
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.799605457833306
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.384596416241986
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.35632089429557784
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM02",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1364458326483643
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 1.0,
+      "n_recordings": 13,
+      "rate_per_s": 12.834711652059235
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.476138143253564
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.3076923076923077,
+      "n_recordings": 13,
+      "rate_per_s": 8.535456218919142
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.422919471385004
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.089705195483144
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.005824655878231
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.7533862680990193
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM06",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.0688518284473996
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.034343489848064
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 7.7326428002307885
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.016979421380883
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.107206637909718
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.9977745418578454
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5351539962084788
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.37626727477539357
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM06",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.12487292908756216
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 12.458998257598806
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 10.130818375418315
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 8.22745249882457
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.234477417927372
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.893658212794203
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.826230052272036
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.5397571701192025
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM09",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.8681029952706254
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 10.20051442320989
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.7692307692307693,
+      "n_recordings": 13,
+      "rate_per_s": 7.850347097380867
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.08429902923362
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.22905661421025
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.0023232015930525
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.5947119506596232
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.38789169455430483
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM09",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.1418812401471361
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.8461538461538461,
+      "n_recordings": 13,
+      "rate_per_s": 13.618316347898926
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.6923076923076923,
+      "n_recordings": 13,
+      "rate_per_s": 11.150635208711435
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.15384615384615385,
+      "n_recordings": 13,
+      "rate_per_s": 9.111405835543767
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 6.9172134580483045
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.565684768951557
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.455814602820047
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 3.124808041323468
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM17",
+      "arm": "corpus",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.3998324724277538
+    },
+    {
+      "alpha": 0.5,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.9230769230769231,
+      "n_recordings": 13,
+      "rate_per_s": 9.990506770906046
+    },
+    {
+      "alpha": 1.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.46153846153846156,
+      "n_recordings": 13,
+      "rate_per_s": 7.661873516682954
+    },
+    {
+      "alpha": 2.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 5.925450230350412
+    },
+    {
+      "alpha": 5.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 4.089348038531342
+    },
+    {
+      "alpha": 10.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 2.8823118804969985
+    },
+    {
+      "alpha": 20.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 1.4830378333100658
+    },
+    {
+      "alpha": 50.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.3647912885662432
+    },
+    {
+      "alpha": 100.0,
+      "animal": "HM17",
+      "arm": "jitter",
+      "converged_frac": 0.0,
+      "n_recordings": 13,
+      "rate_per_s": 0.17464749406673183
+    }
+  ],
+  "scale": "median||D3 Y||",
+  "split": "tune",
+  "stage": "trendfilter_sweep"
+}

@@ -423,3 +423,57 @@ that reintroduced a competing break would fail rather than pass quietly.
 **Caught before any number was read.** The first implementation's recovery
 figures were computed on a smoke test and discarded unread when the test that
 checks where the break lives failed.
+
+## D13 — the trend filter's λ scale is a robust median, not §3's `λ_max`
+
+**What the registration said.** `TRENDFILTER_PREREGISTRATION.md` §3 fixes λ as
+a fraction of "each recording's own `λ_max = max_t ‖(D³Y)_t‖₂`", swept over
+α ∈ {1e-4 … 3e-1}.
+
+**Why that could not be used.** The name `λ_max` means "the smallest penalty at
+which the fit has no knots". The formula §3 writes down is not that quantity and
+has no fixed relationship to it. For the group-lasso trend filter the true
+no-knot threshold is the **dual** norm `max_t ‖((D³D³ᵀ)^{-1} D³Y)_t‖₂`.
+Measured on realistic data at `T = 3000`:
+
+| | |
+|---|---:|
+| §3's formula | 5.55e−2 |
+| true no-knot threshold (dual norm) | 1.29e+9 |
+| **ratio** | **2.3e10** |
+
+So **the entire registered α grid sat in the fully dense regime**. Every grid
+point would have returned thousands of knots per recording, `lambda_read` would
+have returned `GRID_LIMITED` for every animal, and §3's own instruction not to
+extend the grid would have locked the stage into a refusal produced by an
+arithmetic slip rather than by evidence.
+
+The dual norm is not usable either: `D³` is severely ill-conditioned, so
+`(D³D³ᵀ)^{-1}` is dominated by the smoothest modes and `λ_max` lands ~1e9,
+nine orders above where knots actually become sparse. A grid that is a fraction
+of it is just as useless in the other direction — measured, every α on the
+registered grid gives **zero** knots.
+
+**What is used instead.** `α · median_t ‖(D³Y)_t‖₂`, with
+α ∈ {0.5, 1, 2, 5, 10, 20, 50, 100}, implemented as `trendfilter.scale_of`.
+
+This is the deliberate analogue of the frozen detector's own rule:
+`mad_threshold` cuts at `median(D) + k·MAD(D)` of its scalar, and this penalises
+at α times a robust scale of the same quantity the estimator penalises. Both are
+per recording, so both mean *"this far above this recording's own typical
+roughness"*, which is what makes `k_mad` and α comparable parameters at all.
+Measured, the grid spans boundary rates from ~12/s down to ~0.05/s and therefore
+brackets the frozen detector's 0.443/s, which is exactly the span §3 needed.
+
+**What did not change.** The selection *rule* — smallest setting whose
+jitter-only rate has a bootstrap upper bound below 5% of the corpus rate — is
+untouched, as is the 5% itself, the plant comparison, the ±2 band and every
+prediction. Only the quantity α multiplies moved, and it moved because the
+registered one could not span the path.
+
+**What it costs.** α is no longer bounded in `[0, 1]`, so "α = 1 means no knots"
+is not available as a sanity check. The convergence rate is reported per α
+instead, which is the check that actually matters here.
+
+**Caught before any number was read**, by sweeping the grid on synthetic data
+during implementation and finding every cell either fully dense or fully empty.
