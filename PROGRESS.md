@@ -474,6 +474,63 @@ wherever it appears. **D15** records that the registration's phrase
 "length-and-speed-matched" was ambiguous and that the executed check matches the
 *target* bank, the only reading that is not circular.
 
+## The pixel channel — a standard freeze measure finds what the island lost
+
+`results/PIXEL_NOISEFLOOR.md` and `results/PIXEL_PILOT.md`, under a registration
+committed alone and then amended alone (D16). ezTrack was **read from source and
+not installed**; the reimplementation is checked against a literal transcription
+of `Measure_Freezing` on 300 random inputs rather than against expectation.
+
+**The arena calibrates itself, and it has to.** With no animal-free video, the
+animal is masked out per frame and the remaining pixels supply ezTrack's own
+rule, `mt_cutoff = 2 x percentile(|delta|, 99.99)`. Each recording contributes
+**1.0-1.5 billion** arena pixel-pairs against ezTrack's own ~3 million, and 0 of
+1,440 recordings fell below the registered minimum. The derived cutoff spans
+**6.50 to 128.50 grey levels** — a factor of 20 — while ezTrack's published
+default is a single global **10**. A global threshold is not defensible here, and
+that is now measured rather than argued.
+
+**The arenas differ, and the pilot could not see it.** Paired within (animal,
+day), the arena's own noise floor is **−1.296 [−2.020, −0.505]** grey levels
+B − A over 144 animals: Context A is noisier, agreeing in sign with the 32%
+bits-per-frame excess. The registered 300-recording pilot gave **−0.430 [−1.927,
++1.366]** and would have licensed the opposite conclusion. **The pilot was
+underpowered for the one question it existed to interpret** — the same lesson as
+D16, one level up.
+
+**Q2 answers, and it is §0's first branch.** On the same 30 `fit` animals where
+the island's context effect is null, the freeze score gives **B − A = −0.1264
+[−0.1706, −0.0851]**, p = **0.0005** — 12.6 points more freezing in Context A —
+and it **survives** subtracting each frame's own arena noise (**−0.1611 [−0.1994,
+−0.1217]**, further from zero). §0 fixed the reading in advance: *a standard
+pixel measure finds a context effect where the island does not; the island is
+the worse instrument.* The **magnitude** is not established — the only arm
+defined everywhere is ezTrack's untransplanted absolute threshold, a pixel count
+tuned on 320x240 for a 640x480 corpus — and it is not new biology either, since
+keypoint speed already said animals move 24% less in A. What is new is that the
+crude channel carries the contrast on held-out animals and the island does not.
+
+**Q1 refused by one animal, and the bar did not move.** 19 animals yield a
+defined rank correlation against a registered minimum of 20; the value is **not
+reported**. The diagnosis is the useful part: **90.7% of cells hold exactly zero
+island frames**, so at 0.54% prevalence the island is too sparse to
+rank-correlate at cell resolution. The convergent-validity question survives at
+segment resolution and belongs in its own registration.
+
+**The held-pose question is settled, against the incumbent description.** A
+census of 1,440 recordings and **43,206** zero-ego-speed frames: **14.2%
+duplicate video frames, 9.6% tracking dropouts, 76.1% genuine immobility**, and
+the dropout share falls to 0.9% at the most generous margin. `CONTEXT.md` and
+`CONTEXT_CONTROLS.md` carry the correction, as registered, and their intervals
+are unchanged — what changed is what conditioning on held poses *means*.
+
+**Two defects only running could find.** **D17**: §3's noise-derived cutoff and
+§4's percentile threshold are each defensible alone and degenerate together, so
+27 of 28 arms could not be read and the registered headline was degenerate on
+62% of cells. **D18**: §7's refusal compared grey levels with a fraction and
+therefore fired on every possible result; replaced by a correction that could
+have failed and did not.
+
 ## Open
 
 Steps 3–4, with **four** arms and the MDL entropy normalisation: a flattened

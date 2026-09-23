@@ -146,3 +146,41 @@ the effect, which is a different and weaker statement than "it is clean".
    registration meant to build.
 2. **A tracking-quality covariate in any future context contrast.** Held-frame
    share moves with context and is not going to stop.
+
+---
+
+## CORRECTION (2026-09-23) — "a dropout, not a slow animal" is wrong for most of these frames
+
+Registered in `PIXEL_PREREGISTRATION.md` §6 and settled in `PIXEL_PILOT.md` §4,
+by a **census** of all 1,440 eligible `fit` recordings and **43,206**
+zero-ego-speed frames, classified against each recording's **own** arena noise
+floor:
+
+| | duplicate video frame | tracking dropout | genuine immobility |
+|---|---|---|---|
+| headline (literal §6 margin) | **14.2%** | **9.6%** | **76.1%** |
+| margin 0.1% of animal area | 14.2% | 2.7% | 83.0% |
+| margin 1% of animal area | 14.2% | 0.9% | 84.9% |
+
+**Wherever this document calls a held pose "a dropout, not a slow animal", that
+is correct for at most 9.6% of such frames and for as little as 0.9%.** Three
+quarters or more are the animal genuinely holding still — the pixels under it do
+not move either — and **14.2% are duplicate video frames**, an encoder artefact
+in which no time passes at all and which is neither behaviour nor tracking.
+
+**What this does and does not change.** It does not touch any number above: the
+held-frame arms were computed on the frames themselves, not on the
+interpretation of them, so every interval stands as printed. It changes what
+those arms *mean* — a contrast conditioned on held poses is mostly a contrast
+conditioned on **immobility**, which is much closer to the object under study
+than a contrast conditioned on tracking failure, and the reassurance it offers
+is correspondingly weaker.
+
+**The 6.8× context asymmetry in held frames is not explained by this** and is now
+harder to attribute to tracking quality: if most held frames are genuine
+immobility, an asymmetry in them is partly an asymmetry in **behaviour**. The
+independent freeze measure agrees — animals freeze more in Context A
+(`PIXEL_PILOT.md`: B − A = −0.1264 [−0.1706, −0.0851], p = 0.0005).
+
+**The error was mine**, in describing a category by its most worrying member
+rather than measuring it.

@@ -225,8 +225,17 @@ def combine(a) -> int:
     per: list[dict] = []
     frac: dict[str, dict] = {arm["name"]: {} for arm in arms}
     degen: dict[str, int] = {arm["name"]: 0 for arm in arms}
+    corr: dict[str, dict] = {arm["name"]: {} for arm in arms}
     seen: dict[str, int] = {arm["name"]: 0 for arm in arms}
-    tri = {"duplicate": 0, "dropout": 0, "immobile": 0, "n": 0}
+    # §6's "at or above the arena floor" leaves the MARGIN free, and at a
+    # cutoff derived from the floor the arena expectation is near zero -- so the
+    # literal reading makes a single changed pixel a dropout. A free choice
+    # inside an instrument is a variable (M10), so it is swept rather than
+    # picked: 0 is the literal reading, and the other two require the animal
+    # region to change by that fraction of its OWN area before it counts.
+    TRI_MARGINS = (0.0, 0.001, 0.01)
+    tri = {f"{m:g}": {"duplicate": 0, "dropout": 0, "immobile": 0, "n": 0}
+           for m in TRI_MARGINS}
     for r in man["recordings"]:
         z = _load(r["recording_id"])
         if z is None:
@@ -235,15 +244,14 @@ def combine(a) -> int:
         in_pilot = bool(r.get("in_pilot", True))
         keys = [str(k) for k in z["cutoff_keys"]]
         cutv = dict(zip(keys, [float(v) for v in z["cutoff_values"]]))
-        if in_pilot:
-            per.append({**r, "usable": usable,
-                        "floor_p9999": float(z["floor_p9999"]),
-                        "mt_cutoff": float(cutv["m2"]),
-                        "n_arena_pairs": int(z["n_arena_pairs"]),
-                        "n_frames": int(z["n_frames"])})
+        per.append({**r, "usable": usable, "in_pilot": in_pilot,
+                    "floor_p9999": float(z["floor_p9999"]),
+                    "mt_cutoff": float(cutv["m2"]),
+                    "n_arena_pairs": int(z["n_arena_pairs"]),
+                    "n_frames": int(z["n_frames"])})
         if not usable:
             continue
-        key = (r["animal"], int(r["day"]), r["context"])
+        key = (r["animal"], int(r["day"]), r["context"])  # pilot arms only
         for arm in (arms if in_pilot else []):
             if arm["derived"]:
                 M = np.asarray(z[f"motion__m{arm['cutoff_multiplier']:g}"],
@@ -258,6 +266,19 @@ def combine(a) -> int:
                 degen[arm["name"]] += 1
             else:
                 frac[arm["name"]][key] = v
+            # §7, dimensionally: subtract the arena's OWN per-pixel noise rate,
+            # extrapolated to the whole frame, and rescore. A difference that
+            # survives this is not the cameras differing. D18.
+            akey = "eztrack" if not arm["derived"] \
+                else f"m{arm['cutoff_multiplier']:g}"
+            Ar = np.asarray(z[f"arena__{akey}"], dtype=np.float64)
+            na = np.maximum(np.asarray(z["n_arena"], dtype=np.float64), 1.0)
+            Mc = np.maximum(M - Ar * (float(z["n_pixels"]) / na), 0.0)
+            tc = float(arm["freeze_thresh"]) if not arm["derived"] \
+                else fz.thresh_of(Mc, arm["thresh_pct"])
+            vc = fz.freeze_fraction(Mc, tc, int(arm["min_frames"]))
+            if np.isfinite(vc):
+                corr[arm["name"]][key] = vc
         # §6, the held-pose trichotomy, on this recording's OWN arena.
         M = np.asarray(z["motion__m2"], dtype=np.float64)
         A = np.asarray(z["arena__m2"], dtype=np.float64)
@@ -269,20 +290,34 @@ def combine(a) -> int:
         if still is not None and still.any():
             dup = np.asarray(z["identical"], dtype=bool) & still
             rest = still & ~dup
-            drop = rest & ((M - A) > expect)
-            tri["duplicate"] += int(dup.sum())
-            tri["dropout"] += int(drop.sum())
-            tri["immobile"] += int((rest & ~drop).sum())
-            tri["n"] += int(still.sum())
+            for mg in TRI_MARGINS:
+                drop = rest & ((M - A) > expect + mg * animal_px)
+                k = f"{mg:g}"
+                tri[k]["duplicate"] += int(dup.sum())
+                tri[k]["dropout"] += int(drop.sum())
+                tri[k]["immobile"] += int((rest & ~drop).sum())
+                tri[k]["n"] += int(still.sum())
 
+    pilot = [r for r in per if r["in_pilot"]]
     obj = {"dataset": "luna", "arm": "pixel_pilot", "split": "fit",
-           "n_recordings": len(per),
-           "n_animals": len({r["animal"] for r in per})}
+           "n_recordings": len(pilot),
+           "n_animals": len({r["animal"] for r in pilot})}
+    cobj = {**obj, "n_recordings": len(per),
+            "n_animals": len({r["animal"] for r in per})}
     reads: dict = {}
-    fl = fz.floor_read(per, scored_object={**obj, "arm": "arena_floor"},
-                       n_effective=len({r["animal"] for r in per}))
+    # The arena floor and its context contrast describe the CAMERA, not
+    # behaviour, so §7's reason for holding this to a pilot does not reach them
+    # and they are reported over the whole eligible census as well. The
+    # registered 300 comes first and is the one the registration governs; the
+    # census is the better-powered restatement of the same quantity, labelled.
+    fl = fz.floor_read(pilot, scored_object={**obj, "arm": "arena_floor"},
+                       n_effective=len({r["animal"] for r in pilot}))
     reads["arena_floor"] = fl.to_dict()
-    log("  " + fl.line())
+    log("  registered-300 " + fl.line())
+    flc = fz.floor_read(per, scored_object={**cobj, "arm": "arena_floor_census"},
+                        n_effective=len({r["animal"] for r in per}))
+    reads["arena_floor_census"] = flc.to_dict()
+    log("  census-1440    " + flc.line())
 
     grid = {a["name"]: {"n_cells": seen[a["name"]],
                         "n_degenerate": degen[a["name"]],
@@ -293,14 +328,21 @@ def combine(a) -> int:
     reads["grid_degeneracy"] = _degeneracy_read(grid, obj).to_dict()
     log("  " + _degeneracy_read(grid, obj).line())
 
-    reads["floor_contrast"] = _floor_contrast(per, obj).to_dict()
-    log("  " + _floor_contrast(per, obj).line())
+    fc = _floor_contrast(pilot, obj)
+    reads["floor_contrast"] = fc.to_dict()
+    log("  registered-300 " + fc.line())
+    fcc = _floor_contrast(per, {**cobj, "arm": "census"})
+    reads["floor_contrast_census"] = fcc.to_dict()
+    log("  census-1440    " + fcc.line())
 
     occ, _den = _island_occupancy()
     reads.update(_q1(occ, frac, arms, obj, grid))
-    reads.update(_q2(frac, arms, obj, fl, grid))
-    reads["trichotomy"] = _tri_read(tri, obj).to_dict()
-    log("  " + _tri_read(tri, obj).line())
+    reads.update(_q2(frac, arms, obj, flc, grid, corr))
+    for mg, counts in sorted(tri.items(), key=lambda kv: float(kv[0])):
+        rd = _tri_read(counts, obj, margin=float(mg),
+                       headline=float(mg) == 0.0)
+        reads[f"trichotomy|{mg}"] = rd.to_dict()
+        log("  " + rd.line())
 
     out = a.out or config.PATHS.result("pixel_pilot.json")
     write_json({**anchors.header(anchors.LUNA, stage="pixel_pilot",
@@ -313,6 +355,7 @@ def combine(a) -> int:
                                      "ezTrack is NOT installed"),
                 "seed": SEED, "fps": fps, "arms": arms, "grid": grid,
                 "recordings": per, "trichotomy": tri,
+                "trichotomy_margins": list(TRI_MARGINS),
                 "reads": reads}, out)
     log(f"  wrote {out}")
     return 0
@@ -482,7 +525,7 @@ def _q1(occ, frac, arms, obj, grid) -> dict:
     return reads
 
 
-def _q2(frac, arms, obj, floor_read, grid) -> dict:
+def _q2(frac, arms, obj, floor_read, grid, corr) -> dict:
     """Does the FREEZE SCORE separate A from B on fit? §0's re-posed question."""
     reads: dict = {}
     verdicts: dict[str, str] = {}
@@ -511,9 +554,19 @@ def _q2(frac, arms, obj, floor_read, grid) -> dict:
         fl = boot.pair_flip_null(d, al["pair_key"], n_perm=N_BOOT, seed=SEED)
         n_an = len(set(al["animal"]))
         excl = float(ci["hi"]) < 0 or float(ci["lo"]) > 0
-        eff = abs(float(ci["point"]))
-        # §7: a sensor-level difference larger than the effect is not behaviour.
-        conf = np.isfinite(gap) and eff > 0 and gap > eff
+        # §7, as D18 repairs it. The registered rule compared the arena floor's
+        # context difference (GREY LEVELS) with the freeze effect (a FRACTION),
+        # which is not a comparison. The dimensionally sound test is to subtract
+        # each frame's own arena noise rate, extrapolated to the whole frame,
+        # rescore, and ask whether the effect survives and keeps its sign.
+        ac = _aligned(corr[arm["name"]], {})
+        cci = (boot.animal_interval(ac["diff"], ac["animal"], how="mean",
+                                    n_boot=N_BOOT, seed=SEED)
+               if ac["n_pairs"] >= 2 else None)
+        survives = bool(cci is not None and excl
+                        and (float(cci["point"]) < 0) == (float(ci["point"]) < 0)
+                        and (float(cci["hi"]) < 0 or float(cci["lo"]) > 0))
+        conf = excl and not survives
         v = "INCONCLUSIVE" if conf else ("PASS" if excl else "FAIL")
         verdicts[arm["name"]] = v
         rd = Read(v, {**obj, "arm": f"q2|{arm['name']}"},
@@ -522,14 +575,25 @@ def _q2(frac, arms, obj, floor_read, grid) -> dict:
                    f"cells, pair-flip p = {fl['p_two_sided']:.4f}. Incumbents: "
                    f"the island on fit -0.00216 [-0.00536, +0.00123], on report "
                    f"-0.00811 [-0.01520, -0.00243]"
-                   + (f". INCONCLUSIVE by §7: the per-context arena floors "
-                      f"differ by {gap:.2f} grey levels, larger than the effect "
-                      f"under test, and a sensor-level difference bigger than "
-                      f"the effect is not a behavioural result" if conf else "")),
+                   + (f". Noise-corrected (each frame's own arena rate "
+                      f"subtracted, extrapolated to the whole frame): "
+                      f"{cci['point']:+.5f} [{cci['lo']:+.5f}, {cci['hi']:+.5f}]"
+                      if cci is not None else "")
+                   + (". INCONCLUSIVE by §7: the effect does NOT survive that "
+                      "correction, so it cannot be separated from the cameras "
+                      "differing" if conf else
+                      (". The effect SURVIVES the correction with its sign, so "
+                       "§7's confound does not account for it" if excl else ""))
+                   + (f". The arenas' own floors differ by {gap:.2f} grey levels "
+                      f"(median), reported because §7 requires it beside every "
+                      f"cross-context pixel number" if np.isfinite(gap) else "")),
                   n_effective=n_an,
                   detail={"ci": dict(ci), "flip": dict(fl),
                           "n_pairs": al["n_pairs"],
-                          "arena_context_gap": gap})
+                          "noise_corrected_ci": (dict(cci) if cci is not None
+                                                 else None),
+                          "survives_noise_correction": survives,
+                          "arena_context_gap_grey_levels": gap})
         reads[f"q2|{arm['name']}"] = rd.to_dict()
         if arm["headline"]:
             log("  Q2 " + rd.line())
@@ -570,13 +634,26 @@ def _aligned(f: dict, den: dict) -> dict:
             "animal": animals, "n_pairs": len(diff)}
 
 
-def _tri_read(tri: dict, obj: dict) -> Read:
+#: Standing rule: refuse rather than report thin. A stratum below this many
+#: scored keypoint-frames is refused, whatever it would have said.
+MIN_STRATUM_FRAMES = 20_000
+
+
+def _tri_read(tri: dict, obj: dict, *, margin: float = 0.0,
+              headline: bool = True) -> Read:
     n = int(tri["n"])
+    arm = f"held_pose|margin={margin:g}"
     if n <= 0:
-        return Read("NOT_A_RESULT", {**obj, "arm": "held_pose"},
-                    "no zero-ego-speed frames were reached", n_effective=0)
+        return Read("NOT_A_RESULT", {**obj, "arm": arm},
+                    "no zero-ego-speed frames were reached", n_effective=1)
+    if n < MIN_STRATUM_FRAMES:
+        return Read("NOT_A_RESULT", {**obj, "arm": arm},
+                    (f"{n:,} zero-ego-speed frames is below the standing "
+                     f"{MIN_STRATUM_FRAMES:,}-frame floor, so the three shares "
+                     f"are not reported whatever they would have been"),
+                    n_effective=n)
     p = {k: tri[k] / n for k in ("duplicate", "dropout", "immobile")}
-    return Read("PASS", {**obj, "arm": "held_pose"},
+    return Read("PASS", {**obj, "arm": arm},
                 (f"of {n:,} zero-ego-speed frames, {100 * p['duplicate']:.1f}% "
                  f"are DUPLICATE VIDEO FRAMES (an encoder artefact, not "
                  f"behaviour), {100 * p['dropout']:.1f}% are TRACKING DROPOUTS "
@@ -584,8 +661,12 @@ def _tri_read(tri: dict, obj: dict) -> Read:
                  f"and {100 * p['immobile']:.1f}% are GENUINE IMMOBILITY. "
                  f"CONTEXT.md and CONTEXT_CONTROLS.md describe all of them as "
                  f"a tracking dropout, and that description is correct for "
-                 f"{100 * p['dropout']:.1f}% of them"),
-                n_effective=n, detail={"counts": tri, "shares": p})
+                 f"{100 * p['dropout']:.1f}% of them. Dropout margin "
+                 f"{margin:g} of the animal's own area"
+                 + ("; this is the HEADLINE, the literal reading of §6"
+                    if headline else "; a sensitivity arm, not the headline")),
+                n_effective=n, detail={"counts": tri, "shares": p,
+                                       "margin": margin, "headline": headline})
 
 
 def main(argv=None) -> int:

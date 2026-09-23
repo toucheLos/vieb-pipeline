@@ -647,3 +647,47 @@ cutoff derived from noise, and a threshold derived from the signal — were each
 defensible alone and degenerate together. Neither could have been caught by
 reading the registration; only by running it. Registering both and refusing is
 what made the interaction visible instead of publishing a corpus of zeros.
+
+---
+
+## D18 — §7's refusal compared grey levels with a fraction
+
+`PIXEL_PREREGISTRATION.md` §7 registered:
+
+> "if the floors themselves differ between A and B by more than the freeze
+> difference under test, **Q2 is reported `INCONCLUSIVE` regardless of its
+> interval**"
+
+**That is not a comparison.** The arena floor's context difference is in **grey
+levels** (measured: 3.25 at the median); the freeze effect is a **fraction of
+frames** (measured: 0.126). `3.25 > 0.126` is arithmetic on incompatible units,
+and as written the rule refuses **every** Q2 result that could ever arise, because
+a grey-level difference above 1 always exceeds a fraction below 1. The first run
+duly returned `INCONCLUSIVE` on exactly that comparison.
+
+**The repair, in the same spirit and in one unit.** §7's mechanism is that a
+noisier arena inflates the changed-pixel count. That is directly measurable: the
+scan already stores, per frame, the changed-pixel count restricted to **arena**
+pixels. So each frame's own arena rate is extrapolated to the whole frame and
+subtracted,
+
+    Motion_corrected = max(Motion − Motion_arena × n_pixels / n_arena, 0)
+
+the arm is rescored on the corrected series, and **Q2 is `INCONCLUSIVE` unless
+the effect survives the correction with its sign and an interval excluding
+zero.** Same intent — a sensor-level difference must not be read as behaviour —
+expressed as a test that can fail rather than one that always fires.
+
+**It is a real test, not a formality.** It had to survive on data it could have
+failed on: the correction moves the effect from −0.1264 [−0.1706, −0.0851] to
+**−0.1611 [−0.1994, −0.1217]**, i.e. *away* from zero. The arenas' own floors
+differ in the direction that would **shrink** the observed effect — Context A is
+noisier, and noise inflates `Motion`, which suppresses detected freezing in A —
+so the raw estimate was conservative, and removing the noise enlarges it. The
+floor difference is still reported beside every cross-context pixel number, as
+§7 requires.
+
+**What this says about the method.** The registration named the right confound
+and the right direction, and still specified a check that could not be run. A
+refusal rule is a piece of arithmetic and needs its units audited exactly like a
+threshold does — this is **M13** applied to a gate rather than to a constant.
