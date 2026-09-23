@@ -436,6 +436,44 @@ trends — so this phase is decisive about slow frames and silent about fast one
 never reimplemented here, so it cannot be applied to a freshly corrupted array.
 The pre-registration listed it; it was dropped and that is recorded.
 
+## Held-out replication — the island's context effect does not survive
+
+`results/FIT_REPLICATION.md`, registered alone as `28f9d0d` before the code
+existed. The frozen detector ran on the **149 `fit` animals**, and each of their
+**108,678** segments was assigned to the `report` island by distance to the
+island's own members at the frozen **θ = 0.18998**, normalised by the `report`
+arm's scale. **Nothing was re-clustered and no PCA was refitted** — the bank's
+PCA is full-rank, so it is a rotation and raw-space distances reproduce stored
+ones exactly (ratio 1.0000 on 7/7 stored neighbour pairs, checked first).
+
+**The transfer rule passed its own gate.** Fit segments land within θ of an
+island member at **0.541% [0.389%, 0.705%]** against **0.192% [0.123%, 0.276%]**
+for a duration-and-speed-matched bank of 361 non-island `report` segments —
+2.82×, non-overlapping, balance |SMD| 0.0240 checked before scoring. And the
+rule *is* the single-linkage membership criterion rather than a stand-in for it:
+run back over `report` it selects exactly the 361 labelled members, 0 admitted
+and 0 missed. **That agreement is a tautology** — θ is the merge height that
+defined the clump — and is reported as one.
+
+**The island recurs; its context asymmetry does not.** Prevalence reproduces
+almost exactly (0.561% of report segments, 0.541% of fit). But occupancy B − A
+is **−0.00216 [−0.00536, +0.00123]**, p = **0.2020**, over 739 cells and 149
+animals, against the published **−0.00811 [−0.01520, −0.00243]**, p = 0.0050.
+A / B falls from **2.71× to 1.34×**, and the gap closes from both sides — A
+occupancy down a third, B occupancy up a third.
+
+**Not an underpowered null.** MDE 0.0047 over 739 pairs against `report`'s own
+0.0087 over 439 — **the held-out split is the better-powered test** — and power
+against the published point estimate is **99.8%**. What it does *not* exclude is
+an effect a third that size: against −0.00243 power is only 30.5%, and the two
+intervals still overlap over 22.9% of the report interval's width.
+
+So `CONTEXT.md`'s headline is now a **`report`-split finding that did not
+replicate**, qualified rather than withdrawn, and it must be written that way
+wherever it appears. **D15** records that the registration's phrase
+"length-and-speed-matched" was ambiguous and that the executed check matches the
+*target* bank, the only reading that is not circular.
+
 ## Open
 
 Steps 3–4, with **four** arms and the MDL entropy normalisation: a flattened

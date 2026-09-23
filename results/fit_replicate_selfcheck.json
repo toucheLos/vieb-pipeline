@@ -1,0 +1,102 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a post-hoc instrument diagnostic"
+  },
+  "corpus": "luna",
+  "diagnostic": "NOT a result; see DEVIATIONS.md D10",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "reads": {
+    "selfcheck": {
+      "degenerate": 0,
+      "detail": {
+        "agreement_is_tautological": 1,
+        "chaining": "not performed; conservative",
+        "identical_to_labels": 1,
+        "labels": {
+          "ci": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": -0.0024324024793461172,
+            "lo": -0.015197907015411752,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 89,
+            "n_boot": 2000,
+            "n_units": 439,
+            "point": -0.008114690381327477
+          },
+          "mean_A": 0.012754413092408386,
+          "mean_B": 0.004697829376649968,
+          "n_pairs": 439,
+          "n_selected": 361
+        },
+        "n_label_only": 0,
+        "n_rule_only": 0,
+        "rule": {
+          "ci": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": -0.0024324024793461172,
+            "lo": -0.015197907015411752,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 89,
+            "n_boot": 2000,
+            "n_units": 439,
+            "point": -0.008114690381327477
+          },
+          "mean_A": 0.012754413092408386,
+          "mean_B": 0.004697829376649968,
+          "n_pairs": 439,
+          "n_selected": 361
+        }
+      },
+      "n_effective": 89,
+      "reason": "DIAGNOSTIC, AND ITS AGREEMENT IS A TAUTOLOGY: on the 89 report animals the rule selects 361 segments against 361 labelled members, 0 admitted that the labels exclude and 0 members missed, so the two contrasts are IDENTICAL (-0.00811 [-0.01520, -0.00243] against -0.00811 [-0.01520, -0.00243]). This could not have come out otherwise: theta IS the single-linkage merge height that defined the clump, so no unfaithful rule was detectable here. What it establishes is that the rule is the membership criterion itself rather than a lossy stand-in -- applied one step, without chaining through new points, so it can only UNDER-count on fit and cannot manufacture a null. Scores no hypothesis",
+      "saturation": null,
+      "scored_object": {
+        "arm": "transfer_rule_selfcheck",
+        "clump": 0,
+        "dataset": "luna",
+        "group": "shape",
+        "split": "report",
+        "theta": 0.18998060778738327
+      },
+      "verdict": "NOT_A_RESULT"
+    }
+  },
+  "scale": 25.319997787475586,
+  "stage": "fit_replicate_selfcheck",
+  "theta": 0.18998060778738327
+}

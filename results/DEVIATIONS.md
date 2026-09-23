@@ -517,3 +517,44 @@ this is now measured in both colour and amplitude rather than assumed in either.
 colour. Its amplitudes are large relative to the noise in every cell that
 matters, so the effect is expected to be small, but that is an expectation and
 it is recorded as untested rather than claimed.
+
+---
+
+## D15 — the independence check matches the TARGET, not the source
+
+`FIT_REPLICATION_PREREGISTRATION.md` §3 asks for two rates: **(a)** the fraction
+of fit segments that transfer, and **(b)** the fraction of "length-and-speed-
+matched fit segments" that transfer. **That phrase is ambiguous, and one of its
+two readings cannot be executed at all.**
+
+**The unimplementable reading.** `controls.matched_partners(is_target, ...)`
+needs a target group to match *against*. On the fit side, before the transfer
+runs, **no group exists**. The only candidate is the set of fit segments that
+transferred — so "matched fit segments" would be matched to the transferred set,
+and (b) would be the transfer rate of segments selected for resembling the
+transferred ones. That is circular, and its answer is guaranteed high whatever
+the truth is.
+
+**The reading that makes §3's stated logic true.** §3's own rationale is that a
+fit segment landing inside θ of a **report member** could reflect a shared
+low-speed regime. Testing that requires varying **which report segments are the
+target**. So (b) is the fraction of the *same* fit segments that land within the
+*same* θ of a second bank: **361 non-island report segments matched to the 361
+island members** on joint (log duration, log mean speed), within animal, without
+replacement, balance precondition |SMD| < 0.10.
+
+Every other constraint §3 sets is honoured exactly: same matching machinery,
+same bound, same variables, balance failure refuses the stage, no re-drawing.
+The balance read ran **before any fit segment was scored** and passed at worst
+|SMD| **0.0240** (log_duration_s +0.0081, log_mean_speed_bl_s −0.0240) over 361
+pairs.
+
+**What (b) now means.** *Do fit segments land near the island more often than
+near an equally slow, equally long set of report segments that are not the
+island?* If not, θ is measuring duration and speed, and the island contributes
+nothing to the assignment.
+
+**Recorded rather than silently fixed** because the registration is committed
+and the executed check is narrower than one of its two readings. The ambiguity
+was mine; the disambiguation was forced by §3's rationale, not chosen after
+seeing a number.
