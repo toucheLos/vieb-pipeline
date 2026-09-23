@@ -42,6 +42,7 @@ Nothing in this module decides anything on its own.
 """
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Any, Sequence
 
 import numpy as np
@@ -196,6 +197,19 @@ def pole_features(block: npt.ArrayLike, *, fps: float,
     return out
 
 
+@lru_cache(maxsize=64)
+def _tapers(n: int, nw: float, k: int) -> F64:
+    """`dpss(n, nw, k)`, memoised on its arguments.
+
+    `dpss` solves an eigenproblem and is deterministic in `(n, nw, k)`, of which
+    there are a handful across this repo -- window lengths come from a registered
+    grid. Recomputing it per window made the grooming sweep's ~170,000 spectra
+    dominated by taper construction. The cache changes no number: the returned
+    array is bit-identical and is never written to by callers.
+    """
+    return np.asarray(dpss(n, nw, k), dtype=np.float64)
+
+
 def multitaper_psd(x: npt.ArrayLike, *, fps: float, nw: float = NW,
                    k: int = N_TAPERS) -> tuple[F64, F64]:
     """`(freq, psd)` by Thomson's method. Averaged over channels.
@@ -211,7 +225,7 @@ def multitaper_psd(x: npt.ArrayLike, *, fps: float, nw: float = NW,
     if n < 8:
         return np.zeros(0), np.zeros(0)
     kk = max(1, min(int(k), int(2 * nw) - 1))
-    tapers = dpss(n, nw, kk)
+    tapers = _tapers(n, float(nw), kk)
     a = a - a.mean(axis=0, keepdims=True)
     freq = np.asarray(np.fft.rfftfreq(n, d=1.0 / float(fps)),
                       dtype=np.float64)
