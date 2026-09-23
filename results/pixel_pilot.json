@@ -1,0 +1,5306 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a 300-recording pilot"
+  },
+  "arms": [
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m1_p10_s0.25",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m1_p10_s0.5",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m1_p10_s1",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m1_p25_s0.25",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m1_p25_s0.5",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m1_p25_s1",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m1_p40_s0.25",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m1_p40_s0.5",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 1.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m1_p40_s1",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m2_p10_s0.25",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m2_p10_s0.5",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m2_p10_s1",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m2_p25_s0.25",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 1,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m2_p25_s0.5",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m2_p25_s1",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m2_p40_s0.25",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m2_p40_s0.5",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 2.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m2_p40_s1",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m4_p10_s0.25",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m4_p10_s0.5",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m4_p10_s1",
+      "thresh_pct": 10.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m4_p25_s0.25",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m4_p25_s0.5",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m4_p25_s1",
+      "thresh_pct": 25.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 8,
+      "min_freeze_s": 0.25,
+      "name": "m4_p40_s0.25",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 15,
+      "min_freeze_s": 0.5,
+      "name": "m4_p40_s0.5",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": 4.0,
+      "derived": 1,
+      "headline": 0,
+      "min_frames": 30,
+      "min_freeze_s": 1.0,
+      "name": "m4_p40_s1",
+      "thresh_pct": 40.0
+    },
+    {
+      "cutoff_multiplier": null,
+      "derived": 0,
+      "freeze_thresh": 200.0,
+      "headline": 0,
+      "min_frames": 15,
+      "mt_cutoff": 10.0,
+      "name": "eztrack_default",
+      "note": "ezTrack's published defaults applied verbatim. UNTRANSPLANTED: freeze_thresh is a pixel COUNT set on 320x240 video and this corpus is 640x480, 4x the pixels; min_duration is in FRAMES. Reported to show the size of the error, never adopted"
+    }
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "fps": 30.0,
+  "grid": {
+    "eztrack_default": {
+      "degenerate_share": 0.0,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 0,
+      "readable": 1
+    },
+    "m1_p10_s0.25": {
+      "degenerate_share": 0.31666666666666665,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 95,
+      "readable": 0
+    },
+    "m1_p10_s0.5": {
+      "degenerate_share": 0.31666666666666665,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 95,
+      "readable": 0
+    },
+    "m1_p10_s1": {
+      "degenerate_share": 0.31666666666666665,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 95,
+      "readable": 0
+    },
+    "m1_p25_s0.25": {
+      "degenerate_share": 0.11333333333333333,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 34,
+      "readable": 0
+    },
+    "m1_p25_s0.5": {
+      "degenerate_share": 0.11333333333333333,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 34,
+      "readable": 0
+    },
+    "m1_p25_s1": {
+      "degenerate_share": 0.11333333333333333,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 34,
+      "readable": 0
+    },
+    "m1_p40_s0.25": {
+      "degenerate_share": 0.056666666666666664,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 17,
+      "readable": 0
+    },
+    "m1_p40_s0.5": {
+      "degenerate_share": 0.056666666666666664,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 17,
+      "readable": 0
+    },
+    "m1_p40_s1": {
+      "degenerate_share": 0.056666666666666664,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 17,
+      "readable": 0
+    },
+    "m2_p10_s0.25": {
+      "degenerate_share": 0.85,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 255,
+      "readable": 0
+    },
+    "m2_p10_s0.5": {
+      "degenerate_share": 0.85,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 255,
+      "readable": 0
+    },
+    "m2_p10_s1": {
+      "degenerate_share": 0.85,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 255,
+      "readable": 0
+    },
+    "m2_p25_s0.25": {
+      "degenerate_share": 0.6233333333333333,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 187,
+      "readable": 0
+    },
+    "m2_p25_s0.5": {
+      "degenerate_share": 0.6233333333333333,
+      "headline": 1,
+      "n_cells": 300,
+      "n_degenerate": 187,
+      "readable": 0
+    },
+    "m2_p25_s1": {
+      "degenerate_share": 0.6233333333333333,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 187,
+      "readable": 0
+    },
+    "m2_p40_s0.25": {
+      "degenerate_share": 0.42,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 126,
+      "readable": 0
+    },
+    "m2_p40_s0.5": {
+      "degenerate_share": 0.42,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 126,
+      "readable": 0
+    },
+    "m2_p40_s1": {
+      "degenerate_share": 0.42,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 126,
+      "readable": 0
+    },
+    "m4_p10_s0.25": {
+      "degenerate_share": 0.98,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 294,
+      "readable": 0
+    },
+    "m4_p10_s0.5": {
+      "degenerate_share": 0.98,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 294,
+      "readable": 0
+    },
+    "m4_p10_s1": {
+      "degenerate_share": 0.98,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 294,
+      "readable": 0
+    },
+    "m4_p25_s0.25": {
+      "degenerate_share": 0.9066666666666666,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 272,
+      "readable": 0
+    },
+    "m4_p25_s0.5": {
+      "degenerate_share": 0.9066666666666666,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 272,
+      "readable": 0
+    },
+    "m4_p25_s1": {
+      "degenerate_share": 0.9066666666666666,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 272,
+      "readable": 0
+    },
+    "m4_p40_s0.25": {
+      "degenerate_share": 0.76,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 228,
+      "readable": 0
+    },
+    "m4_p40_s0.5": {
+      "degenerate_share": 0.76,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 228,
+      "readable": 0
+    },
+    "m4_p40_s1": {
+      "degenerate_share": 0.76,
+      "headline": 0,
+      "n_cells": 300,
+      "n_degenerate": 228,
+      "readable": 0
+    }
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "reads": {
+    "arena_floor": {
+      "degenerate": 0,
+      "detail": {
+        "by_context": {
+          "A": {
+            "mean": 16.093333333333334,
+            "n": 150,
+            "sd": 7.477345351948394
+          },
+          "B": {
+            "mean": 15.233333333333333,
+            "n": 150,
+            "sd": 16.831345265462
+          }
+        },
+        "context_gap": 0.8600000000000012,
+        "eztrack_default": 10.0,
+        "n_refused": 0,
+        "n_usable": 300,
+        "span": [
+          6.5,
+          116.5
+        ]
+      },
+      "n_effective": 30,
+      "reason": "the arena sets its own cutoff on all 300 recordings: mt_cutoff spans 6.50 to 116.50 grey levels against ezTrack's published default of 10, by context A 16.09 (n=150), B 15.23 (n=150), a difference of 0.86. 0 recordings refused for too few arena pixel-pairs",
+      "saturation": null,
+      "scored_object": {
+        "arm": "arena_floor",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "PASS"
+    },
+    "grid_degeneracy": {
+      "degenerate": 0,
+      "detail": {
+        "grid": {
+          "eztrack_default": {
+            "degenerate_share": 0.0,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 0,
+            "readable": 1
+          },
+          "m1_p10_s0.25": {
+            "degenerate_share": 0.31666666666666665,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 95,
+            "readable": 0
+          },
+          "m1_p10_s0.5": {
+            "degenerate_share": 0.31666666666666665,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 95,
+            "readable": 0
+          },
+          "m1_p10_s1": {
+            "degenerate_share": 0.31666666666666665,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 95,
+            "readable": 0
+          },
+          "m1_p25_s0.25": {
+            "degenerate_share": 0.11333333333333333,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 34,
+            "readable": 0
+          },
+          "m1_p25_s0.5": {
+            "degenerate_share": 0.11333333333333333,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 34,
+            "readable": 0
+          },
+          "m1_p25_s1": {
+            "degenerate_share": 0.11333333333333333,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 34,
+            "readable": 0
+          },
+          "m1_p40_s0.25": {
+            "degenerate_share": 0.056666666666666664,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 17,
+            "readable": 0
+          },
+          "m1_p40_s0.5": {
+            "degenerate_share": 0.056666666666666664,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 17,
+            "readable": 0
+          },
+          "m1_p40_s1": {
+            "degenerate_share": 0.056666666666666664,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 17,
+            "readable": 0
+          },
+          "m2_p10_s0.25": {
+            "degenerate_share": 0.85,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 255,
+            "readable": 0
+          },
+          "m2_p10_s0.5": {
+            "degenerate_share": 0.85,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 255,
+            "readable": 0
+          },
+          "m2_p10_s1": {
+            "degenerate_share": 0.85,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 255,
+            "readable": 0
+          },
+          "m2_p25_s0.25": {
+            "degenerate_share": 0.6233333333333333,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 187,
+            "readable": 0
+          },
+          "m2_p25_s0.5": {
+            "degenerate_share": 0.6233333333333333,
+            "headline": 1,
+            "n_cells": 300,
+            "n_degenerate": 187,
+            "readable": 0
+          },
+          "m2_p25_s1": {
+            "degenerate_share": 0.6233333333333333,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 187,
+            "readable": 0
+          },
+          "m2_p40_s0.25": {
+            "degenerate_share": 0.42,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 126,
+            "readable": 0
+          },
+          "m2_p40_s0.5": {
+            "degenerate_share": 0.42,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 126,
+            "readable": 0
+          },
+          "m2_p40_s1": {
+            "degenerate_share": 0.42,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 126,
+            "readable": 0
+          },
+          "m4_p10_s0.25": {
+            "degenerate_share": 0.98,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 294,
+            "readable": 0
+          },
+          "m4_p10_s0.5": {
+            "degenerate_share": 0.98,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 294,
+            "readable": 0
+          },
+          "m4_p10_s1": {
+            "degenerate_share": 0.98,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 294,
+            "readable": 0
+          },
+          "m4_p25_s0.25": {
+            "degenerate_share": 0.9066666666666666,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 272,
+            "readable": 0
+          },
+          "m4_p25_s0.5": {
+            "degenerate_share": 0.9066666666666666,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 272,
+            "readable": 0
+          },
+          "m4_p25_s1": {
+            "degenerate_share": 0.9066666666666666,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 272,
+            "readable": 0
+          },
+          "m4_p40_s0.25": {
+            "degenerate_share": 0.76,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 228,
+            "readable": 0
+          },
+          "m4_p40_s0.5": {
+            "degenerate_share": 0.76,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 228,
+            "readable": 0
+          },
+          "m4_p40_s1": {
+            "degenerate_share": 0.76,
+            "headline": 0,
+            "n_cells": 300,
+            "n_degenerate": 228,
+            "readable": 0
+          }
+        }
+      },
+      "n_effective": 300,
+      "reason": "1 of 28 registered arms are DEFINED on every cell. The headline arm m2_p25_s0.5 is degenerate on 62% of cells and the least degenerate arm eztrack_default on 0%. A degenerate arm drops the QUIETEST recordings, which is selection on the outcome, so no arm here can carry a verdict. \u00a74 defined FreezeThresh as a percentile of Motion, but at a cutoff derived from the arena floor Motion has a large atom at zero and a low percentile of it is zero",
+      "saturation": null,
+      "scored_object": {
+        "arm": "grid_degeneracy",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "PASS"
+    },
+    "q1|eztrack_default": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_constant": 11,
+        "n_animals_examined": 30,
+        "n_animals_usable": 19
+      },
+      "n_effective": 30,
+      "reason": "only 19 animals yield a defined rank correlation, against the registered minimum of 20. 11 of 30 examined animals have island occupancy that never varies across their cells -- 90.7% of cells hold exactly zero island frames -- so the island is too SPARSE at cell resolution to rank-correlate against anything",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|eztrack_default",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p10_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p25_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m1_p40_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m1_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 19
+      },
+      "n_effective": 19,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 19
+      },
+      "n_effective": 19,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p10_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 19
+      },
+      "n_effective": 19,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 28
+      },
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 28
+      },
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p25_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 28
+      },
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m2_p40_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 30
+      },
+      "n_effective": 30,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m2_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 5
+      },
+      "n_effective": 5,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 5
+      },
+      "n_effective": 5,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p10_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 5
+      },
+      "n_effective": 5,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 13
+      },
+      "n_effective": 13,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 13
+      },
+      "n_effective": 13,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p25_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 13
+      },
+      "n_effective": 13,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 22
+      },
+      "n_effective": 22,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 22
+      },
+      "n_effective": 22,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q1|m4_p40_s1": {
+      "degenerate": 0,
+      "detail": {
+        "n_animals_examined": 22
+      },
+      "n_effective": 22,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q1|m4_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|eztrack_default": {
+      "degenerate": 0,
+      "detail": {
+        "arena_context_gap": 0.8600000000000012,
+        "ci": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.08511341265550865,
+          "lo": -0.17058832999628595,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 30,
+          "n_boot": 2000,
+          "n_units": 150,
+          "point": -0.12642654513860682
+        },
+        "flip": {
+          "method": "within-(animal, day) pair sign flip; an animal-level label permutation is degenerate on this paired design",
+          "n_pairs": 150,
+          "n_perm": 2000,
+          "null_mean": 0.0006919520271278954,
+          "null_sd": 0.021946920281416274,
+          "observed": -0.12642654513860682,
+          "p_two_sided": 0.0005
+        },
+        "n_pairs": 150
+      },
+      "n_effective": 30,
+      "reason": "freeze fraction B-A -0.12643 [-0.17059, -0.08511] over 30 animals and 150 cells, pair-flip p = 0.0005. Incumbents: the island on fit -0.00216 [-0.00536, +0.00123], on report -0.00811 [-0.01520, -0.00243]. INCONCLUSIVE by \u00a77: the per-context arena floors differ by 0.86 grey levels, larger than the effect under test, and a sensor-level difference bigger than the effect is not a behavioural result",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|eztrack_default",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    "q2|m1_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 205,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 205,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p10_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 205,
+      "reason": "the arm is degenerate on 32% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 266,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 266,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p25_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 266,
+      "reason": "the arm is degenerate on 11% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 283,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 283,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m1_p40_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 283,
+      "reason": "the arm is degenerate on 6% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m1_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 45,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 45,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p10_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 45,
+      "reason": "the arm is degenerate on 85% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 113,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 113,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p25_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 113,
+      "reason": "the arm is degenerate on 62% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 174,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 174,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m2_p40_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 174,
+      "reason": "the arm is degenerate on 42% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m2_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p10_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 6,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p10_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p10_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 6,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p10_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p10_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 6,
+      "reason": "the arm is degenerate on 98% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p10_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p25_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p25_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p25_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p25_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p25_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 28,
+      "reason": "the arm is degenerate on 91% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p25_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p40_s0.25": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 72,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p40_s0.25",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p40_s0.5": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 72,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p40_s0.5",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "q2|m4_p40_s1": {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 72,
+      "reason": "the arm is degenerate on 76% of cells and those are the quietest recordings, so reading it would be selection on the outcome",
+      "saturation": null,
+      "scored_object": {
+        "arm": "q2|m4_p40_s1",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "trichotomy": {
+      "degenerate": 0,
+      "detail": {
+        "counts": {
+          "dropout": 1015,
+          "duplicate": 573,
+          "immobile": 4640,
+          "n": 6228
+        },
+        "shares": {
+          "dropout": 0.16297366730892743,
+          "duplicate": 0.09200385356454721,
+          "immobile": 0.7450224791265254
+        }
+      },
+      "n_effective": 6228,
+      "reason": "of 6,228 zero-ego-speed frames, 9.2% are DUPLICATE VIDEO FRAMES (an encoder artefact, not behaviour), 16.3% are TRACKING DROPOUTS (the animal's own pixels moved while its keypoints did not) and 74.5% are GENUINE IMMOBILITY. CONTEXT.md and CONTEXT_CONTROLS.md describe all of them as a tracking dropout, and that description is correct for 16.3% of them",
+      "saturation": null,
+      "scored_object": {
+        "arm": "held_pose",
+        "dataset": "luna",
+        "n_animals": 30,
+        "n_recordings": 300,
+        "split": "fit"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "recordings": [
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1369868282,
+      "n_frames": 6303,
+      "recording_id": "20251229_Box_1_CFD_Day_3_(Context_A)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1236101229,
+      "n_frames": 6302,
+      "recording_id": "20251230_Box_1_CFD_Day_4_(Context_A)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 19.75,
+      "mt_cutoff": 39.5,
+      "n_arena_pairs": 1267767068,
+      "n_frames": 6301,
+      "recording_id": "20251231_Box_1_CFD_Day_5_(Context_A)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1178353698,
+      "n_frames": 6302,
+      "recording_id": "20260101_Box_1_CFD_Day_6_(Context_A)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1477026477,
+      "n_frames": 6302,
+      "recording_id": "20260102_Box_1_CFD_Day_7_(Context_A)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1187686588,
+      "n_frames": 5392,
+      "recording_id": "20251229_Box_1_CFD_Day_3_(Context_B)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1287770165,
+      "n_frames": 5391,
+      "recording_id": "20251230_Box_1_CFD_Day_4_(Context_B)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1220942371,
+      "n_frames": 5392,
+      "recording_id": "20251231_Box_1_CFD_Day_5_(Context_B)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1193805149,
+      "n_frames": 5391,
+      "recording_id": "20260101_Box_1_CFD_Day_6_(Context_B)_132",
+      "usable": 1
+    },
+    {
+      "animal": "132",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.25,
+      "mt_cutoff": 6.5,
+      "n_arena_pairs": 1170051437,
+      "n_frames": 5392,
+      "recording_id": "20260102_Box_1_CFD_Day_7_(Context_B)_132",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1352030817,
+      "n_frames": 6301,
+      "recording_id": "20251214_Box_1_CFD_Day_3_(Context_A)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1287902712,
+      "n_frames": 6301,
+      "recording_id": "20251215_Box_1_CFD_Day_4_(Context_A)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1333891264,
+      "n_frames": 6303,
+      "recording_id": "20251216_Box_1_CFD_Day_5_(Context_A)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 11.75,
+      "mt_cutoff": 23.5,
+      "n_arena_pairs": 1327083145,
+      "n_frames": 6301,
+      "recording_id": "20251217_Box_1_CFD_Day_6_(Context_A)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1321306580,
+      "n_frames": 6302,
+      "recording_id": "20251218_Box_1_CFD_Day_7_(Context_A)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1163021957,
+      "n_frames": 5391,
+      "recording_id": "20251214_Box_1_CFD_Day_3_(Context_B)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1116753810,
+      "n_frames": 5391,
+      "recording_id": "20251215_Box_1_CFD_Day_4_(Context_B)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 8.75,
+      "mt_cutoff": 17.5,
+      "n_arena_pairs": 1151404175,
+      "n_frames": 5393,
+      "recording_id": "20251216_Box_1_CFD_Day_5_(Context_B)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1172857315,
+      "n_frames": 5392,
+      "recording_id": "20251217_Box_1_CFD_Day_6_(Context_B)_149",
+      "usable": 1
+    },
+    {
+      "animal": "149",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1155911144,
+      "n_frames": 5392,
+      "recording_id": "20251218_Box_1_CFD_Day_7_(Context_B)_149",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1310481350,
+      "n_frames": 6302,
+      "recording_id": "20251229_Box_1_CFD_Day_3_(Context_A)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 14.5,
+      "mt_cutoff": 29.0,
+      "n_arena_pairs": 1253705829,
+      "n_frames": 6301,
+      "recording_id": "20251230_Box_1_CFD_Day_4_(Context_A)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 9.5,
+      "mt_cutoff": 19.0,
+      "n_arena_pairs": 1202297159,
+      "n_frames": 6301,
+      "recording_id": "20251231_Box_1_CFD_Day_5_(Context_A)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1058884640,
+      "n_frames": 6301,
+      "recording_id": "20260101_Box_1_CFD_Day_6_(Context_A)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 14.25,
+      "mt_cutoff": 28.5,
+      "n_arena_pairs": 1036641954,
+      "n_frames": 6303,
+      "recording_id": "20260102_Box_1_CFD_Day_7_(Context_A)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1045513215,
+      "n_frames": 5393,
+      "recording_id": "20251229_Box_1_CFD_Day_3_(Context_B)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 981093908,
+      "n_frames": 5392,
+      "recording_id": "20251230_Box_1_CFD_Day_4_(Context_B)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 58.25,
+      "mt_cutoff": 116.5,
+      "n_arena_pairs": 1129754920,
+      "n_frames": 5392,
+      "recording_id": "20251231_Box_1_CFD_Day_5_(Context_B)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 966407178,
+      "n_frames": 5391,
+      "recording_id": "20260101_Box_1_CFD_Day_6_(Context_B)_235",
+      "usable": 1
+    },
+    {
+      "animal": "235",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1057268500,
+      "n_frames": 5391,
+      "recording_id": "20260102_Box_1_CFD_Day_7_(Context_B)_235",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 7.75,
+      "mt_cutoff": 15.5,
+      "n_arena_pairs": 1416288267,
+      "n_frames": 6303,
+      "recording_id": "20250331_Box_1_CFD_Day_3_(Context_A)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 19.5,
+      "mt_cutoff": 39.0,
+      "n_arena_pairs": 1395481884,
+      "n_frames": 6302,
+      "recording_id": "20250401_Box_1_CFD_Day_4_(Context_A)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1390191936,
+      "n_frames": 6302,
+      "recording_id": "20250402_Box_1_CFD_Day_5_(Context_A)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 18.25,
+      "mt_cutoff": 36.5,
+      "n_arena_pairs": 1222261003,
+      "n_frames": 6301,
+      "recording_id": "20250403_Box_1_CFD_Day_6_(Context_A)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1337365964,
+      "n_frames": 6302,
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_A)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 14.0,
+      "mt_cutoff": 28.0,
+      "n_arena_pairs": 1061218509,
+      "n_frames": 5391,
+      "recording_id": "20250331_Box_1_CFD_Day_3_(Context_B)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1281296710,
+      "n_frames": 5393,
+      "recording_id": "20250401_Box_1_CFD_Day_4_(Context_B)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 12.75,
+      "mt_cutoff": 25.5,
+      "n_arena_pairs": 1111522707,
+      "n_frames": 5392,
+      "recording_id": "20250402_Box_1_CFD_Day_5_(Context_B)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 13.75,
+      "mt_cutoff": 27.5,
+      "n_arena_pairs": 1144519583,
+      "n_frames": 5392,
+      "recording_id": "20250403_Box_1_CFD_Day_6_(Context_B)_572",
+      "usable": 1
+    },
+    {
+      "animal": "572",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1096083479,
+      "n_frames": 5391,
+      "recording_id": "20250404_Box_1_CFD_Day_7_(Context_B)_572",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1460590695,
+      "n_frames": 6303,
+      "recording_id": "20250317_Box_1_CFD_Day_3_(Context_A)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1471489765,
+      "n_frames": 6302,
+      "recording_id": "20250318_Box_1_CFD_Day_4_(Context_A)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1582114033,
+      "n_frames": 6303,
+      "recording_id": "20250319_Box_1_CFD_Day_5_(Context_A)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 9.75,
+      "mt_cutoff": 19.5,
+      "n_arena_pairs": 1393096619,
+      "n_frames": 6301,
+      "recording_id": "20250320_Box_1_CFD_Day_6_(Context_A)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 10.75,
+      "mt_cutoff": 21.5,
+      "n_arena_pairs": 1553196100,
+      "n_frames": 6302,
+      "recording_id": "20250321_Box_1_CFD_Day_7_(Context_A)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1224185391,
+      "n_frames": 5392,
+      "recording_id": "20250317_Box_1_CFD_Day_3_(Context_B)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1204223391,
+      "n_frames": 5393,
+      "recording_id": "20250318_Box_1_CFD_Day_4_(Context_B)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 17.5,
+      "mt_cutoff": 35.0,
+      "n_arena_pairs": 1341289352,
+      "n_frames": 5391,
+      "recording_id": "20250319_Box_1_CFD_Day_5_(Context_B)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1339831921,
+      "n_frames": 5391,
+      "recording_id": "20250320_Box_1_CFD_Day_6_(Context_B)_601",
+      "usable": 1
+    },
+    {
+      "animal": "601",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 7.75,
+      "mt_cutoff": 15.5,
+      "n_arena_pairs": 1261690668,
+      "n_frames": 5393,
+      "recording_id": "20250321_Box_1_CFD_Day_7_(Context_B)_601",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1318284849,
+      "n_frames": 6301,
+      "recording_id": "20250317_Box_1_CFD_Day_3_(Context_A)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1346129626,
+      "n_frames": 6302,
+      "recording_id": "20250318_Box_1_CFD_Day_4_(Context_A)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1330251305,
+      "n_frames": 6302,
+      "recording_id": "20250319_Box_1_CFD_Day_5_(Context_A)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 9.25,
+      "mt_cutoff": 18.5,
+      "n_arena_pairs": 1256590054,
+      "n_frames": 6302,
+      "recording_id": "20250320_Box_1_CFD_Day_6_(Context_A)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 9.75,
+      "mt_cutoff": 19.5,
+      "n_arena_pairs": 1450633048,
+      "n_frames": 6302,
+      "recording_id": "20250321_Box_1_CFD_Day_7_(Context_A)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1069408186,
+      "n_frames": 5392,
+      "recording_id": "20250317_Box_1_CFD_Day_3_(Context_B)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1164762685,
+      "n_frames": 5391,
+      "recording_id": "20250318_Box_1_CFD_Day_4_(Context_B)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1137054459,
+      "n_frames": 5391,
+      "recording_id": "20250319_Box_1_CFD_Day_5_(Context_B)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1216426564,
+      "n_frames": 5391,
+      "recording_id": "20250320_Box_1_CFD_Day_6_(Context_B)_609",
+      "usable": 1
+    },
+    {
+      "animal": "609",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1198917578,
+      "n_frames": 5392,
+      "recording_id": "20250321_Box_1_CFD_Day_7_(Context_B)_609",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 16.0,
+      "mt_cutoff": 32.0,
+      "n_arena_pairs": 1088051131,
+      "n_frames": 6301,
+      "recording_id": "20260420_Box_1_CFD_Day_3_(Context_A)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 10.75,
+      "mt_cutoff": 21.5,
+      "n_arena_pairs": 1134144615,
+      "n_frames": 6301,
+      "recording_id": "20260421_Box_1_CFD_Day_4_(Context_A)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 9.75,
+      "mt_cutoff": 19.5,
+      "n_arena_pairs": 1282219099,
+      "n_frames": 6301,
+      "recording_id": "20260422_Box_1_CFD_Day_5_(Context_A)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1177160660,
+      "n_frames": 6301,
+      "recording_id": "20260423_Box_1_CFD_Day_6_(Context_A)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 9.0,
+      "mt_cutoff": 18.0,
+      "n_arena_pairs": 1143351112,
+      "n_frames": 6301,
+      "recording_id": "20260424_Box_1_CFD_Day_7_(Context_A)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 26.75,
+      "mt_cutoff": 53.5,
+      "n_arena_pairs": 956588584,
+      "n_frames": 5392,
+      "recording_id": "20260420_Box_1_CFD_Day_3_(Context_B)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1037290447,
+      "n_frames": 5392,
+      "recording_id": "20260421_Box_1_CFD_Day_4_(Context_B)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1071074992,
+      "n_frames": 5391,
+      "recording_id": "20260422_Box_1_CFD_Day_5_(Context_B)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 891580355,
+      "n_frames": 5392,
+      "recording_id": "20260423_Box_1_CFD_Day_6_(Context_B)_782",
+      "usable": 1
+    },
+    {
+      "animal": "782",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1044653059,
+      "n_frames": 5392,
+      "recording_id": "20260424_Box_1_CFD_Day_7_(Context_B)_782",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1413898604,
+      "n_frames": 6302,
+      "recording_id": "20241118_Box_1_CFD_Day_3_(Context_A)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1370376442,
+      "n_frames": 6302,
+      "recording_id": "20241119_Box_1_CFD_Day_4_(Context_A)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 11.75,
+      "mt_cutoff": 23.5,
+      "n_arena_pairs": 1405239624,
+      "n_frames": 6302,
+      "recording_id": "20241120_Box_1_CFD_Day_5_(Context_A)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 9.75,
+      "mt_cutoff": 19.5,
+      "n_arena_pairs": 1471113502,
+      "n_frames": 6301,
+      "recording_id": "20241121_Box_1_CFD_Day_6_(Context_A)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1405425281,
+      "n_frames": 6302,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_A)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1142398982,
+      "n_frames": 5392,
+      "recording_id": "20241118_Box_1_CFD_Day_3_(Context_B)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1177329972,
+      "n_frames": 5391,
+      "recording_id": "20241119_Box_1_CFD_Day_4_(Context_B)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1287424086,
+      "n_frames": 5391,
+      "recording_id": "20241120_Box_1_CFD_Day_5_(Context_B)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 7.5,
+      "mt_cutoff": 15.0,
+      "n_arena_pairs": 1182489174,
+      "n_frames": 5391,
+      "recording_id": "20241121_Box_1_CFD_Day_6_(Context_B)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9005",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 7.75,
+      "mt_cutoff": 15.5,
+      "n_arena_pairs": 1203040678,
+      "n_frames": 5392,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_B)_9005",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1193095944,
+      "n_frames": 6302,
+      "recording_id": "20250310_Box_1_CFD_Day_3_(Context_A)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1236997874,
+      "n_frames": 6302,
+      "recording_id": "20250311_Box_1_CFD_Day_4_(Context_A)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 10.25,
+      "mt_cutoff": 20.5,
+      "n_arena_pairs": 1233894605,
+      "n_frames": 6301,
+      "recording_id": "20250312_Box_1_CFD_Day_5_(Context_A)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1164099867,
+      "n_frames": 6302,
+      "recording_id": "20250313_Box_1_CFD_Day_6_(Context_A)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1172855138,
+      "n_frames": 6303,
+      "recording_id": "20250314_Box_1_CFD_Day_7_(Context_A)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 997885324,
+      "n_frames": 5392,
+      "recording_id": "20250310_Box_1_CFD_Day_3_(Context_B)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 882114958,
+      "n_frames": 5393,
+      "recording_id": "20250311_Box_1_CFD_Day_4_(Context_B)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1065766875,
+      "n_frames": 5390,
+      "recording_id": "20250312_Box_1_CFD_Day_5_(Context_B)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1049368476,
+      "n_frames": 5391,
+      "recording_id": "20250313_Box_1_CFD_Day_6_(Context_B)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9036",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 980805373,
+      "n_frames": 5391,
+      "recording_id": "20250314_Box_1_CFD_Day_7_(Context_B)_9036",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1284542854,
+      "n_frames": 6302,
+      "recording_id": "20250526_Box_1_CFD_Day_3_(Context_A)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.75,
+      "mt_cutoff": 23.5,
+      "n_arena_pairs": 1298448961,
+      "n_frames": 6301,
+      "recording_id": "20250527_Box_1_CFD_Day_4_(Context_A)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 12.75,
+      "mt_cutoff": 25.5,
+      "n_arena_pairs": 1321352558,
+      "n_frames": 6301,
+      "recording_id": "20250528_Box_1_CFD_Day_5_(Context_A)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 12.25,
+      "mt_cutoff": 24.5,
+      "n_arena_pairs": 1405494947,
+      "n_frames": 6301,
+      "recording_id": "20250529_Box_1_CFD_Day_6_(Context_A)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 13.25,
+      "mt_cutoff": 26.5,
+      "n_arena_pairs": 1319759887,
+      "n_frames": 6301,
+      "recording_id": "20250530_Box_1_CFD_Day_7_(Context_A)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1073742451,
+      "n_frames": 5392,
+      "recording_id": "20250526_Box_1_CFD_Day_3_(Context_B)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1068385623,
+      "n_frames": 5391,
+      "recording_id": "20250527_Box_1_CFD_Day_4_(Context_B)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1144210260,
+      "n_frames": 5390,
+      "recording_id": "20250528_Box_1_CFD_Day_5_(Context_B)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1144213694,
+      "n_frames": 5391,
+      "recording_id": "20250529_Box_1_CFD_Day_6_(Context_B)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "9051",
+      "box": 1,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1124914995,
+      "n_frames": 5393,
+      "recording_id": "20250530_Box_1_CFD_Day_7_(Context_B)_9051",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1438057046,
+      "n_frames": 6303,
+      "recording_id": "20251117_Box_2_CFD_Day_3_(Context_A)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1453262418,
+      "n_frames": 6301,
+      "recording_id": "20251118_Box_2_CFD_Day_4_(Context_A)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1407752681,
+      "n_frames": 6303,
+      "recording_id": "20251119_Box_2_CFD_Day_5_(Context_A)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1386926440,
+      "n_frames": 6302,
+      "recording_id": "20251120_Box_2_CFD_Day_6_(Context_A)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1406007016,
+      "n_frames": 6302,
+      "recording_id": "20251121_Box_2_CFD_Day_7_(Context_A)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1185313205,
+      "n_frames": 5391,
+      "recording_id": "20251117_Box_2_CFD_Day_3_(Context_B)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1198459639,
+      "n_frames": 5392,
+      "recording_id": "20251118_Box_2_CFD_Day_4_(Context_B)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1172503606,
+      "n_frames": 5392,
+      "recording_id": "20251119_Box_2_CFD_Day_5_(Context_B)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1190944386,
+      "n_frames": 5391,
+      "recording_id": "20251120_Box_2_CFD_Day_6_(Context_B)_104",
+      "usable": 1
+    },
+    {
+      "animal": "104",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1271315506,
+      "n_frames": 5392,
+      "recording_id": "20251121_Box_2_CFD_Day_7_(Context_B)_104",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1586370074,
+      "n_frames": 6302,
+      "recording_id": "20251229_Box_2_CFD_Day_3_(Context_A)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1518686135,
+      "n_frames": 6301,
+      "recording_id": "20251230_Box_2_CFD_Day_4_(Context_A)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1545814588,
+      "n_frames": 6303,
+      "recording_id": "20251231_Box_2_CFD_Day_5_(Context_A)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1496881286,
+      "n_frames": 6303,
+      "recording_id": "20260101_Box_2_CFD_Day_6_(Context_A)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1533707706,
+      "n_frames": 6303,
+      "recording_id": "20260102_Box_2_CFD_Day_7_(Context_A)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1297971242,
+      "n_frames": 5392,
+      "recording_id": "20251229_Box_2_CFD_Day_3_(Context_B)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 3.25,
+      "mt_cutoff": 6.5,
+      "n_arena_pairs": 1177352423,
+      "n_frames": 5392,
+      "recording_id": "20251230_Box_2_CFD_Day_4_(Context_B)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1378980198,
+      "n_frames": 5391,
+      "recording_id": "20251231_Box_2_CFD_Day_5_(Context_B)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1290929904,
+      "n_frames": 5392,
+      "recording_id": "20260101_Box_2_CFD_Day_6_(Context_B)_134",
+      "usable": 1
+    },
+    {
+      "animal": "134",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1305583451,
+      "n_frames": 5392,
+      "recording_id": "20260102_Box_2_CFD_Day_7_(Context_B)_134",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1455989715,
+      "n_frames": 6303,
+      "recording_id": "20250210_Box_2_CFD_Day_3_(Context_A)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1539487410,
+      "n_frames": 6302,
+      "recording_id": "20250211_Box_2_CFD_Day_4_(Context_A)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1504303921,
+      "n_frames": 6303,
+      "recording_id": "20250212_Box_2_CFD_Day_5_(Context_A)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1519051455,
+      "n_frames": 6302,
+      "recording_id": "20250213_Box_2_CFD_Day_6_(Context_A)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 10.75,
+      "mt_cutoff": 21.5,
+      "n_arena_pairs": 1598844078,
+      "n_frames": 6301,
+      "recording_id": "20250214_Box_2_CFD_Day_7_(Context_A)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1278429731,
+      "n_frames": 5392,
+      "recording_id": "20250210_Box_2_CFD_Day_3_(Context_B)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1247533096,
+      "n_frames": 5391,
+      "recording_id": "20250211_Box_2_CFD_Day_4_(Context_B)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1295675941,
+      "n_frames": 5401,
+      "recording_id": "20250212_Box_2_CFD_Day_5_(Context_B)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1299788212,
+      "n_frames": 5391,
+      "recording_id": "20250213_Box_2_CFD_Day_6_(Context_B)_542",
+      "usable": 1
+    },
+    {
+      "animal": "542",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 8.25,
+      "mt_cutoff": 16.5,
+      "n_arena_pairs": 1305039645,
+      "n_frames": 5391,
+      "recording_id": "20250214_Box_2_CFD_Day_7_(Context_B)_542",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1169166595,
+      "n_frames": 6302,
+      "recording_id": "20260518_Box_2_CFD_Day_3_(Context_A)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1045314593,
+      "n_frames": 6302,
+      "recording_id": "20260519_Box_2_CFD_Day_4_(Context_A)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 9.75,
+      "mt_cutoff": 19.5,
+      "n_arena_pairs": 980906710,
+      "n_frames": 6302,
+      "recording_id": "20260520_Box_2_CFD_Day_5_(Context_A)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1006819967,
+      "n_frames": 6303,
+      "recording_id": "20260521_Box_2_CFD_Day_6_(Context_A)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1062522086,
+      "n_frames": 6301,
+      "recording_id": "20260522_Box_2_CFD_Day_7_(Context_A)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 891694057,
+      "n_frames": 5391,
+      "recording_id": "20260518_Box_2_CFD_Day_3_(Context_B)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 42.0,
+      "mt_cutoff": 84.0,
+      "n_arena_pairs": 926969479,
+      "n_frames": 5392,
+      "recording_id": "20260519_Box_2_CFD_Day_4_(Context_B)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 976684066,
+      "n_frames": 5391,
+      "recording_id": "20260520_Box_2_CFD_Day_5_(Context_B)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 817882578,
+      "n_frames": 5392,
+      "recording_id": "20260521_Box_2_CFD_Day_6_(Context_B)_666",
+      "usable": 1
+    },
+    {
+      "animal": "666",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 991372262,
+      "n_frames": 5392,
+      "recording_id": "20260522_Box_2_CFD_Day_7_(Context_B)_666",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 766368895,
+      "n_frames": 6302,
+      "recording_id": "20260413_Box_2_CFD_Day_3_(Context_A)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 739998693,
+      "n_frames": 6303,
+      "recording_id": "20260414_Box_2_CFD_Day_4_(Context_A)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 883218931,
+      "n_frames": 6302,
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_A)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 739084699,
+      "n_frames": 6303,
+      "recording_id": "20260416_Box_2_CFD_Day_6_(Context_A)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 925561469,
+      "n_frames": 6301,
+      "recording_id": "20260417_Box_2_CFD_Day_7_(Context_A)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 8.25,
+      "mt_cutoff": 16.5,
+      "n_arena_pairs": 685638333,
+      "n_frames": 5391,
+      "recording_id": "20260413_Box_2_CFD_Day_3_(Context_B)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 22.25,
+      "mt_cutoff": 44.5,
+      "n_arena_pairs": 803252332,
+      "n_frames": 5391,
+      "recording_id": "20260414_Box_2_CFD_Day_4_(Context_B)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 801573448,
+      "n_frames": 5390,
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 18.5,
+      "mt_cutoff": 37.0,
+      "n_arena_pairs": 893936558,
+      "n_frames": 5392,
+      "recording_id": "20260416_Box_2_CFD_Day_6_(Context_B)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "800H",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 845474623,
+      "n_frames": 5392,
+      "recording_id": "20260417_Box_2_CFD_Day_7_(Context_B)_800H",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1289636332,
+      "n_frames": 6303,
+      "recording_id": "20241118_Box_2_CFD_Day_3_(Context_A)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1033151224,
+      "n_frames": 6302,
+      "recording_id": "20241119_Box_2_CFD_Day_4_(Context_A)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1178731076,
+      "n_frames": 6302,
+      "recording_id": "20241120_Box_2_CFD_Day_5_(Context_A)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1131923714,
+      "n_frames": 6300,
+      "recording_id": "20241121_Box_2_CFD_Day_6_(Context_A)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1171313658,
+      "n_frames": 6301,
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 42.5,
+      "mt_cutoff": 85.0,
+      "n_arena_pairs": 1143167354,
+      "n_frames": 5866,
+      "recording_id": "20241118_Box_2_CFD_Day_3_(Context_B)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 917200056,
+      "n_frames": 5391,
+      "recording_id": "20241119_Box_2_CFD_Day_4_(Context_B)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 993255659,
+      "n_frames": 5391,
+      "recording_id": "20241120_Box_2_CFD_Day_5_(Context_B)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1015575676,
+      "n_frames": 5392,
+      "recording_id": "20241121_Box_2_CFD_Day_6_(Context_B)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9002",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1015037226,
+      "n_frames": 5391,
+      "recording_id": "20241122_Box_1_CFD_Day_7_(Context_B)_9002",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 10.25,
+      "mt_cutoff": 20.5,
+      "n_arena_pairs": 1128776102,
+      "n_frames": 6301,
+      "recording_id": "20250224_Box_2_CFD_Day_3_(Context_A)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1261719228,
+      "n_frames": 6302,
+      "recording_id": "20250225_Box_2_CFD_Day_4_(Context_A)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1281706526,
+      "n_frames": 6302,
+      "recording_id": "20250226_Box_2_CFD_Day_5_(Context_A)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1145564610,
+      "n_frames": 6302,
+      "recording_id": "20250227_Box_2_CFD_Day_6_(Context_A)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1210632885,
+      "n_frames": 6302,
+      "recording_id": "20250228_Box_2_CFD_Day_7_(Context_A)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1016485658,
+      "n_frames": 5390,
+      "recording_id": "20250224_Box_2_CFD_Day_3_(Context_B)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1073361455,
+      "n_frames": 5391,
+      "recording_id": "20250225_Box_2_CFD_Day_4_(Context_B)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1048081402,
+      "n_frames": 5392,
+      "recording_id": "20250226_Box_2_CFD_Day_5_(Context_B)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 833665856,
+      "n_frames": 5391,
+      "recording_id": "20250227_Box_2_CFD_Day_6_(Context_B)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9025",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 918837113,
+      "n_frames": 5392,
+      "recording_id": "20250228_Box_2_CFD_Day_7_(Context_B)_9025",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1170384643,
+      "n_frames": 6301,
+      "recording_id": "20250310_Box_2_CFD_Day_3_(Context_A)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.5,
+      "mt_cutoff": 23.0,
+      "n_arena_pairs": 1232899466,
+      "n_frames": 6302,
+      "recording_id": "20250311_Box_2_CFD_Day_4_(Context_A)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1207515227,
+      "n_frames": 6302,
+      "recording_id": "20250312_Box_2_CFD_Day_5_(Context_A)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1163516986,
+      "n_frames": 6303,
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_A)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1272242126,
+      "n_frames": 6303,
+      "recording_id": "20250314_Box_2_CFD_Day_7_(Context_A)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1053327428,
+      "n_frames": 5393,
+      "recording_id": "20250310_Box_2_CFD_Day_3_(Context_B)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1033992304,
+      "n_frames": 5391,
+      "recording_id": "20250311_Box_2_CFD_Day_4_(Context_B)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 7.25,
+      "mt_cutoff": 14.5,
+      "n_arena_pairs": 1032295158,
+      "n_frames": 5392,
+      "recording_id": "20250312_Box_2_CFD_Day_5_(Context_B)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 961872552,
+      "n_frames": 5392,
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9037",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1046758526,
+      "n_frames": 5393,
+      "recording_id": "20250314_Box_2_CFD_Day_7_(Context_B)_9037",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 11.5,
+      "mt_cutoff": 23.0,
+      "n_arena_pairs": 1360675084,
+      "n_frames": 6302,
+      "recording_id": "20250310_Box_2_CFD_Day_3_(Context_A)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.0,
+      "mt_cutoff": 22.0,
+      "n_arena_pairs": 1345431393,
+      "n_frames": 6301,
+      "recording_id": "20250311_Box_2_CFD_Day_4_(Context_A)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1294633230,
+      "n_frames": 6303,
+      "recording_id": "20250312_Box_2_CFD_Day_5_(Context_A)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 5.75,
+      "mt_cutoff": 11.5,
+      "n_arena_pairs": 1296239170,
+      "n_frames": 6302,
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_A)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1101108421,
+      "n_frames": 6302,
+      "recording_id": "20250314_Box_2_CFD_Day_7_(Context_A)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1171069607,
+      "n_frames": 5392,
+      "recording_id": "20250310_Box_2_CFD_Day_3_(Context_B)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1092202476,
+      "n_frames": 5391,
+      "recording_id": "20250311_Box_2_CFD_Day_4_(Context_B)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 8.0,
+      "mt_cutoff": 16.0,
+      "n_arena_pairs": 1221167604,
+      "n_frames": 5390,
+      "recording_id": "20250312_Box_2_CFD_Day_5_(Context_B)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1112725944,
+      "n_frames": 5392,
+      "recording_id": "20250313_Box_2_CFD_Day_6_(Context_B)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "9043",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1276461687,
+      "n_frames": 5392,
+      "recording_id": "20250314_Box_2_CFD_Day_7_(Context_B)_9043",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1508789284,
+      "n_frames": 6303,
+      "recording_id": "20250512_Box_2_CFD_Day_3_(Context_A)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 6.75,
+      "mt_cutoff": 13.5,
+      "n_arena_pairs": 1553447981,
+      "n_frames": 6302,
+      "recording_id": "20250513_Box_2_CFD_Day_4_(Context_A)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1531525582,
+      "n_frames": 6301,
+      "recording_id": "20250514_Box_2_CFD_Day_5_(Context_A)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 10.25,
+      "mt_cutoff": 20.5,
+      "n_arena_pairs": 1587514212,
+      "n_frames": 6301,
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1548145196,
+      "n_frames": 6303,
+      "recording_id": "20250516_Box_2_CFD_Day_7_(Context_A)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 16.0,
+      "mt_cutoff": 32.0,
+      "n_arena_pairs": 1340169541,
+      "n_frames": 5392,
+      "recording_id": "20250512_Box_2_CFD_Day_3_(Context_B)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 13.0,
+      "mt_cutoff": 26.0,
+      "n_arena_pairs": 1362532787,
+      "n_frames": 5391,
+      "recording_id": "20250513_Box_2_CFD_Day_4_(Context_B)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1311644429,
+      "n_frames": 5391,
+      "recording_id": "20250514_Box_2_CFD_Day_5_(Context_B)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1332433955,
+      "n_frames": 5391,
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_B)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "HM15",
+      "box": 2,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1344475354,
+      "n_frames": 5392,
+      "recording_id": "20250516_Box_2_CFD_Day_7_(Context_B)_HM15",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1211066883,
+      "n_frames": 6302,
+      "recording_id": "20251103_Box_3_CFD_Day_3_(Context_A)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 7.75,
+      "mt_cutoff": 15.5,
+      "n_arena_pairs": 1433090489,
+      "n_frames": 6301,
+      "recording_id": "20251104_Box_3_CFD_Day_4_(Context_A)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1344402979,
+      "n_frames": 6303,
+      "recording_id": "20251105_Box_3_CFD_Day_5_(Context_A)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1429751902,
+      "n_frames": 6301,
+      "recording_id": "20251106_Box_3_CFD_Day_6_(Context_A)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1435065713,
+      "n_frames": 6302,
+      "recording_id": "20251107_Box_3_CFD_Day_7_(Context_A)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1196281542,
+      "n_frames": 5391,
+      "recording_id": "20251103_Box_3_CFD_Day_3_(Context_B)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1190202503,
+      "n_frames": 5390,
+      "recording_id": "20251104_Box_3_CFD_Day_4_(Context_B)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1258733803,
+      "n_frames": 5393,
+      "recording_id": "20251105_Box_3_CFD_Day_5_(Context_B)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1180884120,
+      "n_frames": 5392,
+      "recording_id": "20251106_Box_3_CFD_Day_6_(Context_B)_113",
+      "usable": 1
+    },
+    {
+      "animal": "113",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1240365019,
+      "n_frames": 5392,
+      "recording_id": "20251107_Box_3_CFD_Day_7_(Context_B)_113",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1358074319,
+      "n_frames": 6303,
+      "recording_id": "20251214_Box_3_CFD_Day_3_(Context_A)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1364113063,
+      "n_frames": 6303,
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_A)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 10.5,
+      "mt_cutoff": 21.0,
+      "n_arena_pairs": 1396917007,
+      "n_frames": 6301,
+      "recording_id": "20251216_Box_3_CFD_Day_5_(Context_A)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1299948287,
+      "n_frames": 6302,
+      "recording_id": "20251217_Box_3_CFD_Day_6_(Context_A)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1217673062,
+      "n_frames": 6301,
+      "recording_id": "20251218_Box_3_CFD_Day_7_(Context_A)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1180373193,
+      "n_frames": 5392,
+      "recording_id": "20251214_Box_3_CFD_Day_3_(Context_B)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1198070363,
+      "n_frames": 5392,
+      "recording_id": "20251215_Box_3_CFD_Day_4_(Context_B)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1191903520,
+      "n_frames": 5391,
+      "recording_id": "20251216_Box_3_CFD_Day_5_(Context_B)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1176467440,
+      "n_frames": 5392,
+      "recording_id": "20251217_Box_3_CFD_Day_6_(Context_B)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "2941",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1149040644,
+      "n_frames": 5391,
+      "recording_id": "20251218_Box_3_CFD_Day_7_(Context_B)_2941",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1305763906,
+      "n_frames": 6301,
+      "recording_id": "20260518_Box_3_CFD_Day_3_(Context_A)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1267339712,
+      "n_frames": 6302,
+      "recording_id": "20260519_Box_3_CFD_Day_4_(Context_A)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1338813227,
+      "n_frames": 6301,
+      "recording_id": "20260520_Box_3_CFD_Day_5_(Context_A)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1314661298,
+      "n_frames": 6303,
+      "recording_id": "20260521_Box_3_CFD_Day_6_(Context_A)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1253809898,
+      "n_frames": 6301,
+      "recording_id": "20260522_Box_3_CFD_Day_7_(Context_A)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1056765452,
+      "n_frames": 5391,
+      "recording_id": "20260518_Box_3_CFD_Day_3_(Context_B)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1094306081,
+      "n_frames": 5392,
+      "recording_id": "20260519_Box_3_CFD_Day_4_(Context_B)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1129406516,
+      "n_frames": 5392,
+      "recording_id": "20260520_Box_3_CFD_Day_5_(Context_B)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1065288433,
+      "n_frames": 5391,
+      "recording_id": "20260521_Box_3_CFD_Day_6_(Context_B)_712",
+      "usable": 1
+    },
+    {
+      "animal": "712",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.75,
+      "mt_cutoff": 7.5,
+      "n_arena_pairs": 1083119928,
+      "n_frames": 5392,
+      "recording_id": "20260522_Box_3_CFD_Day_7_(Context_B)_712",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 7.0,
+      "mt_cutoff": 14.0,
+      "n_arena_pairs": 1314464258,
+      "n_frames": 6303,
+      "recording_id": "20260518_Box_3_CFD_Day_3_(Context_A)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1410486123,
+      "n_frames": 6304,
+      "recording_id": "20260519_Box_3_CFD_Day_4_(Context_A)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.75,
+      "mt_cutoff": 11.5,
+      "n_arena_pairs": 1412994536,
+      "n_frames": 6303,
+      "recording_id": "20260520_Box_3_CFD_Day_5_(Context_A)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1423069797,
+      "n_frames": 6302,
+      "recording_id": "20260521_Box_3_CFD_Day_6_(Context_A)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 5.75,
+      "mt_cutoff": 11.5,
+      "n_arena_pairs": 1354082375,
+      "n_frames": 6301,
+      "recording_id": "20260522_Box_3_CFD_Day_7_(Context_A)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1125966034,
+      "n_frames": 5391,
+      "recording_id": "20260518_Box_3_CFD_Day_3_(Context_B)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1202265175,
+      "n_frames": 5392,
+      "recording_id": "20260519_Box_3_CFD_Day_4_(Context_B)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 5.25,
+      "mt_cutoff": 10.5,
+      "n_arena_pairs": 1245535103,
+      "n_frames": 5391,
+      "recording_id": "20260520_Box_3_CFD_Day_5_(Context_B)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1212858558,
+      "n_frames": 5392,
+      "recording_id": "20260521_Box_3_CFD_Day_6_(Context_B)_716",
+      "usable": 1
+    },
+    {
+      "animal": "716",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1202459388,
+      "n_frames": 5391,
+      "recording_id": "20260522_Box_3_CFD_Day_7_(Context_B)_716",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 12.75,
+      "mt_cutoff": 25.5,
+      "n_arena_pairs": 1371952663,
+      "n_frames": 6302,
+      "recording_id": "20250407_Box_3_CFD_Day_3_(Context_A)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1310746272,
+      "n_frames": 6303,
+      "recording_id": "20250408_Box_3_CFD_Day_4_(Context_A)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 11.75,
+      "mt_cutoff": 23.5,
+      "n_arena_pairs": 1431852922,
+      "n_frames": 6302,
+      "recording_id": "20250409_Box_3_CFD_Day_5_(Context_A)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1403126820,
+      "n_frames": 6301,
+      "recording_id": "20250410_Box_3_CFD_Day_6_(Context_A)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1352259758,
+      "n_frames": 6302,
+      "recording_id": "20250411_Box_3_CFD_Day_7_(Context_A)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1058260754,
+      "n_frames": 5391,
+      "recording_id": "20250407_Box_3_CFD_Day_3_(Context_B)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1011990554,
+      "n_frames": 5394,
+      "recording_id": "20250408_Box_3_CFD_Day_4_(Context_B)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1096047733,
+      "n_frames": 5392,
+      "recording_id": "20250409_Box_3_CFD_Day_5_(Context_B)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1135046811,
+      "n_frames": 5392,
+      "recording_id": "20250410_Box_3_CFD_Day_6_(Context_B)_802",
+      "usable": 1
+    },
+    {
+      "animal": "802",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 3.5,
+      "mt_cutoff": 7.0,
+      "n_arena_pairs": 1192509773,
+      "n_frames": 5392,
+      "recording_id": "20250411_Box_3_CFD_Day_7_(Context_B)_802",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 19.0,
+      "mt_cutoff": 38.0,
+      "n_arena_pairs": 1066746790,
+      "n_frames": 6303,
+      "recording_id": "20260420_Box_3_CFD_Day_3_(Context_A)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 18.0,
+      "mt_cutoff": 36.0,
+      "n_arena_pairs": 1171975590,
+      "n_frames": 6303,
+      "recording_id": "20260421_Box_3_CFD_Day_4_(Context_A)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1098930804,
+      "n_frames": 6302,
+      "recording_id": "20260422_Box_3_CFD_Day_5_(Context_A)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 8.25,
+      "mt_cutoff": 16.5,
+      "n_arena_pairs": 1250119622,
+      "n_frames": 6303,
+      "recording_id": "20260423_Box_3_CFD_Day_6_(Context_A)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 13.0,
+      "mt_cutoff": 26.0,
+      "n_arena_pairs": 1294880123,
+      "n_frames": 6303,
+      "recording_id": "20260424_Box_3_CFD_Day_7_(Context_A)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 37.75,
+      "mt_cutoff": 75.5,
+      "n_arena_pairs": 1176004627,
+      "n_frames": 5391,
+      "recording_id": "20260420_Box_3_CFD_Day_3_(Context_B)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 5.5,
+      "mt_cutoff": 11.0,
+      "n_arena_pairs": 1168035414,
+      "n_frames": 5391,
+      "recording_id": "20260421_Box_3_CFD_Day_4_(Context_B)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 46.25,
+      "mt_cutoff": 92.5,
+      "n_arena_pairs": 1120841631,
+      "n_frames": 5392,
+      "recording_id": "20260422_Box_3_CFD_Day_5_(Context_B)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 25.0,
+      "mt_cutoff": 50.0,
+      "n_arena_pairs": 1026806292,
+      "n_frames": 5391,
+      "recording_id": "20260423_Box_3_CFD_Day_6_(Context_B)_875",
+      "usable": 1
+    },
+    {
+      "animal": "875",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 36.25,
+      "mt_cutoff": 72.5,
+      "n_arena_pairs": 1061047889,
+      "n_frames": 5392,
+      "recording_id": "20260424_Box_3_CFD_Day_7_(Context_B)_875",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.5,
+      "mt_cutoff": 13.0,
+      "n_arena_pairs": 1325111559,
+      "n_frames": 6303,
+      "recording_id": "20251103_Box_3_CFD_Day_3_(Context_A)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1228351315,
+      "n_frames": 6302,
+      "recording_id": "20251104_Box_3_CFD_Day_4_(Context_A)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1295720317,
+      "n_frames": 6302,
+      "recording_id": "20251105_Box_3_CFD_Day_5_(Context_A)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1331058696,
+      "n_frames": 6303,
+      "recording_id": "20251106_Box_3_CFD_Day_6_(Context_A)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1330046246,
+      "n_frames": 6301,
+      "recording_id": "20251107_Box_3_CFD_Day_7_(Context_A)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1117714069,
+      "n_frames": 5392,
+      "recording_id": "20251103_Box_3_CFD_Day_3_(Context_B)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1148285012,
+      "n_frames": 5391,
+      "recording_id": "20251104_Box_3_CFD_Day_4_(Context_B)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1142874795,
+      "n_frames": 5392,
+      "recording_id": "20251105_Box_3_CFD_Day_5_(Context_B)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1175721679,
+      "n_frames": 5392,
+      "recording_id": "20251106_Box_3_CFD_Day_6_(Context_B)_923",
+      "usable": 1
+    },
+    {
+      "animal": "923",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1218228343,
+      "n_frames": 5393,
+      "recording_id": "20251107_Box_3_CFD_Day_7_(Context_B)_923",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1297713428,
+      "n_frames": 6301,
+      "recording_id": "20251117_Box_3_CFD_Day_3_(Context_A)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1270056430,
+      "n_frames": 6302,
+      "recording_id": "20251118_Box_3_CFD_Day_4_(Context_A)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1197251924,
+      "n_frames": 6301,
+      "recording_id": "20251119_Box_3_CFD_Day_5_(Context_A)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1266241770,
+      "n_frames": 6302,
+      "recording_id": "20251120_Box_3_CFD_Day_6_(Context_A)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1421817676,
+      "n_frames": 6302,
+      "recording_id": "20251121_Box_3_CFD_Day_7_(Context_A)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1065457009,
+      "n_frames": 5392,
+      "recording_id": "20251117_Box_3_CFD_Day_3_(Context_B)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1109093277,
+      "n_frames": 5391,
+      "recording_id": "20251118_Box_3_CFD_Day_4_(Context_B)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1078257977,
+      "n_frames": 5392,
+      "recording_id": "20251119_Box_3_CFD_Day_5_(Context_B)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1123448096,
+      "n_frames": 5393,
+      "recording_id": "20251120_Box_3_CFD_Day_6_(Context_B)_975",
+      "usable": 1
+    },
+    {
+      "animal": "975",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1116540902,
+      "n_frames": 5392,
+      "recording_id": "20251121_Box_3_CFD_Day_7_(Context_B)_975",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 8.75,
+      "mt_cutoff": 17.5,
+      "n_arena_pairs": 1327883379,
+      "n_frames": 6303,
+      "recording_id": "20250428_Box_3_CFD_Day_3_(Context_A)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 11.5,
+      "mt_cutoff": 23.0,
+      "n_arena_pairs": 1287555014,
+      "n_frames": 6301,
+      "recording_id": "20250429_Box_3_CFD_Day_4_(Context_A)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1288893371,
+      "n_frames": 6303,
+      "recording_id": "20250430_Box_3_CFD_Day_5_(Context_A)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 11.25,
+      "mt_cutoff": 22.5,
+      "n_arena_pairs": 1302793678,
+      "n_frames": 6301,
+      "recording_id": "20250501_Box_3_CFD_Day_6_(Context_A)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1419078122,
+      "n_frames": 6303,
+      "recording_id": "20250502_Box_3_CFD_Day_7_(Context_A)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1088926489,
+      "n_frames": 5392,
+      "recording_id": "20250428_Box_3_CFD_Day_3_(Context_B)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1060588309,
+      "n_frames": 5393,
+      "recording_id": "20250429_Box_3_CFD_Day_4_(Context_B)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1111229588,
+      "n_frames": 5392,
+      "recording_id": "20250430_Box_3_CFD_Day_5_(Context_B)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 7.25,
+      "mt_cutoff": 14.5,
+      "n_arena_pairs": 1176891812,
+      "n_frames": 5391,
+      "recording_id": "20250501_Box_3_CFD_Day_6_(Context_B)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM03",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.25,
+      "mt_cutoff": 8.5,
+      "n_arena_pairs": 1128572586,
+      "n_frames": 5391,
+      "recording_id": "20250502_Box_3_CFD_Day_7_(Context_B)_HM03",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "A",
+      "day": 3,
+      "floor_p9999": 16.75,
+      "mt_cutoff": 33.5,
+      "n_arena_pairs": 1416968911,
+      "n_frames": 6301,
+      "recording_id": "20251117_Box_3_CFD_Day_3_(Context_A)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "A",
+      "day": 4,
+      "floor_p9999": 13.25,
+      "mt_cutoff": 26.5,
+      "n_arena_pairs": 1422011837,
+      "n_frames": 6301,
+      "recording_id": "20251118_Box_3_CFD_Day_4_(Context_A)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "A",
+      "day": 5,
+      "floor_p9999": 6.25,
+      "mt_cutoff": 12.5,
+      "n_arena_pairs": 1416205529,
+      "n_frames": 6303,
+      "recording_id": "20251119_Box_3_CFD_Day_5_(Context_A)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "A",
+      "day": 6,
+      "floor_p9999": 6.0,
+      "mt_cutoff": 12.0,
+      "n_arena_pairs": 1436896880,
+      "n_frames": 6303,
+      "recording_id": "20251120_Box_3_CFD_Day_6_(Context_A)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "A",
+      "day": 7,
+      "floor_p9999": 7.5,
+      "mt_cutoff": 15.0,
+      "n_arena_pairs": 1444838361,
+      "n_frames": 6303,
+      "recording_id": "20251121_Box_3_CFD_Day_7_(Context_A)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "B",
+      "day": 3,
+      "floor_p9999": 5.0,
+      "mt_cutoff": 10.0,
+      "n_arena_pairs": 1133313329,
+      "n_frames": 5392,
+      "recording_id": "20251117_Box_3_CFD_Day_3_(Context_B)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "B",
+      "day": 4,
+      "floor_p9999": 4.0,
+      "mt_cutoff": 8.0,
+      "n_arena_pairs": 1098828647,
+      "n_frames": 5391,
+      "recording_id": "20251118_Box_3_CFD_Day_4_(Context_B)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "B",
+      "day": 5,
+      "floor_p9999": 8.75,
+      "mt_cutoff": 17.5,
+      "n_arena_pairs": 1125550015,
+      "n_frames": 5392,
+      "recording_id": "20251119_Box_3_CFD_Day_5_(Context_B)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "B",
+      "day": 6,
+      "floor_p9999": 4.5,
+      "mt_cutoff": 9.0,
+      "n_arena_pairs": 1193342461,
+      "n_frames": 5392,
+      "recording_id": "20251120_Box_3_CFD_Day_6_(Context_B)_HM18",
+      "usable": 1
+    },
+    {
+      "animal": "HM18",
+      "box": 3,
+      "context": "B",
+      "day": 7,
+      "floor_p9999": 4.75,
+      "mt_cutoff": 9.5,
+      "n_arena_pairs": 1166054383,
+      "n_frames": 5391,
+      "recording_id": "20251121_Box_3_CFD_Day_7_(Context_B)_HM18",
+      "usable": 1
+    }
+  ],
+  "registration": "results/PIXEL_PREREGISTRATION.md, Amendment 1",
+  "reimplementation": "ezTrack-FAMILY, verified against github.com/DeniseCaiLab/ezTrack master; ezTrack is NOT installed",
+  "seed": 0,
+  "stage": "pixel_pilot",
+  "trichotomy": {
+    "dropout": 1015,
+    "duplicate": 573,
+    "immobile": 4640,
+    "n": 6228
+  }
+}

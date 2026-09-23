@@ -589,3 +589,61 @@ outside the sample frame, from which only an arena floor was read.
 needs. Balance and pairing are different properties and §8 satisfied the first
 while destroying the second. Registering the draw early is what made the defect
 cheap: it cost an amendment rather than a result.
+
+---
+
+## D17 — §4's freeze threshold is degenerate at §3's derived cutoff
+
+`PIXEL_PREREGISTRATION.md` §3 derives `mt_cutoff` per recording from the arena's
+own noise (ezTrack's own rule, `2 × percentile(|Δ|, 99.99)`), and §4 sets
+`FreezeThresh` to the **25th percentile of that recording's `Motion`**. **The two
+do not compose, and it took data to see it.**
+
+At a cutoff that strict, most frames have **no pixel at all** changing by more
+than the threshold, so `Motion` carries a large atom at exactly zero — and a low
+percentile of a distribution with a large atom at zero **is** zero. ezTrack's
+`Measure_Freezing` tests `Motion < FreezeThresh` **strictly**, so a threshold of
+zero can never be met and the arm reports 0% freezing as though it had measured
+it.
+
+**Measured over the 300 pilot recordings:**
+
+| arm | degenerate |
+|---|---|
+| `m1_p10` | 32% |
+| `m1_p25` | 11% |
+| `m1_p40` | **6%** — the best derived arm |
+| **`m2_p25` (the registered headline)** | **62%** |
+| `m4_p10` | 98% |
+| `eztrack_default` | **0%** — and §9.5 forbids adopting it |
+
+**Why the surviving cells cannot simply be used.** A degenerate arm does not
+lose a random 62% of recordings. It loses the **quietest** ones — the recordings
+whose `Motion` is most concentrated at zero — which are exactly the recordings
+most likely to contain freezing. **That is selection on the outcome**, and a
+freeze fraction computed on the survivors is biased in a known direction.
+
+**So an arm is readable only at zero degenerate cells.** That bar does not decide
+this stage in either direction: the best *derived* arm sits at 6%, so any bar
+between 0% and 5% refuses the same set. It is fixed at zero because zero is the
+only value that needs no justification, not because it was chosen to produce an
+outcome.
+
+**The consequence.** The registered headline arm carries **no verdict**, and Q1
+and Q2 are `NOT_A_RESULT` at the headline. The one arm defined everywhere is
+ezTrack's own absolute `FreezeThresh = 200`, which §2 shows is a pixel **count**
+set on 320×240 video and therefore **4× too strict** at 640×480 — it is reported
+as the untransplanted arm it was registered as, and is never read as the answer.
+
+**What a next registration should fix.** At a cutoff derived from the arena
+floor, the natural freeze criterion is not a percentile of `Motion` at all but
+**`Motion == 0`** — "no pixel changed by more than twice the arena's own
+99.99th percentile". That is a one-line change and it is **not made here**:
+choosing an estimator after seeing which one the data supports is exactly what
+§9.4 prohibits, and it belongs in a registration of its own.
+
+**What this says about the method.** Two independently reasonable choices — a
+cutoff derived from noise, and a threshold derived from the signal — were each
+defensible alone and degenerate together. Neither could have been caught by
+reading the registration; only by running it. Registering both and refusing is
+what made the interaction visible instead of publishing a corpus of zeros.
