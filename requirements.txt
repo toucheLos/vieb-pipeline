@@ -24,3 +24,20 @@ scipy-stubs==1.17.1.5
 
 # Phase B, the cleaning bakeoff. Called as a library, never vendored.
 # movement==0.14.0
+
+
+# SAM, for the pixel pilot's OPTIONAL mask-feature arm. OFF THE CRITICAL PATH:
+# no result depends on it, and nothing is refused if it is absent.
+#
+# Both installed with --no-deps, deliberately. `segment-anything` and
+# `torchvision` both name `torch` and resolving their pins would have been free
+# to REPLACE torch 2.13.0+cu130 -- and this venv is a symlink shared with
+# `~/recur`, so that would have silently re-based every GPU result in two repos.
+# torchvision 0.28.0 is the build that pairs with torch 2.13, taken from the
+# cu130 index so the CUDA majors match. Verified after installing, on an A100
+# and not on the login node: torch 2.13.0+cu130, cuda True, a CUDA matmul, and
+# torchvision.ops importable.
+#
+# The SAM checkpoint is NOT vendored and NOT downloaded here.
+segment-anything==1.0
+torchvision==0.28.0  # +cu130 build; --index-url https://download.pytorch.org/whl/cu130
