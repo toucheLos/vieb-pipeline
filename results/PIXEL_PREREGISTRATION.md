@@ -273,3 +273,62 @@ the confirmation rate is published as the detector's own precision, and the test
 is on whether **3–8 Hz power is *concentrated* relative to broadband** against
 **speed-matched non-selected clips** — never on amplitude, which is the quantity
 the selection already used and would therefore guarantee its own answer.
+
+---
+
+# Amendment 1 — the sample is drawn over ANIMALS, because §8 made Q1 uncomputable
+
+**Made before any recording in the sample has been decoded**, and committed
+alone. Recorded as `DEVIATIONS.md` **D16**.
+
+**The error.** §8 registered "60 recordings, 2 per (box, context, day) cell over
+the 30 cells". Executed at seed 0 over the 1,480 eligible `fit` recordings, that
+draw yields **54 distinct animals, 48 of which contribute exactly one
+recording**. **Q1 is a within-animal correlation.** It cannot be computed from
+one cell per animal, so the registered design cannot answer the question the
+registration calls primary. This is a defect in the design, found by executing
+the draw rather than by reading any pixel.
+
+**The amendment.** The sampling unit becomes the **animal**, not the recording.
+
+* From the **144** `fit` animals holding **all ten** (context, day) cells on
+  days 3–7, draw **10 per box** — boxes 1, 2 and 3 hold 59, 48 and 37 such
+  animals, so 10 each is available and exactly balanced.
+* Take **all ten** of each drawn animal's recordings: **30 animals × 10 =
+  300 recordings**.
+* Seed **0**, unchanged. `fit` split only, unchanged.
+
+**Balance is now exact by construction** rather than approximate by draw: every
+animal contributes both contexts on all five days, so context, day and box are
+orthogonal to animal and no cell is missing.
+
+| | §8 as registered | amended |
+|---|---|---|
+| recordings | 60 | **300** |
+| animals | 54 | **30** |
+| cells per animal | **1** for 48 of them | **10** for all |
+| Q1 (within-animal ρ) | **uncomputable** | 10 points per animal, 30 animals |
+| Q2 (animal, day) pairs | ≤ 30, mostly unpaired | **150**, all complete |
+
+**§5's refusal floor is unchanged and now clears it**: 30 animals against the
+registered minimum of 20.
+
+**Cost is not the reason for either number.** One recording scans at **254
+frames/s** on one core, measured, so 300 recordings is about two core-hours and
+ten minutes across the registered twelve shards. The pilot was never bounded by
+compute — it is bounded by the fact that cross-context pixel numbers need §7's
+confound interpreted before they are worth scaling — and **that reason is
+untouched**, so this remains a pilot and every number it yields is labelled one.
+
+**Disclosure.** One recording has been decoded before this amendment:
+`20241016_Box_1_CFC_Day_0_(Context_A)_308`, as a smoke test of `motion.scan`. It
+is **Day 0** and therefore outside the days 3–7 sample frame entirely. What was
+read from it was its arena floor (`mt_cutoff` 25.5 against ezTrack's default 10)
+and its Motion distribution — **no contrast, no context comparison, and no
+value that §5 gates on**. It is named here so that it is on the record rather
+than discoverable.
+
+**Everything else in this registration stands unchanged** — §0's two questions,
+§2's M13 findings, §3's cutoff rule and refusal, §4's grid and `GRID_LIMITED`
+condition, §5's gates and incumbents, §6's trichotomy, §7's confound refusal and
+§9's prohibitions.

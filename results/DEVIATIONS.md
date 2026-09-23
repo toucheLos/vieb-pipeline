@@ -558,3 +558,34 @@ nothing to the assignment.
 and the executed check is narrower than one of its two readings. The ambiguity
 was mine; the disambiguation was forced by §3's rationale, not chosen after
 seeing a number.
+
+---
+
+## D16 — the pixel pilot samples animals, not recordings
+
+`PIXEL_PREREGISTRATION.md` §8 registered "60 recordings, 2 per (box, context,
+day) cell". Executing that draw at seed 0 over the 1,480 eligible `fit`
+recordings gives **54 animals, 48 of them with exactly one recording**.
+
+**Q1 — the registration's own primary question — is a within-animal
+correlation, and one cell per animal cannot produce one.** The registered design
+could not have answered the question it was written to answer.
+
+Amended before any sampled recording was decoded: the unit becomes the
+**animal**. Ten animals per box are drawn from the 144 `fit` animals holding all
+ten (context, day) cells on days 3–7, and **all ten** recordings of each are
+taken — **30 animals, 300 recordings**, seed 0, `fit` only. Balance on context,
+day and box is then exact by construction rather than approximate by draw, and
+Q2 gains 150 complete (animal, day) pairs where the original had at most 30,
+mostly unpaired.
+
+**Found by executing the draw, not by reading a result.** The amendment is
+committed alone, as `Amendment 1` inside the registration, with the one
+pre-amendment smoke-test decode disclosed there by name — a Day 0 recording,
+outside the sample frame, from which only an arena floor was read.
+
+**What this says about the method.** A sampling design that is balanced on the
+*stratifying* variables can still be degenerate on the *unit* the statistic
+needs. Balance and pairing are different properties and §8 satisfied the first
+while destroying the second. Registering the draw early is what made the defect
+cheap: it cost an amendment rather than a result.
