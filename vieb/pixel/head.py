@@ -29,6 +29,7 @@ frequencies, which is the thing under test.
 from __future__ import annotations
 
 import os
+from collections.abc import Sequence
 from typing import Any
 
 import numpy as np
@@ -45,6 +46,10 @@ B1 = npt.NDArray[np.bool_]
 #: `bones.SKULL` uses -- and its radius is in body lengths, so it is scale-free
 #: across boxes and camera distances.
 SKULL = (tego.LEFT_EAR, tego.RIGHT_EAR, tego.NOSE)
+#: Amendment 1: the control region. No grooming stroke happens at the hips, so a
+#: stabilised difference there carries REGISTRATION NOISE and nothing else. A
+#: 3-8 Hz excess that appears equally here is not behaviour.
+HIPS = (tego.LEFT_HIP, tego.RIGHT_HIP, tego.TAIL_BASE)
 RADIUS_BL = 0.6
 #: §1: below this many locatable skull points the disc is not trusted.
 MIN_SKULL_POINTS = 2
@@ -59,9 +64,10 @@ HEAD_PCT = 75.0
 
 
 def skull_disc(pose_frame: npt.ArrayLike, radius_px: float,
-               shape: tuple[int, int]) -> B1 | None:
-    """``(h, w)`` True inside the head disc, or None when it is not trusted."""
-    p = np.asarray(pose_frame, dtype=np.float64)[list(SKULL)]
+               shape: tuple[int, int], *,
+               points: tuple[int, ...] = SKULL) -> B1 | None:
+    """``(h, w)`` True inside the disc on `points`, or None when not trusted."""
+    p = np.asarray(pose_frame, dtype=np.float64)[list(points)]
     ok = np.isfinite(p).all(axis=1)
     if int(ok.sum()) < MIN_SKULL_POINTS:
         return None
@@ -78,9 +84,14 @@ def skull_disc(pose_frame: npt.ArrayLike, radius_px: float,
     return m if m.any() else None
 
 
-def scan_head(video: str, pose: npt.ArrayLike, *, radius_px: float,
-              dilate_px: float) -> dict[str, Any]:
+def scan_head(video: str, pose: npt.ArrayLike, *,
+              radii_px: Sequence[float], dilate_px: float) -> dict[str, Any]:
     """One sequential pass: head-region and arena mean |delta| per frame.
+
+    **Every registered radius is computed in ONE pass**, because the expensive
+    parts -- the decode, the blur and the egocentric warp -- are shared and only
+    the disc changes. Three radii in three passes would triple the cost and
+    produce identical numbers.
 
     Separate from `motion.scan` rather than folded into it: that function's
     output is frozen into `PIXEL_NOISEFLOOR.md` and `PIXEL_PILOT.md`, and adding
@@ -102,8 +113,12 @@ def scan_head(video: str, pose: npt.ArrayLike, *, radius_px: float,
         blur_old = cv2.GaussianBlur(grey.astype(np.float64), (0, 0), mo.SIGMA)
         mask_old = mo.exclusion_mask(p[0], dilate_px, (h, w))
         n = p.shape[0]
-        head = np.full(n, np.nan)
+        rad = [float(r) for r in radii_px]
         arena = np.full(n, np.nan)
+        head = {r: np.full(n, np.nan) for r in rad}
+        ego_head = {r: np.full(n, np.nan) for r in rad}
+        ego_hip = {r: np.full(n, np.nan) for r in rad}
+        warp_old = _ego_warp(blur_old, p[0], (h, w))
         t = 1
         while t < n:
             ok, frame = cap.read()
@@ -112,22 +127,101 @@ def scan_head(video: str, pose: npt.ArrayLike, *, radius_px: float,
             grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             blur = cv2.GaussianBlur(grey.astype(np.float64), (0, 0), mo.SIGMA)
             dif = np.abs(blur - blur_old)
-            disc = skull_disc(p[t], radius_px, (h, w))
             mask = mo.exclusion_mask(p[t], dilate_px, (h, w))
-            out = ~(mask | mask_old)
-            if out.any():
-                arena[t] = float(dif[out].mean())
-            if disc is not None:
-                head[t] = float(dif[disc].mean())
-            blur_old, mask_old = blur, mask
+            arena_px = ~(mask | mask_old)
+            if arena_px.any():
+                arena[t] = float(dif[arena_px].mean())
+            # Amendment 1: the same difference, taken AFTER registering both
+            # frames on the animal, plus its hindquarter control.
+            warp = _ego_warp(blur, p[t], (h, w))
+            edif = (np.abs(warp - warp_old)
+                    if warp is not None and warp_old is not None else None)
+            for r in rad:
+                disc = skull_disc(p[t], r, (h, w))
+                if disc is not None:
+                    head[r][t] = float(dif[disc].mean())
+                if edif is None:
+                    continue
+                for pts, dest in ((SKULL, ego_head), (HIPS, ego_hip)):
+                    dm = _fixed_disc(p[t], pts, r, (h, w))
+                    if dm is not None:
+                        dest[r][t] = float(edif[dm].mean())
+            blur_old, mask_old, warp_old = blur, mask, warp
             t += 1
     finally:
         cap.release()
     # §1: head motion ABOVE this recording's own floor. The floor spans a factor
     # of 20 across recordings, so a global correction would be meaningless.
-    energy = head[:t] - arena[:t]
-    return {"energy": energy, "head": head[:t], "arena": arena[:t],
-            "n_frames": int(t), "video": os.path.basename(video)}
+    a0 = arena[:t]
+    out: dict[str, Any] = {"arena": a0, "n_frames": int(t),
+                           "video": os.path.basename(video)}
+    for r in rad:
+        out[f"energy|{r}"] = head[r][:t] - a0
+        out[f"energy_ego|{r}"] = ego_head[r][:t] - a0
+        out[f"energy_ego_hip|{r}"] = ego_hip[r][:t] - a0
+    return out
+
+
+def _ego_warp(grey: npt.ArrayLike, pose_frame: npt.ArrayLike,
+              shape: tuple[int, int]) -> F64 | None:
+    """Rotate and translate a frame into the ANIMAL's frame. Amendment 1.
+
+    Removes body translation and body rotation by construction, so a difference
+    of two warped frames is motion RELATIVE TO THE ANIMAL -- which is what
+    "still body, moving head" means, and what a disc in image coordinates cannot
+    express (D20: it correlates +0.93 with keypoint speed).
+
+    Returns None when the body frame is undefined. `ego.heading` and
+    `ego.ORIGIN` are reused rather than re-derived, so the pixel frame and the
+    keypoint frame are the same frame by construction.
+    """
+    import cv2
+
+    p = np.asarray(pose_frame, dtype=np.float64)
+    if not (np.isfinite(p[tego.ORIGIN]).all()
+            and np.isfinite(p[list(tego.AXIS)]).all()):
+        return None
+    ang = float(np.degrees(tego.heading(p[None, :, :])[0]))
+    h, w = int(shape[0]), int(shape[1])
+    cx, cy = float(p[tego.ORIGIN, 0]), float(p[tego.ORIGIN, 1])
+    m = cv2.getRotationMatrix2D((cx, cy), ang, 1.0)
+    # Put the body origin at the image centre, so the disc is at a FIXED place
+    # in every warped frame and the difference is taken over the same pixels.
+    m[0, 2] += w / 2.0 - cx
+    m[1, 2] += h / 2.0 - cy
+    g = np.asarray(grey, dtype=np.float64)
+    return np.asarray(cv2.warpAffine(g, m, (w, h), flags=cv2.INTER_LINEAR,
+                                     borderMode=cv2.BORDER_CONSTANT,
+                                     borderValue=0.0), dtype=np.float64)
+
+
+def _fixed_disc(pose_frame: npt.ArrayLike, points: tuple[int, ...],
+                radius_px: float, shape: tuple[int, int]) -> B1 | None:
+    """The disc for a warped frame: `points` carried into the animal's frame."""
+    p = np.asarray(pose_frame, dtype=np.float64)
+    if not (np.isfinite(p[tego.ORIGIN]).all()
+            and np.isfinite(p[list(tego.AXIS)]).all()):
+        return None
+    q = p[list(points)]
+    ok = np.isfinite(q).all(axis=1)
+    if int(ok.sum()) < MIN_SKULL_POINTS:
+        return None
+    ang = float(tego.heading(p[None, :, :])[0])
+    c, s_ = np.cos(-ang), np.sin(-ang)
+    d = q[ok] - p[tego.ORIGIN]
+    rx = c * d[:, 0] - s_ * d[:, 1]
+    ry = s_ * d[:, 0] + c * d[:, 1]
+    h, w = int(shape[0]), int(shape[1])
+    cx, cy = w / 2.0 + float(rx.mean()), h / 2.0 + float(ry.mean())
+    y0, y1 = max(0, int(cy - radius_px)), min(h, int(cy + radius_px) + 1)
+    x0, x1 = max(0, int(cx - radius_px)), min(w, int(cx + radius_px) + 1)
+    if y1 <= y0 or x1 <= x0:
+        return None
+    m = np.zeros((h, w), dtype=bool)
+    yy = np.arange(y0, y1, dtype=np.float64)[:, None] - cy
+    xx = np.arange(x0, x1, dtype=np.float64)[None, :] - cx
+    m[y0:y1, x0:x1] = (yy ** 2 + xx ** 2) <= radius_px ** 2
+    return m if m.any() else None
 
 
 def spectrum_stats(x: npt.ArrayLike, *, fps: float,

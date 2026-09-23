@@ -1,0 +1,62 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Grooming panel</title>
+<style>
+:root{--bg:#faf9f7;--fg:#1b1a18;--mut:#6b6864;--line:#dedbd6;--acc:#2f6f4e;--no:#8a3c33;--un:#8a7a33}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17181a;--fg:#e9e7e3;--mut:#9a968f;--line:#33353a;--acc:#6fbf92;--no:#e08b80;--un:#d6c46a}}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,sans-serif;margin:0;padding:24px;max-width:860px;margin-inline:auto}
+h1{font-size:20px;margin:0 0 4px}
+p.sub{color:var(--mut);margin:0 0 20px}
+.q{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:18px;background:color-mix(in srgb,var(--bg) 92%,var(--fg))}
+.clip{border-top:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+video{width:320px;border-radius:6px;background:#000}
+.id{font:12px ui-monospace,monospace;color:var(--mut)}
+button{font:14px system-ui;padding:6px 14px;margin:4px 6px 0 0;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--fg);cursor:pointer}
+button[aria-pressed=true]{border-color:currentColor;font-weight:600}
+button.y[aria-pressed=true]{color:var(--acc)}button.n[aria-pressed=true]{color:var(--no)}button.u[aria-pressed=true]{color:var(--un)}
+#bar{position:sticky;top:0;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:2;display:flex;gap:12px;align-items:center}
+#out{width:100%;height:150px;font:12px ui-monospace,monospace;margin-top:12px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:8px}
+@media(max-width:700px){.clip{grid-template-columns:1fr}video{width:100%}}
+</style>
+<h1>Grooming panel</h1>
+<p class="sub">45 clips, shuffled. Which arm each clip came from is not in this page.</p>
+<div class="q">
+  <strong>For each clip:</strong> is the animal <strong>grooming</strong> — forepaws
+  moving at the face or body while the trunk is still? <em>Yes / No / Unsure.</em>
+  <br><span style="color:var(--mut)">Some of these are controls. If a clip is just a
+  still or slowly-moving animal with no paw movement, that is a <em>No</em>, and saying
+  so is what makes the confirmation rate meaningful.</span>
+</div>
+<div id="bar"><span id="prog">0 / 0 scored</span><button id="save">Copy JSON</button></div>
+<div id="list"></div>
+<textarea id="out" readonly placeholder="Scores appear here. Save them to work/grooming/confirmation.json"></textarea>
+<script>
+const V={};
+fetch('manifest.json').then(r=>r.json()).then(m=>{
+  const L=document.getElementById('list');
+  for(const c of m.clips){
+    const d=document.createElement('div');d.className='clip';
+    d.innerHTML=`<video src="${c.file}" controls loop muted playsinline preload="metadata"></video>
+      <div><div class="id">${c.clip} &middot; ${c.duration_s}s</div>
+      <button class="y" data-c="${c.clip}" data-v="yes" aria-pressed="false">Grooming</button>
+      <button class="n" data-c="${c.clip}" data-v="no" aria-pressed="false">Not grooming</button>
+      <button class="u" data-c="${c.clip}" data-v="unsure" aria-pressed="false">Unsure</button></div>`;
+    L.appendChild(d);
+  }
+  document.getElementById('prog').textContent=`0 / ${m.clips.length} scored`;
+  L.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-c]');if(!b)return;
+    V[b.dataset.c]=b.dataset.v;
+    for(const s of L.querySelectorAll(`button[data-c="${b.dataset.c}"]`))
+      s.setAttribute('aria-pressed', String(s===b));
+    document.getElementById('prog').textContent=`${Object.keys(V).length} / ${m.clips.length} scored`;
+    render(m);
+  });
+  const render=()=>{document.getElementById('out').value=JSON.stringify(
+    {scored:true,n_clips:m.clips.length,n_answered:Object.keys(V).length,verdicts:V},null,1);};
+  document.getElementById('save').onclick=()=>{
+    render();const t=document.getElementById('out');t.select();
+    try{document.execCommand('copy')}catch(_){}
+  };
+});
+</script>

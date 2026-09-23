@@ -1,0 +1,280 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a detected candidate set"
+  },
+  "blind": "panel order shuffled; the arm lives ONLY in key.json and the mix of candidates to controls is not stated on the panel",
+  "caveat": "the spectral gate REFUSED for too few candidates, so these clips are the detector's output being looked at, not evidence for a 3-8 Hz result",
+  "clips": [
+    {
+      "clip": "g2816722c1d",
+      "duration_s": 3.0,
+      "file": "clips/g2816722c1d.mp4"
+    },
+    {
+      "clip": "g25edcede4c",
+      "duration_s": 3.0,
+      "file": "clips/g25edcede4c.mp4"
+    },
+    {
+      "clip": "g234a1a3adb",
+      "duration_s": 3.0,
+      "file": "clips/g234a1a3adb.mp4"
+    },
+    {
+      "clip": "g1b0bdc0c75",
+      "duration_s": 3.0,
+      "file": "clips/g1b0bdc0c75.mp4"
+    },
+    {
+      "clip": "gd1c65bbc44",
+      "duration_s": 3.0,
+      "file": "clips/gd1c65bbc44.mp4"
+    },
+    {
+      "clip": "gf450b23875",
+      "duration_s": 3.0,
+      "file": "clips/gf450b23875.mp4"
+    },
+    {
+      "clip": "g40660c45af",
+      "duration_s": 3.0,
+      "file": "clips/g40660c45af.mp4"
+    },
+    {
+      "clip": "gb6196c1ac5",
+      "duration_s": 3.0,
+      "file": "clips/gb6196c1ac5.mp4"
+    },
+    {
+      "clip": "g4565b1a4a9",
+      "duration_s": 3.0,
+      "file": "clips/g4565b1a4a9.mp4"
+    },
+    {
+      "clip": "g8736dd8efe",
+      "duration_s": 3.0,
+      "file": "clips/g8736dd8efe.mp4"
+    },
+    {
+      "clip": "g3560dc8d51",
+      "duration_s": 3.0,
+      "file": "clips/g3560dc8d51.mp4"
+    },
+    {
+      "clip": "g05275822ce",
+      "duration_s": 3.0,
+      "file": "clips/g05275822ce.mp4"
+    },
+    {
+      "clip": "gaa27cd3164",
+      "duration_s": 3.0,
+      "file": "clips/gaa27cd3164.mp4"
+    },
+    {
+      "clip": "ga627aa1145",
+      "duration_s": 3.0,
+      "file": "clips/ga627aa1145.mp4"
+    },
+    {
+      "clip": "gf8f2f47cff",
+      "duration_s": 3.0,
+      "file": "clips/gf8f2f47cff.mp4"
+    },
+    {
+      "clip": "g26d9b3a198",
+      "duration_s": 3.0,
+      "file": "clips/g26d9b3a198.mp4"
+    },
+    {
+      "clip": "g6891e22615",
+      "duration_s": 3.0,
+      "file": "clips/g6891e22615.mp4"
+    },
+    {
+      "clip": "gc7423c1600",
+      "duration_s": 3.0,
+      "file": "clips/gc7423c1600.mp4"
+    },
+    {
+      "clip": "gfdc547184c",
+      "duration_s": 3.0,
+      "file": "clips/gfdc547184c.mp4"
+    },
+    {
+      "clip": "g08a6289815",
+      "duration_s": 3.0,
+      "file": "clips/g08a6289815.mp4"
+    },
+    {
+      "clip": "gf062bf3316",
+      "duration_s": 3.0,
+      "file": "clips/gf062bf3316.mp4"
+    },
+    {
+      "clip": "g2f903de068",
+      "duration_s": 3.0,
+      "file": "clips/g2f903de068.mp4"
+    },
+    {
+      "clip": "gc1912918c2",
+      "duration_s": 3.0,
+      "file": "clips/gc1912918c2.mp4"
+    },
+    {
+      "clip": "gfd26de4c42",
+      "duration_s": 3.0,
+      "file": "clips/gfd26de4c42.mp4"
+    },
+    {
+      "clip": "ga5670d4ca4",
+      "duration_s": 3.0,
+      "file": "clips/ga5670d4ca4.mp4"
+    },
+    {
+      "clip": "g15044ecd47",
+      "duration_s": 3.0,
+      "file": "clips/g15044ecd47.mp4"
+    },
+    {
+      "clip": "gf672518c15",
+      "duration_s": 3.0,
+      "file": "clips/gf672518c15.mp4"
+    },
+    {
+      "clip": "g42f1f54b97",
+      "duration_s": 3.0,
+      "file": "clips/g42f1f54b97.mp4"
+    },
+    {
+      "clip": "ga85893cde2",
+      "duration_s": 3.0,
+      "file": "clips/ga85893cde2.mp4"
+    },
+    {
+      "clip": "g9fc05ce874",
+      "duration_s": 3.0,
+      "file": "clips/g9fc05ce874.mp4"
+    },
+    {
+      "clip": "ge00c997630",
+      "duration_s": 3.0,
+      "file": "clips/ge00c997630.mp4"
+    },
+    {
+      "clip": "g032034e3ed",
+      "duration_s": 3.0,
+      "file": "clips/g032034e3ed.mp4"
+    },
+    {
+      "clip": "g3bbf10b5fd",
+      "duration_s": 3.0,
+      "file": "clips/g3bbf10b5fd.mp4"
+    },
+    {
+      "clip": "gd9be5126cd",
+      "duration_s": 3.0,
+      "file": "clips/gd9be5126cd.mp4"
+    },
+    {
+      "clip": "g8c6166fe18",
+      "duration_s": 3.0,
+      "file": "clips/g8c6166fe18.mp4"
+    },
+    {
+      "clip": "g7b690aad53",
+      "duration_s": 3.0,
+      "file": "clips/g7b690aad53.mp4"
+    },
+    {
+      "clip": "gff9cf0cc27",
+      "duration_s": 3.0,
+      "file": "clips/gff9cf0cc27.mp4"
+    },
+    {
+      "clip": "g5d1e306a27",
+      "duration_s": 3.0,
+      "file": "clips/g5d1e306a27.mp4"
+    },
+    {
+      "clip": "g1ecaa6303f",
+      "duration_s": 3.0,
+      "file": "clips/g1ecaa6303f.mp4"
+    },
+    {
+      "clip": "gac9f136d3d",
+      "duration_s": 3.0,
+      "file": "clips/gac9f136d3d.mp4"
+    },
+    {
+      "clip": "g837d2981c2",
+      "duration_s": 3.0,
+      "file": "clips/g837d2981c2.mp4"
+    },
+    {
+      "clip": "g00a908c5e8",
+      "duration_s": 3.0,
+      "file": "clips/g00a908c5e8.mp4"
+    },
+    {
+      "clip": "gd2ce43ac62",
+      "duration_s": 3.0,
+      "file": "clips/gd2ce43ac62.mp4"
+    },
+    {
+      "clip": "gfb8fb7329d",
+      "duration_s": 3.0,
+      "file": "clips/gfb8fb7329d.mp4"
+    },
+    {
+      "clip": "g282d9d273c",
+      "duration_s": 3.0,
+      "file": "clips/g282d9d273c.mp4"
+    }
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "headline": [
+    0.6,
+    2.0,
+    25.0
+  ],
+  "inherited_digest": "198eb14ff258c7f6",
+  "n_clips": 45,
+  "pad_s": 0.5,
+  "question": "For each clip: is the animal GROOMING -- forepaws moving at the face or body while the trunk is still? Answer yes / no / unsure.",
+  "registration": "results/GROOMING_PREREGISTRATION.md \u00a73 + Amendment 1",
+  "signal": "energy_ego",
+  "stage": "grooming_clips"
+}

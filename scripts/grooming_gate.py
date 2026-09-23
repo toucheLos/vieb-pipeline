@@ -88,11 +88,14 @@ def shard(a) -> int:
         d = spine.clean(rid)
         pose = np.asarray(d["pose"], dtype=np.float64)
         bl = float(np.nanmedian(tego.body_length(pose)))
+        s = hd.scan_head(vid.video_path(rid), pose,
+                         radii_px=[bl * x for x in RADII_BL],
+                         dilate_px=bl * mo.DILATE_BODY_LENGTHS)
         got: dict = {}
         for rad in RADII_BL:
-            s = hd.scan_head(vid.video_path(rid), pose, radius_px=bl * rad,
-                             dilate_px=bl * mo.DILATE_BODY_LENGTHS)
-            got[f"energy__{rad:g}"] = s["energy"].astype(np.float32)
+            for sig in ("energy", "energy_ego", "energy_ego_hip"):
+                got[f"{sig}__{rad:g}"] = np.asarray(
+                    s[f"{sig}|{bl * rad}"], dtype=np.float32)
         sp = _speed(r["animal"], rid)
         np.savez_compressed(out, body_length_px=bl,
                             speed=(sp if sp is not None
@@ -116,18 +119,27 @@ def _speed(animal: str, rid: str):
                         ).astype(np.float32)
 
 
+SIGNALS = ("energy", "energy_ego", "energy_ego_hip")
+
+
 def _windows(rid: str, rad: float, win_s: float, still_pct: float,
-             fps: float) -> list[dict] | None:
+             fps: float, signal: str = "energy") -> list[dict] | None:
     """§2: non-overlapping windows, and which of them are candidates."""
     p = os.path.join(work_dir(), "rec", f"{rid}.npz")
     if not os.path.exists(p):
         return None
     with np.load(p, allow_pickle=False) as z:
-        key = f"energy__{rad:g}"
+        key = f"{signal}__{rad:g}"
         if key not in z.files:
             return None
         e = np.asarray(z[key], dtype=np.float64)
         sp = np.asarray(z["speed"], dtype=np.float64)
+        # Amendment 1's control: the identical stabilised difference at the
+        # HINDQUARTERS, on the same windows. No grooming stroke happens there,
+        # so it carries registration noise and nothing else.
+        hk = f"energy_ego_hip__{rad:g}"
+        ctl = (np.asarray(z[hk], dtype=np.float64)
+               if (signal == "energy_ego" and hk in z.files) else None)
     if sp.size == 0:
         return None
     n = min(e.size, sp.size)
@@ -137,6 +149,8 @@ def _windows(rid: str, rad: float, win_s: float, still_pct: float,
     k = n // w
     E = e[:k * w].reshape(k, w)
     S = sp[:k * w].reshape(k, w)
+    C = (ctl[:k * w].reshape(k, w) if ctl is not None and ctl.size >= k * w
+         else None)
     ok = np.isfinite(E).all(axis=1) & np.isfinite(S).all(axis=1)
     if int(ok.sum()) < 4:
         return None
@@ -153,25 +167,32 @@ def _windows(rid: str, rad: float, win_s: float, still_pct: float,
                      "b": int((i + 1) * w),
                      "speed": float(ms[i]), "energy": float(me[i]),
                      "candidate": bool(ms[i] <= t_still and me[i] >= t_head),
-                     "series": E[i]})
+                     "series": E[i],
+                     "control_series": (C[i] if C is not None else None)})
     return rows
 
 
-def _collect(rad: float, win_s: float, still_pct: float, fps: float) -> dict:
+def _collect(rad: float, win_s: float, still_pct: float, fps: float,
+             signal: str = "energy") -> dict:
     man = manifest()
     rows: list[dict] = []
     by_rid = {r["recording_id"]: r for r in man["recordings"]
               if r.get("in_pilot")}
     for rid, meta in by_rid.items():
-        got = _windows(rid, rad, win_s, still_pct, fps)
+        got = _windows(rid, rad, win_s, still_pct, fps, signal)
         if not got:
             continue
         for r in got:
             st = hd.spectrum_stats(r["series"], fps=fps)
             if not np.isfinite(st["peak_excess"]):
                 continue
-            rows.append({**{k: v for k, v in r.items() if k != "series"},
-                         **st, "animal": meta["animal"],
+            hip: dict[str, float] = {}
+            if r.get("control_series") is not None:
+                hs = hd.spectrum_stats(r["control_series"], fps=fps)
+                hip = {f"hip_{k2}": v2 for k2, v2 in hs.items()}
+            rows.append({**{k2: v2 for k2, v2 in r.items()
+                            if k2 not in ("series", "control_series")},
+                         **st, **hip, "animal": meta["animal"],
                          "context": meta["context"], "day": meta["day"]})
     cand = np.asarray([r["candidate"] for r in rows], dtype=bool)
     animal = np.asarray([r["animal"] for r in rows])
@@ -220,8 +241,23 @@ def _arm_read(got: dict, obj: dict, *, headline: bool) -> tuple[Read, dict]:
                                                    n_boot=N_BOOT, seed=SEED)),
             "control": dict(boot.animal_interval(cv, who_c, how="mean",
                                                  n_boot=N_BOOT, seed=SEED))}
+    # Amendment 1: a 3-8 Hz excess that appears EQUALLY at the hips is
+    # registration noise, and the gate fails whatever the head disc shows.
+    hip_ok = True
+    if all("hip_peak_excess" in rows[int(i)] for i in t_idx[ok][:1]) \
+            and t_idx[ok].size:
+        hv = [rows[int(i)].get("hip_peak_excess", float("nan"))
+              for i in t_idx[ok]]
+        if np.isfinite(hv).any():
+            hci = boot.animal_interval(hv, who_t, how="mean", n_boot=N_BOOT,
+                                       seed=SEED)
+            det["hip_control"] = dict(hci)
+            hip_ok = (float(det["peak_excess"]["candidate"]["lo"])
+                      > float(hci["hi"]))
+            det["head_clears_hip"] = hip_ok
     pe = det["peak_excess"]
-    clears = float(pe["candidate"]["lo"]) > float(pe["control"]["hi"])
+    clears = (float(pe["candidate"]["lo"]) > float(pe["control"]["hi"])
+              and hip_ok)
     # D19: peak_excess rises with a steeper background, so a slope difference
     # between the arms can masquerade as a peak. Reported beside the verdict.
     sl = det["slope"]
@@ -256,6 +292,18 @@ def _arm_read(got: dict, obj: dict, *, headline: bool) -> tuple[Read, dict]:
                  + (". INCONCLUSIVE: peak_excess rises monotonically across "
                     "amplitude deciles, so §4's invariance claim fails on this "
                     "data and the selection cannot be ruled out" if mono else "")
+                 + ((". The head disc does NOT exceed the HINDQUARTER control "
+                     f"({det['hip_control']['point']:+.4f} "
+                     f"[{det['hip_control']['lo']:+.4f}, "
+                     f"{det['hip_control']['hi']:+.4f}]), so any excess here is "
+                     f"registration noise, not behaviour"
+                     if "hip_control" in det and not det.get("head_clears_hip",
+                                                             True)
+                     else (". It also exceeds the HINDQUARTER control "
+                           f"({det['hip_control']['point']:+.4f}), so it is not "
+                           f"registration noise"
+                           if "hip_control" in det else ""))
+                    if "hip_control" in det else "")
                  + (". NOTE: the background slopes DIFFER between arms "
                     f"({sl['candidate']['point']:+.3f} against "
                     f"{sl['control']['point']:+.3f}), and D19 shows a steeper "
@@ -269,34 +317,45 @@ def combine(a) -> int:
     reads: dict = {}
     verdicts: dict[str, str] = {}
     obj0 = {"dataset": "luna", "arm": "grooming_gate", "split": "fit"}
-    for rad in RADII_BL:
-        for win_s in WINDOWS_S:
-            for pct in STILL_PCTS:
-                name = f"r{rad:g}_w{win_s:g}_p{pct:g}"
-                headline = (rad, win_s, pct) == HEADLINE
-                got = _collect(rad, win_s, pct, fps)
-                rd, _det = _arm_read(got, {**obj0, "arm": f"gate|{name}",
-                                           "radius_bl": rad, "win_s": win_s,
-                                           "still_pct": pct},
-                                     headline=headline)
-                reads[f"gate|{name}"] = rd.to_dict()
-                verdicts[name] = rd.verdict
-                if headline:
-                    log("  HEADLINE " + rd.line())
-                else:
-                    log(f"    {name}: {rd.verdict}")
-    head = verdicts[f"r{HEADLINE[0]:g}_w{HEADLINE[1]:g}_p{HEADLINE[2]:g}"]
-    others = [v for k, v in verdicts.items()
-              if k != f"r{HEADLINE[0]:g}_w{HEADLINE[1]:g}_p{HEADLINE[2]:g}"]
-    if any(v != head for v in others):
-        reads["gate"] = Read(
-            "GRID_LIMITED", {**obj0, "arm": "gate"},
-            (f"the headline verdict {head} does not hold across the registered "
-             f"grid: {sum(v != head for v in others)} of {len(others)} other "
-             f"arms disagree. §7 makes that GRID_LIMITED, not {head}"),
-            n_effective=len(verdicts)).to_dict()
-        log("  " + Read("GRID_LIMITED", {**obj0, "arm": "gate"},
-                        "see gate", n_effective=len(verdicts)).line())
+    hkey = f"r{HEADLINE[0]:g}_w{HEADLINE[1]:g}_p{HEADLINE[2]:g}"
+    for signal in ("energy", "energy_ego"):
+        log(f"  == signal {signal} "
+            + ("(as registered in §1; D20 shows it measures translation)"
+               if signal == "energy" else "(Amendment 1, stabilised)"))
+        verdicts = {}
+        for rad in RADII_BL:
+            for win_s in WINDOWS_S:
+                for pct in STILL_PCTS:
+                    name = f"r{rad:g}_w{win_s:g}_p{pct:g}"
+                    headline = (rad, win_s, pct) == HEADLINE
+                    got = _collect(rad, win_s, pct, fps, signal)
+                    rd, _det = _arm_read(
+                        got, {**obj0, "arm": f"gate|{signal}|{name}",
+                              "signal": signal, "radius_bl": rad,
+                              "win_s": win_s, "still_pct": pct},
+                        headline=headline)
+                    reads[f"gate|{signal}|{name}"] = rd.to_dict()
+                    verdicts[name] = rd.verdict
+                    if headline:
+                        log("  HEADLINE " + rd.line())
+        head = verdicts[hkey]
+        others = [v for k, v in verdicts.items() if k != hkey]
+        n_dis = sum(1 for v in others if v != head)
+        log(f"    sweep: headline {head}; {n_dis} of {len(others)} arms differ")
+        if n_dis:
+            reads[f"gate|{signal}"] = Read(
+                "GRID_LIMITED", {**obj0, "arm": f"gate|{signal}",
+                                 "signal": signal},
+                (f"the headline verdict {head} does not hold across the "
+                 f"registered grid: {n_dis} of {len(others)} other arms "
+                 f"disagree. §7 makes that GRID_LIMITED, not {head}"),
+                n_effective=len(verdicts)).to_dict()
+        else:
+            reads[f"gate|{signal}"] = Read(
+                head, {**obj0, "arm": f"gate|{signal}", "signal": signal},
+                f"the headline verdict {head} holds at every one of the "
+                f"{len(others) + 1} registered arms",
+                n_effective=len(verdicts)).to_dict()
     out = a.out or config.PATHS.result("grooming_gate.json")
     write_json({**anchors.header(anchors.LUNA, stage="grooming_gate",
                                  unverified="a detected candidate set"),

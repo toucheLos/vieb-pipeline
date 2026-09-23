@@ -78,11 +78,15 @@ def main(argv=None) -> int:
     gg = _gg()
     fps = spine.fps()
     rad, win_s, pct = gg.HEADLINE
-    got = gg._collect(rad, win_s, pct, fps)
+    # Amendment 1's stabilised signal. The registered image-coordinate signal
+    # measures translation (D20) and its candidates would be windows where the
+    # ANIMAL moved, which is the opposite of what a rater is being asked about.
+    got = gg._collect(rad, win_s, pct, fps, "energy_ego")
     rows, cand, partners = got["rows"], got["cand"], got["partners"]
     t_idx = np.flatnonzero(cand)
     ok = partners >= 0
-    log(f"  {int(cand.sum())} candidates, {int(ok.sum())} matched pairs")
+    log(f"  {int(cand.sum())} candidates, {int(ok.sum())} matched pairs "
+        f"(signal energy_ego, radius {rad} bl, {win_s} s windows)")
     if not ok.any():
         raise SystemExit("no matched pairs; run the scan first")
 
@@ -145,8 +149,13 @@ def main(argv=None) -> int:
     write_json({**anchors.header(anchors.LUNA, stage="grooming_clips",
                                  unverified="a detected candidate set"),
                 "inherited_digest": spine.digest(),
-                "registration": "results/GROOMING_PREREGISTRATION.md §3",
+                "registration": ("results/GROOMING_PREREGISTRATION.md §3 "
+                                 "+ Amendment 1"),
+                "signal": "energy_ego",
                 "headline": [rad, win_s, pct], "pad_s": PAD_S,
+                "caveat": ("the spectral gate REFUSED for too few candidates, "
+                           "so these clips are the detector's output being "
+                           "looked at, not evidence for a 3-8 Hz result"),
                 "blind": ("panel order shuffled; the arm lives ONLY in key.json "
                           "and the mix of candidates to controls is not stated "
                           "on the panel"),
