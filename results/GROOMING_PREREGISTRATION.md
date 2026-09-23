@@ -192,3 +192,78 @@ was buying, and it is the claim this stage's evidence actually supports.
 **The recording case either way** — a side camera, a higher frame rate, and
 paw-visible views — does not depend on the outcome and is being made to Luna
 now, not after.
+
+---
+
+# Amendment 1 — §1's head disc measures TRANSLATION, so the signal is stabilised
+
+**Committed alone. Recorded as `DEVIATIONS.md` D20.** Made on the evidence of a
+diagnostic about the **instrument**, before the gate had produced any verdict —
+`peak_excess` had not been compared between arms at the time this was written,
+because §2 yielded **no arms to compare**.
+
+**What §1 specified, and what it turned out to measure.** §1 put the head disc at
+the skull centroid **in image coordinates**. When the animal translates, the
+whole scene slides underneath that disc, and the resulting |Δ| is large — so the
+disc reports **body movement**, which is the one thing a still-body detector must
+exclude.
+
+Measured over 25 recordings and 2,408 windows:
+
+| | |
+|---|---|
+| corr(head energy, keypoint speed), radius 0.4 bl | **+0.911** |
+| corr(head energy, keypoint speed), radius **0.6 bl** (headline) | **+0.926** |
+| corr(head energy, keypoint speed), radius 0.8 bl | **+0.936** |
+| head energy SD remaining after removing speed | 35.9% |
+| **candidate windows found by §2** | **0 of 2,408** |
+
+**The correlation rises with the disc radius, and that is the mechanism, not a
+coincidence** — a larger disc catches more sliding scene. A disc measuring motion
+*relative to the body* could not behave that way.
+
+**The consequence for §2 is arithmetic, not judgement.** §2 asks for windows in
+the bottom 25% of speed **and** the top 25% of head energy. At r = +0.93 those
+sets are nearly disjoint, and the observed intersection is **empty**. §6's
+refusal at fewer than 500 candidates fires, and **that refusal is reported as the
+registered outcome** in `GROOMING.md` — it is not skipped over.
+
+## What changes
+
+**A second signal is added. Nothing is removed and nothing is re-chosen.**
+
+> **`energy_ego`**: consecutive frames are first **registered on the animal** —
+> rotated by the body-axis heading (`ego.heading`, `NOSE → TAIL_BASE`) and
+> translated so `CENTER` is fixed — and only then differenced, inside the same
+> skull disc. Body translation and body rotation are removed by construction, so
+> what remains is motion **relative to the animal's own frame**, which is what
+> "still body, moving head" means and what §1 should have specified.
+
+This is the **egocentric crop** the approved plan named; §1 implemented a disc in
+image coordinates instead, and that was the error.
+
+**Both signals are computed in one pass and both are reported.** The registered
+image-coordinate signal is run on all 300 recordings and its refusal published;
+`energy_ego` is run beside it. Everything else in this registration is
+**unchanged and applies to both**: §2's two conditions and percentiles, §3's
+eye-confirmation and its 50% bar, §4's `peak_excess` (with D19's corrections),
+§5's speed-matched control and amplitude-decile check, §6's gates and refusals,
+§7's sweep, §8's sample, §9's prohibitions and §10's negative wording.
+
+**Why this is not estimator-shopping.** §9.4 forbids tuning, and choosing a
+statistic after seeing which one the data favours is exactly what D17 refused to
+do for the freeze score. The distinction here is that **no verdict existed to
+shop for**: the registered signal produced zero candidates, so `peak_excess` was
+never evaluated on either arm, and the defect is established by a correlation
+with **keypoint speed** — a quantity entirely outside the gate. If `energy_ego`
+also refuses or fails, that is reported with the same weight.
+
+**A stabilised difference has its own failure mode, stated now.** Registering on
+a noisy pose injects motion of its own: a keypoint jitter of one pixel rotates
+and shifts the whole crop, and that appears as apparent motion everywhere,
+including the head disc. So `energy_ego` is reported **with its own control** —
+the identical stabilised difference measured in a disc on the **hindquarters**
+(`LEFT_HIP`, `RIGHT_HIP`, `TAIL_BASE`), where no grooming stroke occurs and
+which therefore carries registration noise and nothing else. **A 3–8 Hz excess
+that appears equally at the hips is registration noise, not behaviour**, and the
+gate fails whatever the head disc shows.

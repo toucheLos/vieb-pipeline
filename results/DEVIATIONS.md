@@ -744,3 +744,55 @@ which is how §6 reads it, but the incumbent of record is **+0.06, not 0**.
 form instead of measuring them. Calibrating on synthetic spectra with a known
 answer cost one script and caught a false claim in a committed registration
 before it could be used to support a result.
+
+---
+
+## D20 — the grooming gate's head disc measured translation, and found nothing
+
+`GROOMING_PREREGISTRATION.md` §1 placed the head disc at the skull centroid **in
+image coordinates**. When the animal translates, the scene slides beneath that
+disc and the frame difference is large — so the "head-region motion energy" it
+defines is dominated by **body movement**, the one thing a still-body detector
+must exclude.
+
+| radius, body lengths | corr(head energy, keypoint speed) |
+|---|---|
+| 0.4 | +0.911 |
+| **0.6** (headline) | **+0.926** |
+| 0.8 | +0.936 |
+
+Over 25 recordings and 2,408 windows. **The correlation rises with radius**,
+which is the signature of translation rather than a coincidence: a bigger disc
+catches more sliding scene, where a body-relative measure could not.
+
+**§2 therefore selected nothing.** Its candidates are windows in the bottom 25%
+of speed *and* the top 25% of head energy; at r = +0.93 those sets are nearly
+disjoint and the intersection was **empty** — 0 of 2,408. §6's refusal at fewer
+than 500 candidates fires, and it is published as the registered outcome rather
+than skipped.
+
+**Amended, alone, before any verdict existed.** A second signal `energy_ego`
+differences consecutive frames **after registering them on the animal** — rotated
+by the body-axis heading, translated so `CENTER` is fixed — inside the same
+skull disc. That is the egocentric crop the approved plan named and §1 failed to
+specify. Both signals are computed in one pass and both are reported.
+
+**This is not estimator-shopping, and the distinction is worth stating.** D17
+refused to switch the freeze threshold after seeing which one the data supported.
+The difference: there, an estimator had produced a verdict; here the registered
+signal produced **zero candidates**, so `peak_excess` was never evaluated on
+either arm, and the defect is established by a correlation with **keypoint
+speed** — a quantity outside the gate entirely.
+
+**The replacement carries its own risk and its own control.** Registering on a
+noisy pose injects motion: one pixel of keypoint jitter shifts the whole crop and
+appears as motion everywhere. So `energy_ego` is reported beside the identical
+stabilised difference on a **hindquarter** disc, where no grooming stroke occurs.
+A 3–8 Hz excess that appears equally at the hips is registration noise, and the
+gate fails whatever the head shows.
+
+**What this says about the method.** The plan said "egocentric crops"; the
+registration wrote "a disc centred on the skull centroid" and lost the word that
+mattered. A signal definition deserves the same units-and-frame audit a threshold
+gets — this is **M13** applied to a coordinate frame rather than to a sampling
+rate.
