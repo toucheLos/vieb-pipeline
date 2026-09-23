@@ -1,0 +1,109 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a post-hoc instrument diagnostic"
+  },
+  "corpus": "luna",
+  "diagnostic": "NOT a result; see DEVIATIONS.md D10",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "prompted_by": "0 of 30 candidates confirmed as grooming; the rater's reading was that DLC micro-jitter alone can produce the detection",
+  "reads": {
+    "jitter_predicts_energy": {
+      "degenerate": 0,
+      "detail": {
+        "n_windows": 28594,
+        "partial_given_speed": 0.2759223379094033,
+        "spearman": 0.7742578975335849
+      },
+      "n_effective": 28594,
+      "reason": "DIAGNOSTIC: skull jitter and head-region energy correlate +0.774 (Spearman) over 28,594 windows, and +0.276 with SPEED HELD FIXED by rank residualisation. Speed is a selection variable, so the partial figure is the one that is not reporting the selection back. Scores no registered hypothesis",
+      "saturation": null,
+      "scored_object": {
+        "arm": "jitter_predicts_energy",
+        "dataset": "luna",
+        "radius_bl": 0.6,
+        "signal": "energy_ego",
+        "split": "fit",
+        "still_pct": 25.0,
+        "win_s": 2.0
+      },
+      "verdict": "NOT_A_RESULT"
+    },
+    "skull_jitter": {
+      "degenerate": 0,
+      "detail": {
+        "candidate": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.04483983816089535,
+          "lo": 0.016789396135162216,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 26,
+          "n_boot": 2000,
+          "n_units": 96,
+          "point": 0.03126256215111508
+        },
+        "candidates_carry_more_jitter": 1,
+        "control": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.012968058565510273,
+          "lo": 0.005332103833815158,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 26,
+          "n_boot": 2000,
+          "n_units": 96,
+          "point": 0.009081218658167807
+        },
+        "n_pairs": 96,
+        "ratio": 3.442551416047777
+      },
+      "n_effective": 26,
+      "reason": "DIAGNOSTIC: candidate windows carry MORE skull jitter than their speed-matched partners -- 0.03126 [0.01679, 0.04484] against 0.00908 [0.00533, 0.01297] body lengths, 3.44x, non-overlapping, over 26 animals and 96 pairs. The skull is rigid, so this is tracking noise and not motion. Scores no registered hypothesis",
+      "saturation": null,
+      "scored_object": {
+        "arm": "skull_jitter",
+        "dataset": "luna",
+        "radius_bl": 0.6,
+        "signal": "energy_ego",
+        "split": "fit",
+        "still_pct": 25.0,
+        "win_s": 2.0
+      },
+      "verdict": "NOT_A_RESULT"
+    }
+  },
+  "stage": "grooming_jitter"
+}

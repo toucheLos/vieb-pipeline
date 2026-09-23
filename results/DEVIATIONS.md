@@ -796,3 +796,61 @@ registration wrote "a disc centred on the skull centroid" and lost the word that
 mattered. A signal definition deserves the same units-and-frame audit a threshold
 gets — this is **M13** applied to a coordinate frame rather than to a sampling
 rate.
+
+---
+
+## D21 — the grooming detector fires on DLC jitter, confirmed three ways
+
+`GROOMING_PREREGISTRATION.md` §3's panel was scored blind. **0 of 30 candidate
+clips are grooming.** The detector's precision is **0%** against a registered
+bar of 50%, so §9.4 forbids reading the spectral gate as an answer about
+grooming — which is moot, since §6 had already refused it for too few
+candidates.
+
+**The rater's reading was that DLC keypoints move in micro-increments and that
+this alone produces the detection.** That is testable, and it was tested rather
+than accepted: **the skull triangle is rigid**, so within-window variance in
+`left_ear–right_ear`, `left_ear–nose` and `right_ear–nose` is tracking noise and
+cannot be behaviour — the same logic `vieb/seg/jitter.py` uses for the keypoint
+noise floor. Selection used speed and pixel energy and **never saw a bone
+length**, and the control is matched on speed, so jitter was free to come out
+equal.
+
+| | candidates | speed-matched controls |
+|---|---|---|
+| skull jitter, body lengths | **0.03126 [0.01679, 0.04484]** | **0.00908 [0.00533, 0.01297]** |
+
+**3.44×, non-overlapping, 26 animals, 96 pairs.** At a ~102 px body length that
+is roughly **3.2 px** of fluctuation in a distance that is physically constant.
+Skull jitter predicts head-region energy at **+0.276** with speed held fixed by
+rank residualisation (+0.774 raw; the raw figure is partly reporting the
+selection back, which is why the partial is the one quoted).
+
+**Three independent lines converge, and one of them was built before the
+answer.** The eye says 0/30. The jitter measurement says 3.44×. And
+**Amendment 1's hindquarter control already predicted it**: the stabilised
+signal at the hips tracks speed at +0.876 → +0.841 against the head's +0.826 →
++0.808, so *a disc where no grooming can occur behaves like the disc where it
+would*. That control was added because registering on a noisy pose injects
+motion, and it turned out to be describing the actual failure.
+
+**The mechanism, end to end.** A genuinely still animal has low keypoint speed
+and passes the first criterion. Its skull keypoints still jitter, the egocentric
+warp is driven by that pose, so the crop rotates and translates frame to frame,
+which appears as pixel motion everywhere inside it — and the window passes the
+second criterion. **The detector selects still animals with noisy tracking.**
+
+**What follows, and what is deliberately not done here.** The fix has to break
+the pose → warp → apparent-motion path, which means **registration that does not
+depend on keypoints** — mask-based (`segment-anything` is installed and pinned,
+off the critical path for exactly this) or image-domain (phase correlation on the
+animal's box uses no keypoints at all). **Smoothing is the weaker option and its
+limit is worth stating in advance**: selection is a *within-recording percentile*
+on both criteria, so a uniform reduction in jitter moves the values and the
+threshold together and need not change which windows are selected. It helps only
+insofar as it removes jitter *preferentially* from the jittery windows, which is
+an empirical question, not a given.
+
+**No replacement detector is built here.** Choosing one after watching this one
+fail is what §9.4 prohibits; it belongs in its own registration, with this
+diagnostic as its stated motivation.

@@ -558,7 +558,41 @@ observed yield is **0.20-0.42%**, so the detector finds **20-40x** more of these
 windows than the bulk dependence allows. They are an outlier population, which is
 the reason to look at them rather than discard them.
 
-**The clips are rendered and waiting.** `results/grooming/` holds 45 clips -- 30
+**The clips were watched, and the detector's precision is 0%.** 0 of 30
+candidate clips are grooming, scored blind against a registered 50% bar; none of
+the 15 speed-matched controls was called grooming either, so the panel was not
+scored indiscriminately. That is a second, independent refusal: §9.4 forbids
+reading the spectral gate as an answer about grooming, on top of §6's refusal
+for want of candidates.
+
+**What it fires on instead is DLC jitter, and that was measured rather than
+assumed (D21).** The skull triangle is rigid, so within-window variance in its
+three bone lengths is tracking noise and cannot be behaviour — and selection used
+speed and pixel energy, never a bone length. Candidate windows carry **0.03126
+[0.01679, 0.04484]** body lengths of skull jitter against **0.00908 [0.00533,
+0.01297]** for their speed-matched partners: **3.44x, non-overlapping**, 26
+animals, 96 pairs, about 3.2 px of fluctuation in a physically constant
+distance. Skull jitter predicts head-region energy at **+0.276** with speed held
+fixed. The mechanism is that a genuinely still animal passes the first
+criterion, its skull keypoints jitter, the egocentric warp is driven by that
+pose, and the crop rotating frame to frame reads as motion inside it —
+**the detector selects still animals with noisy tracking**.
+
+**Amendment 1's hindquarter control had already said so.** The stabilised hip
+signal tracks speed at +0.876 -> +0.841 against the head's +0.826 -> +0.808: a
+disc where no grooming can occur behaves like the disc where it would. It was
+added because registering on a noisy pose injects motion, and it was describing
+the actual failure before the eye confirmed it.
+
+**The fix has to cut the pose -> warp -> apparent-motion path**, not damp it:
+registration that does not depend on keypoints (SAM, installed and pinned off
+the critical path; or image-domain phase correlation, which uses none). Smoothing
+is the weaker option and its limit is stated in advance — selection is a
+within-recording percentile on both criteria, so a uniform reduction in jitter
+moves the values and the threshold together. **No replacement detector is built**:
+choosing one after watching this one fail is what §9.4 prohibits.
+
+**The clips are published.** `results/grooming/` holds 45 clips -- 30
 candidates over 19 animals and 15 speed-matched controls, shuffled, key held
 back -- with `score.html` and a README. That is §3's fix and the only part of the
 gate still completable now: it answers what these windows CONTAIN, which no

@@ -317,6 +317,12 @@ def combine(a) -> int:
     reads: dict = {}
     verdicts: dict[str, str] = {}
     obj0 = {"dataset": "luna", "arm": "grooming_gate", "split": "fit"}
+    # §3 first: if the detector's precision is below the bar, §9.4 forbids
+    # reading the spectral gate as an answer about grooming whatever it says.
+    cr = _confirmation_read(obj0)
+    reads["confirmation"] = cr.to_dict()
+    log("  " + cr.line())
+
     hkey = f"r{HEADLINE[0]:g}_w{HEADLINE[1]:g}_p{HEADLINE[2]:g}"
     for signal in ("energy", "energy_ego"):
         log(f"  == signal {signal} "
@@ -381,6 +387,55 @@ def _confirmation() -> dict:
                          "contain")}
     with open(p, encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def _confirmation_read(obj: dict) -> Read:
+    """§3's gate: the detector's own PRECISION, scored against the 50% bar.
+
+    The panel was scored blind and the key is only opened here. Precision is
+    over CANDIDATES alone -- the controls are in the panel so that the rate can
+    come out at chance, not so that they can be counted as successes.
+    """
+    conf = _confirmation()
+    if not conf.get("scored"):
+        return Read("NOT_A_RESULT", {**obj, "arm": "confirmation"},
+                    "§3's panel has not been scored by eye", n_effective=1)
+    kp = os.path.join(config.PATHS.results_dir, "grooming", "key.json")
+    if not os.path.exists(kp):
+        return Read("NOT_A_RESULT", {**obj, "arm": "confirmation"},
+                    "the panel key is missing; precision cannot be scored",
+                    n_effective=1)
+    with open(kp, encoding="utf-8") as fh:
+        arm = {r["clip"]: r["arm"] for r in json.load(fh)["key"]}
+    v = conf.get("verdicts") or {}
+    cand = [c for c, a in arm.items() if a == "candidate" and c in v]
+    ctrl = [c for c, a in arm.items() if a == "control" and c in v]
+    if not cand:
+        return Read("NOT_A_RESULT", {**obj, "arm": "confirmation"},
+                    "no candidate clip carries a verdict", n_effective=1)
+    hit = sum(1 for c in cand if v[c] == "yes")
+    fp = sum(1 for c in ctrl if v[c] == "yes")
+    prec = hit / len(cand)
+    return Read("PASS" if prec >= MIN_CONFIRMED else "FAIL",
+                {**obj, "arm": "confirmation"},
+                (f"the detector's PRECISION is {100 * prec:.1f}% -- {hit} of "
+                 f"{len(cand)} candidate clips confirmed as grooming by eye, "
+                 f"against the registered bar of {100 * MIN_CONFIRMED:.0f}%"
+                 f"{f' ({fp} of {len(ctrl)} controls also called grooming)' if ctrl else ''}. "
+                 + ("§9.4 therefore FORBIDS reading the spectral gate as an "
+                    "answer about GROOMING: the detector does not detect "
+                    "grooming, and whatever the windows contain, §9.6 says that "
+                    "is what gets named" if prec < MIN_CONFIRMED else
+                    "the detector detects what it claims to")
+                 + (f". Recorded as a {conf.get('form')}"
+                    if conf.get("form") else "")),
+                n_effective=len(cand),
+                detail={"precision": prec, "n_candidates": len(cand),
+                        "n_confirmed": hit, "n_controls": len(ctrl),
+                        "n_control_false_positives": fp,
+                        "bar": MIN_CONFIRMED,
+                        "form": conf.get("form"),
+                        "verbatim": conf.get("verbatim")})
 
 
 def main(argv=None) -> int:
