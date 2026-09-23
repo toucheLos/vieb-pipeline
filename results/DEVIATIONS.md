@@ -691,3 +691,56 @@ floor difference is still reported beside every cross-context pixel number, as
 and the right direction, and still specified a check that could not be run. A
 refusal rule is a piece of arithmetic and needs its units audited exactly like a
 threshold does — this is **M13** applied to a gate rather than to a constant.
+
+---
+
+## D19 — `peak_excess` is rescaling-invariant, but it is not shape-robust, and its null is not zero
+
+Calibrated on synthetic spectra **before `vieb/pixel/head.py` read a single
+video frame**, which is the only reason this is a note rather than a retraction.
+
+`GROOMING_PREREGISTRATION.md` §4 justified `peak_excess` over a band share on
+the grounds that "a band share is scale-free but not shape-free" and that a peak
+above an interpolated background "is invariant to any multiplicative rescaling of
+the whole spectrum". **The second clause is exactly right. The first is not
+supported, and the implied comparison is backwards.**
+
+**What holds, exactly.** Rescaling a window by any constant leaves `peak_excess`
+identical to six decimal places across a 1000× range, because band power and the
+fitted background shift by the same amount in logs. This is the property §4
+needs against §2's circularity, and it is verified rather than argued.
+**`band_share` has it too.**
+
+**What does not hold.** Neither statistic is shape-free, and `peak_excess` is the
+*more* fragile of the two on the shape axis that matters here:
+
+| manipulation, 5 Hz peak held fixed | `peak_excess` | `band_share` |
+|---|---|---|
+| broadband floor ×0.25 → ×4 | **+2.56 → +0.15** | 0.93 → 0.31 |
+| background slope β 0 → 2.5 | **+0.77 → +2.11** | 0.56 → 0.40 |
+
+A steeper background predicts less power at 5 Hz, so an unchanged peak scores as
+a larger excess. That is arguably the *right* behaviour for "is there a peak
+here", but it means **a difference in background slope between the arms can
+masquerade as a difference in peak strength.**
+
+**Its null is not zero either.** §6 registered "`peak_excess` for a flat-background
+window: 0 by construction". Measured on peak-free backgrounds: **+0.053** (white),
+**+0.059** (1/f), **+0.012** (1/f²), sd ≈ 0.09 — a small positive bias from
+fitting a line to a multitaper log-spectrum. It cancels in a matched contrast,
+which is how §6 reads it, but the incumbent of record is **+0.06, not 0**.
+
+**Three consequences, all applied.**
+
+1. The statistic **stands**. Its rescaling-invariance is the property the gate
+   depends on and it is exact.
+2. `slope` is now **reported for both arms**, and a difference in it is reported
+   beside the headline. A background difference must not be readable as a peak.
+3. §4's claim of superiority over band share is **withdrawn**. Both are
+   published; `peak_excess` remains the registered gate because it measures a
+   *local* peak rather than total band power, not because it is more robust.
+
+**What this says about the method.** §4 argued a statistic's properties from its
+form instead of measuring them. Calibrating on synthetic spectra with a known
+answer cost one script and caught a false claim in a committed registration
+before it could be used to support a result.

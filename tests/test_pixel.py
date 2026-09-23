@@ -183,3 +183,108 @@ def test_floor_read_reports_the_context_gap():
     assert rd.verdict == "PASS"
     assert (rd.detail or {})["context_gap"] == pytest.approx(10.0)
     assert "ezTrack's published default" in rd.reason
+
+
+# --------------------------------------------------------------------------
+# The grooming gate's statistic. GROOMING_PREREGISTRATION.md §4, DEVIATIONS D19.
+# --------------------------------------------------------------------------
+
+from vieb.pixel import head as hd                                # noqa: E402
+
+FPS, NWIN = 30.0, 60
+
+
+def _pinkish(n, rng, beta=1.0, fps=FPS):
+    f = np.fft.rfftfreq(n, 1 / fps)
+    f[0] = f[1]
+    return np.fft.irfft(f ** (-beta / 2)
+                        * np.exp(1j * rng.random(f.size) * 2 * np.pi), n)
+
+
+def test_peak_excess_is_exactly_invariant_to_rescaling():
+    """§4's load-bearing claim, and the whole defence against §2's circularity.
+
+    Candidates are SELECTED on high head-region amplitude. If the statistic
+    moved with amplitude the gate would be testing its own selection rule.
+    """
+    rng = np.random.default_rng(0)
+    t = np.arange(NWIN) / FPS
+    for _ in range(20):
+        x = _pinkish(NWIN, rng) + 0.7 * np.sin(2 * np.pi * 5 * t)
+        base = hd.peak_excess(x, fps=FPS)
+        for k in (0.01, 0.1, 10.0, 1000.0):
+            assert hd.peak_excess(k * x, fps=FPS) == pytest.approx(base,
+                                                                   abs=1e-9)
+
+
+def test_band_share_is_also_scale_invariant():
+    """D19: the registration implied peak_excess was better here. It is equal."""
+    rng = np.random.default_rng(1)
+    x = _pinkish(NWIN, rng) + 0.5 * np.sin(2 * np.pi * 5 * np.arange(NWIN) / FPS)
+    base = hd.band_share(x, fps=FPS)
+    for k in (0.1, 10.0):
+        assert hd.band_share(k * x, fps=FPS) == pytest.approx(base, abs=1e-9)
+
+
+def test_peak_excess_rises_with_a_real_peak():
+    rng = np.random.default_rng(2)
+    t = np.arange(NWIN) / FPS
+    got = []
+    for amp in (0.0, 0.5, 2.0):
+        v = [hd.peak_excess(_pinkish(NWIN, rng) / 1.0
+                            + amp * np.sin(2 * np.pi * 5 * t
+                                           + rng.random() * 6.28), fps=FPS)
+             for _ in range(120)]
+        got.append(float(np.nanmean(v)))
+    assert got[0] < got[1] < got[2]
+
+
+def test_peak_free_null_is_small_but_not_zero():
+    """D19: §6 registered '0 by construction'. It is about +0.06."""
+    rng = np.random.default_rng(3)
+    v = np.asarray([hd.peak_excess(_pinkish(NWIN, rng), fps=FPS)
+                    for _ in range(300)])
+    assert 0.0 < float(np.nanmean(v)) < 0.2
+
+
+def test_spectrum_stats_refuses_rather_than_returning_zero():
+    """NaN is a refusal; a caller that substitutes 0 would invent a null peak."""
+    for bad in (np.zeros(NWIN), np.full(NWIN, np.nan), np.arange(4.0)):
+        st = hd.spectrum_stats(bad, fps=FPS)
+        assert all(np.isnan(v) for v in st.values()), bad[:3]
+
+
+def test_spectrum_stats_reports_the_background_slope():
+    """D19: a slope difference between arms can masquerade as a peak."""
+    rng = np.random.default_rng(4)
+    flat = np.mean([hd.spectrum_stats(_pinkish(NWIN, rng, 0.0),
+                                      fps=FPS)["slope"] for _ in range(80)])
+    steep = np.mean([hd.spectrum_stats(_pinkish(NWIN, rng, 2.0),
+                                       fps=FPS)["slope"] for _ in range(80)])
+    assert steep < flat                       # steeper background, more negative
+
+
+def test_sub_bands_are_reported_separately():
+    """§0: at 30 fps, 8 Hz is 3.75 samples per cycle -- the upper edge is fragile."""
+    rng = np.random.default_rng(5)
+    st = hd.spectrum_stats(_pinkish(NWIN, rng), fps=FPS)
+    assert "excess_low" in st and "excess_high" in st
+
+
+def test_skull_disc_refuses_when_the_head_is_not_locatable():
+    pose = np.full((7, 2), np.nan)
+    pose[hd.SKULL[0]] = (100.0, 100.0)
+    assert hd.skull_disc(pose, 20.0, (480, 640)) is None
+
+
+def test_skull_disc_is_a_disc_on_the_skull_centroid():
+    pose = np.full((7, 2), np.nan)
+    pose[hd.SKULL[0]] = (100.0, 100.0)
+    pose[hd.SKULL[1]] = (120.0, 100.0)
+    pose[hd.SKULL[2]] = (110.0, 120.0)
+    m = hd.skull_disc(pose, 10.0, (480, 640))
+    assert m is not None
+    ys, xs = np.nonzero(m)
+    assert abs(xs.mean() - 110.0) < 1.0
+    assert abs(ys.mean() - 106.67) < 1.5
+    assert m.sum() < np.pi * 10.0 ** 2 * 1.2      # a disc, not its bounding box
