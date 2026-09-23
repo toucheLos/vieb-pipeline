@@ -531,6 +531,46 @@ are unchanged — what changed is what conditioning on held poses *means*.
 therefore fired on every possible result; replaced by a correction that could
 have failed and did not.
 
+## The grooming gate — refused at every arm, and the detector is why
+
+`results/GROOMING.md`, under a registration committed alone and then amended
+alone (D20). `NOT_A_RESULT` at **all 54 arms** — 27 registered grid points x 2
+signals — because no arm reached the registered minimum of 500 candidate
+windows. **The 3-8 Hz question was never tested**, so §10's negative wording is
+**not** invoked: claiming fine limb behaviour is unrecoverable by motion-energy
+features would assert the outcome of a test that was refused for want of data.
+
+**What failed is the detector.** §2 wants windows simultaneously in the bottom
+25% of keypoint speed and the top 25% of head-region motion, and head-region
+pixel motion is very largely body motion. Within recording, median over 300
+recordings, the correlation with keypoint speed runs **+0.900 -> +0.924** across
+disc radii for the disc §1 registered in image coordinates, and **+0.826 ->
++0.808** for Amendment 1's stabilised version. **The trend reverses**, which is
+the cleanest evidence the warp works: in image coordinates a bigger disc catches
+more of the scene sliding beneath a translating animal; stabilised, a bigger disc
+averages over more animal. Stabilising doubled the yield (51 -> 96 candidates at
+the headline, 164 -> 347 at the best arm) and the best arm still reaches only
+**69%** of the minimum.
+
+**The candidates that exist are not noise.** Under a Gaussian copula at the
+observed rank correlation the two conditions would co-occur at **0.01%**; the
+observed yield is **0.20-0.42%**, so the detector finds **20-40x** more of these
+windows than the bulk dependence allows. They are an outlier population, which is
+the reason to look at them rather than discard them.
+
+**The clips are rendered and waiting.** `results/grooming/` holds 45 clips -- 30
+candidates over 19 animals and 15 speed-matched controls, shuffled, key held
+back -- with `score.html` and a README. That is §3's fix and the only part of the
+gate still completable now: it answers what these windows CONTAIN, which no
+statistic here can. One blinding leak is published rather than left to be found:
+candidate clips encode larger (29,486 against 24,024 bytes median).
+
+**The hindquarter control never got to speak, and the numbers say it would have
+been binding.** The stabilised hip signal tracks speed at +0.876 -> +0.841,
+almost exactly like the stabilised head signal -- a disc where no grooming
+happens looks like the disc where it would. Any future version of this gate must
+clear that control before its head number means anything.
+
 ## Open
 
 Steps 3–4, with **four** arms and the MDL entropy normalisation: a flattened

@@ -23,6 +23,18 @@ A rater shown only candidates has no way to be wrong, and a confirmation rate
 computed that way measures nothing. With controls in the panel the rate can come
 out at chance, which is the outcome that would falsify the detector.
 
+## One blinding leak, measured and named
+
+The panel is blind on everything the scoring page shows: `manifest.json` carries
+only the clip id, the filename and the duration, every clip is exactly **3.0 s**,
+and the order is shuffled. The arm lives only in `key.json`.
+
+**But the file sizes differ by arm** — median **29,486 bytes** for candidates
+against **24,024** for controls — because a clip with more motion encodes larger.
+That is not visible in `score.html`, but it *is* recoverable from a directory
+listing, so it is named here rather than left to be discovered. **Score from the
+page, not from the filesystem.**
+
 ## What this can and cannot settle
 
 **The spectral gate already refused** — no arm of the registered grid reached
