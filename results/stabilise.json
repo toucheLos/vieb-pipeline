@@ -1,0 +1,952 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a registration instrument"
+  },
+  "corpus": "luna",
+  "deviation": "DEVIATIONS.md D22",
+  "env": {
+    "cuda": {
+      "available": 1,
+      "built": "13.0",
+      "device": "NVIDIA A100 80GB PCIe"
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "g01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "82033"
+  },
+  "fps": 30.0,
+  "headline_radius_bl": 0.6,
+  "inherited_digest": "198eb14ff258c7f6",
+  "reads": {
+    "B": {
+      "coupling_with_speed": {
+        "head|0.4": 0.5709977889873019,
+        "head|0.6": 0.5628989411961702,
+        "head|0.8": 0.55786687382906,
+        "hip|0.4": 0.5436112690131416,
+        "hip|0.6": 0.5603235937315825,
+        "hip|0.8": 0.581484789265973
+      },
+      "detail": {
+        "refused_recordings": 213,
+        "refused_share": 0.71
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 0,
+          "n_values": 3048,
+          "share_nonzero": 0.0
+        },
+        "n_effective": 3048,
+        "reason": "0 of 3,048 in-disc values on duplicate video frames are non-zero (0.00%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|B|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "PASS"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 19,
+        "reason": "19 animals with >= 30 still windows, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|B|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 3,
+        "reason": "3 animals with >= 50 immobile frames, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|B|gate3_immobility",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 2474.793923844571,
+            "lo": 1134.8511687543964,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 26,
+            "n_boot": 2000,
+            "n_units": 26,
+            "point": 1726.0386338705898
+          }
+        },
+        "n_effective": 26,
+        "reason": "registered in-disc motion is 1726.039x [1134.851, 2474.794] the arena's own noise over 26 animals; the bar is an upper bound <= 1.1",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|B|gate4_plant",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "moving|4Hz|0.25px": {
+          "head": {
+            "n": 141,
+            "recall": 0.04964539007092199
+          },
+          "hip": {
+            "n": 141,
+            "recall": 0.03546099290780142
+          }
+        },
+        "moving|4Hz|0.5px": {
+          "head": {
+            "n": 143,
+            "recall": 0.04195804195804196
+          },
+          "hip": {
+            "n": 143,
+            "recall": 0.03496503496503497
+          }
+        },
+        "moving|4Hz|1px": {
+          "head": {
+            "n": 142,
+            "recall": 0.035211267605633804
+          },
+          "hip": {
+            "n": 142,
+            "recall": 0.035211267605633804
+          }
+        },
+        "moving|4Hz|2px": {
+          "head": {
+            "n": 139,
+            "recall": 0.05755395683453238
+          },
+          "hip": {
+            "n": 139,
+            "recall": 0.04316546762589928
+          }
+        },
+        "moving|4Hz|4px": {
+          "head": {
+            "n": 138,
+            "recall": 0.050724637681159424
+          },
+          "hip": {
+            "n": 138,
+            "recall": 0.043478260869565216
+          }
+        },
+        "moving|6Hz|0.25px": {
+          "head": {
+            "n": 142,
+            "recall": 0.04225352112676056
+          },
+          "hip": {
+            "n": 142,
+            "recall": 0.035211267605633804
+          }
+        },
+        "moving|6Hz|0.5px": {
+          "head": {
+            "n": 142,
+            "recall": 0.04225352112676056
+          },
+          "hip": {
+            "n": 142,
+            "recall": 0.035211267605633804
+          }
+        },
+        "moving|6Hz|1px": {
+          "head": {
+            "n": 144,
+            "recall": 0.041666666666666664
+          },
+          "hip": {
+            "n": 144,
+            "recall": 0.041666666666666664
+          }
+        },
+        "moving|6Hz|2px": {
+          "head": {
+            "n": 143,
+            "recall": 0.055944055944055944
+          },
+          "hip": {
+            "n": 143,
+            "recall": 0.04195804195804196
+          }
+        },
+        "moving|6Hz|4px": {
+          "head": {
+            "n": 140,
+            "recall": 0.04285714285714286
+          },
+          "hip": {
+            "n": 140,
+            "recall": 0.05714285714285714
+          }
+        },
+        "n_null": 142,
+        "still|4Hz|0.25px": {
+          "head": {
+            "n": 185,
+            "recall": 0.5297297297297298
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.5164835164835165
+          }
+        },
+        "still|4Hz|0.5px": {
+          "head": {
+            "n": 185,
+            "recall": 0.4918918918918919
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.4835164835164835
+          }
+        },
+        "still|4Hz|1px": {
+          "head": {
+            "n": 185,
+            "recall": 0.5243243243243243
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.5604395604395604
+          }
+        },
+        "still|4Hz|2px": {
+          "head": {
+            "n": 183,
+            "recall": 0.5901639344262295
+          },
+          "hip": {
+            "n": 181,
+            "recall": 0.5469613259668509
+          }
+        },
+        "still|4Hz|4px": {
+          "head": {
+            "n": 182,
+            "recall": 0.6153846153846154
+          },
+          "hip": {
+            "n": 180,
+            "recall": 0.6222222222222222
+          }
+        },
+        "still|6Hz|0.25px": {
+          "head": {
+            "n": 185,
+            "recall": 0.9405405405405406
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.9505494505494505
+          }
+        },
+        "still|6Hz|0.5px": {
+          "head": {
+            "n": 185,
+            "recall": 0.9405405405405406
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.945054945054945
+          }
+        },
+        "still|6Hz|1px": {
+          "head": {
+            "n": 185,
+            "recall": 0.9081081081081082
+          },
+          "hip": {
+            "n": 182,
+            "recall": 0.9395604395604396
+          }
+        },
+        "still|6Hz|2px": {
+          "head": {
+            "n": 183,
+            "recall": 0.9016393442622951
+          },
+          "hip": {
+            "n": 181,
+            "recall": 0.9116022099447514
+          }
+        },
+        "still|6Hz|4px": {
+          "head": {
+            "n": 182,
+            "recall": 0.9175824175824175
+          },
+          "hip": {
+            "n": 180,
+            "recall": 0.9611111111111111
+          }
+        },
+        "threshold": 0.6233268567410084
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "71.0% of recordings refused, against 20%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|B",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      }
+    },
+    "K": {
+      "coupling_with_speed": {
+        "head|0.4": 0.8261440924905108,
+        "head|0.6": 0.8148174251162391,
+        "head|0.8": 0.8078132662084114,
+        "hip|0.4": 0.8762802522913161,
+        "hip|0.6": 0.8577051442968139,
+        "hip|0.8": 0.8413483539387678
+      },
+      "detail": {
+        "refused_recordings": 0,
+        "refused_share": 0.0
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 23910,
+          "n_values": 23910,
+          "share_nonzero": 1.0
+        },
+        "n_effective": 23910,
+        "reason": "23,910 of 23,910 in-disc values on duplicate video frames are non-zero (100.00%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.391927770239189,
+            "lo": 0.284767430295581,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 30,
+            "n_boot": 2000,
+            "n_units": 30,
+            "point": 0.33990287274073877
+          },
+          "n_animals": 30,
+          "n_windows": 7250
+        },
+        "n_effective": 30,
+        "reason": "the incumbent's own jitter coupling on still windows: +0.340 [+0.285, +0.392] -- the reference, not a gate",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 15,
+        "reason": "15 animals with >= 50 immobile frames, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K|gate3_immobility",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 1328.46798429967,
+            "lo": 722.6248261021484,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 30,
+            "n_boot": 2000,
+            "n_units": 30,
+            "point": 1015.8171117577074
+          }
+        },
+        "n_effective": 30,
+        "reason": "registered in-disc motion is 1015.817x [722.625, 1328.468] the arena's own noise over 30 animals; the bar is an upper bound <= 1.1",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K|gate4_plant",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "moving|4Hz|0.25px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|4Hz|0.5px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|4Hz|1px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|4Hz|2px": {
+          "head": {
+            "n": 242,
+            "recall": 0.07851239669421488
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|4Hz|4px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|6Hz|0.25px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|6Hz|0.5px": {
+          "head": {
+            "n": 242,
+            "recall": 0.07851239669421488
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|6Hz|1px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|6Hz|2px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0743801652892562
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "moving|6Hz|4px": {
+          "head": {
+            "n": 242,
+            "recall": 0.06198347107438017
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "n_null": 484,
+        "still|4Hz|0.25px": {
+          "head": {
+            "n": 242,
+            "recall": 0.03305785123966942
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|4Hz|0.5px": {
+          "head": {
+            "n": 242,
+            "recall": 0.03305785123966942
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|4Hz|1px": {
+          "head": {
+            "n": 242,
+            "recall": 0.03305785123966942
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|4Hz|2px": {
+          "head": {
+            "n": 242,
+            "recall": 0.0371900826446281
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|4Hz|4px": {
+          "head": {
+            "n": 242,
+            "recall": 0.03305785123966942
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.045454545454545456
+          }
+        },
+        "still|6Hz|0.25px": {
+          "head": {
+            "n": 242,
+            "recall": 0.03305785123966942
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|6Hz|0.5px": {
+          "head": {
+            "n": 242,
+            "recall": 0.028925619834710745
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.049586776859504134
+          }
+        },
+        "still|6Hz|1px": {
+          "head": {
+            "n": 242,
+            "recall": 0.024793388429752067
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.045454545454545456
+          }
+        },
+        "still|6Hz|2px": {
+          "head": {
+            "n": 242,
+            "recall": 0.028925619834710745
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.045454545454545456
+          }
+        },
+        "still|6Hz|4px": {
+          "head": {
+            "n": 242,
+            "recall": 0.024793388429752067
+          },
+          "hip": {
+            "n": 242,
+            "recall": 0.04132231404958678
+          }
+        },
+        "threshold": 0.698274375629959
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "the incumbent; gate 2 is its reference, so it is scored on gates 1, 3 and 4 only",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    "P": {
+      "coupling_with_speed": {
+        "head|0.4": 0.8343005733719914,
+        "head|0.6": 0.8533634460325004,
+        "head|0.8": 0.8557493282334754,
+        "hip|0.4": 0.824734536239915,
+        "hip|0.6": 0.840150840161075,
+        "hip|0.8": 0.8450639771723447
+      },
+      "detail": {
+        "refused_recordings": 213,
+        "refused_share": 0.71
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 0,
+          "n_values": 3048,
+          "share_nonzero": 0.0
+        },
+        "n_effective": 3048,
+        "reason": "0 of 3,048 in-disc values on duplicate video frames are non-zero (0.00%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|P|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "PASS"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 19,
+        "reason": "19 animals with >= 30 still windows, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|P|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 3,
+        "reason": "3 animals with >= 50 immobile frames, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|P|gate3_immobility",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 1559.3518233195794,
+            "lo": 619.1033316437564,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 26,
+            "n_boot": 2000,
+            "n_units": 26,
+            "point": 1040.8970569820192
+          }
+        },
+        "n_effective": 26,
+        "reason": "registered in-disc motion is 1040.897x [619.103, 1559.352] the arena's own noise over 26 animals; the bar is an upper bound <= 1.1",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|P|gate4_plant",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "moving|4Hz|0.25px": {
+          "head": {
+            "n": 133,
+            "recall": 0.06015037593984962
+          },
+          "hip": {
+            "n": 133,
+            "recall": 0.03759398496240601
+          }
+        },
+        "moving|4Hz|0.5px": {
+          "head": {
+            "n": 135,
+            "recall": 0.05925925925925926
+          },
+          "hip": {
+            "n": 135,
+            "recall": 0.037037037037037035
+          }
+        },
+        "moving|4Hz|1px": {
+          "head": {
+            "n": 135,
+            "recall": 0.05925925925925926
+          },
+          "hip": {
+            "n": 135,
+            "recall": 0.05185185185185185
+          }
+        },
+        "moving|4Hz|2px": {
+          "head": {
+            "n": 129,
+            "recall": 0.06201550387596899
+          },
+          "hip": {
+            "n": 129,
+            "recall": 0.046511627906976744
+          }
+        },
+        "moving|4Hz|4px": {
+          "head": {
+            "n": 131,
+            "recall": 0.07633587786259542
+          },
+          "hip": {
+            "n": 131,
+            "recall": 0.022900763358778626
+          }
+        },
+        "moving|6Hz|0.25px": {
+          "head": {
+            "n": 134,
+            "recall": 0.06716417910447761
+          },
+          "hip": {
+            "n": 134,
+            "recall": 0.05223880597014925
+          }
+        },
+        "moving|6Hz|0.5px": {
+          "head": {
+            "n": 135,
+            "recall": 0.06666666666666667
+          },
+          "hip": {
+            "n": 135,
+            "recall": 0.044444444444444446
+          }
+        },
+        "moving|6Hz|1px": {
+          "head": {
+            "n": 137,
+            "recall": 0.058394160583941604
+          },
+          "hip": {
+            "n": 137,
+            "recall": 0.043795620437956206
+          }
+        },
+        "moving|6Hz|2px": {
+          "head": {
+            "n": 135,
+            "recall": 0.06666666666666667
+          },
+          "hip": {
+            "n": 135,
+            "recall": 0.05185185185185185
+          }
+        },
+        "moving|6Hz|4px": {
+          "head": {
+            "n": 132,
+            "recall": 0.030303030303030304
+          },
+          "hip": {
+            "n": 132,
+            "recall": 0.030303030303030304
+          }
+        },
+        "n_null": 134,
+        "still|4Hz|0.25px": {
+          "head": {
+            "n": 185,
+            "recall": 0.22702702702702704
+          },
+          "hip": {
+            "n": 158,
+            "recall": 0.3860759493670886
+          }
+        },
+        "still|4Hz|0.5px": {
+          "head": {
+            "n": 185,
+            "recall": 0.3567567567567568
+          },
+          "hip": {
+            "n": 165,
+            "recall": 0.3939393939393939
+          }
+        },
+        "still|4Hz|1px": {
+          "head": {
+            "n": 185,
+            "recall": 0.3621621621621622
+          },
+          "hip": {
+            "n": 174,
+            "recall": 0.45977011494252873
+          }
+        },
+        "still|4Hz|2px": {
+          "head": {
+            "n": 183,
+            "recall": 0.5300546448087432
+          },
+          "hip": {
+            "n": 179,
+            "recall": 0.4972067039106145
+          }
+        },
+        "still|4Hz|4px": {
+          "head": {
+            "n": 182,
+            "recall": 0.6593406593406593
+          },
+          "hip": {
+            "n": 179,
+            "recall": 0.6759776536312849
+          }
+        },
+        "still|6Hz|0.25px": {
+          "head": {
+            "n": 185,
+            "recall": 0.6972972972972973
+          },
+          "hip": {
+            "n": 162,
+            "recall": 0.8024691358024691
+          }
+        },
+        "still|6Hz|0.5px": {
+          "head": {
+            "n": 185,
+            "recall": 0.5567567567567567
+          },
+          "hip": {
+            "n": 172,
+            "recall": 0.7325581395348837
+          }
+        },
+        "still|6Hz|1px": {
+          "head": {
+            "n": 185,
+            "recall": 0.4648648648648649
+          },
+          "hip": {
+            "n": 179,
+            "recall": 0.6815642458100558
+          }
+        },
+        "still|6Hz|2px": {
+          "head": {
+            "n": 183,
+            "recall": 0.5519125683060109
+          },
+          "hip": {
+            "n": 180,
+            "recall": 0.7388888888888889
+          }
+        },
+        "still|6Hz|4px": {
+          "head": {
+            "n": 182,
+            "recall": 0.8461538461538461
+          },
+          "hip": {
+            "n": 180,
+            "recall": 0.8666666666666667
+          }
+        },
+        "threshold": 0.7547686289375728
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "71.0% of recordings refused, against 20%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|P",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      }
+    },
+    "k_check": {
+      "max_abs_diff": 0.0,
+      "n_recordings": 300,
+      "note": "compared as float32, the precision the grooming run stored",
+      "ok": 1,
+      "tolerance": 1e-09
+    }
+  },
+  "registration": "results/STABILISE_PREREGISTRATION.md",
+  "seed": 0,
+  "stage": "stabilise",
+  "win_frames": 60
+}

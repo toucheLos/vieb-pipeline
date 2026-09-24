@@ -869,3 +869,26 @@ padded box), which recovers the same rotations to within 0.03°.
 **Made before any real frame was registered by any arm**, on synthetic evidence
 only. No gate had been evaluated. Everything else in the registration, including
 all bars, is unchanged.
+
+## D23 — STABILISE gates 4 and 5 cannot inform, and gate 3's floor was set without counts
+
+Recorded **after** the run and not corrected, because correcting a bar after
+seeing the result is what the registration forbids.
+
+* **Gate 4's bar is unattainable by construction.** It compares in-disc |Δ| on a
+  moving, interpolated paste with the real arena's median |Δ| (median 0.012
+  grey levels across recordings). A registration handed perfect keypoints
+  leaves about 0.6 grey levels of resampling residual on the synthetic scene,
+  about 50× the bar before any registration error. Every arm, K included,
+  lands at about 10³×. `METHODS_FINDINGS.md` M12: the bar was not calibrated
+  against a perfect registration.
+* **Gate 5's null does not match its planted arms for B and P.** The unplanted
+  still windows are identically zero, so the threshold comes from moving
+  windows only. Head and hip recall agree in every cell and barely move with
+  amplitude, which fits the plant perturbing B's mask moments rather than the
+  head. No gate 5 curve is published as a sensitivity.
+* **Gate 3's per-animal floor (≥ 50 immobile frames) was set from a pooled
+  census count.** Only 15 of 30 animals reach it, even for the incumbent.
+
+The arm verdicts do not depend on any of this: B and P are `NOT_A_RESULT` on
+§1's refusal alone (213 of 300 recordings).

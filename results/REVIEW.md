@@ -40,7 +40,7 @@ it.
 > Gate: a rigid-bone jitter partial correlation, speed held fixed (D21: +0.276
 > for the incumbent warp).
 
-The next registered stage, `STABILISE_PREREGISTRATION.md`, tests exactly this.
+The next registered stage, `STABILISE_PREREGISTRATION.md`, tested exactly this (`STABILISE.md`). The incumbent reports motion on 100% of byte-identical frame pairs. The keypoint-free arms were refused, because a median-background mask cannot isolate an animal that stays in one place. That is direct evidence for the review's A1 mask-first recommendation (SAM or a learned segmenter) over background subtraction.
 
 ## 2. Where the review agrees with what is already measured
 
