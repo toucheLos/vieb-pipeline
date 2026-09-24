@@ -200,11 +200,15 @@ def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike
     """
     import cv2
 
-    a = np.asarray(prev, dtype=np.float64)
-    b = np.asarray(cur, dtype=np.float64)
+    # COPIES, not views. OpenCV 5.0.0's `phaseCorrelate` writes the window into
+    # its inputs in place whenever the crop is already a DFT-optimal size, and a
+    # crop of a frame is a view: it silently altered the frame the NEXT pair is
+    # differenced against. Found by §7's incumbent check on a real recording.
+    a = np.array(prev, dtype=np.float64, copy=True)
+    b = np.array(cur, dtype=np.float64, copy=True)
     h, w = a.shape
     win = cv2.createHanningWindow((w, h), cv2.CV_64F)
-    (sx, sy), _ = cv2.phaseCorrelate(a, b, win)
+    (sx, sy), _ = cv2.phaseCorrelate(a.copy(), b.copy(), win)
     W0 = np.array([[1.0, 0.0, sx], [0.0, 1.0, sy]], dtype=np.float32)
     try:
         _, W1 = cv2.findTransformECC(  # type: ignore[call-overload]
@@ -276,6 +280,12 @@ def _centroid(p: F64, pts: tuple[int, ...]) -> F64 | None:
     return np.asarray(q[ok].mean(axis=0), dtype=np.float64)
 
 
+def _close(it: Iterator[Any]) -> None:
+    close = getattr(it, "close", None)
+    if close is not None:
+        close()
+
+
 def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
                   bg: npt.ArrayLike, cutoff: float, radii_px: Sequence[float],
                   dilate_px: float, win: int,
@@ -299,7 +309,8 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
     boxes: list[tuple[int, int, int, int] | None] = []
     shape: tuple[int, int] | None = None
     prev_th: float | None = None
-    for grey in open_frames():
+    it1 = open_frames()
+    for grey in it1:
         if len(cx_l) >= p.shape[0]:
             break
         b = blur(grey)
@@ -320,6 +331,10 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
         th_l.append(th)
         area_l.append(ar)
         boxes.append(_box(m, PAD_BL * body_length_px, shape))
+    # Release pass 1's decoder BEFORE pass 2 opens its own. Left suspended, a
+    # second concurrent decode of the same file returned different pixels on 12
+    # of 6,302 frames of a real recording (found by §7's incumbent check).
+    _close(it1)
     if shape is None:
         raise SystemExit("no frames")
     n = len(cx_l)
@@ -435,6 +450,7 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
         grey_old, b_old, mask_old = g, b, mask
         warpK_old, warpB_old = warpK, warpB
         t += 1
+    _close(it)
     out.update({"arena": arena[:t], "identical": identical[:t],
                 "n_frames": int(t), "mask_area": area[:t],
                 "mask_ok": ok[:t], "mask_theta": np.asarray(th_l)[:t],

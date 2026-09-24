@@ -150,6 +150,18 @@ def test_rigid_between_is_exactly_the_identity_on_identical_crops():
     assert got[:3] == (0.0, 0.0, 0.0)
 
 
+@pytest.mark.parametrize("h,w", [(101, 161), (128, 160), (120, 180)])
+def test_rigid_between_never_writes_into_the_frame(h, w):
+    """OpenCV's phaseCorrelate mutates its inputs at DFT-optimal sizes; a crop is
+    a view of the frame the next pair is differenced against."""
+    bg, layer, msk = _scene()
+    a = rg.blur(_render(bg, layer, msk, I2))
+    b = rg.blur(_render(bg, layer, msk, rg.invert(_rot(3, 1, 0))))
+    a0, b0 = a.copy(), b.copy()
+    rg.rigid_between(a[180:180 + h, 240:240 + w], b[180:180 + h, 240:240 + w])
+    assert np.array_equal(a, a0) and np.array_equal(b, b0)
+
+
 # ---- §2 gate 1: duplicate frames give exactly zero, for B and P ------------
 
 def test_duplicate_frames_are_exactly_zero_for_B_and_P_but_not_K():
