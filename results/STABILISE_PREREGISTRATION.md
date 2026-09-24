@@ -74,7 +74,7 @@ any gate is read.
 
 **The tail is in the mask, and that is a known risk, stated now.** A sweeping
 tail moves the centroid and the moment axis. This is not patched in advance.
-§3's immobility gate and §4's plant exist to measure what it costs.
+§4's immobility gate and §5's plant exist to measure what it costs.
 
 **P, specified completely.**
 
