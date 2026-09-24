@@ -892,3 +892,15 @@ seeing the result is what the registration forbids.
 
 The arm verdicts do not depend on any of this: B and P are `NOT_A_RESULT` on
 §1's refusal alone (213 of 300 recordings).
+
+## D24 — STABILISE 2 gate 3 is ill-conditioned; gate 4's synthetic calibration did not transfer
+
+Recorded after the run and not corrected. **Gate 3** averages per-frame ratios
+whose denominator (the arena's |Δ| on immobile frames) approaches zero. K scores
+3.99 × 10⁵× on it, a statistic of the denominator, not of registration.
+**Gate 4's** 1.25 bar was calibrated on a synthetic scene where jittered K sat
+at 4.7–13.8× the oracle. On real pastes the oracle residual is about 10× larger
+and jittered K sits at 1.22×, so the bar's margin over the jitter regime
+collapsed. It is also one-sided, and a smoke observation (P₂ at 0.29×) shows a
+lower tail it cannot see. The arm verdicts do not depend on either: B₂ and P₂
+are refused on §1's rules (298 of 300).
