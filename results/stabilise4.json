@@ -35,7 +35,7 @@
     "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
     "python": "3.11.4",
     "slurm_array_task": null,
-    "slurm_job": "82161"
+    "slurm_job": "82163"
   },
   "fps": 30.0,
   "inherited_digest": "198eb14ff258c7f6",
@@ -72,7 +72,7 @@
         "reason": "the head-disc centre lies inside SAM's mask on 91.9% [90.5, 93.3] of accepted keyframes over 30 animals; the bar is a lower bound >= 90%",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|K|gate0_on_animal",
+          "arm": "stabilise4|K|gate0_on_animal",
           "dataset": "luna"
         },
         "verdict": "PASS"
@@ -137,7 +137,7 @@
         "reason": "5.221 [3.109, 8.259] of a perfect registration over 25 animals; the bar is the whole interval within [0.8, 1.25]",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|K|gate3_identity",
+          "arm": "stabilise4|K|gate3_identity",
           "dataset": "luna"
         },
         "verdict": "FAIL"
@@ -161,7 +161,7 @@
         "reason": "3.934 [3.137, 4.865] of a perfect registration over 30 animals; the bar is the whole interval within [0.8, 1.25]",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|K|gate4_oracle",
+          "arm": "stabilise4|K|gate4_oracle",
           "dataset": "luna"
         },
         "verdict": "FAIL"
@@ -287,7 +287,7 @@
         "reason": "the head-disc centre lies inside SAM's mask on 93.7% [92.3, 95.0] of accepted keyframes over 30 animals; the bar is a lower bound >= 90%",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|SP|gate0_on_animal",
+          "arm": "stabilise4|SP|gate0_on_animal",
           "dataset": "luna"
         },
         "verdict": "PASS"
@@ -351,7 +351,7 @@
         "reason": "1.038 [1.016, 1.063] of a perfect registration over 24 animals; the bar is the whole interval within [0.8, 1.25]",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|SP|gate3_identity",
+          "arm": "stabilise4|SP|gate3_identity",
           "dataset": "luna"
         },
         "verdict": "PASS"
@@ -375,7 +375,7 @@
         "reason": "17.050 [15.343, 18.736] of a perfect registration over 30 animals; the bar is the whole interval within [0.8, 1.25]",
         "saturation": null,
         "scored_object": {
-          "arm": "stabilise3|SP|gate4_oracle",
+          "arm": "stabilise4|SP|gate4_oracle",
           "dataset": "luna"
         },
         "verdict": "FAIL"

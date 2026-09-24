@@ -44,6 +44,9 @@ RENAME = {"K": "K", "B": "SB", "P": "SP", "I": "I"}
 GATE4_BL = 0.2
 BAND = (0.80, 1.25)
 GATE0_BAR = 0.90
+#: The stage name written into every scored object; stabilise4.py resets it,
+#: because it reuses these gates and must not label its records as this stage's.
+STAGE = "stabilise3"
 
 
 def work_dir() -> str:
@@ -225,7 +228,7 @@ def _band_read(units: dict[str, list[float]], obj: dict, what: str) -> Read:
 
 
 def _gate0(recs, meta, arm, refused) -> Read:
-    obj = {"dataset": "luna", "arm": f"stabilise3|{arm}|gate0_on_animal"}
+    obj = {"dataset": "luna", "arm": f"{STAGE}|{arm}|gate0_on_animal"}
     ins: dict[str, list[int]] = {}
     for rid, z in recs.items():
         if rid in refused:
@@ -251,7 +254,7 @@ def _gate0(recs, meta, arm, refused) -> Read:
 
 def _gate3(recs, meta, arm, refused) -> Read:
     """§3: ratio of MEANS against the identity, on immobile frames."""
-    obj = {"dataset": "luna", "arm": f"stabilise3|{arm}|gate3_identity"}
+    obj = {"dataset": "luna", "arm": f"{STAGE}|{arm}|gate3_identity"}
     acc: dict[str, list[float]] = {}
     for rid, z in recs.items():
         if rid in refused:
@@ -271,7 +274,7 @@ def _gate3(recs, meta, arm, refused) -> Read:
 
 
 def _gate4(recs, meta, arm, refused) -> Read:
-    obj = {"dataset": "luna", "arm": f"stabilise3|{arm}|gate4_oracle"}
+    obj = {"dataset": "luna", "arm": f"{STAGE}|{arm}|gate4_oracle"}
     units: dict[str, list[float]] = {}
     for rid, z in recs.items():
         if rid in refused or not bool(z.get("plant_ok", False)):
@@ -325,7 +328,7 @@ def combine(a) -> int:
     k_rd, k_det = g2["K"]
     for arm in ARMS:
         rd, det = g2[arm]
-        obj = {"dataset": "luna", "arm": f"stabilise3|{arm}|gate2_jitter"}
+        obj = {"dataset": "luna", "arm": f"{STAGE}|{arm}|gate2_jitter"}
         if rd is None:
             b = det["interval"]
             if arm == "K":

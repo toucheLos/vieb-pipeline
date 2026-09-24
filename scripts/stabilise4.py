@@ -49,6 +49,7 @@ def work_dir() -> str:
 
 
 st.work_dir = work_dir
+s3.STAGE = "stabilise4"
 st.MIN_IMMOBILE_FRAMES = s2.MIN_IMMOBILE_FRAMES
 
 

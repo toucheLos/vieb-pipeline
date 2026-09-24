@@ -35,27 +35,36 @@ construction rather than by correlation. It also sharpens D21: jitter at the
 level DLC produces multiplies the incumbent's still-window head energy by an
 order of magnitude.
 
-## 2. Why SP fails on moving animals: ECC locks onto the floor
+## 2. Why SP fails on moving animals: ECC settles between floor and animal
+
+> **Corrected after inspecting the evidence images.** An earlier version of
+> this section said ECC "locks onto the floor". The plant images
+> (`results/stabilise4/plant_*.png`) and a per-pair check show that is too
+> strong. ECC does move with the animal, but only part of the way.
 
 Gate 4 puts SP at **17×** a perfect registration on real planted trajectories,
 worse than the jittered incumbent. Per recording the ratio runs 1.7× to 45×
-(5th–95th percentile). SP's energy also tracks keypoint speed at **+0.918**, above
-the incumbent's +0.815: SP's head energy is mostly *unregistered body motion*.
+(5th–95th percentile). SP's energy also tracks keypoint speed at **+0.918**,
+above the incumbent's +0.815.
 
-**Measured directly** (descriptive, from SP's saved ECC estimates on the first
-59 recordings): on each recording's fastest 10% of frames, ECC's recovered
-shift is a median **8.8%** of the animal's keypoint displacement
-(10th–90th percentile 2.0%–14.3%). On a median **32%** of those frames it
-recovers under 5%. The arena floor is a high-contrast bar grid, and it fills
-most of the padded box. It is static, so phase correlation and ECC converge on
-the floor's zero shift instead of the animal's motion. **That is the right
-answer for a still animal**, which is why SP passes gates 1–3 exactly, and the
-wrong one for a moving animal.
+**Per pair, on the two inspected plants** (descriptive,
+`scripts/stabilise_figures.py` and a scratch check; 113 pairs). SP's disc sits
+1.6–7.9 px from the true skull (median), so placement is not the problem. Inside
+the 0.2 bl disc, SP leaves **67–82%** of the unregistered difference at every
+motion size, slow, mid or fast. The oracle leaves **9–25%**. ECC never snaps to
+the identity (0 of 113 pairs). **SP registers partially, at every speed**:
+the static bar floor, which fills most of the padded box, pulls the fit toward
+zero, and the animal pulls it toward its motion. On real fast frames the same
+compromise shows as a recovered shift of a median **8.8%** of the keypoint
+displacement (first 59 recordings). A full-frame difference image can hide
+this: the animal can look dark while the head disc keeps most of its
+difference, because the colour scale saturates.
 
-Amendment 1 (D22) chose unmasked ECC because, on the *synthetic* scene, a
-mask-multiplied crop did worse. That scene's background was smooth noise, not a
-bar grid. **The choice did not transfer to this corpus**, and it is the one
-thing standing between SP and a PASS.
+**That is the right answer for a still animal**, which is why SP passes gates
+1–3 exactly, and the wrong one for a moving animal. Amendment 1 (D22) chose
+unmasked ECC because, on the *synthetic* scene, a mask-multiplied crop did
+worse. That scene's background was smooth noise, not a bar grid. **The choice
+did not transfer to this corpus.**
 
 ## 3. Gate 5
 
@@ -77,8 +86,8 @@ question lives, that is the property D21 showed the incumbent lacks.
 **License:** planted σ = 2 px jitter multiplies the incumbent's still-window
 head energy 11.8× [8.9, 15.1].
 
-**Do not license** SP for any window in which the body moves: it recovers under
-a tenth of the motion on fast frames.
+**Do not license** SP for any window in which the body moves: it leaves about
+two-thirds or more of the in-disc difference unregistered at every speed.
 
 ## 5. What is owed
 
