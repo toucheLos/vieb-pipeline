@@ -236,3 +236,33 @@ def test_K_reproduces_scan_head_exactly(tmp_path):
         d = s[f"K|hip|{r}"] - s["arena"]
         ok = np.isfinite(c)
         assert np.max(np.abs(c[ok] - d[ok])) <= 1e-9
+
+
+# ---- STABILISE 2 §1: the background the animal is not in --------------------
+
+def test_masked_median_background_drops_an_animal_that_sits_still():
+    """An animal parked for most of the samples stays in a plain median and is
+    removed by the masked one."""
+    bg, layer, msk = _scene()
+    parked = [I2] * 70
+    walk = [_rot(0, dx, 0) for dx in np.linspace(-250, 250, 31)]
+    Ms = parked + walk
+    frames = [rg.blur(_render(bg, layer, msk, M)) for M in Ms]
+    poses = [rg.apply(M, _pose0()) for M in Ms]
+    plain = rg.median_background(frames)
+    masked, und = rg.masked_median_background(frames, poses, dilate_px=20.0,
+                                              min_samples=10)
+    inside = msk > 0.5
+    truth = rg.blur(bg.astype(np.uint8))
+    assert np.abs(plain - truth)[inside].mean() > 20.0
+    assert np.abs(masked - truth)[inside].mean() < 1.0
+    assert und == 0.0
+
+
+def test_masked_median_background_reports_pixels_it_never_saw():
+    bg, layer, msk = _scene()
+    frames = [rg.blur(_render(bg, layer, msk, I2))] * 20
+    poses = [_pose0()] * 20
+    _, und = rg.masked_median_background(frames, poses, dilate_px=20.0,
+                                         min_samples=10)
+    assert und > 0.0

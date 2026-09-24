@@ -82,6 +82,33 @@ def median_background(blurred: Sequence[npt.ArrayLike]) -> F64:
                       dtype=np.float64)
 
 
+def masked_median_background(blurred: Sequence[npt.ArrayLike],
+                             poses: Sequence[npt.ArrayLike], *,
+                             dilate_px: float, min_samples: int
+                             ) -> tuple[F64, float]:
+    """STABILISE 2 §1: a median the animal is not in.
+
+    At each pixel, only the samples in which that pixel lies OUTSIDE the
+    keypoint exclusion box (`motion.exclusion_mask`) enter the median. Keypoints
+    choose samples for one static image; they register no frame. Pixels with
+    fewer than `min_samples` usable samples take the unmasked median. Returns
+    the background and the undefined share, which the caller refuses on.
+    """
+    stack = np.stack([np.asarray(b, dtype=np.float32) for b in blurred])
+    shape = (int(stack.shape[1]), int(stack.shape[2]))
+    keep = np.stack([~mo.exclusion_mask(q, dilate_px, shape) for q in poses])
+    n_ok = keep.sum(axis=0)
+    masked = np.where(keep, stack, np.float32(np.nan))
+    import warnings
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)   # all-NaN columns
+        bg = np.nanmedian(masked, axis=0)
+    undefined = n_ok < int(min_samples)
+    if undefined.any():
+        bg[undefined] = np.median(stack[:, undefined], axis=0)
+    return (np.asarray(bg, dtype=np.float64), float(undefined.mean()))
+
+
 def animal_mask(blurred: npt.ArrayLike, bg: npt.ArrayLike,
                 cutoff: float) -> B1 | None:
     """§1 B.2-3: |frame - bg| > the recording's own cutoff, opened, largest part."""
