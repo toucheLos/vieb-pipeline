@@ -323,11 +323,24 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
     in-disc mean |delta| (index t is the pair t-1 -> t, index 0 NaN), plus
     ``"arena"``, ``"identical"``, mask diagnostics and P's estimates. The K keys
     ``"K|head|r" - arena`` reproduce `head.scan_head`'s ``energy_ego|r``.
+    ``"I|region|r"`` is the IDENTITY difference in P's disc (STABILISE 3 §3).
+    """
+    track = mask_track(open_frames, pose, bg=bg, cutoff=cutoff,
+                       body_length_px=body_length_px)
+    return scan_track(open_frames, pose, track, radii_px=radii_px,
+                      dilate_px=dilate_px, win=win)
+
+
+def mask_track(open_frames: Frames, pose: npt.ArrayLike, *,
+               bg: npt.ArrayLike, cutoff: float,
+               body_length_px: float) -> dict[str, Any]:
+    """Pass 1: B's background mask, its pose, area and padded box, per frame.
+
+    The track format `scan_track` consumes. `vieb.pixel.sam.sam_track` builds
+    the same format from a segmenter instead of a background (STABILISE 3).
     """
     p = np.asarray(pose, dtype=np.float64)
     bgf = np.asarray(bg, dtype=np.float64)
-    rad = [float(r) for r in radii_px]
-
     # ---- pass 1: the mask, its pose and area, for every frame ----------------
     cx_l: list[float] = []
     cy_l: list[float] = []
@@ -369,8 +382,25 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
     med = float(np.median(area[area > 0])) if (area > 0).any() else np.nan
     ok = ((area >= AREA_RANGE[0] * med) & (area <= AREA_RANGE[1] * med)
           & np.isfinite(np.asarray(th_l)))
-    mB = [frame_matrix(cx_l[t], cy_l[t], th_l[t], shape) if ok[t] else None
-          for t in range(n)]
+    return {"cx": np.asarray(cx_l), "cy": np.asarray(cy_l),
+            "th": np.asarray(th_l), "area": area, "ok": ok, "boxes": boxes,
+            "shape": shape, "n": n}
+
+
+def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
+               *, radii_px: Sequence[float], dilate_px: float,
+               win: int) -> dict[str, Any]:
+    """Pass 2: K, B and P differences against a mask track. See `scan_register`."""
+    p = np.asarray(pose, dtype=np.float64)
+    rad = [float(r) for r in radii_px]
+    n = int(track["n"])
+    shape = tuple(track["shape"])
+    ok = np.asarray(track["ok"], dtype=bool)
+    area = np.asarray(track["area"], dtype=np.float64)
+    boxes = track["boxes"]
+    cx_l, cy_l, th_l = track["cx"], track["cy"], track["th"]
+    mB = [frame_matrix(float(cx_l[t]), float(cy_l[t]), float(th_l[t]), shape)
+          if ok[t] else None for t in range(n)]
 
     # Window-median disc centres in B's frame: one per (window, region).
     n_win = (n + win - 1) // win
@@ -389,9 +419,16 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
                 c[k] = np.median(np.asarray(got), axis=0)
         centre[name] = c
 
+    # STABILISE 3 gate 0: each frame's head-disc centre in IMAGE coordinates.
+    cimg = np.full((n, 2), np.nan)
+    for t in range(n):
+        mt = mB[t]
+        if mt is not None and np.isfinite(centre["head"][t // win]).all():
+            cimg[t] = apply(invert(mt), centre["head"][t // win])[0]
+
     # ---- pass 2: differences ------------------------------------------------
     out: dict[str, Any] = {}
-    for arm in ARMS:
+    for arm in ARMS + ("I",):
         for name, _ in REGIONS:
             for r in rad:
                 out[f"{arm}|{name}|{r}"] = np.full(n, np.nan)
@@ -460,6 +497,13 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
             mprev = mB[t - 1]
             assert mprev is not None
             inv = invert(mprev)
+            idif = np.abs(b - b_old)
+            for name, _ in REGIONS:
+                c = apply(inv, centre[name][k])[0]
+                for r in rad:
+                    dm = disc(c[0], c[1], r, shape)
+                    if dm is not None:
+                        out[f"I|{name}|{r}"][t] = float(idif[dm].mean())
             for name, _ in REGIONS:
                 if pdif is None:
                     break
@@ -470,7 +514,7 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
                         out[f"P|{name}|{r}"][t] = float(pdif[dm].mean())
         # B and P are refused on a pair when either frame's mask is refused.
         if not (ok[t] and ok[t - 1]):
-            for arm in ("B", "P"):
+            for arm in ("B", "P", "I"):
                 for name, _ in REGIONS:
                     for r in rad:
                         out[f"{arm}|{name}|{r}"][t] = np.nan
@@ -478,6 +522,7 @@ def scan_register(open_frames: Frames, pose: npt.ArrayLike, *,
         warpK_old, warpB_old = warpK, warpB
         t += 1
     _close(it)
+    out["centre_head_img"] = cimg[:t]
     out.update({"arena": arena[:t], "identical": identical[:t],
                 "n_frames": int(t), "mask_area": area[:t],
                 "mask_ok": ok[:t], "mask_theta": np.asarray(th_l)[:t],

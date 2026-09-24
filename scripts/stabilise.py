@@ -207,25 +207,18 @@ def _plant_inputs(pose: np.ndarray, speed: np.ndarray, immobile: np.ndarray,
             "moving_block": int(hi[0]), "still_block": int(lo[0])}
 
 
-def _plant_scan(src_grey: np.ndarray, src_pose: np.ndarray, bg_raw: np.ndarray,
-                bg_blur: np.ndarray, cutoff: float, bl: float, inp: dict, *,
-                moving: bool, hz: float | None, amp: float | None,
-                fps: float, oracle: bool = False) -> dict:
-    """§5/§6: one planted 61-frame sequence, scanned by every arm.
-
-    `oracle` (STABILISE 2 §2) adds ``"O|head|r"`` / ``"O|hip|r"``: each frame
-    carried back to the source by its TRUE inverse transform, then differenced,
-    with the discs at the source frame's own centroids -- what resampling alone
-    costs. Off by default, so STABILISE's run is unchanged.
-    """
+def _plant_frames(src_grey: np.ndarray, src_pose: np.ndarray,
+                  bg_raw: np.ndarray, m0: np.ndarray, bl: float, inp: dict, *,
+                  moving: bool, hz: float | None, amp: float | None,
+                  fps: float) -> tuple[list, np.ndarray, list]:
+    """§5/§6: the planted frames, their pose track for K and their TRUE
+    transforms. `m0` is the source frame's animal mask; the paste is it,
+    dilated by `PASTE_DILATE_BL`."""
     import cv2
 
     shape = src_grey.shape
-    m0 = rg.animal_mask(rg.blur(src_grey), bg_blur, cutoff)
-    if m0 is None:
-        return {}
     k = int(max(1, round(PASTE_DILATE_BL * bl)))
-    paste = cv2.dilate(m0.astype(np.uint8),
+    paste = cv2.dilate(np.asarray(m0).astype(np.uint8),
                        cv2.getStructuringElement(cv2.MORPH_ELLIPSE,
                                                  (2 * k + 1, 2 * k + 1))) > 0
     layer = src_grey.astype(np.float64)
@@ -260,28 +253,53 @@ def _plant_scan(src_grey: np.ndarray, src_pose: np.ndarray, bg_raw: np.ndarray,
         j = inp["jit_body"][t % inp["jit_body"].shape[0]]
         q = q + (np.asarray(M)[:, :2] @ (_rot2(h_src) @ j.T)).T
         poses.append(q)
-    out = rg.scan_register(lambda: iter(frames_), np.asarray(poses),
+    return frames_, np.asarray(poses), Ms
+
+
+def _oracle(frames_: list, Ms: list, src_pose: np.ndarray, radii_px) -> dict:
+    """STABILISE 2 §2: each frame carried back to the source by its TRUE inverse
+    transform, then differenced, discs at the source frame's own centroids."""
+    shape = frames_[0].shape
+    n = len(frames_)
+    skull = src_pose[list(hd.SKULL)].mean(axis=0)
+    hip = src_pose[list(hd.HIPS)].mean(axis=0)
+    discs = {(k, r): rg.disc(float(c[0]), float(c[1]), r, shape)
+             for r in radii_px for k, c in (("head", skull), ("hip", hip))}
+    ser = {key: np.full(n, np.nan) for key in discs}
+    prev = None
+    for t in range(n):
+        u = rg.warp(rg.blur(frames_[t]), rg.invert(Ms[t]), shape)
+        if prev is not None:
+            d = np.abs(u - prev)
+            for key, dm in discs.items():
+                if dm is not None:
+                    ser[key][t] = float(d[dm].mean())
+        prev = u
+    return {f"O|{k}|{r}": v for (k, r), v in ser.items()}
+
+
+def _plant_scan(src_grey: np.ndarray, src_pose: np.ndarray, bg_raw: np.ndarray,
+                bg_blur: np.ndarray, cutoff: float, bl: float, inp: dict, *,
+                moving: bool, hz: float | None, amp: float | None,
+                fps: float, oracle: bool = False) -> dict:
+    """§5/§6: one planted 61-frame sequence, scanned by every arm.
+
+    `oracle` (STABILISE 2 §2) adds ``"O|head|r"`` / ``"O|hip|r"``. Off by
+    default, so STABILISE's run is unchanged.
+    """
+    m0 = rg.animal_mask(rg.blur(src_grey), bg_blur, cutoff)
+    if m0 is None:
+        return {}
+    frames_, poses, Ms = _plant_frames(src_grey, src_pose, bg_raw, m0, bl, inp,
+                                       moving=moving, hz=hz, amp=amp, fps=fps)
+    n = len(frames_)
+    out = rg.scan_register(lambda: iter(frames_), poses,
                            bg=bg_blur, cutoff=cutoff,
                            radii_px=[bl * HEADLINE_BL],
                            dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=n,
                            body_length_px=bl)
     if oracle:
-        r = bl * HEADLINE_BL
-        hip = src_pose[list(hd.HIPS)].mean(axis=0)
-        discs = {"head": rg.disc(float(skull[0]), float(skull[1]), r, shape),
-                 "hip": rg.disc(float(hip[0]), float(hip[1]), r, shape)}
-        ser = {k: np.full(n, np.nan) for k in discs}
-        prev = None
-        for t in range(n):
-            u = rg.warp(rg.blur(frames_[t]), rg.invert(Ms[t]), shape)
-            if prev is not None:
-                d = np.abs(u - prev)
-                for k, dm in discs.items():
-                    if dm is not None:
-                        ser[k][t] = float(d[dm].mean())
-            prev = u
-        for k, v in ser.items():
-            out[f"O|{k}|{r}"] = v
+        out.update(_oracle(frames_, Ms, src_pose, [bl * HEADLINE_BL]))
     return out
 
 
