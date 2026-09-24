@@ -52,9 +52,14 @@ def mask_box(mask: B1, pad_px: float) -> F64 | None:
 
 def sam_track(open_rgb: Callable[[], Iterator[npt.NDArray[Any]]],
               pose: npt.ArrayLike, predict: Predict, *,
-              body_length_px: float, n_frames: int | None = None
-              ) -> dict[str, Any]:
+              body_length_px: float, n_frames: int | None = None,
+              prompt_mode: str = "propagate") -> dict[str, Any]:
     """Keyframe SAM, then interpolation, in `register.mask_track`'s format.
+
+    `prompt_mode`: ``"propagate"`` (STABILISE 3: the last accepted mask's box,
+    keypoints only to seed) or ``"keypoint"`` (STABILISE 4 §1: the padded
+    keypoint box at EVERY keyframe, and a keyframe is refused unless its mask
+    centroid lies inside that box).
 
     Extra keys: ``key_t`` (keyframe indices), ``key_iou``, ``key_seeded``,
     ``key_accepted``, and ``key_crops`` -- ``(x0, y0, bool crop)`` per accepted
@@ -84,8 +89,12 @@ def sam_track(open_rgb: Callable[[], Iterator[npt.NDArray[Any]]],
                 shape = (int(rgb.shape[0]), int(rgb.shape[1]))
             if t % STRIDE:
                 continue
-            seeded = prompt is None
-            box = keypoint_box(p[t], pad) if seeded else prompt
+            if prompt_mode == "keypoint":
+                seeded = True
+                box = keypoint_box(p[t], pad)
+            else:
+                seeded = prompt is None
+                box = keypoint_box(p[t], pad) if seeded else prompt
             key_t.append(t)
             key_seeded.append(seeded)
             if box is None:
@@ -100,6 +109,8 @@ def sam_track(open_rgb: Callable[[], Iterator[npt.NDArray[Any]]],
             key_iou.append(float(iou))
             cx, cy, th, ar = rg.mask_pose(m)
             good = float(iou) >= IOU_MIN and ar > 0 and np.isfinite(th)
+            if good and prompt_mode == "keypoint":
+                good = bool(box[0] <= cx <= box[2] and box[1] <= cy <= box[3])
             if good:
                 th = rg.continuous(th, prev_th)
                 prev_th = th

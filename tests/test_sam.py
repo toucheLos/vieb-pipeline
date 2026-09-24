@@ -98,3 +98,27 @@ def test_scan_track_runs_on_a_sam_track_and_B_P_stay_exact_on_duplicates():
     for arm in ("B", "P", "I"):
         v = s[f"{arm}|head|60.0"][1:]
         assert np.isfinite(v).all() and np.max(v) <= 1e-6
+
+
+def test_keypoint_mode_prompts_every_keyframe_from_the_pose():
+    frames, masks, pose, _ = _seq(10)
+    calls = []
+    tr = sam.sam_track(lambda: iter(frames), pose,
+                       _truth_predictor(masks, calls=calls),
+                       body_length_px=100.0, prompt_mode="keypoint")
+    assert tr["key_seeded"].all()
+    for t, box in calls:
+        exp = sam.keypoint_box(pose[t], 25.0)
+        assert np.allclose(box, exp)
+
+
+def test_keypoint_mode_refuses_a_mask_of_some_other_object():
+    frames, masks, pose, _ = _seq(10)
+    wall = np.zeros_like(masks[0])
+    wall[:40, :] = True                      # a bright strip far from the animal
+    bad = list(masks)
+    bad[3] = wall
+    tr = sam.sam_track(lambda: iter(frames), pose, _truth_predictor(bad),
+                       body_length_px=100.0, prompt_mode="keypoint")
+    assert not tr["key_accepted"][1]
+    assert not tr["ok"][0:6].any() and tr["ok"][6:10].all()

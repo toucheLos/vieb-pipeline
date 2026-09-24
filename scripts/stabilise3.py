@@ -74,7 +74,8 @@ def _as_rgb(greys):
     return [np.repeat(np.asarray(g)[:, :, None], 3, axis=2) for g in greys]
 
 
-def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict) -> dict:
+def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
+             prompt_mode: str = "propagate") -> dict:
     """§3: the moving plants, cut with SAM's source mask, tracked by SAM."""
     inp = st._plant_inputs(pose, speed, immobile, w)
     if inp is None:
@@ -99,7 +100,7 @@ def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict) -> dict:
                                          moving=True, hz=hz, amp=amp, fps=fps)
         rgbs = _as_rgb(fr)
         tr = sam.sam_track(lambda: iter(rgbs), poses, predict,
-                           body_length_px=bl)
+                           body_length_px=bl, prompt_mode=prompt_mode)
         s = rg.scan_track(lambda: iter(fr), poses, tr, radii_px=[r4, r5],
                           dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=len(fr))
         s.update(st._oracle(fr, Ms, sp, [r4, r5]))
