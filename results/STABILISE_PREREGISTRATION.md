@@ -251,3 +251,58 @@ gate's sample, so K is comparable to its stored run. **No new draw.**
 6. **A `PASS` licenses only eligibility.** It licenses using that arm's
    registration in a later, separately registered stage. It licenses no claim
    about what the registered crops contain.
+
+---
+
+# Amendment 1: arm P's rotation comes from ECC, not the log-polar map
+
+**Committed alone. Recorded as `DEVIATIONS.md` D22.** Made **before any real
+frame has been registered by any arm**. The evidence below is entirely
+synthetic: a textured 110 × 44 px ellipse (smoothed-noise texture) moved over a
+smoothed-noise background at 640 × 480, blurred as §1 blurs. No video from this
+corpus was read to write it.
+
+**What §1 P.2 specified, and what it does on an animal-sized crop.** Rotation
+came from log-polar phase correlation of the FFT magnitudes, with B's padded box
+as the region. On the synthetic scene:
+
+| method, on B's padded box | true rotations 4°, −6°, 10° |
+|---|---|
+| log-polar Fourier–Mellin as registered, sign corrected | −14.2°, −10.2°, +2.4° |
+| the same, crop multiplied by the dilated mask | −9.9°, −9.8°, +16.7° |
+| best log-polar variant, **isolated animal, no background** | 4.9°, −6.5°, 11.1° |
+
+The magnitude spectrum of an object this small does not constrain its rotation
+well enough. The best variant, on an animal with **no** background at all, still
+misses by up to **1.1°**, about 1 px at the nose, which is the same order as the
+jitter this stage exists to beat. A brute-force angle search maximising the
+phase-correlation peak did no better: **0.59°** error under pure translation,
+because the peak response is nearly flat in angle.
+
+**The replacement, specified completely.**
+
+* **P.2:** translation **initialised** by `cv2.phaseCorrelate` with a Hann
+  window, on B's padded box, as before.
+* **P.3:** `cv2.findTransformECC`, `MOTION_EUCLIDEAN`, criteria `EPS | COUNT`
+  (100 iterations, 1e-6), `gaussFiltSize = 1`, **no input mask**, on the whole
+  padded box. The fitted warp is applied with `WARP_INVERSE_MAP`, so frame *t*
+  lands on *t−1*. On the same synthetic scene it recovers 3.977°, −5.991° and
+  10.003° for 4°, −6° and 10°, and 0.012° under a pure (3, −2) px translation.
+* **ECC failure** (`cv2.error`, non-convergence) makes the pair NaN. It counts
+  toward §1's refusals, which are unchanged.
+
+**The mask stays out of ECC**, even though multiplying by it looked natural. On
+the synthetic scene it made every estimate worse (4.19° for 4°, 10.49° for 10°):
+the mask's own edge moves with the animal and competes with its texture.
+
+**Unchanged:** B's box and its 0.25 body-length padding, the snap tolerance
+(now applied to the ECC warp's angle and translation), differencing in *t−1*'s
+coordinates, B's mask for **where** and never for orientation, every gate, every
+bar, the sample and the prohibitions. The arm keeps the letter **P**; its name
+becomes **phase-correlation-initialised ECC**.
+
+**Why this is not estimator-shopping.** No gate has been evaluated, and no real
+frame has been registered by P or by anything else. The defect is established
+against **known synthetic ground truth**, which is a property of the method, not
+of this corpus. `tests/test_register.py` pins the recovery so the defect cannot
+return unnoticed.

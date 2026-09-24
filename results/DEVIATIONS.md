@@ -854,3 +854,18 @@ an empirical question, not a given.
 **No replacement detector is built here.** Choosing one after watching this one
 fail is what §9.4 prohibits; it belongs in its own registration, with this
 diagnostic as its stated motivation.
+
+## D22 — STABILISE arm P: the log-polar rotation cannot see an animal-sized crop
+
+`STABILISE_PREREGISTRATION.md` §1 P.2 took rotation from log-polar phase
+correlation of FFT magnitudes. Against known synthetic ground truth (a textured
+110 × 44 px ellipse on a textured background, 640 × 480), it returned −14.2°,
+−10.2° and +2.4° for true rotations of 4°, −6° and 10°. Even with no background
+at all, its best variant missed by up to 1.1°, about 1 px at the nose and the
+same order as the DLC jitter the stage exists to beat. **Amendment 1** replaces
+P.2–3 with phase-correlation-initialised ECC (`MOTION_EUCLIDEAN`, unmasked,
+padded box), which recovers the same rotations to within 0.03°.
+
+**Made before any real frame was registered by any arm**, on synthetic evidence
+only. No gate had been evaluated. Everything else in the registration, including
+all bars, is unchanged.
