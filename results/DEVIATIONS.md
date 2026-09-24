@@ -904,3 +904,19 @@ and jittered K sits at 1.22×, so the bar's margin over the jitter regime
 collapsed. It is also one-sided, and a smoke observation (P₂ at 0.29×) shows a
 lower tail it cannot see. The arm verdicts do not depend on either: B₂ and P₂
 are refused on §1's rules (298 of 300).
+
+## D25 — skull-bone jitter may not be independent of real head motion (gate 2's premise)
+
+`STABILISE_PREREGISTRATION.md` §3 (inherited by STABILISE 2 and 3) treats
+within-window variance of the rigid skull triangle as pure tracking noise, as
+D21 did. That holds only if DLC's skull error does not grow when the head
+genuinely moves. Motion blur and out-of-plane pose change make that doubtful.
+In STABILISE 3, SP registers without reading a single keypoint and still shows
++0.255 [+0.208, +0.299] coupling. Its disc drifted off the animal on many
+recordings (`STABILISE3.md` §1), so this is not clean evidence either way. It
+is enough to record that **gate 2's < 0.10 bar may penalise honest
+registrations**, and that **part of D21's +0.276 and STABILISE's +0.340 may be
+genuine co-movement rather than warp leakage**. D21's other two lines are
+unaffected: the 0/30 clip precision, and the hindquarter control tracking speed
+like the head. So is STABILISE's gate 1 measurement (100% of byte-identical
+pairs reported as motion).

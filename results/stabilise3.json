@@ -1,0 +1,679 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a registration instrument"
+  },
+  "checkpoint_sha256": "ec2df62732614e57411cdcf32a23ffdf28910380d03139ee0f4fcbe91eb8c912",
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 1,
+      "built": "13.0",
+      "device": "NVIDIA A100 80GB PCIe"
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "node": "g01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "82139"
+  },
+  "fps": 30.0,
+  "inherited_digest": "198eb14ff258c7f6",
+  "reads": {
+    "K": {
+      "coupling_with_speed": {
+        "head|0.4": 0.8261440924905108,
+        "head|0.6": 0.8148174251162391,
+        "head|0.8": 0.8078132662084114,
+        "hip|0.4": 0.8762802522913161,
+        "hip|0.6": 0.8577051442968139,
+        "hip|0.8": 0.8413483539387678
+      },
+      "detail": {
+        "refused_recordings": 0,
+        "refused_share": 0.0
+      },
+      "gate0": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.7087625639163474,
+            "lo": 0.5674011952393898,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 30,
+            "n_boot": 2000,
+            "n_units": 30,
+            "point": 0.639365456248144
+          }
+        },
+        "n_effective": 30,
+        "reason": "the head-disc centre lies inside SAM's mask on 63.9% [56.7, 70.9] of accepted keyframes over 30 animals; the bar is a lower bound >= 90%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|K|gate0_on_animal",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 23910,
+          "n_values": 23910,
+          "share_nonzero": 1.0
+        },
+        "n_effective": 23910,
+        "reason": "23,910 of 23,910 in-disc values on duplicate video frames are non-zero (100.00%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|K|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.391927770239189,
+            "lo": 0.284767430295581,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 30,
+            "n_boot": 2000,
+            "n_units": 30,
+            "point": 0.33990287274073877
+          },
+          "n_animals": 30,
+          "n_windows": 7250
+        },
+        "n_effective": 30,
+        "reason": "the incumbent's own jitter coupling on still windows: +0.340 [+0.285, +0.392] -- the reference, not a gate",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|K|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 5.022463208160628,
+            "lo": 2.3586506590962406,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 21,
+            "n_boot": 2000,
+            "n_units": 21,
+            "point": 3.5414591622095215
+          }
+        },
+        "n_effective": 21,
+        "reason": "3.541 [2.359, 5.022] of a perfect registration over 21 animals; the bar is the whole interval within [0.8, 1.25]",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|K|gate3_identity",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 4.864581290556347,
+            "lo": 3.1370455640410837,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 30,
+            "n_boot": 2000,
+            "n_units": 30,
+            "point": 3.9338362983564887
+          }
+        },
+        "n_effective": 30,
+        "reason": "3.934 [3.137, 4.865] of a perfect registration over 30 animals; the bar is the whole interval within [0.8, 1.25]",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|K|gate4_oracle",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "4Hz|0.25px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "4Hz|0.5px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "4Hz|1px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "4Hz|2px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "4Hz|4px": {
+          "head": 0.04017857142857143,
+          "head_minus_hip": -0.013392857142857137,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "6Hz|0.25px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "6Hz|0.5px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "6Hz|1px": {
+          "head": 0.05357142857142857,
+          "head_minus_hip": 0.0,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "6Hz|2px": {
+          "head": 0.049107142857142856,
+          "head_minus_hip": -0.004464285714285712,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "6Hz|4px": {
+          "head": 0.044642857142857144,
+          "head_minus_hip": -0.008928571428571425,
+          "hip": 0.05357142857142857,
+          "n_head": 224,
+          "n_hip": 224
+        },
+        "n_null_head": 224,
+        "n_null_hip": 224,
+        "threshold_head": 0.755527317714725,
+        "threshold_hip": 0.7831610515600633
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "the incumbent; gate 2 is its reference",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|K",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      }
+    },
+    "SB": {
+      "coupling_with_speed": {
+        "head|0.4": 0.6718295896491918,
+        "head|0.6": 0.6491949847323113,
+        "head|0.8": 0.6268062926889407,
+        "hip|0.4": 0.672505649870335,
+        "hip|0.6": 0.6658233520892937,
+        "hip|0.8": 0.6373647446054492
+      },
+      "detail": {
+        "refused_recordings": 144,
+        "refused_share": 0.48
+      },
+      "gate0": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.7502327850844754,
+            "lo": 0.5853120993274833,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 0.6690037721018437
+          }
+        },
+        "n_effective": 29,
+        "reason": "the head-disc centre lies inside SAM's mask on 66.9% [58.5, 75.0] of accepted keyframes over 29 animals; the bar is a lower bound >= 90%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SB|gate0_on_animal",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 15011,
+          "n_values": 15419,
+          "share_nonzero": 0.9735391400220507
+        },
+        "n_effective": 15419,
+        "reason": "15,011 of 15,419 in-disc values on duplicate video frames are non-zero (97.35%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|SB|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.14843438565969674,
+            "lo": 0.03891229338817627,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 0.09487694139182368
+          },
+          "n_animals": 29,
+          "n_windows": 3590
+        },
+        "n_effective": 29,
+        "reason": "jitter -> head energy, speed held fixed: +0.095 [+0.039, +0.148] against K's +0.340 [+0.285, +0.392]; the bar is an upper bound < 0.1 AND below K's lower bound",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SB|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 14,
+        "reason": "14 animals with >= 20 immobile frames, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SB|gate3_identity",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 19.946813377337396,
+            "lo": 14.993836205146746,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 17.36553977489084
+          }
+        },
+        "n_effective": 29,
+        "reason": "17.366 [14.994, 19.947] of a perfect registration over 29 animals; the bar is the whole interval within [0.8, 1.25]",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SB|gate4_oracle",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "4Hz|0.25px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": -0.010989010989010992,
+          "hip": 0.07692307692307693,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "4Hz|0.5px": {
+          "head": 0.07692307692307693,
+          "head_minus_hip": 0.0,
+          "hip": 0.07692307692307693,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "4Hz|1px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": -0.021978021978021983,
+          "hip": 0.08791208791208792,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "4Hz|2px": {
+          "head": 0.054945054945054944,
+          "head_minus_hip": -0.021978021978021983,
+          "hip": 0.07692307692307693,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "4Hz|4px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": -0.021978021978021983,
+          "hip": 0.08791208791208792,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "6Hz|0.25px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": 0.010989010989010992,
+          "hip": 0.054945054945054944,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "6Hz|0.5px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": 0.0,
+          "hip": 0.06593406593406594,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "6Hz|1px": {
+          "head": 0.07692307692307693,
+          "head_minus_hip": 0.0,
+          "hip": 0.07692307692307693,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "6Hz|2px": {
+          "head": 0.06593406593406594,
+          "head_minus_hip": 0.010989010989010992,
+          "hip": 0.054945054945054944,
+          "n_head": 91,
+          "n_hip": 91
+        },
+        "6Hz|4px": {
+          "head": 0.05555555555555555,
+          "head_minus_hip": 0.0,
+          "hip": 0.05555555555555555,
+          "n_head": 90,
+          "n_hip": 90
+        },
+        "n_null_head": 91,
+        "n_null_hip": 91,
+        "threshold_head": 1.087874330725533,
+        "threshold_hip": 1.0159514443706357
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "48.0% of recordings refused, against 20%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SB",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      }
+    },
+    "SP": {
+      "coupling_with_speed": {
+        "head|0.4": 0.8486757599768543,
+        "head|0.6": 0.8762307326916057,
+        "head|0.8": 0.8843805205891838,
+        "hip|0.4": 0.8740859851218976,
+        "hip|0.6": 0.8815157685653547,
+        "hip|0.8": 0.8905749958909602
+      },
+      "detail": {
+        "refused_recordings": 144,
+        "refused_share": 0.48
+      },
+      "gate0": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.7502327850844754,
+            "lo": 0.5853120993274833,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 0.6690037721018437
+          }
+        },
+        "n_effective": 29,
+        "reason": "the head-disc centre lies inside SAM's mask on 66.9% [58.5, 75.0] of accepted keyframes over 29 animals; the bar is a lower bound >= 90%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SP|gate0_on_animal",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate1": {
+        "degenerate": 0,
+        "detail": {
+          "n_nonzero": 0,
+          "n_values": 15444,
+          "share_nonzero": 0.0
+        },
+        "n_effective": 15444,
+        "reason": "0 of 15,444 in-disc values on duplicate video frames are non-zero (0.00%); the bar is none",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise|SP|gate1_duplicates",
+          "dataset": "luna"
+        },
+        "verdict": "PASS"
+      },
+      "gate2": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 0.29886117131854795,
+            "lo": 0.20752004448018624,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 0.2548600812203309
+          },
+          "n_animals": 29,
+          "n_windows": 3655
+        },
+        "n_effective": 29,
+        "reason": "jitter -> head energy, speed held fixed: +0.255 [+0.208, +0.299] against K's +0.340 [+0.285, +0.392]; the bar is an upper bound < 0.1 AND below K's lower bound",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SP|gate2_jitter",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate3": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 14,
+        "reason": "14 animals with >= 20 immobile frames, against 20",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SP|gate3_identity",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      },
+      "gate4": {
+        "degenerate": 0,
+        "detail": {
+          "interval": {
+            "aggregator": "mean",
+            "alpha": 0.05,
+            "hi": 19.452834191278757,
+            "lo": 13.550871985941457,
+            "method": "animal bootstrap (resamples animals with replacement)",
+            "n_animals": 29,
+            "n_boot": 2000,
+            "n_units": 29,
+            "point": 16.387631010180016
+          }
+        },
+        "n_effective": 29,
+        "reason": "16.388 [13.551, 19.453] of a perfect registration over 29 animals; the bar is the whole interval within [0.8, 1.25]",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SP|gate4_oracle",
+          "dataset": "luna"
+        },
+        "verdict": "FAIL"
+      },
+      "gate5_curve": {
+        "4Hz|0.25px": {
+          "head": 0.04819277108433735,
+          "head_minus_hip": -0.012048192771084335,
+          "hip": 0.060240963855421686,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "4Hz|0.5px": {
+          "head": 0.047619047619047616,
+          "head_minus_hip": -0.011904761904761904,
+          "hip": 0.05952380952380952,
+          "n_head": 84,
+          "n_hip": 84
+        },
+        "4Hz|1px": {
+          "head": 0.04878048780487805,
+          "head_minus_hip": -0.01219512195121951,
+          "hip": 0.06097560975609756,
+          "n_head": 82,
+          "n_hip": 82
+        },
+        "4Hz|2px": {
+          "head": 0.03571428571428571,
+          "head_minus_hip": -0.011904761904761904,
+          "hip": 0.047619047619047616,
+          "n_head": 84,
+          "n_hip": 84
+        },
+        "4Hz|4px": {
+          "head": 0.07228915662650602,
+          "head_minus_hip": 0.012048192771084335,
+          "hip": 0.060240963855421686,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "6Hz|0.25px": {
+          "head": 0.060240963855421686,
+          "head_minus_hip": -0.012048192771084335,
+          "hip": 0.07228915662650602,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "6Hz|0.5px": {
+          "head": 0.04819277108433735,
+          "head_minus_hip": -0.02409638554216867,
+          "hip": 0.07228915662650602,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "6Hz|1px": {
+          "head": 0.04819277108433735,
+          "head_minus_hip": -0.012048192771084335,
+          "hip": 0.060240963855421686,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "6Hz|2px": {
+          "head": 0.060240963855421686,
+          "head_minus_hip": 0.0,
+          "hip": 0.060240963855421686,
+          "n_head": 83,
+          "n_hip": 83
+        },
+        "6Hz|4px": {
+          "head": 0.024390243902439025,
+          "head_minus_hip": -0.01219512195121951,
+          "hip": 0.036585365853658534,
+          "n_head": 82,
+          "n_hip": 82
+        },
+        "n_null_head": 82,
+        "n_null_hip": 82,
+        "threshold_head": 0.5988609083893793,
+        "threshold_hip": 0.6221772716141909
+      },
+      "verdict": {
+        "degenerate": 0,
+        "detail": {},
+        "n_effective": 300,
+        "reason": "48.0% of recordings refused, against 20%",
+        "saturation": null,
+        "scored_object": {
+          "arm": "stabilise3|SP",
+          "dataset": "luna"
+        },
+        "verdict": "NOT_A_RESULT"
+      }
+    },
+    "k_check": {
+      "max_abs_diff": 0.0,
+      "n_recordings": 300,
+      "note": "compared as float32, the precision the grooming run stored",
+      "ok": 1,
+      "tolerance": 1e-09
+    }
+  },
+  "registration": "results/STABILISE3_PREREGISTRATION.md",
+  "seed": 0,
+  "stage": "stabilise3",
+  "win_frames": 60
+}
