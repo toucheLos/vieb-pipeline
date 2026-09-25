@@ -931,3 +931,27 @@ frames, eroded by 4 px, recovery is 1.00. **Amendment 1** replaces §1's mask
 rule accordingly (erosion 0.04 bl, `findTransformECCWithMask`). It was made
 before any real frame was aligned, on synthetic evidence only, and no gate had
 been read.
+
+## D27 — the "8.8%" SP diagnostic is withdrawn, and gate 6's statistic is inflated by arm noise
+
+Two defects, both found on STABILISE 5's one-recording smoke run, before the
+full array had produced any gate.
+
+* **The 8.8% figure is withdrawn** (`STABILISE4.md` §2, PROGRESS row 40, and
+  the incumbent table and prediction in `STABILISE5_PREREGISTRATION.md` §2 and
+  §4, which stay as registered). It divided ECC's stored translation by the
+  body's keypoint displacement. That translation is measured about the crop's
+  **corner**, not the body, and differs from the body's displacement whenever
+  the fit rotates. On the smoke recording, gate 6 measures SP at the body
+  centre at f = 0.694, not about 0.1. STABILISE 4's qualitative finding stands:
+  SP leaves 67–82% of the in-disc difference on the moving plants.
+* **Gate 6's f is inflated by the arm's own noise.** f = Σ|d_arm|² / Σ d_kp·d_arm
+  is unbiased under *keypoint* noise, as registered and tested
+  (`tests/test_stabilise5.py`). But noise in `d_arm` enters the numerator
+  squared, so a noisy but unbiased arm scores above 1. On the smoke recording SM
+  scored 1.297. The registration did not address this. **The gate is run and
+  reported exactly as registered.** Beside it, **not gated**, the combine
+  reports the ordinary slope β = Σ d_kp·d_arm / Σ|d_kp|², which keypoint noise
+  pulls *down*. Under noise in both, the true scale lies between β and f. The
+  bracket was added after the smoke run, and it is labelled as such wherever
+  it appears.

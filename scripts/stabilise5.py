@@ -181,16 +181,22 @@ def shard(a) -> int:
 
 # ---- gate 6 ----------------------------------------------------------------
 
-def _pairs(W, center, center_ok, speed) -> tuple[float, float, int]:
-    """(sum |d_arm|^2, sum d_kp . d_arm, n) over §2's population."""
+def _pairs(W, center, center_ok, speed, *, with_kp: bool = False):
+    """(sum |d_arm|^2, sum d_kp . d_arm, n) over §2's population.
+
+    `with_kp` also returns sum |d_kp|^2, for the bracket reported beside gate 6
+    (not gated; D27): beta = sum d_kp.d_arm / sum |d_kp|^2 is pulled DOWN by
+    keypoint noise, f is pushed UP by the arm's own noise, and under noise in
+    both the true scale lies between them.
+    """
     W = np.asarray(W, dtype=np.float64)
     n = min(W.shape[0], center.shape[0], speed.size)
     sp = np.asarray(speed[:n], dtype=np.float64)
     fin = np.isfinite(sp)
     if fin.sum() < 4:
-        return 0.0, 0.0, 0
+        return (0.0, 0.0, 0, 0.0) if with_kp else (0.0, 0.0, 0)
     fast = fin & (sp > np.percentile(sp[fin], G6_PCT))
-    num = den = 0.0
+    num = den = kk = 0.0
     k = 0
     for t in np.flatnonzero(fast):
         if t < 1 or not (center_ok[t] and center_ok[t - 1]):
@@ -202,8 +208,9 @@ def _pairs(W, center, center_ok, speed) -> tuple[float, float, int]:
         d_kp = center[t] - c
         num += float(d_arm @ d_arm)
         den += float(d_kp @ d_arm)
+        kk += float(d_kp @ d_kp)
         k += 1
-    return num, den, k
+    return (num, den, k, kk) if with_kp else (num, den, k)
 
 
 def _f_one(z) -> tuple[float, int]:
@@ -219,15 +226,17 @@ def _gate6(recs, meta, arm, refused) -> Read:
     for rid, z in recs.items():
         if rid in refused:
             continue
-        num, den, k = _pairs(z[f"W_{arm}"], np.asarray(z["center"]),
-                             np.asarray(z["center_ok"], dtype=bool),
-                             np.asarray(z["speed"]))
-        x = acc.setdefault(meta[rid]["animal"], [0.0, 0.0, 0])
+        num, den, k, kk = _pairs(z[f"W_{arm}"], np.asarray(z["center"]),
+                                 np.asarray(z["center_ok"], dtype=bool),
+                                 np.asarray(z["speed"]), with_kp=True)
+        x = acc.setdefault(meta[rid]["animal"], [0.0, 0.0, 0, 0.0])
         x[0] += num
         x[1] += den
         x[2] += k
-    per = {a: v[0] / v[1] for a, v in acc.items()
-           if v[2] >= G6_MIN_PAIRS and v[1] > 0}
+        x[3] += kk
+    keep = {a: v for a, v in acc.items() if v[2] >= G6_MIN_PAIRS and v[1] > 0}
+    per = {a: v[0] / v[1] for a, v in keep.items()}
+    beta = {a: v[1] / v[3] for a, v in keep.items() if v[3] > 0}
     if len(per) < st.MIN_ANIMALS:
         return Read("NOT_A_RESULT", obj,
                     f"{len(per)} animals with >= {G6_MIN_PAIRS} fast pairs, "
@@ -242,7 +251,14 @@ def _gate6(recs, meta, arm, refused) -> Read:
                  f"bar is the whole interval within [{G6_BAND[0]}, {G6_BAND[1]}]"),
                 n_effective=len(per),
                 detail={"interval": b,
-                        "n_pairs": int(sum(v[2] for v in acc.values()))})
+                        "n_pairs": int(sum(v[2] for v in acc.values())),
+                        "bracket_not_gated": {
+                            "note": ("D27: f is inflated by the arm's own noise; "
+                                     "beta is attenuated by keypoint noise; the "
+                                     "true scale lies between them"),
+                            "beta": boot.animal_interval(
+                                list(beta.values()), list(beta), how="mean",
+                                n_boot=st.N_BOOT, seed=st.SEED)}})
 
 
 def _gate2(recs, meta, refused) -> dict[str, Read]:

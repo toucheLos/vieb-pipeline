@@ -35,3 +35,13 @@ def test_f_recovers_the_fraction_and_is_not_attenuated_by_keypoint_noise():
             # sigma = 2 px of keypoint noise on each frame is large next to the
             # ~3 px steps; an attenuated statistic would fall well below q.
             assert abs(f - q) < 0.05 * max(q, 0.2), (q, sigma, f)
+
+
+def test_the_bracket_contains_the_truth_under_noise_in_both():
+    import stabilise5 as s5
+    rng = np.random.default_rng(1)
+    W, c, ok, sp = _case(1.0, 2.0)
+    W[1:, :, 2] += rng.normal(0, 1.5, (W.shape[0] - 1, 2))   # arm noise too
+    num, den, k, kk = s5._pairs(W, c, ok, sp, with_kp=True)
+    f, beta = num / den, den / kk
+    assert beta < 1.0 < f

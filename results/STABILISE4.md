@@ -54,9 +54,11 @@ the 0.2 bl disc, SP leaves **67–82%** of the unregistered difference at every
 motion size, slow, mid or fast. The oracle leaves **9–25%**. ECC never snaps to
 the identity (0 of 113 pairs). **SP registers partially, at every speed**:
 the static bar floor, which fills most of the padded box, pulls the fit toward
-zero, and the animal pulls it toward its motion. On real fast frames the same
-compromise shows as a recovered shift of a median **8.8%** of the keypoint
-displacement (first 59 recordings). A full-frame difference image can hide
+zero, and the animal pulls it toward its motion. ~~On real fast frames the same compromise shows as a recovered shift of a
+median 8.8% of the keypoint displacement.~~ **Withdrawn (D27).** That figure
+compared ECC's stored translation, which is measured about the *crop's corner*,
+with the body's displacement, and those differ whenever the fit rotates.
+STABILISE 5's gate 6 measures agreement at the body centre properly. A full-frame difference image can hide
 this: the animal can look dark while the head disc keeps most of its
 difference, because the colour scale saturates.
 
