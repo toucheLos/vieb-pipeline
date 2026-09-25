@@ -39,6 +39,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, splits                             # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.recurrence import bank as bk_                            # noqa: E402
 from recur.util import log, peak_rss_gb, write_json                 # noqa: E402
 from vieb.clean import arms as clean_arms                           # noqa: E402
@@ -204,7 +205,7 @@ def run_group(args) -> int:
             f"{summary['unassigned_fraction']:.1%} unassigned, "
             f"BIC gain {summary['bic_gain']:+.0f}, "
             f"peak_rss={peak_rss_gb():.1f} GB")
-    write_json({**anchors.header(anchors.LUNA, stage="seg_vocab",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_vocab",
                                  unverified="one channel group per job"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/VOCAB_PREREGISTRATION.md",
@@ -364,7 +365,7 @@ def characterise(args) -> int:
     # the animals holding them are re-read.
     oe = _open_end_pairs(blocks, lab, nn_idx, nn_all, clump=0)
 
-    doc = {**anchors.header(anchors.LUNA, stage="behaviour",
+    doc = {**provenance.header(anchors.LUNA, stage="behaviour",
                             unverified="one channel group per run"),
            "inherited_digest": spine.digest(),
            "group": args.group, "k_mad": args.k_mad, "theta": theta,
@@ -486,7 +487,7 @@ def combine(args) -> int:
         for k, v in reads.items():
             if k.startswith(key):
                 log(f"  {k}: {v['verdict']}")
-    write_json({**anchors.header(anchors.LUNA, stage="seg_vocab_combine",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_vocab_combine",
                                  unverified="scored on the report split"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/VOCAB_PREREGISTRATION.md",

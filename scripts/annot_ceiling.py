@@ -40,6 +40,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors                                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import log, write_json                              # noqa: E402
 from vieb.io import spine                                           # noqa: E402
 from vieb.seg import annot as an                                    # noqa: E402
@@ -165,7 +166,7 @@ def main(argv=None) -> int:
     log("  " + src.line())
 
     out = a.out or config.PATHS.result("annot_ceiling.json")
-    write_json({**anchors.header(anchors.LUNA, stage="annot_ceiling",
+    write_json({**provenance.header(anchors.LUNA, stage="annot_ceiling",
                                  unverified="a curated sample, human-rated"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/ANNOTATION_PREREGISTRATION.md",

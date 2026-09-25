@@ -30,6 +30,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot                                      # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.render import video as vid                                # noqa: E402
 from recur.util import frames, log, write_json                       # noqa: E402
 from vieb.io import spine                                            # noqa: E402
@@ -202,7 +203,7 @@ def combine(a) -> int:
         log(f"  gate3 K/identity: {g['point']:.3f} [{g['lo']:.3f}, {g['hi']:.3f}] "
             f"over {len(ratios)} animals")
     out = a.out or config.PATHS.result("stabilise3_calibration.json")
-    write_json({**anchors.header(anchors.LUNA, stage="stabilise3_calibration",
+    write_json({**provenance.header(anchors.LUNA, stage="stabilise3_calibration",
                                  unverified="a calibration of the incumbent"),
                 "inherited_digest": spine.digest(), "results": res}, out)
     log(f"  wrote {out}")

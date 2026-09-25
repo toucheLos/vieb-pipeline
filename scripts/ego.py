@@ -50,6 +50,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                  # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.audit import leak                                      # noqa: E402
 from recur.geom import represent as rep                           # noqa: E402
 from vieb.clean import arms as clean_arms                         # noqa: E402
@@ -285,7 +286,7 @@ def combine(args) -> int:
     if int(rv["n_failed"]):
         raise SystemExit(f"reversal audit failed {rv['n_failed']} checks")
     doc = {
-        **anchors.header(anchor,
+        **provenance.header(anchor,
                          stage=f"ego_{args.pose_arm}_{args.scale_arm}",
                          observed={
                              "n_recordings": len(rows),

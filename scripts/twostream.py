@@ -29,6 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.audit import triage                                        # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import frames, log, write_json                        # noqa: E402
@@ -247,7 +248,7 @@ def combine(a) -> int:
     log("  " + ext.line())
 
     out = a.out or config.PATHS.result("twostream.json")
-    write_json({**anchors.header(anchors.LUNA, stage="twostream",
+    write_json({**provenance.header(anchors.LUNA, stage="twostream",
                                  unverified="an instrument probe on tune"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/TWOSTREAM_PREREGISTRATION.md",

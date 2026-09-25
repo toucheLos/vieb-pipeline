@@ -43,6 +43,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import log, write_json                                # noqa: E402
 from vieb.clean import arms as clean_arms                             # noqa: E402
@@ -241,7 +242,7 @@ def combine(a) -> int:
     log("  " + rd.line())
 
     out = a.out or config.PATHS.result("arm_concordance.json")
-    write_json({**anchors.header(anchors.LUNA, stage="arm_concordance",
+    write_json({**provenance.header(anchors.LUNA, stage="arm_concordance",
                                  unverified="an instrument probe on tune"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/NOISEFLOOR_PREREGISTRATION.md",

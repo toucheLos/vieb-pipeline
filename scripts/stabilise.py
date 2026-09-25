@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot                                      # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                          # noqa: E402
 from recur.render import video as vid                                # noqa: E402
 from recur.util import frames, log, write_json                       # noqa: E402
@@ -721,7 +722,7 @@ def combine(a) -> int:
         r["verdict"] = Read(v, obj, why, n_effective=len(recs)).to_dict()
         log(f"  {arm}: {v} -- {why}")
     out = a.out or config.PATHS.result("stabilise.json")
-    write_json({**anchors.header(anchors.LUNA, stage="stabilise",
+    write_json({**provenance.header(anchors.LUNA, stage="stabilise",
                                  unverified="a registration instrument"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/STABILISE_PREREGISTRATION.md",

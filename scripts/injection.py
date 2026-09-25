@@ -27,6 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits             # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json      # noqa: E402
 from vieb import seeds
 from vieb.clean import arms as clean_arms                          # noqa: E402
@@ -410,7 +411,7 @@ def combine(args) -> int:
         "dataset": "luna", "arm": "injection", "split": args.split, "eps": EPS},
         n_effective=len({r["animal"] for r in sel}))
     doc = {
-        **anchors.header(anchors.LUNA, stage="injection",
+        **provenance.header(anchors.LUNA, stage="injection",
                          unverified="a pseudo-ground truth pool, not human labels"),
         "inherited_digest": spine.digest(),
         "preregistration": "results/INJECTION_PREREGISTRATION.md",

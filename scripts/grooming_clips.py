@@ -37,6 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors                                          # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.render import video as vid                              # noqa: E402
 from recur.util import log, write_json                             # noqa: E402
 from vieb import seeds                                             # noqa: E402
@@ -146,7 +147,7 @@ def main(argv=None) -> int:
                         "energy": r["energy"],
                         "peak_excess": r["peak_excess"]})
     rng.shuffle(panel)
-    write_json({**anchors.header(anchors.LUNA, stage="grooming_clips",
+    write_json({**provenance.header(anchors.LUNA, stage="grooming_clips",
                                  unverified="a detected candidate set"),
                 "inherited_digest": spine.digest(),
                 "registration": ("results/GROOMING_PREREGISTRATION.md §3 "
@@ -164,7 +165,7 @@ def main(argv=None) -> int:
                              "still? Answer yes / no / unsure."),
                 "n_clips": len(panel), "clips": panel},
                os.path.join(out, "manifest.json"))
-    write_json({**anchors.header(anchors.LUNA, stage="grooming_clips_key",
+    write_json({**provenance.header(anchors.LUNA, stage="grooming_clips_key",
                                  unverified="a detected candidate set"),
                 "n": len(key), "key": key,
                 "not_published": True},

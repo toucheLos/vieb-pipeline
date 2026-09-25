@@ -38,6 +38,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors                                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import frames, log, write_json                      # noqa: E402
 from vieb import seeds                                              # noqa: E402
 from vieb.io import spine                                           # noqa: E402
@@ -204,7 +205,7 @@ def main(argv=None) -> int:
             f"split {got['shares']['split']:.1%}  "
             f"(n={got['n_instances']})")
     tag = "diagnose" if a.diagnose else f"task{a.task:02d}"
-    write_json({**anchors.header(anchors.LUNA, stage="detector",
+    write_json({**provenance.header(anchors.LUNA, stage="detector",
                                  unverified="a subset of animals per cell"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/DETECTOR_PREREGISTRATION.md",

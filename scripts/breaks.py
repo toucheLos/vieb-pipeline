@@ -41,6 +41,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                  # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import describe, frames, log, peak_rss_gb         # noqa: E402
 from recur.util import write_json                                 # noqa: E402
 from vieb.io import spine                                         # noqa: E402
@@ -296,7 +297,7 @@ def combine(args) -> int:
             f"(clean {summ['median_duration_clean_s']:.3f}s) "
             f"adjR2 {summ['mean_fit_r2_adj']:.4f}")
 
-    doc = {**anchors.header(anchors.LUNA, stage="seg_breaks",
+    doc = {**provenance.header(anchors.LUNA, stage="seg_breaks",
                             unverified=f"{args.split} split only; the anchor "
                                        f"counts the whole corpus"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",

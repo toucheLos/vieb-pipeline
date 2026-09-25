@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits             # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json      # noqa: E402
 from vieb.clean import arms as clean_arms, score                   # noqa: E402
 from vieb.io import spine                                          # noqa: E402
@@ -177,7 +178,7 @@ def combine(args) -> int:
         n_effective=max((m["n_animals"] for m in per_arm.values()), default=1))
 
     doc = {
-        **anchors.header(anchors.LUNA, stage="cleaning",
+        **provenance.header(anchors.LUNA, stage="cleaning",
                          unverified=("scored on one split at a time; the anchor "
                                      "counts the whole corpus")),
         "inherited_digest": spine.digest(),

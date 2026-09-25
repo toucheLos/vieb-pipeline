@@ -32,6 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits            # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from vieb.io import spine                                        # noqa: E402
 from recur.qc import swap
 from vieb import seeds
@@ -413,7 +414,7 @@ def combine(args) -> int:
         f"unfiltered|raw|{primary_eps}|skull"]["rate"])[:25]
 
     doc = {
-        **anchors.header(anchor, stage="bones", observed={
+        **provenance.header(anchor, stage="bones", observed={
             "n_recordings": len(rows),
             "n_frames": sum(r["n_frames"] for r in rows),
             "fps": spine.fps()}),

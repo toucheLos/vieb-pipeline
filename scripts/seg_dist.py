@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, splits                                   # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.recurrence import bank as bk_, search as se              # noqa: E402
 from recur.util import log, peak_rss_gb, write_json                 # noqa: E402
 from vieb import seeds                                              # noqa: E402
@@ -209,7 +210,7 @@ def run(args) -> int:
             log(f"    {len(blocks):,} units, {q.size:,} queries, "
                 f"scale {scale:.4f}, peak_rss={peak_rss_gb():.1f} GB")
             del blocks
-    write_json({**anchors.header(anchors.LUNA, stage="seg_dist",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_dist",
                                  unverified="one group and metric per job"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/DISTANCE_PREREGISTRATION.md",

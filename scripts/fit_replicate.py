@@ -51,6 +51,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.journey import simplex as sx                               # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import log, write_json                                # noqa: E402
@@ -349,7 +350,7 @@ def selfcheck(a) -> int:
     out_reads["selfcheck"] = rd.to_dict()
     log("  " + rd.line())
     out = a.out or config.PATHS.result("fit_replicate_selfcheck.json")
-    write_json({**anchors.header(anchors.LUNA, stage="fit_replicate_selfcheck",
+    write_json({**provenance.header(anchors.LUNA, stage="fit_replicate_selfcheck",
                                  unverified="a post-hoc instrument diagnostic"),
                 "inherited_digest": spine.digest(),
                 "diagnostic": "NOT a result; see DEVIATIONS.md D10",
@@ -416,7 +417,7 @@ def combine(a) -> int:
     if ind.verdict != "PASS":
         log("  THE CONTRAST IS NOT READ. §3 stops the stage when the rule "
             "cannot be shown to select the island rather than slowness.")
-        write_json({**anchors.header(anchors.LUNA, stage="fit_replicate",
+        write_json({**provenance.header(anchors.LUNA, stage="fit_replicate",
                                      unverified="a held-out replication"),
                     "inherited_digest": spine.digest(),
                     "registration":
@@ -488,7 +489,7 @@ def combine(a) -> int:
         log("  " + rd.line())
         rc = 0 if v == "PASS" else 1
 
-    write_json({**anchors.header(anchors.LUNA, stage="fit_replicate",
+    write_json({**provenance.header(anchors.LUNA, stage="fit_replicate",
                                  unverified="a held-out replication"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/FIT_REPLICATION_PREREGISTRATION.md",

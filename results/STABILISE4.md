@@ -66,6 +66,17 @@ unmasked ECC because, on the *synthetic* scene, a mask-multiplied crop did
 worse. That scene's background was smooth noise, not a bar grid. **The choice
 did not transfer to this corpus.**
 
+## 2a. The most-refused recording: high contrast, not an attached object
+
+`results/stabilise4/masks_20250227_Box_2_CFD_Day_6_(Context_B)_9025.png`, the
+recording STABILISE 4 refused most, shows SAM's mask taking in a **bright white
+region beside the head**, and sometimes the tail. **The investigator's reading
+(2026-09-25) is that this recording's video is simply very high contrast**:
+blown-out highlights next to the animal, not a tag or object attached to it.
+That is recorded as their reading and not independently verified. On that
+reading it is an imaging property of this recording, not a confound tied to
+some animals, and it enters the analysis only through §1's refusals.
+
 ## 3. Gate 5
 
 No arm detects the planted local motion above the null rate at any amplitude

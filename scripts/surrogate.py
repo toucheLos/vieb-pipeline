@@ -37,6 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits            # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.null import microstate as ms                          # noqa: E402
 from recur.util import log, peak_rss_gb, write_json               # noqa: E402
 from vieb import seeds                                            # noqa: E402
@@ -246,7 +247,7 @@ def combine(args) -> int:
             log(rd.line())
     if not rows:
         raise SystemExit("no surrogate ladder shards found")
-    doc = {**anchors.header(anchors.LUNA, stage="tok_falsifier",
+    doc = {**provenance.header(anchors.LUNA, stage="tok_falsifier",
                             unverified="report split only; the anchor counts all"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "arm": ARM, "cells": list(CELLS),

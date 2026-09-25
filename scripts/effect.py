@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits             # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.geom import represent as rep                            # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json      # noqa: E402
 from vieb.io import spine                                          # noqa: E402
@@ -206,7 +207,7 @@ def combine(args) -> int:
             scored_object=obj, n_effective=len(shards))
 
     doc = {
-        **anchors.header(anchors.LUNA, stage="effect", observed={
+        **provenance.header(anchors.LUNA, stage="effect", observed={
             "n_recordings": len(rows),
             "n_frames": sum(r["n_frames"] for r in rows),
             "fps": spine.fps()}),

@@ -39,6 +39,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot                                      # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                          # noqa: E402
 from recur.render import video as vid                                # noqa: E402
 from recur.util import frames, log, write_json                       # noqa: E402
@@ -363,7 +364,7 @@ def combine(a) -> int:
                 f"{len(others) + 1} registered arms",
                 n_effective=len(verdicts)).to_dict()
     out = a.out or config.PATHS.result("grooming_gate.json")
-    write_json({**anchors.header(anchors.LUNA, stage="grooming_gate",
+    write_json({**provenance.header(anchors.LUNA, stage="grooming_gate",
                                  unverified="a detected candidate set"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/GROOMING_PREREGISTRATION.md",

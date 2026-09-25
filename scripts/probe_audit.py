@@ -37,6 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors                                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import frames, log, write_json                      # noqa: E402
 from vieb import seeds                                              # noqa: E402
 from vieb.io import spine                                           # noqa: E402
@@ -151,7 +152,7 @@ def run(a) -> int:
         f"recording's threshold ({share:.2%})")
 
     out = a.out or config.PATHS.result("probe_audit.json")
-    write_json({**anchors.header(anchors.LUNA, stage="probe_audit",
+    write_json({**provenance.header(anchors.LUNA, stage="probe_audit",
                                  unverified="a subset of animals"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/PROBE_AUDIT_PREREGISTRATION.md",

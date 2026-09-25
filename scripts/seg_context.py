@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.journey import simplex as sx                               # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import log, write_json                                # noqa: E402
@@ -139,7 +140,7 @@ def main(argv=None) -> int:
     else:
         log("  contrast not read -- the MDE gate did not pass")
 
-    write_json({**anchors.header(anchors.LUNA, stage="seg_context",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_context",
                                  unverified="one clump, one contrast"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/FREEZING_PREREGISTRATION.md",

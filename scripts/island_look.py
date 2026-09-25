@@ -36,6 +36,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, splits                                   # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.render import video as vid                               # noqa: E402
 from recur.util import log, write_json                              # noqa: E402
 from vieb.clean import arms as clean_arms                           # noqa: E402
@@ -205,7 +206,7 @@ def build(args) -> int:
         made += 1
 
     kept = [t for t in trials if t.get("rendered")]
-    write_json({**anchors.header(anchors.LUNA, stage="island_look",
+    write_json({**provenance.header(anchors.LUNA, stage="island_look",
                                  unverified="a curated trial set"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/ISLAND_LOOK_PREREGISTRATION.md",
@@ -314,7 +315,7 @@ def score(args) -> int:
                                   seed=SEED)
             reads[f"{arm}|{ttype}"] = rd.to_dict()
             log("  " + rd.line())
-    write_json({**anchors.header(anchors.LUNA, stage="island_look_score",
+    write_json({**provenance.header(anchors.LUNA, stage="island_look_score",
                                  unverified="a curated trial set"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/ISLAND_LOOK_PREREGISTRATION.md",
@@ -389,7 +390,7 @@ def manifest(args) -> int:
     for r in rows:
         assert not (set(r) & set(LEAKS)), sorted(set(r) & set(LEAKS))
     out = os.path.join(out_dir(), "manifest.json")
-    write_json({**anchors.header(anchors.LUNA, stage="island_look_manifest",
+    write_json({**provenance.header(anchors.LUNA, stage="island_look_manifest",
                                  unverified="a curated trial set"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/ISLAND_LOOK_PREREGISTRATION.md",

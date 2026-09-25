@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import log, write_json                                # noqa: E402
 from vieb import seeds                                                # noqa: E402
@@ -122,7 +123,7 @@ def main(argv=None) -> int:
                                n_effective=len(tags))
     log("  " + cal.line())
     if cal.verdict != "PASS":
-        write_json({**anchors.header(anchors.LUNA, stage="noise_floor",
+        write_json({**provenance.header(anchors.LUNA, stage="noise_floor",
                                      unverified="an instrument probe on tune"),
                     "inherited_digest": spine.digest(),
                     "registration":
@@ -301,7 +302,7 @@ def main(argv=None) -> int:
     reads["separation"] = sep.to_dict()
     log("  " + sep.line())
 
-    write_json({**anchors.header(anchors.LUNA, stage="noise_floor",
+    write_json({**provenance.header(anchors.LUNA, stage="noise_floor",
                                  unverified="an instrument probe on tune"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/NOISEFLOOR_PREREGISTRATION.md",

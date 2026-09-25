@@ -28,6 +28,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits              # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import describe, frames, log, peak_rss_gb           # noqa: E402
 from recur.util import write_json                                   # noqa: E402
 from vieb import seeds                                              # noqa: E402
@@ -237,7 +238,7 @@ def separability(args) -> int:
         reads[kind] = rd.to_dict()
         out[kind] = res
         log(rd.line())
-    write_json({**anchors.header(anchors.LUNA, stage="seg_manifold",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_manifold",
                                  unverified="windows subsampled per animal"),
                 "inherited_digest": spine.digest(),
                 "window_s": SEP_WINDOW_S, "per_animal": SEP_PER_ANIMAL,
@@ -359,7 +360,7 @@ def diagnose(args) -> int:
                 f"{res.get('balanced_accuracy', float('nan')):.4f} auc="
                 f"{res.get('auc', float('nan')):.4f}")
 
-    write_json({**anchors.header(anchors.LUNA, stage="seg_manifold_diagnose",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_manifold_diagnose",
                                  unverified="post-hoc; no verdict is attached"),
                 "inherited_digest": spine.digest(),
                 "post_hoc": ("written after the registered probe failed on all "
@@ -428,7 +429,7 @@ def combine(args) -> int:
            "degree": DEGREE}
     gate = va.gate_read(deltas, scored_object=obj, n_effective=len(tags))
 
-    doc = {**anchors.header(anchors.LUNA, stage="seg_gate",
+    doc = {**provenance.header(anchors.LUNA, stage="seg_gate",
                             unverified=f"{args.split} split only"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "split": args.split, "n_animals": len(tags),

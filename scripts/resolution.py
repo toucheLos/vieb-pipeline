@@ -35,6 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                  # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import log, peak_rss_gb, write_json               # noqa: E402
 from vieb.io import spine                                         # noqa: E402
 from vieb.tok import config, distortion as dz, ego                # noqa: E402
@@ -182,7 +183,7 @@ def distortion(args) -> int:
     rd = dz.distortion_read(summary, {"frac_agree": float(t["frac_agree"]),
                                       "n_checked": int(t["n_checked"])},
                             scored_object=obj, n_effective=89)
-    doc = {**anchors.header(anchors.LUNA, stage="tok_distortion",
+    doc = {**provenance.header(anchors.LUNA, stage="tok_distortion",
                             unverified="scored on non-abstained frames; the "
                                        "anchor counts all"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
@@ -291,7 +292,7 @@ def frailty(args) -> int:
             "n_animals_refused": int(pa["n_refused"])}
         log(rd.line())
 
-    doc = {**anchors.header(anchors.LUNA, stage="tok_frailty",
+    doc = {**provenance.header(anchors.LUNA, stage="tok_frailty",
                             unverified="report split only; the anchor counts all"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "arm": arm, "n_states": n,
@@ -353,7 +354,7 @@ def homogeneity(args) -> int:
            "pose_arm": POSE_ARM, "retired": True}
     rd = hm.homogeneity_read(agg, ci, scored_object=obj,
                              n_effective=int(tags.shape[0]))
-    doc = {**anchors.header(anchors.LUNA, stage="tok_homogeneity",
+    doc = {**provenance.header(anchors.LUNA, stage="tok_homogeneity",
                             unverified="report split only; the anchor counts all"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "arm": arm, "n_states": n,
@@ -433,7 +434,7 @@ def combine(args) -> int:
             homo.append(json.load(fh))
     if not cells:
         raise SystemExit(f"no distortion shards in {d}")
-    doc = {**anchors.header(anchors.LUNA, stage="tok_resolution",
+    doc = {**provenance.header(anchors.LUNA, stage="tok_resolution",
                             unverified="report split only"),
            "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
            "pose_arm": POSE_ARM, "distortion": cells, "frailty": frail,

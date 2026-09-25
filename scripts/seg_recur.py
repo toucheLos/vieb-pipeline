@@ -40,6 +40,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                    # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.recurrence import bank as bk_, search as se              # noqa: E402
 from recur.util import frames, log, peak_rss_gb, write_json         # noqa: E402
 from vieb.io import spine                                           # noqa: E402
@@ -466,7 +467,7 @@ def run_group(args) -> int:
             out["planted"][f"occ{occ:g}"] = {
                 **pmeta, **{k: v for k, v in r.items()
                             if not isinstance(v, np.ndarray)}}
-    write_json({**anchors.header(anchors.LUNA, stage="seg_recur",
+    write_json({**provenance.header(anchors.LUNA, stage="seg_recur",
                                  unverified="one channel group per job"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/SEGRECUR_PREREGISTRATION.md",

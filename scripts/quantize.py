@@ -43,6 +43,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                  # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import describe, log, peak_rss_gb, write_json     # noqa: E402
 from vieb.io import spine                                         # noqa: E402
 from vieb.tok import config, ego, quantize as qz, rle             # noqa: E402
@@ -208,7 +209,7 @@ def basis(args) -> int:
         # this stage is fitted on tune alone, so asserting its totals here would
         # be asserting something false. `anchors.header` requires exactly one of
         # the two, which is what forces the choice to be made explicitly.
-        **anchors.header(anchors.LUNA, stage="tok_basis",
+        **provenance.header(anchors.LUNA, stage="tok_basis",
                          unverified="fitted on the tune split; the anchor "
                                     "counts the whole corpus"),
         "n_tune_animals": len(tags),
@@ -395,7 +396,7 @@ def combine(args) -> int:
     doc = {
         # Assignment covers the whole corpus, so the anchor's own totals are
         # checkable here and are checked rather than asserted in prose.
-        **anchors.header(anchors.LUNA, stage="tok_alphabet", observed={
+        **provenance.header(anchors.LUNA, stage="tok_alphabet", observed={
             "n_recordings": n_recordings, "n_frames": n_frames_corpus,
             "fps": spine.fps()}),
         "n_cells": len(cells),
@@ -529,7 +530,7 @@ def flicker(args) -> int:
         del X, sp, ok, y, runs
 
     doc = {
-        **anchors.header(anchors.LUNA, stage="tok_flicker",
+        **provenance.header(anchors.LUNA, stage="tok_flicker",
                          unverified="tune split only; the anchor counts all"),
         "inherited_digest": spine.digest(),
         "preprocessing_freeze": "F3",

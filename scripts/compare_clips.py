@@ -42,6 +42,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.render import video as vid                              # noqa: E402
 from recur.util import log, read_json, write_json                  # noqa: E402
 from vieb.clean import arms as clean_arms, viterbi as vit
@@ -169,7 +170,7 @@ def render(args) -> int:
                     f"{os.path.getsize(path) / 1024:.0f} KB")
 
     doc = {
-        **anchors.header(anchors.LUNA, stage="compare",
+        **provenance.header(anchors.LUNA, stage="compare",
                          unverified="a curated clip set, not a corpus statistic"),
         "inherited_digest": spine.digest(),
         "eps": EPS, "seed": SEED,

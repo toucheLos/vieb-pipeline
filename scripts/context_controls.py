@@ -35,6 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.journey import simplex as sx                               # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import log, write_json                                # noqa: E402
@@ -306,7 +307,7 @@ def main(argv=None) -> int:
             log("  ^^ VACUOUS: the arm above selects near-none of the "
                 "island's frames, so this verdict is not about the detector")
 
-    write_json({**anchors.header(anchors.LUNA, stage="context_controls",
+    write_json({**provenance.header(anchors.LUNA, stage="context_controls",
                                  unverified="a control on a published "
                                  "contrast; no corpus count is recomputed"),
                 "inherited_digest": spine.digest(),

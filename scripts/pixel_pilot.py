@@ -43,6 +43,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot, labels as lab, splits                # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.journey import simplex as sx                               # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.render import video as vid                                 # noqa: E402
@@ -113,7 +114,7 @@ def sample(a) -> int:
              "context": c, "day": d, "in_pilot": t in pilot}
             for t, v in sorted(full.items())
             for (c, d), rid in sorted(v["cells"].items())]
-    write_json({**anchors.header(anchors.LUNA, stage="pixel_sample",
+    write_json({**provenance.header(anchors.LUNA, stage="pixel_sample",
                                  unverified="a pilot sample"),
                 "inherited_digest": spine.digest(),
                 "registration": ("results/PIXEL_PREREGISTRATION.md, "
@@ -345,7 +346,7 @@ def combine(a) -> int:
         log("  " + rd.line())
 
     out = a.out or config.PATHS.result("pixel_pilot.json")
-    write_json({**anchors.header(anchors.LUNA, stage="pixel_pilot",
+    write_json({**provenance.header(anchors.LUNA, stage="pixel_pilot",
                                  unverified="a 300-recording pilot"),
                 "inherited_digest": spine.digest(),
                 "registration": ("results/PIXEL_PREREGISTRATION.md, "

@@ -42,6 +42,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, boot                                      # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                          # noqa: E402
 from recur.util import log, write_json                               # noqa: E402
 from vieb.io import spine                                            # noqa: E402
@@ -179,7 +180,7 @@ def main(argv=None) -> int:
     log("  " + pr.line())
 
     out = a.out or config.PATHS.result("grooming_jitter.json")
-    write_json({**anchors.header(anchors.LUNA, stage="grooming_jitter",
+    write_json({**provenance.header(anchors.LUNA, stage="grooming_jitter",
                                  unverified="a post-hoc instrument diagnostic"),
                 "inherited_digest": spine.digest(),
                 "diagnostic": "NOT a result; see DEVIATIONS.md D10",

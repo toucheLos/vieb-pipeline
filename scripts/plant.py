@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                      # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.read import Read                                           # noqa: E402
 from recur.util import frames, log, write_json                        # noqa: E402
 from vieb import seeds                                                # noqa: E402
@@ -199,7 +200,7 @@ def main(argv=None) -> int:
     reads["negative_control"] = nc.to_dict()
     log("  " + nc.line())
 
-    write_json({**anchors.header(anchors.LUNA, stage="plant",
+    write_json({**provenance.header(anchors.LUNA, stage="plant",
                                  unverified="an instrument probe on tune"),
                 "inherited_digest": spine.digest(),
                 "registration": "results/PLANT_PREREGISTRATION.md",

@@ -74,6 +74,7 @@ The next registered stage, `STABILISE_PREREGISTRATION.md`, tested exactly this (
 | §2.10: immobility-leak control (masked crops decode context at chance during true immobility); background-swap invariance | needs masks that do not depend on pose; blocked behind `STABILISE` |
 | §2.11 / §2.12: DINOv3 / V-JEPA 2 crop embeddings, time-only CEBRA, all behind the identity-leak probe | blocked behind `STABILISE`, and behind the immobility-leak control |
 | §2.9: denser pose (SuperAnimal TopViewMouse, Lightning Pose ×5 + EKS, variance as validity mask) | GPU and ~300 labels; not started |
+| §2.9 / §5 step 4: validate grooming "against a small labelled set (a few hundred bouts)" | **no grooming ground truth exists** (confirmed by the investigator, 2026-09-25). Until one is made, a grooming detector can be scored for **precision only**, by blind panels with mixed controls (`GROOMING_PREREGISTRATION.md` §3). **Recall cannot be measured.** Any claim about how much grooming occurs is out of reach. |
 
 ## 5. Out of scope
 

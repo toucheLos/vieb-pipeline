@@ -34,6 +34,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab, splits                  # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.audit import leak                                      # noqa: E402
 from recur.util import log, peak_rss_gb, write_json               # noqa: E402
 from vieb.io import spine                                         # noqa: E402
@@ -215,7 +216,7 @@ def cell(args) -> int:
             log(f"  [{mode}] {rd['verdict']:13s} {rd['reason'][:150]}")
 
     doc = {
-        **anchors.header(anchors.LUNA, stage="tok_ladder",
+        **provenance.header(anchors.LUNA, stage="tok_ladder",
                          unverified="scored on the report split; the anchor "
                                     "counts the whole corpus"),
         "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
@@ -251,7 +252,7 @@ def combine(args) -> int:
             for k, rd in a["reads"].items():
                 log(f"  [{mode}] {k:22s} {rd['verdict']}")
     doc = {
-        **anchors.header(anchors.LUNA, stage="tok_ladder_combined",
+        **provenance.header(anchors.LUNA, stage="tok_ladder_combined",
                          unverified="report split only"),
         "inherited_digest": spine.digest(), "preprocessing_freeze": "F3",
         "n_cells": len(cells), "cells": cells,

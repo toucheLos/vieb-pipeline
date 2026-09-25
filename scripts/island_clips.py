@@ -49,6 +49,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors                                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.render import video as vid                               # noqa: E402
 from recur.util import frames, log, write_json                      # noqa: E402
 from vieb import seeds                                              # noqa: E402
@@ -198,7 +199,7 @@ def main(argv=None) -> int:
 
     rng.shuffle(rows)
     n_flag = sum(r["flagged_frames"] for r in rows)
-    write_json({**anchors.header(anchors.LUNA, stage="island_clips",
+    write_json({**provenance.header(anchors.LUNA, stage="island_clips",
                                  unverified="a curated clip set"),
                 "inherited_digest": spine.digest(),
                 "group": GROUP, "k_mad": K_MAD, "clump": CLUMP,
@@ -213,7 +214,7 @@ def main(argv=None) -> int:
                 "flagged_frames_total": n_flag,
                 "clips": rows},
                os.path.join(out_dir(), "manifest.json"))
-    write_json({**anchors.header(anchors.LUNA, stage="island_clips_key",
+    write_json({**provenance.header(anchors.LUNA, stage="island_clips_key",
                                  unverified="a curated clip set"),
                 "n": len(key), "key": key},
                os.path.join(out_dir(), "key.json"))

@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 
 from recur import anchors, labels as lab                           # noqa: E402
+from vieb import provenance                                         # noqa: E402
 from recur.util import log, write_json                             # noqa: E402
 from vieb.io import spine                                          # noqa: E402
 from vieb.seg import banked as bkd                                 # noqa: E402
@@ -82,7 +83,7 @@ def main(argv=None) -> int:
     log(rd_un.line())
 
     write_json({
-        **anchors.header(anchors.LUNA, stage="bank_q1",
+        **provenance.header(anchors.LUNA, stage="bank_q1",
                          unverified=("Q1 was computed in the recur repository "
                                      "and is quoted here, not recomputed")),
         "inherited_digest": spine.digest(),
@@ -119,7 +120,7 @@ def main(argv=None) -> int:
                               n_effective=n_rough)
     log(rd_r.line())
     write_json({
-        **anchors.header(anchors.LUNA, stage="bank_roughness",
+        **provenance.header(anchors.LUNA, stage="bank_roughness",
                          unverified=("windows are subsampled per animal; the "
                                      "anchor counts every frame")),
         "inherited_digest": spine.digest(),
