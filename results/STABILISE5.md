@@ -52,7 +52,13 @@ could only do on synthetic pastes.
 Gates 1 and 3 test the still animal. SP passes both exactly, and SM fails both.
 On a byte-identical pair SM should return the identity. On 0.62% of pairs it
 does not, and on genuinely immobile frames it leaves **2.3×** the identity's
-difference. **The likely mechanism is SM's initial warp**, SAM's interpolated
+difference. > **Corrected by STABILISE 6.** Starting SM from the identity fixed gate 1
+> (0 of 22,932 non-zero) but left gate 3 unchanged (2.279), so the starting warp
+> is not the cause of the immobile-frame failure. The better-supported reading
+> is that gate 3's 0.6 bl disc includes floor, which SM's sub-pixel animal fits
+> move (`STABILISE6.md` §2). The original inference follows, as written.
+
+**The likely mechanism is SM's initial warp**, SAM's interpolated
 centroid shift (§1). SAM's mask centroid wobbles slightly between keyframes
 even when the animal is still. ECC over an eroded interior, with few pixels
 and little texture, does not reliably pull that offset back to zero. SAM's own
