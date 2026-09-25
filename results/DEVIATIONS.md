@@ -920,3 +920,14 @@ genuine co-movement rather than warp leakage**. D21's other two lines are
 unaffected: the 0/30 clip precision, and the hindquarter control tracking speed
 like the head. So is STABILISE's gate 1 measurement (100% of byte-identical
 pairs reported as motion).
+
+## D26 — STABILISE 5's masked ECC: dilate became erode, and both frames get a mask
+
+`STABILISE5_PREREGISTRATION.md` §1 dilated SAM's mask by 0.15 body lengths and
+passed the *t−1* mask as ECC's `inputMask`. On a synthetic bar-grid floor it
+recovered 0.81 of the true motion. The animal's boundary moving against static
+bars biases ECC, and dilation adds exactly those pixels. With masks on both
+frames, eroded by 4 px, recovery is 1.00. **Amendment 1** replaces §1's mask
+rule accordingly (erosion 0.04 bl, `findTransformECCWithMask`). It was made
+before any real frame was aligned, on synthetic evidence only, and no gate had
+been read.

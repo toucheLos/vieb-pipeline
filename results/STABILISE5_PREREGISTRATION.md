@@ -90,3 +90,47 @@ here would lead only to a precision-scored grooming stage, never a recall one.
 | SP, recovered shift on real fast frames | median 8.8% of keypoint displacement | `STABILISE4.md` §2 |
 | SP, gates 0–3 | PASS, PASS, PASS, PASS | `stabilise4.json` |
 | K, gate 4 | 3.93 [3.14, 4.87] | `stabilise4.json` |
+
+---
+
+# Amendment 1: erode the masks, and give ECC one for each frame
+
+**Committed alone. Recorded as `DEVIATIONS.md` D26.** Made before any masked
+alignment ran on a real frame. The evidence is synthetic only: the textured
+ellipse of `tests/test_register.py`, moved over a **bar-grid floor** (6 px
+period, grey levels 20/230) to reproduce this corpus's arena.
+
+**§1 as registered does not work on a bar floor.** Recovered fraction of the
+true motion at the body centre, 7 consecutive pairs, median:
+
+| masks given to ECC | pre-blur 1 | pre-blur 5 |
+|---|---|---|
+| §1 as registered: SAM's *t−1* mask, **dilated** 0.15 bl, as `inputMask` | 0.81 (the `scan_track` test, f) | — |
+| exact masks on **both** frames, no erosion | 0.73 | 0.94 |
+| exact masks on both frames, **eroded 4 px** | **1.00** | **1.00** |
+
+**Why.** At the body's boundary, the animal's edge moves against static,
+high-contrast bars. Those pixels are neither registered by the body's motion
+nor by zero motion, and they bias ECC's objective toward a compromise.
+Dilation adds exactly those pixels; erosion removes them. A second defect is
+that §1 passed the *t−1* mask as `inputMask`, which OpenCV documents as the mask
+of the **input** image, frame *t*. Supplying both masks removes the ambiguity.
+
+**The replacement, specified completely:**
+
+* **Masks:** SAM's mask carried to *t−1* and, separately, to *t* (the §1
+  carrying rule, unchanged), each **eroded by 0.04 body lengths** (about 4–5 px
+  on this corpus) instead of dilated.
+* **ECC:** `cv2.findTransformECCWithMask(template = t−1, input = t,
+  templateMask, inputMask, …)`, `MOTION_EUCLIDEAN`, Amendment 1's criteria and
+  `gaussFiltSize = 1`. The initial warp is SAM's centroid shift, as in §1.
+* A pair whose eroded mask is empty in either frame is refused.
+
+**Unchanged:** everything else in §1, gate 6 and its [0.90, 1.10] bar, every
+other gate, the sample and the prohibitions. The arm keeps the name **SM**.
+
+**Why this is not tuning.** No real frame has been aligned by SM, and no gate
+has been read. The defect is established against synthetic ground truth, and
+the fix is chosen from the mechanism (exclude the moving boundary), not from a
+sweep scored on this corpus. `tests/test_sam.py` pins the bar-floor recovery,
+so the defect cannot return unnoticed.
