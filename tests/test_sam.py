@@ -177,3 +177,35 @@ def test_masked_arm_follows_a_moving_animal_over_a_textured_floor():
         f[arm] = num / den if den else float("nan")
     assert 0.9 < f["M"] < 1.1, f
     assert np.nanmedian(s["M|head|12.0"][1:]) < np.nanmedian(s["P|head|12.0"][1:])
+
+
+def test_animal_region_scoring_removes_the_floor_a_disc_would_include():
+    """STABILISE 7: on a bar floor, a correctly registered animal leaves the
+    floor misaligned inside a big disc; scored on the animal's own pixels the
+    residual is small, and far below the full-disc residual."""
+    bg, layer, msk = T._scene()
+    yy, xx = np.mgrid[:T.H, :T.W]
+    floor = np.where((xx // 6) % 2 == 0, 230.0, 20.0)
+    steps = [T._rot(0.8 * k, 2.5 * k, -1.0 * k) for k in range(8)]
+    frames, masks, poses = [], [], []
+    for t, M in enumerate(steps):
+        L = cv2.warpAffine(layer, M, (T.W, T.H))
+        A = cv2.warpAffine(msk, M, (T.W, T.H)) > 0.5
+        g = np.clip(np.round(np.where(A, L, floor)), 0, 255).astype(np.uint8)
+        rgb = np.repeat(g[:, :, None], 3, axis=2)
+        rgb[0, 0, :] = t
+        frames.append(rgb)
+        masks.append(A)
+        poses.append(rg.apply(M, T._pose0()))
+    pose = np.asarray(poses)
+    tr = sam.sam_track(lambda: iter(frames), pose, _truth_predictor(masks),
+                       body_length_px=100.0, prompt_mode="keypoint")
+    grey = [cv2.cvtColor(f, cv2.COLOR_RGB2GRAY) for f in frames]
+    mf = lambda t: sam.mask_at(tr, t, erode_px=4.0)          # noqa: E731
+    s = rg.scan_track(lambda: iter(grey), pose, tr, radii_px=[60.0],
+                      dilate_px=100.0, win=8, mask_fn=mf, best_start=True,
+                      region_fn=mf)
+    full = np.nanmedian(s["N|head|60.0"][1:])
+    anim = np.nanmedian(s["N|head|60.0|a"][1:])
+    assert np.isfinite(anim) and anim < 0.25 * full
+    assert np.isfinite(np.nanmedian(s["K|head|60.0|a"][1:]))

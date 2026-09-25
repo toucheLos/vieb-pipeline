@@ -40,6 +40,7 @@ import numpy as np
 import numpy.typing as npt
 
 from vieb.pixel import head as hd, motion as mo
+from vieb.tok import ego as tego
 
 F64 = npt.NDArray[np.float64]
 B1 = npt.NDArray[np.bool_]
@@ -436,7 +437,9 @@ def mask_track(open_frames: Frames, pose: npt.ArrayLike, *,
 def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                *, radii_px: Sequence[float], dilate_px: float, win: int,
                mask_fn: Callable[[int], B1 | None] | None = None,
-               best_start: bool = False) -> dict[str, Any]:
+               best_start: bool = False,
+               region_fn: Callable[[int], B1 | None] | None = None
+               ) -> dict[str, Any]:
     """Pass 2: K, B and P differences against a mask track. See `scan_register`.
 
     With `mask_fn(t) -> full-frame bool mask` (STABILISE 5 §1, Amendment 1), arm
@@ -484,10 +487,15 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
     extra = ((("M",) if mask_fn is not None else ())
              + (("N",) if mask_fn is not None and best_start else ()))
     arms_out = ARMS + ("I",) + extra
+    akeys = ([f"{arm}|{name}|{r}|a" for arm in ("K", "I", "P") + extra
+              for name, _ in REGIONS for r in rad]
+             if region_fn is not None else [])
     for arm in arms_out:
         for name, _ in REGIONS:
             for r in rad:
                 out[f"{arm}|{name}|{r}"] = np.full(n, np.nan)
+    for key in akeys:
+        out[key] = np.full(n, np.nan)
     Wp = np.full((n, 2, 3), np.nan)
     Wm_ = np.full((n, 2, 3), np.nan)
     Wn_ = np.full((n, 2, 3), np.nan)
@@ -523,12 +531,25 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
         # K: `scan_head`'s own loop, same order, same operations.
         edif = (np.abs(warpK - warpK_old)
                 if warpK is not None and warpK_old is not None else None)
+        regK: B1 | None = None
+        if edif is not None and region_fn is not None:
+            rt = region_fn(t)
+            pt = p[t]
+            if (rt is not None and np.isfinite(pt[tego.ORIGIN]).all()
+                    and np.isfinite(pt[list(tego.AXIS)]).all()):
+                mk = frame_matrix(float(pt[tego.ORIGIN, 0]),
+                                  float(pt[tego.ORIGIN, 1]),
+                                  float(tego.heading(pt[None])[0]), shape)
+                regK = warp(rt.astype(np.float64), mk, shape) > 0.5
         if edif is not None:
             for name, pts in REGIONS:
                 for r in rad:
                     dm = hd._fixed_disc(p[t], pts, r, (h, w))
                     if dm is not None:
                         out[f"K|{name}|{r}"][t] = float(edif[dm].mean())
+                        if regK is not None and (dm & regK).any():
+                            out[f"K|{name}|{r}|a"][t] = float(
+                                edif[dm & regK].mean())
         k = t // win
         # B: both frames in B's frame, the disc fixed for the window.
         if warpB is not None and warpB_old is not None:
@@ -582,27 +603,29 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
             assert mprev is not None
             inv = invert(mprev)
             idif = np.abs(b - b_old)
-            for name, _ in REGIONS:
-                c = apply(inv, centre[name][k])[0]
-                for r in rad:
-                    dm = disc(c[0], c[1], r, shape)
-                    if dm is not None:
-                        out[f"I|{name}|{r}"][t] = float(idif[dm].mean())
-            for arm, dif_ in (("P", pdif), ("M", mdif), ("N", ndif)):
+            regP = region_fn(t - 1) if region_fn is not None else None
+            for arm, dif_ in (("I", idif), ("P", pdif), ("M", mdif),
+                              ("N", ndif)):
                 if dif_ is None:
                     continue
                 for name, _ in REGIONS:
                     c = apply(inv, centre[name][k])[0]
                     for r in rad:
                         dm = disc(c[0], c[1], r, shape)
-                        if dm is not None:
-                            out[f"{arm}|{name}|{r}"][t] = float(dif_[dm].mean())
+                        if dm is None:
+                            continue
+                        out[f"{arm}|{name}|{r}"][t] = float(dif_[dm].mean())
+                        if regP is not None and (dm & regP).any():
+                            out[f"{arm}|{name}|{r}|a"][t] = float(
+                                dif_[dm & regP].mean())
         # B and P are refused on a pair when either frame's mask is refused.
         if not (ok[t] and ok[t - 1]):
             for arm in ("B", "P", "I") + extra:
                 for name, _ in REGIONS:
                     for r in rad:
                         out[f"{arm}|{name}|{r}"][t] = np.nan
+                        if f"{arm}|{name}|{r}|a" in out:
+                            out[f"{arm}|{name}|{r}|a"][t] = np.nan
             Wp[t] = np.nan
             Wm_[t] = np.nan
             Wn_[t] = np.nan

@@ -257,15 +257,23 @@ def _plant_frames(src_grey: np.ndarray, src_pose: np.ndarray,
     return frames_, np.asarray(poses), Ms
 
 
-def _oracle(frames_: list, Ms: list, src_pose: np.ndarray, radii_px) -> dict:
+def _oracle(frames_: list, Ms: list, src_pose: np.ndarray, radii_px,
+            region: np.ndarray | None = None) -> dict:
     """STABILISE 2 §2: each frame carried back to the source by its TRUE inverse
-    transform, then differenced, discs at the source frame's own centroids."""
+    transform, then differenced, discs at the source frame's own centroids.
+
+    `region` (STABILISE 7): the animal's pixels in the SOURCE frame; each disc
+    is then intersected with it and the keys gain a ``|a`` suffix.
+    """
     shape = frames_[0].shape
     n = len(frames_)
     skull = src_pose[list(hd.SKULL)].mean(axis=0)
     hip = src_pose[list(hd.HIPS)].mean(axis=0)
     discs = {(k, r): rg.disc(float(c[0]), float(c[1]), r, shape)
              for r in radii_px for k, c in (("head", skull), ("hip", hip))}
+    if region is not None:
+        discs = {key: (dm & region if dm is not None and (dm & region).any()
+                       else None) for key, dm in discs.items()}
     ser = {key: np.full(n, np.nan) for key in discs}
     prev = None
     for t in range(n):
@@ -276,7 +284,8 @@ def _oracle(frames_: list, Ms: list, src_pose: np.ndarray, radii_px) -> dict:
                 if dm is not None:
                     ser[key][t] = float(d[dm].mean())
         prev = u
-    return {f"O|{k}|{r}": v for (k, r), v in ser.items()}
+    tag = "|a" if region is not None else ""
+    return {f"O|{k}|{r}{tag}": v for (k, r), v in ser.items()}
 
 
 def _plant_scan(src_grey: np.ndarray, src_pose: np.ndarray, bg_raw: np.ndarray,
