@@ -13,6 +13,7 @@ cv2 = pytest.importorskip("cv2")
 
 from tests import test_register as T                               # noqa: E402
 from vieb.pixel import register as rg, sam                           # noqa: E402
+from vieb.tok import ego as tego                                     # noqa: E402
 
 
 def _truth_predictor(masks, ious=None, calls=None):
@@ -122,3 +123,57 @@ def test_keypoint_mode_refuses_a_mask_of_some_other_object():
                        body_length_px=100.0, prompt_mode="keypoint")
     assert not tr["key_accepted"][1]
     assert not tr["ok"][0:6].any() and tr["ok"][6:10].all()
+
+
+def test_mask_at_carries_the_keyframe_mask_by_the_centroid_shift():
+    frames, masks, pose, _ = _seq(7)
+    tr = sam.sam_track(lambda: iter(frames), pose, _truth_predictor(masks),
+                       body_length_px=100.0, prompt_mode="keypoint")
+    m = sam.mask_at(tr, 4, dilate_px=0.0)
+    truth = masks[4]
+    iou = (m & truth).sum() / (m | truth).sum()
+    assert iou > 0.85
+
+
+def test_masked_arm_follows_a_moving_animal_over_a_textured_floor():
+    """STABILISE 5 Amendment 1 (D26), pinned: over a high-contrast bar floor,
+    ECC restricted to the animal's ERODED masks on both frames follows it."""
+    bg, layer, msk = T._scene()
+    yy, xx = np.mgrid[:T.H, :T.W]
+    floor = np.where((xx // 6) % 2 == 0, 230.0, 20.0)       # a bar grid
+    steps = [T._rot(0.8 * k, 2.5 * k, -1.0 * k) for k in range(10)]
+    frames, masks, poses = [], [], []
+    for t, M in enumerate(steps):
+        L = cv2.warpAffine(layer, M, (T.W, T.H))
+        A = cv2.warpAffine(msk, M, (T.W, T.H)) > 0.5
+        g = np.clip(np.round(np.where(A, L, floor)), 0, 255).astype(np.uint8)
+        rgb = np.repeat(g[:, :, None], 3, axis=2)
+        rgb[0, 0, :] = t
+        frames.append(rgb)
+        masks.append(A)
+        poses.append(rg.apply(M, T._pose0()))
+    pose = np.asarray(poses)
+    tr = sam.sam_track(lambda: iter(frames), pose, _truth_predictor(masks),
+                       body_length_px=100.0, prompt_mode="keypoint")
+    grey = [cv2.cvtColor(f, cv2.COLOR_RGB2GRAY) for f in frames]
+    # 12 px: inside the body. A 0.6 bl disc reaches onto the floor, where a
+    # correctly registered ANIMAL leaves the static bars misaligned by
+    # construction -- which is why gate 4 is scored at an interior disc.
+    s = rg.scan_track(lambda: iter(grey), pose, tr, radii_px=[12.0],
+                      dilate_px=100.0, win=10,
+                      mask_fn=lambda t: sam.mask_at(tr, t, erode_px=4.0))
+    c = pose[:, tego.CENTER]
+    f = {}
+    for arm in ("P", "M"):
+        W = s[f"{arm}|W"]
+        num = den = 0.0
+        for t in range(1, len(grey)):
+            if not np.isfinite(W[t]).all():
+                continue
+            d_arm = rg.apply(W[t], c[t - 1])[0] - c[t - 1]
+            d_kp = c[t] - c[t - 1]
+            num += float(d_arm @ d_arm)
+            den += float(d_kp @ d_arm)
+        f[arm] = num / den if den else float("nan")
+    assert 0.9 < f["M"] < 1.1, f
+    assert np.nanmedian(s["M|head|12.0"][1:]) < np.nanmedian(s["P|head|12.0"][1:])

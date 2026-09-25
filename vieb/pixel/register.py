@@ -210,7 +210,9 @@ def disc(cx: float, cy: float, r: float, shape: tuple[int, int]) -> B1 | None:
     return out if out.any() else None
 
 
-def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike
+def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike, *,
+                  masks: tuple[npt.ArrayLike, npt.ArrayLike] | None = None,
+                  init: tuple[float, float] | None = None
                   ) -> tuple[float, float, float, F64] | None:
     """§1 P.2-3 as amended (D22): register `cur` onto `prev`, rigidly.
 
@@ -224,6 +226,13 @@ def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike
     The log-polar rotation the registration first specified missed synthetic
     rotations by 2-14 degrees on an animal-sized crop; ECC recovers them to
     within 0.03 degrees. Amendment 1.
+
+    STABILISE 5 §1 with its Amendment 1 (D26): `masks = (template_mask,
+    input_mask)` -- bool, the crop's shape, for `prev` and `cur` -- go to
+    `findTransformECCWithMask`, so only the animal's interior is fitted, and
+    `init` (a translation) replaces the unmasked phase correlation the static
+    floor pulled toward zero. With both None this is exactly the function every
+    earlier stage ran.
     """
     import cv2
 
@@ -234,13 +243,23 @@ def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike
     a = np.array(prev, dtype=np.float64, copy=True)
     b = np.array(cur, dtype=np.float64, copy=True)
     h, w = a.shape
-    win = cv2.createHanningWindow((w, h), cv2.CV_64F)
-    (sx, sy), _ = cv2.phaseCorrelate(a.copy(), b.copy(), win)
+    if init is None:
+        win = cv2.createHanningWindow((w, h), cv2.CV_64F)
+        (sx, sy), _ = cv2.phaseCorrelate(a.copy(), b.copy(), win)
+    else:
+        sx, sy = float(init[0]), float(init[1])
     W0 = np.array([[1.0, 0.0, sx], [0.0, 1.0, sy]], dtype=np.float32)
     try:
-        _, W1 = cv2.findTransformECC(  # type: ignore[call-overload]
-            a.astype(np.float32), b.astype(np.float32), W0,
-            cv2.MOTION_EUCLIDEAN, ECC_CRITERIA, None, ECC_GAUSS)
+        if masks is None:
+            _, W1 = cv2.findTransformECC(  # type: ignore[call-overload]
+                a.astype(np.float32), b.astype(np.float32), W0,
+                cv2.MOTION_EUCLIDEAN, ECC_CRITERIA, None, ECC_GAUSS)
+        else:
+            tm = np.ascontiguousarray(np.asarray(masks[0], dtype=np.uint8))
+            im = np.ascontiguousarray(np.asarray(masks[1], dtype=np.uint8))
+            _, W1 = cv2.findTransformECCWithMask(
+                a.astype(np.float32), b.astype(np.float32), tm, im, W0,
+                cv2.MOTION_EUCLIDEAN, ECC_CRITERIA, ECC_GAUSS)
     except cv2.error:
         return None
     Wm = np.asarray(W1, dtype=np.float64)
@@ -388,9 +407,16 @@ def mask_track(open_frames: Frames, pose: npt.ArrayLike, *,
 
 
 def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
-               *, radii_px: Sequence[float], dilate_px: float,
-               win: int) -> dict[str, Any]:
-    """Pass 2: K, B and P differences against a mask track. See `scan_register`."""
+               *, radii_px: Sequence[float], dilate_px: float, win: int,
+               mask_fn: Callable[[int], B1 | None] | None = None
+               ) -> dict[str, Any]:
+    """Pass 2: K, B and P differences against a mask track. See `scan_register`.
+
+    With `mask_fn(t) -> full-frame bool mask` (STABILISE 5 §1, Amendment 1), arm
+    ``M`` is added: P's ECC restricted to the masks at *t-1* and *t* and
+    initialised from the track's own centroid shift. ``"P|W"`` and ``"M|W"`` hold each pair's
+    full-frame warp, mapping *t-1*'s coordinates into *t*'s (gate 6).
+    """
     p = np.asarray(pose, dtype=np.float64)
     rad = [float(r) for r in radii_px]
     n = int(track["n"])
@@ -428,10 +454,13 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
 
     # ---- pass 2: differences ------------------------------------------------
     out: dict[str, Any] = {}
-    for arm in ARMS + ("I",):
+    arms_out = ARMS + ("I",) + (("M",) if mask_fn is not None else ())
+    for arm in arms_out:
         for name, _ in REGIONS:
             for r in rad:
                 out[f"{arm}|{name}|{r}"] = np.full(n, np.nan)
+    Wp = np.full((n, 2, 3), np.nan)
+    Wm_ = np.full((n, 2, 3), np.nan)
     arena = np.full(n, np.nan)
     identical = np.zeros(n, dtype=bool)
     pest = np.full((n, 3), np.nan)
@@ -489,11 +518,24 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
             if est is not None:
                 ang, tx, ty, Wc = est
                 pest[t] = (ang, tx, ty)
+                Wp[t] = to_frame(Wc, x0, y0)
                 if ang == 0.0 and tx == 0.0 and ty == 0.0:
                     pdif = np.abs(b - b_old)
                 else:
-                    pdif = np.abs(warp_inverse(b, to_frame(Wc, x0, y0), shape)
-                                  - b_old)
+                    pdif = np.abs(warp_inverse(b, Wp[t], shape) - b_old)
+            mdif: F64 | None = None
+            m0 = mask_fn(t - 1) if mask_fn is not None else None
+            m1 = mask_fn(t) if mask_fn is not None else None
+            if (m0 is not None and m1 is not None
+                    and m0[y0:y1, x0:x1].any() and m1[y0:y1, x0:x1].any()):
+                init = (float(cx_l[t] - cx_l[t - 1]), float(cy_l[t] - cy_l[t - 1]))
+                estm = rigid_between(b_old[y0:y1, x0:x1], b[y0:y1, x0:x1],
+                                     masks=(m0[y0:y1, x0:x1], m1[y0:y1, x0:x1]),
+                                     init=init)
+                if estm is not None:
+                    Wm_[t] = to_frame(estm[3], x0, y0)
+                    mdif = (np.abs(b - b_old) if estm[:3] == (0.0, 0.0, 0.0)
+                            else np.abs(warp_inverse(b, Wm_[t], shape) - b_old))
             mprev = mB[t - 1]
             assert mprev is not None
             inv = invert(mprev)
@@ -504,25 +546,31 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                     dm = disc(c[0], c[1], r, shape)
                     if dm is not None:
                         out[f"I|{name}|{r}"][t] = float(idif[dm].mean())
-            for name, _ in REGIONS:
-                if pdif is None:
-                    break
-                c = apply(inv, centre[name][k])[0]
-                for r in rad:
-                    dm = disc(c[0], c[1], r, shape)
-                    if dm is not None:
-                        out[f"P|{name}|{r}"][t] = float(pdif[dm].mean())
+            for arm, dif_ in (("P", pdif), ("M", mdif)):
+                if dif_ is None:
+                    continue
+                for name, _ in REGIONS:
+                    c = apply(inv, centre[name][k])[0]
+                    for r in rad:
+                        dm = disc(c[0], c[1], r, shape)
+                        if dm is not None:
+                            out[f"{arm}|{name}|{r}"][t] = float(dif_[dm].mean())
         # B and P are refused on a pair when either frame's mask is refused.
         if not (ok[t] and ok[t - 1]):
-            for arm in ("B", "P", "I"):
+            for arm in ("B", "P", "I") + (("M",) if mask_fn is not None else ()):
                 for name, _ in REGIONS:
                     for r in rad:
                         out[f"{arm}|{name}|{r}"][t] = np.nan
+            Wp[t] = np.nan
+            Wm_[t] = np.nan
         grey_old, b_old, mask_old = g, b, mask
         warpK_old, warpB_old = warpK, warpB
         t += 1
     _close(it)
     out["centre_head_img"] = cimg[:t]
+    out["P|W"] = Wp[:t]
+    if mask_fn is not None:
+        out["M|W"] = Wm_[:t]
     out.update({"arena": arena[:t], "identical": identical[:t],
                 "n_frames": int(t), "mask_area": area[:t],
                 "mask_ok": ok[:t], "mask_theta": np.asarray(th_l)[:t],

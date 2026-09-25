@@ -208,3 +208,45 @@ def sam_predictor(checkpoint: str, device: str = "cuda") -> Predict:
                                   multimask_output=False)
         return np.asarray(m[0], dtype=bool), float(sc[0])
     return predict
+
+
+def mask_at(track: dict[str, Any], t: int, *, dilate_px: float = 0.0,
+            erode_px: float = 0.0) -> B1 | None:
+    """STABILISE 5 §1: SAM's mask for frame `t`, image-derived throughout.
+
+    The nearest accepted keyframe's mask, translated by the track's own
+    interpolated centroid shift from that keyframe to `t` (rounded to whole
+    pixels), then dilated by `dilate_px` or eroded by `erode_px` (Amendment 1:
+    eroded, so ECC never sees the boundary moving against the floor). None
+    when `t` is refused, no accepted keyframe exists, or erosion empties it.
+    No keypoint enters.
+    """
+    import cv2
+
+    if not bool(track["ok"][t]) or not track["key_crops"]:
+        return None
+    keys = np.fromiter(track["key_crops"].keys(), dtype=np.int64)
+    k = int(keys[np.argmin(np.abs(keys - t))])
+    if not (np.isfinite(track["cx"][k]) and np.isfinite(track["cx"][t])):
+        return None
+    x0, y0, crop = track["key_crops"][k]
+    dx = int(round(float(track["cx"][t] - track["cx"][k])))
+    dy = int(round(float(track["cy"][t] - track["cy"][k])))
+    h, w = track["shape"]
+    out = np.zeros((h, w), dtype=bool)
+    ys, xs = np.nonzero(crop)
+    ys = ys + y0 + dy
+    xs = xs + x0 + dx
+    keep = (ys >= 0) & (ys < h) & (xs >= 0) & (xs < w)
+    out[ys[keep], xs[keep]] = True
+    m8 = out.astype(np.uint8)
+    if dilate_px > 0:
+        r = int(round(dilate_px))
+        ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1))
+        m8 = np.asarray(cv2.dilate(m8, ker), dtype=np.uint8)
+    if erode_px > 0:
+        r = int(round(erode_px))
+        ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1))
+        m8 = np.asarray(cv2.erode(m8, ker), dtype=np.uint8)
+    res = np.asarray(m8 > 0, dtype=bool)
+    return res if res.any() else None

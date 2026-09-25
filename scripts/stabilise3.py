@@ -79,7 +79,8 @@ def _as_rgb(greys):
 
 
 def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
-             prompt_mode: str = "propagate") -> dict:
+             prompt_mode: str = "propagate", rename: dict | None = None,
+             mask_erode_bl: float | None = None) -> dict:
     """§3: the moving plants, cut with SAM's source mask, tracked by SAM."""
     inp = st._plant_inputs(pose, speed, immobile, w)
     if inp is None:
@@ -105,11 +106,14 @@ def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
         rgbs = _as_rgb(fr)
         tr = sam.sam_track(lambda: iter(rgbs), poses, predict,
                            body_length_px=bl, prompt_mode=prompt_mode)
+        mfn = (None if mask_erode_bl is None else
+               (lambda t, tr=tr: sam.mask_at(tr, t, erode_px=mask_erode_bl * bl)))
         s = rg.scan_track(lambda: iter(fr), poses, tr, radii_px=[r4, r5],
-                          dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=len(fr))
+                          dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=len(fr),
+                          mask_fn=mfn)
         s.update(st._oracle(fr, Ms, sp, [r4, r5]))
         tag = "base" if hz is None else f"{hz:g}__{amp:g}"
-        for src_arm, arm in list(RENAME.items()) + [("O", "O")]:
+        for src_arm, arm in list((rename or RENAME).items()) + [("O", "O")]:
             for reg in ("head", "hip"):
                 v = s.get(f"{src_arm}|{reg}|{r5}")
                 out[f"p__{tag}__{arm}__{reg}"] = (np.asarray(v) if v is not None
