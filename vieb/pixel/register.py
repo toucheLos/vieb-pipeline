@@ -212,7 +212,8 @@ def disc(cx: float, cy: float, r: float, shape: tuple[int, int]) -> B1 | None:
 
 def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike, *,
                   masks: tuple[npt.ArrayLike, npt.ArrayLike] | None = None,
-                  init: tuple[float, float] | None = None
+                  init: tuple[float, float] | None = None,
+                  inits: Sequence[tuple[float, float]] | None = None
                   ) -> tuple[float, float, float, F64] | None:
     """§1 P.2-3 as amended (D22): register `cur` onto `prev`, rigidly.
 
@@ -233,6 +234,11 @@ def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike, *,
     `init` (a translation) replaces the unmasked phase correlation the static
     floor pulled toward zero. With both None this is exactly the function every
     earlier stage ran.
+
+    STABILISE 6: `inits` runs the fit once from each starting translation and
+    keeps the one with the highest ECC correlation -- the image fit's own
+    score, so no keypoint enters -- ties going to the FIRST (the identity, as
+    registered). `init` and `inits` are exclusive.
     """
     import cv2
 
@@ -243,33 +249,54 @@ def rigid_between(prev: npt.ArrayLike, cur: npt.ArrayLike, *,
     a = np.array(prev, dtype=np.float64, copy=True)
     b = np.array(cur, dtype=np.float64, copy=True)
     h, w = a.shape
+    if inits is not None:
+        best: tuple[float, float, float, F64] | None = None
+        best_cc = -np.inf
+        for start in inits:
+            got = _ecc_once(a, b, masks, start)
+            if got is not None and got[0] > best_cc + 1e-12:
+                best_cc, best = got[0], got[1]
+        return best
     if init is None:
         win = cv2.createHanningWindow((w, h), cv2.CV_64F)
         (sx, sy), _ = cv2.phaseCorrelate(a.copy(), b.copy(), win)
     else:
         sx, sy = float(init[0]), float(init[1])
+    got = _ecc_once(a, b, masks, (sx, sy))
+    return None if got is None else got[1]
+
+
+def _ecc_once(a: F64, b: F64,
+              masks: tuple[npt.ArrayLike, npt.ArrayLike] | None,
+              start: tuple[float, float]
+              ) -> tuple[float, tuple[float, float, float, F64]] | None:
+    """One ECC fit from `start`: (correlation, (angle, tx, ty, W)), snapped."""
+    import cv2
+
+    sx, sy = float(start[0]), float(start[1])
     W0 = np.array([[1.0, 0.0, sx], [0.0, 1.0, sy]], dtype=np.float32)
     try:
         if masks is None:
-            _, W1 = cv2.findTransformECC(  # type: ignore[call-overload]
+            cc, W1 = cv2.findTransformECC(  # type: ignore[call-overload]
                 a.astype(np.float32), b.astype(np.float32), W0,
                 cv2.MOTION_EUCLIDEAN, ECC_CRITERIA, None, ECC_GAUSS)
         else:
             tm = np.ascontiguousarray(np.asarray(masks[0], dtype=np.uint8))
             im = np.ascontiguousarray(np.asarray(masks[1], dtype=np.uint8))
-            _, W1 = cv2.findTransformECCWithMask(
+            cc, W1 = cv2.findTransformECCWithMask(
                 a.astype(np.float32), b.astype(np.float32), tm, im, W0,
                 cv2.MOTION_EUCLIDEAN, ECC_CRITERIA, ECC_GAUSS)
     except cv2.error:
         return None
     Wm = np.asarray(W1, dtype=np.float64)
-    if not np.isfinite(Wm).all():
+    if not np.isfinite(Wm).all() or not np.isfinite(cc):
         return None
     ang = float(np.degrees(np.arctan2(Wm[1, 0], Wm[0, 0])))
     tx, ty = float(Wm[0, 2]), float(Wm[1, 2])
     if abs(ang) < SNAP_DEG and np.hypot(tx, ty) < SNAP_PX:
-        return 0.0, 0.0, 0.0, np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
-    return ang, tx, ty, Wm
+        return float(cc), (0.0, 0.0, 0.0,
+                           np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]))
+    return float(cc), (ang, tx, ty, Wm)
 
 
 def to_frame(Wc: npt.ArrayLike, x0: int, y0: int) -> F64:
@@ -408,8 +435,8 @@ def mask_track(open_frames: Frames, pose: npt.ArrayLike, *,
 
 def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                *, radii_px: Sequence[float], dilate_px: float, win: int,
-               mask_fn: Callable[[int], B1 | None] | None = None
-               ) -> dict[str, Any]:
+               mask_fn: Callable[[int], B1 | None] | None = None,
+               best_start: bool = False) -> dict[str, Any]:
     """Pass 2: K, B and P differences against a mask track. See `scan_register`.
 
     With `mask_fn(t) -> full-frame bool mask` (STABILISE 5 §1, Amendment 1), arm
@@ -454,13 +481,16 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
 
     # ---- pass 2: differences ------------------------------------------------
     out: dict[str, Any] = {}
-    arms_out = ARMS + ("I",) + (("M",) if mask_fn is not None else ())
+    extra = ((("M",) if mask_fn is not None else ())
+             + (("N",) if mask_fn is not None and best_start else ()))
+    arms_out = ARMS + ("I",) + extra
     for arm in arms_out:
         for name, _ in REGIONS:
             for r in rad:
                 out[f"{arm}|{name}|{r}"] = np.full(n, np.nan)
     Wp = np.full((n, 2, 3), np.nan)
     Wm_ = np.full((n, 2, 3), np.nan)
+    Wn_ = np.full((n, 2, 3), np.nan)
     arena = np.full(n, np.nan)
     identical = np.zeros(n, dtype=bool)
     pest = np.full((n, 3), np.nan)
@@ -524,6 +554,7 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                 else:
                     pdif = np.abs(warp_inverse(b, Wp[t], shape) - b_old)
             mdif: F64 | None = None
+            ndif: F64 | None = None
             m0 = mask_fn(t - 1) if mask_fn is not None else None
             m1 = mask_fn(t) if mask_fn is not None else None
             if (m0 is not None and m1 is not None
@@ -536,6 +567,17 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                     Wm_[t] = to_frame(estm[3], x0, y0)
                     mdif = (np.abs(b - b_old) if estm[:3] == (0.0, 0.0, 0.0)
                             else np.abs(warp_inverse(b, Wm_[t], shape) - b_old))
+                if best_start:
+                    estn = rigid_between(
+                        b_old[y0:y1, x0:x1], b[y0:y1, x0:x1],
+                        masks=(m0[y0:y1, x0:x1], m1[y0:y1, x0:x1]),
+                        inits=[(0.0, 0.0), init])
+                    if estn is not None:
+                        Wn_[t] = to_frame(estn[3], x0, y0)
+                        ndif = (np.abs(b - b_old)
+                                if estn[:3] == (0.0, 0.0, 0.0)
+                                else np.abs(warp_inverse(b, Wn_[t], shape)
+                                            - b_old))
             mprev = mB[t - 1]
             assert mprev is not None
             inv = invert(mprev)
@@ -546,7 +588,7 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                     dm = disc(c[0], c[1], r, shape)
                     if dm is not None:
                         out[f"I|{name}|{r}"][t] = float(idif[dm].mean())
-            for arm, dif_ in (("P", pdif), ("M", mdif)):
+            for arm, dif_ in (("P", pdif), ("M", mdif), ("N", ndif)):
                 if dif_ is None:
                     continue
                 for name, _ in REGIONS:
@@ -557,12 +599,13 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
                             out[f"{arm}|{name}|{r}"][t] = float(dif_[dm].mean())
         # B and P are refused on a pair when either frame's mask is refused.
         if not (ok[t] and ok[t - 1]):
-            for arm in ("B", "P", "I") + (("M",) if mask_fn is not None else ()):
+            for arm in ("B", "P", "I") + extra:
                 for name, _ in REGIONS:
                     for r in rad:
                         out[f"{arm}|{name}|{r}"][t] = np.nan
             Wp[t] = np.nan
             Wm_[t] = np.nan
+            Wn_[t] = np.nan
         grey_old, b_old, mask_old = g, b, mask
         warpK_old, warpB_old = warpK, warpB
         t += 1
@@ -571,6 +614,8 @@ def scan_track(open_frames: Frames, pose: npt.ArrayLike, track: dict[str, Any],
     out["P|W"] = Wp[:t]
     if mask_fn is not None:
         out["M|W"] = Wm_[:t]
+        if best_start:
+            out["N|W"] = Wn_[:t]
     out.update({"arena": arena[:t], "identical": identical[:t],
                 "n_frames": int(t), "mask_area": area[:t],
                 "mask_ok": ok[:t], "mask_theta": np.asarray(th_l)[:t],

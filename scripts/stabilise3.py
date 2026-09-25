@@ -80,7 +80,8 @@ def _as_rgb(greys):
 
 def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
              prompt_mode: str = "propagate", rename: dict | None = None,
-             mask_erode_bl: float | None = None) -> dict:
+             mask_erode_bl: float | None = None,
+             best_start: bool = False) -> dict:
     """§3: the moving plants, cut with SAM's source mask, tracked by SAM."""
     inp = st._plant_inputs(pose, speed, immobile, w)
     if inp is None:
@@ -110,7 +111,7 @@ def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
                (lambda t, tr=tr: sam.mask_at(tr, t, erode_px=mask_erode_bl * bl)))
         s = rg.scan_track(lambda: iter(fr), poses, tr, radii_px=[r4, r5],
                           dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=len(fr),
-                          mask_fn=mfn)
+                          mask_fn=mfn, best_start=best_start)
         s.update(st._oracle(fr, Ms, sp, [r4, r5]))
         tag = "base" if hz is None else f"{hz:g}__{amp:g}"
         for src_arm, arm in list((rename or RENAME).items()) + [("O", "O")]:
