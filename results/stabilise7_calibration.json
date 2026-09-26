@@ -1,0 +1,89 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a calibration of the incumbent"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 1,
+      "built": "13.0",
+      "device": "NVIDIA A100 80GB PCIe"
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "34b6b56eb5911500572026d81c73e17c99ec9be0",
+    "node": "g01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "82381"
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "results": {
+    "gate3_K_over_identity": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 1.7193325943353086,
+      "lo": 1.2864525128001685,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 25,
+      "n_boot": 2000,
+      "n_units": 25,
+      "point": 1.4871723892818278
+    },
+    "gate3_n_animals": 25,
+    "gate4_K": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 10.32319754410577,
+      "lo": 6.435275629953963,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 30,
+      "n_boot": 2000,
+      "n_units": 30,
+      "point": 8.26355993100888
+    },
+    "gate4_K0": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 1.5701833735338138,
+      "lo": 1.3041871618204852,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 30,
+      "n_boot": 2000,
+      "n_units": 30,
+      "point": 1.4332935375110094
+    },
+    "gate4_oracle": {
+      "aggregator": "mean",
+      "alpha": 0.05,
+      "hi": 0.19186530125026963,
+      "lo": 0.1605980523353984,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 30,
+      "n_boot": 2000,
+      "n_units": 30,
+      "point": 0.17608679170097483
+    }
+  },
+  "stage": "stabilise7_calibration"
+}
