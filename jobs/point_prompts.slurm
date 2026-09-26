@@ -14,7 +14,7 @@
 #SBATCH --time=03:00:00
 set -euo pipefail
 REPO="/home/tul26194/vieb-pipeline"; cd "$REPO"
-mkdir -p work/logs work/point_prompts
+mkdir -p work/logs
 source "$REPO/env.sh"
 python3 scripts/freeze.py
-python3 scripts/point_prompts.py --shard "${SLURM_ARRAY_TASK_ID}" --of 12
+python3 scripts/point_prompts.py --mode "${MODE:-plain}" --shard "${SLURM_ARRAY_TASK_ID}" --of 12

@@ -30,6 +30,20 @@ then asking whether that keypoint is inside the mask is circular, so:
 * **Over-inclusion guard:** mask area / body length^2 (median and 95th
   percentile), and the share of frames each variant has refused. A point
   prompt that pulls in glare or the arena shows up here.
+
+**`--mode guarded`**, added after the first run (`results/POINT_PROMPTS.md`
+§2), which found a wrong keypoint drags SAM onto the arena wall, mostly in
+context B. Each detector is checked against the other before either is used:
+
+1. the box-only mask is STABILISE 7's saved mask (no box mask, no frame);
+2. a prompt keypoint (nose, centre, tail base, as before) is used only if it
+   lies within **0.2 body lengths** of that mask; fewer than 2 qualifying ->
+   keep the box mask;
+3. the point mask replaces the box mask only if it passes STABILISE 7's IoU
+   and centroid rules **and** its area is at most **1.3x** the box mask's.
+
+Same metrics, plus the share of frames whose mask exceeds 1.5x and 2x the box
+mask, split by context, and the share of frames where the point mask was used.
 """
 from __future__ import annotations
 
@@ -57,6 +71,8 @@ import stabilise3 as s3                                              # noqa: E40
 
 REC = os.path.join(config.REPO, "work", "stabilise7", "rec")
 OUT = os.path.join(config.REPO, "work", "point_prompts")
+GUARD_DIST_BL = 0.2
+GUARD_AREA = 1.3
 EVERY = 30
 PROMPTS = (tego.NOSE, tego.CENTER, tego.TAIL_BASE)
 EARS = (tego.LEFT_EAR, tego.RIGHT_EAR)
@@ -95,6 +111,74 @@ def _accept(masks: dict, boxes: dict, ious: dict) -> set[int]:
     med = float(np.median([masks[t].sum() for t in ok]))
     return {t for t in ok
             if sam.AREA_RANGE[0] * med <= masks[t].sum() <= sam.AREA_RANGE[1] * med}
+
+
+def _guarded(rgb, p, box, full_b, bl, predict) -> tuple[np.ndarray, bool]:
+    """(mask, used_points): the point mask only when both guards pass."""
+    import cv2
+
+    dist = cv2.distanceTransform((~full_b).astype(np.uint8), cv2.DIST_L2, 5)
+    h, w = full_b.shape
+    cand = []
+    for k in PROMPTS:
+        q = p[k]
+        if not np.isfinite(q).all():
+            continue
+        x, y = int(round(q[0])), int(round(q[1]))
+        if 0 <= y < h and 0 <= x < w and dist[y, x] <= GUARD_DIST_BL * bl:
+            cand.append(q)
+    if len(cand) < 2:
+        return full_b, False
+    m, iou = predict(rgb, box, points=np.asarray(cand))
+    m = np.asarray(m, dtype=bool)
+    if not m.any() or iou < sam.IOU_MIN:
+        return full_b, False
+    cx, cy, _, area = rg.mask_pose(m)
+    if not (box[0] <= cx <= box[2] and box[1] <= cy <= box[3]):
+        return full_b, False
+    if area > GUARD_AREA * float(full_b.sum()):
+        return full_b, False
+    return m, True
+
+
+def run_guarded(rid: str, predict) -> dict:
+    """§ --mode guarded: the combination, on the same sampled frames."""
+    import cv2
+
+    z = dict(np.load(os.path.join(REC, f"{rid}.npz")))
+    saved = ag._unpack(z)
+    pose = np.asarray(spine.clean(rid)["pose"], dtype=np.float64)
+    bl = float(np.nanmedian(tego.body_length(pose)))
+    tol = int(max(1, round(TOL_BL * bl)))
+    pad = sam.PAD_BL * bl
+    cap = cv2.VideoCapture(vid.video_path(rid))
+    h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    rows = []
+    t = 0
+    try:
+        while t < pose.shape[0]:
+            ok, fr = cap.read()
+            if not ok:
+                break
+            if t % EVERY == 0 and t in saved:
+                x0, y0, mc = saved[t]
+                full_b = np.zeros((h, w), dtype=bool)
+                full_b[y0:y0 + mc.shape[0], x0:x0 + mc.shape[1]] = mc
+                box = sam.keypoint_box(pose[t], pad)
+                if box is not None:
+                    rgb = cv2.cvtColor(fr, cv2.COLOR_BGR2RGB)
+                    m, used = _guarded(rgb, pose[t], box, full_b, bl, predict)
+                    rows.append({"t": t, "box_ok": True, "pt_ok": True,
+                                 "used_points": used,
+                                 "area_box": float(full_b.sum()) / bl ** 2,
+                                 "area_pt": float(m.sum()) / bl ** 2,
+                                 "out_box": _outside(full_b, pose[t], tol).tolist(),
+                                 "out_pt": _outside(m, pose[t], tol).tolist()})
+            t += 1
+    finally:
+        cap.release()
+    return {"recording_id": rid, "body_length": bl, "rows": rows}
 
 
 def run_one(rid: str, predict) -> dict:
@@ -148,17 +232,22 @@ def run_one(rid: str, predict) -> dict:
     return {"recording_id": rid, "body_length": bl, "rows": rows}
 
 
+def _out(a) -> str:
+    return OUT + ("_guarded" if a.mode == "guarded" else "")
+
+
 def shard(a) -> int:
     s3._check_checkpoint()
     predict = sam.sam_point_predictor(s3.CHECKPOINT)
-    os.makedirs(OUT, exist_ok=True)
+    out_dir = _out(a)
+    os.makedirs(out_dir, exist_ok=True)
     rids = sorted(f[:-4] for f in os.listdir(REC) if f.endswith(".npz"))
     mine = rids[a.shard::a.of]
     for n, rid in enumerate(mine, 1):
-        path = os.path.join(OUT, f"{rid}.json")
+        path = os.path.join(out_dir, f"{rid}.json")
         if os.path.exists(path):
             continue
-        res = run_one(rid, predict)
+        res = (run_guarded if a.mode == "guarded" else run_one)(rid, predict)
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(res, fh)
         both = [r for r in res["rows"] if r["box_ok"] and r["pt_ok"]]
@@ -173,15 +262,23 @@ def combine(a) -> int:
     man = json.load(open(os.path.join(config.REPO, "work", "pixel",
                                       "manifest.json"), encoding="utf-8"))
     animal = {r["recording_id"]: r["animal"] for r in man["recordings"]}
+    ctx = {r["recording_id"]: r["context"] for r in man["recordings"]}
+    out_dir = _out(a)
     per: dict[str, dict[str, list]] = {}
-    for f in sorted(os.listdir(OUT)):
+    ratio: dict[str, list[float]] = {"A": [], "B": []}
+    used: list[bool] = []
+    for f in sorted(os.listdir(out_dir)):
         if not f.endswith(".json"):
             continue
-        d = json.load(open(os.path.join(OUT, f), encoding="utf-8"))
+        d = json.load(open(os.path.join(out_dir, f), encoding="utf-8"))
         acc = per.setdefault(animal[d["recording_id"]],
                              {"box": [], "pt": [], "area_box": [], "area_pt": [],
                               "n": 0, "box_refused": 0, "pt_refused": 0})
         for r in d["rows"]:
+            if r["box_ok"] and r["pt_ok"] and r["area_box"] > 0:
+                ratio[ctx[d["recording_id"]]].append(r["area_pt"] / r["area_box"])
+            if "used_points" in r:
+                used.append(bool(r["used_points"]))
             acc["n"] += 1
             acc["box_refused"] += int(not r["box_ok"])
             acc["pt_refused"] += int(not r["pt_ok"])
@@ -219,13 +316,25 @@ def combine(a) -> int:
         res[f"refused_{arm}"] = interval(
             {an: v[f"{arm}_refused"] / v["n"] for an, v in per.items() if v["n"]})
     res["n_animals"] = len(keep)
+    res["mode"] = a.mode
+    res["inflated_by_context"] = {
+        c: {"n": len(v), "over_1_5x": float(np.mean(np.asarray(v) > 1.5)),
+            "over_2x": float(np.mean(np.asarray(v) > 2.0))}
+        for c, v in ratio.items() if v}
+    if used:
+        res["share_point_mask_used"] = float(np.mean(used))
+    log(f"  inflated by context: {res['inflated_by_context']}")
+    if used:
+        log(f"  point mask used on {100 * res['share_point_mask_used']:.1f}% of frames")
     res["n_paired_frames"] = int(sum(len(v["box"]) for v in keep.values()))
     for k, v in res.items():
         if isinstance(v, dict) and "point" in v:
             log(f"  {k:32s} {v['point']:.4f} [{v['lo']:.4f}, {v['hi']:.4f}]")
     log(f"  per keypoint: {json.dumps(res['per_keypoint_outside'])}")
     log(f"  area/bl^2 box {res['area_over_bl2_box']}  points {res['area_over_bl2_pt']}")
-    out = a.out or config.PATHS.result("point_prompts.json")
+    out = a.out or config.PATHS.result(
+        "point_prompts_guarded.json" if a.mode == "guarded"
+        else "point_prompts.json")
     write_json({**provenance.header(anchors.LUNA, stage="point_prompts",
                                     unverified="a descriptive comparison"),
                 "inherited_digest": spine.digest(),
@@ -240,6 +349,7 @@ def main(argv=None) -> int:
     p.add_argument("--shard", type=int, default=None)
     p.add_argument("--of", type=int, default=12)
     p.add_argument("--out", default=None)
+    p.add_argument("--mode", choices=("plain", "guarded"), default="plain")
     a = p.parse_args(argv)
     if a.phase == "combine":
         return combine(a)
