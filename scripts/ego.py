@@ -72,7 +72,7 @@ SCALE_ARMS = ("bodylen", "unitlen")
 #: F3's `raw` arm is `held_array(pose_unfiltered, missing)` -- the gap policy's
 #: output, which is what the incumbent filter actually received. Reusing
 #: `POSE_KEY` here would have silently dropped the hold.
-POSE_ARMS = ("raw", "wiener")
+POSE_ARMS = ("raw", "wiener", "repaired", "repaired_noveto")
 
 #: Written into every result document, so a reader never has to go and find out
 #: which coordinates a number was computed on. This is the provenance that was
@@ -84,7 +84,38 @@ POSE_ARM_NOTE = {
     "wiener": ("clean['pose'], which shapeflow/results/clean.json records as "
                "filter.default = wiener. F3 SS1 lists it as not benchmarkable "
                "and therefore NOT carried onto the MDL branch"),
+    "repaired": ("REPAIR_PREREGISTRATION.md: disposition, SAM mask veto (> 0.3 bl "
+                 "off the mask), short-gap holding, median_0.25; long gaps are "
+                 "missing and their frames unusable"),
+    "repaired_noveto": ("REPAIR's registered fallback: the same without the "
+                        "SAM mask veto"),
 }
+
+_REPAIRED: dict = {}
+
+
+def _repaired(rid: str, arm: str = "repaired") -> tuple[np.ndarray, np.ndarray]:
+    """(pose, unusable) for one recording from work/<arm>/<animal>.npz."""
+    tag = lab.animal_tag(rid)
+    key = (arm, tag)
+    if key not in _REPAIRED:
+        _REPAIRED.clear()
+        with np.load(os.path.join(config.REPO, "work", arm, f"{tag}.npz"),
+                     allow_pickle=False) as z:
+            _REPAIRED[key] = {k: z[k] for k in ("pose", "abstain", "bounds",
+                                                "recording_ids")}
+    z = _REPAIRED[key]
+    i = [str(r) for r in z["recording_ids"]].index(rid)
+    a, b = int(z["bounds"][i]), int(z["bounds"][i + 1])
+    pose = z["pose"][a:b].astype(np.float64)
+    bad = z["abstain"][a:b].astype(bool) | ~np.isfinite(pose).all(axis=(1, 2))
+    return pose, bad
+
+
+def unusable_for(rid: str, pose_arm: str) -> np.ndarray | None:
+    """Frames an arm itself makes unusable (only `repaired` has any)."""
+    return (_repaired(rid, pose_arm)[1]
+            if pose_arm in ("repaired", "repaired_noveto") else None)
 
 #: Contiguous windows per recording for the leak probe. Matches `scripts/audit.py`
 #: so the two numbers are on the same footing.
@@ -106,6 +137,10 @@ def pose_for(rid: str, pose_arm: str) -> np.ndarray:
     if pose_arm == "raw":
         return clean_arms.held_array(d["pose_unfiltered"].astype(np.float64),
                                      d["missing"].astype(bool))
+    if pose_arm in ("repaired", "repaired_noveto"):
+        # NaN where the repair left a long gap; `unusable_for` excludes those
+        # frames, and the transform never reads them as valid.
+        return np.nan_to_num(_repaired(rid, pose_arm)[0], nan=0.0)
     raise SystemExit(f"unknown pose arm {pose_arm!r}; one of {POSE_ARMS}")
 
 
@@ -131,7 +166,12 @@ def shard(args, tag: str) -> int:
     for rid in mine:
         r = spine.representation(rid)
         poses.append(pose_for(rid, args.pose_arm))
-        usable.append(r["usable"].astype(bool))
+        u = r["usable"].astype(bool)
+        extra = unusable_for(rid, args.pose_arm)
+        if extra is not None:
+            n = min(u.size, extra.size)
+            u = u[:n] & ~extra[:n]
+        usable.append(u)
         lengths.append(int(poses[-1].shape[0]))
 
     # One number per animal, over every recording it has, on usable frames only.
