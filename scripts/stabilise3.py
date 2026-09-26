@@ -81,7 +81,8 @@ def _as_rgb(greys):
 def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
              prompt_mode: str = "propagate", rename: dict | None = None,
              mask_erode_bl: float | None = None,
-             best_start: bool = False) -> dict:
+             best_start: bool = False,
+             region_erode_bl: float | None = None) -> dict:
     """§3: the moving plants, cut with SAM's source mask, tracked by SAM."""
     inp = st._plant_inputs(pose, speed, immobile, w)
     if inp is None:
@@ -109,10 +110,17 @@ def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
                            body_length_px=bl, prompt_mode=prompt_mode)
         mfn = (None if mask_erode_bl is None else
                (lambda t, tr=tr: sam.mask_at(tr, t, erode_px=mask_erode_bl * bl)))
+        rfn = (None if region_erode_bl is None else
+               (lambda t, tr=tr: sam.mask_at(tr, t,
+                                             erode_px=region_erode_bl * bl)))
         s = rg.scan_track(lambda: iter(fr), poses, tr, radii_px=[r4, r5],
                           dilate_px=bl * mo.DILATE_BODY_LENGTHS, win=len(fr),
-                          mask_fn=mfn, best_start=best_start)
+                          mask_fn=mfn, best_start=best_start, region_fn=rfn)
         s.update(st._oracle(fr, Ms, sp, [r4, r5]))
+        if region_erode_bl is not None:
+            src_reg = _erode_bool(m0, region_erode_bl * bl)
+            if src_reg is not None:
+                s.update(st._oracle(fr, Ms, sp, [r4, r5], region=src_reg))
         tag = "base" if hz is None else f"{hz:g}__{amp:g}"
         for src_arm, arm in list((rename or RENAME).items()) + [("O", "O")]:
             for reg in ("head", "hip"):
@@ -123,9 +131,27 @@ def _plants3(video, pose, speed, immobile, bg_raw, bl, fps, w, predict,
                     v4 = s.get(f"{src_arm}|{reg}|{r4}")
                     out[f"g4__{arm}__{reg}"] = (np.asarray(v4) if v4 is not None
                                                 else np.zeros(0))
+                if region_erode_bl is not None:
+                    va = s.get(f"{src_arm}|{reg}|{r5}|a")
+                    out[f"p__{tag}__{arm}__{reg}__a"] = (
+                        np.asarray(va) if va is not None else np.zeros(0))
+                    if tag == "base":
+                        v4a = s.get(f"{src_arm}|{reg}|{r4}|a")
+                        out[f"g4__{arm}__{reg}__a"] = (
+                            np.asarray(v4a) if v4a is not None else np.zeros(0))
         if tag == "base":
             out["plant_track_ok"] = float(np.mean(tr["ok"]))
     return out
+
+
+def _erode_bool(m, px: float):
+    """A bool mask eroded by `px` (STABILISE 7's animal region), or None."""
+    import cv2
+
+    r = int(round(px))
+    ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1))
+    e = cv2.erode(np.asarray(m, dtype=np.uint8), ker) > 0
+    return e if e.any() else None
 
 
 def _check_checkpoint() -> None:
