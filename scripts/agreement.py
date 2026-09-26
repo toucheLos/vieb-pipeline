@@ -36,6 +36,13 @@ the other:
 
 A keyframe with no accepted mask is **SAM refused**; one with fewer than 3
 finite keypoints is **DLC missing**.
+
+**Added after the first run (descriptive, not a threshold):** which keypoints
+fall outside the mask, per keypoint, over all keyframes and over the
+disagreeing ones. Inspection of example frames showed the "DLC suspect"
+verdicts were mostly the head sticking out of SAM's mask, so the per-keypoint
+share is the direct measure. The self-plausibility attribution above is kept
+as registered in this docstring, and reported with that caveat.
 """
 from __future__ import annotations
 
@@ -103,6 +110,7 @@ def classify(rid: str) -> dict:
     kp_in = np.full(keys.size, np.nan)
     dist = np.full(keys.size, np.nan)
     angle = np.full(keys.size, np.nan)
+    outside = np.full((keys.size, pose.shape[1]), np.nan)
     for i, t in enumerate(keys):
         p = pose[t]
         fin = np.isfinite(p).all(axis=1)
@@ -124,6 +132,7 @@ def classify(rid: str) -> dict:
         inside = np.zeros(q.shape[0], dtype=bool)
         inside[ok] = md[yi[ok], xi[ok]]
         kp_in[i] = float(inside.mean())
+        outside[i, np.flatnonzero(fin)] = (~inside).astype(np.float64)
         cx, cy, th, area = rg.mask_pose(m)
         dist[i] = float(np.hypot(cx + x0 - q[:, 0].mean(),
                                  cy + y0 - q[:, 1].mean())) / bl
@@ -148,8 +157,14 @@ def classify(rid: str) -> dict:
     os.makedirs(OUT, exist_ok=True)
     np.savez_compressed(os.path.join(OUT, f"{rid}.npz"), key_t=keys,
                         cls=np.asarray([CLASSES.index(c) for c in cls]),
-                        kp_in=kp_in, dist=dist, angle=angle, body_length=bl)
+                        kp_in=kp_in, dist=dist, angle=angle, body_length=bl,
+                        outside=outside)
+    dis = np.array([c not in ("agree", "sam_refused", "dlc_missing") for c in cls])
     return {"counts": counts, "n": int(keys.size),
+            "outside_all": np.nansum(outside, axis=0).tolist(),
+            "scored_all": np.isfinite(outside).sum(axis=0).tolist(),
+            "outside_dis": np.nansum(outside[dis], axis=0).tolist(),
+            "scored_dis": np.isfinite(outside[dis]).sum(axis=0).tolist(),
             "kp_in_median": float(np.nanmedian(kp_in)),
             "dist_median": float(np.nanmedian(dist)),
             "angle_median": float(np.nanmedian(angle))}
@@ -202,6 +217,19 @@ def combine(a) -> int:
     b = res["agree_given_both_present"]
     log(f"  agree | both present: {100 * b['point']:.2f}% [{100 * b['lo']:.2f}, "
         f"{100 * b['hi']:.2f}]")
+    names = ("left_ear", "right_ear", "nose", "center", "left_hip", "right_hip",
+             "tail_base")
+    oa = np.sum([recs[r]["outside_all"] for r in recs], axis=0)
+    sa = np.sum([recs[r]["scored_all"] for r in recs], axis=0)
+    od = np.sum([recs[r]["outside_dis"] for r in recs], axis=0)
+    sd = np.sum([recs[r]["scored_dis"] for r in recs], axis=0)
+    res["keypoint_outside_mask"] = {
+        n: {"all_keyframes": float(oa[k] / sa[k]),
+            "disagreeing_keyframes": float(od[k] / sd[k]) if sd[k] else None}
+        for k, n in enumerate(names)}
+    for n, v in res["keypoint_outside_mask"].items():
+        log(f"  outside mask  {n:10s} all {100 * v['all_keyframes']:.2f}%  "
+            f"disagreeing {100 * (v['disagreeing_keyframes'] or 0):.2f}%")
     worst = sorted(recs, key=lambda r: recs[r]["counts"]["agree"] / max(1, recs[r]["n"]))
     res["least_agreeing_recordings"] = [
         {"recording_id": r, "agree_share": recs[r]["counts"]["agree"] / recs[r]["n"],

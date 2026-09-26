@@ -19,6 +19,11 @@ records (`work/stabilise7/rec/*.npz`), with no new SAM call:
   Missing points are not drawn.
 * **Status bar:** time, frame, and whether the mask is a keyframe (with SAM's
   predicted IoU), carried, or refused.
+* **Agreement colouring** (`scripts/agreement.py`, when its output exists): the
+  mask outline takes the nearest keyframe's agreement verdict -- green agree,
+  amber unresolved, magenta "DLC suspect", orange "SAM suspect", grey both
+  off -- and any keypoint outside the mask (with agreement.py's 0.05 bl edge
+  tolerance) is drawn as a red dot.
 
 **Selection, fixed here:** the recording SAM drifted on in STABILISE 3; the
 recording STABILISE 7 refused most; the smoke-test recording; and seven more,
@@ -49,6 +54,12 @@ FIXED = ("20251117_Box_3_CFD_Day_3_(Context_A)_975",   # drifted in STABILISE 3
 CRF = 28
 STRIDE = 3
 REC = os.path.join(config.REPO, "work", "stabilise7", "rec")
+AGREE = os.path.join(config.REPO, "work", "agreement")
+#: BGR outline colour and bar label per agreement verdict (scripts/agreement.py).
+VERDICT = {0: ((80, 200, 80), "agree"), 1: ((0, 140, 255), "SAM suspect"),
+           2: ((200, 60, 200), "DLC suspect"), 3: ((150, 150, 150), "both off"),
+           4: ((0, 200, 230), "unresolved"), 5: (None, "SAM refused"),
+           6: (None, "DLC missing")}
 OUT = os.path.join(config.REPO, "work", "sam_videos")
 
 
@@ -132,7 +143,17 @@ def render(rid: str) -> dict:
     masks = _masks(z)
     cent = {t: _centroid(e) for t, e in masks.items()}
     iou = np.asarray(z["key_iou"], dtype=np.float64)
+    ap = os.path.join(AGREE, f"{rid}.npz")
+    verdict = {}
+    if os.path.exists(ap):
+        with np.load(ap) as az:
+            verdict = dict(zip(az["key_t"].tolist(), az["cls"].tolist()))
     pose = np.asarray(spine.clean(rid)["pose"], dtype=np.float64)
+    from vieb.tok import ego as tego
+    # The red "outside" dots use agreement.py's own edge tolerance, so a dot
+    # and the verdict label can never contradict each other.
+    tol = int(max(1, round(0.05 * float(np.nanmedian(tego.body_length(pose))))))
+    ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * tol + 1, 2 * tol + 1))
     fps = spine.fps()
     cap = cv2.VideoCapture(vid.video_path(rid))
     w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -158,12 +179,15 @@ def render(rid: str) -> dict:
                 break
             m, state = _mask_for(t, masks, cent, (h, w))
             counts[state] += 1
+            kv = verdict.get((t // STRIDE) * STRIDE)
+            vcol, vlab = VERDICT.get(kv, (None, "")) if kv is not None else (None, "")
             if m is not None:
                 red = np.array([40, 40, 230], dtype=np.float64)
                 fr[m] = (0.62 * fr[m] + 0.38 * red).astype(np.uint8)
                 cnts, _ = cv2.findContours(m.astype(np.uint8), cv2.RETR_EXTERNAL,
                                            cv2.CHAIN_APPROX_SIMPLE)
-                cv2.drawContours(fr, cnts, -1, (40, 40, 255), 1, cv2.LINE_AA)
+                cv2.drawContours(fr, cnts, -1, vcol or (40, 40, 255), 2,
+                                 cv2.LINE_AA)
             pts = pose[t]
             ok_pts = np.isfinite(pts).all(axis=1)
             if ok_pts.all():
@@ -172,6 +196,12 @@ def render(rid: str) -> dict:
                 for p in pts[ok_pts]:
                     cv2.circle(fr, tuple(int(v) for v in p), 3, vid.JOINT, -1,
                                cv2.LINE_AA)
+            if m is not None:
+                md = cv2.dilate(m.astype(np.uint8), ker) > 0
+                for p in pts[ok_pts]:
+                    x, y = int(round(p[0])), int(round(p[1]))
+                    if 0 <= y < h and 0 <= x < w and not md[y, x]:
+                        cv2.circle(fr, (x, y), 4, (0, 0, 255), -1, cv2.LINE_AA)
             top = np.zeros((bar, w, 3), dtype=np.uint8)
             s = t / fps
             if state == "keyframe":
@@ -188,6 +218,9 @@ def render(rid: str) -> dict:
                         cv2.LINE_AA)
             cv2.putText(top, label, (200, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                         col, 1, cv2.LINE_AA)
+            if vlab:
+                cv2.putText(top, vlab, (w - 130, 20), cv2.FONT_HERSHEY_SIMPLEX,
+                            0.5, vcol or (200, 200, 200), 1, cv2.LINE_AA)
             out = np.vstack([top, fr])
             if t == poster_t:
                 cv2.imwrite(jpg, out, [cv2.IMWRITE_JPEG_QUALITY, 82])
