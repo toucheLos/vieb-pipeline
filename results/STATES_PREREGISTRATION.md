@@ -116,3 +116,55 @@ bootstrap (2,000 replicates, seed 0) of the summed transition counts.
 No report-split tuning: K, N, τ, the 30 PCs, the 0.8 membership rule and
 every bar are fixed here or chosen on tune by the rules above. Surrogates pass
 through the identical pipeline. Nothing is read as grooming.
+
+---
+
+# Amendment 1: a connected operator, a non-trivial choice of K, and a gate on the gap
+
+**Committed alone. Recorded as `DEVIATIONS.md` D28.** Made before any real
+feature exists: the whole-corpus masks are still running, so REPAIR has not
+run and no mouse data has entered `scripts/states.py`. The evidence is the
+synthetic end-to-end test (`tests/test_states_pipeline.py`): real
+tune/fit/report animal IDs with fake features carrying a hidden two-state
+switch (gamma dwells, mean 3 s). As registered, the pipeline returned
+**CONTINUUM on data containing a genuine switch**. Three defects, each fixed
+here:
+
+1. **Disconnected chains (§3.5, §4).** Closed islands of microstates give an
+   eigenvalue of exactly 1 and an "infinite" timescale (10¹² frames in the
+   synthetic run) that only records a disconnection. **The operator is
+   restricted to its largest strongly connected set**, standard Markov-state
+   practice (`operator.transition_matrix`).
+
+2. **K chosen by next-microstate cross-entropy is rigged (§3.4).** Consecutive
+   delay windows overlap by K − 1 frames, so the next microstate becomes
+   trivially predictable as K grows. In the synthetic run K\* went to the grid
+   maximum (32). **Replacement:** K\* is chosen by the **held-out share of
+   variance of the features H = 15 frames (0.5 s) beyond the window's end**
+   that the microstate explains (`micro.predictive_r2`), on the same tune
+   halves. It is the smallest K within 1% of the grid maximum. The window
+   cannot overlap the target.
+
+3. **Gate 1 compared raw timescales, which linear surrogates reproduce (§4).**
+   Phase and VAR surrogates keep the data's autocorrelation, so their slowest
+   timescale is as long as a genuine switch's, and comparing tᵢ cannot detect
+   metastability. **Metastability is a gap:** a few slow modes separated from
+   the rest. **Replacement:** gap ratios rᵢ = tᵢ / tᵢ₊₁, i = 2…10, with
+   animal-level bootstrap intervals. A gap after mode i **counts** iff its
+   report lower bound exceeds every surrogate's upper bound at the same i.
+   **M = the largest counting i.** If none counts, the verdict is
+   **CONTINUUM**.
+
+**On the synthetic switch, after the fix:**
+
+| | corpus | phase | var5 | microstate | microstate0 | white |
+|---|---|---|---|---|---|---|
+| t₂ / t₃ | **5.14 [4.34, …]** | 2.24 (hi 2.38) | 2.18 (hi 2.38) | 1.00 | 1.00 | 1.00 |
+
+The gap is found (M = 2). **The linear surrogates sit near the ladder a linear
+process gives, about 2**, and the memoryless ones at 1: the reference the gate
+is meant to beat.
+
+**Unchanged:** the input, the §2 leak gates, N = 1,000, 30 PCs, the τ rule,
+the fit/report roles, PCCA+ with the 0.8 membership rule, gates 2 and 3, the
+surrogates and their identical pipeline, and every other bar.

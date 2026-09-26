@@ -955,3 +955,19 @@ full array had produced any gate.
   pulls *down*. Under noise in both, the true scale lies between β and f. The
   bracket was added after the smoke run, and it is labelled as such wherever
   it appears.
+
+## D28 — STATES: a connected operator, K chosen by future prediction, and gate 1 on the gap
+
+On a synthetic end-to-end test with a planted two-state switch, the registered
+STATES pipeline returned CONTINUUM, for three reasons:
+- disconnected microstate islands gave infinite timescales;
+- next-microstate cross-entropy rewards long windows because consecutive
+  windows overlap;
+- linear surrogates reproduce slow timescales, so raw tᵢ cannot detect
+  metastability.
+
+**Amendment 1** restricts the operator to its largest strongly connected set,
+chooses K by the held-out variance of the features 0.5 s beyond the window, and
+moves gate 1 to the gap ratios tᵢ/tᵢ₊₁. The planted switch is then found:
+t₂/t₃ 5.14 against the linear surrogates' ~2.2. The amendment was made before
+any real feature existed.
