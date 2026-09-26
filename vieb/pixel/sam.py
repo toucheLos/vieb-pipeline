@@ -194,6 +194,17 @@ def on_animal(track: dict[str, Any], centre_img: F64) -> tuple[int, int]:
 
 def sam_predictor(checkpoint: str, device: str = "cuda") -> Predict:
     """The real segmenter, §1: vit_b, one box, single mask, inference mode."""
+    return sam_point_predictor(checkpoint, device)
+
+
+def sam_point_predictor(checkpoint: str, device: str = "cuda"
+                        ) -> Callable[..., tuple[B1, float]]:
+    """`sam_predictor`, optionally with positive POINT prompts beside the box.
+
+    ``predict(rgb, box, points=None)``: with `points` (``(k, 2)`` image
+    coordinates) each is passed as a foreground point (label 1). With none it
+    is exactly `sam_predictor`'s call, so every earlier stage is unchanged.
+    """
     import torch
     from segment_anything import (  # type: ignore[import-untyped]
         SamPredictor, sam_model_registry)
@@ -201,11 +212,16 @@ def sam_predictor(checkpoint: str, device: str = "cuda") -> Predict:
     model = sam_model_registry["vit_b"](checkpoint=checkpoint).to(device).eval()
     pr = SamPredictor(model)
 
-    def predict(rgb: npt.NDArray[Any], box: F64) -> tuple[B1, float]:
+    def predict(rgb: npt.NDArray[Any], box: F64,
+                points: npt.ArrayLike | None = None) -> tuple[B1, float]:
+        kw: dict[str, Any] = {}
+        if points is not None:
+            pts = np.asarray(points, dtype=np.float64).reshape(-1, 2)
+            kw = {"point_coords": pts, "point_labels": np.ones(pts.shape[0])}
         with torch.inference_mode():
             pr.set_image(np.ascontiguousarray(rgb))
             m, sc, _ = pr.predict(box=np.asarray(box, dtype=np.float64),
-                                  multimask_output=False)
+                                  multimask_output=False, **kw)
         return np.asarray(m[0], dtype=bool), float(sc[0])
     return predict
 
