@@ -209,3 +209,64 @@ def test_animal_region_scoring_removes_the_floor_a_disc_would_include():
     anim = np.nanmedian(s["N|head|60.0|a"][1:])
     assert np.isfinite(anim) and anim < 0.25 * full
     assert np.isfinite(np.nanmedian(s["K|head|60.0|a"][1:]))
+
+
+# ---- guarded_mask: each detector checks the other ---------------------------
+
+def _guard_predictor(box_mask, point_mask, iou=0.95, calls=None):
+    def predict(rgb, box, points=None):
+        if calls is not None:
+            calls.append(None if points is None else np.asarray(points).copy())
+        return (box_mask if points is None else point_mask), iou
+    return predict
+
+
+def test_guarded_mask_uses_points_near_the_mask_and_keeps_a_modest_growth():
+    bg, layer, msk = T._scene()
+    body = msk > 0.5
+    grown = cv2.dilate(body.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+    calls = []
+    m, info = sam.guarded_mask(np.zeros((T.H, T.W, 3), np.uint8), T._pose0(),
+                               100.0, _guard_predictor(body, grown, calls=calls))
+    assert info["used_points"] and m is grown
+    assert calls[0] is None and calls[1].shape[0] >= 2
+
+
+def test_guarded_mask_never_offers_a_keypoint_on_the_wall():
+    bg, layer, msk = T._scene()
+    body = msk > 0.5
+    pose = T._pose0().copy()
+    pose[tego.TAIL_BASE] = (600.0, 20.0)              # far off the animal
+    calls = []
+    sam.guarded_mask(np.zeros((T.H, T.W, 3), np.uint8), pose, 100.0,
+                     _guard_predictor(body, body, calls=calls))
+    offered = calls[1] if len(calls) > 1 else np.zeros((0, 2))
+    assert not any(np.allclose(q, (600.0, 20.0)) for q in offered)
+
+
+def test_guarded_mask_rejects_a_ballooning_point_mask():
+    bg, layer, msk = T._scene()
+    body = msk > 0.5
+    wall = body.copy()
+    wall[:120, :] = True                               # swallows the wall
+    m, info = sam.guarded_mask(np.zeros((T.H, T.W, 3), np.uint8), T._pose0(),
+                               100.0, _guard_predictor(body, wall))
+    assert not info["used_points"] and m is body
+
+
+def test_guarded_mask_refuses_a_low_iou_box_mask():
+    bg, layer, msk = T._scene()
+    m, info = sam.guarded_mask(np.zeros((T.H, T.W, 3), np.uint8), T._pose0(),
+                               100.0, _guard_predictor(msk > 0.5, msk > 0.5,
+                                                       iou=0.5))
+    assert m is None and info["reason"] == "box_refused"
+
+
+def test_pack_and_unpack_crops_round_trip():
+    rng = np.random.default_rng(3)
+    crops = {6 * k: (k, 2 * k, rng.random((9 + k, 5 + 2 * k)) > 0.4)
+             for k in range(6)}
+    back = sam.unpack_crops(sam.pack_crops(crops))
+    assert set(back) == set(crops)
+    for t, (x0, y0, c) in crops.items():
+        assert back[t][:2] == (x0, y0) and np.array_equal(back[t][2], c)

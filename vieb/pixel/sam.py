@@ -18,6 +18,7 @@ import numpy as np
 import numpy.typing as npt
 
 from vieb.pixel import register as rg
+from vieb.tok import ego as tego
 
 F64 = npt.NDArray[np.float64]
 B1 = npt.NDArray[np.bool_]
@@ -29,6 +30,11 @@ IOU_MIN = 0.80
 AREA_RANGE = rg.AREA_RANGE
 
 Predict = Callable[[npt.NDArray[Any], F64], tuple[B1, float]]
+#: POINT_PROMPTS_GUARDED: the keypoints offered as positive point prompts, how
+#: near the box mask a keypoint must lie to be used, and the area cap.
+GUARD_PROMPTS = (tego.NOSE, tego.CENTER, tego.TAIL_BASE)
+GUARD_DIST_BL = 0.2
+GUARD_AREA = 1.3
 
 
 def keypoint_box(pose_frame: npt.ArrayLike, pad_px: float) -> F64 | None:
@@ -266,3 +272,94 @@ def mask_at(track: dict[str, Any], t: int, *, dilate_px: float = 0.0,
         m8 = np.asarray(cv2.erode(m8, ker), dtype=np.uint8)
     res = np.asarray(m8 > 0, dtype=bool)
     return res if res.any() else None
+
+
+def _passes(m: B1, iou: float, box: F64) -> bool:
+    """STABILISE 7's online rules: predicted IoU, non-empty, centroid in box."""
+    if iou < IOU_MIN or not m.any():
+        return False
+    cx, cy, _, _ = rg.mask_pose(m)
+    return bool(box[0] <= cx <= box[2] and box[1] <= cy <= box[3])
+
+
+def guarded_mask(rgb: npt.NDArray[Any], pose_frame: npt.ArrayLike, bl: float,
+                 predict: Callable[..., tuple[B1, float]]
+                 ) -> tuple[B1 | None, dict[str, Any]]:
+    """`results/POINT_PROMPTS_GUARDED.md`: each detector checks the other.
+
+    1. SAM's mask from the padded keypoint box; refused (None) unless it passes
+       STABILISE 7's online rules.
+    2. Nose, centre and tail base are offered as positive point prompts, but
+       only those within `GUARD_DIST_BL` body lengths of that mask -- a
+       keypoint out on the arena wall is never given to SAM.
+    3. The point mask replaces the box mask only if it passes the same rules
+       and its area is at most `GUARD_AREA` times the box mask's.
+
+    `predict(rgb, box, points=None)` is `sam_point_predictor`'s call. The
+    recording-relative area rule is the caller's, once every keyframe is in.
+    """
+    import cv2
+
+    p = np.asarray(pose_frame, dtype=np.float64)
+    box = keypoint_box(p, PAD_BL * float(bl))
+    info: dict[str, Any] = {"iou_box": np.nan, "iou_points": np.nan,
+                            "used_points": False, "n_points": 0}
+    if box is None:
+        info["reason"] = "no_box"
+        return None, info
+    mb, iou_b = predict(rgb, box)
+    mb = np.asarray(mb, dtype=bool)
+    info["iou_box"] = float(iou_b)
+    if not _passes(mb, float(iou_b), box):
+        info["reason"] = "box_refused"
+        return None, info
+    dist = cv2.distanceTransform((~mb).astype(np.uint8), cv2.DIST_L2, 5)
+    h, w = mb.shape
+    cand = []
+    for k in GUARD_PROMPTS:
+        q = p[k]
+        if not np.isfinite(q).all():
+            continue
+        x, y = int(round(float(q[0]))), int(round(float(q[1])))
+        if 0 <= y < h and 0 <= x < w and dist[y, x] <= GUARD_DIST_BL * float(bl):
+            cand.append(q)
+    info["n_points"] = len(cand)
+    if len(cand) < 2:
+        return mb, info
+    mp, iou_p = predict(rgb, box, points=np.asarray(cand))
+    mp = np.asarray(mp, dtype=bool)
+    info["iou_points"] = float(iou_p)
+    if (_passes(mp, float(iou_p), box)
+            and float(mp.sum()) <= GUARD_AREA * float(mb.sum())):
+        info["used_points"] = True
+        return mp, info
+    return mb, info
+
+
+def pack_crops(crops: dict[int, tuple[int, int, B1]]) -> dict[str, np.ndarray]:
+    """Bit-pack ``{t: (x0, y0, bool crop)}`` for storage (STABILISE 7 layout)."""
+    ts = sorted(crops)
+    lens, bits, boxes = [], [], []
+    for t in ts:
+        x0, y0, c = crops[t]
+        b = np.packbits(np.asarray(c, dtype=bool).ravel())
+        bits.append(b)
+        lens.append(b.size)
+        boxes.append((x0, y0, c.shape[0], c.shape[1]))
+    return {"mask_t": np.asarray(ts, dtype=np.int64),
+            "mask_box": np.asarray(boxes, dtype=np.int64).reshape(-1, 4),
+            "mask_offsets": np.concatenate([[0], np.cumsum(lens)]).astype(np.int64),
+            "mask_bits": (np.concatenate(bits) if bits
+                          else np.zeros(0, dtype=np.uint8))}
+
+
+def unpack_crops(z: Any) -> dict[int, tuple[int, int, B1]]:
+    """The inverse of `pack_crops`, from a mapping with its four keys."""
+    out: dict[int, tuple[int, int, B1]] = {}
+    for i, t in enumerate(np.asarray(z["mask_t"])):
+        x0, y0, h, w = (int(v) for v in np.asarray(z["mask_box"])[i])
+        a, b = int(z["mask_offsets"][i]), int(z["mask_offsets"][i + 1])
+        bits = np.asarray(z["mask_bits"])[a:b]
+        out[int(t)] = (x0, y0,
+                       np.unpackbits(bits)[:h * w].reshape(h, w).astype(bool))
+    return out
