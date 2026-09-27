@@ -1014,3 +1014,14 @@ non-finite latents or log-likelihoods among the frames selected for scoring,
 and reports the excluded share. It also fixes §1's silence on disposition's
 abstained frames, which become missing, as in `ego`. Both changes were made
 before any fit finished.
+
+## D31 — MOSEQ: gate 1 scores MoSeq's inferred latents, not a deterministic projection
+
+The smoke test showed that the registered §3 projection scores MoSeq's AR-HMM
+on trajectories about 47× noisier (AR residual variance) than the denoised
+latents its Q was fitted to. **Amendment 2**, made before any registered fit
+finished, fits the baseline and scores both models on MoSeq's own inferred
+latents: the fit set's final Gibbs x, and the report's `apply_model` latent
+states. The inferred latents favour MoSeq on any data. The white and phase
+arms, run identically, carry that bias too, and the gate compares against
+them.

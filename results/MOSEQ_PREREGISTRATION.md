@@ -198,3 +198,40 @@ traces.
 
 **Unchanged:** every bar, the fit protocol, the surrogates, gates 1 and 2, and
 the context test.
+
+---
+
+# Amendment 2: gate 1 scores MoSeq's own latents, not a projection of the keypoints
+
+**Committed alone, recorded as `DEVIATIONS.md` D31.** Made while the 11
+registered fits are running, before any has finished. The evidence comes from
+the pipeline smoke test only: 3 recordings, 3 + 3 iterations, never
+registered and never reported as a result.
+
+**The defect.** §3 projected each report frame into the latent space
+deterministically: alignment, centre embedding, then pinv(C). But the full
+keypoint-SLDS fits its AR noise Q to its **own inferred** latent x, which its
+keypoint noise model has denoised. In the smoke model the median trace of Q
+over used states is 0.16. The AR residual variance of the projected latents is
+7.6, **47× larger**, and the projected increments are 2–3× the inferred ones.
+Scoring MoSeq's AR-HMM on the projection scores its dynamics against noise it
+was never fitted to, while the baseline is fitted to that noise. The gate
+would fail MoSeq for a reason unrelated to regimes.
+
+**Amended §3.** Both models are scored on **MoSeq's own inferred latents**:
+- the **baseline** AR(3) is fitted on the final Gibbs sample of x for the 100
+  fit recordings (the checkpoint's `states/x`);
+- **both** models are scored on `apply_model`'s `latent_state` for the report
+  recordings (20 iterations, as §2).
+
+The run rule, the forward filter, the margin and the verdict are unchanged.
+
+**What this concedes, stated before the result.** The inferred x is shaped by
+MoSeq's own switching prior, so it favours MoSeq over the baseline, on any
+data. That is what the surrogate arms control for. White and phase are fitted,
+inferred and scored identically, so **gate 1 asks whether the mice gain more
+than noise does under the same favouritism**. In the smoke model, white noise
+already gained about 0.2 nats/frame.
+
+**Unchanged:** every bar, the fit protocol, the surrogates, gate 2, §5, §6 as
+amended, and the context test.
