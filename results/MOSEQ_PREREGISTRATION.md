@@ -169,3 +169,32 @@ behaviour only if MOSEQ is PASS**; otherwise it is labelled descriptive.
 - No syllable is named as a behaviour without its clips.
 - Nothing is read as grooming.
 - No shock-versus-no-shock framing.
+
+---
+
+# Amendment 1: what the 5% refusal counts, and abstained frames
+
+**Committed alone, recorded as `DEVIATIONS.md` D30.** Made while the 11 fits
+are queued or running, before any fit has finished and before any MOSEQ
+result exists. The only data looked at are the input files' confidence
+traces.
+
+1. **§6's refusal rule was ambiguous, and read literally it refuses by
+   construction.** §3 excludes, by design, frames with an unobserved keypoint,
+   runs shorter than 30 frames, and the first 3 frames of every run. On the
+   report input that is **7.0%** of 6,678,488 frames (4.66% have an unobserved
+   keypoint). The exclusion is identical in all three arms, because they share
+   one confidence trace. The rule was meant for a *projection or likelihood
+   failure*. **Amended:** NOT_A_RESULT iff a fit diverges, or more than 5% of
+   the frames §3 selects for scoring have a non-finite latent or
+   log-likelihood. The share §3 excludes by design is reported beside the
+   verdict.
+
+2. **Frames disposition abstained on are missing on every keypoint** in the §1
+   input: confidence 0, coordinates filled. §1 said "the disposition pose"
+   without saying what happens on its abstained frames, which keep their
+   bone-violating coordinates in `work/disposition`. `ego` already treats
+   those frames as unusable, and MOSEQ follows it.
+
+**Unchanged:** every bar, the fit protocol, the surrogates, gates 1 and 2, and
+the context test.

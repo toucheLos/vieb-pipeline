@@ -1003,3 +1003,14 @@ white noise's 3.8, 15.3, 61.3 and 244.7. It is well above the floor at short
 lags and falls into it by τ = 64. A t₂ that tracks τ is what that floor looks
 like, and the rule chose the lag where the floor hides everything
 (`STATES.md`).
+
+## D30 — MOSEQ: the refusal counts failures, not designed exclusions; abstained frames are missing
+
+MOSEQ §6 would have refused whenever more than 5% of report frames "cannot be
+scored". Read literally, that counts §3's own designed exclusions, which are
+7.0% of report frames and identical across arms: unobserved keypoints, short
+runs, and the lag frames. **Amendment 1** makes the refusal count only
+non-finite latents or log-likelihoods among the frames selected for scoring,
+and reports the excluded share. It also fixes §1's silence on disposition's
+abstained frames, which become missing, as in `ego`. Both changes were made
+before any fit finished.
