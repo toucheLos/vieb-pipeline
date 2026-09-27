@@ -166,7 +166,7 @@ def shard(a) -> int:
 
 
 def combine(a) -> int:
-    split_of = splits.split_of_animal(splits.load())
+    split_of = splits.split_of_animal(splits.load(spine.sf("results/splits.json")))
     rows, veto_ctx = [], {"A": [0, 0], "B": [0, 0]}
     per_kp = np.zeros(anchors.LUNA.n_kept_keypoints)
     for f in sorted(os.listdir(METRICS)):

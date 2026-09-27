@@ -971,3 +971,27 @@ chooses K by the held-out variance of the features 0.5 s beyond the window, and
 moves gate 1 to the gap ratios tᵢ/tᵢ₊₁. The planted switch is then found:
 t₂/t₃ 5.14 against the linear surrogates' ~2.2. The amendment was made before
 any real feature existed.
+
+## D29 — STATES: the VAR(5) surrogate falls back on a non-stationary fit; τ\* at the grid edge
+
+**The surrogate.** The first STATES surrogate run (job 82709_1) crashed in
+PCA: on 14/770 tune, 20/1,927 fit and 11/1,149 report recordings, the
+least-squares VAR(5) was non-stationary. Its simulation diverged, to 1e229 in
+the worst case. `vieb/tok/surrogate._var_block` already fell back to phase
+randomisation on a *degenerate* fit. It now does the same on a
+**non-stationary** fit (companion spectral radius ≥ 1, `_var_stable`), and every
+fallback is counted in `n_fallback`. With the check, 14/770, 26/1,927 and
+23/1,149 recordings fall back, and every output is bounded. The check detects
+more than the divergence scan, which only flagged outputs above 10³. The
+change was made after the corpus operator was fitted, but it touches only the
+null: the corpus pipeline and every bar are unchanged. Earlier var5 users
+(`FALSIFIER.md`, `scripts/surrogate.py`) ran on other streams and have **not**
+been re-checked for non-stationary fits.
+
+**τ\*.** The registered rule picks the smallest τ at which t₂ changes by less
+than 10% at the next grid τ. On tune, t₂ never plateaus: 137, 160, 234, 317,
+423, 1,012 and 1,505 frames for τ = 1 … 64. The registration does not say what
+happens when there is no plateau. The code, written before any data, takes the
+grid maximum (τ = 64, about 2.1 s). This is reported, not changed. **A t₂ that
+grows with τ is itself the signature of a process that is not Markov on its
+microstates at any lag tried.**

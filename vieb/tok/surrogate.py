@@ -235,26 +235,43 @@ def _phase_block(block: F64, rng: np.random.Generator) -> F64:
     return np.asarray(_randomize_block(block, rng), dtype=np.float64)
 
 
-def _var_block(block: F64, rng: np.random.Generator, *, order: int) -> F64:
+def _var_stable(fit: Mapping[str, Any]) -> bool:
+    """Whether a fitted VAR is stationary: companion spectral radius below 1.
+
+    Least squares does not constrain the fit to be stable, and on a recording
+    with a few large spikes it sometimes is not; simulating such a fit diverges
+    (to 1e229 on the corpus stream, `DEVIATIONS.md` D29).
+    """
+    beta, p = fit["beta"], int(fit["p"])
+    c = beta.shape[1]
+    comp = np.zeros((c * p, c * p))
+    comp[:c] = beta[:-1].T
+    comp[c:, :-c] = np.eye(c * (p - 1))
+    return bool(np.max(np.abs(np.linalg.eigvals(comp))) < 1.0)
+
+
+def _var_block(block: F64, rng: np.random.Generator, *,
+               order: int) -> tuple[F64, bool]:
     """VAR(`order`) on the live columns; dead columns copied through.
 
-    Falls back to phase randomisation when the fit is degenerate -- too few
-    frames for the lag order, or a singular residual covariance -- which is
-    `recur.recurrence.surrogate.ar_surrogate`'s own behaviour and is recorded
-    per recording rather than hidden.
+    Returns ``(surrogate, fell_back)``. Falls back to phase randomisation when
+    the fit is degenerate -- too few frames for the lag order, or a singular
+    residual covariance, which is `recur.recurrence.surrogate.ar_surrogate`'s
+    own behaviour -- or non-stationary (`_var_stable`). Every fallback is
+    counted, not hidden.
     """
     live = live_columns(block)
     if block.shape[0] <= order * (int(live.sum()) + 1) or not live.any():
-        return _phase_block(block, rng)
+        return _phase_block(block, rng), True
     sub = block[:, live]
     mu = sub.mean(axis=0)
     fit = _fit_var(sub - mu, order)
-    if fit is None:
-        return _phase_block(block, rng)
+    if fit is None or not _var_stable(fit):
+        return _phase_block(block, rng), True
     sim = _simulate_var(fit, sub.shape[0], rng, seed_state=(sub[:order] - mu))
     out = block.copy()
     out[:, live] = np.asarray(sim, dtype=np.float64) + mu
-    return out
+    return out, False
 
 
 def generate(x: npt.ArrayLike, bounds: npt.ArrayLike, kind: str,
@@ -295,10 +312,8 @@ def generate(x: npt.ArrayLike, bounds: npt.ArrayLike, kind: str,
         elif kind == "ou":
             out[lo:hi] = _ou_block(blk, rng, fps=fps)
         elif kind == "var5":
-            out[lo:hi] = _var_block(blk, rng, order=order)
-            live = live_columns(blk)
-            if blk.shape[0] <= order * (int(live.sum()) + 1) or not live.any():
-                n_fallback += 1
+            out[lo:hi], fell = _var_block(blk, rng, order=order)
+            n_fallback += int(fell)
         else:
             assert fit is not None          # checked above; narrows for mypy
             emitted, diag = _visit_block(blk, kind, rng, fit=fit)

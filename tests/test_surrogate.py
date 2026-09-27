@@ -130,6 +130,18 @@ class TestVar:
         assert out["n_fallback"] == 0
 
 
+    def test_a_non_stationary_fit_falls_back_and_is_counted(self):
+        """An explosive fit would diverge when simulated (D29)."""
+        rng = np.random.default_rng(1)
+        x = np.zeros((400, 2))
+        x[0] = 1.0
+        for t in range(1, 400):
+            x[t] = 1.02 * x[t - 1] + 0.01 * rng.standard_normal(2)
+        out = sr.generate(x, [0, 400], "var5", np.random.default_rng(0))
+        assert out["n_fallback"] == 1
+        assert np.isfinite(np.asarray(out["x"])).all()
+        assert np.abs(np.asarray(out["x"])).max() < 10 * np.abs(x).max()
+
 class TestGenerate:
 
     def test_an_unknown_kind_is_refused(self):

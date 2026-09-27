@@ -1,0 +1,323 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "a pose-cleaning stage"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 1,
+      "built": "13.0",
+      "device": "NVIDIA A100 80GB PCIe"
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "a5000e74424c5d2bd10d734b74be70714b659510-dirty",
+    "node": "g01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "72dd877409e2ae5f161ce4e2615eeeaf86bf13b9-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "82706"
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "registration": "results/REPAIR_PREREGISTRATION.md",
+  "results": {
+    "adopted_arm": "repaired",
+    "disposition": {
+      "distortion_mean_px": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.06641403868436942,
+        "lo": 0.03797699987814277,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.05135844603532303
+      },
+      "hf_retained": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.9106246365351466,
+        "lo": 0.8836745077720072,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.897385879349804
+      },
+      "skull_jitter": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.03751248271609191,
+        "lo": 0.029847995973099017,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.033528355895381154
+      },
+      "violation_rate": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.01583201471864008,
+        "lo": 0.01273806573336296,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.014220022951028937
+      }
+    },
+    "gates": {
+      "1_skull_jitter": {
+        "pass": 1,
+        "vs_disposition": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.003788088636074793,
+          "lo": -0.005717143153446234,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -0.004658777177090793
+        },
+        "vs_raw": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.004800142841191781,
+          "lo": -0.007937404176597511,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": -0.006250952609619348
+        }
+      },
+      "2_violations": {
+        "pass": 1,
+        "vs_disposition": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0007266601344606484,
+          "lo": -0.0003203817576329406,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.00017800797863328183
+        }
+      },
+      "3_hf_retention": {
+        "interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.3316080080271247,
+          "lo": 0.29552638175557694,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 0.3141931826802082
+        },
+        "pass": 1
+      },
+      "4_distortion": {
+        "interval": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 1.2813713249318595,
+          "lo": 1.0083608856095034,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 89,
+          "n_boot": 2000,
+          "n_units": 89,
+          "point": 1.1362415240594839
+        },
+        "pass": 1
+      }
+    },
+    "noveto": {
+      "distortion_mean_px": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 1.2837211949222231,
+        "lo": 1.010266841128031,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.13842424785011
+      },
+      "hf_retained": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.33745097707426075,
+        "lo": 0.3019884305571076,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.32030702607169886
+      },
+      "skull_jitter": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.032167168052816275,
+        "lo": 0.026102600926792906,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.029051748870462114
+      },
+      "violation_rate": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.016621607446641196,
+        "lo": 0.01321993890837552,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01487007341427514
+      }
+    },
+    "raw": {
+      "distortion_mean_px": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.0,
+        "lo": 0.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.0
+      },
+      "hf_retained": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 1.0,
+        "lo": 1.0,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.0
+      },
+      "skull_jitter": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.03977472568329464,
+        "lo": 0.030913715744994713,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.03512053132790971
+      },
+      "violation_rate": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.01948449735112286,
+        "lo": 0.01628488319564619,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01783825736740409
+      }
+    },
+    "repaired": {
+      "distortion_mean_px": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 1.2813713249318595,
+        "lo": 1.0083608856095034,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 1.1362415240594839
+      },
+      "hf_retained": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.3316080080271247,
+        "lo": 0.29552638175557694,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.3141931826802082
+      },
+      "skull_jitter": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.03189181483283712,
+        "lo": 0.02595513680933337,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.028869578718290358
+      },
+      "violation_rate": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.016009591915921276,
+        "lo": 0.012798617973359558,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 89,
+        "n_boot": 2000,
+        "n_units": 89,
+        "point": 0.01439803092966222
+      }
+    },
+    "split": "report",
+    "verdict": "PASS",
+    "veto_by_context": {
+      "A": {
+        "masked_kp_frames": 26463213,
+        "rate": 0.0003572506482867368,
+        "vetoed": 9454
+      },
+      "B": {
+        "masked_kp_frames": 18521734,
+        "rate": 0.0011501622904205406,
+        "vetoed": 21303
+      }
+    },
+    "veto_per_keypoint": [
+      958.0,
+      1253.0,
+      22277.0,
+      433.0,
+      1158.0,
+      1430.0,
+      3248.0
+    ],
+    "veto_ratio_B_over_A": 3.2194827243459514
+  },
+  "stage": "repair"
+}
