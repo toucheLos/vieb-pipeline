@@ -74,3 +74,51 @@ def test_repair_without_masks_is_disposition_plus_median():
     assert np.isfinite(out["pose"][10:12, 0]).all()
     assert np.isnan(out["pose"][30:40, 1]).all()
     assert out["pose"].shape == pose.shape
+
+
+def test_unsmoothed_is_the_series_repair_filters():
+    """MOSEQ §1: same holding and same long gaps as REPAIR, without the median."""
+    from vieb.clean import arms
+
+    T = 80
+    rng = np.random.default_rng(1)
+    pose = np.cumsum(rng.normal(0, 1, (T, 3, 2)), axis=0) + 200
+    miss = np.zeros((T, 3), dtype=bool)
+    miss[10:12, 0] = True                      # short: held
+    miss[30:40, 1] = True                      # long: NaN
+    vet = np.zeros((T, 3), dtype=bool)
+    vet[50, 2] = True                          # a vetoed keypoint is held too
+    raw = rp.unsmoothed(pose, miss, vet)
+    assert np.isfinite(raw[10:12, 0]).all() and np.isnan(raw[30:40, 1]).all()
+    assert np.isfinite(raw[50, 2]).all() and not np.allclose(raw[50, 2], pose[50, 2])
+    ok = ~np.isnan(pose[:, :, 0]) & ~miss & ~vet
+    assert np.allclose(raw[ok], pose[ok])      # present values untouched
+    out = rp.repair(pose, miss | vet, None, bl=100.0, fps=30.0, use_veto=False)
+    held, stays = rp.held_and_stays(pose, miss, vet)
+    med = arms.rolling_median(held, None, 30.0, window_s=rp.MEDIAN_S)
+    med[stays] = np.nan
+    assert np.allclose(out["pose"], med, equal_nan=True)
+
+
+def test_moseq_input_zero_confidence_where_missing_and_surrogates_share_it():
+    from vieb.moseq import inputs
+
+    T, K = 200, 7
+    rng = np.random.default_rng(2)
+    pose = np.cumsum(rng.normal(0, 1, (T, K, 2)), axis=0) + 200
+    miss = np.zeros((T, K), dtype=bool)
+    miss[20:30, 2] = True                      # long gap: conf 0
+    miss[40:42, 3] = True                      # short gap: held, conf kept
+    vet = np.zeros((T, K), dtype=bool)
+    vet[60, 1] = True                          # vetoed: conf 0 even though held
+    ab = np.zeros(T, dtype=bool)
+    ab[100:110] = True                         # abstained frames: all missing
+    conf = np.full((T, K), 0.9)
+    xy, cf = inputs.real(pose, miss, vet, ab, conf)
+    assert np.isfinite(xy).all()
+    assert (cf[20:30, 2] == 0).all() and (cf[40:42, 3] == 0.9).all()
+    assert cf[60, 1] == 0 and (cf[100:110] == 0).all()
+    for kind in ("white", "phase"):
+        s, sc = inputs.surrogate(xy, cf, kind, np.random.default_rng(0))
+        assert np.isfinite(s).all() and np.array_equal(sc, cf)
+        assert not np.allclose(s, xy)

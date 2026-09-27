@@ -123,6 +123,28 @@ def hold_short(missing: npt.ArrayLike, *, max_hold: int = MAX_HOLD) -> B1:
     return keep
 
 
+def held_and_stays(pose: npt.ArrayLike, dlc_missing: npt.ArrayLike,
+                   vetoed: npt.ArrayLike) -> tuple[F64, B1]:
+    """REPAIR §1 steps 2-3: every missing value held, and which stay missing.
+
+    Missing is DLC's own flag or the veto. `held` interpolates every gap (the
+    filter needs a contiguous series); `stays` marks the runs longer than
+    `MAX_HOLD`, which are re-set missing after any filtering.
+    """
+    missing = np.asarray(dlc_missing, dtype=bool) | np.asarray(vetoed, dtype=bool)
+    return arms.held_array(np.asarray(pose, dtype=np.float64), missing), hold_short(missing)
+
+
+def unsmoothed(pose: npt.ArrayLike, dlc_missing: npt.ArrayLike,
+               vetoed: npt.ArrayLike) -> F64:
+    """The repaired pose BEFORE `median_0.25` (MOSEQ §1): short gaps held,
+    long gaps NaN. `repair()` is `rolling_median` of the same held series."""
+    held, stays = held_and_stays(pose, dlc_missing, vetoed)
+    out = held.copy()
+    out[stays] = np.nan
+    return out
+
+
 def repair(pose: npt.ArrayLike, dlc_missing: npt.ArrayLike,
            dist: MaskDistance | None, bl: float, fps: float, *,
            use_veto: bool = True) -> dict[str, Any]:
@@ -138,9 +160,7 @@ def repair(pose: npt.ArrayLike, dlc_missing: npt.ArrayLike,
         vetoed, has_mask = veto(p, dist, bl)
     else:
         vetoed, has_mask = np.zeros((T, K), bool), np.zeros(T, bool)
-    missing = np.asarray(dlc_missing, dtype=bool) | vetoed
-    stays = hold_short(missing)
-    held = arms.held_array(p, missing)
+    held, stays = held_and_stays(p, dlc_missing, vetoed)
     smooth = arms.rolling_median(held, None, fps, window_s=MEDIAN_S)
     out = smooth.copy()
     out[stays] = np.nan
