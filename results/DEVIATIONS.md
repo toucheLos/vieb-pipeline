@@ -992,6 +992,14 @@ been re-checked for non-stationary fits.
 than 10% at the next grid τ. On tune, t₂ never plateaus: 137, 160, 234, 317,
 423, 1,012 and 1,505 frames for τ = 1 … 64. The registration does not say what
 happens when there is no plateau. The code, written before any data, takes the
-grid maximum (τ = 64, about 2.1 s). This is reported, not changed. **A t₂ that
-grows with τ is itself the signature of a process that is not Markov on its
-microstates at any lag tried.**
+grid maximum (τ = 64, about 2.1 s). This is reported, not changed.
+
+*Corrected after the run (post-hoc diagnostic, `scripts/diag/`).* An earlier draft
+of this entry read the growing t₂ as non-Markov dynamics. **That reading was
+wrong.** On the white-noise surrogate, t₂ = 3.8 τ exactly at τ = 1, 4, 16 and 64:
+a constant spurious |λ₂| ≈ 0.77, an estimation floor with no dynamics behind
+it. The corpus's t₂ is 37.6, 57.5, 90.5 and 278.8 frames at those τ, against
+white noise's 3.8, 15.3, 61.3 and 244.7. It is well above the floor at short
+lags and falls into it by τ = 64. A t₂ that tracks τ is what that floor looks
+like, and the rule chose the lag where the floor hides everything
+(`STATES.md`).
