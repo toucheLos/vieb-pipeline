@@ -299,3 +299,42 @@ results.
 - No label is read outside `score.py`.
 - No Step 3 work before the human has seen the verdict.
 - No Step 1 number enters Paper 1.
+
+---
+
+# Amendment 1: the jitter operator is calibrated through the estimator that defines "1.0×"
+
+**Committed alone, recorded as `DEVIATIONS.md` D32.** It was made while
+testing the operator on synthetic poses, before any CalMS21 sequence has been
+degraded, measured or put through an instrument.
+
+**The defect.** §2.3 sets each keypoint's added SD to σ_L,k. But "Luna's
+level" (σ̄_L = 0.0618) and CalMS21's native r are both **readings of the
+skull-bone estimator**, and that estimator does not read a keypoint SD one to
+one. On a rigid pose with Luna's skull geometry (bones 0.27–0.30 BL):
+- **white i.i.d. noise** at 0.0618 BL reads **0.0599**: a bone *length* is
+  slightly nonlinear in noise of this size;
+- **the operator** at 1.0× reads **0.0564**. Luna's measured noise is correlated
+  across keypoints (ρ = 0.118, `sf_calibration.json`), and a bone-length
+  difference cancels the shared part: √(1 − 0.118) = 0.94.
+
+So the §2.3 operator would add about 9% less noise than the estimator calls
+"1.0×", and the quadrature with r would mix two different units.
+
+**Amended §2.3.** σ_add,k = **g** · σ_L,k · √max(0, m² − r²), where **g is
+measured once**:
+- g = σ̄_L ÷ (the estimator's reading of the operator at m = 1, r = 0);
+- the reading is taken on a rigid noiseless pose with **Luna's median skull
+  bone lengths in BL**, measured on the 100 recordings of `work/moseq/sets.json`
+  `fit` (frames with every keypoint present), 300,000 frames, seed 0;
+- confidence is held in one bin, so the reading is a single σ;
+- g is stored in `step1/noise.json` with the skull lengths it used.
+
+"1.0×" therefore means **what Luna's estimator reads as Luna's level**, which
+is the unit r is already in. Levels above 1.0× are multiples in operator units.
+The estimator's own nonlinearity at larger amplitudes is reported, not
+corrected: the estimator's reading at each level is measured and stored next
+to g.
+
+**Unchanged:** σ̄_L, the profile, the colour, dropout, levels, seeds,
+instruments, scoring, the controls and the decision rule.

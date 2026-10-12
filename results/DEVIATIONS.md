@@ -1025,3 +1025,15 @@ latents: the fit set's final Gibbs x, and the report's `apply_model` latent
 states. The inferred latents favour MoSeq on any data. The white and phase
 arms, run identically, carry that bias too, and the gate compares against
 them.
+
+## D32 — STEP 1: the jitter operator is calibrated through the skull estimator
+
+`results/step1/REGISTRATION.md` Amendment 1. §2.3 set each keypoint's added SD
+to its Luna target. But Luna's level and CalMS21's native level are both
+skull-estimator readings, and on Luna's skull geometry the estimator reads the
+operator at 1.0× as 0.0564, not 0.0618. Two causes: bone-length nonlinearity
+(white noise reads 0.0599) and the cross-keypoint correlation (ρ = 0.118),
+which a bone difference cancels. A gain g, measured once, makes the estimator
+read σ̄_L at 1.0×. Found on synthetic poses, before any CalMS21 sequence was
+degraded or measured.
+
