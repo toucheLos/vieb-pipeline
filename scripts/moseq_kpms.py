@@ -31,7 +31,10 @@ from jax_moseq.utils import unbatch  # noqa: E402
 from jax_moseq.utils.debugging import convert_data_precision  # noqa: E402
 
 REPO = "/home/tul26194/vieb-pipeline"
-WORK = os.path.join(REPO, "work", "moseq")
+#: STEP 1 runs the same protocol on CalMS21 by pointing MOSEQ_WORK at
+#: work/calms/moseq, whose sets.json and input/<arm>/ have the same layout.
+WORK = os.environ.get("MOSEQ_WORK", os.path.join(REPO, "work", "moseq"))
+LUNA_ARMS = ("real", "white", "phase")
 TEMPLATE = "/home/tul26194/moseq/luna_demo/config.yml"
 KEEP = ("left_ear", "right_ear", "nose", "center", "left_hip", "right_hip", "tail_base")
 LATENT_DIM = 10
@@ -183,12 +186,15 @@ def export(a) -> int:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=("setup", "fit", "apply", "export"))
-    ap.add_argument("--arm", choices=("real", "white", "phase"), required=True)
+    ap.add_argument("--arm", required=True,
+                    help="real/white/phase on Luna; any input/<arm> under MOSEQ_WORK")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--limit", type=int, default=0, help="smoke test only")
     ap.add_argument("--iters-arhmm", type=int, default=ITERS_ARHMM)
     ap.add_argument("--iters-full", type=int, default=ITERS_FULL)
     a = ap.parse_args(argv)
+    if "MOSEQ_WORK" not in os.environ and a.arm not in LUNA_ARMS:
+        ap.error(f"--arm must be one of {LUNA_ARMS} unless MOSEQ_WORK is set")
     global SMOKE
     SMOKE = bool(a.limit)
     return {"setup": setup, "fit": fit, "apply": apply, "export": export}[a.phase](a)
