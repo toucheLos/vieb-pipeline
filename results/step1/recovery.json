@@ -1,0 +1,2130 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "CalMS21 external; instruments at their commits"
+  },
+  "ceilings": {
+    "attack": {
+      "boundary": 0.41025641025641024,
+      "event": 0.2490842490842491,
+      "n_videos": 10
+    },
+    "groom": {
+      "boundary": 1.0,
+      "event": 1.0,
+      "n_videos": 0,
+      "note": "no second annotator: ceiling = 1 (D-S3)"
+    },
+    "investigation": {
+      "boundary": 0.4792079207920792,
+      "event": 0.5267326732673268,
+      "n_videos": 10
+    },
+    "mount": {
+      "boundary": 0.48905109489051096,
+      "event": 0.6811594202898551,
+      "n_videos": 10
+    }
+  },
+  "controls": {
+    "C|phase|groom": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "C|phase|investigation": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "C|phase|mount": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "C|white|groom": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "C|white|investigation": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "C|white|mount": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "D|phase|groom": {
+      "ci": [
+        -0.026170280422877487,
+        0.031207154740831185
+      ],
+      "normalised": 0.0015710484799399621,
+      "null_p95": 0.09632457467921492,
+      "recoverable": 0,
+      "score": 0.09317390488798753
+    },
+    "D|phase|investigation": {
+      "ci": [
+        -0.1124664593043859,
+        0.08993067880209114
+      ],
+      "normalised": -0.012470499018315997,
+      "null_p95": 0.25643553953298687,
+      "recoverable": 0,
+      "score": 0.24885876872012092
+    },
+    "D|phase|mount": {
+      "ci": [
+        -0.06994704432511438,
+        0.07442826412808753
+      ],
+      "normalised": -0.0008712501586572904,
+      "null_p95": 0.07604278131730506,
+      "recoverable": 0,
+      "score": 0.07239550533451193
+    },
+    "D|white|groom": {
+      "ci": [
+        -0.02501910441743962,
+        0.03496594962394946
+      ],
+      "normalised": 0.004677711737730104,
+      "null_p95": 0.09690392993648943,
+      "recoverable": 0,
+      "score": 0.09693978904683587
+    },
+    "D|white|investigation": {
+      "ci": [
+        -0.10382357706816231,
+        0.12968957607466625
+      ],
+      "normalised": 0.011305116349241758,
+      "null_p95": 0.27054696779548576,
+      "recoverable": 0,
+      "score": 0.2686561665453039
+    },
+    "D|white|mount": {
+      "ci": [
+        -0.07466331616557562,
+        0.0772742364375231
+      ],
+      "normalised": -0.0006632943602967454,
+      "null_p95": 0.07611736281686082,
+      "recoverable": 0,
+      "score": 0.07318945714727976
+    },
+    "M|phase|groom": {
+      "ci": [
+        -0.0006494130129367654,
+        -0.0006494130129367654
+      ],
+      "normalised": -0.0006494130129367654,
+      "null_p95": 0.005001572327044024,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "M|phase|investigation": {
+      "ci": [
+        -0.0036850240644869287,
+        0.006575368072604964
+      ],
+      "normalised": 0.000518720827850899,
+      "null_p95": 0.006457616710361611,
+      "recoverable": 0,
+      "score": 0.0034843053915821964
+    },
+    "M|phase|mount": {
+      "ci": [
+        -6.457990336494531e-05,
+        -6.457990336494531e-05
+      ],
+      "normalised": -6.457990336494531e-05,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "M|white|groom": {
+      "ci": [
+        -3.809616173645862e-05,
+        -3.809616173645862e-05
+      ],
+      "normalised": -3.809616173645862e-05,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "M|white|investigation": {
+      "ci": [
+        -0.0001371840071932597,
+        -0.0001371840071932597
+      ],
+      "normalised": -0.0001371840071932597,
+      "null_p95": 0.0007240146894878352,
+      "recoverable": 0,
+      "score": 0.0
+    },
+    "M|white|mount": {
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "normalised": 0.0,
+      "null_p95": 0.0,
+      "recoverable": 0,
+      "score": 0.0
+    }
+  },
+  "controls_fail": 0,
+  "corpus": "luna",
+  "curves": {
+    "C|groom": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "C|investigation": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "C|mount": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "D|groom": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.08437102785605861,
+        0.08434682756139009,
+        0.08424483321075507,
+        0.08414684716951641,
+        0.08458533649405423,
+        0.08622501392270525,
+        0.08502852639325181
+      ],
+      "ci": [
+        [
+          -0.04854891950637564,
+          0.006242266713900417
+        ],
+        [
+          -0.04724628625131387,
+          0.0055328093802057806
+        ],
+        [
+          -0.047299243555778456,
+          0.007858295298472876
+        ],
+        [
+          -0.041397305647356566,
+          0.021884385981667573
+        ],
+        [
+          -0.044182986594163316,
+          0.020155939877318934
+        ],
+        [
+          -0.0326435759409187,
+          0.039395774531355315
+        ],
+        [
+          -0.022969590751447538,
+          0.04186577281647423
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        -0.018275567855391684,
+        -0.018214519478591342,
+        -0.01731159798624789,
+        -0.007223762988818216,
+        -0.011184686801220636,
+        0.004529229779359351,
+        0.010805964888216486
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.06763738844527947,
+        0.06766864501637307,
+        0.06839164790947028,
+        0.07753094106090709,
+        0.07434671018949544,
+        0.09036371080128021,
+        0.09491567601076603
+      ]
+    },
+    "D|investigation": {
+      "breakdown": {
+        "bound": null,
+        "level": 1.5
+      },
+      "chance": [
+        0.23090154110448322,
+        0.23081168678438474,
+        0.23042588443112869,
+        0.23182874952632648,
+        0.2174255051949289,
+        0.2042116480436746,
+        0.18507361771853925
+      ],
+      "ci": [
+        [
+          0.3334606385861373,
+          0.728138876141913
+        ],
+        [
+          0.32852966725379074,
+          0.7243713768235506
+        ],
+        [
+          0.3307102092561528,
+          0.727450353465939
+        ],
+        [
+          0.30473383203736415,
+          0.6837819566535358
+        ],
+        [
+          0.19242700547006947,
+          0.5438726320990981
+        ],
+        [
+          0.0867137735733879,
+          0.3826092260019063
+        ],
+        [
+          -0.0038440201213100623,
+          0.2210605019379642
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.538622605983728,
+        0.5350266612415175,
+        0.5380362162976281,
+        0.5013227556938985,
+        0.3738683860692525,
+        0.238896378414475,
+        0.10815982693102495
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.3646449704142012,
+        0.3637102945304882,
+        0.36427962995759344,
+        0.3558455573665465,
+        0.3152976744155458,
+        0.26990726168074763,
+        0.21688713303345097
+      ]
+    },
+    "D|mount": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.0679646523925814,
+        0.0678165359501592,
+        0.06784532150147529,
+        0.06947044966491836,
+        0.06986327009574482,
+        0.06468324915360622,
+        0.06619231991224983
+      ],
+      "ci": [
+        [
+          0.03160037730778406,
+          0.36002880237709367
+        ],
+        [
+          0.030978225448025483,
+          0.3597890104634623
+        ],
+        [
+          0.02914614412836331,
+          0.35938335135184085
+        ],
+        [
+          0.018426148740111524,
+          0.3202361625979675
+        ],
+        [
+          0.005247831324535297,
+          0.2822075849605739
+        ],
+        [
+          -0.011770606523615926,
+          0.21656792634993452
+        ],
+        [
+          -0.04003107118926474,
+          0.11980979180448427
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.18850060096955798,
+        0.18794896418979246,
+        0.18646843857085876,
+        0.16440976357023002,
+        0.1401140389849309,
+        0.09959158599302548,
+        0.03874129152854384
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.14733969986357434,
+        0.1469871349839424,
+        0.14638690438235974,
+        0.1384536043451026,
+        0.12859736932104707,
+        0.10694671595498814,
+        0.08257441498908556
+      ]
+    },
+    "M|groom": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.00030893582515159157,
+        0.0002758041491371853,
+        0.00020998377275926642,
+        7.462339204200668e-05,
+        0.0002106253761456261,
+        0.0001685914275081696,
+        4.298230591878981e-05
+      ],
+      "ci": [
+        [
+          0.002130377165769865,
+          0.02423896791621988
+        ],
+        [
+          0.012130642307536731,
+          0.0385231517678714
+        ],
+        [
+          -0.00021002787520488656,
+          0.007791652347796753
+        ],
+        [
+          -7.462896110822915e-05,
+          -7.462896110822915e-05
+        ],
+        [
+          0.007231896983550337,
+          0.03413999971757084
+        ],
+        [
+          -0.0001686198553702927,
+          -0.0001686198553702927
+        ],
+        [
+          -4.298415347682421e-05,
+          -4.298415347682421e-05
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.013028422454623184,
+        0.02531257251222423,
+        0.0021296447046201543,
+        -7.462896110822915e-05,
+        0.020947632880755396,
+        -0.0001686198553702927,
+        -4.298415347682421e-05
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.013333333333333332,
+        0.02558139534883721,
+        0.0023391812865497076,
+        0.0,
+        0.021153846153846155,
+        0.0,
+        0.0
+      ]
+    },
+    "M|investigation": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        0.0013572384388454103,
+        0.0005906372855976708,
+        0.0005651212897599307,
+        0.0003472681779418799,
+        0.0004234821265337765,
+        0.0008231869964616045,
+        0.0003946319293882962
+      ],
+      "ci": [
+        [
+          0.025324797077483155,
+          0.06641775511932375
+        ],
+        [
+          0.015525831568277018,
+          0.038012368221462096
+        ],
+        [
+          0.008218711285484582,
+          0.024862930870121903
+        ],
+        [
+          -0.0006597222768418336,
+          -0.0006597222768418336
+        ],
+        [
+          0.0038154048824807045,
+          0.02753605519903021
+        ],
+        [
+          -0.0015652636393739226,
+          0.0019698441749515807
+        ],
+        [
+          -0.0007497689666989515,
+          0.0028247514345104943
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.04396919168979627,
+        0.025477031653663662,
+        0.01566389213947606,
+        -0.0006597222768418336,
+        0.013859987250125681,
+        -0.00018111959006625737,
+        0.0006621549229710377
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.02445757164192898,
+        0.013995174590627227,
+        0.008806953071228703,
+        0.0,
+        0.0077181208053691275,
+        0.0007279344858962694,
+        0.0007431492546071457
+      ]
+    },
+    "M|mount": {
+      "breakdown": {
+        "bound": "< 0x (never recoverable)",
+        "level": null
+      },
+      "chance": [
+        4.0438558684606215e-05,
+        2.8586545425228664e-05,
+        0.0005118227886606993,
+        6.061018346732632e-06,
+        1.1931817572001103e-05,
+        3.332812142165821e-05,
+        1.572376405152566e-05
+      ],
+      "ci": [
+        [
+          0.012817694224663901,
+          0.04982893517203053
+        ],
+        [
+          0.014729525830064216,
+          0.052882922485016456
+        ],
+        [
+          0.018910969054745513,
+          0.07658424860655481
+        ],
+        [
+          -8.898169941075935e-06,
+          -8.898169941075935e-06
+        ],
+        [
+          -1.751723051752341e-05,
+          -1.751723051752341e-05
+        ],
+        [
+          -4.893091279994103e-05,
+          -4.893091279994103e-05
+        ],
+        [
+          -2.308435669554787e-05,
+          -2.308435669554787e-05
+        ]
+      ],
+      "levels": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalised": [
+        0.030316607182560046,
+        0.03436771952590555,
+        0.045149288915554656,
+        -8.898169941075935e-06,
+        -1.751723051752341e-05,
+        -4.893091279994103e-05,
+        -2.308435669554787e-05
+      ],
+      "reachable": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "recoverable": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "score": [
+        0.020689655172413793,
+        0.0234375,
+        0.03124257781792028,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "decision": {
+    "branch": "3B",
+    "outcome": "O2",
+    "reason": "a behaviour is recoverable at native; groom is not at 1.0x"
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "d42ca7e0dcd149f4f9ada55d8155b159be781882-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "38fe5c1d4444194d19dde07676940334fc000e28-dirty",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "gain": 1.0915903019656596,
+  "grid_limited": [
+    "attack"
+  ],
+  "nmi": {
+    "C|m0.25|attack": 0.0,
+    "C|m0.25|groom": 0.0,
+    "C|m0.25|investigation": 0.0,
+    "C|m0.25|mount": 0.0,
+    "C|m0.5|attack": 0.0,
+    "C|m0.5|groom": 0.0,
+    "C|m0.5|investigation": 0.0,
+    "C|m0.5|mount": 0.0,
+    "C|m0|attack": 0.0,
+    "C|m0|groom": 0.0,
+    "C|m0|investigation": 0.0,
+    "C|m0|mount": 0.0,
+    "C|m1.5|attack": 0.0,
+    "C|m1.5|groom": 0.0,
+    "C|m1.5|investigation": 0.0,
+    "C|m1.5|mount": 0.0,
+    "C|m1|attack": 0.0,
+    "C|m1|groom": 0.0,
+    "C|m1|investigation": 0.0,
+    "C|m1|mount": 0.0,
+    "C|m2|attack": 0.0,
+    "C|m2|groom": 0.0,
+    "C|m2|investigation": 0.0,
+    "C|m2|mount": 0.0,
+    "C|m3|attack": 0.0,
+    "C|m3|groom": 0.0,
+    "C|m3|investigation": 0.0,
+    "C|m3|mount": 0.0,
+    "C|phase|attack": 0.0,
+    "C|phase|groom": 0.0,
+    "C|phase|investigation": 0.0,
+    "C|phase|mount": 0.0,
+    "C|white|attack": 0.0,
+    "C|white|groom": 0.0,
+    "C|white|investigation": 0.0,
+    "C|white|mount": 0.0,
+    "M|m0.25|attack": 0.07309874041106099,
+    "M|m0.25|groom": 0.03973689326750331,
+    "M|m0.25|investigation": 0.021250935939193402,
+    "M|m0.25|mount": 0.045060870430222125,
+    "M|m0.5|attack": 0.07325918092753499,
+    "M|m0.5|groom": 0.037777753522653466,
+    "M|m0.5|investigation": 0.018798855504990216,
+    "M|m0.5|mount": 0.041424297743671776,
+    "M|m0|attack": 0.07389778949580983,
+    "M|m0|groom": 0.035116527010187706,
+    "M|m0|investigation": 0.025196050431976497,
+    "M|m0|mount": 0.048432712543879056,
+    "M|m1.5|attack": 0.0703732660301947,
+    "M|m1.5|groom": 0.05730967833744075,
+    "M|m1.5|investigation": 0.01691034804240745,
+    "M|m1.5|mount": 0.016529195751961066,
+    "M|m1|attack": 0.054365506207956084,
+    "M|m1|groom": 0.036622636147127505,
+    "M|m1|investigation": 0.006926962798466517,
+    "M|m1|mount": 0.010831793188098984,
+    "M|m2|attack": 0.0749038066980415,
+    "M|m2|groom": 0.0533658600740891,
+    "M|m2|investigation": 0.008799682383741982,
+    "M|m2|mount": 0.020968854190678614,
+    "M|m3|attack": 0.05338682952397681,
+    "M|m3|groom": 0.008021556203273134,
+    "M|m3|investigation": 0.002820295460594033,
+    "M|m3|mount": 0.007705427579992974,
+    "M|phase|attack": 0.046165628576092965,
+    "M|phase|groom": 0.019580223609048743,
+    "M|phase|investigation": 0.019229420062479848,
+    "M|phase|mount": 0.049199290921417616,
+    "M|white|attack": 0.013214354174173099,
+    "M|white|groom": 0.006038227645157506,
+    "M|white|investigation": 0.014519158312606879,
+    "M|white|mount": 0.007993476562239466
+  },
+  "r": 0.6326873880600296,
+  "reads": [
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 5,
+      "reason": "support 258 events in 5 evaluation sequences, below 30 / 10; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "attack"
+      },
+      "verdict": "GRID_LIMITED"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.539 [+0.333, +0.728] vs bar 0.25; score 0.365 vs null p95 0.247; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 0.0,
+        "metric": "boundary"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.535 [+0.329, +0.724] vs bar 0.25; score 0.364 vs null p95 0.247; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 0.25,
+        "metric": "boundary"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.538 [+0.331, +0.727] vs bar 0.25; score 0.364 vs null p95 0.246; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 0.5,
+        "metric": "boundary"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.501 [+0.305, +0.684] vs bar 0.25; score 0.356 vs null p95 0.245; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 1.0,
+        "metric": "boundary"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.374 [+0.192, +0.544] vs bar 0.25; score 0.315 vs null p95 0.230; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 1.5,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.239 [+0.087, +0.383] vs bar 0.25; score 0.270 vs null p95 0.215; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 2.0,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.108 [-0.004, +0.221] vs bar 0.25; score 0.217 vs null p95 0.194; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "investigation",
+        "level": 3.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.189 [+0.032, +0.360] vs bar 0.25; score 0.147 vs null p95 0.076; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 0.0,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.188 [+0.031, +0.360] vs bar 0.25; score 0.147 vs null p95 0.076; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 0.25,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.186 [+0.029, +0.359] vs bar 0.25; score 0.146 vs null p95 0.076; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 0.5,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.164 [+0.018, +0.320] vs bar 0.25; score 0.138 vs null p95 0.076; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 1.0,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.140 [+0.005, +0.282] vs bar 0.25; score 0.129 vs null p95 0.076; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 1.5,
+        "metric": "boundary"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.100 [-0.012, +0.217] vs bar 0.25; score 0.107 vs null p95 0.070; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 2.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.039 [-0.040, +0.120] vs bar 0.25; score 0.083 vs null p95 0.072; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "mount",
+        "level": 3.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.018 [-0.049, +0.006] vs bar 0.25; score 0.068 vs null p95 0.099; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 0.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.018 [-0.047, +0.006] vs bar 0.25; score 0.068 vs null p95 0.098; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 0.25,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.017 [-0.047, +0.008] vs bar 0.25; score 0.068 vs null p95 0.098; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 0.5,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.007 [-0.041, +0.022] vs bar 0.25; score 0.078 vs null p95 0.096; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 1.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.011 [-0.044, +0.020] vs bar 0.25; score 0.074 vs null p95 0.097; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 1.5,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.005 [-0.033, +0.039] vs bar 0.25; score 0.090 vs null p95 0.097; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 2.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.011 [-0.023, +0.042] vs bar 0.25; score 0.095 vs null p95 0.095; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "D",
+        "label": "groom",
+        "level": 3.0,
+        "metric": "boundary"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 5,
+      "reason": "support 258 events in 5 evaluation sequences, below 30 / 10; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "attack"
+      },
+      "verdict": "GRID_LIMITED"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "investigation",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "mount",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.000 [+0.000, +0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "C",
+        "label": "groom",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 5,
+      "reason": "support 258 events in 5 evaluation sequences, below 30 / 10; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "attack"
+      },
+      "verdict": "GRID_LIMITED"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.044 [+0.025, +0.066] vs bar 0.25; score 0.024 vs null p95 0.003; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.025 [+0.016, +0.038] vs bar 0.25; score 0.014 vs null p95 0.002; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.016 [+0.008, +0.025] vs bar 0.25; score 0.009 vs null p95 0.002; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.001 [-0.001, -0.001] vs bar 0.25; score 0.000 vs null p95 0.001; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.014 [+0.004, +0.028] vs bar 0.25; score 0.008 vs null p95 0.001; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.000 [-0.002, +0.002] vs bar 0.25; score 0.001 vs null p95 0.002; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.001 [-0.001, +0.003] vs bar 0.25; score 0.001 vs null p95 0.001; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "investigation",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.030 [+0.013, +0.050] vs bar 0.25; score 0.021 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.034 [+0.015, +0.053] vs bar 0.25; score 0.023 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.045 [+0.019, +0.077] vs bar 0.25; score 0.031 vs null p95 0.003; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "mount",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.013 [+0.002, +0.024] vs bar 0.25; score 0.013 vs null p95 0.003; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 0.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.025 [+0.012, +0.039] vs bar 0.25; score 0.026 vs null p95 0.003; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 0.25,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.002 [-0.000, +0.008] vs bar 0.25; score 0.002 vs null p95 0.002; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 0.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 1.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.021 [+0.007, +0.034] vs bar 0.25; score 0.021 vs null p95 0.003; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 1.5,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.002; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 2.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised -0.000 [-0.000, -0.000] vs bar 0.25; score 0.000 vs null p95 0.000; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "primary",
+        "instrument": "M",
+        "label": "groom",
+        "level": 3.0,
+        "metric": "event"
+      },
+      "verdict": "FAIL"
+    }
+  ],
+  "registration": "results/step1/REGISTRATION.md (+ Amendment 1)",
+  "stage": "calms_step1"
+}
