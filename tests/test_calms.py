@@ -266,3 +266,56 @@ def test_breakdown_inside_or_bound():
 def test_normalised_requires_ceiling_above_chance():
     with pytest.raises(AssertionError):
         sc.normalised(0.5, 0.6, 0.6)
+
+
+# --------------------------------------------------------------------------
+# Secondary arms and ablation (ABLATION_REGISTRATION.md)
+# --------------------------------------------------------------------------
+
+def test_arm_spec_round_trips_and_counts():
+    from vieb.calms import arms as A
+    for sp in A.all_specs():
+        assert A.parse(sp.name) == sp
+    assert A.parse("a-k5-m1_s2").input_arm == "m1_s2"
+    assert A.parse("j1.5_s0").dropout is False and A.parse("d2_s0").jitter is False
+    assert set(A.seeds("k", "M")) == {0, 1, 2} and set(A.seeds("m", "M")) == set(range(5))
+    assert len(A.kpms_list()) == 45 + 87
+
+
+def test_substitute_six_and_nonose():
+    pose = rigid_pose(50)
+    miss = np.zeros((50, 7), dtype=bool)
+    miss[5, dg.LH] = True
+    sc_ = np.full((50, 7), 0.9)
+    sc_[7, dg.RE] = 0.2
+    p6, m6, c6 = dg.substitute(pose, miss, sc_, "six")
+    want = 0.5 * (0.5 * (pose[:, dg.LE] + pose[:, dg.RE]) + 0.5 * (pose[:, dg.LH] + pose[:, dg.RH]))
+    assert np.allclose(p6[:, dg.CENTER], want) and m6[5, dg.CENTER] and c6[7, dg.CENTER] == 0.2
+    pn, mn, cn = dg.substitute(pose, miss, sc_, "nonose")
+    assert np.allclose(pn[:, dg.NOSE], 0.5 * (pose[:, dg.LE] + pose[:, dg.RE]))
+    assert not mn[5, dg.NOSE] and cn[7, dg.NOSE] == 0.2
+    p7, _m7, _c7 = dg.substitute(pose, miss, sc_, "seven")
+    assert np.array_equal(p7, pose)
+
+
+def test_smoothed_inputs_keep_long_gaps_missing():
+    pose = rigid_pose(300) + np.random.default_rng(0).normal(0, 3, (300, 7, 2))
+    miss = np.zeros((300, 7), dtype=bool)
+    miss[100:110, 2] = True
+    ab = np.zeros(300, dtype=bool)
+    coords, conf = dg.moseq_input_smoothed(pose, np.full((300, 7), 0.9), miss, ab, 30.0)
+    assert np.isfinite(coords).all() and (conf[100:110, 2] == 0).all()
+    raw, _ = dg.raw_input(pose, miss, ab)
+    sm, _ = dg.raw_input_smoothed(pose, miss, ab, 30.0)
+    assert np.std(np.diff(sm[:, 0, 0])) < np.std(np.diff(raw[:, 0, 0]))
+
+
+def test_decimate():
+    a, b = dg.decimate(3, np.arange(10), np.arange(10) * 2)
+    assert list(a) == [0, 3, 6, 9] and list(b) == [0, 6, 12, 18]
+
+
+def test_abs_delta_lower():
+    assert sc.abs_delta_lower(-0.1, 0.2) == 0.0
+    assert sc.abs_delta_lower(0.05, 0.2) == 0.05
+    assert sc.abs_delta_lower(-0.3, -0.1) == pytest.approx(0.1)

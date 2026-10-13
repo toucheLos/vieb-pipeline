@@ -33,7 +33,7 @@ from recur import anchors                                           # noqa: E402
 from recur.recurrence import bank as bk_                            # noqa: E402
 from recur.util import frames, log, peak_rss_gb, write_json         # noqa: E402
 from vieb import provenance                                         # noqa: E402
-from vieb.calms import io as cio                                    # noqa: E402
+from vieb.calms import arms as A, io as cio                         # noqa: E402
 from vieb.seg import breaks as bk, embed, vocab as vb               # noqa: E402
 from vieb.tok import config, ego                                    # noqa: E402
 
@@ -69,19 +69,20 @@ def theta_inherited() -> float:
     return t
 
 
-def load(arm: str, v: str, sd: np.ndarray) -> dict:
+def load(arm: str, v: str, sd: np.ndarray, fps: float = FPS) -> dict:
     with np.load(os.path.join(WORK, "raw", arm, f"{v}.npz")) as z:
         pose = np.asarray(z["pose"], dtype=np.float64)
         ab = np.asarray(z["abstain"], dtype=bool)
-    X, valid = ego.transform(pose, cio.LUNA_ELL_PX, FPS)
+    X, valid = ego.transform(pose, cio.LUNA_ELL_PX, fps)
     return {"X": X / sd[None, :], "abstain": ab | ~valid,
             "bounds": np.array([0, X.shape[0]], dtype=np.int64)}
 
 
-def detect(a: dict) -> np.ndarray:
-    group, deriv_sec, degree = D_CELL
-    h = max(2, frames(deriv_sec, FPS))
-    guard = bk.guard_frames(FPS, deriv_sec=deriv_sec)
+def detect(a: dict, *, group: str = D_CELL[0], deriv_sec: float = D_CELL[1],
+           fps: float = FPS) -> np.ndarray:
+    degree = D_CELL[2]
+    h = max(2, frames(deriv_sec, fps))
+    guard = bk.guard_frames(fps, deriv_sec=deriv_sec)
     d = bk.discontinuity(a["X"][:, list(bk.CHANNEL_GROUPS[group])], h)
     return np.asarray(bk.boundaries(d, bk.mad_threshold(d, K_MAD),
                                     min_gap=bk.min_segment_frames(degree, guard),
@@ -94,7 +95,12 @@ def main(argv=None) -> int:
     p.add_argument("--device", default="cuda")
     p.add_argument("--limit", type=int, default=0, help="smoke: videos per partition")
     a = p.parse_args(argv)
+    sp = A.parse(a.arm)
+    fps = sp.fps
     sr, sv = _module("seg_recur"), _module("seg_vocab")
+    # The window ablation moves BOTH D's derivative window and C's segments,
+    # which `seg_recur.segments_of` reads from its module constant.
+    sr.DERIV_SEC = sp.deriv_sec
     sr.no_tf32()
     sd = sr.basis_sd()
     theta = theta_inherited()
@@ -108,11 +114,11 @@ def main(argv=None) -> int:
     feats, meta = [], []
     n_frames: dict[str, int] = {}
     for v in vids:
-        x = load(a.arm, v, sd)
+        x = load(sp.input_arm, v, sd, fps)
         n_frames[v] = int(x["X"].shape[0])
         if v in scored:
-            D[v] = detect(x)
-        rows = sr.segments_of(x, idx, fps=FPS, k_mad=K_MAD)
+            D[v] = detect(x, group=sp.d_group, deriv_sec=sp.deriv_sec, fps=fps)
+        rows = sr.segments_of(x, idx, fps=fps, k_mad=K_MAD)
         sel = [r for r, k in zip(rows, embed.selectable(rows)) if k]
         if sel:
             f, _s = embed.stack_segments(x["X"], sel, cols=idx, n=embed.SEG_GRID)
@@ -154,13 +160,14 @@ def main(argv=None) -> int:
     cov = float(np.mean(np.concatenate([C[v] >= 0 for v in scored])))
     write_json({**provenance.header(anchors.LUNA, stage="calms_seg",
                                     unverified="CalMS21 external; Luna instruments at their commits"),
-                "arm": a.arm, "d_cell": list(D_CELL), "c_group": C_GROUP, "k_mad": K_MAD,
+                "arm": a.arm, "d_cell": [sp.d_group, sp.deriv_sec, D_CELL[2]], "fps": fps,
+                "input_arm": sp.input_arm, "c_group": C_GROUP, "k_mad": K_MAD,
                 "theta_inherited": theta, "scale": scale, "n_videos": len(vids),
                 "n_segments": len(meta), "n_fit_segments": int(is_fit.sum()),
                 "pca_retained": pca["retained_variance"],
                 "clumps": summary, "frame_coverage_scored": cov,
                 "boundaries_per_s": float(sum(D[v].size for v in scored)
-                                          / (sum(n_frames[v] for v in scored) / FPS)),
+                                          / (sum(n_frames[v] for v in scored) / fps)),
                 "peak_rss_gb": peak_rss_gb()},
                os.path.join(out, "seg.json"))
     log(f"{a.arm}: {len(meta):,} segments, {summary['n_clumps']} clumps, "

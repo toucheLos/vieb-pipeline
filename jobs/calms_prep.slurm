@@ -2,6 +2,7 @@
 # STEP 1 §1-2: prep (noise.json, partitions.json), or build one arm's inputs.
 #     sbatch jobs/calms_prep.slurm prep
 #     sbatch --array=0-44%10 jobs/calms_prep.slurm build      # index -> arms()
+#     LIST="--list build --new" sbatch --array=0-134%10 jobs/calms_prep.slurm build   # secondary + ablation
 #SBATCH --job-name=vieb_calmsprep
 #SBATCH --output=work/logs/%x_%A_%a.out
 #SBATCH --error=work/logs/%x_%A_%a.err
@@ -15,7 +16,7 @@ mkdir -p work/logs
 source "$REPO/env.sh"
 export OMP_NUM_THREADS=2
 if [ "$1" = "build" ] && [ -n "${SLURM_ARRAY_TASK_ID:-}" ]; then
-    python3 scripts/calms_prep.py build --index "$SLURM_ARRAY_TASK_ID"
+    python3 scripts/calms_prep.py build ${LIST:-} --index "$SLURM_ARRAY_TASK_ID"
 else
     python3 scripts/calms_prep.py "$@"
 fi

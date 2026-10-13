@@ -38,7 +38,9 @@ LUNA_ARMS = ("real", "white", "phase")
 TEMPLATE = "/home/tul26194/moseq/luna_demo/config.yml"
 KEEP = ("left_ear", "right_ear", "nose", "center", "left_hip", "right_hip", "tail_base")
 LATENT_DIM = 10
-KAPPA_ARHMM, KAPPA_FULL = 1e4, 1e6
+KAPPA_ARHMM = 1e4
+#: STEP 1's kappa ablation sets MOSEQ_KAPPA_FULL=1e5; unset, the protocol's 1e6.
+KAPPA_FULL = float(os.environ.get("MOSEQ_KAPPA_FULL", "1e6"))
 ITERS_ARHMM, ITERS_FULL = 50, 500
 APPLY_CHUNK, APPLY_ITERS = 200, 20
 

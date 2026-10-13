@@ -27,7 +27,7 @@ sys.path.insert(1, os.environ.get("VIEB_RECUR", "/home/tul26194/recur"))
 from recur import anchors, labels as lab                            # noqa: E402
 from recur.util import log, write_json                              # noqa: E402
 from vieb import provenance                                         # noqa: E402
-from vieb.calms import degrade as dg, io as cio                     # noqa: E402
+from vieb.calms import arms as A, degrade as dg, io as cio          # noqa: E402
 from vieb.io import spine                                           # noqa: E402
 from vieb.moseq import inputs                                       # noqa: E402
 from vieb.qc import bones as bn                                     # noqa: E402
@@ -43,16 +43,13 @@ LUNA_SETS = os.path.join(config.REPO, "work", "moseq", "sets.json")
 
 
 def arms() -> list[str]:
+    """The registered primary arms (REGISTRATION §2.5, §6), in their original order."""
     out = [f"m{m:g}_s{s}" for m in dg.LEVELS for s in dg.SEEDS]
     out += [f"{k}_s{s}" for k in ("white", "phase") for s in dg.SEEDS]
     return out
 
 
-def parse_arm(arm: str) -> tuple[str, float, int]:
-    head, s = arm.rsplit("_s", 1)
-    if head in ("white", "phase"):
-        return head, 0.0, int(s)
-    return "real", float(head[1:]), int(s)
+LISTS = {"primary": arms, "build": A.build_list, "seg": A.seg_list, "kpms": A.kpms_list}
 
 
 # --------------------------------------------------------------------------
@@ -169,7 +166,16 @@ def prep(_a) -> int:
 # --------------------------------------------------------------------------
 
 def build(a) -> int:
-    kind, m, seed = parse_arm(a.arm)
+    """One arm's inputs, from its registered spec (`vieb.calms.arms`).
+
+    Variants re-use the primary arm's draws: the jitter and the dropout come
+    from the same per-sequence generator as `m<level>_s<seed>`, and are then
+    dropped (j, d) or post-processed (keypoint substitution, decimation,
+    smoothing). So every Delta in the ablation is paired draw for draw.
+    """
+    sp = A.parse(a.arm)
+    if sp.input_from is not None:
+        raise SystemExit(f"{a.arm} reuses {sp.input_arm}'s inputs; nothing to build")
     parts = cio.load(PARTS)
     with open(NOISE, encoding="utf-8") as fh:
         nz = json.load(fh)
@@ -184,17 +190,36 @@ def build(a) -> int:
     if not os.path.exists(sets):
         with open(sets, "w", encoding="utf-8") as fh:
             json.dump({"fit": parts["fit"], "report": cio.scored(parts)}, fh, indent=1)
+    step = int(round(dg.FPS / sp.fps))
+    assert step * sp.fps == dg.FPS, sp.fps
     for v in vids:
         pose, scores, _ell = cio.resident(parts["where"][v])
-        if kind == "real":
-            noisy, miss, ab = dg.degraded(pose, m, r=nz["r"], profile=prof,
+        if sp.kind == "real":
+            noisy, miss, ab = dg.degraded(pose, sp.level, r=nz["r"], profile=prof,
                                           s1_px=nz["s1_px"], donors=donors,
-                                          rng=dg.rng_for(seed, m, v), gain=nz["gain"])
-            coords, conf = dg.moseq_input(noisy, scores, miss, ab)
+                                          rng=dg.rng_for(sp.seed, sp.level, v), gain=nz["gain"])
+            if not sp.jitter:
+                noisy = pose
+            if not sp.dropout:
+                miss, ab = np.zeros_like(miss), np.zeros_like(ab)
+        else:
+            rng = np.random.default_rng(stable_seed("calms", sp.kind, sp.seed, v))
+            noisy, _cf = inputs.surrogate(pose, scores, sp.kind, rng)
+            miss = np.zeros(noisy.shape[:2], dtype=bool)
+            ab = np.zeros(noisy.shape[0], dtype=bool)
+        noisy, miss, sc_ = dg.substitute(noisy, miss, scores, sp.keypoints)
+        noisy, miss, ab, sc_ = dg.decimate(step, noisy, miss, ab, sc_)
+        if sp.smooth == "median":
+            coords, conf = dg.moseq_input_smoothed(noisy, sc_, miss, ab, sp.fps)
+            held, abst = dg.raw_input_smoothed(noisy, miss, ab, sp.fps)
+        elif sp.kind == "real":
+            coords, conf = dg.moseq_input(noisy, sc_, miss, ab)
             held, abst = dg.raw_input(noisy, miss, ab)
         else:
-            rng = np.random.default_rng(stable_seed("calms", kind, seed, v))
-            coords, conf = inputs.surrogate(pose, scores, kind, rng)
+            # The primary controls' construction, kept exactly (REGISTRATION §6).
+            coords, conf = inputs.surrogate(pose, scores, sp.kind,
+                                            np.random.default_rng(stable_seed("calms", sp.kind,
+                                                                              sp.seed, v)))
             held, abst = coords, np.zeros(coords.shape[0], dtype=bool)
         np.savez_compressed(os.path.join(dm, f"{v}.npz"), coords=coords.astype(np.float32),
                             conf=conf.astype(np.float32))
@@ -208,13 +233,19 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("phase", choices=("prep", "build", "arms"))
     p.add_argument("--arm", default=None)
-    p.add_argument("--index", type=int, default=None, help="array index into arms()")
+    p.add_argument("--list", choices=tuple(LISTS), default="primary",
+                   help="which arm list `arms` prints and `--index` indexes")
+    p.add_argument("--new", action="store_true", help="only arms not in the primary list")
+    p.add_argument("--index", type=int, default=None, help="array index into the list")
     a = p.parse_args(argv)
+    names = LISTS[a.list]()
+    if a.new:
+        names = [n for n in names if n not in set(arms())]
     if a.phase == "arms":
-        print("\n".join(arms()))
+        print("\n".join(names))
         return 0
     if a.phase == "build" and a.arm is None:
-        a.arm = arms()[a.index]
+        a.arm = names[a.index]
     return {"prep": prep, "build": build}[a.phase](a)
 
 

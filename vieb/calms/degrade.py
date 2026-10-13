@@ -274,3 +274,66 @@ def degraded(pose: npt.ArrayLike, m: float, *, r: float, profile: npt.ArrayLike,
         return noisy, np.zeros((T, p.shape[1]), dtype=bool), np.zeros(T, dtype=bool)
     miss, ab = dropout(T, m, donors, rng)
     return noisy, miss, ab
+
+
+# --------------------------------------------------------------------------
+# Secondary arms and ablation variants (ABLATION_REGISTRATION.md)
+# --------------------------------------------------------------------------
+
+LE, RE, NOSE, CENTER, LH, RH, TB = range(7)
+MEDIAN_S = 0.25
+
+
+def substitute(pose: npt.ArrayLike, missing: npt.ArrayLike, scores: npt.ArrayLike,
+               keypoints: str) -> tuple[F64, B1, F64]:
+    """Replace one slot by a point derived from the others, after degradation.
+
+    `six`: `center` := midpoint of the ear midpoint and the hip midpoint (the
+    neck is discarded). `nonose`: `nose` := the ear midpoint, so the heading
+    axis becomes ear-midpoint -> tail_base. A derived point is missing when any
+    of its sources is, and carries their lowest confidence.
+    """
+    p = np.asarray(pose, dtype=np.float64).copy()
+    m = np.asarray(missing, dtype=bool).copy()
+    c = np.asarray(scores, dtype=np.float64).copy()
+    if keypoints == "seven":
+        return p, m, c
+    src: tuple[int, ...]
+    if keypoints == "six":
+        src, slot = (LE, RE, LH, RH), CENTER
+        p[:, slot] = 0.5 * (0.5 * (p[:, LE] + p[:, RE]) + 0.5 * (p[:, LH] + p[:, RH]))
+    elif keypoints == "nonose":
+        src, slot = (LE, RE), NOSE
+        p[:, slot] = 0.5 * (p[:, LE] + p[:, RE])
+    else:
+        raise ValueError(keypoints)
+    m[:, slot] = m[:, list(src)].any(axis=1)
+    c[:, slot] = c[:, list(src)].min(axis=1)
+    return p, m, c
+
+
+def decimate(step: int, *arrays: npt.ArrayLike) -> list[Any]:
+    """Every `step`-th frame of each array (frame rate ablation)."""
+    return [np.asarray(a)[::int(step)] for a in arrays]
+
+
+def moseq_input_smoothed(pose: npt.ArrayLike, scores: npt.ArrayLike, missing: npt.ArrayLike,
+                         abstain: npt.ArrayLike, fps: float) -> tuple[F64, F64]:
+    """`moseq_input` with REPAIR's median 0.25 s inserted where `repair()` puts it:
+    on the fully held series, long gaps restored to missing afterwards."""
+    from vieb.clean import repair as rp
+    p = np.asarray(pose, dtype=np.float64)
+    miss = np.asarray(missing, dtype=bool) | np.asarray(abstain, bool)[:, None]
+    held, stays = rp.held_and_stays(p, miss, np.zeros_like(miss))
+    sm = arms.rolling_median(held, None, fps, window_s=MEDIAN_S)
+    sm[stays] = np.nan
+    gone = ~np.isfinite(sm).all(axis=-1)
+    c = np.asarray(scores, dtype=np.float64).copy()
+    c[gone] = 0.0
+    return inputs.fill(sm), np.clip(np.nan_to_num(c), 0.0, 1.0)
+
+
+def raw_input_smoothed(pose: npt.ArrayLike, missing: npt.ArrayLike, abstain: npt.ArrayLike,
+                       fps: float) -> tuple[F64, B1]:
+    held, ab = raw_input(pose, missing, abstain)
+    return arms.rolling_median(held, None, fps, window_s=MEDIAN_S), ab

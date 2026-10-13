@@ -224,9 +224,9 @@ def event_pass(states: Mapping[str, npt.ArrayLike], y: Mapping[str, npt.ArrayLik
 
 def boundary_pass(bounds: Mapping[str, npt.ArrayLike], y: Mapping[str, npt.ArrayLike],
                   eval_ids: Sequence[str], label_set: str,
-                  targets: Sequence[str]) -> Counts:
+                  targets: Sequence[str], fps: float = FPS) -> Counts:
     vocab = SETS[label_set][1]
-    tol = int(round(TOL_S * FPS))
+    tol = int(round(TOL_S * fps))
     out: Counts = {}
     for lab in targets:
         cls = vocab.index(lab)
@@ -275,6 +275,25 @@ def seed_mean_f1(per_seed: Sequence[npt.ArrayLike], idx: I64 | None = None) -> f
 def normalised(s: float, chance: float, ceiling: float) -> float:
     assert ceiling > chance, f"ceiling {ceiling} must exceed chance {chance}"
     return (s - chance) / (ceiling - chance)
+
+
+def normalised_reps(per_seed: Sequence[npt.ArrayLike], null_per_seed: npt.ArrayLike,
+                    ceiling: float, boot: npt.ArrayLike) -> tuple[float, F64]:
+    """``(point, replicates)`` of the normalised seed-mean score.
+
+    `null_per_seed` is ``(shifts, seeds)``; chance is the mean over shifts of
+    the seed mean, i.e. the same statistic as the score, under the null.
+    """
+    chance = float(np.asarray(null_per_seed, dtype=np.float64).mean(axis=1).mean())
+    point = normalised(seed_mean_f1(per_seed), chance, ceiling)
+    reps = np.asarray([normalised(seed_mean_f1(per_seed, i), chance, ceiling)
+                       for i in np.asarray(boot, dtype=np.int64)], dtype=np.float64)
+    return point, reps
+
+
+def abs_delta_lower(lo: float, hi: float) -> float:
+    """Lower CI bound of |Delta|: 0 if the CI contains 0."""
+    return 0.0 if lo <= 0.0 <= hi else float(min(abs(lo), abs(hi)))
 
 
 def cell(per_seed: Sequence[npt.ArrayLike], null: npt.ArrayLike, ceiling: float,

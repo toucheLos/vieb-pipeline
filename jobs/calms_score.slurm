@@ -1,7 +1,8 @@
 #!/bin/bash
 # STEP 1 §4-7: one scoring cell (instrument x condition), or combine.
 #     sbatch --array=0-17%9 jobs/calms_score.slurm cell      # D 0-8, C 9-17
-#     sbatch --array=18-26%9 jobs/calms_score.slurm cell     # M 18-26
+#     sbatch --array=18-26%9 jobs/calms_score.slurm cell     # M 18-26 (old order)
+#     sbatch --array=0-119%12 jobs/calms_score.slurm cell    # every cell, `calms_score.py cells` order
 #     sbatch jobs/calms_score.slurm combine
 #SBATCH --job-name=vieb_calmsscore
 #SBATCH --output=work/logs/%x_%A_%a.out
