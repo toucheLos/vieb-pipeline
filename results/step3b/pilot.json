@@ -1,0 +1,1501 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "labels pending (two human labellers)"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "607d70ba57252edb2c70433c320d85aa9bc548ef",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "38fe5c1d4444194d19dde07676940334fc000e28-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "87207"
+  },
+  "frames": [
+    {
+      "cluster": 0,
+      "frame": 5665,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005665.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 5368,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005368.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 3180,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img003180.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 5970,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005970.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 5042,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005042.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 1199,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img001199.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 4596,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img004596.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 2272,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img002272.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 206,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img000206.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 1083,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img001083.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 6094,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img006094.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 1644,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img001644.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 1346,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img001346.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 2036,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img002036.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 5237,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005237.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 5253,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img005253.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 1026,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img001026.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 3247,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img003247.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 6189,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img006189.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 2553,
+      "image": "labeled-data/20250312_Box_2_CFC_Day_0_(Context_A)_605/img002553.png",
+      "recording_id": "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 21,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000021.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 830,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000830.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 1680,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img001680.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 2,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000002.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 4752,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img004752.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 3042,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img003042.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 359,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000359.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 3510,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img003510.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 404,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000404.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 3428,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img003428.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 2806,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img002806.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 5301,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img005301.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 555,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000555.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 490,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000490.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 2375,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img002375.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 2592,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img002592.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 889,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img000889.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 3234,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img003234.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 1343,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img001343.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 4110,
+      "image": "labeled-data/20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013/img004110.png",
+      "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 1156,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img001156.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 3001,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img003001.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 3307,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img003307.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 646,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img000646.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 2187,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img002187.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 2260,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img002260.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 4739,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img004739.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 5076,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img005076.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 4221,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img004221.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 2061,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img002061.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 3490,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img003490.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 1430,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img001430.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 4500,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img004500.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 3112,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img003112.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 2352,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img002352.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 1086,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img001086.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 2615,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img002615.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 294,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img000294.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 3694,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img003694.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 1766,
+      "image": "labeled-data/20251114_Box_2_CFC_Day_2_(Context_C)_961/img001766.png",
+      "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 2512,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002512.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 786,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img000786.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 5558,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img005558.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 2010,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002010.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 1704,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img001704.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 2983,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002983.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 3746,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img003746.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 233,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img000233.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 2901,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002901.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 4161,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img004161.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 1400,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img001400.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 2412,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002412.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 1040,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img001040.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 59,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img000059.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 4164,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img004164.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 1068,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img001068.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 1966,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img001966.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 2341,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img002341.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 5371,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img005371.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 4789,
+      "image": "labeled-data/20250324_Box_3_CFD_Day_3_(Context_A)_946/img004789.png",
+      "recording_id": "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 3363,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img003363.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 451,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000451.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 4163,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img004163.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 2259,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img002259.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 368,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000368.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 1510,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001510.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 219,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000219.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 786,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000786.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 1170,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001170.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 823,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000823.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 4607,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img004607.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 884,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000884.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 5013,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img005013.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 1129,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001129.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 1595,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001595.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 1117,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001117.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 699,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000699.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 6,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000006.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 1061,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img001061.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 457,
+      "image": "labeled-data/20241217_Box_1_CFD_Day_3_(Context_B)_9023/img000457.png",
+      "recording_id": "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 718,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img000718.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 3924,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img003924.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 1110,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001110.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 6284,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img006284.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 3261,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img003261.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 1395,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001395.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 1966,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001966.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 2521,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img002521.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 2835,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img002835.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 1738,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001738.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 1164,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001164.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 1634,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001634.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 2249,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img002249.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 2984,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img002984.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 5452,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img005452.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 1210,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img001210.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 3630,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img003630.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 5197,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img005197.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 3051,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img003051.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 91,
+      "image": "labeled-data/20250429_Box_2_CFD_Day_4_(Context_A)_HM02/img000091.png",
+      "recording_id": "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 155,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img000155.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 4818,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img004818.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 4130,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img004130.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 3369,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003369.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 907,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img000907.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 3858,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003858.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 3371,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003371.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 5115,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img005115.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 1760,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img001760.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 3591,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003591.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 3835,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003835.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 4383,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img004383.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 531,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img000531.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 4446,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img004446.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 2301,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img002301.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 1370,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img001370.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 128,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img000128.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 1336,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img001336.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 4032,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img004032.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 3091,
+      "image": "labeled-data/20260415_Box_2_CFD_Day_5_(Context_B)_792/img003091.png",
+      "recording_id": "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 5828,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img005828.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 3000,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img003000.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 3858,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img003858.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 4741,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img004741.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 3587,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img003587.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 645,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img000645.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 5346,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img005346.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 2192,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img002192.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 5223,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img005223.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 1545,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img001545.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 556,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img000556.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 587,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img000587.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 4158,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img004158.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 4354,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img004354.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 1155,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img001155.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 5607,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img005607.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 1016,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img001016.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 908,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img000908.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 2640,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img002640.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 228,
+      "image": "labeled-data/20250515_Box_2_CFD_Day_6_(Context_A)_HM06/img000228.png",
+      "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 851,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img000851.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 3766,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img003766.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 5628,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005628.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 5721,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005721.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 124,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img000124.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 987,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img000987.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 6068,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img006068.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 1746,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img001746.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 5374,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005374.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 2382,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img002382.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 6221,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img006221.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 4687,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img004687.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 5821,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005821.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 2274,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img002274.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 174,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img000174.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 5519,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005519.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 6293,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img006293.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 5893,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005893.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 268,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img000268.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 5536,
+      "image": "labeled-data/20241122_Box_2_CFD_Day_7_(Context_A)_9010/img005536.png",
+      "recording_id": "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+      "shared": 0
+    },
+    {
+      "cluster": 0,
+      "frame": 4690,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img004690.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 1
+    },
+    {
+      "cluster": 1,
+      "frame": 150,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000150.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 1
+    },
+    {
+      "cluster": 2,
+      "frame": 1057,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img001057.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 1
+    },
+    {
+      "cluster": 3,
+      "frame": 2128,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img002128.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 1
+    },
+    {
+      "cluster": 4,
+      "frame": 737,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000737.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 1
+    },
+    {
+      "cluster": 5,
+      "frame": 961,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000961.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 6,
+      "frame": 2506,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img002506.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 7,
+      "frame": 2427,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img002427.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 8,
+      "frame": 1260,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img001260.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 9,
+      "frame": 642,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000642.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 10,
+      "frame": 1026,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img001026.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 11,
+      "frame": 1559,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img001559.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 12,
+      "frame": 717,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000717.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 13,
+      "frame": 3749,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img003749.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 14,
+      "frame": 2693,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img002693.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 15,
+      "frame": 3109,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img003109.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 16,
+      "frame": 709,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000709.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 17,
+      "frame": 692,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000692.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 18,
+      "frame": 953,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img000953.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    },
+    {
+      "cluster": 19,
+      "frame": 2480,
+      "image": "labeled-data/20251121_Box_1_CFD_Day_7_(Context_B)_2922/img002480.png",
+      "recording_id": "20251121_Box_1_CFD_Day_7_(Context_B)_2922",
+      "shared": 0
+    }
+  ],
+  "k": 20,
+  "n_frames": 200,
+  "n_shared": 50,
+  "pilot": [
+    "20250312_Box_2_CFC_Day_0_(Context_A)_605",
+    "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9013",
+    "20251114_Box_2_CFC_Day_2_(Context_C)_961",
+    "20250324_Box_3_CFD_Day_3_(Context_A)_946",
+    "20241217_Box_1_CFD_Day_3_(Context_B)_9023",
+    "20250429_Box_2_CFD_Day_4_(Context_A)_HM02",
+    "20260415_Box_2_CFD_Day_5_(Context_B)_792",
+    "20250515_Box_2_CFD_Day_6_(Context_A)_HM06",
+    "20241122_Box_2_CFD_Day_7_(Context_A)_9010",
+    "20251121_Box_1_CFD_Day_7_(Context_B)_2922"
+  ],
+  "registration": "results/step3b/REGISTRATION.md",
+  "stage": "step3b_package",
+  "strata": [
+    [
+      0,
+      "A"
+    ],
+    [
+      1,
+      "A"
+    ],
+    [
+      2,
+      "C"
+    ],
+    [
+      3,
+      "A"
+    ],
+    [
+      3,
+      "B"
+    ],
+    [
+      4,
+      "A"
+    ],
+    [
+      5,
+      "B"
+    ],
+    [
+      6,
+      "A"
+    ],
+    [
+      7,
+      "A"
+    ],
+    [
+      7,
+      "B"
+    ]
+  ]
+}
