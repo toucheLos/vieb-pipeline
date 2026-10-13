@@ -14,3 +14,7 @@ Each row is for the human to decide. Nothing here has been computed.
 | G8 | **Rearing is untestable in CalMS21**: "whiterearing" is the intruder's behaviour, in 3 sequences | Step 1 §1.7 decision rule | decided with the user: grooming alone decides O3 |
 | G9 | **`~/moseq` is not under version control** | provenance of the MoSeq protocol | restated in `scripts/moseq_kpms.py` |
 | G10 | recur working copy: many uncommitted edits besides Ledger 35, including JOURNEYS (the 73% figure's working copy) and an untracked microstate null | provenance | listed in `INVENTORY.md`; left for the user |
+| G11 | **Wiener smoothing on non-Luna data**: only shapeflow's stored Luna arrays exist; `vieb/clean/arms.py` refuses a second implementation | Step 1 §1.8 smoothing ablation | that variant is `NOT_A_RESULT` |
+| G12 | **Human keypoint labels for the 3B pilot**: `~/dlc-training/trained_dlc/labeled-data/*` folders exist but are empty; anatomy-only labelling needs two human labellers | Step 3B items 2–5 | labelling package prepared; stops for the human |
+| G13 | **3B's target**: groom is never recoverable on CalMS21, even at native (0.633× Luna), so "groom's breakdown noise" does not exist | Step 3B gate | the 3B gate is `NOT_A_RESULT` by construction (`step3b/REGISTRATION.md`) |
+
