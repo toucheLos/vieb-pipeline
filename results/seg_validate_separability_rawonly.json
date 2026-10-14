@@ -1,0 +1,192 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "windows subsampled per animal"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "718f7ed3bb2cbeb807fa626592269e7f910fb167-dirty",
+    "node": "c03",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "slurm_array_task": null,
+    "slurm_job": "75231"
+  },
+  "inherited_digest": "198eb14ff258c7f6",
+  "peak_rss_gb": 3.793212890625,
+  "per_animal": 200,
+  "reads": {
+    "ou": {
+      "degenerate": 0,
+      "detail": {
+        "auc": 0.4979236927959526,
+        "balanced_accuracy": 0.5583195013695994,
+        "converged": 1,
+        "kind": "ou",
+        "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+        "n_corrected": 58152,
+        "n_groups": 103791,
+        "n_test": 38790,
+        "n_train": 77514
+      },
+      "n_effective": 298,
+      "reason": "ou is not separable from the corpus: a linear probe on stacked windows separates corpus from ou at 0.558 balanced accuracy (AUC 0.498) over 38,790 held-out rows, grouped by recording block, at or below the 0.60 limit. It is a usable null for a boundary-rate comparison",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_manifold",
+        "dataset": "luna",
+        "features": 204,
+        "pose_arm": "raw",
+        "surrogate": "ou",
+        "window_s": 0.4
+      },
+      "verdict": "PASS"
+    },
+    "phase": {
+      "degenerate": 0,
+      "detail": {
+        "auc": 0.5037895885705291,
+        "balanced_accuracy": 0.5167087277542484,
+        "converged": 1,
+        "kind": "phase",
+        "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+        "n_corrected": 58152,
+        "n_groups": 103749,
+        "n_test": 38818,
+        "n_train": 77486
+      },
+      "n_effective": 298,
+      "reason": "phase is not separable from the corpus: a linear probe on stacked windows separates corpus from phase at 0.517 balanced accuracy (AUC 0.504) over 38,818 held-out rows, grouped by recording block, at or below the 0.60 limit. It is a usable null for a boundary-rate comparison",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_manifold",
+        "dataset": "luna",
+        "features": 204,
+        "pose_arm": "raw",
+        "surrogate": "phase",
+        "window_s": 0.4
+      },
+      "verdict": "PASS"
+    },
+    "var5": {
+      "degenerate": 0,
+      "detail": {
+        "auc": 0.5006458620453289,
+        "balanced_accuracy": 0.5120681860390977,
+        "converged": 1,
+        "kind": "var5",
+        "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+        "n_corrected": 58152,
+        "n_groups": 103745,
+        "n_test": 38809,
+        "n_train": 77495
+      },
+      "n_effective": 298,
+      "reason": "var5 is not separable from the corpus: a linear probe on stacked windows separates corpus from var5 at 0.512 balanced accuracy (AUC 0.501) over 38,809 held-out rows, grouped by recording block, at or below the 0.60 limit. It is a usable null for a boundary-rate comparison",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_manifold",
+        "dataset": "luna",
+        "features": 204,
+        "pose_arm": "raw",
+        "surrogate": "var5",
+        "window_s": 0.4
+      },
+      "verdict": "PASS"
+    },
+    "white": {
+      "degenerate": 0,
+      "detail": {
+        "auc": 0.4962498545144829,
+        "balanced_accuracy": 0.5231711214767159,
+        "converged": 1,
+        "kind": "white",
+        "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+        "n_corrected": 58152,
+        "n_groups": 103876,
+        "n_test": 38847,
+        "n_train": 77457
+      },
+      "n_effective": 298,
+      "reason": "white is not separable from the corpus: a linear probe on stacked windows separates corpus from white at 0.523 balanced accuracy (AUC 0.496) over 38,847 held-out rows, grouped by recording block, at or below the 0.60 limit. It is a usable null for a boundary-rate comparison",
+      "saturation": null,
+      "scored_object": {
+        "arm": "seg_manifold",
+        "dataset": "luna",
+        "features": 204,
+        "pose_arm": "raw",
+        "surrogate": "white",
+        "window_s": 0.4
+      },
+      "verdict": "PASS"
+    }
+  },
+  "results": {
+    "ou": {
+      "auc": 0.4979236927959526,
+      "balanced_accuracy": 0.5583195013695994,
+      "converged": 1,
+      "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+      "n_corrected": 58152,
+      "n_groups": 103791,
+      "n_test": 38790,
+      "n_train": 77514
+    },
+    "phase": {
+      "auc": 0.5037895885705291,
+      "balanced_accuracy": 0.5167087277542484,
+      "converged": 1,
+      "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+      "n_corrected": 58152,
+      "n_groups": 103749,
+      "n_test": 38818,
+      "n_train": 77486
+    },
+    "var5": {
+      "auc": 0.5006458620453289,
+      "balanced_accuracy": 0.5120681860390977,
+      "converged": 1,
+      "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+      "n_corrected": 58152,
+      "n_groups": 103745,
+      "n_test": 38809,
+      "n_train": 77495
+    },
+    "white": {
+      "auc": 0.4962498545144829,
+      "balanced_accuracy": 0.5231711214767159,
+      "converged": 1,
+      "method": "logistic probe, classes balanced by subsampling, held out by GROUP (contiguous run) so no event spans the split",
+      "n_corrected": 58152,
+      "n_groups": 103876,
+      "n_test": 38847,
+      "n_train": 77457
+    }
+  },
+  "stage": "seg_manifold",
+  "window_s": 0.4
+}
