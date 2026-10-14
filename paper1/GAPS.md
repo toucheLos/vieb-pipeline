@@ -1,0 +1,57 @@
+# Paper 1 — gaps, unsupported claims, and questions for the authors
+
+The draft, `draft.md`, is rendered from `draft.src.md`. Every number in it comes from Table S1
+(`provenance.csv`), and `check.py` and `check_figures.py` confirm that by script. This file lists
+everything the draft needed and could not source, every claim I am not sure is supported, and
+the decisions that belong to the authors.
+
+## A. Numbers the prompt asked for that have no committed source (not used, or used without the number)
+
+| # | item | status | what the draft does |
+|---|---|---|---|
+| A1 | "Frame-level bootstrap gives intervals ~19× too narrow" | **No measurement exists.** The figure is a docstring assertion (`recur/recur/boot.py` L3, and copies in shapeflow and the preregistrations). vieb-pipeline `CONTEXT.md` measures 1.07× for one analysis; the "1.19×" in `SEGMENTATION.md`/`LADDER.md` is a different quantity. | States the principle (animal is the unit) without a number. A registered measurement would be needed. |
+| A2 | Density blind spot: "96–99% one mode across three representations" | Only two values exist: pca-HDBSCAN 0.992 and diffusion-HDBSCAN 0.964, both in `vieb2-results`, which has **no git**. The transfer-operator runs are in `vieb-runs`, also **no git**. A third representation's value was not found. | **Demoted to the Discussion as an argument with no numbers** (user decision). A registered re-run under git is needed before it can be a finding. |
+| A3 | Off-manifold null: "matched ambient scale to 2%, sat 24× further" | Prose only, recur `LEDGER.md` entry 55 (now committed, atlas `recur.ledger.55` LIVE, **no value field**). 24.4× and 7.3× appear in prose; no JSON stores them. | **Omitted.** It would need a stored read. |
+| A4 | Grammar: "the model collapses to a two-state limit cycle" (97.7% of runs; 95.7% of pairs) | Prose only (`METHODS_FINDINGS.md`, ledger 48). No JSON stores either percentage. The white-noise grammar JSON stores `alphabet_size` = 53, which a reader may think contradicts "two-state". | Stated **qualitatively** ("a near two-state alternation"), with no percentages. |
+| A5 | Grammar: per-arm median effects (corpus 0.489, OU 0.327, VAR 0.644) | Not stored as fields. Only the white-noise value has an atlas record with a value (`claim.methods.grammar_white_effect`, 0.893, LIVE; it rests on a prose table). | Quotes only the white-noise effect. Figure 3 plots the full stored effect distributions for every arm. |
+| A6 | Irreversibility: a cross-fitted estimator | **Does not exist** anywhere. Non-overlapping windows (K = 1) alone still read about 0.22 on white noise. | Finding 4 is the problem only, with a "what we did not test" paragraph (user decision). |
+| A7 | Identity: the older 5.88-nat figure | No JSON and no atlas record. Its origin is reversibility-tests A2 (InfoNCE, global sampler), which is not a leak probe. The nearest stored values (5.8745, 5.8876) do not round to 5.88. | Not quoted, as the prompt requires. |
+| A8 | Ceiling "log 3846 = 8.26" | ln 3846 = 8.2548, so it rounds to **8.25**. The stored `ceiling_nats` gives 8.25. | Uses the stored ceiling (8.25), never 8.26. |
+| A9 | Detection floor "~0.99 body lengths" | Derived: 16 × σ̄ (0.0618). PLANT.md's sentence "Both orders cross 50% at 16 σ̄" conflicts with its own table (order 1 is already 77.4% at 16 σ̄). | Quotes the stored order-2 recall at 16 σ̄ and σ̄, and says "about one body length" in words. |
+| A10 | "Keypoint content above ~2 Hz does not clear the noise floor" | The registered read `dynamics_floor/reads/descriptor_floor` is **NOT_A_RESULT**. The band fractions above 2 Hz are 24.5–38.3% above the null's p95, not about 5%. DYNAMICS.md's "nothing above 2 Hz clears" rests on its own reading of these. | Reports the stored per-band fractions and medians without the "nothing clears" sentence. **Authors should check this paragraph against DYNAMICS.md.** |
+| A11 | Irreversibility: the earlier "6–41× above detailed balance" claim | Prose only (`SURROGATE_TEST.md`). The atlas still carries `reversibility-tests.results/summary/verdict` as **LIVE** ("strongly irreversible"), although the committed ring guard FAILs. The atlas has no superseded_by link between them. | Mentioned only as "an irreversible operator" in "Our own practice", with no number. **The atlas link should be added.** |
+| A12 | Main text length | About 4,000 words from Introduction to Discussion, against the prompt's 5,000–7,000. | Not padded. Expanding means more words per finding, not more numbers. |
+
+## B. Claims I am not sure are supported (please check)
+
+1. **Dataset protocol sentence.** "Context A on the first two days, Context C on the third, Context A and Context B on the following days" comes from `recur/labels.py`'s design table (prose, with no numbers in the draft). The CFC/CFD session types are not stated, because they are not recorded.
+2. **Finding 3, the mechanism.** The draft says the VAR null "never passed through the filter". `scripts/channels.py` generates the surrogate from the arm's own (filtered) pose, which supports this. The draft does **not** claim that filtering the null would remove the excess, because that has not been run. Rule 3 is a recommendation, not a demonstrated fix.
+3. **Finding 3, the phase null.** "Phase randomisation is too weak a null for this statistic" is an interpretation of the unfiltered arm beating it by +9.4%. It is reasonable, but nothing tests it.
+4. **Finding 4.** The guard ring's surrogates are **phase-randomised** surrogates of the ring's pose (SURROGATE_TEST.md), not time reversals. The draft now says so. Its claim that they "carry no irreversibility" rests on phase randomisation producing a stationary Gaussian, hence reversible, process.
+5. **Finding 5.** "A learned encoder" is shapeflow's G3 model, h_t, with a gradient-reversal identity head (γ). The values come from two files at different γ. The encoder itself is outside Paper 1's scope (it was disqualified elsewhere); it appears only as a representation that leaks identity. Consider whether to keep it.
+6. **Finding 5, the session clamp.** recur's committed `audit_moseq.json` session read (PASS, 0.0 nats) predates the clamp guard (`ebf7acc`). The draft reports that zero as refused, but **the committed JSON still says PASS**. A registered re-run of the audit would make the record agree with the text.
+7. **Finding 6.** "Tracker-quality flags" are the spine's per-frame tracking flags. Name them precisely (identity swap, bone violation, low confidence?) before submission.
+8. **Grammar and frame/event-mass reads are PROVISIONAL** in the atlas ("the four-gate restricted re-run"). The draft says so in the text. If that re-run changes the counts, Finding 2 needs re-rendering, and the rendering is automatic.
+9. **Dwell.** `recur.results/dwell_moseq/read` is RETRACTED, and the draft cites it **as** the retracted result. There is no replacement read for MoSeq dwell. The nonparametric labeller's matched-coverage arm (corpus 100% against OU 47% and white noise 62%) was left out, because its VAR arm also rejects 100%, which makes it a muddy contrast.
+10. **"Keypoint-MoSeq was used as published"**: it ran unmodified, at the labeller of record's settings. `~/moseq` is **not under git**, so the training protocol is pinned only through its restatement in vieb-pipeline `scripts/moseq_kpms.py`.
+
+## C. Provenance housekeeping done for this draft
+
+All of these are commits with no recomputation.
+- **recur:**
+  - `c60e7cf`: grammar code and every grammar result, including the surrogate arms;
+  - `04e0ab0`: montage, with event mass;
+  - `ebf7acc`: the leak clamp guard;
+  - `0546917`: PROGRESS, INVENTORY, LEDGER, METHODS_FINDINGS, NONPARAMETRIC.
+  The committed tree passes 190 tests in a clean worktree. The microstate-null work, the render media and the forced-choice deletions remain uncommitted.
+- **vieb-pipeline:** `dce4fff` and `39ce0a2` promote the two separability reads from gitignored `work/` into `results/`, byte for byte.
+- **Atlas** (`~/vieb-atlas`, **not a git repo**): re-indexed twice (1,719 records, 0 problems). The previous index is kept as `index.backup-20260927.json`. **The atlas itself has no version control**, so S1's atlas statuses can change if it is re-indexed. Each S1 row also carries the repo commit, which is the durable reference.
+
+## D. Questions for the authors (the prompt's §8)
+
+1. **Authorship and order.** Are Luna and Hassan co-authors? **Does the Luna lab approve publishing this corpus?**
+2. **Release.** Which data (videos, pose, labels) and code can be released, and under what licence? `Data and code availability` is a placeholder.
+3. **Venue.** bioRxiv first, then eLife Tools & Resources, PLOS Computational Biology or a Nature Methods Analysis?
+4. **Context-to-shock mapping.** It is not recorded in `labels.py` or any metadata (`results/step4/PROTOCOL.md`), so the draft uses "Context A" and "Context B" only. May it be stated, and from what source?
+5. **Finding 5 (irreversibility).** Its records **do** have git provenance (reversibility-tests `3d185c4`). The repo-without-git worry applies only to the density numbers (A2). It is included as the problem only, as decided.
+6. **Title.** The working title is kept verbatim from the prompt.
