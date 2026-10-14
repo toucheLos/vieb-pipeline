@@ -120,7 +120,8 @@ those arms carry native jitter plus that level's dropout (§2.3).
   code with 1,000 shifts. No setting changed between them.
 - **The neck fills `center`'s slot** (primary arm). The 6-keypoint
   sensitivity arm, the jitter-only and dropout-only arms, and the §1.8
-  ablation are **registered and deferred**. None has run.
+  ablation were registered after the verdict and have since run; see the
+  Addendum.
 - **"Easy positives survive" says nothing about behaviour in a fear session.**
   Investigation is a social behaviour, scored on a resident–intruder assay.
 - **Nothing here enters Paper 1.**
