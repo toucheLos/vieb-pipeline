@@ -133,3 +133,86 @@ Per the prompt, **Step 3 does not begin.** The human decides between:
 2. **Treat grooming as a method failure (3A).** That means localising where it
    is lost: a linear probe on the pipeline's features, then stage by stage.
 3. **Stop here.**
+
+---
+
+# Addendum: secondary arms and the decision-importance ablation
+
+Registered in `ABLATION_REGISTRATION.md` (3a5e371) after the verdict was seen
+and before any of these arms existed. The data are in `step1/secondary.json`
+(27 curves, 153 Reads) and `step1/ablation.json` (43 rows). **Everything here
+is descriptive, and the O2 outcome is unchanged.** A re-combine of the primary
+cells, which now also store per-sequence counts, reproduced `recovery.json`
+exactly: the same decision, curves and controls.
+
+## Secondary arms: which part of Luna's noise does the damage
+
+D on **investigation** (boundary F1, normalised, with the 95% lower bound):
+
+| arm | 1.0× | 1.5× | 2.0× | 3.0× | breakdown |
+|---|---|---|---|---|---|
+| joint (primary) | 0.50 (lo 0.31) | 0.37 (0.19) | 0.24 (0.09) | 0.11 (−0.00) | 1.5× |
+| **jitter only** | 0.51 (0.31) | 0.39 (0.19) | 0.27 (0.09) | 0.14 (−0.01) | **1.5×** |
+| **dropout only** | 0.54 (0.33) | 0.52 (0.32) | 0.51 (0.33) | 0.49 (0.32) | **> 3×** |
+| 6 keypoints (neck dropped) | 0.43 (0.25) | 0.28 (0.12) | 0.18 (0.06) | 0.08 (−0.01) | 1.5× |
+
+- **Jitter is what defeats the detector; Luna-pattern dropout barely matters,
+  even at three times Luna's rate.** Luna's dropout runs are mostly long, so
+  the `raw` arm holds them and abstain blocks boundaries there, rather than
+  creating spurious breaks.
+- **Discarding the neck**, with `center`'s slot filled by the midpoint between
+  the ear and hip midpoints, costs about 0.07 at 1.0× and leaves the breakdown
+  unchanged. The primary arm's neck-for-centre substitution is not what made
+  investigation recoverable.
+- **Groom is never recoverable in any arm**, on any instrument. M stays below
+  0.1 everywhere. C forms no clumps in any arm.
+
+## Ablation: which decision matters, for which behaviour, at which noise
+
+Paired Δ = variant − primary, at the same seeds and the same noise draws. The
+interval is a sequence bootstrap. Rows are shown where the CI excludes 0 and
+|Δ| ≥ 0.02.
+
+| decision | instrument | level | behaviour | Δ normalised [95% CI] |
+|---|---|---|---|---|
+| smoothing: median 0.25 s | D | 1.0× | investigation | **+0.214 [+0.061, +0.372]** (0.50 → 0.72) |
+| smoothing: median 0.25 s | D | native | investigation | +0.162 [+0.067, +0.264] |
+| window: DERIV_SEC 0.267 s | D | 1.0× | investigation | +0.157 [+0.063, +0.255] |
+| representation: pose only | D | 1.0× | investigation | **−0.121 [−0.191, −0.056]** |
+| frame rate: 15 fps | D | 1.0× | mount | +0.099 [+0.053, +0.145] |
+| frame rate: 10 fps | D | 1.0× | mount | +0.098 [+0.053, +0.145] |
+| window: DERIV_SEC 0.267 s | D | native | mount | +0.091 [+0.048, +0.144] |
+| window: DERIV_SEC 0.067 s | D | 1.0× | investigation | +0.081 [+0.041, +0.117] |
+| keypoints: 6 (no neck) | D | 1.0× | investigation | −0.073 [−0.114, −0.029] |
+| MoSeq κ 1e5 | M | native | groom | +0.065 [+0.018, +0.119] (0.02 → 0.09) |
+| window: DERIV_SEC 0.267 s | D | 1.0× | mount | +0.061 [+0.037, +0.089] |
+| frame rate: 15 / 10 fps | M | native | investigation | −0.049 / −0.050 |
+
+- **Pooled ranking**, on the lower bound of |Δ| averaged over investigation,
+  mount and groom:
+  1. D window 0.267 s at 1.0×;
+  2. D median smoothing at native;
+  3. D pose-only at 1.0×;
+  4. D median smoothing at 1.0×;
+  5. D six keypoints at 1.0×.
+
+  All lower bounds are between 0.02 and 0.03.
+- **Smoothing inside the nulls.** The median-smoothed white and phase controls
+  fired on **no** instrument, so the smoothing Δs stand. **Wiener smoothing is
+  `NOT_A_RESULT`**: there is no committed implementation for non-Luna data
+  (GAPS G11).
+
+**Reading.**
+- **For the detector, the decisions that matter all trade noise for
+  bandwidth**: smoothing, a longer derivative window, lower frame rates for
+  mount. They raise investigation and mount scores. The velocity channels
+  matter too: removing them costs 0.12.
+- **For grooming, no single decision moves the score anywhere near the bar.**
+  The largest change, MoSeq at κ 1e5, takes it from 0.02 to 0.09. Grooming's
+  failure is not a tuning problem in any of the registered decisions.
+- **MoSeq on investigation and mount** is near zero, with or without any
+  variant.
+
+This leaves the Step 3 question as it was. It strengthens the reading in the
+main report that grooming's failure points to method or representation (3A)
+rather than to input noise (3B).

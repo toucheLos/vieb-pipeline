@@ -1,0 +1,2636 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "CalMS21 external; descriptive"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "b957d874952a5d923d028437ff19b30e20264548-dirty",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "0546917ac50a946e210367f53c84f57288573d64-dirty",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "median_controls_fire": {
+    "C": 0,
+    "D": 0,
+    "M": 0
+  },
+  "ranking_pooled": [
+    {
+      "abs_delta_lower": 0.029302890155082088,
+      "decision": "window: DERIV_SEC 0.267 s",
+      "delta": 0.06400023324444493,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.02595272778540232,
+      "decision": "smoothing: median 0.25 s",
+      "delta": 0.06228630917018186,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.023917704949959626,
+      "decision": "representation: pose only",
+      "delta": -0.05359828956122859,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.020297174218987777,
+      "decision": "smoothing: median 0.25 s",
+      "delta": 0.07203755089292085,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.020288681143277025,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": -0.037544606118850354,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.016383054817288398,
+      "decision": "MoSeq kappa: 1e5",
+      "delta": 0.03788375135371013,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.015773001223242683,
+      "decision": "frame rate: 15 fps",
+      "delta": 0.06529145547820599,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.014080057233683153,
+      "decision": "frame rate: 10 fps",
+      "delta": -0.02393871992677762,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.011675254085312907,
+      "decision": "window: DERIV_SEC 0.267 s",
+      "delta": 0.06181207727135204,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.011002494369566483,
+      "decision": "window: DERIV_SEC 0.067 s",
+      "delta": 0.02356120259093707,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.010706588676109272,
+      "decision": "frame rate: 15 fps",
+      "delta": -0.020866980530121582,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.010350904069020886,
+      "decision": "smoothing: median 0.25 s",
+      "delta": -0.01948794205189625,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.00016424232981700996,
+      "decision": "smoothing: median 0.25 s",
+      "delta": 0.00016424232981700996,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.00014757596872995676,
+      "decision": "keypoints: no nose",
+      "delta": 0.00014757596872995676,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0001430378152160955,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": 0.0001430378152160955,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.00011714887145369372,
+      "decision": "frame rate: 10 fps",
+      "delta": 0.00011714887145369372,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 2.4451172414445863e-05,
+      "decision": "MoSeq kappa: 1e5",
+      "delta": 0.0004178509456848364,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 2.401318227201964e-05,
+      "decision": "keypoints: no nose",
+      "delta": -0.010863029572350838,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "smoothing: median 0.25 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "smoothing: median 0.25 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": 0.00651993059573833,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: 6 (no neck)",
+      "delta": -0.010074209591663337,
+      "instrument": "M",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: no nose",
+      "delta": -0.0034926830389341774,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: no nose",
+      "delta": 0.0010157229054842192,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: no nose",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "keypoints: no nose",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 15 fps",
+      "delta": 0.047944711159112495,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 15 fps",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 15 fps",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 15 fps",
+      "delta": 0.00033024598067886093,
+      "instrument": "M",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 10 fps",
+      "delta": -0.008325068527736937,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 10 fps",
+      "delta": 0.012172613829938108,
+      "instrument": "D",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 10 fps",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "frame rate: 10 fps",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "window: DERIV_SEC 0.067 s",
+      "delta": 0.010198718190642398,
+      "instrument": "D",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "window: DERIV_SEC 0.067 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "window: DERIV_SEC 0.067 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "window: DERIV_SEC 0.267 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 0.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "window: DERIV_SEC 0.267 s",
+      "delta": 0.0,
+      "instrument": "C",
+      "level": 1.0
+    },
+    {
+      "abs_delta_lower": 0.0,
+      "decision": "representation: pose only",
+      "delta": -0.000569268353826437,
+      "instrument": "D",
+      "level": 0.0
+    }
+  ],
+  "registration": "results/step1/ABLATION_REGISTRATION.md B",
+  "rows": [
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.026867687208125095,
+            0.0029998883932821235
+          ],
+          "delta": -0.012519781705080998,
+          "reference": -0.018275567855391684,
+          "variant": -0.030795349560472682
+        },
+        "investigation": {
+          "abs_delta_lower": 0.06714458519771982,
+          "ci": [
+            0.06714458519771982,
+            0.26414867608981885
+          ],
+          "delta": 0.1622529900848394,
+          "reference": 0.538622605983728,
+          "variant": 0.7008755960685674
+        },
+        "mount": {
+          "abs_delta_lower": 0.016995890801936295,
+          "ci": [
+            0.016995890801936295,
+            0.060585296576515665
+          ],
+          "delta": 0.03712571913078719,
+          "reference": 0.18850060096955798,
+          "variant": 0.22562632010034517
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.02595272778540232,
+        "ci": [
+          0.02595272778540232,
+          0.10163959154753088
+        ],
+        "delta": 0.06228630917018186
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.012308029206769149,
+          "ci": [
+            -0.04025352875029951,
+            -0.012308029206769149
+          ],
+          "delta": -0.026383821412662843,
+          "reference": -0.007223762988818216,
+          "variant": -0.03360758440148106
+        },
+        "investigation": {
+          "abs_delta_lower": 0.060654914916802964,
+          "ci": [
+            0.060654914916802964,
+            0.37248625620575265
+          ],
+          "delta": 0.21442013279167216,
+          "reference": 0.5013227556938985,
+          "variant": 0.7157428884855707
+        },
+        "mount": {
+          "abs_delta_lower": 0.0018822266186236491,
+          "ci": [
+            0.0018822266186236491,
+            0.0534295520273831
+          ],
+          "delta": 0.028076341299753255,
+          "reference": 0.16440976357023002,
+          "variant": 0.19248610486998327
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.020297174218987777,
+        "ci": [
+          0.020297174218987777,
+          0.1252419375362551
+        ],
+        "delta": 0.07203755089292085
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.003908410222407761,
+          "ci": [
+            -0.04075307693109687,
+            -0.003908410222407761
+          ],
+          "delta": -0.022070347859062724,
+          "reference": 0.02199927963968337,
+          "variant": -7.106821937935702e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.01843239608921697,
+          "ci": [
+            -0.05629502839757609,
+            -0.01843239608921697
+          ],
+          "delta": -0.03647242144089526,
+          "reference": 0.04896438521809148,
+          "variant": 0.012491963777196217
+        },
+        "mount": {
+          "abs_delta_lower": 7.894314426924379e-05,
+          "ci": [
+            7.894314426924379e-05,
+            7.894314426924379e-05
+          ],
+          "delta": 7.894314426924379e-05,
+          "reference": -7.894314426924379e-05,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.010350904069020886,
+        "ci": [
+          -0.028236209402925514,
+          -0.010350904069020886
+        ],
+        "delta": -0.01948794205189625
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: median 0.25 s",
+      "family": "a-med-m",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 2.8049114217050987e-05,
+          "ci": [
+            2.8049114217050987e-05,
+            2.8049114217050987e-05
+          ],
+          "delta": 2.8049114217050987e-05,
+          "reference": -6.288486780445296e-05,
+          "variant": -3.4835753587401974e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.00045978423426509753,
+          "ci": [
+            0.00045978423426509753,
+            0.00045978423426509753
+          ],
+          "delta": 0.00045978423426509753,
+          "reference": -0.0006628962719531417,
+          "variant": -0.00020311203768804415
+        },
+        "mount": {
+          "abs_delta_lower": 4.893640968881337e-06,
+          "ci": [
+            4.893640968881337e-06,
+            4.893640968881337e-06
+          ],
+          "delta": 4.893640968881337e-06,
+          "reference": -4.893640968881337e-06,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.00016424232981700996,
+        "ci": [
+          0.00016424232981700996,
+          0.00016424232981700996
+        ],
+        "delta": 0.00016424232981700996
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.017382755414846202,
+            0.006688440873745899
+          ],
+          "delta": -0.0040847844867413115,
+          "reference": -0.018275567855391684,
+          "variant": -0.022360352342132996
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.03605325978595997,
+            0.07933675798956155
+          ],
+          "delta": 0.024810357297164742,
+          "reference": 0.538622605983728,
+          "variant": 0.5634329632808928
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.018018324536775276,
+            0.018670843800080807
+          ],
+          "delta": -0.0011657810232084398,
+          "reference": 0.18850060096955798,
+          "variant": 0.18733481994634954
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.016308247450408937,
+          0.028157139048962943
+        ],
+        "delta": 0.00651993059573833
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.02035195011480995,
+            0.0009460594100995576
+          ],
+          "delta": -0.009925260147785643,
+          "reference": -0.007223762988818216,
+          "variant": -0.01714902313660386
+        },
+        "investigation": {
+          "abs_delta_lower": 0.029497757301381034,
+          "ci": [
+            -0.11431084790486705,
+            -0.029497757301381034
+          ],
+          "delta": -0.0728216635965564,
+          "reference": 0.5013227556938985,
+          "variant": 0.4285010920973421
+        },
+        "mount": {
+          "abs_delta_lower": 0.006720656272055836,
+          "ci": [
+            -0.05669638134900104,
+            -0.006720656272055836
+          ],
+          "delta": -0.02988689461220903,
+          "reference": 0.16440976357023002,
+          "variant": 0.13452286895802099
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.020288681143277025,
+        "ci": [
+          -0.05794444636374645,
+          -0.020288681143277025
+        ],
+        "delta": -0.037544606118850354
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.003955661686909023,
+          "ci": [
+            -0.040800328395598134,
+            -0.003955661686909023
+          ],
+          "delta": -0.022117599323563986,
+          "reference": 0.02199927963968337,
+          "variant": -0.00011831968388061917
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.03249489690542172,
+            0.016104461670450602
+          ],
+          "delta": -0.008130571043903773,
+          "reference": 0.04896438521809148,
+          "variant": 0.04083381417418771
+        },
+        "mount": {
+          "abs_delta_lower": 2.554159247775e-05,
+          "ci": [
+            2.554159247775e-05,
+            2.554159247775e-05
+          ],
+          "delta": 2.554159247775e-05,
+          "reference": -7.894314426924379e-05,
+          "variant": -5.340155179149379e-05
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.020431440929418797,
+          0.0004369306038611437
+        ],
+        "delta": -0.010074209591663337
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: 6 (no neck)",
+      "family": "k",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 8.166004924890868e-06,
+          "ci": [
+            8.166004924890868e-06,
+            8.166004924890868e-06
+          ],
+          "delta": 8.166004924890868e-06,
+          "reference": -6.288486780445296e-05,
+          "variant": -5.4718862879562094e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0004209720320049883,
+          "ci": [
+            0.0004209720320049883,
+            0.0004209720320049883
+          ],
+          "delta": 0.0004209720320049883,
+          "reference": -0.0006628962719531417,
+          "variant": -0.00024192423994815336
+        },
+        "mount": {
+          "abs_delta_lower": 2.459128159268396e-08,
+          "ci": [
+            -2.459128159268396e-08,
+            -2.459128159268396e-08
+          ],
+          "delta": -2.459128159268396e-08,
+          "reference": -4.893640968881337e-06,
+          "variant": -4.918232250474021e-06
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0001430378152160955,
+        "ci": [
+          0.0001430378152160955,
+          0.0001430378152160955
+        ],
+        "delta": 0.0001430378152160955
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 4.461835919408812e-05,
+          "ci": [
+            4.461835919408812e-05,
+            0.015049357477210834
+          ],
+          "delta": 0.0073912204352054,
+          "reference": -0.018275567855391684,
+          "variant": -0.010884347420186284
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.046921321741871545,
+            0.02352277547969974
+          ],
+          "delta": -0.012460228338133317,
+          "reference": 0.538622605983728,
+          "variant": 0.5261623776455947
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.016563540217480844,
+            0.007752909022573838
+          ],
+          "delta": -0.005409041213874616,
+          "reference": 0.18850060096955798,
+          "variant": 0.18309155975568336
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.016574568018034634,
+          0.009754106753668595
+        ],
+        "delta": -0.0034926830389341774
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.009600075383616541,
+            0.003260548005035822
+          ],
+          "delta": -0.003720526013607512,
+          "reference": -0.007223762988818216,
+          "variant": -0.010944289002425727
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.011574267233388015,
+            0.02346507783212818
+          ],
+          "delta": 0.007546145702539309,
+          "reference": 0.5013227556938985,
+          "variant": 0.5088689013964378
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.007464458377667457,
+            0.006243288728820608
+          ],
+          "delta": -0.0007784509724791389,
+          "reference": 0.16440976357023002,
+          "variant": 0.16363131259775088
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.006319499856284627,
+          0.007482620797285885
+        ],
+        "delta": 0.0010157229054842192
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.004056967428456395,
+          "ci": [
+            -0.04090163413714551,
+            -0.004056967428456395
+          ],
+          "delta": -0.02221890506511136,
+          "reference": 0.02199927963968337,
+          "variant": -0.0002196254254279909
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.03430848630402279,
+            0.01523656604455333
+          ],
+          "delta": -0.01044415863241998,
+          "reference": 0.04896438521809148,
+          "variant": 0.0385202265856715
+        },
+        "mount": {
+          "abs_delta_lower": 7.397498047881994e-05,
+          "ci": [
+            7.397498047881994e-05,
+            7.397498047881994e-05
+          ],
+          "delta": 7.397498047881994e-05,
+          "reference": -7.894314426924379e-05,
+          "variant": -4.968163790423843e-06
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 2.401318227201964e-05,
+        "ci": [
+          -0.02060414722852929,
+          -2.401318227201964e-05
+        ],
+        "delta": -0.010863029572350838
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "keypoints: no nose",
+      "family": "a-nonose-m",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 3.930830702569081e-06,
+          "ci": [
+            -3.930830702569081e-06,
+            -3.930830702569081e-06
+          ],
+          "delta": -3.930830702569081e-06,
+          "reference": -6.288486780445296e-05,
+          "variant": -6.681569850702204e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.00044176509592355805,
+          "ci": [
+            0.00044176509592355805,
+            0.00044176509592355805
+          ],
+          "delta": 0.00044176509592355805,
+          "reference": -0.0006628962719531417,
+          "variant": -0.00022113117602958363
+        },
+        "mount": {
+          "abs_delta_lower": 4.893640968881337e-06,
+          "ci": [
+            4.893640968881337e-06,
+            4.893640968881337e-06
+          ],
+          "delta": 4.893640968881337e-06,
+          "reference": -4.893640968881337e-06,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.00014757596872995676,
+        "ci": [
+          0.00014757596872995676,
+          0.00014757596872995676
+        ],
+        "delta": 0.00014757596872995676
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.001281162899726575,
+          "ci": [
+            -0.02877091143700936,
+            -0.001281162899726575
+          ],
+          "delta": -0.015681947398527327,
+          "reference": -0.018275567855391684,
+          "variant": -0.03395751525391901
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.09867417743596216,
+            0.22987592439176033
+          ],
+          "delta": 0.06282050216042967,
+          "reference": 0.538622605983728,
+          "variant": 0.6014431081441577
+        },
+        "mount": {
+          "abs_delta_lower": 0.047468693630203895,
+          "ci": [
+            0.047468693630203895,
+            0.15054743842362908
+          ],
+          "delta": 0.09669557871543513,
+          "reference": 0.18850060096955798,
+          "variant": 0.2851961796849931
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.011526647985270845,
+          0.10998743375422351
+        ],
+        "delta": 0.047944711159112495
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.013378188992040019,
+          "ci": [
+            -0.043450646448841654,
+            -0.013378188992040019
+          ],
+          "delta": -0.028239425704278405,
+          "reference": -0.007223762988818216,
+          "variant": -0.03546318869309662
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.0037001556446152935,
+            0.25854567433586834
+          ],
+          "delta": 0.12503917082376126,
+          "reference": 0.5013227556938985,
+          "variant": 0.6263619265176598
+        },
+        "mount": {
+          "abs_delta_lower": 0.05319369921011606,
+          "ci": [
+            0.05319369921011606,
+            0.14516823132266013
+          ],
+          "delta": 0.09907462131513511,
+          "reference": 0.16440976357023002,
+          "variant": 0.26348438488536513
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.015773001223242683,
+        "ci": [
+          0.015773001223242683,
+          0.11691473054975429
+        ],
+        "delta": 0.06529145547820599
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0040732628951117315,
+          "ci": [
+            -0.04091792960380084,
+            -0.0040732628951117315
+          ],
+          "delta": -0.022235200531766697,
+          "reference": 0.02199927963968337,
+          "variant": -0.0002359208920833272
+        },
+        "investigation": {
+          "abs_delta_lower": 0.027534866601310673,
+          "ci": [
+            -0.07334187890024371,
+            -0.027534866601310673
+          ],
+          "delta": -0.04923282851696993,
+          "reference": 0.04896438521809148,
+          "variant": -0.0002684432988784497
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.0005041478435603569,
+            0.016984813574623933
+          ],
+          "delta": 0.008867087458371876,
+          "reference": -7.894314426924379e-05,
+          "variant": 0.008788144314102632
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.010706588676109272,
+        "ci": [
+          -0.03215281798570257,
+          -0.010706588676109272
+        ],
+        "delta": -0.020866980530121582
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 15 fps",
+      "family": "a-fps15-m",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 5.589167811289302e-06,
+          "ci": [
+            5.589167811289302e-06,
+            5.589167811289302e-06
+          ],
+          "delta": 5.589167811289302e-06,
+          "reference": -6.288486780445296e-05,
+          "variant": -5.729569999316366e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.00016931063912426685,
+            0.004351015416497335
+          ],
+          "delta": 0.0010145374495321735,
+          "reference": -0.0006628962719531417,
+          "variant": 0.00035164117757903186
+        },
+        "mount": {
+          "abs_delta_lower": 2.938867530687995e-05,
+          "ci": [
+            -2.938867530687995e-05,
+            -2.938867530687995e-05
+          ],
+          "delta": -2.938867530687995e-05,
+          "reference": -4.893640968881337e-06,
+          "variant": -3.4282316275761286e-05
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -6.437004887328584e-05,
+          0.0014424053030005813
+        ],
+        "delta": 0.00033024598067886093
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.028249713125632882,
+            0.008717884582359633
+          ],
+          "delta": -0.009964292303619143,
+          "reference": -0.018275567855391684,
+          "variant": -0.028239860159010827
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.3139262009755331,
+            0.11531344628737716
+          ],
+          "delta": -0.10304532658573412,
+          "reference": 0.538622605983728,
+          "variant": 0.4355772793979939
+        },
+        "mount": {
+          "abs_delta_lower": 0.03614586995741646,
+          "ci": [
+            0.03614586995741646,
+            0.14394788978657375
+          ],
+          "delta": 0.08803441330614245,
+          "reference": 0.18850060096955798,
+          "variant": 0.27653501427570043
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.0844925420175813,
+          0.07104161845897056
+        ],
+        "delta": -0.008325068527736937
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0012596861881092282,
+          "ci": [
+            -0.04223941079594499,
+            -0.0012596861881092282
+          ],
+          "delta": -0.021268886184131832,
+          "reference": -0.007223762988818216,
+          "variant": -0.02849264917295005
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.226063004254058,
+            0.15300743780855164
+          ],
+          "delta": -0.040233406454952825,
+          "reference": 0.5013227556938985,
+          "variant": 0.4610893492389457
+        },
+        "mount": {
+          "abs_delta_lower": 0.052562022840933004,
+          "ci": [
+            0.052562022840933004,
+            0.14488550348106194
+          ],
+          "delta": 0.09802013412889898,
+          "reference": 0.16440976357023002,
+          "variant": 0.262429897699129
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.058273201180793925,
+          0.08217184156787681
+        ],
+        "delta": 0.012172613829938108
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0039831907243668896,
+          "ci": [
+            -0.040827857433056,
+            -0.0039831907243668896
+          ],
+          "delta": -0.022145128361021855,
+          "reference": 0.02199927963968337,
+          "variant": -0.00014584872133848527
+        },
+        "investigation": {
+          "abs_delta_lower": 0.02803590430860797,
+          "ci": [
+            -0.0745177382374854,
+            -0.02803590430860797
+          ],
+          "delta": -0.04974997456358024,
+          "reference": 0.04896438521809148,
+          "variant": -0.0007855893454887586
+        },
+        "mount": {
+          "abs_delta_lower": 7.894314426924379e-05,
+          "ci": [
+            7.894314426924379e-05,
+            7.894314426924379e-05
+          ],
+          "delta": 7.894314426924379e-05,
+          "reference": -7.894314426924379e-05,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.014080057233683153,
+        "ci": [
+          -0.033956468771381886,
+          -0.014080057233683153
+        ],
+        "delta": -0.02393871992677762
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "frame rate: 10 fps",
+      "family": "a-fps10-m",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 1.365003652187017e-06,
+          "ci": [
+            -1.365003652187017e-06,
+            -1.365003652187017e-06
+          ],
+          "delta": -1.365003652187017e-06,
+          "reference": -6.288486780445296e-05,
+          "variant": -6.424987145663998e-05
+        },
+        "investigation": {
+          "abs_delta_lower": 0.00034791797704438685,
+          "ci": [
+            0.00034791797704438685,
+            0.00034791797704438685
+          ],
+          "delta": 0.00034791797704438685,
+          "reference": -0.0006628962719531417,
+          "variant": -0.00031497829490875485
+        },
+        "mount": {
+          "abs_delta_lower": 4.893640968881337e-06,
+          "ci": [
+            4.893640968881337e-06,
+            4.893640968881337e-06
+          ],
+          "delta": 4.893640968881337e-06,
+          "reference": -4.893640968881337e-06,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.00011714887145369372,
+        "ci": [
+          0.00011714887145369372,
+          0.00011714887145369372
+        ],
+        "delta": 0.00011714887145369372
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "MoSeq kappa: 1e5",
+      "family": "a-k5-m",
+      "instrument": "M",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.017828968436220505,
+          "ci": [
+            0.017828968436220505,
+            0.1188842662173098
+          ],
+          "delta": 0.06505045583081556,
+          "reference": 0.02199927963968337,
+          "variant": 0.08704973547049893
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.0022066606391660825,
+            0.044779559926699755
+          ],
+          "delta": 0.022135573727174444,
+          "reference": 0.04896438521809148,
+          "variant": 0.07109995894526593
+        },
+        "mount": {
+          "abs_delta_lower": 0.0072604149130307645,
+          "ci": [
+            0.0072604149130307645,
+            0.05292225143945971
+          ],
+          "delta": 0.026465224503140386,
+          "reference": -7.894314426924379e-05,
+          "variant": 0.026386281358871142
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.016383054817288398,
+        "ci": [
+          0.016383054817288398,
+          0.0582210936271706
+        ],
+        "delta": 0.03788375135371013
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "MoSeq kappa: 1e5",
+      "family": "a-k5-m",
+      "instrument": "M",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 4.949740003985396e-05,
+          "ci": [
+            -4.949740003985396e-05,
+            -4.949740003985396e-05
+          ],
+          "delta": -4.949740003985396e-05,
+          "reference": -6.288486780445296e-05,
+          "variant": -0.00011238226784430692
+        },
+        "investigation": {
+          "abs_delta_lower": 0.00011795727631431021,
+          "ci": [
+            0.00011795727631431021,
+            0.003281271812191951
+          ],
+          "delta": 0.0012981565961254818,
+          "reference": -0.0006628962719531417,
+          "variant": 0.0006352603241723402
+        },
+        "mount": {
+          "abs_delta_lower": 4.893640968881337e-06,
+          "ci": [
+            4.893640968881337e-06,
+            4.893640968881337e-06
+          ],
+          "delta": 4.893640968881337e-06,
+          "reference": -4.893640968881337e-06,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 2.4451172414445863e-05,
+        "ci": [
+          2.4451172414445863e-05,
+          0.0010788893510403261
+        ],
+        "delta": 0.0004178509456848364
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.067 s",
+      "family": "a-w067-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.006188737221966399,
+            0.00965682855693168
+          ],
+          "delta": 0.0009254724012055862,
+          "reference": -0.018275567855391684,
+          "variant": -0.017350095454186098
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.0027538414693348496,
+            0.09642006435225053
+          ],
+          "delta": 0.044587999293838165,
+          "reference": 0.538622605983728,
+          "variant": 0.5832106052775662
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.03247295280040388,
+            0.001769507417259688
+          ],
+          "delta": -0.014917317123116558,
+          "reference": 0.18850060096955798,
+          "variant": 0.17358328384644142
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.008329992094904093,
+          0.030653030837284094
+        ],
+        "delta": 0.010198718190642398
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.067 s",
+      "family": "a-w067-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.01654952667648119,
+            0.0012637506787893504
+          ],
+          "delta": -0.008061285825095847,
+          "reference": -0.007223762988818216,
+          "variant": -0.015285048813914064
+        },
+        "investigation": {
+          "abs_delta_lower": 0.041324672746832096,
+          "ci": [
+            0.041324672746832096,
+            0.11662734824251875
+          ],
+          "delta": 0.08074873976302777,
+          "reference": 0.5013227556938985,
+          "variant": 0.5820714954569263
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.011315086080369496,
+            0.010004431533967469
+          ],
+          "delta": -0.0020038461651206985,
+          "reference": 0.16440976357023002,
+          "variant": 0.16240591740510932
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.011002494369566483,
+        "ci": [
+          0.011002494369566483,
+          0.03650086997396435
+        ],
+        "delta": 0.02356120259093707
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.067 s",
+      "family": "a-w067-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.067 s",
+      "family": "a-w067-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.267 s",
+      "family": "a-w267-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.03729179529216838,
+            0.008051047309274407
+          ],
+          "delta": -0.014910396075090347,
+          "reference": -0.018275567855391684,
+          "variant": -0.03318596393048203
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.013998519698258294,
+            0.24299002194969282
+          ],
+          "delta": 0.10955903725411609,
+          "reference": 0.538622605983728,
+          "variant": 0.6481816432378441
+        },
+        "mount": {
+          "abs_delta_lower": 0.047553463349699475,
+          "ci": [
+            0.047553463349699475,
+            0.1443712642102478
+          ],
+          "delta": 0.09078759063503036,
+          "reference": 0.18850060096955798,
+          "variant": 0.27928819160458834
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.011675254085312907,
+        "ci": [
+          0.011675254085312907,
+          0.11857812471604781
+        ],
+        "delta": 0.06181207727135204
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.267 s",
+      "family": "a-w267-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.009414850549993083,
+          "ci": [
+            -0.04422067875516294,
+            -0.009414850549993083
+          ],
+          "delta": -0.02608896891714598,
+          "reference": -0.007223762988818216,
+          "variant": -0.0333127319059642
+        },
+        "investigation": {
+          "abs_delta_lower": 0.06342313601264986,
+          "ci": [
+            0.06342313601264986,
+            0.25502500570366404
+          ],
+          "delta": 0.15668416242798122,
+          "reference": 0.5013227556938985,
+          "variant": 0.6580069181218797
+        },
+        "mount": {
+          "abs_delta_lower": 0.03673262368704892,
+          "ci": [
+            0.03673262368704892,
+            0.08885002549717812
+          ],
+          "delta": 0.061405506222499545,
+          "reference": 0.16440976357023002,
+          "variant": 0.22581526979272956
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.029302890155082088,
+        "ci": [
+          0.029302890155082088,
+          0.1006854137634173
+        ],
+        "delta": 0.06400023324444493
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.267 s",
+      "family": "a-w267-m",
+      "instrument": "C",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "window: DERIV_SEC 0.267 s",
+      "family": "a-w267-m",
+      "instrument": "C",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "delta": 0.0,
+          "reference": 0.0,
+          "variant": 0.0
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "representation: pose only",
+      "family": "a-shape-m",
+      "instrument": "D",
+      "level": 0.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.006520462203034396,
+            0.006560862801695158
+          ],
+          "delta": -0.00018735634639087048,
+          "reference": -0.018275567855391684,
+          "variant": -0.018462924201782555
+        },
+        "investigation": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.04118186136903017,
+            0.08251922252538994
+          ],
+          "delta": 0.019655948151427904,
+          "reference": 0.538622605983728,
+          "variant": 0.5582785541351559
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.05370975014273892,
+            0.008854372915088213
+          ],
+          "delta": -0.021176396866516345,
+          "reference": 0.18850060096955798,
+          "variant": 0.16732420410304163
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.0,
+        "ci": [
+          -0.024974857337083614,
+          0.024781618831590475
+        ],
+        "delta": -0.000569268353826437
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "representation: pose only",
+      "family": "a-shape-m",
+      "instrument": "D",
+      "level": 1.0,
+      "per_label": {
+        "groom": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.01946425370113543,
+            0.0013942647814283538
+          ],
+          "delta": -0.008132485199245504,
+          "reference": -0.007223762988818216,
+          "variant": -0.01535624818806372
+        },
+        "investigation": {
+          "abs_delta_lower": 0.055853932742799366,
+          "ci": [
+            -0.19109774568053967,
+            -0.055853932742799366
+          ],
+          "delta": -0.1205725003627211,
+          "reference": 0.5013227556938985,
+          "variant": 0.3807502553311774
+        },
+        "mount": {
+          "abs_delta_lower": 0.0,
+          "ci": [
+            -0.07282270593095541,
+            0.0013820441429937844
+          ],
+          "delta": -0.032089883121719176,
+          "reference": 0.16440976357023002,
+          "variant": 0.13231988044851084
+        }
+      },
+      "pooled": {
+        "abs_delta_lower": 0.023917704949959626,
+        "ci": [
+          -0.08725869948274666,
+          -0.023917704949959626
+        ],
+        "delta": -0.05359828956122859
+      },
+      "reason": "",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict": "MEASURED"
+    },
+    {
+      "decision": "smoothing: Wiener",
+      "reason": "no committed implementation for non-Luna data (GAPS G11)",
+      "verdict": "NOT_A_RESULT"
+    }
+  ],
+  "stage": "calms_ablation"
+}

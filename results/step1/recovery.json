@@ -1042,7 +1042,7 @@
       "device": null
     },
     "executable": "/home/tul26194/recur/venv/bin/python3",
-    "git_sha": "d42ca7e0dcd149f4f9ada55d8155b159be781882-dirty",
+    "git_sha": "b957d874952a5d923d028437ff19b30e20264548",
     "node": "stella.hpc",
     "packages": {
       "cv2": "5.0.0",
@@ -1056,7 +1056,7 @@
     },
     "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
     "python": "3.11.4",
-    "recur_git_sha": "38fe5c1d4444194d19dde07676940334fc000e28-dirty",
+    "recur_git_sha": "0546917ac50a946e210367f53c84f57288573d64-dirty",
     "slurm_array_task": null,
     "slurm_job": null
   },
