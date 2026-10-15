@@ -173,7 +173,7 @@ A null result is informative only if the instrument could have detected the effe
 
 **Detection floors.** Breaks of known order and amplitude, in multiples of the measured skull jitter, were planted into tuning-set pose and recovered by the registered detector; recall intervals are animal bootstraps.
 
-**Statistics and registration.** Intervals are percentile bootstraps over animals ({{param.ci_level|conf}}). No interval in this paper resamples frames: frames within an animal are not independent, and a frame-level bootstrap gives intervals far too narrow. Each analysis was preregistered in the project repositories before it ran, with its decision rule; deviations were registered before the result they affected was known. Every claim is recorded as a Read (verdict, scored object, reason, effective sample size with its unit), and refusals — results the rule declined to report — are listed with the same prominence as results.
+**Statistics and registration.** Intervals are percentile bootstraps over animals ({{param.ci_level|conf}}). No interval in this paper resamples frames: frames within an animal are not independent, and a frame-level bootstrap gives intervals far too narrow. Analyses were preregistered in the project repositories, with their decision rules, before they ran; where a registration or an amendment came after a result was seen, the record says so. Every claim is recorded as a Read (verdict, scored object, reason, effective sample size with its unit), and refusals — results the rule declined to report — are listed with the same prominence as results.
 
 ## Data and code availability
 
