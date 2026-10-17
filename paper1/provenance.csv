@@ -111,6 +111,7 @@ tri.mass.clean,0.7822279300638411,,,fraction of frames,"{""arm"": ""flag_triage"
 tri.n.artifact,12,,,syllables,,,,recur,recur/results/triage_moseq.json,/read/detail/categories/artifact,fd248dd,recur.results/triage_moseq/read,LIVE,len,
 tri.n.occlusion_linked,9,,,syllables,,,,recur,recur/results/triage_moseq.json,/read/detail/categories/occlusion_linked,fd248dd,recur.results/triage_moseq/read,LIVE,len,
 tri.n.clean,25,,,syllables,,,,recur,recur/results/triage_moseq.json,/read/detail/categories/clean,fd248dd,recur.results/triage_moseq/read,LIVE,len,
+tri.n_scored,46,,,syllables,,,,recur,recur/results/triage_moseq.json,/read/detail/per_label,fd248dd,recur.results/triage_moseq/read,LIVE,len,"labels scorable under MIN_STRATUM (recur/recur/audit/triage.py L40, L96-108)"
 tri.artifact_min,2.0,,,x enrichment,,,,recur,recur/results/triage_moseq.json,/read/detail/artifact_min,fd248dd,,not indexed,,
 tri.base_rate,0.04555032477638408,,,flagged frames,,,,recur,recur/results/triage_moseq.json,/read/detail/base_rate,fd248dd,,not indexed,,
 tri.min_stratum,200,,,frames,,,,recur,recur/results/triage_moseq.json,/read/detail/min_stratum,fd248dd,,not indexed,,
@@ -168,6 +169,7 @@ param.band_slow_hi,2.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.
 param.band_mid_hi,4.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""mid"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
 param.band_marginal_hi,6.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""marginal"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
 param.band_fast_hi,15.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""fast"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
+lit.kpms_target_ms,400,,,ms,,,,literature,doi:10.1038/s41592-024-02318-2,κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms,doi:10.1038/s41592-024-02318-2,,published,,"Weinreb et al. 2024, Methods (PMC11245396)"
 param.dwell_alpha,0.05,,,per-animal test level,,,,recur,recur/scripts/dwell_moseq.py,re:\(ps < ([0-9.]+)\)\.sum\(\),b69c1c3,,not indexed,,
 param.var_order,5,,,lags,,,,recur,recur/recur/recurrence/surrogate.py,"re:def ar_surrogate\(pose, rng, \*, p: int = (\d+)\)",38fe5c1,,not indexed,,VAR order of the AR surrogate
 param.plant_amp,16.0,,,sigma-bar,,,,vieb-pipeline,vieb-pipeline/results/plant.json,/reads/corpus|o2|a16/detail/amp_sigma,6c648d1,,not indexed,,

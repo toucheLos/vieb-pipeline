@@ -32,6 +32,8 @@ def fmt(v: Any, f: str) -> str:
         return f"{100 * x:+.{int(f[4:])}f}%".replace("-", "−")
     if f == "conf":                 # an alpha shown as its confidence level
         return f"{100 * (1 - x):.0f}%"
+    if f == "conf_tail":            # the tail a quantile leaves, as a percentage
+        return f"{100 * (1 - x):.0f}%"
     if f == "ord":                  # a quantile shown as an ordinal percentile
         n = int(round(100 * x))
         return f"{n}th"

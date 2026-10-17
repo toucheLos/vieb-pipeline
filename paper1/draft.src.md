@@ -10,7 +10,7 @@ Unsupervised segmentation tools turn pose trajectories into an inventory of beha
 
 ## Introduction
 
-Pose estimation has made it routine to record the trajectories of animal body parts at video frame rate, and a family of unsupervised tools now turns those trajectories into a sequence of discrete labels: Keypoint-MoSeq (Weinreb et al., 2024), B-SOiD (Hsu and Yttri, 2021), VAME (Luxem et al., 2022) and others. The output is an inventory of states — "syllables", "motifs", "clusters" — with their durations and transitions. These tools are useful, and the best of them are carefully built and documented.
+Pose estimation has made it routine to record the trajectories of animal body parts at video frame rate, and the field has argued for some time over how such trajectories should be mapped onto behaviour (Todd et al., 2017; Berman, 2018; Datta et al., 2019). A family of unsupervised tools now turns them into a sequence of discrete labels: Keypoint-MoSeq (Weinreb et al., 2024), B-SOiD (Hsu and Yttri, 2021), VAME (Luxem et al., 2022) and others. The output is an inventory of states — "syllables", "motifs", "clusters" — with their durations and transitions. These tools are useful, and the best of them are carefully built and documented.
 
 Every such tool returns an inventory. None of them can return "there are no states here": a hidden Markov model fits a sequence of regimes to any input, and a clustering algorithm partitions any point cloud. The tools also disagree with one another. A recent comparison on the same data found that B-SOiD, BFA, VAME and Keypoint-MoSeq returned different numbers of clusters and different typical motif durations, while the authors judged their overall performance comparable (Mlost et al., 2025). If the inventory is not evidence by itself, the evidence for discrete behavioural states has to come from properties of the inventory that a continuum would not produce.
 
@@ -18,7 +18,7 @@ Five such properties are commonly offered. **Dwell times** that are not geometri
 
 Each of these is a statistic computed at the end of a pipeline: video, keypoints, preprocessing, a representation, a labeller, a statistic (Figure 1). Each stage can impose structure. A sticky prior imposes persistence; a smoothing filter imposes temporal correlation; a delay embedding imposes a direction of travel; a per-recording standardisation imprints recording identity. The question this paper asks is narrow: **can each piece of evidence be produced by the pipeline alone, and is there a cheap control that would show it?**
 
-The answer, for every piece of evidence we tested, is that it can, and that there is. The controls are not new in kind. Surrogate data have a long history in nonlinear time-series analysis (Theiler et al., 1992), and preprocessing a null identically is standard practice in other fields. What we show is that they are not run in this field's standard workflow, and what happens when they are.
+The answer, for every piece of evidence we tested, is that it can, and that there is. The controls are not new in kind. Surrogate data have a long history in nonlinear time-series analysis (Theiler et al., 1992; Schreiber and Schmitz, 2000), and preprocessing a null identically is standard practice there. None of the major reviews or tool documentation we examined recommends running the fitted labeller on surrogates or applying identical preprocessing to the null; to our knowledge no survey has quantified how often such controls are reported. We show what happens when they are run.
 
 The work was done on one corpus, with one labeller audited in depth, by a project that made several of the errors described here and retracted them. We report the retractions alongside the controls that forced them, because they are the clearest evidence that the controls work. This is a methods paper. It does not claim that mouse behaviour is or is not organised into discrete states; on this corpus the question is not settled by any of the evidence below, once the controls are run.
 
@@ -46,6 +46,8 @@ The work was done on one corpus, with one labeller audited in depth, by a projec
 
 **What it shows.** Every surrogate rejected geometric dwell in every animal ({{dwell.ou.n_reject}}, {{dwell.ar.n_reject}} and {{dwell.white.n_reject}} of {{dwell.white.n_animals}}; Figure 2). The corpus's dispersion ({{dwell.corpus.var_over_mean_sq}}) sat inside the surrogates' range: OU {{dwell.ou.var_over_mean_sq}}, VAR {{dwell.ar.var_over_mean_sq}}, white noise {{dwell.white.var_over_mean_sq}}. White noise even produced the corpus's median dwell, {{dwell.white.median_dwell_frames}} frames against {{dwell.corpus.median_dwell_frames}}, from {{dwell.white.n_labels}} syllables. The non-geometric dwell is a property of the sticky prior, which is designed to produce persistent states and does so on any input. The project retracted the claim; Table S1 lists the retracted record beside the retraction.
 
+**How this differs from the published synthetic controls.** Keypoint-MoSeq's authors submitted synthetic keypoints that lacked any block structure — sampled from a linear dynamical system fitted to real trajectories — and the resulting models "failed to identify distinct syllables" (Weinreb et al., 2024, Extended Data Fig. 2g,h). Wiltschko et al. (2015) ran a control of the same kind for depth MoSeq, beside shuffles of the raw data that test the data rather than the labeller. Those controls ask whether distinct syllables emerge from structureless input. Ours asks a different question: whether non-geometric dwell emerges. The two can come apart, because persistence is what the stickiness prior is there to produce (Fox et al., 2011). In the published method, κ is "adjusted separately for each dataset to ensure a median state duration of {{lit.kpms_target_ms}} ms"; our labeller of record's median dwell, {{dwell.corpus.median_dwell_frames}} frames at {{data.fps}} frames per second, sits on that target. Dwell duration is partly a design target, which is why the dwell control has to be run at the fitted κ.
+
 **Rule 1.** Before reporting dwell structure as evidence of states, run the fitted labeller, at its fitted hyperparameters, on surrogates that have no states, and report the corpus beside them. A dwell statistic that the surrogates reproduce is a statement about the prior.
 
 ### Finding 2. The same model finds a grammar in white noise
@@ -54,7 +56,7 @@ The work was done on one corpus, with one labeller audited in depth, by a projec
 
 **What we found first.** On the report animals, {{grammar.corpus.n_significant}} of {{grammar.corpus.n_tested}} tested n-grams of two to four syllables survived Benjamini–Hochberg correction at q = {{grammar.fdr_q}} against a per-animal first-order Markov null. An earlier version of this table ({{grammar.superseded.n_significant}} of {{grammar.superseded.n_tested}}), computed on a label stream that was later replaced, is superseded and appears here only to record the change.
 
-**The control.** The same test, on the labels the same fitted model assigns to each surrogate. A positive control — the corpus pose sent through the surrogate machinery unchanged — reproduced the corpus table exactly ({{grammar.observed.n_significant}} of {{grammar.observed.n_tested}}), so the arms differ only in their input.
+**The control.** Markov surrogates of behavioural sequences are established (Berman, Bialek and Shaevitz, 2016), but there the null is built on the label sequence. Here the null input is passed through the labeller: the same test, on the labels the same fitted model assigns to each surrogate. A positive control — the corpus pose sent through the surrogate machinery unchanged — reproduced the corpus table exactly ({{grammar.observed.n_significant}} of {{grammar.observed.n_tested}}), so the arms differ only in their input.
 
 **What it shows.** Every arm has a grammar (Figure 3). OU: {{grammar.ou.n_significant}} of {{grammar.ou.n_tested}}. VAR: {{grammar.ar.n_significant}} of {{grammar.ar.n_tested}}. White noise: {{grammar.white.n_significant}} of {{grammar.white.n_tested}}. The white-noise survivors are not marginal: their median effect, {{grammar.white_effect}} in log ratio of observed to expected counts, is the largest of any arm. Inspecting the white-noise labels shows why. Fed noise, the model does not produce a poor repertoire; it settles into a near two-state alternation, and the test duly finds that the alternation is not first-order Markov. The "grammar" is the labeller ringing.
 
@@ -62,7 +64,7 @@ These grammar reads are marked provisional in the project's record, pending a re
 
 **Rule 2.** An n-gram survival count is not evidence of grammar without the same count on surrogates through the same fitted model. Report effects, not survival counts, and report them for every arm.
 
-### Finding 3. Preprocessing manufactures cross-animal recurrence
+### Finding 3. A known surrogate-data pitfall recurs in a behaviour pipeline: preprocessing decides a recurrence result
 
 **The evidence.** If animals share a vocabulary, short segments of one animal's behaviour should have close matches in other animals more often than a structureless null predicts.
 
@@ -71,6 +73,8 @@ These grammar reads are marked provisional in the project's record, pending a re
 **The control.** The pose had been Wiener-filtered before the statistic was computed. The null, a VAR({{param.var_order}}) fitted to each recording's own filtered pose and re-simulated with Gaussian innovations, saw the filter's output only through a linear fit; it never passed through the filter. We recomputed the same statistic, at the same window and dimension, on the unfiltered pose.
 
 **What it shows.** Without the filter the excess is {{q1.unfiltered.ar}} {{q1.unfiltered.ar.ci}}, an interval that contains zero (Figure 4). The same corpus and statistic, differing only in a preprocessing step, gives a positive result in one arm and a null in the other. Against a phase-randomised null both arms show large excesses ({{q1.wiener.phase}} filtered, {{q1.unfiltered.phase}} unfiltered), which says that phase randomisation is too weak a null for this statistic, not that the unfiltered pose recurs: a null that preserves only the power spectrum is beaten by any process with nonlinear structure. The recurrence result is therefore always stated with its arm, and the unfiltered cell is shown beside it.
+
+This is not a new pitfall. Filtered noise can mimic low-dimensional structure (Rapp et al., 1993), and a surrogate must reproduce every property of the data that is not under test, including its preprocessing (Theiler et al., 1992; Schreiber and Schmitz, 2000). What this finding adds is that the pitfall recurs, at full size, in a behaviour pipeline.
 
 **Rule 3.** Any transformation applied to the data — smoothing, interpolation, resampling, standardisation — must be applied inside every null, after the null is generated, not merely fitted to the transformed data. A result that depends on the arm is a result about the arm.
 
@@ -82,15 +86,19 @@ These grammar reads are marked provisional in the project's record, pending a re
 
 **The control.** Two inputs whose answer is known. A driven three-state ring, rendered as pose at the corpus's sample size, has a known irreversibility. White-noise pose has none.
 
-**What it shows.** At τ = {{irr.tau0}} s the estimator assigns white noise an entropy production of {{irr.white_02}} nats, while the driven ring's own irreversibility is {{irr.ring_true_02}} nats (Figure 5a). The ring, estimated through the same pipeline, reads {{irr.ring_obs_02}} against {{irr.ring_sur_02}} for its own phase-randomised surrogates, which preserve every second-order statistic and carry no irreversibility: the estimator cannot see an irreversibility planted to be seen. The guard that tests for this returned {{irr.guard}}. Most of the estimate comes from the embedding. On white noise, the estimate rises with the delay order, from {{irr.embed_K1}} nats at K = {{irr.K1}} to {{irr.embed_K24}} at K = {{irr.K24}} (Figure 5b): overlapping windows make the embedded trajectory advance in one direction whatever it is fed. At τ = {{irr.db_tau}} s, white noise ({{irr.white_03}} nats) clears the detailed-balance sampling floor ({{irr.db_floor_03}}) several-fold — so a detailed-balance null, which holds the operator's own counts fixed, cannot catch an asymmetry the embedding put there before the counts were taken.
+**What it shows.** At τ = {{irr.tau0}} s the estimator assigns white noise an entropy production of {{irr.white_02}} nats, while the driven ring's own irreversibility is {{irr.ring_true_02}} nats (Figure 5a). The ring, estimated through the same pipeline, reads {{irr.ring_obs_02}} against {{irr.ring_sur_02}} for its own phase-randomised surrogates, which preserve every second-order statistic and carry no irreversibility: the estimator cannot see an irreversibility planted to be seen. The guard that tests for this returned {{irr.guard}}. Most of the estimate comes from the embedding. On white noise, the estimate at τ = {{irr.tau0}} s rises with the delay order, from {{irr.embed_K1}} nats at K = {{irr.K1}} to {{irr.embed_K24}} at K = {{irr.K24}} (Figure 5b): overlapping windows make the embedded trajectory advance in one direction whatever it is fed. At τ = {{irr.db_tau}} s, white noise ({{irr.white_03}} nats) clears the detailed-balance sampling floor ({{irr.db_floor_03}}) several-fold — so a detailed-balance null, which holds the operator's own counts fixed, cannot catch an asymmetry the embedding put there before the counts were taken.
+
+**Relation to existing estimators.** Entropy production is commonly estimated from the divergence between forward and time-reversed statistics of a coarse-grained trajectory (Roldán and Parrondo, 2010, 2012; Lynn et al., 2021), and behaviour studies have built transition operators by delay-embedding and then partitioning (Ahamed et al., 2021; Costa et al., 2024). We do not claim that those estimators are affected. The result concerns the overlapping-window plug-in estimator tested here.
 
 **What we did not test.** We did not test a cross-fitted estimator. Non-overlapping windows alone (K = {{irr.K1}}) did not remove the bias: white noise still read {{irr.embed_K1}} nats. We therefore state the rule in the form we can support.
 
 **Rule 4.** Report every irreversibility estimate beside the same estimator's value on white noise, and on a planted system of known irreversibility at the same sample size. If the estimator does not separate the planted system from a reversible surrogate of it, its value on the data is not a measurement.
 
-### Finding 5. Representations and labels carry recording identity, and a white-noise control cannot see it
+### Finding 5. Identity leakage needs a direct probe; a white-noise control cannot see it
 
 **The evidence at risk.** Many downstream analyses — context effects, learning curves, individual differences — compare labels or representations across recordings. If those labels encode which recording they came from, a "context effect" can be a recording effect.
+
+**What is already known.** Behavioural representations carry individual identity: MoSeq syllable usage distinguishes individual mice more strongly than it tracks estrous state (Levy et al., 2023). We claim two narrower things: that a held-out identity probe is a required control for comparisons across recordings, and that the usual white-noise control cannot detect identity leakage.
 
 **The control.** A direct probe: a classifier that predicts the recording (or the animal) from the representation, held out by window within each recording, scored in nats of identity recovered against the ceiling log N. Not a shuffle correction: per-recording standardisation anywhere in the pipeline disarms a shuffle, because it makes shuffled and unshuffled data look alike.
 
@@ -102,15 +110,15 @@ The probe has its own failure mode. A multinomial classifier over thousands of c
 
 **Rule 5.** Probe identity directly — recording and animal — on every representation and label set that is compared across recordings, held out by window within recording, and report the leak in nats against its own ceiling. Do not infer its absence from a passed white-noise control.
 
-### Finding 6. Some syllables track the tracker, and posture separates them from real behaviour that breaks the tracker
+### Finding 6. Some syllables persist as tracker artifacts despite the noise model; posture separates them from real behaviour that breaks the tracker
 
-**The evidence at risk.** A published state inventory is treated as an inventory of behaviour. Some of its states may instead be states of the tracker.
+**The evidence at risk.** A published state inventory is treated as an inventory of behaviour. Keypoint jitter can drive spurious syllable switches, which is the problem Keypoint-MoSeq's noise model was built to solve (Weinreb et al., 2024). We claim two narrower things: that some syllables still track tracker failure despite the noise model, and that stratifying by posture and speed is the diagnostic that separates them from real behaviour.
 
 **The naive control, and why it overstates.** Enrichment of tracker-quality flags in a syllable is the obvious test. It overstates contamination, because real behaviours break trackers: rearing occludes keypoints and darting blurs them. An unstratified version of this test attributed {{tri.superseded}} of frames to artifact-enriched syllables; that figure is superseded.
 
 **The control.** Condition on what the animal is doing. Within each of fifteen strata of speed (quintiles) and body extension (terciles), compare each syllable's flag rate with the stratum's base rate. An artifact syllable is one enriched at least {{tri.artifact_min}}-fold in every stratum where it has at least {{tri.min_stratum}} frames: the tracker fails whatever the animal is doing. An occlusion-linked syllable is enriched only in some strata — where the posture is one that breaks a tracker.
 
-**What it shows** (Figure 6). {{tri.n.artifact}} syllables, carrying {{tri.mass.artifact}} of frames, are artifact by this rule. Another {{tri.n.occlusion_linked}}, carrying {{tri.mass.occlusion_linked}}, are occlusion-linked: they are real behaviours that the tracker struggles with, and removing them would remove behaviour. The remaining {{tri.n.clean}} syllables ({{tri.mass.clean}} of frames) show no consistent enrichment. The difference between the unstratified and stratified answers is the difference between calling a fifth of the inventory contaminated and calling a few percent of it contaminated.
+**What it shows** (Figure 6). {{tri.n.artifact}} syllables, carrying {{tri.mass.artifact}} of frames, are artifact by this rule. Another {{tri.n.occlusion_linked}}, carrying {{tri.mass.occlusion_linked}}, are occlusion-linked: they are real behaviours that the tracker struggles with, and removing them would remove behaviour. The remaining {{tri.n.clean}} syllables ({{tri.mass.clean}} of frames) show no consistent enrichment. Of the {{dwell.corpus.n_labels}} syllables, {{tri.n_scored}} could be classified; the others had no posture stratum holding at least {{tri.min_stratum}} of their frames, and were not scored. The difference between the unstratified and stratified answers is the difference between calling a fifth of the inventory contaminated and calling a few percent of it contaminated.
 
 **Rule 6.** Triage every syllable against the tracker's quality flags, stratified by posture, before interpreting the inventory. Report artifact and occlusion-linked syllables separately; they need different treatment.
 
@@ -120,7 +128,7 @@ A null result is informative only if the instrument could have detected the effe
 
 **Boundaries.** A boundary detector based on breaks in acceleration was calibrated by planting breaks of known amplitude into real pose. At {{param.plant_amp}} times the skull jitter σ̄ ({{data.sigma_bar}} body lengths each, so about one body length in total), it recovered a second-order break {{plant.o2.a16}} {{plant.o2.a16.ci}} of the time against {{plant.chance_o2_a16}} chance, over {{plant.n_instances}} planted breaks in {{plant.o2.a16.n}} tuning animals; at one σ̄ it recovered {{plant.o2.a1}} (Supplementary Figure S4). Transitions subtler than roughly a body length of acceleration change are below this instrument's floor.
 
-**Frequency content.** Keypoint jitter is not white: it is correlated in time and partly shared across keypoints. Against a null built from the measured noise spectrum, the persistence of the dominant autoregressive pole separated corpus windows from noise ({{dyn.pole_radius}} of corpus windows above the null's {{param.null_q|ord}} percentile), while the pole's frequency did not ({{dyn.pole_frequency_hz}}). Band power separated weakly above {{param.band_slow_hi}} Hz: {{dyn.band_slow}} of windows in the band from {{param.band_slow_lo}} to {{param.band_slow_hi}} Hz exceeded the null's percentile, against {{dyn.band_mid}}, {{dyn.band_marginal}} and {{dyn.band_fast}} in the bands up to {{param.band_mid_hi}}, {{param.band_marginal_hi}} and {{param.band_fast_hi}} Hz, and in those faster bands the corpus's median relative power lay below the noise's (Supplementary Figure S5). Claims about fast keypoint dynamics — rhythmic grooming, tremor — need a better tracker than this one, and a claim that such dynamics are absent from this corpus would be a claim about the tracker.
+**Frequency content.** Keypoint jitter is not white: it is correlated in time and partly shared across keypoints. Against a null built from the measured noise spectrum, the persistence of the dominant autoregressive pole separated corpus windows from noise ({{dyn.pole_radius}} of corpus windows above the null's {{param.null_q|ord}} percentile), while the pole's frequency did not ({{dyn.pole_frequency_hz}}). Band power separated most in the band from {{param.band_slow_lo}} to {{param.band_slow_hi}} Hz ({{dyn.band_slow}} of windows above the null's percentile) and partially in the faster bands: {{dyn.band_mid}}, {{dyn.band_marginal}} and {{dyn.band_fast}} of windows in the bands up to {{param.band_mid_hi}}, {{param.band_marginal_hi}} and {{param.band_fast_hi}} Hz, where a null with no signal would put about {{param.null_q|conf_tail}} of windows (Supplementary Figure S5). In those faster bands the corpus's median relative power lay below the noise's. These are the stored fractions and medians; we draw no conclusion about which keypoint dynamics are or are not present at these frequencies.
 
 **Recurrence.** The recurrence statistic of Finding 3 was calibrated by planting a stereotyped template at known occupancies against the same null; the floor is reported with that result in the project's record and is not repeated here.
 
@@ -207,14 +215,42 @@ A null result is informative only if the instrument could have detected the effe
 
 ## References
 
-Hsu, A.I., and Yttri, E.A. (2021). B-SOiD, an open-source unsupervised algorithm for identification and fast prediction of behaviors. Nature Communications 12, 5188.
+Ahamed, T., Costa, A.C., and Stephens, G.J. (2021). Capturing the continuous complexity of behaviour in *Caenorhabditis elegans*. Nature Physics 17(2), 275–283. https://doi.org/10.1038/s41567-020-01036-8
 
-Luxem, K., Mocellin, P., Fuhrmann, F., Kürsch, J., Miller, S.R., Palop, J.J., Remy, S., and Bauer, P. (2022). Identifying behavioral structure from deep variational embeddings of animal motion. Communications Biology 5, 1267.
+Berman, G.J. (2018). Measuring behavior across scales. BMC Biology 16(1), 23. https://doi.org/10.1186/s12915-018-0494-7
 
-Mathis, A., Mamidanna, P., Cury, K.M., Abe, T., Murthy, V.N., Mathis, M.W., and Bethge, M. (2018). DeepLabCut: markerless pose estimation of user-defined body parts with deep learning. Nature Neuroscience 21, 1281–1289.
+Berman, G.J., Bialek, W., and Shaevitz, J.W. (2016). Predictability and hierarchy in *Drosophila* behavior. Proceedings of the National Academy of Sciences 113(42), 11943–11948. https://doi.org/10.1073/pnas.1607601113
 
-Mlost, J., Dawli, R., Liu, X., Costa, A.R., and Pollak Dorocic, I. (2025). Evaluation of unsupervised learning algorithms for the classification of behavior from pose estimation data. Patterns 6, 101237.
+Costa, A.C., Ahamed, T., Jordan, D., and Stephens, G.J. (2024). A Markovian dynamics for *Caenorhabditis elegans* behavior across scales. Proceedings of the National Academy of Sciences 121(32), e2318805121. https://doi.org/10.1073/pnas.2318805121
 
-Theiler, J., Eubank, S., Longtin, A., Galdrikian, B., and Farmer, J.D. (1992). Testing for nonlinearity in time series: the method of surrogate data. Physica D 58, 77–94.
+Datta, S.R., Anderson, D.J., Branson, K., Perona, P., and Leifer, A. (2019). Computational neuroethology: a call to action. Neuron 104(1), 11–24. https://doi.org/10.1016/j.neuron.2019.09.038
 
-Weinreb, C., Pearl, J.E., Lin, S., Osman, M.A.M., Zhang, L., Annapragada, S., Conlin, E., Hoffmann, R., Makowska, S., Gillis, W.F., et al. (2024). Keypoint-MoSeq: parsing behavior by linking point tracking to pose dynamics. Nature Methods 21, 1329–1339.
+Fox, E.B., Sudderth, E.B., Jordan, M.I., and Willsky, A.S. (2011). A sticky HDP-HMM with application to speaker diarization. The Annals of Applied Statistics 5(2A), 1020–1056. https://doi.org/10.1214/10-AOAS395
+
+Hsu, A.I., and Yttri, E.A. (2021). B-SOiD, an open-source unsupervised algorithm for identification and fast prediction of behaviors. Nature Communications 12(1), 5188. https://doi.org/10.1038/s41467-021-25420-x
+
+Levy, D.R., Hunter, N., Lin, S., Robinson, E.M., Gillis, W., Conlin, E.B., Anyoha, R., Shansky, R.M., and Datta, S.R. (2023). Mouse spontaneous behavior reflects individual variation rather than estrous state. Current Biology 33(7), 1358–1364.e4. https://doi.org/10.1016/j.cub.2023.02.035
+
+Luxem, K., Mocellin, P., Fuhrmann, F., Kürsch, J., Miller, S.R., Palop, J.J., Remy, S., and Bauer, P. (2022). Identifying behavioral structure from deep variational embeddings of animal motion. Communications Biology 5(1), 1267. https://doi.org/10.1038/s42003-022-04080-7
+
+Lynn, C.W., Cornblath, E.J., Papadopoulos, L., Bertolero, M.A., and Bassett, D.S. (2021). Broken detailed balance and entropy production in the human brain. Proceedings of the National Academy of Sciences 118(47), e2109889118. https://doi.org/10.1073/pnas.2109889118
+
+Mathis, A., Mamidanna, P., Cury, K.M., Abe, T., Murthy, V.N., Mathis, M.W., and Bethge, M. (2018). DeepLabCut: markerless pose estimation of user-defined body parts with deep learning. Nature Neuroscience 21(9), 1281–1289. https://doi.org/10.1038/s41593-018-0209-y
+
+Mlost, J., Dawli, R., Liu, X., Costa, A.R., and Pollak Dorocic, I. (2025). Evaluation of unsupervised learning algorithms for the classification of behavior from pose estimation data. Patterns 6(5), 101237. https://doi.org/10.1016/j.patter.2025.101237
+
+Rapp, P.E., Albano, A.M., Schmah, T.I., and Farwell, L.A. (1993). Filtered noise can mimic low-dimensional chaotic attractors. Physical Review E 47(4), 2289–2297. https://doi.org/10.1103/PhysRevE.47.2289
+
+Roldán, É., and Parrondo, J.M.R. (2010). Estimating dissipation from single stationary trajectories. Physical Review Letters 105(15), 150607. https://doi.org/10.1103/PhysRevLett.105.150607
+
+Roldán, É., and Parrondo, J.M.R. (2012). Entropy production and Kullback–Leibler divergence between stationary trajectories of discrete systems. Physical Review E 85(3), 031129. https://doi.org/10.1103/PhysRevE.85.031129
+
+Schreiber, T., and Schmitz, A. (2000). Surrogate time series. Physica D 142(3–4), 346–382. https://doi.org/10.1016/S0167-2789(00)00043-9
+
+Theiler, J., Eubank, S., Longtin, A., Galdrikian, B., and Farmer, J.D. (1992). Testing for nonlinearity in time series: the method of surrogate data. Physica D 58(1–4), 77–94. https://doi.org/10.1016/0167-2789(92)90102-S
+
+Todd, J.G., Kain, J.S., and de Bivort, B.L. (2017). Systematic exploration of unsupervised methods for mapping behavior. Physical Biology 14(1), 015002. https://doi.org/10.1088/1478-3975/14/1/015002
+
+Weinreb, C., Pearl, J.E., Lin, S., Osman, M.A.M., Zhang, L., Annapragada, S., Conlin, E., Hoffmann, R., Makowska, S., Gillis, W.F., et al. (2024). Keypoint-MoSeq: parsing behavior by linking point tracking to pose dynamics. Nature Methods 21(7), 1329–1339. https://doi.org/10.1038/s41592-024-02318-2
+
+Wiltschko, A.B., Johnson, M.J., Iurilli, G., Peterson, R.E., Katon, J.M., Pashkovski, S.L., Abraira, V.E., Adams, R.P., and Datta, S.R. (2015). Mapping sub-second structure in mouse behavior. Neuron 88(6), 1121–1135. https://doi.org/10.1016/j.neuron.2015.11.031

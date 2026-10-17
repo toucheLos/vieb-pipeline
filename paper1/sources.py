@@ -94,6 +94,14 @@ def _atlas() -> dict[str, dict]:
 
 
 def resolve(s: Src, atlas: dict[str, dict]) -> dict[str, Any]:
+    if s.repo == "literature":
+        # A number quoted from a published paper: the DOI is the source, the
+        # verbatim quote is the pointer, and references_check.md records the link.
+        return {"key": s.key, "value": s.extra["value"], "fmt": s.fmt, "unit": s.unit,
+                "repo": "literature", "path": f"doi:{s.path}", "pointer": s.ptr,
+                "commit": f"doi:{s.path}", "atlas_id": "", "atlas_status": "published",
+                "transform": "", "note": s.note, "lo": "", "hi": "", "scored_object": "",
+                "n_effective": "", "n_effective_unit": ""}
     if s.repo == "atlas":
         rec = atlas[s.path]
         v = pointer(rec, s.ptr)
@@ -286,6 +294,9 @@ def _entries() -> list[Src]:
     for k in ("artifact", "occlusion_linked", "clean"):
         a(Src(f"tri.n.{k}", R, TR, f"/read/detail/categories/{k}", "int", "syllables",
               atlas="recur.results/triage_moseq/read", transform="len"))
+    a(Src("tri.n_scored", R, TR, "/read/detail/per_label", "int", "syllables",
+          atlas="recur.results/triage_moseq/read", transform="len",
+          note="labels scorable under MIN_STRATUM (recur/recur/audit/triage.py L40, L96-108)"))
     a(Src("tri.artifact_min", R, TR, "/read/detail/artifact_min", "f1", "x enrichment"))
     a(Src("tri.base_rate", R, TR, "/read/detail/base_rate", "pct2", "flagged frames"))
     a(Src("tri.min_stratum", R, TR, "/read/detail/min_stratum", "int", "frames"))
@@ -344,6 +355,11 @@ def _entries() -> list[Src]:
                    ("marginal_hi", r'\("marginal", [0-9.]+, ([0-9.]+)\)'),
                    ("fast_hi", r'\("fast", [0-9.]+, ([0-9.]+)\)')):
         a(Src(f"param.band_{nm}", V, "vieb/seg/descriptors.py", "re:" + rx, "f1", "Hz"))
+
+    # Numbers quoted from the literature (verified; paper1/references_check.md)
+    a(Src("lit.kpms_target_ms", "literature", "10.1038/s41592-024-02318-2",
+          "κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms",
+          "int", "ms", extra={"value": 400}, note="Weinreb et al. 2024, Methods (PMC11245396)"))
 
     # Method parameters stated in committed code
     a(Src("param.dwell_alpha", R, "scripts/dwell_moseq.py", r"re:\(ps < ([0-9.]+)\)\.sum\(\)", "f2",
