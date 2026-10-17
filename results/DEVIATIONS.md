@@ -1046,3 +1046,13 @@ below its 5th percentile. Jitter is re-measured with the skull-bone estimator on
 the lowest centroid-speed decile of unflagged tune frames, and the operator is
 scaled to that level. This was decided by the user before any fit.
 
+## D34 — STEP 4: still-frame jitter from frame-to-frame increments
+
+`results/step4/REGISTRATION.md` Amendment 2. Amendment 1's level-based skull
+estimator still overstated still-frame jitter: on still frames, every keypoint
+moves < 0.5 px in about 10% of frame pairs, and half of the real frames remained
+below the surrogate's 5th percentile (on a 60-recording smoke, not a registered
+run). The noise floor is now the SD of skull-bone-length increments between
+consecutive still frames, calibrated through the same statistic applied to the
+Step 1 operator. This was decided by the user before any registered fit.
+

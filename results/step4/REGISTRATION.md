@@ -202,3 +202,46 @@ becomes "a motionless animal with still-frame jitter must read freeze".
 
 **Unchanged:** C1, C3 (duration fits, family choice, HSMM against HMM, prior
 imprint, flicker), C4's bars, and C5.
+
+---
+
+# Amendment 2: the still-frame jitter is measured from frame-to-frame increments
+
+**Committed alone, recorded as `DEVIATIONS.md` D34.** It supersedes Amendment 1's
+estimator; the still-frame selection is kept. Made after Amendment 1's
+**60-recording smoke**, which is not a registered run and from which no result is
+reported. No registered fit, control or decode exists. The user chose this option.
+
+**Why Amendment 1 was not enough.** On still frames this tracker's frame-to-frame
+jitter is sub-pixel: in about 10% of consecutive frame pairs every keypoint moves
+less than 0.5 px. The skull-bone estimator measures each bone's deviation from a
+**reference length**, so it also absorbs real differences between still bouts,
+such as head posture. On the smoke it read 0.0254 BL, and half of the real frames
+still lay below the surrogate's 5th percentile. The emission signal (v, r) is built
+from displacements over a short window, so its noise floor has to be measured the
+same way, from increments.
+
+**Amended C2, freeze emission.**
+1. **Still frames:** unchanged from Amendment 1. Unflagged tune frames in the
+   lowest decile of the registered centroid speed v_t, with the decile pooled.
+2. **The real increment statistic.** For each recording, the three skull bone
+   lengths are taken on `pose_unfiltered`, in BL (÷ ℓ_a). Increments are
+   ΔL = L_{t+1} − L_t over **consecutive pairs where both frames are still**, with
+   no missing or interpolated endpoint. s_real is the SD of ΔL pooled over bones and
+   recordings, the **median over recordings** of each recording's SD (recordings
+   with fewer than 200 pairs are skipped).
+3. **Calibration through the same statistic.** s_op(1) is the same increment SD
+   applied to Step 1's jitter operator at level 1. That means
+   `added_bl(1, 0, profile, g)` noise on the rigid calibration pose (Luna's median
+   skull geometry, as in Step 1), 300,000 frames, seed 0.
+   **m_inc = s_real / s_op(1)**. The operator is linear in its level, so this keeps
+   Luna's measured colour, common mode and per-keypoint profile.
+4. **The freeze surrogate** is a motionless median pose plus the operator at
+   **m_inc**. The rest of C2 is unchanged.
+
+**Reported beside it (descriptive):** s_real, s_op(1), m_inc; Amendment 1's
+level-based σ_still, for comparison; and the share of real unflagged frames below
+the new surrogate's 5th percentile.
+
+**Unchanged:** C1, C3, C4's bars (the stationary and planted controls use m_inc
+jitter), and C5.
