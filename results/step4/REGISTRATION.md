@@ -157,3 +157,48 @@ shuffled session order, time-reversed sessions, a stationary surrogate and plant
 learning. Uncertainty comes from an animal bootstrap that refits all parameters. It
 **waits for** the shock protocol and session types from the lab, and is registered
 in full before it runs.
+
+---
+
+# Amendment 1: the freeze emission is anchored to the still-frame noise floor
+
+**Committed alone, recorded as `DEVIATIONS.md` D33.** Made after a smoke test and a
+pre-run diagnostic (`hsmm_floor_diagnostic.json`, 4c8b255). It precedes any
+registered fit, control or decode. The user chose this option over three others.
+
+**The defect.** The registered p(x | freeze), a motionless pose plus Luna's
+measured jitter at the Step 1 level, sits **above** the stillest real frames.
+- The real pose-change rate has its 5th percentile at 0.010 BL/s. The surrogate's
+  median is 0.362 (shapeflow's native noise gives 0.129).
+- Half of the real frames lie below the surrogate's own 5th percentile.
+- EM gives the freeze component about zero weight.
+- So the tracker is steadier on still frames than its whole-recording noise
+  calibration, and a stationary noise floor cannot represent stillness.
+
+**Amended C2, freeze emission.** The jitter level is re-measured **on still frames
+only**, with the same skull-bone estimator:
+1. **Still frames:** tune-split frames that are unflagged and lie in the **lowest
+   decile (10%) of the registered centroid speed v_t**, with the decile pooled over
+   all unflagged tune frames.
+2. **σ̄_still:** `vieb.seg.jitter.residuals` on the `raw` arm, with every non-still
+   frame marked unusable, so the per-recording reference length is the median over
+   that recording's still frames. Then `jitter.calibrate` on DLC confidence, and the
+   count-weighted mean (`scripts/plant.py sigma_bar`'s statistic).
+3. **The freeze surrogate** is as registered, a motionless median pose plus Step 1's
+   jitter operator, but at level **m_still = σ̄_still / σ̄_L** instead of 1.0:
+   `added_bl(m_still, 0, profile, g)`. This keeps Luna's measured colour,
+   common-mode share and per-keypoint profile.
+4. The rest of C2 is unchanged: p(x | move) by EM with the new freeze density held
+   fixed; tracking_lost; the grid.
+
+**Reported beside it (descriptive):** σ̄_still against σ̄_L; and the share of real
+unflagged frames below the new surrogate's 5th percentile, for comparison with the
+diagnostic's 0.72.
+
+**What this concedes.** "Still" is chosen by centroid speed, which is behaviour,
+so the anchor is no longer behaviour-free. The emission is still a **noise model**
+measured on the rigid skull, not a fit to posture change. The jitter-only control
+becomes "a motionless animal with still-frame jitter must read freeze".
+
+**Unchanged:** C1, C3 (duration fits, family choice, HSMM against HMM, prior
+imprint, flicker), C4's bars, and C5.

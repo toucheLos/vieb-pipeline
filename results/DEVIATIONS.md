@@ -1037,3 +1037,12 @@ which a bone difference cancels. A gain g, measured once, makes the estimator
 read σ̄_L at 1.0×. Found on synthetic poses, before any CalMS21 sequence was
 degraded or measured.
 
+## D33 — STEP 4: the freeze emission is anchored to the still-frame noise floor
+
+`results/step4/REGISTRATION.md` Amendment 1. The registered freeze emission (a
+motionless pose plus the Step 1 jitter level) sat above the stillest real frames
+(pre-run diagnostic, `hsmm_floor_diagnostic.json`): half of the real frames lay
+below its 5th percentile. Jitter is re-measured with the skull-bone estimator on
+the lowest centroid-speed decile of unflagged tune frames, and the operator is
+scaled to that level. This was decided by the user before any fit.
+
