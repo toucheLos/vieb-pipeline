@@ -356,6 +356,13 @@ def _entries() -> list[Src]:
                    ("fast_hi", r'\("fast", [0-9.]+, ([0-9.]+)\)')):
         a(Src(f"param.band_{nm}", V, "vieb/seg/descriptors.py", "re:" + rx, "f1", "Hz"))
 
+    # The protocol as the file names state it (results/step4/protocol.json)
+    PJ = "results/step4/protocol.json"
+    for ph in ("CFC", "CFD"):
+        for e in ("min", "max"):
+            a(Src(f"proto.{ph.lower()}_{e}", V, PJ, f"/phase_day_{e}/{ph}", "int", "day",
+                  note="source: the file-naming schema"))
+
     # Numbers quoted from the literature (verified; paper1/references_check.md)
     a(Src("lit.kpms_target_ms", "literature", "10.1038/s41592-024-02318-2",
           "κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms",

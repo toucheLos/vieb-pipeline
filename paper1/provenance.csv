@@ -169,6 +169,10 @@ param.band_slow_hi,2.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.
 param.band_mid_hi,4.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""mid"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
 param.band_marginal_hi,6.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""marginal"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
 param.band_fast_hi,15.0,,,Hz,,,,vieb-pipeline,vieb-pipeline/vieb/seg/descriptors.py,"re:\(""fast"", [0-9.]+, ([0-9.]+)\)",1ad71d0,,not indexed,,
+proto.cfc_min,0,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_min/CFC,ca68426,,not indexed,,source: the file-naming schema
+proto.cfc_max,2,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_max/CFC,ca68426,,not indexed,,source: the file-naming schema
+proto.cfd_min,3,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_min/CFD,ca68426,,not indexed,,source: the file-naming schema
+proto.cfd_max,7,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_max/CFD,ca68426,,not indexed,,source: the file-naming schema
 lit.kpms_target_ms,400,,,ms,,,,literature,doi:10.1038/s41592-024-02318-2,κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms,doi:10.1038/s41592-024-02318-2,,published,,"Weinreb et al. 2024, Methods (PMC11245396)"
 param.dwell_alpha,0.05,,,per-animal test level,,,,recur,recur/scripts/dwell_moseq.py,re:\(ps < ([0-9.]+)\)\.sum\(\),b69c1c3,,not indexed,,
 param.var_order,5,,,lags,,,,recur,recur/recur/recurrence/surrogate.py,"re:def ar_surrogate\(pose, rng, \*, p: int = (\d+)\)",38fe5c1,,not indexed,,VAR order of the AR surrogate
