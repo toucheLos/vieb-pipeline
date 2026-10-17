@@ -15,7 +15,7 @@
 
 | what | blocked on | who |
 |---|---|---|
-| **Step 4 C3–C4 fits and controls** (the HSMM on the tune split) | **The registered freeze emission does not fit real stillness.** A motionless pose plus measured tracking noise moves *more* than the stillest real frames: half the real frames lie below the noise surrogate's own 5th percentile (`results/step4/hsmm_floor_diagnostic.json`). A decision on how to anchor the freeze emission is needed, registered as an amendment. | **human** |
+| **Step 4 machinery verdict** (`results/step4/HSMM.md`) | Ran after two registered amendments to the freeze emission. **The semi-Markov part is dropped** (gain over a plain HMM +0.0015 nats/frame [−0.0003, +0.0034]). **The jitter-only stationary control FAILS** on 1 of 50 recordings (P(freeze) 0.860 against a 0.90 per-recording bar; the mean is 0.994). Planted bouts: accuracy 0.957; duration recovery NOT_A_RESULT. **The model is not used for learning fits.** Next step (amend, investigate, or accept) is a decision. | **human** |
 | Step 4 C5 (learning fits on fit) | shock timing and count, which Context-A sessions on days 3–7 deliver shock, session types (CFC/CFD meaning), within-day order and counterbalancing | **the lab** |
 | Step 3 branch (3B as registered vs 3A for grooming) | a post-result decision; the follow-up runs point to 3A | **human** |
 | Step 3B ensemble | two human labellers for the 200-frame package (`work/step3b/label_package/`) | **human / lab** |

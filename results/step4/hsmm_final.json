@@ -1,0 +1,113 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "tune split only"
+  },
+  "corpus": "luna",
+  "durations": {
+    "freeze": [
+      0.3688413759350004
+    ],
+    "move": [
+      1.3801264190425675
+    ],
+    "tracking_lost": [
+      2.0576213007724173
+    ]
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "e4c4088b624a16e1aa54d1d3618224a0325dac45",
+    "node": "c14",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "90503"
+  },
+  "exit": [
+    [
+      0.0,
+      0.943236243110125,
+      0.056763756889875006
+    ],
+    [
+      0.8797390691810606,
+      0.0,
+      0.1202609308189394
+    ],
+    [
+      0.2556835540675758,
+      0.7443164459324242,
+      0.0
+    ]
+  ],
+  "family": "geometric",
+  "flicker": {
+    "n_recordings": 100,
+    "raw_switches_per_s": 5.016214667970509,
+    "smoothed_switches_per_s": 1.124534664995257
+  },
+  "freeze_fraction_by_context": {
+    "A": {
+      "all": 0.21214244971625199,
+      "n_recordings": 295,
+      "unflagged": 0.2155368031714296
+    },
+    "B": {
+      "all": 0.2110864013483606,
+      "n_recordings": 295,
+      "unflagged": 0.22528028464371866
+    }
+  },
+  "ll_per_frame": -5.512470801561984,
+  "n_decoded": 770,
+  "n_fit_recordings": 120,
+  "prior_imprint": {
+    "circular_shift": {
+      "median_s": 0.2,
+      "n_bouts": 9572,
+      "p10_s": 0.06666666666666667,
+      "p90_s": 1.0
+    },
+    "frame_shuffled": {
+      "median_s": 0.1,
+      "n_bouts": 18443,
+      "p10_s": 0.03333333333333333,
+      "p90_s": 0.23333333333333334
+    },
+    "ks_real_vs_circular": 0.000529102958808648,
+    "ks_real_vs_shuffled": 0.37720261783282205,
+    "median_ratio_shuffled_over_real": 0.5,
+    "real": {
+      "median_s": 0.2,
+      "n_bouts": 9555,
+      "p10_s": 0.06666666666666667,
+      "p90_s": 1.0
+    }
+  },
+  "stage": "hsmm_final"
+}
