@@ -82,16 +82,40 @@ def ell_by_animal(ids: list[str]) -> dict[str, float]:
     return {a: float(ego.ell_a(blocks[a], usable[a])) for a in blocks}
 
 
+STILL_Q = 0.10     # Amendment 1: the lowest decile of centroid speed
+
+
 def jitter_freeze(pose: np.ndarray, usable: np.ndarray, ell: float, T: int, rid: str,
-                  nz: dict) -> tuple[np.ndarray, np.ndarray]:
-    """The registered freeze surrogate: the recording's median pose, motionless,
-    scaled to Luna's median ell, plus Luna's jitter at 1.0x. Returns (v, r)."""
+                  nz: dict, level: float = 1.0) -> tuple[np.ndarray, np.ndarray]:
+    """The freeze surrogate: the recording's median pose, motionless, scaled to
+    Luna's median ell, plus Step 1's jitter operator at `level` (1.0 as first
+    registered; m_still after Amendment 1). Returns (v, r)."""
     med = np.median(pose[usable] if usable.any() else pose, axis=0)
     still = np.broadcast_to(med * (cio.LUNA_ELL_PX / ell), (T,) + med.shape).copy()
     prof = np.asarray([nz["profile_luna_bl"][k] for k in dg.LUNA_ORDER])
     rng = dg.rng_for(SEED, 1.0, f"hsmm-freeze|{rid}")
-    noisy = still + dg.jitter_noise(rng, T, dg.added_bl(1.0, 0.0, prof, nz["gain"]), nz["s1_px"])
+    noisy = still + dg.jitter_noise(rng, T, dg.added_bl(level, 0.0, prof, nz["gain"]), nz["s1_px"])
     return M.signal(noisy, cio.LUNA_ELL_PX, FPS)
+
+
+def still_sigma(ids: list[str], ells: dict[str, float], thr: float) -> tuple[float, dict]:
+    """Amendment 1: the skull-bone estimator on still frames only (unflagged,
+    centroid speed below the pooled lowest-decile threshold)."""
+    from vieb.seg import jitter
+    rs, cs = [], []
+    for rid in ids:
+        d = spine.clean(rid)
+        z = np.load(os.path.join(WORK, "tune", f"{rid}.npz"))
+        still = (~np.asarray(z["flag"], bool)) & (np.asarray(z["v"]) <= thr)
+        miss = np.asarray(d["missing"], bool) | (~still)[:, None]
+        r, c = jitter.residuals(np.asarray(d["pose_unfiltered"], dtype=np.float64),
+                                np.asarray(d["conf"], dtype=np.float64), missing=miss,
+                                interpolated=np.asarray(d["interpolated"], bool),
+                                ell=ells[lab.animal_tag(rid)])
+        rs.append(r)
+        cs.append(c)
+    table = jitter.calibrate(np.concatenate(rs), np.concatenate(cs))
+    return dg.count_weighted(table), table
 
 
 def prep(_a) -> int:
@@ -100,23 +124,41 @@ def prep(_a) -> int:
     ells = ell_by_animal(ids)
     with open(os.path.join(OUT.replace("step4", "step1"), "noise.json"), encoding="utf-8") as fh:
         nz = json.load(fh)
-    fz, data_unflagged, all_bins, nflag, nall = [], [], [], 0, 0
+    # Pass 1: the signal and flag of every tune recording.
+    data_unflagged, all_bins, v_unflagged, nflag, nall = [], [], [], 0, 0
     for i, rid in enumerate(ids):
-        pose, flag, usable = raw_pose(rid)
-        ell = ells[lab.animal_tag(rid)]
-        v, r = M.signal(pose, ell, FPS)
+        pose, flag, _usable = raw_pose(rid)
+        v, r = M.signal(pose, ells[lab.animal_tag(rid)], FPS)
         b = M.bins(v, r)
-        fv, fr = jitter_freeze(pose, usable, ell, pose.shape[0], rid, nz)
-        fb = M.bins(fv, fr)
         np.savez_compressed(os.path.join(WORK, "tune", f"{rid}.npz"), bins=b, flag=flag,
-                            v=v.astype(np.float32), r=r.astype(np.float32), freeze_bins=fb)
-        fz.append(fb)
+                            v=v.astype(np.float32), r=r.astype(np.float32))
         data_unflagged.append(b[~flag])
+        v_unflagged.append(v[~flag])
         all_bins.append(b)
         nflag += int(flag.sum())
         nall += int(flag.size)
         if i % 100 == 0:
-            log(f"  {i}/{len(ids)}")
+            log(f"  signal {i}/{len(ids)}")
+    # Pass 2 (Amendment 1): still frames and their skull-estimator jitter.
+    thr = float(np.quantile(np.concatenate(v_unflagged), STILL_Q))
+    sig_still, table = still_sigma(ids, ells, thr)
+    m_still = sig_still / dg.sigma_bar_luna()
+    log(f"still threshold v <= {thr:.4f} BL/s; sigma_still {sig_still:.5f} BL; m_still {m_still:.4f}")
+    # Pass 3: the freeze surrogate at m_still.
+    fz, below = [], []
+    for i, rid in enumerate(ids):
+        pose, _flag, usable = raw_pose(rid)
+        ell = ells[lab.animal_tag(rid)]
+        fv, fr = jitter_freeze(pose, usable, ell, pose.shape[0], rid, nz, level=m_still)
+        fb = M.bins(fv, fr)
+        z = dict(np.load(os.path.join(WORK, "tune", f"{rid}.npz")))
+        z["freeze_bins"] = fb
+        np.savez_compressed(os.path.join(WORK, "tune", f"{rid}.npz"), **z)
+        fz.append(fb)
+        unf = ~np.asarray(z["flag"], bool)
+        below.append(float((np.asarray(z["r"])[unf] < np.percentile(fr, 5)).mean()))
+        if i % 100 == 0:
+            log(f"  freeze surrogate {i}/{len(ids)}")
     p_freeze = M.histogram(np.concatenate(fz))
     counts = np.bincount(np.concatenate(data_unflagged), minlength=M.N_BINS ** 2)
     p_move, pi, it = M.em_move(counts, p_freeze)
@@ -126,13 +168,18 @@ def prep(_a) -> int:
                         p_marginal=p_marg, q_flag=q)
     write_json({**provenance.header(anchors.LUNA, stage="hsmm_emissions",
                                     unverified="tune split only"),
-                "registration": "results/step4/REGISTRATION.md",
+                "registration": "results/step4/REGISTRATION.md (+ Amendment 1)",
                 "n_recordings": len(ids), "n_animals": len(ells), "n_frames": nall,
                 "flag_rate": q, "em_pi_freeze": pi, "em_iterations": it,
+                "still": {"quantile": STILL_Q, "v_threshold_bl_s": thr,
+                          "sigma_still_bl": sig_still, "sigma_bar_luna_bl": dg.sigma_bar_luna(),
+                          "m_still": m_still, "table_counts": table["counts"],
+                          "share_real_unflagged_r_below_surrogate_p5_median": float(np.median(below))},
                 "ell_median_px": float(np.median(list(ells.values()))),
                 "w_s": M.W_S, "d_max_s": M.D_MAX_S, "grid": [M.LOG_LO, M.LOG_HI, M.N_BINS]},
                os.path.join(OUT, "hsmm_emissions.json"))
-    log(f"prep: {len(ids)} recordings, flag rate {q:.4f}, EM pi_freeze {pi:.3f} ({it} it)")
+    log(f"prep: {len(ids)} recordings, flag rate {q:.4f}, EM pi_freeze {pi:.3f} ({it} it); "
+        f"real r below surrogate p5 (median) {np.median(below):.3f}")
     return 0
 
 
@@ -376,8 +423,10 @@ def planted_sessions(ids: list[str], nz: dict, em: M.Emissions) -> list[dict]:
         tr = np.asarray(truth[:T])
         # Luna jitter on the freeze frames; move snippets carry their own real jitter
         prof = np.asarray([nz["profile_luna_bl"][k] for k in dg.LUNA_ORDER])
+        with open(os.path.join(OUT, "hsmm_emissions.json"), encoding="utf-8") as fh:
+            m_still = float(json.load(fh)["still"]["m_still"])           # Amendment 1
         jit = dg.jitter_noise(dg.rng_for(SEED, 1.0, f"plant|{i}"), T,
-                              dg.added_bl(1.0, 0.0, prof, nz["gain"]), nz["s1_px"]) * (ell / cio.LUNA_ELL_PX)
+                              dg.added_bl(m_still, 0.0, prof, nz["gain"]), nz["s1_px"]) * (ell / cio.LUNA_ELL_PX)
         P = P + jit * (tr == 0)[:, None, None]
         v, r = M.signal(P, ell, FPS)
         out.append({"le": em.loglik(M.bins(v, r), np.zeros(T, bool)), "truth": tr})
