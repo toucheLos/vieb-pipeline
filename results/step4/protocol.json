@@ -1,0 +1,1314 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "source: the file-naming schema only"
+  },
+  "cfd_same_date": {
+    "one_date": 1476
+  },
+  "contexts_by_day": {
+    "0": [
+      "Context_A"
+    ],
+    "1": [
+      "Context_A,_No_Shock"
+    ],
+    "2": [
+      "Context_C"
+    ],
+    "3": [
+      "Context_A",
+      "Context_B"
+    ],
+    "4": [
+      "Context_A",
+      "Context_B"
+    ],
+    "5": [
+      "Context_A",
+      "Context_B"
+    ],
+    "6": [
+      "Context_A",
+      "Context_B"
+    ],
+    "7": [
+      "Context_A",
+      "Context_B"
+    ]
+  },
+  "corpus": "luna",
+  "day0_shock": "IMPLIED by the Day-1 No_Shock tag; not stated in any name",
+  "design_table": {
+    "CFC|day0|Context_A": 298,
+    "CFC|day1|Context_A,_No_Shock": 298,
+    "CFC|day2|Context_C": 298,
+    "CFD|day3|Context_A": 298,
+    "CFD|day3|Context_B": 298,
+    "CFD|day4|Context_A": 298,
+    "CFD|day4|Context_B": 298,
+    "CFD|day5|Context_A": 298,
+    "CFD|day5|Context_B": 298,
+    "CFD|day6|Context_A": 298,
+    "CFD|day6|Context_B": 298,
+    "CFD|day7|Context_A": 284,
+    "CFD|day7|Context_B": 284
+  },
+  "deviants": {
+    "107": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "151": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "152": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "153": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "154": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "155": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "156": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "157": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "276": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "277": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "278": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "279": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "2920": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    },
+    "2930": {
+      "extra": [],
+      "missing": [
+        [
+          "CFD",
+          7,
+          "A",
+          0
+        ],
+        [
+          "CFD",
+          7,
+          "B",
+          0
+        ]
+      ]
+    }
+  },
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "b00dcdf9d1d154e6c06dd56c3ca3a8596e21c67c",
+    "node": "stella.hpc",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": null
+  },
+  "lab_animal_sheet": {
+    "Age": {
+      "18-24 Mo": 197,
+      "3-6 Mo": 34,
+      "4-8 Mo": 28,
+      "Aged": 35,
+      "Young": 4
+    },
+    "Genotype": {
+      "": 3,
+      "APOE2": 45,
+      "APOE3": 53,
+      "APOE4": 58,
+      "BL6x129": 16,
+      "Bl6x129": 2,
+      "Het3": 121
+    },
+    "Sex": {
+      "Female": 156,
+      "Male": 142
+    },
+    "Treatment": {
+      "": 196,
+      "CIQ": 7,
+      "DQP": 5,
+      "DQP-1105": 13,
+      "Gcamp 10e11": 3,
+      "TMZ": 34,
+      "Veh": 6,
+      "Vehicle": 34
+    },
+    "n_corpus_animals_missing": 0,
+    "n_ids_in_corpus": 298,
+    "n_rows": 298,
+    "note": "aggregates only; values as written in the sheet (spelling variants such as Veh/Vehicle and BL6x129/Bl6x129 are not merged); no drug timing or dose and nothing about shock in the sheet",
+    "path": "/home/tul26194/dlc-training/raw_videos/Animal_IDs.xlsx",
+    "sha256": "3c2de66055e609c9c5d9039a45225605fde748a4cb215f4d65faaaabada74c81",
+    "sheet_used": "Animal_IDs (no FreezeFrame)",
+    "sheets": [
+      "Animal_IDs (no FreezeFrame)",
+      "Animal_IDs"
+    ]
+  },
+  "majority_schedule": [
+    [
+      "CFC",
+      0,
+      "A",
+      0
+    ],
+    [
+      "CFC",
+      1,
+      "A",
+      1
+    ],
+    [
+      "CFC",
+      2,
+      "C",
+      0
+    ],
+    [
+      "CFD",
+      3,
+      "A",
+      0
+    ],
+    [
+      "CFD",
+      3,
+      "B",
+      0
+    ],
+    [
+      "CFD",
+      4,
+      "A",
+      0
+    ],
+    [
+      "CFD",
+      4,
+      "B",
+      0
+    ],
+    [
+      "CFD",
+      5,
+      "A",
+      0
+    ],
+    [
+      "CFD",
+      5,
+      "B",
+      0
+    ],
+    [
+      "CFD",
+      6,
+      "A",
+      0
+    ],
+    [
+      "CFD",
+      6,
+      "B",
+      0
+    ],
+    [
+      "CFD",
+      7,
+      "A",
+      0
+    ],
+    [
+      "CFD",
+      7,
+      "B",
+      0
+    ]
+  ],
+  "n_animals_key": 295,
+  "n_animals_tag": 298,
+  "n_majority": 284,
+  "n_recordings": 3846,
+  "no_shock_tagged": {
+    "days": [
+      1
+    ],
+    "n": 298
+  },
+  "not_in_the_names": [
+    "whether Context A sessions on Days 3-7 deliver shock",
+    "shock count and timing (s into session)",
+    "whether the within-day order of A and B was counterbalanced",
+    "the within-day order itself",
+    "what CFC and CFD stand for"
+  ],
+  "phase_day_max": {
+    "CFC": 2,
+    "CFD": 7
+  },
+  "phase_day_min": {
+    "CFC": 0,
+    "CFD": 3
+  },
+  "phases": {
+    "CFC": [
+      0,
+      1,
+      2
+    ],
+    "CFD": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "raw_video_dir": "/home/tul26194/dlc-training/raw_videos",
+  "raw_video_dir_classes": {
+    "corpus_video": 3846,
+    "dlc_output": 11085,
+    "other": 2
+  },
+  "raw_video_dir_nonmatching": [
+    "._Animal_IDs.xlsx",
+    "Animal_IDs.xlsx"
+  ],
+  "source": "file-naming schema: <date>_Box_<box>_<phase>_Day_<day>_(<context>)_<animal>",
+  "stage": "protocol_record",
+  "timestamp_probe": {
+    "n": 100,
+    "n_creation_matches_name_date": 0,
+    "n_mtime_matches_name_date": 0,
+    "n_with_creation_time": 100,
+    "reliability": "creation_time and mtime are copy/re-encode times, not recording times, wherever they disagree with the name's date; within-day order is not recoverable",
+    "rows": [
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:13:34.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-22",
+        "recording_id": "20260422_Box_2_CFD_Day_5_(Context_A)_789"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:30:10.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-01",
+        "recording_id": "20250501_Box_2_CFD_Day_6_(Context_A)_980"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T14:41:01.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-01-01",
+        "recording_id": "20260101_Box_1_CFD_Day_6_(Context_B)_235"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:44:18.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-18",
+        "recording_id": "20260518_Box_3_CFD_Day_3_(Context_A)_722"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:54:44.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-15",
+        "recording_id": "20250515_Box_2_CFD_Day_6_(Context_A)_HM15"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:08:11.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-11-20",
+        "recording_id": "20241120_Box_1_CFD_Day_5_(Context_B)_9013"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:51:49.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-28",
+        "recording_id": "20250328_Box_3_CFD_Day_7_(Context_A)_904"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:11:18.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-22",
+        "recording_id": "20251022_Box_1_CFC_Day_0_(Context_A)_51"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:57:25.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-16",
+        "recording_id": "20250716_Box_1_CFD_Day_4_(Context_A)_9061"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:48:05.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-12",
+        "recording_id": "20250512_Box_2_CFD_Day_3_(Context_B)_HM09"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:28:56.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-21",
+        "recording_id": "20260521_Box_1_CFD_Day_6_(Context_B)_668"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:40:56.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-13",
+        "recording_id": "20260413_Box_2_CFD_Day_3_(Context_A)_775H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:10:26.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-20",
+        "recording_id": "20260420_Box_2_CFD_Day_3_(Context_B)_777"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:10:05.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-08",
+        "recording_id": "20250408_Box_1_CFD_Day_4_(Context_A)_797"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:55:37.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-12",
+        "recording_id": "20250712_Box_1_CFC_Day_2_(Context_C)_9066"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T15:32:42.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-18",
+        "recording_id": "20250418_Box_3_CFD_Day_7_(Context_A)_9049"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:17:24.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-05",
+        "recording_id": "20251105_Box_1_CFD_Day_5_(Context_A)_960"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:44:27.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-18",
+        "recording_id": "20260518_Box_3_CFD_Day_3_(Context_B)_719"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:46:22.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-20",
+        "recording_id": "20260520_Box_1_CFD_Day_5_(Context_B)_723"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:33:54.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-24",
+        "recording_id": "20250324_Box_1_CFD_Day_3_(Context_A)_948"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:13:03.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-19",
+        "recording_id": "20250719_Box_1_CFD_Day_7_(Context_A)_9056"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:34:13.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-06",
+        "recording_id": "20250306_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9037"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:02:05.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-03",
+        "recording_id": "20250403_Box_2_CFC_Day_1_(Context_A,_No_Shock)_842"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:34:17.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-06",
+        "recording_id": "20250306_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9043"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T14:40:37.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-31",
+        "recording_id": "20251231_Box_3_CFD_Day_5_(Context_B)_265"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:48:51.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-02-12",
+        "recording_id": "20250212_Box_3_CFD_Day_5_(Context_A)_528"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:28:41.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-17",
+        "recording_id": "20251117_Box_3_CFD_Day_3_(Context_A)_144"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:08:00.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-15",
+        "recording_id": "20260415_Box_2_CFC_Day_0_(Context_A)_789"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:46:12.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-27",
+        "recording_id": "20250327_Box_3_CFD_Day_6_(Context_B)_904"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:46:34.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-20",
+        "recording_id": "20260520_Box_2_CFD_Day_5_(Context_A)_718"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:15:44.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-28",
+        "recording_id": "20251028_Box_2_CFD_Day_4_(Context_A)_915"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:04:20.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-15",
+        "recording_id": "20251215_Box_3_CFD_Day_4_(Context_B)_2932"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:45:20.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-16",
+        "recording_id": "20260416_Box_2_CFD_Day_6_(Context_A)_774H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:21:20.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-07",
+        "recording_id": "20251107_Box_3_CFD_Day_7_(Context_A)_923"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:24:26.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-19",
+        "recording_id": "20260519_Box_3_CFD_Day_4_(Context_B)_633"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:41:04.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-11",
+        "recording_id": "20250311_Box_1_CFD_Day_4_(Context_A)_9042"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:17:45.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-08",
+        "recording_id": "20250408_Box_3_CFD_Day_4_(Context_A)_846"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:49:36.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-02-14",
+        "recording_id": "20250214_Box_1_CFD_Day_7_(Context_A)_526"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T14:35:25.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-25",
+        "recording_id": "20251225_Box_3_CFC_Day_1_(Context_A,_No_Shock)_257"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:33:13.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-12-19",
+        "recording_id": "20241219_Box_1_CFD_Day_5_(Context_B)_9020"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:24:05.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-19",
+        "recording_id": "20260519_Box_2_CFD_Day_4_(Context_B)_666"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:14:56.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-23",
+        "recording_id": "20260423_Box_1_CFD_Day_6_(Context_B)_788"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:12:35.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-10",
+        "recording_id": "20251210_Box_3_CFD_Day_5_(Context_B)_277"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:39:08.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-10",
+        "recording_id": "20250410_Box_3_CFD_Day_6_(Context_A)_846"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:54:43.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-10",
+        "recording_id": "20250710_Box_3_CFC_Day_0_(Context_A)_9058"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:19:50.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-31",
+        "recording_id": "20251031_Box_1_CFD_Day_7_(Context_A)_51"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:49:55.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-02-14",
+        "recording_id": "20250214_Box_3_CFD_Day_7_(Context_A)_528"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T15:28:24.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-17",
+        "recording_id": "20250417_Box_2_CFD_Day_6_(Context_B)_9045"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T15:05:27.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-26",
+        "recording_id": "20250526_Box_3_CFD_Day_3_(Context_A)_9053"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:24:17.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-09",
+        "recording_id": "20250409_Box_2_CFD_Day_5_(Context_A)_809"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:27:08.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-14",
+        "recording_id": "20251114_Box_1_CFC_Day_2_(Context_C)_HM16"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:33:23.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-20",
+        "recording_id": "20251120_Box_3_CFD_Day_6_(Context_B)_HM18"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:46:51.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-20",
+        "recording_id": "20260520_Box_3_CFD_Day_5_(Context_A)_712"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:28:47.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-20",
+        "recording_id": "20250320_Box_3_CFC_Day_1_(Context_A,_No_Shock)_904"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:18:45.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-30",
+        "recording_id": "20251030_Box_2_CFD_Day_6_(Context_A)_46"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:55:40.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-12",
+        "recording_id": "20250712_Box_1_CFC_Day_2_(Context_C)_9069"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T15:10:34.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-29",
+        "recording_id": "20250529_Box_1_CFD_Day_6_(Context_B)_9051"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:18:51.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-13",
+        "recording_id": "20260513_Box_2_CFC_Day_0_(Context_A)_666"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:13:24.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-24",
+        "recording_id": "20251024_Box_3_CFC_Day_2_(Context_C)_53"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:52:56.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-28",
+        "recording_id": "20250328_Box_3_CFD_Day_7_(Context_B)_946"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:30:57.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-12-13",
+        "recording_id": "20241213_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9020"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:44:43.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-15",
+        "recording_id": "20260415_Box_3_CFD_Day_5_(Context_B)_799H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:28:56.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-21",
+        "recording_id": "20260521_Box_1_CFD_Day_6_(Context_B)_706"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:18:10.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-30",
+        "recording_id": "20251030_Box_1_CFD_Day_6_(Context_A)_27"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:27:50.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-21",
+        "recording_id": "20260521_Box_1_CFD_Day_6_(Context_A)_664"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:03:03.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-11-14",
+        "recording_id": "20241114_Box_1_CFC_Day_1_(Context_A,_No_Shock)_9005"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:48:32.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-02-12",
+        "recording_id": "20250212_Box_1_CFD_Day_5_(Context_B)_526"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:23:13.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-18",
+        "recording_id": "20251218_Box_2_CFD_Day_7_(Context_A)_150"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:12:36.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-21",
+        "recording_id": "20260421_Box_3_CFD_Day_4_(Context_B)_784"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:45:31.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-08",
+        "recording_id": "20250508_Box_3_CFC_Day_1_(Context_A,_No_Shock)_HM13"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:11:17.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-16",
+        "recording_id": "20251216_Box_3_CFD_Day_5_(Context_A)_2941"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:47:29.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-17",
+        "recording_id": "20260417_Box_3_CFD_Day_7_(Context_A)_793H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:41:17.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-13",
+        "recording_id": "20260413_Box_2_CFD_Day_3_(Context_B)_775H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:40:15.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-09",
+        "recording_id": "20251209_Box_2_CFC_Day_0_(Context_A)_148"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:30:11.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-18",
+        "recording_id": "20251118_Box_3_CFD_Day_4_(Context_A)_2937"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:06:22.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-10-17",
+        "recording_id": "20241017_Box_2_CFC_Day_1_(Context_A,_No_Shock)_311"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T00:27:23.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-11-14",
+        "recording_id": "20251114_Box_2_CFC_Day_2_(Context_C)_961"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:04:13.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-07-17",
+        "recording_id": "20250717_Box_1_CFD_Day_5_(Context_B)_9066"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:10:07.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-20",
+        "recording_id": "20260420_Box_1_CFD_Day_3_(Context_B)_782"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:19:18.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-13",
+        "recording_id": "20260513_Box_3_CFC_Day_0_(Context_A)_705"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:41:31.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-11",
+        "recording_id": "20250411_Box_1_CFD_Day_7_(Context_A)_808"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:45:10.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-27",
+        "recording_id": "20250327_Box_1_CFD_Day_6_(Context_B)_902"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T14:35:29.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-25",
+        "recording_id": "20251225_Box_3_CFC_Day_1_(Context_A,_No_Shock)_268"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T15:22:31.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-10",
+        "recording_id": "20250410_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9045"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:03:38.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-12-15",
+        "recording_id": "20251215_Box_3_CFD_Day_4_(Context_A)_124"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:41:13.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-14",
+        "recording_id": "20260514_Box_1_CFC_Day_1_(Context_A,_No_Shock)_720"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:31:05.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-12-13",
+        "recording_id": "20241213_Box_2_CFC_Day_1_(Context_A,_No_Shock)_9018"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T14:53:42.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-19",
+        "recording_id": "20250319_Box_2_CFD_Day_5_(Context_A)_605"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T17:47:24.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-05-21",
+        "recording_id": "20260521_Box_1_CFD_Day_6_(Context_A)_717"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:20:59.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-31",
+        "recording_id": "20251031_Box_3_CFD_Day_7_(Context_A)_999"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T18:34:32.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-24",
+        "recording_id": "20250324_Box_2_CFD_Day_3_(Context_B)_945"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2025-07-30T16:55:36.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-26",
+        "recording_id": "20250326_Box_3_CFC_Day_0_(Context_A)_574"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T21:44:26.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-15",
+        "recording_id": "20260415_Box_3_CFD_Day_5_(Context_A)_773H"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T16:37:44.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-03-10",
+        "recording_id": "20250310_Box_1_CFD_Day_3_(Context_A)_9036"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T22:08:06.000000Z",
+        "mtime_date": "2026-07-08",
+        "mtime_matches_name_date": 0,
+        "name_date": "2026-04-15",
+        "recording_id": "20260415_Box_3_CFC_Day_0_(Context_A)_875"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T23:17:23.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-10-29",
+        "recording_id": "20251029_Box_2_CFD_Day_5_(Context_B)_46"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:53:28.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-05-30",
+        "recording_id": "20250530_Box_2_CFC_Day_2_(Context_C)_590"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:47:40.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-02-11",
+        "recording_id": "20250211_Box_2_CFD_Day_4_(Context_A)_542"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-10T01:34:39.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2024-12-21",
+        "recording_id": "20241221_Box_1_CFD_Day_7_(Context_B)_9019"
+      },
+      {
+        "creation_matches_name_date": 0,
+        "creation_time": "2026-06-09T19:27:40.000000Z",
+        "mtime_date": "2026-07-07",
+        "mtime_matches_name_date": 0,
+        "name_date": "2025-04-09",
+        "recording_id": "20250409_Box_3_CFD_Day_5_(Context_A)_843"
+      }
+    ],
+    "seed": 0
+  }
+}
