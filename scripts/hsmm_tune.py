@@ -440,20 +440,36 @@ def final(_a) -> int:
 # Controls
 # --------------------------------------------------------------------------
 
+PLANTED_SKIPPED: list[str] = []
+
+
 def planted_sessions(ids: list[str], nz: dict, em: M.Emissions) -> list[dict]:
     """30 synthetic 5-min sessions with known freeze / move bouts (registered)."""
     rng = np.random.default_rng(SEED)
     T = int(round(PLANT_S * FPS))
-    srcs = sorted(rng.choice(ids, N_PLANTED, replace=False).tolist())
+
+    def candidates(rid: str) -> list[tuple[int, int]]:
+        z = np.load(os.path.join(WORK, "tune", f"{rid}.npz"))
+        fast = np.asarray(z["v"]) > PLANT_MOVE_MIN_V
+        # maximal runs where v stays above the registered speed for >= 0.5 s
+        return [(b, e) for k, b, e in core.runs(fast.astype(int))
+                if k == 1 and e - b >= int(round(0.5 * FPS))]
+
+    # Sources in a seeded order; a recording with no qualifying move snippet is
+    # skipped (and listed), so every session can render move bouts by the rule.
+    order = rng.permutation(np.asarray(ids)).tolist()
+    srcs, skipped = [], []
+    for rid in order:
+        if len(srcs) == N_PLANTED:
+            break
+        (srcs if candidates(rid) else skipped).append(rid)
+    PLANTED_SKIPPED[:] = skipped
     out = []
-    ells = ell_by_animal(sorted({r for r in srcs}))
+    ells = ell_by_animal(sorted(srcs))
     for i, rid in enumerate(srcs):
         pose, flag, usable = raw_pose(rid)
         ell = ells[lab.animal_tag(rid)]
-        z = np.load(os.path.join(WORK, "tune", f"{rid}.npz"))
-        fast = np.asarray(z["v"]) > PLANT_MOVE_MIN_V
-        # candidate move snippets: maximal runs where v stays above the registered speed
-        cand = [(b, e) for k, b, e in core.runs(fast.astype(int)) if k == 1 and e - b >= 15]
+        cand = candidates(rid)
         med = np.median(pose[usable] if usable.any() else pose, axis=0)
         frames_, truth = [], []
         s = 0
@@ -516,6 +532,7 @@ def controls(_a) -> int:
                                "pass": stat_pass, "bar": "mean >= 0.95 and every recording >= 0.90"},
                 "planted": {"frame_accuracy": acc, "mean": float(np.mean(acc)),
                             "pass_accuracy": bool(np.mean(acc) >= 0.90),
+                            "sources_skipped_no_move_snippet": list(PLANTED_SKIPPED),
                             "truth_freeze": list(PLANT_FREEZE), "truth_move": list(PLANT_MOVE)}},
                os.path.join(WORK, "controls_part1.json"))
     log(f"stationary mean {np.mean(fr):.4f} min {min(fr):.4f} pass {stat_pass}; planted acc {np.mean(acc):.4f}")
