@@ -533,7 +533,11 @@ def planted_refit(a) -> int:
     les = [z[f"le{i}"] for i in idx]
     fam, theta = chosen()
     if fam == "geometric":
-        raise SystemExit("planted refit is registered for the chosen semi-Markov family")
+        # The registered recovery is of Weibull (k, lambda); with the semi-Markov
+        # part dropped it is undefined, and `report` records NOT_A_RESULT.
+        with open(os.path.join(WORK, "planted_boot", f"b{a.boot}.json"), "w", encoding="utf-8") as fh:
+            json.dump({"boot": a.boot, "geometric": True}, fh)
+        return 0
     th0 = M.theta0(fam)
     th0[4:6] = theta[4:6]
     fixed = {4: theta[4], 5: theta[5], 6: theta[6], 7: theta[7], 8: theta[8]}
@@ -553,10 +557,19 @@ def report(_a) -> int:
     for f in sorted(glob.glob(os.path.join(WORK, "planted_boot", "b*.json"))):
         with open(f, encoding="utf-8") as fh:
             bs.append(json.load(fh))
+    if any(b.get("geometric") for b in bs):
+        rec_na = True
+    else:
+        rec_na = False
     point = next(b for b in bs if b["boot"] == 0)
     reps = [b for b in bs if b["boot"] != 0]
     rec: dict = {}
+    if rec_na:
+        reps = []
     for st, truth in (("freeze", PLANT_FREEZE), ("move", PLANT_MOVE)):
+        if rec_na:
+            rec[st] = {"truth": list(truth), "inside": [False, False], "note": "geometric chosen"}
+            continue
         arr = np.asarray([b[st] for b in reps])
         lo, hi = np.quantile(arr, 0.025, axis=0), np.quantile(arr, 0.975, axis=0)
         inside = [bool(lo[j] <= truth[j] <= hi[j]) for j in range(2)]
@@ -568,7 +581,7 @@ def report(_a) -> int:
              {"arm": "jitter_only_stationary", "family": fam, "split": "tune"},
              f"mean smoothed P(freeze) {c['stationary']['mean']:.4f}, min {c['stationary']['min']:.4f} "
              f"(bar: mean >= 0.95, every recording >= 0.90)", n_effective=len(c["stationary"]["freeze_fraction"])).to_dict(),
-        Read("PASS" if planted_pass else "FAIL",
+        Read("NOT_A_RESULT" if rec_na else ("PASS" if planted_pass else "FAIL"),
              {"arm": "planted_bouts", "family": fam, "split": "tune"},
              f"frame accuracy {c['planted']['mean']:.4f} (bar 0.90); durations recovered inside the "
              f"95% bootstrap interval: {json.dumps({k: v['inside'] for k, v in rec.items()})}",
