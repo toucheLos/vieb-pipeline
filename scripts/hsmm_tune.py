@@ -118,6 +118,50 @@ def still_sigma(ids: list[str], ells: dict[str, float], thr: float) -> tuple[flo
     return dg.count_weighted(table), table
 
 
+MIN_PAIRS = 200   # Amendment 2: recordings with fewer still pairs are skipped
+
+
+def _skull_lengths_bl(pose: np.ndarray, ell: float) -> np.ndarray:
+    from vieb.qc import bones as bn
+    return np.asarray(bn.bone_lengths(pose, bn.SKULL), dtype=np.float64) / float(ell)
+
+
+def still_increment(ids: list[str], ells: dict[str, float], thr: float) -> tuple[float, int]:
+    """Amendment 2: SD of skull-bone-length increments between consecutive still
+    frames (both still, no missing / interpolated endpoint), pooled over bones per
+    recording; the median over recordings with >= MIN_PAIRS pairs."""
+    from vieb.qc import bones as bn
+    per = []
+    for rid in ids:
+        d = spine.clean(rid)
+        z = np.load(os.path.join(WORK, "tune", f"{rid}.npz"))
+        still = (~np.asarray(z["flag"], bool)) & (np.asarray(z["v"]) <= thr)
+        bad = np.asarray(d["missing"], bool) | np.asarray(d["interpolated"], bool)
+        L = _skull_lengths_bl(np.asarray(d["pose_unfiltered"], dtype=np.float64),
+                              ells[lab.animal_tag(rid)])
+        incs = []
+        for m, (i, j) in enumerate(bn.SKULL):
+            ok = still & ~bad[:, i] & ~bad[:, j] & np.isfinite(L[:, m])
+            pair = ok[1:] & ok[:-1]
+            incs.append(np.diff(L[:, m])[pair])
+        dL = np.concatenate(incs)
+        if dL.size >= MIN_PAIRS:
+            per.append(float(np.std(dL)))
+    return float(np.median(per)), len(per)
+
+
+def operator_increment(nz: dict) -> float:
+    """The same increment statistic on Step 1's operator at level 1, on the rigid
+    calibration pose with Luna's median skull geometry (300,000 frames, seed 0)."""
+    skull = [nz["luna_skull_bl"][k] for k in ("left_ear-right_ear", "left_ear-nose", "right_ear-nose")]
+    pose = dg.calibration_pose(skull, n_frames=dg.CAL_FRAMES, seed=SEED)
+    prof = np.asarray([nz["profile_luna_bl"][k] for k in dg.LUNA_ORDER])
+    noisy = pose + dg.jitter_noise(np.random.default_rng(SEED), pose.shape[0],
+                                   dg.added_bl(1.0, 0.0, prof, nz["gain"]), nz["s1_px"])
+    L = _skull_lengths_bl(noisy, cio.LUNA_ELL_PX)
+    return float(np.std(np.diff(L, axis=0)))
+
+
 def prep(_a) -> int:
     os.makedirs(os.path.join(WORK, "tune"), exist_ok=True)
     ids = tune_ids()
@@ -141,9 +185,12 @@ def prep(_a) -> int:
             log(f"  signal {i}/{len(ids)}")
     # Pass 2 (Amendment 1): still frames and their skull-estimator jitter.
     thr = float(np.quantile(np.concatenate(v_unflagged), STILL_Q))
-    sig_still, table = still_sigma(ids, ells, thr)
-    m_still = sig_still / dg.sigma_bar_luna()
-    log(f"still threshold v <= {thr:.4f} BL/s; sigma_still {sig_still:.5f} BL; m_still {m_still:.4f}")
+    sig_still, table = still_sigma(ids, ells, thr)            # Amendment 1, reported only
+    s_real, n_rec = still_increment(ids, ells, thr)            # Amendment 2
+    s_op1 = operator_increment(nz)
+    m_still = s_real / s_op1
+    log(f"still threshold v <= {thr:.4f} BL/s; A1 sigma_still {sig_still:.5f}; "
+        f"A2 s_real {s_real:.5f} (n {n_rec}), s_op(1) {s_op1:.5f}, m_inc {m_still:.4f}")
     # Pass 3: the freeze surrogate at m_still.
     fz, below = [], []
     for i, rid in enumerate(ids):
@@ -172,8 +219,12 @@ def prep(_a) -> int:
                 "n_recordings": len(ids), "n_animals": len(ells), "n_frames": nall,
                 "flag_rate": q, "em_pi_freeze": pi, "em_iterations": it,
                 "still": {"quantile": STILL_Q, "v_threshold_bl_s": thr,
-                          "sigma_still_bl": sig_still, "sigma_bar_luna_bl": dg.sigma_bar_luna(),
-                          "m_still": m_still, "table_counts": table["counts"],
+                          "amendment1_sigma_still_bl": sig_still,
+                          "sigma_bar_luna_bl": dg.sigma_bar_luna(),
+                          "s_real_increment_bl": s_real, "n_recordings_increment": n_rec,
+                          "s_operator_level1_bl": s_op1,
+                          "m_still": m_still, "m_rule": "Amendment 2: m_inc = s_real / s_op(1)",
+                          "table_counts": table["counts"],
                           "share_real_unflagged_r_below_surrogate_p5_median": float(np.median(below))},
                 "ell_median_px": float(np.median(list(ells.values()))),
                 "w_s": M.W_S, "d_max_s": M.D_MAX_S, "grid": [M.LOG_LO, M.LOG_HI, M.N_BINS]},
