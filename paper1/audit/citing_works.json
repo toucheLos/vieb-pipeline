@@ -1,0 +1,1507 @@
+{
+ "source": "OpenCitations index v2, citations of doi:10.1038/s41592-024-02318-2",
+ "retrieved": "2026-10-20",
+ "n": 150,
+ "rows": [
+  {
+   "doi": "10.1016/j.optlaseng.2025.109198",
+   "openalex": "W4412072575",
+   "citation_date": "2025-11",
+   "title": "Cross-species pose estimation via ultra-low compression ratio array-light-based single-pixel imaging",
+   "journal": "Optics and Lasers in Engineering",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 1
+  },
+  {
+   "doi": "10.1101/2024.02.07.579241",
+   "openalex": "W4391729568",
+   "citation_date": "2024-02-07",
+   "title": "vmTracking: Virtual Markers Overcome Occlusion and Crowding in Multi-Animal Pose Tracking",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 2
+  },
+  {
+   "doi": "10.1101/2024.08.06.606796",
+   "openalex": "W4401413255",
+   "citation_date": "2024-08-08",
+   "title": "Elucidating the Hierarchical Nature of Behavior with Masked Autoencoders",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 3
+  },
+  {
+   "doi": "10.64898/2025.12.04.692429",
+   "openalex": "",
+   "citation_date": "2025-12-09",
+   "title": "VQ-MAP: a flexible, versatile framework for animal behavior understanding",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 4
+  },
+  {
+   "doi": "10.1109/icsc64553.2025.10967723",
+   "openalex": "W4409762813",
+   "citation_date": "2025-02-20",
+   "title": "AI-Driven Real-Time Exercise Repetition Counting System",
+   "journal": "2025 10th International Conference on Signal Processing and Communication (ICSC)",
+   "year": 2025,
+   "type": "proceedings-article",
+   "screen_order": 5
+  },
+  {
+   "doi": "10.1016/j.cell.2025.01.044",
+   "openalex": "W4408150154",
+   "citation_date": "2025-03",
+   "title": "Mapping the landscape of social behavior",
+   "journal": "Cell",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 6
+  },
+  {
+   "doi": "10.1101/2025.04.17.648924",
+   "openalex": "W4409729776",
+   "citation_date": "2025-04-19",
+   "title": "Social Context Restructures Behavioral Syntax in Mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 7
+  },
+  {
+   "doi": "10.7554/elife.105088",
+   "openalex": "W4408328568",
+   "citation_date": "2025-03-11",
+   "title": "Olfactory bulb tracks breathing rhythms and place in freely behaving mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 8
+  },
+  {
+   "doi": "10.3389/fnsys.2025.1630654",
+   "openalex": "",
+   "citation_date": "2025-10-31",
+   "title": "OpenLabCluster: active learning based clustering and classification of animal behaviors based on kinematic body keypoints",
+   "journal": "Frontiers in Systems Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 9
+  },
+  {
+   "doi": "10.1016/j.plrev.2025.05.012",
+   "openalex": "W4410946173",
+   "citation_date": "2025-09",
+   "title": "Possible contribution to data-driven primate research: Comment on “Kinematic coding: Measuring information in naturalistic behaviour” by Becchio, Pullar, Scaliti, and Panzeri",
+   "journal": "Physics of Life Reviews",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 10
+  },
+  {
+   "doi": "10.1101/2023.10.31.564826",
+   "openalex": "W4388211385",
+   "citation_date": "2023-11-02",
+   "title": "The composition of motor recovery revealed by syllable-level behavioral analysis after spinal cord injury",
+   "journal": "",
+   "year": 2023,
+   "type": "posted-content",
+   "screen_order": 11
+  },
+  {
+   "doi": "10.15622/ia.24.5.4",
+   "openalex": "",
+   "citation_date": "2025-10-08",
+   "title": "State Estimation of an Agent with Stochastic Dynamics Using Recurrent Filters",
+   "journal": "Informatics and Automation",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 12
+  },
+  {
+   "doi": "10.1016/j.crmeth.2025.101242",
+   "openalex": "",
+   "citation_date": "2025-12",
+   "title": "Visual detection of seizures in mice using supervised machine learning",
+   "journal": "Cell Reports Methods",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 13
+  },
+  {
+   "doi": "10.7554/elife.95709.3",
+   "openalex": "W4410128276",
+   "citation_date": "2025-05-06",
+   "title": "Anti-drift pose tracker (ADPT), a transformer-based network for robust animal pose estimation cross-species",
+   "journal": "eLife",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 14
+  },
+  {
+   "doi": "10.1016/j.jneumeth.2025.110581",
+   "openalex": "W4414169231",
+   "citation_date": "2025-12",
+   "title": "REVS: A new open-source platform for high-resolution analysis of rodent wheel running behavior",
+   "journal": "Journal of Neuroscience Methods",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 15
+  },
+  {
+   "doi": "10.7554/elife.107259",
+   "openalex": "W4412599124",
+   "citation_date": "2025-07-23",
+   "title": "JAX Animal Behavior System (JABS), a genetics-informed, end-to-end advanced behavioral phenotyping platform for the laboratory mouse",
+   "journal": "eLife",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 16
+  },
+  {
+   "doi": "10.1186/s12984-025-01825-3",
+   "openalex": "",
+   "citation_date": "2025-12-29",
+   "title": "Temporal interference stimulation of peripheral nerves induces functionally diverse limb movements revealed by automated pose estimation and unsupervised behavioral analysis",
+   "journal": "Journal of NeuroEngineering and Rehabilitation",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 17
+  },
+  {
+   "doi": "10.1101/2024.09.27.615451",
+   "openalex": "W4402949694",
+   "citation_date": "2024-09-27",
+   "title": "Mapping the landscape of social behavior",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 18
+  },
+  {
+   "doi": "10.1038/s41467-025-67559-x",
+   "openalex": "",
+   "citation_date": "2025-12-30",
+   "title": "AI-driven decoding of naturalistic behaviors enables tailored detection of depressive-like behavior in mice",
+   "journal": "Nature Communications",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 19
+  },
+  {
+   "doi": "10.7554/elife.108498",
+   "openalex": "",
+   "citation_date": "2025-12-12",
+   "title": "Sex-specific exploration accounts for differences in valence learning in male and female mice",
+   "journal": "eLife",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 20
+  },
+  {
+   "doi": "10.26599/tst.2025.9010086",
+   "openalex": "",
+   "citation_date": "2026-06",
+   "title": "Revealing the Body Language of Social Interaction in Free-Moving Mice Using BL-BERT",
+   "journal": "Tsinghua Science and Technology",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 21
+  },
+  {
+   "doi": "10.3389/dyst.2025.15034",
+   "openalex": "W4413380326",
+   "citation_date": "2025-08-15",
+   "title": "Behavioral signature of trihexyphenidyl in the TOR1A (DYT1) knockin mouse model of dystonia",
+   "journal": "Dystonia",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 22
+  },
+  {
+   "doi": "10.2139/ssrn.5166235",
+   "openalex": "W4408162575",
+   "citation_date": "2025",
+   "title": "High-Resolution Focused Ultrasound Neuromodulation of the Mouse Cortex Induces Lateralized Motor Responses in Awake Mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 23
+  },
+  {
+   "doi": "10.1007/s12565-025-00879-6",
+   "openalex": "W4412643972",
+   "citation_date": "2025-07-24",
+   "title": "A pipeline for mouse brain registration to an atlas after in vivo neurophysiological recordings",
+   "journal": "Anatomical Science International",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 24
+  },
+  {
+   "doi": "10.1101/2024.08.25.609588",
+   "openalex": "W4401996352",
+   "citation_date": "2024-08-26",
+   "title": "Disruption of ultrasonic vocalizations with systemic administration of the non-competitive N-methyl-D-aspartate receptor antagonist MK-801 in adult male mice",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 25
+  },
+  {
+   "doi": "10.1016/j.crmeth.2025.101144",
+   "openalex": "W4413789606",
+   "citation_date": "2025-09",
+   "title": "Profiling mouse behavior with computational tools to assess age-dependent differences in associative learning",
+   "journal": "Cell Reports Methods",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 26
+  },
+  {
+   "doi": "10.1101/2025.10.28.685103",
+   "openalex": "",
+   "citation_date": "2025-10-29",
+   "title": "Sex-dependent cortico-amygdala circuits controlling emotion recognition",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 27
+  },
+  {
+   "doi": "10.1126/sciadv.adw2109",
+   "openalex": "",
+   "citation_date": "2026-02-13",
+   "title": "YORU: Animal behavior detection with object-based approach for real-time closed-loop feedback",
+   "journal": "Science Advances",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 28
+  },
+  {
+   "doi": "10.1007/978-3-031-73039-9_7",
+   "openalex": "W4403888183",
+   "citation_date": "2024-10-31",
+   "title": "Elucidating the Hierarchical Nature of Behavior with Masked Autoencoders",
+   "journal": "Lecture Notes in Computer Science",
+   "year": 2024,
+   "type": "book-chapter",
+   "screen_order": 29
+  },
+  {
+   "doi": "10.1016/j.conb.2025.103105",
+   "openalex": "W4413814675",
+   "citation_date": "2025-10",
+   "title": "Central regulation of cardio-behavioral responses: Circuit engagement during aversive emotional states",
+   "journal": "Current Opinion in Neurobiology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 30
+  },
+  {
+   "doi": "10.1101/2025.09.23.678085",
+   "openalex": "W4414458561",
+   "citation_date": "2025-09-24",
+   "title": "Cortex-Wide Substrates for Body Schema and Action Awareness",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 31
+  },
+  {
+   "doi": "10.1101/2023.02.23.529692",
+   "openalex": "W4321789041",
+   "citation_date": "2023-02-23",
+   "title": "Fear conditioning biases olfactory sensory neuron frequencies across generations",
+   "journal": "",
+   "year": 2023,
+   "type": "posted-content",
+   "screen_order": 32
+  },
+  {
+   "doi": "10.1016/j.cub.2025.05.031",
+   "openalex": "W4410993814",
+   "citation_date": "2025-06",
+   "title": "Coordinated social interaction states revealed by probabilistic modeling of zebrafish behavior",
+   "journal": "Current Biology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 33
+  },
+  {
+   "doi": "10.1109/wacv61041.2025.00613",
+   "openalex": "W4409263244",
+   "citation_date": "2025-02-26",
+   "title": "Sifting Through the Haystack - Efficiently Finding Rare Animal Behaviors in Large-Scale Datasets",
+   "journal": "2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+   "year": 2025,
+   "type": "proceedings-article",
+   "screen_order": 34
+  },
+  {
+   "doi": "10.1101/2025.11.16.688666",
+   "openalex": "",
+   "citation_date": "2025-11-17",
+   "title": "FERAL: a supervised video-understanding system for direct video-to-behavior mapping",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 35
+  },
+  {
+   "doi": "10.64898/2025.12.13.694102",
+   "openalex": "",
+   "citation_date": "2025-12-16",
+   "title": "Pharmacological Inhibition of FKBP51 Mitigates Early Life Adversity-Induced Social Deficits",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 36
+  },
+  {
+   "doi": "10.64898/2025.12.13.694073",
+   "openalex": "",
+   "citation_date": "2025-12-14",
+   "title": "Satellite microglia gate neuronal excitability by shielding inhibitory synapses in adult brain",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 37
+  },
+  {
+   "doi": "10.64898/2026.02.16.706076",
+   "openalex": "",
+   "citation_date": "2026-02-17",
+   "title": "Excitatory and inhibitory neurons in the dorsal periaqueductal gray encode decisions to assess and escape natural threats",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 38
+  },
+  {
+   "doi": "10.1101/2025.07.08.663718",
+   "openalex": "W4412360323",
+   "citation_date": "2025-07-11",
+   "title": "REVS: A New Open-Source Platform for High-Resolution Analysis of Rodent Wheel Running Behavior",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 39
+  },
+  {
+   "doi": "10.1109/cnn63506.2024.10705840",
+   "openalex": "W4403278576",
+   "citation_date": "2024-09-19",
+   "title": "Sphynx: An Automated Behavioral Analysis Tool for Neuronal Selectivity Identification",
+   "journal": "2024 Sixth International Conference Neurotechnologies and Neurointerfaces (CNN)",
+   "year": 2024,
+   "type": "proceedings-article",
+   "screen_order": 40
+  },
+  {
+   "doi": "10.1016/j.cobeha.2025.101532",
+   "openalex": "W4410107000",
+   "citation_date": "2025-08",
+   "title": "Act natural: a review of new methods for assessing dopamine’s role in natural behavior",
+   "journal": "Current Opinion in Behavioral Sciences",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 41
+  },
+  {
+   "doi": "10.2139/ssrn.5205592",
+   "openalex": "W4409219064",
+   "citation_date": "2025",
+   "title": "Computational Primitives for Cost-Benefit Decision-Making",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 42
+  },
+  {
+   "doi": "10.7554/elife.92882",
+   "openalex": "W4389781873",
+   "citation_date": "2023-12-15",
+   "title": "Fear conditioning biases olfactory sensory neuron frequencies across generations",
+   "journal": "eLife",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 43
+  },
+  {
+   "doi": "10.1371/journal.pbio.3003632",
+   "openalex": "",
+   "citation_date": "2026-02-20",
+   "title": "BehaveAI enables rapid detection and classification of objects and behavior from motion",
+   "journal": "PLOS Biology",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 44
+  },
+  {
+   "doi": "10.1038/s41586-025-10009-x",
+   "openalex": "",
+   "citation_date": "2026-01-21",
+   "title": "Predatory aggression evolved through adaptations to noradrenergic circuits",
+   "journal": "Nature",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 45
+  },
+  {
+   "doi": "10.1101/2022.01.13.476229",
+   "openalex": "W4206326164",
+   "citation_date": "2022-01-18",
+   "title": "JAX Animal Behavior System (JABS): A genetics informed, end-to-end advanced behavioral phenotyping platform for the laboratory mouse",
+   "journal": "",
+   "year": 2022,
+   "type": "posted-content",
+   "screen_order": 46
+  },
+  {
+   "doi": "10.1101/2024.11.06.622362",
+   "openalex": "W4404133915",
+   "citation_date": "2024-11-07",
+   "title": "Olfactory bulb tracks breathing rhythms and place in freely behaving mice",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 47
+  },
+  {
+   "doi": "10.1101/2024.09.20.613901",
+   "openalex": "",
+   "citation_date": "2024-09-20",
+   "title": "Fine decomposition of rodent behavior via unsupervised segmentation and clustering of inertial signals",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 48
+  },
+  {
+   "doi": "10.1016/j.addicn.2025.100224",
+   "openalex": "W4413185916",
+   "citation_date": "2025-09",
+   "title": "Using miniscopes and deep learning to compare neurobehavioral representations of psychostimulant and opioid self-administration",
+   "journal": "Addiction Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 49
+  },
+  {
+   "doi": "10.1523/eneuro.0014-25.2025",
+   "openalex": "W4412727576",
+   "citation_date": "2025-07-28",
+   "title": "Subsecond Analysis of Locomotor Activity in Parkinsonian Mice",
+   "journal": "eneuro",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 50
+  },
+  {
+   "doi": "10.1101/2024.01.25.577295",
+   "openalex": "W4391246862",
+   "citation_date": "2024-01-26",
+   "title": "Spyglass: a framework for reproducible and shareable neuroscience research",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 51
+  },
+  {
+   "doi": "10.1098/rsob.250322",
+   "openalex": "",
+   "citation_date": "2026-01-21",
+   "title": "PoseR: a deep learning toolbox for classifying animal behaviour",
+   "journal": "Open Biology",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 52
+  },
+  {
+   "doi": "10.1007/s12035-025-05380-9",
+   "openalex": "",
+   "citation_date": "2025-11-07",
+   "title": "Orphan Receptor GPRC5B Controls Adult Hippocampal Neurogenesis and Affects Retinoic Acid-Mediated Behaviors",
+   "journal": "Molecular Neurobiology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 53
+  },
+  {
+   "doi": "10.1007/978-981-96-5194-8_4",
+   "openalex": "W4411068757",
+   "citation_date": "2025",
+   "title": "Human Factor and Behavioral Computing",
+   "journal": "Human Factor Security and Safety",
+   "year": 2025,
+   "type": "book-chapter",
+   "screen_order": 54
+  },
+  {
+   "doi": "10.7554/elife.100162",
+   "openalex": "W4401091297",
+   "citation_date": "2024-07-29",
+   "title": "Cntnap2 loss drives striatal neuron hyperexcitability and behavioral inflexibility",
+   "journal": "eLife",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 55
+  },
+  {
+   "doi": "10.1016/j.celrep.2025.116601",
+   "openalex": "",
+   "citation_date": "2025-12",
+   "title": "Noradrenergic tuning of arousal is coupled to movement transitions",
+   "journal": "Cell Reports",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 56
+  },
+  {
+   "doi": "10.1101/2025.06.09.658771",
+   "openalex": "W4411311108",
+   "citation_date": "2025-06-13",
+   "title": "Experience-dependent sharp-wave ripple deficits in an Alzheimer’s disease mouse model",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 57
+  },
+  {
+   "doi": "10.1038/s44220-025-00547-8",
+   "openalex": "",
+   "citation_date": "2025-11-28",
+   "title": "A multi-dimensional transfer learning framework for studying reward-guided behaviors across species",
+   "journal": "Nature Mental Health",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 58
+  },
+  {
+   "doi": "",
+   "openalex": "",
+   "citation_date": "2025",
+   "title": "",
+   "journal": "",
+   "year": "",
+   "type": "",
+   "screen_order": 59
+  },
+  {
+   "doi": "10.1172/jci191346",
+   "openalex": "W4410930215",
+   "citation_date": "2025-06-02",
+   "title": "Mechanism-based nonopioid analgesic targets",
+   "journal": "Journal of Clinical Investigation",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 60
+  },
+  {
+   "doi": "10.1101/2024.08.06.606618",
+   "openalex": "W4401412960",
+   "citation_date": "2024-08-08",
+   "title": "Precision cutaneous stimulation in freely moving mice",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 61
+  },
+  {
+   "doi": "10.64898/2025.12.12.694037",
+   "openalex": "",
+   "citation_date": "2025-12-16",
+   "title": "Towards Video-LLM Driven Workflow for Behavioral Segmentation and Scoring in Mice Performing a Skilled Water Reaching Task: An Evaluation of Recent LLM Models",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 62
+  },
+  {
+   "doi": "10.1101/2025.03.27.645630",
+   "openalex": "W4409044717",
+   "citation_date": "2025-04-01",
+   "title": "MouseGPT: A Large-scale Vision-Language Model for Mouse Behavior Analysis",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 63
+  },
+  {
+   "doi": "10.1101/2025.08.02.668290",
+   "openalex": "W4412881036",
+   "citation_date": "2025-08-03",
+   "title": "PyMouse Lifter: Real Time 3-D Pose Estimation for Mice with Only 2-D Annotation Via Data Synthesis",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 64
+  },
+  {
+   "doi": "10.1101/2025.11.04.686536",
+   "openalex": "",
+   "citation_date": "2025-11-05",
+   "title": "BehaveAI: a framework for rapidly detecting and classifying objects and behaviour from motion",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 65
+  },
+  {
+   "doi": "10.1101/2025.09.22.677949",
+   "openalex": "W4414510567",
+   "citation_date": "2025-09-25",
+   "title": "Identity-stable multi-animal tracking using bidirectional segmentation with object-level memory",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 66
+  },
+  {
+   "doi": "10.1101/2024.02.06.579164",
+   "openalex": "W4391646385",
+   "citation_date": "2024-02-08",
+   "title": "Anti-drift pose tracker (ADPT): A transformer-based network for robust animal pose estimation cross-species",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 67
+  },
+  {
+   "doi": "10.64898/2026.01.24.700912",
+   "openalex": "",
+   "citation_date": "2026-01-26",
+   "title": "An end-to-end platform for pose estimation and real-time edge-AI deployment",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 68
+  },
+  {
+   "doi": "10.3389/fnbeh.2025.1617091",
+   "openalex": "",
+   "citation_date": "2025-11-07",
+   "title": "Social context restructures behavioral syntax in mice",
+   "journal": "Frontiers in Behavioral Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 69
+  },
+  {
+   "doi": "10.1038/s41593-025-02026-w",
+   "openalex": "W4413109237",
+   "citation_date": "2025-08-11",
+   "title": "Differential kinematic coding in sensorimotor striatum across behavioral domains reflects different contributions to movement",
+   "journal": "Nature Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 70
+  },
+  {
+   "doi": "10.1101/2025.06.17.659360",
+   "openalex": "W4411476119",
+   "citation_date": "2025-06-20",
+   "title": "Behavioral Signature of Trihexyphenidyl in The                   <i>Tor1a</i>                   (DYT1) Knockin Mouse Model of Dystonia",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 71
+  },
+  {
+   "doi": "10.3389/fncel.2026.1750887",
+   "openalex": "",
+   "citation_date": "2026-02-25",
+   "title": "CircFRRS1 drives neuroinflammation through the miR-27a-3p/TLR4 pathway after deep hypothermic circulatory arrest",
+   "journal": "Frontiers in Cellular Neuroscience",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 72
+  },
+  {
+   "doi": "10.1101/2025.10.17.683181",
+   "openalex": "",
+   "citation_date": "2025-10-19",
+   "title": "Behaviorally relevant cell ensembles in rat motor cortex are replayed during sleep and implicate hippocampal involvement in motor skill learning",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 73
+  },
+  {
+   "doi": "10.1126/sciadv.adn1355",
+   "openalex": "W4411763866",
+   "citation_date": "2025-06-27",
+   "title": "Three-dimensional markerless motion capture of multiple freely behaving monkeys toward automated characterization of social behavior",
+   "journal": "Science Advances",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 74
+  },
+  {
+   "doi": "10.7554/elife.108089",
+   "openalex": "W4414534291",
+   "citation_date": "2025-09-26",
+   "title": "Spyglass: a framework for reproducible and shareable neuroscience research",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 75
+  },
+  {
+   "doi": "10.1016/j.celrep.2024.114870",
+   "openalex": "W4403565324",
+   "citation_date": "2024-11",
+   "title": "Machine learning reveals prominent spontaneous behavioral changes and treatment efficacy in humanized and transgenic Alzheimer's disease models",
+   "journal": "Cell Reports",
+   "year": 2024,
+   "type": "journal-article",
+   "screen_order": 76
+  },
+  {
+   "doi": "10.64898/2026.02.21.707096",
+   "openalex": "",
+   "citation_date": "2026-02-23",
+   "title": "A method for assessing approach and avoidance behavior across multiple olfactory stimuli in mice including multivariate hypothesis comparisons",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 77
+  },
+  {
+   "doi": "10.21105/joss.07069",
+   "openalex": "W4409141507",
+   "citation_date": "2025-04-03",
+   "title": "Dynamax: A Python package for probabilistic state space modeling with JAX",
+   "journal": "Journal of Open Source Software",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 78
+  },
+  {
+   "doi": "10.1038/s41597-025-05482-y",
+   "openalex": "W4412785392",
+   "citation_date": "2025-07-29",
+   "title": "Multimodal dataset linking wide‐field calcium imaging to behavior changes in operant lever‐pull task in mice",
+   "journal": "Scientific Data",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 79
+  },
+  {
+   "doi": "10.1016/j.biopsych.2024.11.017",
+   "openalex": "W4404958803",
+   "citation_date": "2024-12",
+   "title": "Data-Driven Analysis Identifies Novel Modulation of Social Behavior in Female Mice Witnessing Chronic Social Defeat Stress",
+   "journal": "Biological Psychiatry",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 80
+  },
+  {
+   "doi": "10.1101/2024.12.12.628169",
+   "openalex": "W4405643809",
+   "citation_date": "2024-12-17",
+   "title": "A Brain Reward Circuit Inhibited By Next-Generation Weight Loss Drugs",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 81
+  },
+  {
+   "doi": "10.1101/2025.02.17.638714",
+   "openalex": "W4407797876",
+   "citation_date": "2025-02-18",
+   "title": "Timing matters: modeling the effects of gestational cannabis exposure on social behavior and microglia in the developing amygdala",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 82
+  },
+  {
+   "doi": "10.7554/elife.107259.2",
+   "openalex": "",
+   "citation_date": "2025-11-14",
+   "title": "JAX Animal Behavior System (JABS): A genetics informed, end-to-end advanced behavioral phenotyping platform for the laboratory mouse",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 83
+  },
+  {
+   "doi": "10.7554/elife.95709",
+   "openalex": "W4396892999",
+   "citation_date": "2024-05-14",
+   "title": "Anti-drift pose tracker (ADPT), a transformer-based network for robust animal pose estimation cross-species",
+   "journal": "eLife",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 84
+  },
+  {
+   "doi": "10.7554/elife.95709.2",
+   "openalex": "W4408769939",
+   "citation_date": "2025-03-24",
+   "title": "Anti-drift pose tracker (ADPT): A transformer-based network for robust animal pose estimation cross-species",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 85
+  },
+  {
+   "doi": "10.1101/2024.09.17.613529",
+   "openalex": "W4402559700",
+   "citation_date": "2024-09-17",
+   "title": "High-resolution                   <i>in vivo</i>                   kinematic tracking with injectable fluorescent nanoparticles",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 86
+  },
+  {
+   "doi": "10.1101/2025.05.13.653908",
+   "openalex": "W4410388206",
+   "citation_date": "2025-05-15",
+   "title": "Automated behavior classification of                   <i>julius seizure</i>                   mutants in                   <i>Drosophila</i>                   reveals stereotyped seizure stages with genotype specificity",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 87
+  },
+  {
+   "doi": "10.7554/elife.106033.1",
+   "openalex": "W4409414796",
+   "citation_date": "2025-04-14",
+   "title": "Precision cutaneous stimulation in freely moving mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 88
+  },
+  {
+   "doi": "10.1016/j.tins.2025.08.006",
+   "openalex": "",
+   "citation_date": "2025-11",
+   "title": "Foraging as an ethological framework for neuroscience",
+   "journal": "Trends in Neurosciences",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 89
+  },
+  {
+   "doi": "10.1016/j.patter.2025.101237",
+   "openalex": "W4409654348",
+   "citation_date": "2025-05",
+   "title": "Evaluation of unsupervised learning algorithms for the classification of behavior from pose estimation data",
+   "journal": "Patterns",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 90
+  },
+  {
+   "doi": "10.7554/elife.105088.1",
+   "openalex": "W4408328567",
+   "citation_date": "2025-03-11",
+   "title": "Olfactory bulb tracks breathing rhythms and place in freely behaving mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 91
+  },
+  {
+   "doi": "10.7554/elife.100162.3",
+   "openalex": "W4412527615",
+   "citation_date": "2025-07-21",
+   "title": "Cntnap2 loss drives striatal neuron hyperexcitability and behavioral inflexibility",
+   "journal": "eLife",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 92
+  },
+  {
+   "doi": "10.1016/j.addicn.2025.100222",
+   "openalex": "W4413003737",
+   "citation_date": "2025-09",
+   "title": "Drug self-administration, drug-specific behaviors, and neurobehavioral deep learning analyses",
+   "journal": "Addiction Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 93
+  },
+  {
+   "doi": "10.1371/journal.pbio.3003431",
+   "openalex": "",
+   "citation_date": "2025-10-09",
+   "title": "DISSeCT: An unsupervised framework for high-resolution mapping of rodent behavior using inertial sensors",
+   "journal": "PLOS Biology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 94
+  },
+  {
+   "doi": "10.1073/pnas.2410254121",
+   "openalex": "W4399116371",
+   "citation_date": "2024-11-15",
+   "title": "Uncovering multiscale structure in the variability of larval zebrafish navigation",
+   "journal": "Proceedings of the National Academy of Sciences",
+   "year": 2024,
+   "type": "journal-article",
+   "screen_order": 95
+  },
+  {
+   "doi": "10.1109/bibm66473.2025.11356713",
+   "openalex": "",
+   "citation_date": "2025-12-15",
+   "title": "Zs-Drosophila: Learning Transferable Representations for Drosophila Behavior Analysis Via Visual-Language Hyperbolic Alignment",
+   "journal": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "year": 2025,
+   "type": "proceedings-article",
+   "screen_order": 96
+  },
+  {
+   "doi": "10.1038/s41386-025-02173-5",
+   "openalex": "W4412585761",
+   "citation_date": "2025-07-23",
+   "title": "Timing matters: modeling the effects of gestational cannabis exposure on social behavior and microglia in the developing amygdala",
+   "journal": "Neuropsychopharmacology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 97
+  },
+  {
+   "doi": "10.1093/biomethods/bpaf084",
+   "openalex": "",
+   "citation_date": "2025",
+   "title": "refineDLC: An advanced post-processing pipeline for DeepLabCut outputs",
+   "journal": "Biology Methods and Protocols",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 98
+  },
+  {
+   "doi": "10.1101/2024.12.26.630112",
+   "openalex": "W4405850436",
+   "citation_date": "2024-12-26",
+   "title": "PrecisionTrack: A Platform for Automated Long-Term Social Behavior Analysis in Naturalized Environments",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 99
+  },
+  {
+   "doi": "10.3758/s13428-025-02702-6",
+   "openalex": "W4410230610",
+   "citation_date": "2025-05-09",
+   "title": "Feature-based behavior coding for efficient exploratory analysis using pose estimation",
+   "journal": "Behavior Research Methods",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 100
+  },
+  {
+   "doi": "",
+   "openalex": "",
+   "citation_date": "2024",
+   "title": "",
+   "journal": "",
+   "year": "",
+   "type": "",
+   "screen_order": 101
+  },
+  {
+   "doi": "10.1101/2025.08.29.673009",
+   "openalex": "W4413986229",
+   "citation_date": "2025-09-04",
+   "title": "Dentate gyrus and CA3 activity mediates light-tone second-order conditioning expression in mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 102
+  },
+  {
+   "doi": "10.1101/2025.09.30.679579",
+   "openalex": "",
+   "citation_date": "2025-10-02",
+   "title": "Machine Learning Guided Video Analysis Identifies Sound-Evoked Pain Behaviors from Facial Grimace and Body Cues in Mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 103
+  },
+  {
+   "doi": "10.1134/s0022093025060080",
+   "openalex": "",
+   "citation_date": "2025-12",
+   "title": "Using Artificial Intelligence Systems in Modern Neurobehavioral Research",
+   "journal": "Journal of Evolutionary Biochemistry and Physiology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 104
+  },
+  {
+   "doi": "10.1101/2025.11.21.688112",
+   "openalex": "",
+   "citation_date": "2025-11-24",
+   "title": "Life-long behavioral screen reveals an architecture of vertebrate aging",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 105
+  },
+  {
+   "doi": "10.1101/2024.08.02.606321",
+   "openalex": "W4401292751",
+   "citation_date": "2024-08-02",
+   "title": "Predatory aggression evolved through adaptations to noradrenergic circuits",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 106
+  },
+  {
+   "doi": "10.1109/access.2025.3569285",
+   "openalex": "",
+   "citation_date": "2025",
+   "title": "Behavior Modeling and Bio-Hybrid Systems: Using Reinforcement Learning to Enhance Cyborg Cockroach in Bio-Inspired Swarm Robotics",
+   "journal": "IEEE Access",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 107
+  },
+  {
+   "doi": "10.1016/j.bbr.2025.115615",
+   "openalex": "W4410022760",
+   "citation_date": "2025-07",
+   "title": "Longitudinal evaluation of open field and string-pulling behaviors in mice",
+   "journal": "Behavioural Brain Research",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 108
+  },
+  {
+   "doi": "",
+   "openalex": "",
+   "citation_date": "2026",
+   "title": "",
+   "journal": "",
+   "year": "",
+   "type": "",
+   "screen_order": 109
+  },
+  {
+   "doi": "10.3389/fnbeh.2025.1745658",
+   "openalex": "",
+   "citation_date": "2026-01-09",
+   "title": "The impact of machine learning on ethological neuroscience",
+   "journal": "Frontiers in Behavioral Neuroscience",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 110
+  },
+  {
+   "doi": "10.7554/elife.108089.1",
+   "openalex": "W4414534177",
+   "citation_date": "2025-09-26",
+   "title": "Spyglass: a framework for reproducible and shareable neuroscience research",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 111
+  },
+  {
+   "doi": "10.1016/b978-0-443-29068-8.00207-5",
+   "openalex": "",
+   "citation_date": "2025",
+   "title": "Gaze and behavior tracking in animal research: Granularity, automation, and technological choice",
+   "journal": "Encyclopedia of Animal Behavior",
+   "year": 2026,
+   "type": "book-chapter",
+   "screen_order": 112
+  },
+  {
+   "doi": "10.1038/s41583-025-00996-1",
+   "openalex": "",
+   "citation_date": "2025-12-03",
+   "title": "Joint modelling of brain and behaviour dynamics with artificial intelligence",
+   "journal": "Nature Reviews Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 113
+  },
+  {
+   "doi": "10.7554/elife.92882.2",
+   "openalex": "",
+   "citation_date": "2025-12-03",
+   "title": "Fear conditioning biases olfactory sensory neuron expression across generations",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 114
+  },
+  {
+   "doi": "10.21203/rs.3.rs-5851215/v1",
+   "openalex": "W4407302277",
+   "citation_date": "2025-02-10",
+   "title": "Vestibular circuit stimulation for retuning locomotor dynamics in Parkinson's disease",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 115
+  },
+  {
+   "doi": "10.1101/2024.09.06.611607",
+   "openalex": "W4402448185",
+   "citation_date": "2024-09-10",
+   "title": "Scopolamine-induced cholinergic disruption impairs temporal prediction in head-fixed mice",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 116
+  },
+  {
+   "doi": "10.1101/2024.12.09.627657",
+   "openalex": "W4405966198",
+   "citation_date": "2024-12-15",
+   "title": "Computational Primitives for Cost-Benefit Decision-Making",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 117
+  },
+  {
+   "doi": "10.1101/2025.05.24.655880",
+   "openalex": "W4410796825",
+   "citation_date": "2025-05-28",
+   "title": "Unbiased Quantification of Persistent Postural and Motor Deficits Following Spinal Cord Injury in Mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 118
+  },
+  {
+   "doi": "10.1016/j.neuron.2025.11.021",
+   "openalex": "",
+   "citation_date": "2026-01",
+   "title": "Spontaneous behavior is a succession of self-directed tasks",
+   "journal": "Neuron",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 119
+  },
+  {
+   "doi": "10.3389/fnbeh.2025.1663089",
+   "openalex": "",
+   "citation_date": "2025-08-22",
+   "title": "Does advancement in marker-less pose-estimation mean more quality research? A systematic review",
+   "journal": "Frontiers in Behavioral Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 120
+  },
+  {
+   "doi": "10.1101/2025.09.01.673507",
+   "openalex": "W4413908225",
+   "citation_date": "2025-09-02",
+   "title": "Coping strategies dynamics and resilience profiles after early life stress revealed by behavioral sequencing",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 121
+  },
+  {
+   "doi": "10.1101/2025.08.12.669927",
+   "openalex": "W4413301405",
+   "citation_date": "2025-08-15",
+   "title": "PrimateFace: A Machine Learning Resource for Automated Face Analysis in Human and Non-human Primates",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 122
+  },
+  {
+   "doi": "10.1038/s44277-025-00047-8",
+   "openalex": "",
+   "citation_date": "2025-12-03",
+   "title": "Classification of social behavioral responses in stress and non-stress adult male mice with high precision",
+   "journal": "NPP—Digital Psychiatry and Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 123
+  },
+  {
+   "doi": "10.7554/elife.106033.2",
+   "openalex": "",
+   "citation_date": "2026-02-06",
+   "title": "Precision cutaneous stimulation in freely moving mice",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 124
+  },
+  {
+   "doi": "10.1101/2022.10.10.511660",
+   "openalex": "W4306145996",
+   "citation_date": "2022-10-13",
+   "title": "OpenLabCluster: Active Learning Based Clustering and Classification of Animal Behaviors in Videos Based on Automatically Extracted Kinematic Body Keypoints",
+   "journal": "",
+   "year": 2022,
+   "type": "posted-content",
+   "screen_order": 125
+  },
+  {
+   "doi": "10.1016/j.beproc.2025.105310",
+   "openalex": "",
+   "citation_date": "2026-01",
+   "title": "Influence of RFID tags on Melipona quadrifasciata behavior: Effects on locomotion and food choice",
+   "journal": "Behavioural Processes",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 126
+  },
+  {
+   "doi": "10.1101/2025.05.27.655252",
+   "openalex": "W4410838488",
+   "citation_date": "2025-05-28",
+   "title": "Reconstruction of Postures Using Partial Body Information Through a Self-supervised Transformer in Mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 127
+  },
+  {
+   "doi": "10.3389/fpain.2026.1739384",
+   "openalex": "",
+   "citation_date": "2026-02-09",
+   "title": "Behavioral assessment of pain in rodents: advances from evoked responses to spontaneous states and multimodal approaches",
+   "journal": "Frontiers in Pain Research",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 128
+  },
+  {
+   "doi": "10.1101/2025.09.26.678874",
+   "openalex": "W4414581453",
+   "citation_date": "2025-09-28",
+   "title": "Behavioral Decoding Reveals Cortical Endocannabinoid Potentiation during Δ                   <sup>9</sup>                   -THC Impairment",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 129
+  },
+  {
+   "doi": "10.1016/j.cois.2024.101259",
+   "openalex": "W4402301179",
+   "citation_date": "2024-12",
+   "title": "Integrating computer vision and molecular neurobiology to bridge the gap between behavior and the brain",
+   "journal": "Current Opinion in Insect Science",
+   "year": 2024,
+   "type": "journal-article",
+   "screen_order": 130
+  },
+  {
+   "doi": "10.1016/j.neubiorev.2025.106453",
+   "openalex": "",
+   "citation_date": "2026-01",
+   "title": "Long-term deep phenotyping of behavioral traits in mice using homecage monitoring",
+   "journal": "Neuroscience &amp; Biobehavioral Reviews",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 131
+  },
+  {
+   "doi": "10.1101/2025.08.22.671685",
+   "openalex": "W4413758458",
+   "citation_date": "2025-08-27",
+   "title": "CASTLE: a training-free foundation-model pipeline for cross-species behavioral classification",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 132
+  },
+  {
+   "doi": "10.1038/s41593-025-02106-x",
+   "openalex": "",
+   "citation_date": "2025-10-31",
+   "title": "Laser-engineered PRIME fiber for panoramic reconfigurable control of neural activity",
+   "journal": "Nature Neuroscience",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 133
+  },
+  {
+   "doi": "10.1101/2024.12.26.630411",
+   "openalex": "W4405807483",
+   "citation_date": "2024-12-26",
+   "title": "Sub-second analysis of locomotor activity in Parkinsonian mice",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 134
+  },
+  {
+   "doi": "10.1016/j.jneumeth.2025.110671",
+   "openalex": "",
+   "citation_date": "2026-04",
+   "title": "Feature library for behavioural characterization of early and late seizures in an experimental model of post-traumatic epilepsy",
+   "journal": "Journal of Neuroscience Methods",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 135
+  },
+  {
+   "doi": "10.7554/elife.106033",
+   "openalex": "W4409414726",
+   "citation_date": "2025-04-14",
+   "title": "Precision cutaneous stimulation in freely moving mice",
+   "journal": "eLife",
+   "year": 2026,
+   "type": "journal-article",
+   "screen_order": 136
+  },
+  {
+   "doi": "10.1101/2025.06.02.657156",
+   "openalex": "W4411083763",
+   "citation_date": "2025-06-06",
+   "title": "A State-Dependent Drift Diffusion Model Reveals Mice Actively Explore A Speed–Accuracy Continuum During Decision-Making",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 137
+  },
+  {
+   "doi": "10.1038/s41592-025-02893-y",
+   "openalex": "",
+   "citation_date": "2025-12-04",
+   "title": "Deep Imputation for Skeleton data (DISK) for behavioral science",
+   "journal": "Nature Methods",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 138
+  },
+  {
+   "doi": "10.64898/2026.01.26.701668",
+   "openalex": "",
+   "citation_date": "2026-01-26",
+   "title": "Non-saturating dimensionality, contextual dependence, and the limits of unsupervised decoding in motor cortex",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 139
+  },
+  {
+   "doi": "10.1101/2024.08.30.610328",
+   "openalex": "W4402103695",
+   "citation_date": "2024-09-01",
+   "title": "Unbiased preclinical phenotyping reveals neuroprotective properties of pioglitazone",
+   "journal": "",
+   "year": 2024,
+   "type": "posted-content",
+   "screen_order": 140
+  },
+  {
+   "doi": "10.1101/2025.11.24.690326",
+   "openalex": "",
+   "citation_date": "2025-11-25",
+   "title": "Altered striatal dopamine dynamics and behavior in                   <i>Grin2a</i>                   mutant mice, a genetic mouse model of schizophrenia",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 141
+  },
+  {
+   "doi": "10.3788/col202523.091101",
+   "openalex": "W4414071321",
+   "citation_date": "2025",
+   "title": "Image-free cross-species pose estimation via an ultra-low sampling rate single-pixel camera",
+   "journal": "Chinese Optics Letters",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 142
+  },
+  {
+   "doi": "10.1101/2025.08.06.668689",
+   "openalex": "W4413037146",
+   "citation_date": "2025-08-06",
+   "title": "Sex-specific exploration accounts for differences in valence learning in male and female mice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 143
+  },
+  {
+   "doi": "10.1371/journal.pbio.3003002",
+   "openalex": "W4407304375",
+   "citation_date": "2025-02-10",
+   "title": "vmTracking enables highly accurate multi-animal pose tracking in crowded environments",
+   "journal": "PLOS Biology",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 144
+  },
+  {
+   "doi": "10.64898/2025.12.09.693286",
+   "openalex": "",
+   "citation_date": "2025-12-12",
+   "title": "Signatures of covert neuron loss in the local field potential of motor cortex",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 145
+  },
+  {
+   "doi": "10.64898/2026.02.12.705535",
+   "openalex": "",
+   "citation_date": "2026-02-13",
+   "title": "Dynamic Compression Flows for Neuroscience Data",
+   "journal": "",
+   "year": 2026,
+   "type": "posted-content",
+   "screen_order": 146
+  },
+  {
+   "doi": "10.1101/2025.03.17.643774",
+   "openalex": "W4408610215",
+   "citation_date": "2025-03-17",
+   "title": "Complementary roles for hippocampus, anterior cingulate cortex, and orbitofrontal cortex in composing continuous choice",
+   "journal": "",
+   "year": 2025,
+   "type": "posted-content",
+   "screen_order": 147
+  },
+  {
+   "doi": "10.1016/j.aei.2025.103772",
+   "openalex": "W4413324386",
+   "citation_date": "2025-11",
+   "title": "Physics-informed 3D deformation tracking for dimensional accuracy control of manufactured components",
+   "journal": "Advanced Engineering Informatics",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 148
+  },
+  {
+   "doi": "10.1523/eneuro.0045-25.2025",
+   "openalex": "W4410886687",
+   "citation_date": "2025-05-30",
+   "title": "Accurate Tracking of Locomotory Kinematics in Mice Moving Freely in Three-Dimensional Environments",
+   "journal": "eneuro",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 149
+  },
+  {
+   "doi": "10.1126/sciadv.adu9136",
+   "openalex": "",
+   "citation_date": "2025-10-03",
+   "title": "High-resolution in vivo kinematic tracking with customized injectable fluorescent nanoparticles",
+   "journal": "Science Advances",
+   "year": 2025,
+   "type": "journal-article",
+   "screen_order": 150
+  }
+ ]
+}
