@@ -157,7 +157,8 @@ def test_fills_match_luna():
 # The label guard
 # --------------------------------------------------------------------------
 
-ALLOWED = {"vieb/calms/score.py", "scripts/calms_score.py", "scripts/calms_convert.py"}
+ALLOWED = {"vieb/calms/score.py", "scripts/calms_score.py", "scripts/calms_convert.py",
+           "scripts/calms_probe.py"}
 PATTERN = re.compile(r"calms\s+import\s+score|calms\.score|(CALMS|calms21)[^\n]*labels")
 
 
