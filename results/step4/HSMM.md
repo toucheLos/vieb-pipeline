@@ -126,3 +126,80 @@ cleared for learning fits, and C5 is blocked on the lab in any case.
 noise-anchored emissions decodes **sub-second "freeze" bouts** on about 19% of
 frames. Whether these correspond to scored fear freezing, which is usually counted
 in bouts of seconds, is open. **No learning quantity is computed.**
+
+---
+
+## Amendment 4 planted control and the known-answer check (both registered; tune split)
+
+**Data:** `hsmm_planted_bouts.json` (Amendment 4, D36, post-result) and
+`hsmm_known_answer.json` (`KNOWN_ANSWER.md`, 29e84cc).
+
+### Planted control (amended): PASS
+
+| item | result | bar |
+|---|---|---|
+| frame accuracy | **0.963** (min 0.957) | ≥ 0.90 |
+| recall, planted freeze bouts ≥ 1 s (IoU ≥ 0.5) | **0.985** [0.981, 0.989], n = 1,632 | ≥ 0.80 |
+| recall, planted freeze bouts ≥ 2 s | **0.991** [0.986, 0.996], n = 1,111 | ≥ 0.80 |
+
+Beside the bars:
+- precision is 0.991 (≥ 1 s) and 0.997 (≥ 2 s);
+- a matched decoded bout has 0.94–0.95 of the planted duration (median);
+- 4% of planted bouts are fragmented.
+
+**The decoder recovers long freeze bouts when the input contains them.** The
+sub-second bouts on real data therefore do not come from the decoder.
+
+### Known-answer check: row 4, FAIL
+
+There are 60 paired animals and 590 CFD recordings on Days 3–7, and every
+animal-day has both contexts. No pose/video frame-count mismatches.
+
+**Fraction of frames in freeze bouts, by bout length.** Each cell is the paired
+A − B with its animal-bootstrap 95% interval.
+
+| bout length | HSMM A | HSMM B | **HSMM A − B** | pixel A | pixel B | **pixel A − B** |
+|---|---|---|---|---|---|---|
+| < 1 s | 0.139 | 0.115 | **+0.024 [+0.007, +0.041]** effect | 0.031 | 0.032 | −0.002 [−0.005, +0.002] |
+| 1–2 s | 0.041 | 0.044 | −0.003 [−0.013, +0.007] | 0.048 | 0.046 | +0.002 [−0.004, +0.009] |
+| ≥ 2 s | 0.014 | 0.028 | **−0.014 [−0.022, −0.007] reverse** | 0.669 | 0.479 | **+0.190 [+0.154, +0.226]** |
+| total | 0.193 | 0.187 | +0.007 [−0.024, +0.037] | 0.748 | 0.557 | **+0.191 [+0.157, +0.225]** |
+
+- **The pixel anchor holds on tune.** The pixel score gives Context A **+19.1
+  points** more freezing, and nearly all of that difference is in bouts ≥ 2 s.
+- **The decoded freeze runs the other way in the long bins.** It shows *less*
+  long-bout freeze in A, and the A excess sits in sub-second bouts.
+- **That is registered row 4: "decoded long freeze runs against both signals; the
+  freeze state is not freezing."** The model stays blocked.
+
+**Per-frame agreement within each context** (Cohen's κ with the pixel score; A / B):
+
+| decoded freeze frames | all frames | unflagged frames |
+|---|---|---|
+| all | 0.137 / 0.216 | 0.138 / 0.227 |
+| in decoded bouts ≥ 1 s | 0.036 / 0.066 | 0.036 / 0.069 |
+| in decoded bouts ≥ 2 s | 0.008 / 0.023 | 0.008 / 0.024 |
+
+Within either context, the two signals hardly agree on which frames are freezing.
+
+**Centroid speed (descriptive):**
+- the median per-animal A/B ratio is **0.51** [0.40, 0.66];
+- median speed is 0.033 BL/s in A and 0.068 BL/s in B.
+
+### What this says (descriptive, after the result)
+
+- **The keypoint signal carries the context difference.** Raw centroid speed is
+  halved in A, in the same direction as the pixel score. So the failure is not
+  "the keypoints miss freezing".
+- **The freeze state is too strict.** It is anchored to still-frame tracker jitter
+  (Amendment 2: m_inc = 0.032 of Step 1's level, 0.0021 BL increments). Only frames
+  as motionless as tracker noise qualify.
+- A freezing mouse breathes and sways. Those frames sit above that floor, so they go
+  to "move", and long freezing is cut into sub-second pieces whenever motion briefly
+  reaches the floor.
+- On this reading, the "freeze" state measures **tracker-floor stillness**, not
+  freezing. That fits the planted control passing: the planted freeze was exactly a
+  rigid pose plus jitter.
+- **Any fix is a registered change to the freeze state's definition** (for example,
+  an emission anchored to scored freezing rather than tracker jitter). Choosing one
+  is the human's decision. **No learning quantity is computed.**

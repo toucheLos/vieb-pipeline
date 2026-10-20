@@ -1,0 +1,657 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "tune split; diagnostic gate"
+  },
+  "bins_s": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      2.0
+    ],
+    [
+      2.0,
+      null
+    ]
+  ],
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "d654e894c0ca68c97e31f50d2cce01d5c7533bca",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "91878"
+  },
+  "frame_count_mismatches": [],
+  "freeze_fraction_by_bin": {
+    "hsmm": {
+      "1to2s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.04729866847496934,
+          "lo": 0.034039739607830306,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.04074006712821839
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.006900968435229161,
+          "lo": -0.013022503374190706,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.003170046142575684
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.05321438350578152,
+          "lo": 0.03455481811447324,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.04391011327079408
+        },
+        "reading": "no_effect"
+      },
+      "ge2s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.016895191956785592,
+          "lo": 0.010777746063634885,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.013780736309065143
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": -0.006714255265883705,
+          "lo": -0.022253104601442267,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.014341102315888104
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.036066964307946196,
+          "lo": 0.020783488617244963,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.02812183862495325
+        },
+        "reading": "reverse"
+      },
+      "lt1s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.15449761378168586,
+          "lo": 0.12309095840301441,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.13880389974272445
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0407034855312275,
+          "lo": 0.006819707537296814,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.024303865742948252
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.13417028920394133,
+          "lo": 0.09526507470901945,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.11450003399977618
+        },
+        "reading": "effect"
+      },
+      "total": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.21587037580756271,
+          "lo": 0.17072986018684772,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.19332470318000797
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.03648650559983486,
+          "lo": -0.024111686727166702,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.006792717284484463
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.22093938096297994,
+          "lo": 0.15238575775657234,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.18653198589552347
+        },
+        "reading": "no_effect"
+      }
+    },
+    "pixel": {
+      "1to2s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.05624340126523601,
+          "lo": 0.04085203240574163,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.04824983275427351
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.008902017248598442,
+          "lo": -0.003762756947140536,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.002364381791685077
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.05218809377048433,
+          "lo": 0.03965342839402106,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.04588545096258841
+        },
+        "reading": "no_effect"
+      },
+      "ge2s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.719101734716156,
+          "lo": 0.6157330470398324,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.668848506204498
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.22629174783899642,
+          "lo": 0.15411288719420713,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.19004415233883593
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.5442410589724694,
+          "lo": 0.41301752173310863,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.47880435386566206
+        },
+        "reading": "effect"
+      },
+      "lt1s": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.034845785188660244,
+          "lo": 0.026361211893010283,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.030579408853160343
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.0018065315451066366,
+          "lo": -0.005221602338357234,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": -0.0017159101756847608
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.036699797325697454,
+          "lo": 0.02826983108021814,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.0322953190288451
+        },
+        "reading": "no_effect"
+      },
+      "total": {
+        "A": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.7896894003969276,
+          "lo": 0.7011368696917603,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.747677747811932
+        },
+        "A_minus_B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.22524854948520973,
+          "lo": 0.15686583245424945,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.19069262395483624
+        },
+        "B": {
+          "aggregator": "mean",
+          "alpha": 0.05,
+          "hi": 0.6138192324545244,
+          "lo": 0.49946762319744703,
+          "method": "animal bootstrap (resamples animals with replacement)",
+          "n_animals": 60,
+          "n_boot": 2000,
+          "n_units": 60,
+          "point": 0.5569851238570956
+        },
+        "reading": "effect"
+      }
+    }
+  },
+  "kappa_tiebreak": null,
+  "kappa_within_context": {
+    "kappa_ge0s": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.16281574256827824,
+        "lo": 0.11081445690365618,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.13656283093287974
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.04913515834132754,
+        "lo": -0.10722302585707734,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.07935508423335795
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.24072630512071486,
+        "lo": 0.1913108902493877,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.21591791516623762
+      }
+    },
+    "kappa_ge0s_unflagged": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.16479912279913142,
+        "lo": 0.11129160946877326,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.1375251246919851
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.06061066207815657,
+        "lo": -0.11606740972486757,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.08970464358601728
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.2534174619841529,
+        "lo": 0.20274711500183581,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.2272297682780024
+      }
+    },
+    "kappa_ge1s": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.043976323641416834,
+        "lo": 0.027292415328430176,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.03551583233791651
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.01706443915332063,
+        "lo": -0.04384350955797499,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.030675218390548646
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.07792683116152097,
+        "lo": 0.05521209947295945,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.06619105072846516
+      }
+    },
+    "kappa_ge1s_unflagged": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.04419625989104984,
+        "lo": 0.027186064627013562,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.03555770638345316
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.01997879634431743,
+        "lo": -0.04715179962867376,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.03348998269179366
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.08102321688580479,
+        "lo": 0.057444341392844,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.0690476890752468
+      }
+    },
+    "kappa_ge2s": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.011140922877605519,
+        "lo": 0.005825407080793504,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.008328182596772296
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.009079110019844175,
+        "lo": -0.020873372074836454,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.01478606925188855
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.02867844539549175,
+        "lo": 0.01800782933921645,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.023114251848660845
+      }
+    },
+    "kappa_ge2s_unflagged": {
+      "A": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.011063957280003528,
+        "lo": 0.005782342834831853,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.008274327854562018
+      },
+      "A_minus_B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": -0.009964063998204164,
+        "lo": -0.02218688840991529,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": -0.01608694959022418
+      },
+      "B": {
+        "aggregator": "mean",
+        "alpha": 0.05,
+        "hi": 0.030338127671511766,
+        "lo": 0.01875551816696833,
+        "method": "animal bootstrap (resamples animals with replacement)",
+        "n_animals": 60,
+        "n_boot": 2000,
+        "n_units": 60,
+        "point": 0.024361277444786198
+      }
+    }
+  },
+  "n_animals": 60,
+  "n_recordings": 590,
+  "reading": "4: decoded long freeze runs against both signals",
+  "reads": [
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "pixel freeze A - B total 0.1907 [0.1569, 0.2252]",
+      "saturation": null,
+      "scored_object": {
+        "arm": "pixel_anchor",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "decoded freeze fraction A - B 0.0243 [0.0068, 0.0407] (effect; PASS = interval excludes 0)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "hsmm_freeze_lt1s",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "decoded freeze fraction A - B -0.0032 [-0.0130, 0.0069] (no_effect; PASS = interval excludes 0)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "hsmm_freeze_1to2s",
+        "split": "tune"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "decoded freeze fraction A - B -0.0143 [-0.0223, -0.0067] (reverse; PASS = interval excludes 0)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "hsmm_freeze_ge2s",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "decoded freeze fraction A - B 0.0068 [-0.0241, 0.0365] (no_effect; PASS = interval excludes 0)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "hsmm_freeze_total",
+        "split": "tune"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 60,
+      "reason": "row 4: decoded long freeze runs against both signals",
+      "saturation": null,
+      "scored_object": {
+        "arm": "known_answer",
+        "split": "tune"
+      },
+      "verdict": "FAIL"
+    }
+  ],
+  "registration": "results/step4/KNOWN_ANSWER.md",
+  "speed": {
+    "A_median_bl_s": 0.03296061432920396,
+    "B_median_bl_s": 0.06805071216076612,
+    "ratio_A_over_B_per_animal": {
+      "aggregator": "median",
+      "alpha": 0.05,
+      "hi": 0.6560505354490123,
+      "lo": 0.3968619959804028,
+      "method": "animal bootstrap (resamples animals with replacement)",
+      "n_animals": 60,
+      "n_boot": 2000,
+      "n_units": 60,
+      "point": 0.5105897966959735
+    }
+  },
+  "stage": "hsmm_known_answer",
+  "verdict": "FAIL"
+}

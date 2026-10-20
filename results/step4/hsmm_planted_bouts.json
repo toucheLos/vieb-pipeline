@@ -1,0 +1,89 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "tune split; post-result amendment (D36)"
+  },
+  "bout_recall": {
+    "ge1s": {
+      "frac_true_bouts_fragmented": 0.03676470588235294,
+      "hi": 0.9893952149688182,
+      "lo": 0.9812912082105195,
+      "mean_fragments_per_true_bout": 1.0386029411764706,
+      "median_duration_ratio_matched": 0.9393939393939394,
+      "n_pred": 1540,
+      "n_true": 1632,
+      "pass": 1,
+      "precision": 0.990909090909091,
+      "recall": 0.9852941176470589
+    },
+    "ge2s": {
+      "frac_true_bouts_fragmented": 0.043204320432043204,
+      "hi": 0.9955319240528732,
+      "lo": 0.9859269496912417,
+      "mean_fragments_per_true_bout": 1.0459045904590458,
+      "median_duration_ratio_matched": 0.9519230769230769,
+      "n_pred": 1037,
+      "n_true": 1111,
+      "pass": 1,
+      "precision": 0.9971070395371263,
+      "recall": 0.990999099909991
+    }
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "29e84cce4e8a8a11e34f086af1e6a1624cc5dec7-dirty",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "91801"
+  },
+  "frame_accuracy": {
+    "mean": 0.9631185185185185,
+    "min": 0.9572222222222222,
+    "pass": 1
+  },
+  "n_sessions": 30,
+  "pass": 1,
+  "reads": [
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 30,
+      "reason": "frame accuracy 0.9631 (bar 0.90); freeze-bout recall at IoU >= 0.5: ge1s 0.985 [0.981, 0.989] (bar 0.8); ge2s 0.991 [0.986, 0.996] (bar 0.8)",
+      "saturation": null,
+      "scored_object": {
+        "arm": "planted_bouts_amended",
+        "split": "tune"
+      },
+      "verdict": "PASS"
+    }
+  ],
+  "registration": "results/step4/REGISTRATION.md Amendment 4",
+  "stage": "hsmm_planted_bouts"
+}
