@@ -82,3 +82,73 @@ result, as its own registration.
 One `Read` per label × feature set × level × stage. `n_effective` is the number of
 evaluation sequences, with Step 1's caveat (identities unknown, so intervals may be
 too narrow).
+
+---
+
+# Amendment 1 (post-result): a bout-aware probe, a scorer check, and a speed baseline
+
+**Committed alone.** Decided **after** 3A.1–3A.2 were seen (`REPORT.md`): groom's
+event score was near zero while frame AUROC was 0.86, and mount scored exactly zero
+events at AUROC 0.87. The user directed this amendment and its three additions. The
+3A.1–3A.2 results stay on record.
+
+**Scope.** This probe is **supervised and diagnostic**.
+- **If it succeeds,** the unsupervised method is losing information the features
+  contain, and 3A goes on to find the stage where it is lost (a later
+  registration).
+- **It does not change the Step 1 verdict.**
+
+## A1.1: check the event scorer before trusting any event score
+
+1. **Identity check.** For every label and every evaluation partition,
+   `score.event_counts(y, y)` and `score.boundary_counts` on the label's own
+   boundaries must give **F1 = 1.0 exactly**. **If this fails, the 3A.1–3A.2 event
+   verdicts are void** and are re-scored after the scorer is fixed.
+2. **Planted flicker.** Flip a random fraction p ∈ {0.01, 0.05, 0.10, 0.20} of the
+   frames of the true label sequence (seed 0), feed it in as the prediction, and
+   report event F1 against p.
+   - Also report it after the readout fitted in A1.3 smooths it, which shows how much
+     the readout restores.
+   - **This is descriptive:** it says how fragile event F1 at IoU ≥ 0.5 is to flicker.
+
+## A1.2: a trivial baseline for frame-level information
+
+- **B (speed and stillness only):** log centroid speed and log pose-change rate
+  (`vieb.hsmm.mouse.signal` on the `raw` arm, w = 0.2 s), plus their ±0.5 s window
+  mean and SD. That makes 6 features.
+- **Metrics:** **AUROC and PR-AUC** on evaluation frames from the probe's
+  probability, for B, R and L, at native and 1.0×. The interval is a bootstrap over
+  evaluation sequences (2,000).
+- **The rule:** a representation **contains a label beyond speed** iff the lower 95%
+  bound of **ΔPR-AUC (representation − B)** is > 0. The bootstrap is paired, with the
+  same sequences on both sides.
+
+## A1.3: the readout fitted on the map partition, not fixed at 0.5
+
+- **Probe:** the A1.2 feature sets with the same logistic regression.
+- **Readout grid:**
+  - threshold τ from 0.05 to 0.90 in steps of 0.05;
+  - median smoothing of the probability over w ∈ {0, 0.2, 0.5, 1.0} s;
+  - minimum bout duration d ∈ {0, 0.2, 0.5, 1.0} s.
+- **Choosing the readout:** by **out-of-fold event F1 on the map partition**, with
+  folds by sequence (T1: 5 folds; groom: 3 folds, one per map sequence). Ties go to
+  smaller w, then smaller d, then larger τ. The probe is then refitted on the whole
+  map partition, and the chosen readout is applied to evaluation.
+- **Scoring:** Step 1's unchanged. Event F1 normalised by the ceiling; recoverable
+  means the lower 95% bound > 0.25 and the score > the null's 95th percentile.
+- **Null:** **100** circular shifts, each with the probe **and** the readout choice
+  refitted.
+- **Arms:** **m0_s0** (native) and **m1_s0** (Luna 1.0×); white_s0 as the negative
+  control. **If the control is recoverable for any label, every A1.3 verdict is
+  `NOT_A_RESULT`.**
+
+## Readings (fixed now)
+
+| outcome | reading |
+|---|---|
+| scorer identity check fails | the earlier 3A event verdicts are void |
+| R (or L) recoverable for groom at native | **the unsupervised method loses information the features contain**; 3A proceeds to localise the stage |
+| R and L not recoverable for groom at native, but contain it beyond speed (ΔPR-AUC > 0) | the information is at frame level, but a linear probe cannot assemble it into bouts |
+| neither | the representation, under a linear probe, lacks grooming beyond speed |
+
+The same readings are reported at 1.0×.
