@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "tune split only"
+  },
+  "chosen": "geometric",
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "d5279d325d3970466fa279a3c1e9ae54da80ed4f",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "90703"
+  },
+  "family": "lognormal",
+  "gain_ci": [
+    -0.0006565703366872785,
+    0.003754449975112912
+  ],
+  "gain_mean": 0.0015172721503408167,
+  "keep_semimarkov": 0,
+  "mean_heldout_ll_per_frame": {
+    "geometric": -5.547121241806701,
+    "lognormal": -5.5456039696563595,
+    "weibull": -5.5519784478968655
+  },
+  "read": {
+    "degenerate": 0,
+    "detail": {},
+    "n_effective": 60,
+    "reason": "held-out gain of the lognormal HSMM over a plain HMM: +0.00152 nats/frame [-0.00066, +0.00375]; the semi-Markov part is DROPPED (geometric fits as well)",
+    "saturation": null,
+    "scored_object": {
+      "arm": "hsmm_vs_hmm",
+      "cv": "5-fold animal",
+      "family": "lognormal",
+      "split": "tune"
+    },
+    "verdict": "FAIL"
+  },
+  "stage": "hsmm_select"
+}

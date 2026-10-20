@@ -92,3 +92,37 @@ the registered surrogate.**
 the defect is not confined to the control. The registered result stands as
 reported. A corrected construction needs an amendment made after seeing the
 result, and that is the human's decision.
+
+---
+
+## Run 2: after Amendment 3 (real still pose), post-result and registered as such
+
+The original run (above, and `results/step4/run1/`) stays on record. **Every bar is
+unchanged.**
+
+| registered item | run 1 (median pose) | **run 2 (real still pose)** |
+|---|---|---|
+| real frames below the surrogate's 5th percentile | 2.3% | **2.0%** |
+| HSMM vs HMM gain (nats/frame) | +0.0015 [−0.0003, +0.0034]: dropped | **+0.0015 [−0.0007, +0.0038]: dropped** |
+| jitter-only stationary (mean / min) | 0.994 / 0.860: **FAIL** | **0.998 / 0.996: PASS** |
+| planted bouts: accuracy (bar 0.90) | 0.957 | **0.963** |
+| planted bouts: duration recovery | NOT_A_RESULT (geometric) | **NOT_A_RESULT (geometric)** |
+
+**What the fitted plain HMM says.** These are descriptive, and the model is not used
+for learning fits.
+- **Mean bout durations:** freeze 0.31 s, move 1.21 s, lost 0.66 s. The median
+  decoded freeze bout is 0.17 s.
+- **Freeze fraction on tune CFD days:** Context A 0.191, Context B 0.184.
+- **Prior imprint:** frame-shuffled emissions decode to a median of 0.07 s, against
+  0.17 s for the real decode (KS 0.35). The circular shift matches the real decode.
+- **Flicker:** 4.7 switches per second raw, 1.3 smoothed.
+
+**Status against C4.** The stationary control **passes**. The planted control's
+duration half is **NOT_A_RESULT**, because explicit durations were dropped, so the
+planted control has **not passed** as registered. The model is therefore still not
+cleared for learning fits, and C5 is blocked on the lab in any case.
+
+**Reading.** With the semi-Markov part dropped twice, a plain HMM with
+noise-anchored emissions decodes **sub-second "freeze" bouts** on about 19% of
+frames. Whether these correspond to scored fear freezing, which is usually counted
+in bouts of seconds, is open. **No learning quantity is computed.**

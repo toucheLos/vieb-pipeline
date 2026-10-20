@@ -1,0 +1,121 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "approved optional analysis; tune split"
+  },
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "d5279d325d3970466fa279a3c1e9ae54da80ed4f",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "90736"
+  },
+  "lds": {
+    "anchor": {
+      "fps": 30.0,
+      "n_animals": 0,
+      "n_frames": 22355989,
+      "n_kept_keypoints": 7,
+      "n_recordings": 3846
+    },
+    "anchor_check": {
+      "corpus": "luna",
+      "fields": [],
+      "why_not_checked": "tune split"
+    },
+    "corpus": "luna",
+    "env": {
+      "cuda": {
+        "available": 0,
+        "built": "13.0",
+        "device": null
+      },
+      "executable": "/home/tul26194/recur/venv/bin/python3",
+      "git_sha": "3d1125b7511a5d46a8b5f9c4ecebda0c3d50733a",
+      "node": "c01",
+      "packages": {
+        "cv2": "5.0.0",
+        "h5py": "3.15.1",
+        "numpy": "2.4.6",
+        "pandas": "3.0.5",
+        "scipy": "1.17.1",
+        "sklearn": "1.9.0",
+        "tables": "3.11.1",
+        "torch": "2.13.0+cu130"
+      },
+      "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+      "python": "3.11.4",
+      "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+      "slurm_array_task": null,
+      "slurm_job": "90733"
+    },
+    "latent_dim": 10,
+    "n_fit": 100,
+    "n_recordings": 770,
+    "nlags": 3,
+    "pca_explained": 0.9882868857555954,
+    "spectral_radius": 0.9797969140317302,
+    "stage": "kpms_synth_lds"
+  },
+  "registration": "paper1/registrations/KPMS_SYNTHETIC_DWELL.md",
+  "seeds": {
+    "s0": {
+      "frac_reject": 0.3076923076923077,
+      "median_dwell_frames": 3054.0,
+      "n_animals": 26,
+      "n_in_use_0.5pct": 5,
+      "n_labels": 6,
+      "n_reject": 8,
+      "top_two_share": 0.6358292770560992,
+      "var_over_mean_sq": 0.506187388223784
+    },
+    "s1": {
+      "frac_reject": 0.6470588235294118,
+      "median_dwell_frames": 5391.0,
+      "n_animals": 17,
+      "n_in_use_0.5pct": 6,
+      "n_labels": 7,
+      "n_reject": 11,
+      "top_two_share": 0.6442683596075227,
+      "var_over_mean_sq": 0.44797387524908716
+    },
+    "s2": {
+      "frac_reject": 0.625,
+      "median_dwell_frames": 5391.0,
+      "n_animals": 16,
+      "n_in_use_0.5pct": 7,
+      "n_labels": 8,
+      "n_reject": 10,
+      "top_two_share": 0.5951231273048384,
+      "var_over_mean_sq": 0.3809241622065653
+    }
+  },
+  "stage": "kpms_synthetic_dwell"
+}

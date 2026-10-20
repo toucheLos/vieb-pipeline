@@ -1,0 +1,80 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "tune split only"
+  },
+  "corpus": "luna",
+  "d_max_s": 10.0,
+  "ell_median_px": 112.76868571058307,
+  "em_iterations": 88,
+  "em_pi_freeze": 0.10780622694716833,
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "629d3ba5234d3fc01eeff49dfe18ca388b105faf",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "90701"
+  },
+  "flag_rate": 0.05015788645760527,
+  "grid": [
+    -3.0,
+    1.5,
+    40
+  ],
+  "n_animals": 60,
+  "n_frames": 4475368,
+  "n_recordings": 770,
+  "registration": "results/step4/REGISTRATION.md (+ Amendment 1)",
+  "stage": "hsmm_emissions",
+  "still": {
+    "amendment1_sigma_still_bl": 0.03601443155924763,
+    "m_rule": "Amendment 2: m_inc = s_real / s_op(1)",
+    "m_still": 0.032275496143976706,
+    "n_recordings_increment": 342,
+    "quantile": 0.1,
+    "s_operator_level1_bl": 0.06634551482858288,
+    "s_real_increment_bl": 0.002141334408020076,
+    "share_real_unflagged_r_below_surrogate_p5_median": 0.020234101063752744,
+    "sigma_bar_luna_bl": 0.06179869069997513,
+    "table_counts": [
+      2079,
+      16164,
+      72350,
+      140737,
+      223781,
+      294177,
+      333545,
+      166632,
+      20979,
+      4823
+    ],
+    "v_threshold_bl_s": 0.0028584433577420435
+  },
+  "w_s": 0.2
+}
