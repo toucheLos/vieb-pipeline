@@ -3,6 +3,8 @@
     python3 scripts/moseq_freeze.py --phase manifest
     sbatch jobs/moseq_freeze.slurm          # --phase shard, array 0-11
     # writes work/moseq/freeze/<rid>.npz
+    python3 scripts/moseq_freeze.py --phase manifest --split tune   # STEP 4 known-answer check
+    sbatch jobs/moseq_freeze_tune.slurm     # same scan on tune days 3-7, A/B
 
 The motion scan is `pixel_pilot.py`'s (`vieb.pixel.motion.scan`, full frame,
 `mt_cutoff` = 10 grey levels). Freezing is `freeze.freeze_mask` at the
@@ -40,6 +42,11 @@ OUT = os.path.join(config.REPO, "work", "moseq", "freeze")
 MANIFEST = os.path.join(config.REPO, "work", "moseq", "freeze_manifest.json")
 
 
+def manifest_path(split: str) -> str:
+    """The report manifest keeps its path; another split gets its own file."""
+    return MANIFEST if split == "report" else MANIFEST.replace(".json", f"_{split}.json")
+
+
 def frame_freeze(motion: np.ndarray, n_frames: int) -> np.ndarray:
     """``(n_frames,)`` freezing per frame from the ``(n_frames - 1,)`` motion."""
     out = np.zeros(n_frames, dtype=bool)
@@ -52,24 +59,26 @@ def manifest(a) -> int:
     rows = []
     for rid in spine.recording_ids():
         p = lab.parse(rid)
-        if split_of.get(lab.animal_tag(rid)) != "report":
+        if split_of.get(lab.animal_tag(rid)) != a.split:
             continue
         if str(p["context_letter"]) in CONTEXTS and int(p["day"]) in DAYS:
             rows.append({"recording_id": rid, "animal": lab.animal_tag(rid),
                          "context": str(p["context_letter"]), "day": int(p["day"])})
     os.makedirs(os.path.dirname(MANIFEST), exist_ok=True)
     write_json({**provenance.header(anchors.LUNA, stage="moseq_freeze_manifest",
-                                   unverified="a report-split subset (days 3-7, A/B)"),
-                "registration": "results/MOSEQ_PREREGISTRATION.md §7",
+                                   unverified=f"a {a.split}-split subset (days 3-7, A/B)"),
+                "registration": ("results/MOSEQ_PREREGISTRATION.md §7" if a.split == "report"
+                                 else "results/step4/KNOWN_ANSWER.md"),
+                "split": a.split,
                 "n_recordings": len(rows),
                 "n_animals": len({r["animal"] for r in rows}),
-                "recordings": rows}, MANIFEST)
-    log(f"  {len(rows)} report recordings, days 3-7 x A/B -> {MANIFEST}")
+                "recordings": rows}, manifest_path(a.split))
+    log(f"  {len(rows)} {a.split} recordings, days 3-7 x A/B -> {manifest_path(a.split)}")
     return 0
 
 
 def shard(a) -> int:
-    with open(MANIFEST, encoding="utf-8") as fh:
+    with open(manifest_path(a.split), encoding="utf-8") as fh:
         rows = json.load(fh)["recordings"][a.shard::a.of]
     os.makedirs(OUT, exist_ok=True)
     for n, r in enumerate(rows, 1):
@@ -95,6 +104,7 @@ def main(argv=None) -> int:
     p.add_argument("--phase", choices=("manifest", "shard"), required=True)
     p.add_argument("--shard", type=int, default=0)
     p.add_argument("--of", type=int, default=12)
+    p.add_argument("--split", choices=("report", "tune"), default="report")
     a = p.parse_args(argv)
     return {"manifest": manifest, "shard": shard}[a.phase](a)
 
