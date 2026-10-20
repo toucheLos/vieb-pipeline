@@ -1065,3 +1065,11 @@ motionless pose is now the real pose at each recording's stillest unflagged fram
 The pipeline is re-run with every bar unchanged, and both results are reported. This
 was the user's choice.
 
+
+## D36 — STEP 4 (post-result): planted control re-specified for a plain HMM
+
+`results/step4/REGISTRATION.md` Amendment 4. It was decided **after** run 2, in which
+the semi-Markov part was dropped and duration recovery (planted control half (b)) was
+`NOT_A_RESULT` by construction. Half (b) is replaced by the recall of planted freeze
+bouts ≥ 1 s and ≥ 2 s (IoU ≥ 0.5, bar 0.80 in each bin). Frame accuracy (≥ 0.90) is
+unchanged. This was directed by the user.

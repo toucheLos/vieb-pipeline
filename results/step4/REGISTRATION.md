@@ -278,3 +278,37 @@ threshold, family rule and seed is unchanged**, and so is Amendment 2's noise le
 
 **Reporting.** The original FAIL and the re-run are reported side by side. The re-run
 is labelled post-result.
+
+---
+
+# Amendment 4 (post-result): the planted control tests what a plain HMM can do
+
+**Committed alone, recorded as `DEVIATIONS.md` D36.** **Decided after the run-2
+result was seen** (`HSMM.md`, run 2): the semi-Markov part was dropped, so the planted
+control's half (b), recovering the planted Weibull (k, λ), is `NOT_A_RESULT` by
+construction. A plain HMM has geometric dwell times and cannot reproduce a planted
+non-geometric dwell shape. The user directed this amendment. The run-1 and run-2
+results stay on record.
+
+**The model is accepted as a plain HMM, but not cleared.** Dropping the dwell-time
+model is a result in its own right: it gained nothing over a plain HMM.
+
+**The amended planted control.** Same 30 planted sessions (`work/hsmm/planted.npz`,
+run 2), same final model, same decode (smoothed posterior, argmax).
+- **(a) Frame accuracy** of smoothed P(freeze) > 0.5 against the truth is **≥ 0.90**.
+  Unchanged; run 2 already reads 0.963.
+- **(b′) Bout recall.** For planted freeze bouts with duration **≥ 1 s**, and separately
+  **≥ 2 s**, the fraction matched by a decoded freeze bout must be **≥ 0.80** in each
+  bin.
+  - *Matched* means one-to-one at **IoU ≥ 0.5**, Step 1's event rule (`vieb/calms/score.py`
+    matching), applied per session.
+  - Recall is pooled over sessions. The 95% interval is a bootstrap over the 30
+    sessions (2,000 replicates) and is reported, not used as the bar.
+- **Reported beside it, not a bar:**
+  - the precision of decoded freeze bouts in each bin;
+  - the median ratio of decoded to planted duration for matched bouts;
+  - the number of decoded fragments per planted bout.
+
+**Passing (a) and (b′) does not clear the model for learning fits.** The known-answer
+check (`KNOWN_ANSWER.md`, registered separately) must also be run first, and C5 stays
+blocked on the lab's protocol.
