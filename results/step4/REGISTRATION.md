@@ -245,3 +245,36 @@ the new surrogate's 5th percentile.
 
 **Unchanged:** C1, C3, C4's bars (the stationary and planted controls use m_inc
 jitter), and C5.
+
+---
+
+# Amendment 3 (post-result): the motionless pose is a real still pose, not a coordinate-wise median
+
+**Committed alone, recorded as `DEVIATIONS.md` D35.** **Decided after the registered
+result was seen.** The result was: semi-Markov part dropped, stationary control FAIL
+(`HSMM.md`, b72d152 / 3efa462). That result stays on record unchanged. The user chose
+this amendment.
+
+**The defect.** "The recording's median pose" (C2, C4) was a keypoint-by-keypoint
+median in image coordinates over the whole recording. As the animal turns around the
+arena it collapses: the failing recording's median pose has nose–tail_base 0.024 BL,
+and the typical one 0.748 BL. A degenerate heading axis lets the noise rotate the
+egocentric frame, which inflates the pose-change rate. The same poses built the freeze
+emission.
+
+**Amended construction**, wherever C2–C4 uses "the median pose": the freeze surrogate,
+the stationary control, and the planted freeze bouts.
+- The motionless pose is the **real pose at the recording's stillest frame**: the
+  unflagged, fully usable frame with the smallest registered centroid speed v_t.
+  Ties are broken by the earliest frame.
+- It is a real mouse's geometry. It carries that one frame's tracking error, which is
+  fixed and adds no motion.
+- It is scaled to ℓ = 113.72 px as before.
+
+**Re-run.** Prep pass 3 (the freeze surrogate) and the EM move fit, then the 5-fold
+fits, select, final, the controls, the planted refits and the report. **Every bar,
+threshold, family rule and seed is unchanged**, and so is Amendment 2's noise level
+(m_inc).
+
+**Reporting.** The original FAIL and the re-run are reported side by side. The re-run
+is labelled post-result.

@@ -1056,3 +1056,12 @@ run). The noise floor is now the SD of skull-bone-length increments between
 consecutive still frames, calibrated through the same statistic applied to the
 Step 1 operator. This was decided by the user before any registered fit.
 
+## D35 — STEP 4 (post-result): the motionless pose is a real still pose
+
+`results/step4/REGISTRATION.md` Amendment 3. It was decided **after** the registered
+result (stationary control FAIL), which stays on record. The coordinate-wise median
+pose collapsed as animals turned (nose–tail 0.024 BL on the failing recording). The
+motionless pose is now the real pose at each recording's stillest unflagged frame.
+The pipeline is re-run with every bar unchanged, and both results are reported. This
+was the user's choice.
+
