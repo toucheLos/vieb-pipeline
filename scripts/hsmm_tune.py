@@ -85,12 +85,27 @@ def ell_by_animal(ids: list[str]) -> dict[str, float]:
 STILL_Q = 0.10     # Amendment 1: the lowest decile of centroid speed
 
 
+def still_pose(pose: np.ndarray, usable: np.ndarray, flag: np.ndarray, v: np.ndarray) -> np.ndarray:
+    """Amendment 3: the real pose at the recording's stillest frame -- unflagged,
+    fully usable, smallest centroid speed (earliest on ties)."""
+    ok = usable & ~flag & np.isfinite(v)
+    if not ok.any():
+        ok = np.isfinite(v)
+    idx = np.flatnonzero(ok)
+    return np.asarray(pose[idx[int(np.argmin(v[idx]))]], dtype=np.float64)
+
+
 def jitter_freeze(pose: np.ndarray, usable: np.ndarray, ell: float, T: int, rid: str,
-                  nz: dict, level: float = 1.0) -> tuple[np.ndarray, np.ndarray]:
-    """The freeze surrogate: the recording's median pose, motionless, scaled to
-    Luna's median ell, plus Step 1's jitter operator at `level` (1.0 as first
-    registered; m_still after Amendment 1). Returns (v, r)."""
-    med = np.median(pose[usable] if usable.any() else pose, axis=0)
+                  nz: dict, level: float = 1.0, flag: np.ndarray | None = None,
+                  v: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """The freeze surrogate: a motionless pose scaled to Luna's median ell, plus
+    Step 1's jitter operator at `level`. The pose is the real stillest-frame pose
+    (Amendment 3) when `flag` and `v` are given; the coordinate-wise median
+    otherwise (the original construction, kept for the diagnostic). Returns (v, r)."""
+    if flag is not None and v is not None:
+        med = still_pose(pose, usable, flag, v)
+    else:
+        med = np.median(pose[usable] if usable.any() else pose, axis=0)
     still = np.broadcast_to(med * (cio.LUNA_ELL_PX / ell), (T,) + med.shape).copy()
     prof = np.asarray([nz["profile_luna_bl"][k] for k in dg.LUNA_ORDER])
     rng = dg.rng_for(SEED, 1.0, f"hsmm-freeze|{rid}")
@@ -196,9 +211,10 @@ def prep(_a) -> int:
     for i, rid in enumerate(ids):
         pose, _flag, usable = raw_pose(rid)
         ell = ells[lab.animal_tag(rid)]
-        fv, fr = jitter_freeze(pose, usable, ell, pose.shape[0], rid, nz, level=m_still)
-        fb = M.bins(fv, fr)
         z = dict(np.load(os.path.join(WORK, "tune", f"{rid}.npz")))
+        fv, fr = jitter_freeze(pose, usable, ell, pose.shape[0], rid, nz, level=m_still,
+                               flag=np.asarray(z["flag"], bool), v=np.asarray(z["v"], np.float64))
+        fb = M.bins(fv, fr)
         z["freeze_bins"] = fb
         np.savez_compressed(os.path.join(WORK, "tune", f"{rid}.npz"), **z)
         fz.append(fb)
@@ -470,7 +486,8 @@ def planted_sessions(ids: list[str], nz: dict, em: M.Emissions) -> list[dict]:
         pose, flag, usable = raw_pose(rid)
         ell = ells[lab.animal_tag(rid)]
         cand = candidates(rid)
-        med = np.median(pose[usable] if usable.any() else pose, axis=0)
+        z = np.load(os.path.join(WORK, "tune", f"{rid}.npz"))
+        med = still_pose(pose, usable, flag, np.asarray(z["v"], np.float64))   # Amendment 3
         frames_, truth = [], []
         s = 0
         while sum(len(x) for x in frames_) < T:
