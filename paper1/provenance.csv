@@ -173,6 +173,21 @@ proto.cfc_min,0,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json
 proto.cfc_max,2,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_max/CFC,ca68426,,not indexed,,source: the file-naming schema
 proto.cfd_min,3,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_min/CFD,ca68426,,not indexed,,source: the file-naming schema
 proto.cfd_max,7,,,day,,,,vieb-pipeline,vieb-pipeline/results/step4/protocol.json,/phase_day_max/CFD,ca68426,,not indexed,,source: the file-naming schema
+synth.s0.n_in_use_05pct,5,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s0/n_in_use_0.5pct,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s0.top_two_share,0.6358292770560992,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s0/top_two_share,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s0.frac_reject,0.3076923076923077,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s0/frac_reject,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s0.n_animals,26,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s0/n_animals,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s0.median_dwell_frames,3054.0,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s0/median_dwell_frames,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s1.n_in_use_05pct,6,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s1/n_in_use_0.5pct,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s1.top_two_share,0.6442683596075227,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s1/top_two_share,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s1.frac_reject,0.6470588235294118,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s1/frac_reject,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s1.n_animals,17,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s1/n_animals,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s1.median_dwell_frames,5391.0,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s1/median_dwell_frames,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s2.n_in_use_05pct,7,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s2/n_in_use_0.5pct,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s2.top_two_share,0.5951231273048384,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s2/top_two_share,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s2.frac_reject,0.625,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s2/frac_reject,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s2.n_animals,16,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s2/n_animals,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
+synth.s2.median_dwell_frames,5391.0,,,,,,,vieb-pipeline,vieb-pipeline/paper1/registrations/kpms_synthetic_dwell.json,/seeds/s2/median_dwell_frames,f7f7cb1,,not indexed,,paper1/registrations/KPMS_SYNTHETIC_DWELL.md
 lit.kpms_target_ms,400,,,ms,,,,literature,doi:10.1038/s41592-024-02318-2,κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms,doi:10.1038/s41592-024-02318-2,,published,,"Weinreb et al. 2024, Methods (PMC11245396)"
 param.dwell_alpha,0.05,,,per-animal test level,,,,recur,recur/scripts/dwell_moseq.py,re:\(ps < ([0-9.]+)\)\.sum\(\),b69c1c3,,not indexed,,
 param.var_order,5,,,lags,,,,recur,recur/recur/recurrence/surrogate.py,"re:def ar_surrogate\(pose, rng, \*, p: int = (\d+)\)",38fe5c1,,not indexed,,VAR order of the AR surrogate

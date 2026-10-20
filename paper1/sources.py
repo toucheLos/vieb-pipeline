@@ -363,6 +363,14 @@ def _entries() -> list[Src]:
             a(Src(f"proto.{ph.lower()}_{e}", V, PJ, f"/phase_day_{e}/{ph}", "int", "day",
                   note="source: the file-naming schema"))
 
+    # Optional analysis (approved): KPMS on its own synthetic LDS null
+    KS = "paper1/registrations/kpms_synthetic_dwell.json"
+    for sd in ("s0", "s1", "s2"):
+        for k, f in (("n_in_use_0.5pct", "int"), ("top_two_share", "pct0"), ("frac_reject", "pct0"),
+                     ("n_animals", "int"), ("median_dwell_frames", "int")):
+            a(Src(f"synth.{sd}.{k.replace('.', '')}", V, KS, f"/seeds/{sd}/{k}", f, "",
+                  note="paper1/registrations/KPMS_SYNTHETIC_DWELL.md"))
+
     # Numbers quoted from the literature (verified; paper1/references_check.md)
     a(Src("lit.kpms_target_ms", "literature", "10.1038/s41592-024-02318-2",
           "κ ... adjusted separately for each dataset to ensure a median state duration of 400 ms",
