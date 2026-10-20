@@ -71,3 +71,24 @@ established here, and the model has failed a registered control in any case.
 - the MDE.
 
 All of these wait for the lab's shock protocol and session types (`PROTOCOL.md`).
+
+## Diagnosis of the stationary failure (2026-10-20; descriptive, after the result)
+
+**The failing recording's surrogate is degenerate, through a construction bug in
+the registered surrogate.**
+- "The recording's median pose" is taken **keypoint by keypoint in image
+  coordinates over the whole recording**.
+- As the animal turns around the arena, the median nose and the median tail_base
+  collapse toward the same point.
+- For the failing recording (`…_602`, P(freeze) 0.860), the median pose's
+  nose–tail_base distance is **0.024 BL**. Across the 50 stationary recordings the
+  median is 0.748 BL (minimum among the rest 0.091), and P(freeze) correlates with
+  this ratio (r = 0.41).
+- With the heading axis near zero length, the noise swings the heading, the
+  egocentric frame rotates, and the pose-change rate r rises: its median bin is
+  15, against 9 typically.
+
+**The same median poses built the freeze emission histogram** (`prep`, pass 3), so
+the defect is not confined to the control. The registered result stands as
+reported. A corrected construction needs an amendment made after seeing the
+result, and that is the human's decision.
