@@ -1,0 +1,2119 @@
+{
+  "anchor": {
+    "fps": 30.0,
+    "n_animals": 0,
+    "n_frames": 22355989,
+    "n_kept_keypoints": 7,
+    "n_recordings": 3846
+  },
+  "anchor_check": {
+    "corpus": "luna",
+    "fields": [],
+    "why_not_checked": "CalMS21 external; post-result Amendment 1; supervised, diagnostic"
+  },
+  "control_fires": 0,
+  "corpus": "luna",
+  "env": {
+    "cuda": {
+      "available": 0,
+      "built": "13.0",
+      "device": null
+    },
+    "executable": "/home/tul26194/recur/venv/bin/python3",
+    "git_sha": "752630274d11a1f28175d336c3f097663e9e5b48",
+    "node": "c01",
+    "packages": {
+      "cv2": "5.0.0",
+      "h5py": "3.15.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "tables": "3.11.1",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-5.14.0-611.49.2.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.4",
+    "recur_git_sha": "994c9355331f0a64cc64522198fbb6be3409e797-dirty",
+    "slurm_array_task": null,
+    "slurm_job": "91820"
+  },
+  "frame_metrics": {
+    "m0_s0|attack": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.8775338934272477,
+            0.9713054935753588
+          ],
+          "point": 0.936744967225196
+        },
+        "pr_auc": {
+          "ci": [
+            0.29336662053692114,
+            0.6605526487278517
+          ],
+          "point": 0.5292490472563625
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.8360257117062763,
+            0.942338847800363
+          ],
+          "point": 0.9011395500511378
+        },
+        "pr_auc": {
+          "ci": [
+            0.2874789335604236,
+            0.5554508301021928
+          ],
+          "point": 0.4536365441961713
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            -0.04841844370801114,
+            -0.023528590693522533
+          ],
+          "point": -0.035605417174058185
+        },
+        "pr_auc": {
+          "ci": [
+            -0.12820140402033814,
+            0.008037903652497937
+          ],
+          "point": -0.07561250306019118
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.8006121323876978,
+            0.9236565877466615
+          ],
+          "point": 0.8760160996313392
+        },
+        "pr_auc": {
+          "ci": [
+            0.2813284843035331,
+            0.5721855464652826
+          ],
+          "point": 0.46378147440906337
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            -0.07939570658483706,
+            -0.04454993848905983
+          ],
+          "point": -0.06072886759385676
+        },
+        "pr_auc": {
+          "ci": [
+            -0.10659350168013806,
+            -0.006858422763757865
+          ],
+          "point": -0.0654675728472991
+        }
+      },
+      "n_boot_used": 1996
+    },
+    "m0_s0|groom": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.8575275843518049,
+            0.8988501626593659
+          ],
+          "point": 0.8862696802148742
+        },
+        "pr_auc": {
+          "ci": [
+            0.2445994576105959,
+            0.5519703684886968
+          ],
+          "point": 0.44456299904912183
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.8136817529975384,
+            0.9068754788338157
+          ],
+          "point": 0.8701194394176868
+        },
+        "pr_auc": {
+          "ci": [
+            0.15327493358922245,
+            0.5809498367146789
+          ],
+          "point": 0.3421402835585468
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            -0.058969721740490935,
+            0.022973611915460188
+          ],
+          "point": -0.01615024079718741
+        },
+        "pr_auc": {
+          "ci": [
+            -0.16377467542596183,
+            0.059575989767954855
+          ],
+          "point": -0.10242271549057502
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.8075942173633809,
+            0.9078407968609239
+          ],
+          "point": 0.8616950338147359
+        },
+        "pr_auc": {
+          "ci": [
+            0.134855461238354,
+            0.5350377474513214
+          ],
+          "point": 0.2931055731703102
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            -0.07003493671081003,
+            0.022672045091270025
+          ],
+          "point": -0.02457464640013829
+        },
+        "pr_auc": {
+          "ci": [
+            -0.19828592075072296,
+            0.01736991563241752
+          ],
+          "point": -0.1514574258788116
+        }
+      },
+      "n_boot_used": 2000
+    },
+    "m0_s0|investigation": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.5766510835087455,
+            0.6478730759211784
+          ],
+          "point": 0.6175396127304214
+        },
+        "pr_auc": {
+          "ci": [
+            0.20897419609961781,
+            0.4010039180620292
+          ],
+          "point": 0.30336030238364803
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.7070705866591602,
+            0.7923789048790605
+          ],
+          "point": 0.7562130333000358
+        },
+        "pr_auc": {
+          "ci": [
+            0.38489675927499273,
+            0.614561359912549
+          ],
+          "point": 0.5115446804371396
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            0.10380049312511506,
+            0.1755668181279222
+          ],
+          "point": 0.1386734205696144
+        },
+        "pr_auc": {
+          "ci": [
+            0.14707152520693373,
+            0.26012464297944965
+          ],
+          "point": 0.2081843780534916
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.7174307159379731,
+            0.8278218285148994
+          ],
+          "point": 0.7818067173077338
+        },
+        "pr_auc": {
+          "ci": [
+            0.4280808959070211,
+            0.6905609124793526
+          ],
+          "point": 0.581042246510459
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            0.128152490263409,
+            0.19924416388288535
+          ],
+          "point": 0.16426710457731242
+        },
+        "pr_auc": {
+          "ci": [
+            0.20920078128824532,
+            0.3257762647711679
+          ],
+          "point": 0.27768194412681096
+        }
+      },
+      "n_boot_used": 2000
+    },
+    "m0_s0|mount": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.601317540924789,
+            0.6795796311873286
+          ],
+          "point": 0.6396248265794429
+        },
+        "pr_auc": {
+          "ci": [
+            0.09031347088642162,
+            0.2471909873021737
+          ],
+          "point": 0.1694508710310142
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.7276425812723755,
+            0.8392041349722448
+          ],
+          "point": 0.7935625920417202
+        },
+        "pr_auc": {
+          "ci": [
+            0.1546868685927947,
+            0.4537635659304426
+          ],
+          "point": 0.3146669811995629
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            0.06529228468174561,
+            0.22088309777128076
+          ],
+          "point": 0.15393776546227733
+        },
+        "pr_auc": {
+          "ci": [
+            0.05510750849057889,
+            0.233297361787471
+          ],
+          "point": 0.14521611016854868
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.8183173946041108,
+            0.8954460927197335
+          ],
+          "point": 0.8678276672118855
+        },
+        "pr_auc": {
+          "ci": [
+            0.23674460075947248,
+            0.6569212291092056
+          ],
+          "point": 0.4742804482113932
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            0.150235071007553,
+            0.28246669340563496
+          ],
+          "point": 0.22820284063244267
+        },
+        "pr_auc": {
+          "ci": [
+            0.13469556794151777,
+            0.4237184824115557
+          ],
+          "point": 0.304829577180379
+        }
+      },
+      "n_boot_used": 2000
+    },
+    "m1_s0|attack": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.8639942255564717,
+            0.9578824928430391
+          ],
+          "point": 0.9160871982032809
+        },
+        "pr_auc": {
+          "ci": [
+            0.2652967081973405,
+            0.576547354577884
+          ],
+          "point": 0.4546070350179877
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.780026614544037,
+            0.892791523880336
+          ],
+          "point": 0.8365112767612142
+        },
+        "pr_auc": {
+          "ci": [
+            0.24776038294966174,
+            0.48967448987686757
+          ],
+          "point": 0.3881990036067198
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            -0.10125277700981965,
+            -0.059316151270115344
+          ],
+          "point": -0.07957592144206671
+        },
+        "pr_auc": {
+          "ci": [
+            -0.12010579060894888,
+            0.008050033923029956
+          ],
+          "point": -0.06640803141126794
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.8039469653080753,
+            0.9197244709116315
+          ],
+          "point": 0.8671019219554894
+        },
+        "pr_auc": {
+          "ci": [
+            0.27229136556000016,
+            0.5436455381622901
+          ],
+          "point": 0.4400926047040487
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            -0.0670635769335555,
+            -0.03558023832948842
+          ],
+          "point": -0.048985276247791476
+        },
+        "pr_auc": {
+          "ci": [
+            -0.04504806101770861,
+            0.020351943261350577
+          ],
+          "point": -0.014514430313939009
+        }
+      },
+      "n_boot_used": 1996
+    },
+    "m1_s0|groom": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.8148576492931938,
+            0.8818742267171139
+          ],
+          "point": 0.8570776155150135
+        },
+        "pr_auc": {
+          "ci": [
+            0.15542384363546774,
+            0.4260535315151334
+          ],
+          "point": 0.316532673297645
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.7527444038660351,
+            0.8409538400302393
+          ],
+          "point": 0.8032822802856534
+        },
+        "pr_auc": {
+          "ci": [
+            0.11061769270236954,
+            0.3389186077274511
+          ],
+          "point": 0.21866114242289597
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            -0.10083428449273245,
+            -0.001086036928798011
+          ],
+          "point": -0.053795335229360086
+        },
+        "pr_auc": {
+          "ci": [
+            -0.1431857233817088,
+            -0.00922857308831073
+          ],
+          "point": -0.09787153087474904
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.7825774833081107,
+            0.8777224112296156
+          ],
+          "point": 0.8377034411748663
+        },
+        "pr_auc": {
+          "ci": [
+            0.11536352016207456,
+            0.4184016168374105
+          ],
+          "point": 0.2484358468749574
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            -0.059697878992334176,
+            0.029330975314556203
+          ],
+          "point": -0.01937417434014721
+        },
+        "pr_auc": {
+          "ci": [
+            -0.1062246089356892,
+            0.03544401331637873
+          ],
+          "point": -0.0680968264226876
+        }
+      },
+      "n_boot_used": 2000
+    },
+    "m1_s0|investigation": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.42464013115457977,
+            0.5605398425325987
+          ],
+          "point": 0.4948818224224761
+        },
+        "pr_auc": {
+          "ci": [
+            0.14355759362637607,
+            0.31551617406300286
+          ],
+          "point": 0.21967142927131206
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.6951079715147009,
+            0.7704872922542259
+          ],
+          "point": 0.7396740581213973
+        },
+        "pr_auc": {
+          "ci": [
+            0.3619536477705036,
+            0.5915071823872838
+          ],
+          "point": 0.48678317290589124
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            0.16696374672019035,
+            0.32108584246932464
+          ],
+          "point": 0.24479223569892122
+        },
+        "pr_auc": {
+          "ci": [
+            0.17814533031240792,
+            0.34250683754869277
+          ],
+          "point": 0.2671117436345792
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.6829980497875213,
+            0.7915907352878355
+          ],
+          "point": 0.7487766699180938
+        },
+        "pr_auc": {
+          "ci": [
+            0.3907682667736872,
+            0.6448973680207819
+          ],
+          "point": 0.534250443172531
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            0.18100598265564832,
+            0.32546506472987463
+          ],
+          "point": 0.2538948474956177
+        },
+        "pr_auc": {
+          "ci": [
+            0.22986962538774902,
+            0.37291995128410943
+          ],
+          "point": 0.31457901390121895
+        }
+      },
+      "n_boot_used": 2000
+    },
+    "m1_s0|mount": {
+      "B": {
+        "auroc": {
+          "ci": [
+            0.6343074156944116,
+            0.7727772228150227
+          ],
+          "point": 0.7175963666610525
+        },
+        "pr_auc": {
+          "ci": [
+            0.08814809099501342,
+            0.33334142362273667
+          ],
+          "point": 0.2115970236357123
+        }
+      },
+      "L": {
+        "auroc": {
+          "ci": [
+            0.6830228954409151,
+            0.7883436056585656
+          ],
+          "point": 0.7444621656751939
+        },
+        "pr_auc": {
+          "ci": [
+            0.12393790158625796,
+            0.38880047316906324
+          ],
+          "point": 0.2592937093018173
+        }
+      },
+      "L-B": {
+        "auroc": {
+          "ci": [
+            -0.04644284870480973,
+            0.10564742241883884
+          ],
+          "point": 0.026865799014141323
+        },
+        "pr_auc": {
+          "ci": [
+            -0.028922087713450263,
+            0.13523805582535192
+          ],
+          "point": 0.047696685666104965
+        }
+      },
+      "R": {
+        "auroc": {
+          "ci": [
+            0.7861324320325193,
+            0.8563524590193041
+          ],
+          "point": 0.8298192233898697
+        },
+        "pr_auc": {
+          "ci": [
+            0.17341422741097962,
+            0.5038306938905384
+          ],
+          "point": 0.3509432645164637
+        }
+      },
+      "R-B": {
+        "auroc": {
+          "ci": [
+            0.06242108483113322,
+            0.17097382470374897
+          ],
+          "point": 0.11222285672881716
+        },
+        "pr_auc": {
+          "ci": [
+            0.052166250397149096,
+            0.22509180558006756
+          ],
+          "point": 0.13934624088075137
+        }
+      },
+      "n_boot_used": 2000
+    }
+  },
+  "readings": {
+    "m0_s0|attack": "the representation, under a linear probe, lacks it beyond speed",
+    "m0_s0|groom": "the representation, under a linear probe, lacks it beyond speed",
+    "m0_s0|investigation": "information at frame level beyond speed, but a linear probe cannot assemble it into bouts",
+    "m0_s0|mount": "information at frame level beyond speed, but a linear probe cannot assemble it into bouts",
+    "m1_s0|attack": "the representation, under a linear probe, lacks it beyond speed",
+    "m1_s0|groom": "the representation, under a linear probe, lacks it beyond speed",
+    "m1_s0|investigation": "information at frame level beyond speed, but a linear probe cannot assemble it into bouts",
+    "m1_s0|mount": "information at frame level beyond speed, but a linear probe cannot assemble it into bouts"
+  },
+  "reads": [
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.289 [+0.218, +0.347]; readout {'d_s': 1.0, 'oof_map_f1': 0.16393442622950818, 'tau': 0.05, 'w_s': 0.5}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.140 [+0.055, +0.240]; readout {'d_s': 1.0, 'oof_map_f1': 0.1299690549869079, 'tau': 0.25, 'w_s': 0.5}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.059 [+0.015, +0.106]; readout {'d_s': 1.0, 'oof_map_f1': 0.05677114133648729, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.219 [+0.159, +0.267]; readout {'d_s': 1.0, 'oof_map_f1': 0.08333333333333333, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.172 [+0.079, +0.287]; readout {'d_s': 1.0, 'oof_map_f1': 0.12939902544667028, 'tau': 0.25, 'w_s': 0.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.067 [+0.014, +0.130]; readout {'d_s': 1.0, 'oof_map_f1': 0.04274985557481225, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "B"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.211 [+0.140, +0.278]; readout {'d_s': 1.0, 'oof_map_f1': 0.2553191489361702, 'tau': 0.05, 'w_s': 0.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.185 [+0.054, +0.338]; readout {'d_s': 1.0, 'oof_map_f1': 0.1475095785440613, 'tau': 0.35, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.207 [+0.093, +0.321]; readout {'d_s': 1.0, 'oof_map_f1': 0.08827785817655572, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.075 [+0.044, +0.105]; readout {'d_s': 1.0, 'oof_map_f1': 0.16, 'tau': 0.2, 'w_s': 0.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.114 [+0.020, +0.221]; readout {'d_s': 1.0, 'oof_map_f1': 0.1359526036794512, 'tau': 0.35, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.117 [+0.038, +0.198]; readout {'d_s': 1.0, 'oof_map_f1': 0.06891981444665342, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.191 [+0.108, +0.261]; readout {'d_s': 1.0, 'oof_map_f1': 0.2962962962962963, 'tau': 0.1, 'w_s': 0.2}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.291 [+0.150, +0.433]; readout {'d_s': 1.0, 'oof_map_f1': 0.19593998234774934, 'tau': 0.3, 'w_s': 0.5}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.276 [+0.145, +0.405]; readout {'d_s': 1.0, 'oof_map_f1': 0.09713905522288756, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "normalised +0.157 [+0.084, +0.235]; readout {'d_s': 1.0, 'oof_map_f1': 0.22580645161290322, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "groom",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.230 [+0.110, +0.356]; readout {'d_s': 1.0, 'oof_map_f1': 0.17122473246135553, 'tau': 0.3, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "investigation",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "normalised +0.206 [+0.097, +0.314]; readout {'d_s': 1.0, 'oof_map_f1': 0.08861538461538461, 'tau': 0.05, 'w_s': 1.0}; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "mount",
+        "probe": "logistic+fitted readout",
+        "set": "R"
+      },
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.464 vs B 0.529; delta -0.065 [-0.107, -0.007]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "attack",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.454 vs B 0.529; delta -0.076 [-0.128, +0.008]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "attack",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.581 vs B 0.303; delta +0.278 [+0.209, +0.326]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "investigation",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.512 vs B 0.303; delta +0.208 [+0.147, +0.260]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "investigation",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.474 vs B 0.169; delta +0.305 [+0.135, +0.424]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "mount",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.315 vs B 0.169; delta +0.145 [+0.055, +0.233]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "mount",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "PR-AUC 0.293 vs B 0.445; delta -0.151 [-0.198, +0.017]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "groom",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "PR-AUC 0.342 vs B 0.445; delta -0.102 [-0.164, +0.060]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m0_s0",
+        "label": "groom",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.440 vs B 0.455; delta -0.015 [-0.045, +0.020]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "attack",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.388 vs B 0.455; delta -0.066 [-0.120, +0.008]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "attack",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.534 vs B 0.220; delta +0.315 [+0.230, +0.373]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "investigation",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.487 vs B 0.220; delta +0.267 [+0.178, +0.343]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "investigation",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.351 vs B 0.212; delta +0.139 [+0.052, +0.225]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "mount",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 19,
+      "reason": "PR-AUC 0.259 vs B 0.212; delta +0.048 [-0.029, +0.135]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "mount",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "PR-AUC 0.248 vs B 0.317; delta -0.068 [-0.106, +0.035]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "groom",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "R"
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "degenerate": 0,
+      "detail": {},
+      "n_effective": 10,
+      "reason": "PR-AUC 0.219 vs B 0.317; delta -0.098 [-0.143, -0.009]; unit = sequence; a resident can recur across sequences undetectably, so intervals may be too narrow",
+      "saturation": null,
+      "scored_object": {
+        "arm": "m1_s0",
+        "label": "groom",
+        "metric": "delta_pr_auc_vs_speed",
+        "set": "L"
+      },
+      "verdict": "FAIL"
+    }
+  ],
+  "registration": "results/step3a/REGISTRATION.md Amendment 1",
+  "scorer": {
+    "flicker": {
+      "attack": {
+        "0.01": {
+          "after_readout_f1": 0.8539823008849557,
+          "raw_f1": 0.16273813367775267
+        },
+        "0.05": {
+          "after_readout_f1": 0.8539823008849557,
+          "raw_f1": 0.026635694928377855
+        },
+        "0.1": {
+          "after_readout_f1": 0.8596491228070176,
+          "raw_f1": 0.00968078447736282
+        },
+        "0.2": {
+          "after_readout_f1": 0.8571428571428571,
+          "raw_f1": 0.002466091245376079
+        }
+      },
+      "groom": {
+        "0.01": {
+          "after_readout_f1": 0.8319327731092437,
+          "raw_f1": 0.14766686355581807
+        },
+        "0.05": {
+          "after_readout_f1": 0.8416666666666667,
+          "raw_f1": 0.021261516654854713
+        },
+        "0.1": {
+          "after_readout_f1": 0.776,
+          "raw_f1": 0.006402927052366796
+        },
+        "0.2": {
+          "after_readout_f1": 0.56,
+          "raw_f1": 0.0017316017316017316
+        }
+      },
+      "investigation": {
+        "0.01": {
+          "after_readout_f1": 0.5891677675033025,
+          "raw_f1": 0.4253045522547553
+        },
+        "0.05": {
+          "after_readout_f1": 0.5882352941176471,
+          "raw_f1": 0.10464146748193441
+        },
+        "0.1": {
+          "after_readout_f1": 0.5902503293807642,
+          "raw_f1": 0.041681496421085935
+        },
+        "0.2": {
+          "after_readout_f1": 0.5686653771760155,
+          "raw_f1": 0.013825310953900218
+        }
+      },
+      "mount": {
+        "0.01": {
+          "after_readout_f1": 0.8767908309455588,
+          "raw_f1": 0.10752688172043011
+        },
+        "0.05": {
+          "after_readout_f1": 0.8767908309455588,
+          "raw_f1": 0.013909510041415957
+        },
+        "0.1": {
+          "after_readout_f1": 0.8767908309455588,
+          "raw_f1": 0.0036857094990785724
+        },
+        "0.2": {
+          "after_readout_f1": 0.8742857142857143,
+          "raw_f1": 0.0009502316189571207
+        }
+      }
+    },
+    "identity": {
+      "attack|eval_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 258
+      },
+      "attack|map_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 194
+      },
+      "groom|eval_g": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 139
+      },
+      "groom|map_g": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 15
+      },
+      "investigation|eval_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 1068
+      },
+      "investigation|map_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 1614
+      },
+      "mount|eval_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 195
+      },
+      "mount|map_t1": {
+        "boundary_f1": 1.0,
+        "event_f1": 1.0,
+        "n_events": 217
+      }
+    },
+    "identity_pass": 1
+  },
+  "stage": "calms_bout_probe",
+  "table": {
+    "B|m0_s0|attack": {
+      "auroc": 0.9367449670665109,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.5292490486045389,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.15503875968992248,
+        "tau": 0.15,
+        "w_s": 0.5
+      },
+      "recoverable": null,
+      "score": 0.2595078299776286,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "B|m0_s0|groom": {
+      "auroc": 0.8862696802148741,
+      "ci": [
+        0.21766619058097492,
+        0.34676293532358116
+      ],
+      "normalised": 0.28888891674187495,
+      "null_p95": 0.03972469480539118,
+      "pr_auc": 0.4445630057047646,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.16393442622950818,
+        "tau": 0.05,
+        "w_s": 0.5
+      },
+      "recoverable": 0,
+      "score": 0.2958057395143488,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "B|m0_s0|investigation": {
+      "auroc": 0.6175396100081678,
+      "ci": [
+        0.05484079004603545,
+        0.23974381617680082
+      ],
+      "normalised": 0.1402191141921015,
+      "null_p95": 0.0657615068505464,
+      "pr_auc": 0.30336029741473725,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.1299690549869079,
+        "tau": 0.25,
+        "w_s": 0.5
+      },
+      "recoverable": 0,
+      "score": 0.12023575638506877,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "B|m0_s0|mount": {
+      "auroc": 0.6396248273294475,
+      "ci": [
+        0.015347284552206703,
+        0.10633639966202948
+      ],
+      "normalised": 0.05875260203583293,
+      "null_p95": 0.03707435395092826,
+      "pr_auc": 0.16945087361717343,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.05677114133648729,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.05603448275862069,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "B|m1_s0|attack": {
+      "auroc": 0.9160871974098557,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.45460703983999085,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.16,
+        "tau": 0.15,
+        "w_s": 1.0
+      },
+      "recoverable": null,
+      "score": 0.19953596287703015,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "B|m1_s0|groom": {
+      "auroc": 0.8570776176743475,
+      "ci": [
+        0.15943864097296842,
+        0.26733865964282744
+      ],
+      "normalised": 0.21878344748724385,
+      "null_p95": 0.030800653594771233,
+      "pr_auc": 0.3165326814910383,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.08333333333333333,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.22309197651663404,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "B|m1_s0|investigation": {
+      "auroc": 0.49488182193490826,
+      "ci": [
+        0.07863450769133681,
+        0.2869219191185084
+      ],
+      "normalised": 0.17221638746494536,
+      "null_p95": 0.06148758803582297,
+      "pr_auc": 0.21967142887946312,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.12939902544667028,
+        "tau": 0.25,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.1312026913372582,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "B|m1_s0|mount": {
+      "auroc": 0.7175963635246697,
+      "ci": [
+        0.014163689400012789,
+        0.12985592923869113
+      ],
+      "normalised": 0.06699580404783047,
+      "null_p95": 0.03290972985509584,
+      "pr_auc": 0.21159701840499676,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.04274985557481225,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.061386138613861385,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "B|white_s0|attack": {
+      "auroc": 0.5164681086070381,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.04612614345214343,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.036036036036036036,
+        "tau": 0.1,
+        "w_s": 1.0
+      },
+      "recoverable": null,
+      "score": 0.0,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "B|white_s0|groom": {
+      "auroc": 0.5147974650358506,
+      "ci": [
+        -0.0025971681323407455,
+        -0.0025971681323407455
+      ],
+      "normalised": -0.0025971681323407455,
+      "null_p95": 0.018467254108120983,
+      "pr_auc": 0.09138350794117409,
+      "readout": {
+        "d_s": 0.0,
+        "oof_map_f1": 0.0,
+        "tau": 0.9,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.0,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "B|white_s0|investigation": {
+      "auroc": 0.5722565713738152,
+      "ci": [
+        -0.05630052133240056,
+        0.014824018903762795
+      ],
+      "normalised": -0.023751409923351362,
+      "null_p95": 0.06742213680268086,
+      "pr_auc": 0.2955517582139964,
+      "readout": {
+        "d_s": 0.5,
+        "oof_map_f1": 0.048345323741007196,
+        "tau": 0.3,
+        "w_s": 0.2
+      },
+      "recoverable": 0,
+      "score": 0.045112781954887216,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "B|white_s0|mount": {
+      "auroc": 0.49270019404849197,
+      "ci": [
+        -0.02579417573209731,
+        -0.013103113061766503
+      ],
+      "normalised": -0.021278574078104216,
+      "null_p95": 0.029640157754539206,
+      "pr_auc": 0.11926366461556222,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.0161892901618929,
+        "tau": 0.05,
+        "w_s": 0.2
+      },
+      "recoverable": 0,
+      "score": 0.0029985007496251873,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "L|m0_s0|attack": {
+      "auroc": 0.9011395497337675,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.4536738218940586,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.17417417417417416,
+        "tau": 0.15,
+        "w_s": 0.2
+      },
+      "recoverable": null,
+      "score": 0.2035623409669211,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "L|m0_s0|groom": {
+      "auroc": 0.8701194388007342,
+      "ci": [
+        0.1403805109671881,
+        0.2784835902591999
+      ],
+      "normalised": 0.21133123521165856,
+      "null_p95": 0.037264625723930744,
+      "pr_auc": 0.3421402552720272,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.2553191489361702,
+        "tau": 0.05,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.2192513368983957,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "L|m0_s0|investigation": {
+      "auroc": 0.7562130330156211,
+      "ci": [
+        0.05365922210979987,
+        0.33764282452115013
+      ],
+      "normalised": 0.18507625401968456,
+      "null_p95": 0.060630068097490684,
+      "pr_auc": 0.5115447065261016,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.1475095785440613,
+        "tau": 0.35,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.1362397820163488,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "L|m0_s0|mount": {
+      "auroc": 0.7935625938144583,
+      "ci": [
+        0.09344433129193112,
+        0.32143104547135537
+      ],
+      "normalised": 0.207331785785271,
+      "null_p95": 0.047377801681674644,
+      "pr_auc": 0.31466698445344593,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.08827785817655572,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.1672661870503597,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "L|m1_s0|attack": {
+      "auroc": 0.8365112762851586,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.388199005165445,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.17737003058103976,
+        "tau": 0.1,
+        "w_s": 1.0
+      },
+      "recoverable": null,
+      "score": 0.18037135278514588,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "L|m1_s0|groom": {
+      "auroc": 0.8032822805941296,
+      "ci": [
+        0.044035423430096796,
+        0.10494750307330793
+      ],
+      "normalised": 0.07477441530733486,
+      "null_p95": 0.03246854776393316,
+      "pr_auc": 0.2186611492499765,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.16,
+        "tau": 0.2,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.0851063829787234,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "L|m1_s0|investigation": {
+      "auroc": 0.7396740582432892,
+      "ci": [
+        0.020467253886205444,
+        0.22106889789735557
+      ],
+      "normalised": 0.11357621628342401,
+      "null_p95": 0.06145435013114571,
+      "pr_auc": 0.48678318969014206,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.1359526036794512,
+        "tau": 0.35,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.1037037037037037,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "L|m1_s0|mount": {
+      "auroc": 0.7444621651979183,
+      "ci": [
+        0.0384444343850642,
+        0.19782677856096847
+      ],
+      "normalised": 0.11714092832558415,
+      "null_p95": 0.03722855387865708,
+      "pr_auc": 0.259293711309939,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.06891981444665342,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.10476935105551212,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "L|white_s0|attack": {
+      "auroc": 0.6467455992361991,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.0718405030414583,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.06770833333333333,
+        "tau": 0.1,
+        "w_s": 0.0
+      },
+      "recoverable": null,
+      "score": 0.0,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "L|white_s0|groom": {
+      "auroc": 0.503729163986265,
+      "ci": [
+        -0.00900278947976662,
+        -0.00900278947976662
+      ],
+      "normalised": -0.00900278947976662,
+      "null_p95": 0.03799902629016553,
+      "pr_auc": 0.08824625063189014,
+      "readout": {
+        "d_s": 0.0,
+        "oof_map_f1": 0.0,
+        "tau": 0.9,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.0,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "L|white_s0|investigation": {
+      "auroc": 0.5808993042635009,
+      "ci": [
+        -0.036247137173256457,
+        0.045462148979528556
+      ],
+      "normalised": 0.002868659021478887,
+      "null_p95": 0.06639315188911932,
+      "pr_auc": 0.28586912377868356,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.06983400114481969,
+        "tau": 0.3,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.05754060324825986,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "L|white_s0|mount": {
+      "auroc": 0.525270651177064,
+      "ci": [
+        -0.01934746154927459,
+        0.04649269312737422
+      ],
+      "normalised": 0.012237367003640176,
+      "null_p95": 0.036332259928990175,
+      "pr_auc": 0.1285464843345851,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.025961538461538463,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.03262955854126679,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "R|m0_s0|attack": {
+      "auroc": 0.8760160999487094,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.4637814803135781,
+      "readout": {
+        "d_s": 0.5,
+        "oof_map_f1": 0.1440443213296399,
+        "tau": 0.2,
+        "w_s": 0.5
+      },
+      "recoverable": null,
+      "score": 0.21670428893905191,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "R|m0_s0|groom": {
+      "auroc": 0.8616950335062596,
+      "ci": [
+        0.10844954337297735,
+        0.2607758761041448
+      ],
+      "normalised": 0.1908855952994458,
+      "null_p95": 0.026479995172288936,
+      "pr_auc": 0.2931055185590012,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.2962962962962963,
+        "tau": 0.1,
+        "w_s": 0.2
+      },
+      "recoverable": 0,
+      "score": 0.19733333333333333,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "R|m0_s0|investigation": {
+      "auroc": 0.7818067166170128,
+      "ci": [
+        0.14979251293122106,
+        0.43283514708043636
+      ],
+      "normalised": 0.2911545724619247,
+      "null_p95": 0.05362775314859626,
+      "pr_auc": 0.581042258242297,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.19593998234774934,
+        "tau": 0.3,
+        "w_s": 0.5
+      },
+      "recoverable": 0,
+      "score": 0.18306351183063513,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "R|m0_s0|mount": {
+      "auroc": 0.8678276659164232,
+      "ci": [
+        0.14474277460984306,
+        0.405211264914385
+      ],
+      "normalised": 0.27617786308996783,
+      "null_p95": 0.04160187101603309,
+      "pr_auc": 0.47428043540137665,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.09713905522288756,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.20901639344262296,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "R|m1_s0|attack": {
+      "auroc": 0.867101923066285,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.4400926094277884,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.18666666666666668,
+        "tau": 0.1,
+        "w_s": 1.0
+      },
+      "recoverable": null,
+      "score": 0.24129930394431554,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "R|m1_s0|groom": {
+      "auroc": 0.8377034408663898,
+      "ci": [
+        0.08369987489587323,
+        0.2346128566638123
+      ],
+      "normalised": 0.15694582932801615,
+      "null_p95": 0.027686466743560168,
+      "pr_auc": 0.24843585370165333,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.22580645161290322,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.1630695443645084,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "R|m1_s0|investigation": {
+      "auroc": 0.7487766697962018,
+      "ci": [
+        0.10985118065099014,
+        0.3556132689664623
+      ],
+      "normalised": 0.22957889865663447,
+      "null_p95": 0.0672237574218604,
+      "pr_auc": 0.5342504494769326,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.17122473246135553,
+        "tau": 0.3,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.16112084063047286,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "R|m1_s0|mount": {
+      "auroc": 0.8298192230489586,
+      "ci": [
+        0.09724861391811206,
+        0.3135786553396001
+      ],
+      "normalised": 0.20559608780661404,
+      "null_p95": 0.035137077060451355,
+      "pr_auc": 0.3509432694979831,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.08861538461538461,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.1600703605980651,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    },
+    "R|white_s0|attack": {
+      "auroc": 0.5757295178377775,
+      "ci": null,
+      "normalised": null,
+      "null_p95": null,
+      "pr_auc": 0.05423445158099778,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.05699481865284974,
+        "tau": 0.1,
+        "w_s": 0.0
+      },
+      "recoverable": null,
+      "score": 0.0,
+      "support": {
+        "events": 258,
+        "ok": 0,
+        "units": 5
+      }
+    },
+    "R|white_s0|groom": {
+      "auroc": 0.4807777687277698,
+      "ci": [
+        -0.0032639931570811733,
+        0.015648478284713056
+      ],
+      "normalised": 0.004474672636468443,
+      "null_p95": 0.028248677529501255,
+      "pr_auc": 0.0819502084509956,
+      "readout": {
+        "d_s": 0.2,
+        "oof_map_f1": 0.011627906976744186,
+        "tau": 0.05,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.010680907877169559,
+      "support": {
+        "events": 139,
+        "ok": 1,
+        "units": 10
+      }
+    },
+    "R|white_s0|investigation": {
+      "auroc": 0.5313256593899448,
+      "ci": [
+        -0.034036187166840655,
+        0.043139079541894554
+      ],
+      "normalised": 0.0018477300331329414,
+      "null_p95": 0.0651790682669239,
+      "pr_auc": 0.24865780208209307,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.0689084895259096,
+        "tau": 0.3,
+        "w_s": 0.0
+      },
+      "recoverable": 0,
+      "score": 0.05814843152257077,
+      "support": {
+        "events": 1068,
+        "ok": 1,
+        "units": 19
+      }
+    },
+    "R|white_s0|mount": {
+      "auroc": 0.5507713681656162,
+      "ci": [
+        -0.012456236810738019,
+        0.03932180284837051
+      ],
+      "normalised": 0.009878894677866361,
+      "null_p95": 0.03677165733202455,
+      "pr_auc": 0.1363532962821657,
+      "readout": {
+        "d_s": 1.0,
+        "oof_map_f1": 0.028056112224448898,
+        "tau": 0.05,
+        "w_s": 1.0
+      },
+      "recoverable": 0,
+      "score": 0.03198494825964252,
+      "support": {
+        "events": 195,
+        "ok": 1,
+        "units": 14
+      }
+    }
+  }
+}

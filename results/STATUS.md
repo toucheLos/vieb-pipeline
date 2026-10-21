@@ -1,4 +1,4 @@
-# STATUS: what is done, what is blocked, and on whom (2026-10-17)
+# STATUS: what is done, what is blocked, and on whom (2026-10-20)
 
 ## Done and committed (branch `noisefloor`, pushed; recur has no remote)
 
@@ -8,6 +8,7 @@
 | Optional analyses: **registered only, not run** | `paper1/registrations/KPMS_SYNTHETIC_DWELL.md`, `KPMS_PRACTICE_AUDIT.md` | 82b7489, 67e7dda |
 | Protocol record from the file names | `results/step4/PROTOCOL.md`, `protocol.json`; recur `labels.py` + `tests/test_labels.py` | ca68426; recur 994c935 |
 | Step 4 machinery registration (C1–C4) | `results/step4/REGISTRATION.md` | 7d26641 |
+| Step 3A Amendment 1 + Step 4 Amendment 4 + known-answer registration | `results/step3a/REGISTRATION.md`, `results/step4/REGISTRATION.md`, `results/step4/KNOWN_ANSWER.md` | 9a77cc5, fe42d1a, 29e84cc |
 | HSMM core: tests pass, mypy --strict clean | `vieb/hsmm/core.py`, `tests/test_hsmm.py` | 7cd6fe6 |
 | Mouse emissions + tune driver | `vieb/hsmm/mouse.py`, `scripts/hsmm_tune.py` | 4c8b255 |
 
@@ -15,9 +16,9 @@
 
 | what | blocked on | who |
 |---|---|---|
-| **Step 4 machinery verdict** (`results/step4/HSMM.md`; **run 2 after Amendment 3**: stationary PASS 0.998/0.996, still a plain HMM, planted duration recovery NOT_A_RESULT, so not cleared for learning fits) | Ran after two registered amendments to the freeze emission. **The semi-Markov part is dropped** (gain over a plain HMM +0.0015 nats/frame [−0.0003, +0.0034]). **The jitter-only stationary control FAILS** on 1 of 50 recordings (P(freeze) 0.860 against a 0.90 per-recording bar; the mean is 0.994). Planted bouts: accuracy 0.957; duration recovery NOT_A_RESULT. **The model is not used for learning fits.** Next step (amend, investigate, or accept) is a decision. | **human** |
+| **Step 4 machinery verdict** (`results/step4/HSMM.md`): run 2 stationary PASS; plain HMM accepted (semi-Markov gained nothing); **amended planted control PASS** (bout recall 0.985 / 0.991 for ≥ 1 s / ≥ 2 s; D36). **Known-answer check FAILS (row 4)**: pixel freeze A − B +0.191 on tune, nearly all in bouts ≥ 2 s, but decoded freeze A − B is reversed in that bin (−0.014) and positive only below 1 s; within-context κ with the pixel score 0.01–0.23; centroid speed A/B 0.51. The jitter-anchored freeze state measures tracker-floor stillness, not freezing. | which registered redefinition of the freeze state (e.g. an emission anchored to scored freezing) | **human** |
 | Step 4 C5 (learning fits on fit) | shock timing and count, which Context-A sessions on days 3–7 deliver shock, session types (CFC/CFD meaning), within-day order and counterbalancing | **the lab** |
-| Step 3A done (`results/step3a/REPORT.md`): groom's registered reading is "the representation is the problem", **but frame AUROC is 0.86**. Next is 3A.3 (register a fix and re-run Step 1 in full), or a bout-aware probe registered first | decision | **human** |
+| Step 3A done, plus bout-aware Amendment 1 (`results/step3a/REPORT.md`): scorer identity PASS; **groom: the pose representations carry nothing beyond speed/stillness** (PR-AUC B 0.445, R 0.293, L 0.342); no cell recoverable even with a fitted readout. Mount and investigation carry frame information beyond speed. Step 1 verdict unchanged | whether to pursue a richer representation for groom, or close 3A | **human** |
 | Step 3B ensemble | two human labellers for the 200-frame package (`work/step3b/label_package/`) | **human / lab** |
 | Paper 1: authorship and lab approval to publish the corpus; data and code release; venue; whether to state the shock mapping; how to describe the cohort covariates. The synthetic null is done; the practice audit needs **two coders** (`paper1/audit/`) | | **human / lab** |
 | `recur` remote | its commits (Paper 1's sources, labels) exist only on this machine | **human** |
